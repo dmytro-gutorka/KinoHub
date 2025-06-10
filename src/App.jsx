@@ -2,6 +2,7 @@ import { RouterProvider } from 'react-router';
 import { createTheme, ThemeProvider } from '@mui/material';
 
 import router from './config/router';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const darkTheme = createTheme({
   palette: {
@@ -14,12 +15,16 @@ const darkTheme = createTheme({
   },
 });
 
+const queryClient = new QueryClient();
+
 export default function App() {
   return (
     <>
-      <ThemeProvider theme={darkTheme}>
-        <RouterProvider router={router} />
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={darkTheme}>
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      </QueryClientProvider>
     </>
   );
 }

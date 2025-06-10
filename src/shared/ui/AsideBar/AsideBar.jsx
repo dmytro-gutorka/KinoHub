@@ -18,21 +18,15 @@ const AsideBar = () => {
             <RouterLink to="/" icon={true}>
               <HomeOutlinedIcon /> Home
             </RouterLink>
-            <Box component="li">
-              <RouterLink to="/discover" icon={true}>
-                <MovieOutlinedIcon /> Discover
-              </RouterLink>
-            </Box>
-            <Box component="li">
-              <RouterLink to="/dashboard" icon={true}>
-                <MovieOutlinedIcon /> Dashboard
-              </RouterLink>
-            </Box>
-            <Box component="li">
-              <RouterLink to="/achievements" icon={true}>
-                <MovieOutlinedIcon /> Achievements
-              </RouterLink>
-            </Box>
+            <RouterLink to="/discover" icon={true}>
+              <MovieOutlinedIcon /> Discover
+            </RouterLink>
+            <RouterLink to="/dashboard" icon={true}>
+              <MovieOutlinedIcon /> Dashboard
+            </RouterLink>
+            <RouterLink to="/achievements" icon={true}>
+              <MovieOutlinedIcon /> Achievements
+            </RouterLink>
           </Stack>
         </Box>
 
@@ -41,21 +35,15 @@ const AsideBar = () => {
             Library
           </Typography>
           <Stack component="ul">
-            <Box component="li">
-              <RouterLink to="/recent" icon={true}>
-                <MovieOutlinedIcon /> Recent
-              </RouterLink>
-            </Box>
-            <Box component="li">
-              <RouterLink to="/playlists" icon={true}>
-                <MovieOutlinedIcon /> Playlists
-              </RouterLink>
-            </Box>
-            <Box component="li">
-              <RouterLink to="/watchboard" icon={true}>
-                <MovieOutlinedIcon /> WatchBoard
-              </RouterLink>
-            </Box>
+            <RouterLink to="/recent" icon={true}>
+              <MovieOutlinedIcon /> Recent
+            </RouterLink>
+            <RouterLink to="/playlists" icon={true}>
+              <MovieOutlinedIcon /> Playlists
+            </RouterLink>
+            <RouterLink to="/watchboard" icon={true}>
+              <MovieOutlinedIcon /> WatchBoard
+            </RouterLink>
           </Stack>
         </Box>
 
@@ -64,16 +52,12 @@ const AsideBar = () => {
             General
           </Typography>
           <Stack component="ul">
-            <Box component="li">
-              <RouterLink to="/settings" icon={true}>
-                <MovieOutlinedIcon /> Settings
-              </RouterLink>
-            </Box>
-            <Box component="li">
-              <RouterLink to="/" icon={true}>
-                <MovieOutlinedIcon /> Log Out
-              </RouterLink>
-            </Box>
+            <RouterLink to="/settings" icon={true}>
+              <MovieOutlinedIcon /> Settings
+            </RouterLink>
+            <RouterLink to="/" icon={true}>
+              <MovieOutlinedIcon /> Log Out
+            </RouterLink>
           </Stack>
         </Box>
       </Stack>
