@@ -5,6 +5,7 @@ import Movies from '../pages/Movies';
 import Shows from '../pages/Shows';
 import Anime from '../pages/Anime';
 import Homepage from '../pages/Homepage';
+import Swiper from '../shared/ui/Swiper';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
       { path: '/movies', Component: Movies },
       { path: '/shows', Component: Shows },
       { path: '/anime', Component: Anime },
+      { path: '/dashboard', Component: Swiper },
     ],
   },
 ]);
