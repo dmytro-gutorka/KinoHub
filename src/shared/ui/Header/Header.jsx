@@ -1,7 +1,7 @@
 import RouterLink from '../RouterLink';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
-import { AppBar, Box, Stack } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 
 const Header = () => {
   return (

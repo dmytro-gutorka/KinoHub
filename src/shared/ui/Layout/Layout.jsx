@@ -2,19 +2,21 @@ import Header from '../Header';
 import AsideBar from '../AsideBar';
 
 import { Outlet } from 'react-router';
-import { Grid } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 
 const Layout = () => {
   return (
-    <Grid container spacing={2}>
-      <Grid size={3}>
-        <AsideBar />
+    <Container maxWidth="lg">
+      <Grid container spacing={2}>
+        <Grid size={3}>
+          <AsideBar />
+        </Grid>
+        <Grid size={9} sx={{ p: '2rem' }}>
+          <Header />
+          <Outlet />
+        </Grid>
       </Grid>
-      <Grid size={9}>
-        <Header />
-        <Outlet />
-      </Grid>
-    </Grid>
+    </Container>
   );
 };
 
