@@ -56,7 +56,7 @@ const AsideBar = () => {
               <MovieOutlinedIcon /> Settings
             </AppNavLink>
             <AppNavLink to="/" hasIcon>
-              <MovieOutlinedIcon /> Log Out
+              <MovieOutlinedIcon /> Settings
             </AppNavLink>
           </Stack>
         </Box>

@@ -6,7 +6,7 @@ import { Container, Grid } from '@mui/material';
 
 const Layout = () => {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="xl">
       <Grid container spacing={2}>
         <Grid size={3}>
           <AsideBar />

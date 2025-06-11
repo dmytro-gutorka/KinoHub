@@ -10,12 +10,11 @@ const MovieSlider = ({ movieData }) => {
   return (
     <>
       <Swiper
-        spaceBetween={1}
-        watchSlidesProgress={true}
-        slidesPerView={3}
+        slidesPerView={4}
         className="mySwiper"
         navigation={true}
         modules={[Navigation]}
+        spaceBetween={20}
       >
         {movieData.map((movie) => (
           <SwiperSlide>

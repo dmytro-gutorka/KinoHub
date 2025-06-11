@@ -26,20 +26,19 @@ const StyledNavLink = styled(Link)(({ theme }) => ({
   },
 }));
 
+const StyledStack = styled(Stack)(() => ({
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+  fontSize: 16,
+  flexDirection: 'row',
+  columnGap: '10px',
+}));
+
 const AppNavLink = ({ children, to, hasIcon }) => {
   return (
     <StyledNavLink to={to} component={RoutLink}>
+      {hasIcon && <StyledStack component="li">{children}</StyledStack>}
       {!hasIcon && children}
-      {hasIcon && (
-        <Stack
-          component="li"
-          direction="row"
-          gap={0.75}
-          sx={{ justifyContent: 'flex-start', alignItems: 'center', fontSize: 16 }}
-        >
-          {children}
-        </Stack>
-      )}
     </StyledNavLink>
   );
 };

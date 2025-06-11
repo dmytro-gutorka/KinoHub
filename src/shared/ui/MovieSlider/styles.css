@@ -30,3 +30,9 @@
     z-index: 1000;
     background-color: green;
 }
+
+.swiper-slide.swiper-slide-visible {
+    width: 100%;
+    justify-self: flex-end;
+    align-items: flex-end;
+}

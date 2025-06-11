@@ -31,7 +31,7 @@ const Homepage = () => {
   console.log(topRatedMovies.results);
 
   return (
-    <Stack component="main">
+    <Stack component="main" rowGap={5} mt={5}>
       <MovieSection movieData={topRatedMovies.results} title="Now Playing" />
       <MovieSection movieData={topRatedMovies.results} title="Popular" />
       <MovieSection movieData={topRatedMovies.results} title="Top Rated" />

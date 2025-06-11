@@ -1,16 +1,20 @@
 import { RouterProvider } from 'react-router';
 import { createTheme, ThemeProvider } from '@mui/material';
-
-import router from './config/router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-const darkTheme = createTheme({
+import router from './config/router';
+
+const theme = createTheme({
   palette: {
     customColors: {
-      dark: '#16181E',
-      grey: '#21242D',
-      accent: '#00B9AE',
-      light: '#ffffff',
+      dark: 'rgba(22,24,30, 1)',
+      grey: 'rgba(33,36,45, 1)',
+      accent: 'rgba(0,185,174, 1)',
+      light: 'rgba(255,255,255, 1)',
+      darkTransparent: 'rgba(22,24,30, 0.2)',
+      greyTransparent: 'rgba(33,36,45, 0.2)',
+      accentTransparent: 'rgba(0,185,174, 0.2)',
+      lightTransparent: 'rgba(255,255,255, 0.1)',
     },
   },
 });
@@ -21,7 +25,7 @@ export default function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={darkTheme}>
+        <ThemeProvider theme={theme}>
           <RouterProvider router={router} />
         </ThemeProvider>
       </QueryClientProvider>
