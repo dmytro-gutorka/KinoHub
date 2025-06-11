@@ -1,8 +1,9 @@
 import { Button, Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 
-const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w780/';
+const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w780';
 
 const MoviePreviewCard = ({ movie }) => {
+  console.log(`${BASE_POSTER_URL}${movie.poster_path}`);
   return (
     <Card sx={{ position: 'relative', width: '200px', height: '300px' }}>
       <CardMedia
@@ -20,12 +21,16 @@ const MoviePreviewCard = ({ movie }) => {
       >
         <Typography>{movie.vote_average}</Typography>
         <Stack>
+          // выносить стили вне компонента по переменным а внутри компопнента уже по условиям
+          примеять стиди
           <Button
             variant="contained"
+            size="size"
             sx={{
-              backgroundColor: 'rgba(100, 100, 100, .5)',
-              width: '50px',
-              height: '50px',
+              backgroundColor: 'rgba(240, 23, 241, 0.2)',
+              maxWidth: '30px',
+              maxHeight: '30px',
+              minWidth: '30px',
               color: 'black',
             }}
           >

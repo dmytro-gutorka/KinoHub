@@ -1,4 +1,4 @@
-import RouterLink from '../RouterLink';
+import AppNavLink from '../AppNavLink';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 import { Box, Stack } from '@mui/material';
@@ -13,13 +13,13 @@ const Header = () => {
       >
         <Stack component="ul" direction="row" spacing={5} sx={{ listStyle: 'none' }}>
           <Box component="li">
-            <RouterLink to="/movies">Movies</RouterLink>
+            <AppNavLink to="/movies">Movies</AppNavLink>
           </Box>
           <Box component="li">
-            <RouterLink to="/shows">Shows</RouterLink>
+            <AppNavLink to="/shows">Shows</AppNavLink>
           </Box>
           <Box component="li">
-            <RouterLink to="/anime">Anime</RouterLink>
+            <AppNavLink to="/anime">Anime</AppNavLink>
           </Box>
         </Stack>
         <Box>

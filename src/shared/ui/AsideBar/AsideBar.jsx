@@ -1,5 +1,5 @@
 import { Box, Stack, Typography } from '@mui/material';
-import RouterLink from '../RouterLink';
+import AppNavLink from '../AppNavLink';
 
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
@@ -15,18 +15,18 @@ const AsideBar = () => {
             Menu
           </Typography>
           <Stack component="ul">
-            <RouterLink to="/" icon={true}>
+            <AppNavLink to="/" hasIcon>
               <HomeOutlinedIcon /> Home
-            </RouterLink>
-            <RouterLink to="/discover" icon={true}>
+            </AppNavLink>
+            <AppNavLink to="/discover" hasIcon>
               <MovieOutlinedIcon /> Discover
-            </RouterLink>
-            <RouterLink to="/dashboard" icon={true}>
+            </AppNavLink>
+            <AppNavLink to="/dashboard" hasIcon>
               <MovieOutlinedIcon /> Dashboard
-            </RouterLink>
-            <RouterLink to="/achievements" icon={true}>
+            </AppNavLink>
+            <AppNavLink to="/achievements" hasIcon>
               <MovieOutlinedIcon /> Achievements
-            </RouterLink>
+            </AppNavLink>
           </Stack>
         </Box>
 
@@ -35,15 +35,15 @@ const AsideBar = () => {
             Library
           </Typography>
           <Stack component="ul">
-            <RouterLink to="/recent" icon={true}>
+            <AppNavLink to="/recent" hasIcon>
               <MovieOutlinedIcon /> Recent
-            </RouterLink>
-            <RouterLink to="/playlists" icon={true}>
+            </AppNavLink>
+            <AppNavLink to="/playlists" hasIcon>
               <MovieOutlinedIcon /> Playlists
-            </RouterLink>
-            <RouterLink to="/watchboard" icon={true}>
+            </AppNavLink>
+            <AppNavLink to="/watchboard" hasIcon>
               <MovieOutlinedIcon /> WatchBoard
-            </RouterLink>
+            </AppNavLink>
           </Stack>
         </Box>
 
@@ -52,12 +52,12 @@ const AsideBar = () => {
             General
           </Typography>
           <Stack component="ul">
-            <RouterLink to="/settings" icon={true}>
+            <AppNavLink to="/settings" hasIcon>
               <MovieOutlinedIcon /> Settings
-            </RouterLink>
-            <RouterLink to="/" icon={true}>
+            </AppNavLink>
+            <AppNavLink to="/" hasIcon>
               <MovieOutlinedIcon /> Log Out
-            </RouterLink>
+            </AppNavLink>
           </Stack>
         </Box>
       </Stack>

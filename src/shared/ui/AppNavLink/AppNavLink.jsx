@@ -3,7 +3,7 @@ import { Stack, styled } from '@mui/material';
 
 import Link from '@mui/material/Link';
 
-const CustomLink = styled(Link)(({ theme }) => ({
+const StyledNavLink = styled(Link)(({ theme }) => ({
   fontWeight: 400,
   fontSize: '20px',
   letterSpacing: 2,
@@ -26,23 +26,22 @@ const CustomLink = styled(Link)(({ theme }) => ({
   },
 }));
 
-const RouterLink = ({ children, to, icon }) => {
+const AppNavLink = ({ children, to, hasIcon }) => {
   return (
-    <CustomLink to={to} component={RoutLink}>
-      {icon ? (
+    <StyledNavLink to={to} component={RoutLink}>
+      {!hasIcon && children}
+      {hasIcon && (
         <Stack
           component="li"
           direction="row"
           gap={0.75}
-          sx={{ justifyContent: 'flex-start', alignItems: 'flex-end', fontSize: 16 }}
+          sx={{ justifyContent: 'flex-start', alignItems: 'center', fontSize: 16 }}
         >
           {children}
         </Stack>
-      ) : (
-        children
       )}
-    </CustomLink>
+    </StyledNavLink>
   );
 };
 
-export default RouterLink;
+export default AppNavLink;

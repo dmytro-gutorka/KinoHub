@@ -22,3 +22,16 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
+
+//
+//
+// сделать комбинированный подход
+//
+//
+// {
+//   path: "/movies/:id",
+//     element: <MoviePage />,
+//   loader: ({ params }) =>
+//   queryClient.getQueryData(['movie', params.id]) || // 1. Пробуем взять данные из кеша
+//   queryClient.fetchQuery(['movie', params.id], fetchMovie), // 2. Если нет в кеше — загружаем
+// }

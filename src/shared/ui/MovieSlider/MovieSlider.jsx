@@ -10,7 +10,7 @@ const MovieSlider = ({ movieData }) => {
   return (
     <>
       <Swiper
-        spaceBetween={20}
+        spaceBetween={1}
         watchSlidesProgress={true}
         slidesPerView={3}
         className="mySwiper"
