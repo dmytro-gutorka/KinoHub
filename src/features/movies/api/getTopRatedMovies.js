@@ -1,6 +1,6 @@
 import { TMDB_URL, TMDB_OPTIONS } from '../../../config/constants';
 
-async function getTopRaterMovies() {
+async function getTopRatedMovies() {
   const page = 1;
   console.log(page);
   const res = await fetch(
@@ -11,4 +11,4 @@ async function getTopRaterMovies() {
   return await res.json();
 }
 
-export default getTopRaterMovies;
+export default getTopRatedMovies;

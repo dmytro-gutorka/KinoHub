@@ -1,8 +1,16 @@
-import { RouterProvider } from 'react-router';
-import { createTheme, ThemeProvider } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { createTheme, ThemeProvider } from '@mui/material';
+import { createBrowserRouter } from 'react-router';
+import { RouterProvider } from 'react-router';
+import { Swiper } from 'swiper/react';
 
-import router from './config/router';
+import MovieDetails from './pages/MovieDetails';
+import Homepage from './pages/Homepage';
+import Layout from './shared/ui/Layout';
+import Movies from './pages/Movies';
+import Shows from './pages/Shows';
+import Anime from './pages/Anime';
 
 const theme = createTheme({
   palette: {
@@ -19,7 +27,25 @@ const theme = createTheme({
   },
 });
 
+function makeRouter() {
+  return createBrowserRouter([
+    {
+      Component: Layout,
+      path: '/',
+      children: [
+        { path: '/', Component: Homepage },
+        { path: '/shows', Component: Shows },
+        { path: '/anime', Component: Anime },
+        { path: '/dashboard', Component: Swiper },
+        { path: '/movies', Component: Movies },
+        { path: '/movie/:id', Component: MovieDetails },
+      ],
+    },
+  ]);
+}
+
 const queryClient = new QueryClient();
+const router = makeRouter(queryClient);
 
 export default function App() {
   return (
@@ -28,6 +54,7 @@ export default function App() {
         <ThemeProvider theme={theme}>
           <RouterProvider router={router} />
         </ThemeProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </>
   );

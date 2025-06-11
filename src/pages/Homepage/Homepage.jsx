@@ -1,4 +1,4 @@
-import useTopRaterMovies from '../../features/movies/hooks/useTopRaterMovies';
+import useTopRatedMovies from '../../features/movies/hooks/useTopRatedMovies';
 import usePopularMovies from '../../features/movies/hooks/usePopularMovies';
 import useUpcomingMovies from '../../features/movies/hooks/useUpcomingMovies';
 import useNowPlayingMovies from '../../features/movies/hooks/useNowPlayingMovies';
@@ -8,7 +8,7 @@ import MovieSection from '../../features/movies/components/MovieSection';
 import { Stack } from '@mui/material';
 
 const Homepage = () => {
-  const { data: topRatedMovies, isLoading, isError } = useTopRaterMovies();
+  const { data: topRatedMovies, isLoading, isError } = useTopRatedMovies();
   // const { data: popularMovies } = usePopularMovies();
   // const { data: nowPlayingMovies } = useNowPlayingMovies();
   // const { data: upcomingMovies } = useUpcomingMovies();
@@ -27,8 +27,6 @@ const Homepage = () => {
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error loading data</div>;
-
-  console.log(topRatedMovies.results);
 
   return (
     <Stack component="main" rowGap={5} mt={5}>
