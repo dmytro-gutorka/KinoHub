@@ -3,6 +3,9 @@ import usePopularMovies from '../../features/movies/hooks/usePopularMovies';
 import useUpcomingMovies from '../../features/movies/hooks/useUpcomingMovies';
 import useNowPlayingMovies from '../../features/movies/hooks/useNowPlayingMovies';
 import MoviePreviewCard from '../../features/movies/components/MoviesPreview';
+import MovieSection from '../../features/movies/components/MovieSection';
+
+import { Stack } from '@mui/material';
 
 const Homepage = () => {
   const { data: topRatedMovies, isLoading, isError } = useTopRaterMovies();
@@ -28,11 +31,12 @@ const Homepage = () => {
   console.log(topRatedMovies.results);
 
   return (
-    <div>
-      {topRatedMovies?.results.map((movie) => (
-        <MoviePreviewCard movie={movie} />
-      ))}
-    </div>
+    <Stack component="main">
+      <MovieSection movieData={topRatedMovies.results} title="Now Playing" />
+      <MovieSection movieData={topRatedMovies.results} title="Popular" />
+      <MovieSection movieData={topRatedMovies.results} title="Top Rated" />
+      <MovieSection movieData={topRatedMovies.results} title="Upcomming" />
+    </Stack>
   );
 };
 

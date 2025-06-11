@@ -5,7 +5,7 @@ import Movies from '../pages/Movies';
 import Shows from '../pages/Shows';
 import Anime from '../pages/Anime';
 import Homepage from '../pages/Homepage';
-import Swiper from '../shared/ui/Swiper';
+import Swiper from '../shared/ui/MovieSlider';
 
 const router = createBrowserRouter([
   {

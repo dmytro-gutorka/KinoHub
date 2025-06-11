@@ -1,12 +1,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import { Navigation } from 'swiper/modules';
 
-import 'swiper/css';
+import MoviePreviewCard from '../../../features/movies/components/MoviesPreview';
 
+import 'swiper/css';
 import './styles.css';
 
-export default function App() {
+const MovieSlider = ({ movieData }) => {
   return (
     <>
       <Swiper
@@ -17,13 +17,14 @@ export default function App() {
         navigation={true}
         modules={[Navigation]}
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
+        {movieData.map((movie) => (
+          <SwiperSlide>
+            <MoviePreviewCard movie={movie} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );
-}
+};
+
+export default MovieSlider;

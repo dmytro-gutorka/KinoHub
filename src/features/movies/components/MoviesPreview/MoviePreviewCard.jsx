@@ -1,13 +1,12 @@
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { Button, Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 
 const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w780/';
 
 const MoviePreviewCard = ({ movie }) => {
   return (
-    <Card sx={{ position: 'relative', width: '200px' }}>
+    <Card sx={{ position: 'relative', width: '200px', height: '300px' }}>
       <CardMedia
         component="img"
-        height="300"
         image={`${BASE_POSTER_URL}${movie.poster_path}`}
         alt="Movie cover"
       />
@@ -15,15 +14,24 @@ const MoviePreviewCard = ({ movie }) => {
       <CardContent
         sx={{
           position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%)',
-          color: 'white',
+          inset: 0,
+          background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%)',
         }}
       >
-        <Typography variant="h5">{movie.title}</Typography>
         <Typography>{movie.vote_average}</Typography>
+        <Stack>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: 'rgba(100, 100, 100, .5)',
+              width: '50px',
+              height: '50px',
+              color: 'black',
+            }}
+          >
+            +
+          </Button>
+        </Stack>
       </CardContent>
     </Card>
   );
