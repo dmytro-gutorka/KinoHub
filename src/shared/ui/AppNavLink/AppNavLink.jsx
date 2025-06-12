@@ -17,11 +17,11 @@ const StyledNavLink = styled(Link)(({ theme }) => ({
     '&::after': {
       content: '""',
       position: 'absolute',
-      width: '100%',
-      height: '3px',
+      width: '2px',
+      height: '100%',
       backgroundColor: theme.palette.primary.main,
-      top: '130%',
-      left: 0,
+      top: 0,
+      left: '100%',
     },
   },
 }));

@@ -11,7 +11,7 @@ const MovieSlider = ({ movieData }) => {
   return (
     <>
       <Swiper
-        slidesPerView={4}
+        slidesPerView={2}
         className="mySwiper"
         navigation={true}
         modules={[Navigation]}

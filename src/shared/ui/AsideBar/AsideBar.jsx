@@ -6,10 +6,10 @@ import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 
 const AsideBar = () => {
   return (
-    <Stack component="aside" padding={4} gap={4} minHeight="100vh">
+    <Stack component="aside" marginLeft={2} gap={4} minHeight="100vh">
       <Box>Logo</Box>
 
-      <Stack spacing={2.5}>
+      <Stack spacing={2} marginLeft={4}>
         <Box>
           <Typography variant="subtitle1" component="h2">
             Menu
