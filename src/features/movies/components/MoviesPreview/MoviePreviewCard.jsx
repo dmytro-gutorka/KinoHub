@@ -3,6 +3,7 @@ import {
   Card,
   CardContent,
   CardMedia,
+  IconButton,
   Stack,
   styled,
   Typography,
@@ -11,6 +12,11 @@ import {
 import { BASE_POSTER_URL } from '../../../../config/constants';
 import { Link } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
+import { useDispatch, useSelector } from 'react-redux';
+
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import { toggleBookmark } from '../../../../entities/user/model/slice';
 
 const StyledCardContent = styled(CardContent)(() => ({
   display: 'flex',
@@ -37,13 +43,22 @@ const MoviePreviewCard = ({ movie }) => {
   // const imgURL = `${BASE_POSTER_URL}${posterPath}`;
   const imgURL = '../../../../../public/dummyImage.webp';
 
+  const dispatch = useDispatch();
+  const bookmarks = useSelector((state) => state.user.bookmarks);
+  const isBookmarked = bookmarks.some((movieId) => movieId === id);
+
+  console.log(bookmarks);
+
   return (
     <StyledCard>
       <CardMedia component="img" image={imgURL} alt="Movie cover" />
       <StyledCardContent>
         <Typography>{voteAverage}</Typography>
         <Stack direction="row" gap={1}>
-          <Button variant="transparent-square">+</Button>
+          <IconButton onClick={() => dispatch(toggleBookmark(id))}>
+            {isBookmarked ? <BookmarkIcon /> : <BookmarkBorderIcon />}
+          </IconButton>
+          {/*<Button variant="transparent-square">+</Button>*/}
           <Button
             component={Link}
             to={`movie/${id}?from=topRatedMovies`}
