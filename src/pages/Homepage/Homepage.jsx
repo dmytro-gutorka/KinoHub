@@ -5,7 +5,7 @@ import useNowPlayingMovies from '../../features/movies/hooks/useNowPlayingMovies
 import MoviePreviewCard from '../../features/movies/components/MoviesPreview';
 import MovieSection from '../../features/movies/components/MovieSection';
 
-import { Stack } from '@mui/material';
+import { Divider, Stack } from '@mui/material';
 
 const Homepage = () => {
   const { data: topRatedMovies, isLoading, isError } = useTopRatedMovies();
@@ -29,7 +29,12 @@ const Homepage = () => {
   if (isError) return <div>Error loading data</div>;
 
   return (
-    <Stack component="main" rowGap={5} mt={5}>
+    <Stack
+      component="main"
+      rowGap={5}
+      mt={5}
+      divider={<Divider orientation="horizontal" flexItem />}
+    >
       <MovieSection movieData={topRatedMovies.results} title="Now Playing" />
       <MovieSection movieData={topRatedMovies.results} title="Popular" />
       <MovieSection movieData={topRatedMovies.results} title="Top Rated" />

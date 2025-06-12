@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material';
+import { Divider, Stack, Typography } from '@mui/material';
 import MovieSlider from '../../../../shared/ui/MovieSlider';
 
 const MovieSection = ({ title, movieData }) => {

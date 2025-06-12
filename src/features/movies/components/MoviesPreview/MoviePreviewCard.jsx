@@ -14,6 +14,14 @@ const StyledCardContent = styled(CardContent)(() => ({
   background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%)',
 }));
 
+const StyledCard = styled(Card)(({ theme }) => ({
+  position: 'relative',
+  width: '200px',
+  height: '300px',
+  border: `1px solid ${theme.palette.grey[900]}`,
+  shadow: theme.shadows[12],
+}));
+
 const MoviePreviewCard = ({ movie }) => {
   const { vote_average: voteAverage, poster_path: posterPath, id } = movie;
 
@@ -27,7 +35,7 @@ const MoviePreviewCard = ({ movie }) => {
       to={`movie/${id}?from=topRatedMovies`}
       // onMouseEnter={() => queryClient.prefetchQuery(['topRatedMovies', id])}
     >
-      <Card sx={{ position: 'relative', width: '200px', height: '300px' }}>
+      <StyledCard>
         <CardMedia component="img" image={imgURL} alt="Movie cover" />
         <StyledCardContent>
           <Typography>{voteAverage}</Typography>
@@ -45,7 +53,7 @@ const MoviePreviewCard = ({ movie }) => {
             </Button>
           </Stack>
         </StyledCardContent>
-      </Card>
+      </StyledCard>
     </Link>
   );
 };

@@ -1,4 +1,4 @@
-import { NavLink as RoutLink } from 'react-router';
+import { NavLink as RouterNavLink } from 'react-router';
 import { Stack, styled } from '@mui/material';
 
 import Link from '@mui/material/Link';
@@ -10,7 +10,7 @@ const StyledNavLink = styled(Link)(({ theme }) => ({
   textDecoration: 'none',
 
   '&.active': {
-    color: theme.palette.customColors.accent,
+    color: theme.palette.primary.main,
     fontWeight: 'bold',
     position: 'relative',
 
@@ -19,7 +19,7 @@ const StyledNavLink = styled(Link)(({ theme }) => ({
       position: 'absolute',
       width: '100%',
       height: '3px',
-      backgroundColor: '#00B9AE',
+      backgroundColor: theme.palette.primary.main,
       top: '130%',
       left: 0,
     },
@@ -36,7 +36,7 @@ const StyledStack = styled(Stack)(() => ({
 
 const AppNavLink = ({ children, to, hasIcon }) => {
   return (
-    <StyledNavLink to={to} component={RoutLink}>
+    <StyledNavLink to={to} component={RouterNavLink}>
       {hasIcon && <StyledStack component="li">{children}</StyledStack>}
       {!hasIcon && children}
     </StyledNavLink>
