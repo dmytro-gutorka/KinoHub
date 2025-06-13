@@ -6,18 +6,23 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { BASE_POSTER_URL } from '../../../config/constants';
+import { Box, Stack } from '@mui/material';
 
 const CardsList = ({ movies }) => {
   console.log(1, movies);
   return (
-    <div>
+    <Stack direction="row" flexWrap="wrap" gap={10} justifyContent="center">
       {movies.map((movie) => {
         const { overview, title, poster_path: posterPath } = movie;
         const imgURL = `${BASE_POSTER_URL}${posterPath}`;
 
         return (
-          <Card sx={{ width: 345 }}>
-            <CardMedia sx={{ height: 600 }} image={imgURL} title="Movie card" />
+          <Card sx={{ width: 276 }}>
+            <CardMedia
+              sx={{ height: 400, backgroundSize: 'cover' }}
+              image={imgURL}
+              title="Movie card"
+            />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {title}
@@ -33,7 +38,7 @@ const CardsList = ({ movies }) => {
           </Card>
         );
       })}
-    </div>
+    </Stack>
   );
 };
 
