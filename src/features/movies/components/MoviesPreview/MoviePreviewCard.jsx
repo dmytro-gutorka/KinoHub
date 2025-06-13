@@ -60,6 +60,7 @@ const MoviePreviewCard = ({ movie }) => {
           </IconButton>
           {/*<Button variant="transparent-square">+</Button>*/}
           <Button
+            color="buttonColor.light"
             component={Link}
             to={`movie/${id}?from=topRatedMovies`}
             // onMouseEnter={() => queryClient.prefetchQuery(['topRatedMovies', id])}

@@ -7,13 +7,21 @@ const theme = createTheme({
       900.5: 'rgba(33, 33, 33, 0.5)',
     },
     primary: {
-      main: '#00B9AE',
+      main: '#b1154c', // #00B9AE
     },
   },
   spacing: 4,
 });
 
 const finalTheme = createTheme(theme, {
+  palette: {
+    buttonColor: theme.palette.augmentColor({
+      color: {
+        main: '#00B9AE',
+      },
+      name: 'buttonColor',
+    }),
+  },
   components: {
     MuiCssBaseline: {
       styleOverrides: {
