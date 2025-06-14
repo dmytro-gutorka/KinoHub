@@ -26,15 +26,11 @@ const Homepage = () => {
   // }
 
   if (isLoading) return <div>Loading...</div>;
+
   if (isError) return <div>Error loading data</div>;
 
   return (
-    <Stack
-      component="main"
-      rowGap={5}
-      mt={5}
-      divider={<Divider orientation="horizontal" flexItem />}
-    >
+    <Stack rowGap={5} divider={<Divider orientation="horizontal" flexItem />}>
       <MovieSection movieData={topRatedMovies.results} title="Now Playing" />
       <MovieSection movieData={topRatedMovies.results} title="Popular" />
       <MovieSection movieData={topRatedMovies.results} title="Top Rated" />

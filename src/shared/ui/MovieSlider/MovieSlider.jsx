@@ -5,7 +5,6 @@ import MoviePreviewCard from '../../../features/movies/components/MoviesPreview'
 
 import 'swiper/css';
 import './styles.css';
-import { Paper } from '@mui/material';
 
 const MovieSlider = ({ movieData }) => {
   return (

@@ -26,11 +26,14 @@ const finalTheme = createTheme(theme, {
     MuiCssBaseline: {
       styleOverrides: {
         aside: {
-          background: '#1c1b1b',
+          backgroundColor: '#1c1b1b',
         },
         ul: {
           padding: '0px',
           margin: '0px',
+        },
+        main: {
+          backgroundColor: '#1c1b1b',
         },
       },
     },

@@ -1,10 +1,10 @@
 .swiper {
     width: 95%;
 }
+
 .swiper-slide {
     height: 100%;
     line-height: 300px;
-    text-align: center;
 }
 
 
@@ -33,6 +33,6 @@
 
 .swiper-slide.swiper-slide-visible {
     width: 100%;
-    justify-self: flex-end;
-    align-items: flex-end;
+    justify-self: flex-start    ;
+    align-items: flex-start;
 }

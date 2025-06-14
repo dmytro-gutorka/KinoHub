@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Paper, Stack, Typography } from '@mui/material';
 import AppNavLink from '../AppNavLink';
 
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
@@ -6,7 +6,7 @@ import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 
 const AsideBar = () => {
   return (
-    <Stack component="aside" marginLeft={2} gap={4} minHeight="100vh">
+    <Stack component="aside" gap={4}>
       <Box>Logo</Box>
 
       <Stack spacing={2} marginLeft={4}>

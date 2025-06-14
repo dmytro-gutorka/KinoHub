@@ -47,8 +47,6 @@ const MoviePreviewCard = ({ movie }) => {
   const bookmarks = useSelector((state) => state.user.bookmarks);
   const isBookmarked = bookmarks.some((movieId) => movieId === id);
 
-  console.log(bookmarks);
-
   return (
     <StyledCard>
       <CardMedia component="img" image={imgURL} alt="Movie cover" />
