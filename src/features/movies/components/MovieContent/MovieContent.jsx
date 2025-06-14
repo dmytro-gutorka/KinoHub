@@ -32,12 +32,15 @@ const MovieContent = ({ movie }) => {
     title,
     status,
     overview,
+    runtime,
     poster_path: posterPath,
     production_countries: countries,
     release_date: releaseDate,
     vote_average: voteAvg,
     vote_count: voteCount,
   } = movie;
+
+  console.log(movie);
 
   const imgURL = `${BASE_POSTER_URL}${posterPath}`;
 
@@ -89,6 +92,12 @@ const MovieContent = ({ movie }) => {
                   Budget
                 </TableCell>
                 <TableCell align="left">{budget}$</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell width="25%" padding="10px" align="left">
+                  Runtime
+                </TableCell>
+                <TableCell align="left">{runtime}</TableCell>
               </TableRow>
               {adult && (
                 <TableRow>

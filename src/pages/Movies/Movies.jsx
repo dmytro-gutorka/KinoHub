@@ -1,28 +1,50 @@
-import { Stack } from '@mui/material';
-import CardsList from '../../shared/ui/CardsList';
+import { CircularProgress, Stack } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
-import getMoviesByPage from '../../features/movies/api/getMoviesByPage';
 import { useState } from 'react';
+
+import CardsList from '../../shared/ui/CardsList';
+import getMoviesByPage from '../../features/movies/api/getMoviesByPage';
+import getMoviesByTitle from '../../features/movies/api/getMovieByTitle';
 
 const Movies = () => {
   const [page, setPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const { data, isSuccess, isLoading, isError } = useQuery({
     queryKey: ['movies', page],
     queryFn: () => getMoviesByPage(page),
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  const {
+    data: searchData,
+    isLoading: searchLoading,
+    isSuccess: searchSuccess,
+  } = useQuery({
+    queryKey: ['movies', searchQuery],
+    queryFn: () => getMoviesByTitle(page, searchQuery),
+    enabled: searchQuery.length >= 4,
+    staleTime: Infinity,
+  });
 
-  if (isError) return <div>Error!</div>;
+  function handleSearch(e) {
+    e.preventDefault();
 
-  if (isSuccess) console.log(data);
+    setSearchQuery(e.target.value);
+  }
+
+  const movies = searchData?.results.length > 0 ? searchData?.results : data?.results;
+
+  if (searchSuccess) console.log(movies);
 
   return (
     <Stack component="section">
-      {/*// Form*/}
-      MOVIES PAGE
-      <CardsList movies={data.results}></CardsList>
+      <Stack>
+        <input type="search" value={searchQuery} onChange={handleSearch} />
+      </Stack>
+
+      {searchLoading && <CircularProgress />}
+      {movies && <CardsList movies={movies}></CardsList>}
+
       <button disabled={page === 1} onClick={() => setPage((page) => page - 1)}>
         Prev
       </button>
