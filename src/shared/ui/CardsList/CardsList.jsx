@@ -37,6 +37,7 @@ const CardsList = ({ movies }) => {
           <Card
             key={id}
             sx={{
+              position: 'relative',
               width: 276,
               border: '1px solid grey',
               transition: '0.3s',
@@ -44,10 +45,30 @@ const CardsList = ({ movies }) => {
             }}
           >
             <CardMedia
-              sx={{ height: 400, backgroundSize: 'cover' }}
+              sx={{
+                height: 400,
+                backgroundSize: 'cover',
+                filter: adult ? 'blur(16px)' : '',
+              }}
               image={imgURL}
               title="Movie card"
             />
+            {adult && (
+              <Typography
+                textAlign="center"
+                gutterBottom
+                variant="h6"
+                component="div"
+                position="absolute"
+                top="50%"
+                left="50%"
+                sx={{ transform: 'translate(-50%, -50%)' }}
+                color="lightgrey"
+              >
+                Content 18+ <br />
+                Verify your age
+              </Typography>
+            )}
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {title}
