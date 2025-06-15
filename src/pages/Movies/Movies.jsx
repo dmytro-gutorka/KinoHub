@@ -23,7 +23,7 @@ const Movies = () => {
   const [openFilters, setOpenFilters] = useState(false);
   const [page, setPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
-  const [minRating, setMinRating] = useState(0);
+  const [minRating, setMinRating] = useState(1);
   const [genres, setGenres] = useState([]);
   const [sortBy, setSortBy] = useState('title.asc');
 

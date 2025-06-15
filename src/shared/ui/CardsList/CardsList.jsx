@@ -1,17 +1,36 @@
+import { BASE_POSTER_URL } from '../../../config/constants';
+import { Chip, Stack } from '@mui/material';
+
+import LabelWithIcon from '../LabelWithIcon';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { BASE_POSTER_URL } from '../../../config/constants';
-import { Stack } from '@mui/material';
+import movieGenres from '../../../features/movies/data/movieGenres';
+
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
+
+function getYearFromDate(dateStr) {
+  const date = new Date(dateStr);
+  return date.getFullYear();
+}
 
 const CardsList = ({ movies }) => {
   return (
     <Stack direction="row" flexWrap="wrap" gap={10} justifyContent="center">
       {movies.map((movie) => {
-        const { overview, title, poster_path: posterPath, id } = movie;
+        const {
+          poster_path: posterPath,
+          genre_ids: genres,
+          release_date: releaseDate,
+          vote_average: avgRating,
+          overview,
+          title,
+          id,
+          adult,
+        } = movie;
         const imgURL = `${BASE_POSTER_URL}${posterPath}`;
 
         return (
@@ -33,14 +52,38 @@ const CardsList = ({ movies }) => {
               <Typography gutterBottom variant="h5" component="div">
                 {title}
               </Typography>
+              <Stack direction="row" spacing={1}>
+                {genres.map((genreId, index) => {
+                  const genreName = movieGenres.find((movie) => movie.id === genreId)?.name;
+                  const numberOfGenres = genres.length;
+                  const hideFrom = 2;
+
+                  if (index <= 1) return <Chip key={genreId} label={genreName} />;
+                  if (index === numberOfGenres - 1 && numberOfGenres > hideFrom)
+                    return <Chip key={genreId} label={`+${numberOfGenres - hideFrom}`} />;
+                })}
+              </Stack>
+
+              <Stack direction="row" gap={2}>
+                {releaseDate && (
+                  <LabelWithIcon label={getYearFromDate(releaseDate)}>
+                    <CalendarTodayOutlinedIcon fontSize="small" />
+                  </LabelWithIcon>
+                )}
+                <LabelWithIcon label={avgRating}>
+                  <StarBorderIcon fontSize="small" />
+                </LabelWithIcon>
+                {adult && (
+                  <LabelWithIcon label="18+">
+                    <ReportGmailerrorredIcon fontSize="small" />
+                  </LabelWithIcon>
+                )}
+              </Stack>
+
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                 {`${overview.split(' ').slice(0, 15).join(' ')}`} ...
               </Typography>
             </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
           </Card>
         );
       })}
