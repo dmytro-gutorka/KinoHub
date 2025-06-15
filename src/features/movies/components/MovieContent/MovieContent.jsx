@@ -6,9 +6,9 @@ import {
   styled,
   Table,
   TableBody,
-  TableCell,
   TableContainer,
   TableRow,
+  TableCell,
 } from '@mui/material';
 
 const StyledTable = styled(Table)(({ theme }) => ({
@@ -39,8 +39,6 @@ const MovieContent = ({ movie }) => {
     vote_average: voteAvg,
     vote_count: voteCount,
   } = movie;
-
-  console.log(movie);
 
   const imgURL = `${BASE_POSTER_URL}${posterPath}`;
 

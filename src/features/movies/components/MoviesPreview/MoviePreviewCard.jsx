@@ -9,14 +9,15 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-import { BASE_POSTER_URL } from '../../../../config/constants';
 import { Link } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
+import { BASE_POSTER_URL } from '../../../../config/constants';
+import { toggleBookmark } from '../../../../entities/user/model/slice';
 
+import getMovieDetails from '../../api/getMovieDetails';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import { toggleBookmark } from '../../../../entities/user/model/slice';
 
 const StyledCardContent = styled(CardContent)(() => ({
   display: 'flex',
@@ -38,14 +39,24 @@ const StyledCard = styled(Card)(({ theme }) => ({
 const MoviePreviewCard = ({ movie }) => {
   const { vote_average: voteAverage, poster_path: posterPath, id } = movie;
 
+  const imgURL = `${BASE_POSTER_URL}${posterPath}`;
+
+  // const imgURL = '../../../../../public/dummyImage.webp';
+
   const queryClient = useQueryClient();
   const theme = useTheme();
-  // const imgURL = `${BASE_POSTER_URL}${posterPath}`;
-  const imgURL = '../../../../../public/dummyImage.webp';
-
   const dispatch = useDispatch();
   const bookmarks = useSelector((state) => state.user.bookmarks);
+
   const isBookmarked = bookmarks.some((movieId) => movieId === id);
+
+  const prefetch = () => {
+    queryClient.prefetchQuery({
+      queryKey: ['movie', id],
+      queryFn: () => getMovieDetails(id),
+      staleTime: Infinity,
+    });
+  };
 
   return (
     <StyledCard>
@@ -61,7 +72,7 @@ const MoviePreviewCard = ({ movie }) => {
             color="buttonColor.light"
             component={Link}
             to={`movie/${id}?from=topRatedMovies`}
-            // onMouseEnter={() => queryClient.prefetchQuery(['topRatedMovies', id])}
+            onMouseEnter={prefetch}
             sx={{
               flex: 1,
               textTransform: 'capitalize',
