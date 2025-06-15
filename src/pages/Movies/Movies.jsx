@@ -41,17 +41,13 @@ const Movies = () => {
     if (searchQuery.length >= 4) setPage(1);
   }, [searchQuery]);
 
-  const { data, isSuccess, isLoading, isError } = useQuery({
+  const { data } = useQuery({
     queryFn: () => getMoviesByPage(page, minRating, genres, sortBy),
     queryKey: ['movies', page, minRating, genres, sortBy],
     staleTime: Infinity,
   });
 
-  const {
-    data: searchData,
-    isLoading: searchLoading,
-    isSuccess: searchSuccess,
-  } = useQuery({
+  const { data: searchData, isLoading: searchLoading } = useQuery({
     queryFn: () => getMoviesByTitle(page, searchQuery),
     queryKey: ['movies', page, searchQuery],
     enabled: searchQuery.length >= 2,
@@ -60,8 +56,6 @@ const Movies = () => {
 
   const maxPage = searchData?.total_pages || data?.total_pages;
   const movies = searchData?.results.length > 0 ? searchData?.results : data?.results;
-
-  console.log(movies);
 
   return (
     <Stack component="section">
@@ -76,18 +70,18 @@ const Movies = () => {
             value={genres}
             variant="standard"
             onChange={handleGenre}
-            input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+            input={<OutlinedInput label="Chip" />}
             renderValue={(selected) => (
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                 {selected.map((value) => (
-                  <Chip key={value} label={value} />
+                  <Chip key={value.id} label={value.name} />
                 ))}
               </Box>
             )}
           >
-            {movieGenres.map(({ name, id }) => (
-              <MenuItem key={id} value={id}>
-                {name}
+            {movieGenres.map((movie) => (
+              <MenuItem key={movie.id} value={movie}>
+                {movie.name}
               </MenuItem>
             ))}
           </Select>
@@ -100,7 +94,7 @@ const Movies = () => {
             value={sortBy}
             variant="standard"
             onChange={(e) => setSortBy(e.target.value)}
-            input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+            input={<OutlinedInput />}
           >
             <MenuItem value="title.asc">Title</MenuItem>
             <MenuItem value="vote_average.asc">Rating</MenuItem>
