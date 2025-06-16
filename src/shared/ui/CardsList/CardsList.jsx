@@ -7,7 +7,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import movieGenres from '../../../features/movies/data/movieGenres';
-
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
@@ -22,14 +21,14 @@ const CardsList = ({ movies }) => {
     <Stack direction="row" flexWrap="wrap" gap={10} justifyContent="center">
       {movies.map((movie) => {
         const {
-          poster_path: posterPath,
-          genre_ids: genres,
           release_date: releaseDate,
+          poster_path: posterPath,
           vote_average: avgRating,
+          genre_ids: genres,
           overview,
           title,
-          id,
           adult,
+          id,
         } = movie;
         const imgURL = `${BASE_POSTER_URL}${posterPath}`;
 
