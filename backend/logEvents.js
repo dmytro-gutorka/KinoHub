@@ -16,7 +16,6 @@ const logEvent = async (...data) => {
 
   try {
    await fsPromises.writeFile(path.join(__dirname, 'eventLog.txt'), logItem)
-
   }
   catch(err) {
     console.log(err)
