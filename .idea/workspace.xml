@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/logEvents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.prettierignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/eslint.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dummyImage.webp" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/dummyImage.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vite.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/vite.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/config/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/config/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/config/theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/user/model/slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/user/model/slice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/api/getMovieByTitle.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getMovieByTitle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/api/getMovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getMovieDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/api/getMoviesByPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getMoviesByPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/api/getNowPlayingMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getNowPlayingMovies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/api/getPopularMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getPopularMovies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/api/getShowsByPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getShowsByPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/api/getTopRatedMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getTopRatedMovies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/api/getUpcomingMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getUpcomingMovies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/components/MovieContent/MovieContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/components/MovieContent/MovieContent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/components/MovieContent/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/components/MovieContent/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/components/MovieSection/MovieSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/components/MovieSection/MovieSection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/components/MovieSection/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/components/MovieSection/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/components/MoviesPreview/MoviePreviewCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/components/MoviesPreview/MoviePreviewCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/components/MoviesPreview/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/components/MoviesPreview/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/data/movieGenres.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/data/movieGenres.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/hooks/useNowPlayingMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/hooks/useNowPlayingMovies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/hooks/usePopularMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/hooks/usePopularMovies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/hooks/useTopRatedMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/hooks/useTopRatedMovies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/movies/hooks/useUpcomingMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/hooks/useUpcomingMovies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Anime/Anime.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Anime/Anime.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Anime/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Anime/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Homepage/Homepage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Homepage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MovieDetails/MovieDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MovieDetails/MovieDetails.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MovieDetails/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MovieDetails/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Movies/Movies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Movies/Movies.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Movies/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Movies/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Shows/Shows.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Shows/Shows.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Shows/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Shows/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/hooks/useFilteredMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useFilteredMovies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/hooks/useMediaFilters.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useMediaFilters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/hooks/useSearchedMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useSearchedMovies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/AppNavLink/AppNavLink.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/AppNavLink/AppNavLink.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/AppNavLink/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/AppNavLink/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/AsideBar/AsideBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/AsideBar/AsideBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/AsideBar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/AsideBar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/BasicSelect/BasicSelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/BasicSelect/BasicSelect.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/BasicSelect/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/BasicSelect/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/CardsList/CardsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/CardsList/CardsList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/CardsList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/CardsList/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Header/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/LabelWithIcon/LabelWithIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/LabelWithIcon/LabelWithIcon.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/LabelWithIcon/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/LabelWithIcon/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/Layout/Layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Layout/Layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/Layout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Layout/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/MovieSlider/MovieSlider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MovieSlider/MovieSlider.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/MovieSlider/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MovieSlider/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/MovieSlider/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MovieSlider/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/MultipleSelect/MultipleSelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MultipleSelect/MultipleSelect.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/MultipleSelect/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MultipleSelect/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/PreviewCard/PreviewCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/PreviewCard/PreviewCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/PreviewCard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/PreviewCard/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/SliderBar/SliderBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/SliderBar/SliderBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/SliderBar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/SliderBar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JSX File" />
+        <option value="JSX Component Folder with styles" />
+        <option value="JSX Component Folder.jsx.child.0" />
+        <option value="JSX Component Folder" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;dmytro-gutorka&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:dmytro-gutorka/MoviesHub.git&quot;,
+    &quot;accountId&quot;: &quot;2614ba0e-4a13-4752-a98f-46c86abd3fa0&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2yGfam2JnhL7nAWoii2zLFhd1zc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortKey" value="BY_TIME_ASCENDING" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;24.1.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;24.0.1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/cblpok/Projects/MoviesHub/backend&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/cblpok/Projects/MoviesHub/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend" />
+      <recent name="$PROJECT_DIR$/src/features/movies/api" />
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.157" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="" />
+      <created>1749465897220</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1749465897220</updated>
+      <workItem from="1749465898747" duration="105600000" />
+      <workItem from="1749854105809" duration="58218000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
