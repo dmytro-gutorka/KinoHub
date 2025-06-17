@@ -15,7 +15,7 @@ app.use('/users', userRouters);
 async function startServer() {
   try {
     await sequelize.authenticate();
-    await sequelize.sync({ force: true }); // force: true - reset the tables each launch
+    await sequelize.sync({ force: false }); // force: true - reset the tables each launch
 
     app.listen(port, () => console.log(`Server is running on ${port} port`))
   } catch (error) {

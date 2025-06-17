@@ -12,6 +12,7 @@ export const MovieActionModel = (sequelize) => {
     },
     isLiked: {
       type: DataTypes.BOOLEAN,
+      allowNull: true,
       defaultValue: false,
     },
     ratings: {

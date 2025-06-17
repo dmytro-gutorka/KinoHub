@@ -15,9 +15,5 @@ export const MovieBoardModel = (sequelize) => {
       allowNull: false,
       defaultValue: 'toWatch' // toWatch, inWatching, onHold, watched, archived(?)
     },
-    email: {
-      type: DataTypes.STRING,
-      unique: true,
-    },
   });
 };

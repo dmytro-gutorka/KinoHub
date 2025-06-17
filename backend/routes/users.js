@@ -4,9 +4,10 @@ import express from 'express'
 
 export const router = express.Router()
 
-router.post('/', (req, res) => {
-  User.create(req.body)
-  res.json({ mes: 'User created' })
+router.post('/', async (req, res) => {
+  const user = await User.create(req.body)
+  res.json({ user })
+
 })
 
 router.get('/', async (req, res) => {
