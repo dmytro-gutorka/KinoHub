@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/data.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/text.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/eventLog.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/img/img1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logEvents.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/about/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/new-page.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1749465897220</updated>
       <workItem from="1749465898747" duration="105600000" />
-      <workItem from="1749854105809" duration="72470000" />
+      <workItem from="1749854105809" duration="73565000" />
     </task>
     <servers />
   </component>
