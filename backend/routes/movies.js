@@ -1,3 +1,6 @@
+// import { MovieBoard } from '../models/index.js';
+// import { MovieAction } from '../models/index.js';
+
 import express from 'express'
 
 export const router = express.Router()

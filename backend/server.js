@@ -1,37 +1,23 @@
 import { router as movieRouters } from './routes/movies.js'
-import { Sequelize } from 'sequelize';
-import { UserModel } from './models/user.js'
-import express from 'express'
+import { router as userRouters } from './routes/users.js'
+import { sequelize } from './models/index.js';
+import express, { json, urlencoded } from 'express';
 
-const PORT = process.env.PORT || 8000
-
+const port = process.env.PORT || 8000
 const app = express()
 
-app.use('/movies', movieRouters)
+app.use(json())
+app.use(urlencoded())
 
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: './database.sqlite',
-  logging: false,
-});
-
-const User = UserModel(sequelize);
+app.use('/movies', movieRouters);
+app.use('/users', userRouters);
 
 async function startServer() {
   try {
     await sequelize.authenticate();
-    console.log('DB Connected !');
-
     await sequelize.sync({ force: true }); // force: true - reset the tables each launch
 
-    await User.create({ name: 'Dmytro', email: 'dmytro@bini.games' });
-    await User.create({ name: 'Dmytro1', email: 'dmytro@bini.games1' });
-
-    const users = await User.findAll();
-
-    console.log('All users:', users.map(u => u.toJSON()));
-
-    app.listen(PORT, () => console.log(`Server is running on ${PORT} port`))
+    app.listen(port, () => console.log(`Server is running on ${port} port`))
   } catch (error) {
     console.error('Connecting error:', error);
   }
