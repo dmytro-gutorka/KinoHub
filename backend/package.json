@@ -4,8 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon server"
+    "dev": "node --env-file=.env --watch server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +12,9 @@
   "type": "module",
   "dependencies": {
     "date-fns": "^4.1.0",
+    "express": "^5.1.0",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
