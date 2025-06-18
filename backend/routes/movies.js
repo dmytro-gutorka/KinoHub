@@ -52,15 +52,19 @@ router.post('/:id/ratings', async (req, res) => {
   const ratings = req.body.ratings
   await MovieAction.create(
     { ...req.body, movieId: movieID });
-  res.status(200).json({ ratings });
+  res.status(201).json({ ratings });
 })
 
 router.put('/:id/ratings', async (req, res) => {
   const movieID = req.params.id;
+  const userID = req.body.userId
   const ratings = req.body.ratings
+
   await MovieAction.update(
-    { ratings }, { where: { movieId: movieID }} // userId and MovieId
+    { ratings: ratings },
+    { where: { movieId: movieID, userId: userID }}
   )
+
   res.status(200).json({
     msg: `Rating on movie ${movieID} was updated. Current rating is ${ratings}`
   });
@@ -77,11 +81,14 @@ router.post('/:id/likes', async (req, res) => {
 
 router.put('/:id/likes', async (req, res) => {
   const movieID = req.params.id;
+  const userID = req.body.userId
   const isLiked = req.body.isLiked
+
   await MovieAction.update(
-    { isLiked: !isLiked },
-    { where: { movieId: movieID }} // userId and MovieId
+    { isLiked: isLiked },
+    { where: { movieId: movieID, userId: userID }}
   )
+
   res.status(200).json({
     msg: `Like on movie ${movieID} was ${isLiked ? 'added' : 'removed'}`
   });

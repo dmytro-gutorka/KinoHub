@@ -1,7 +1,8 @@
 import { Box, Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
-import movieGenres from '../../../features/movies/data/movieGenres';
 
-const MultipleSelect = ({ genres, onGenresChange }) => {
+
+const MultipleSelect = ({ genres, onGenresChange, mediaGenres }) => {
+
   return (
     <FormControl sx={{ m: 1, width: 300 }}>
       <InputLabel id="movie-genres-filter">Genres</InputLabel>
@@ -20,7 +21,7 @@ const MultipleSelect = ({ genres, onGenresChange }) => {
           </Box>
         )}
       >
-        {movieGenres.map((movie) => (
+        {mediaGenres.map((movie) => (
           <MenuItem key={movie.id} value={movie}>
             {movie.name}
           </MenuItem>

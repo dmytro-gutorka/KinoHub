@@ -1,5 +1,8 @@
+import MediaPageLayout from '../../shared/ui/MediaPageLayout';
+
+
 const Shows = () => {
-  return <div>Shows</div>;
+  return <MediaPageLayout qrKey="shows" mediaType="tv"/>
 };
 
 export default Shows;

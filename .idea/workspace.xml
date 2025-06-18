@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/fdc89025-9009-457e-bce3-1be6f69b0ad9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fdc89025-9009-457e-bce3-1be6f69b0ad9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database.sqlite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/movieAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/movieAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/movieBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/movieBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/movies.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/movies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/data/tvShowGenres.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/data/tvShowGenres.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getMovieByTitle.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaDataByTitle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getMoviesByPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaDataByPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/data/movieGenres.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/data/movieGenres.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Movies/Movies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Movies/Movies.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Shows/Shows.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Shows/Shows.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useFilteredMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useFilteredMedia.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useSearchedMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useSearchedMedia.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/CardsList/CardsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/CardsList/CardsList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MultipleSelect/MultipleSelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MultipleSelect/MultipleSelect.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +33,10 @@
         <option value="CSS File" />
         <option value="JSX File" />
         <option value="JSX Component Folder with styles" />
-        <option value="JSX Component Folder.jsx.child.0" />
-        <option value="JSX Component Folder" />
         <option value="tsconfig.json" />
         <option value="HTML File" />
+        <option value="JSX Component Folder.jsx.child.0" />
+        <option value="JSX Component Folder" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -90,6 +98,7 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src" />
       <recent name="$PROJECT_DIR$/backend/views" />
       <recent name="$PROJECT_DIR$/frontend" />
     </key>
@@ -110,23 +119,11 @@
       <option name="presentableId" value="Default" />
       <updated>1749465897220</updated>
       <workItem from="1749465898747" duration="105600000" />
-      <workItem from="1749854105809" duration="83798000" />
+      <workItem from="1749854105809" duration="88230000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/frontend/src/config/theme.js</url>
-          <line>28</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

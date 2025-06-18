@@ -6,7 +6,6 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import movieGenres from '../../../features/movies/data/movieGenres';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
@@ -16,10 +15,10 @@ function getYearFromDate(dateStr) {
   return date.getFullYear();
 }
 
-const CardsList = ({ movies }) => {
+const CardsList = ({ mediaData, mediaGenres }) => {
   return (
     <Stack direction="row" flexWrap="wrap" gap={10} justifyContent="center">
-      {movies.map((movie) => {
+      {mediaData.map((movie) => {
         const {
           release_date: releaseDate,
           poster_path: posterPath,
@@ -74,7 +73,7 @@ const CardsList = ({ movies }) => {
               </Typography>
               <Stack direction="row" spacing={1}>
                 {genres.map((genreId, index) => {
-                  const genreName = movieGenres.find((movie) => movie.id === genreId)?.name;
+                  const genreName = mediaGenres.find((movie) => movie.id === genreId)?.name;
                   const numberOfGenres = genres.length;
                   const hideFrom = 2;
 
