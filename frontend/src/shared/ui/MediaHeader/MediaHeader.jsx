@@ -22,8 +22,8 @@ const MediaHeader = () => {
       width: '100%',
       height: '50vh',
     }}>
-      <Container maxWidth="lg">
 
+      <Container maxWidth="lg">
       <Stack direction="row">
         <Box
           component="img"
@@ -76,9 +76,11 @@ const MediaHeader = () => {
               </LabelWithIcon>
             </Button>
           </Stack>
+
         </Box>
       </Stack>
     </Container>
+
   </Stack>
 )
 };
