@@ -8,6 +8,7 @@ import Layout from '../shared/ui/Layout';
 import Movies from '../pages/Movies';
 import Homepage from '../pages/Homepage';
 import MovieDetails from '../pages/MovieDetails';
+import MediaDetailsPage from '../shared/ui/MediaDetailsPage';
 
 function makeRouter(queryClient) {
   return createBrowserRouter([
@@ -20,9 +21,10 @@ function makeRouter(queryClient) {
         { path: '/dashboard', Component: Swiper },
         { path: '/shows', Component: Shows },
         { path: '/movies', Component: Movies },
-        { path: '/movie/:id', Component: MovieDetails },
       ],
     },
+    { path: '/movie/:id', Component: MediaDetailsPage },
+
   ]);
 }
 

@@ -8,7 +8,7 @@ import MediaDetailsPage from '../../shared/ui/MediaDetailsPage';
 
 const MovieDetails = () => {
   // const { id } = useParams();
-  //
+  // //
   // const {
   //   data: movie,
   //   isLoading,

@@ -67,7 +67,6 @@ const MoviePreviewCard = ({ movie }) => {
           <IconButton onClick={() => dispatch(toggleBookmark(id))}>
             {isBookmarked ? <BookmarkIcon /> : <BookmarkBorderIcon />}
           </IconButton>
-          {/*<Button variant="transparent-square">+</Button>*/}
           <Button
             color="buttonColor.light"
             component={Link}
