@@ -33,7 +33,8 @@ export const useMediaFilters = (initialFilters = {}) => {
     setFilters((prev) => ({ ...prev, minRating: value }));
   };
 
-  const handlePageChange = (newPage) => {
+  const handlePageChange = (e, newPage) => {
+    console.log(newPage)
     setFilters((prev) => ({ ...prev, page: newPage }));
   };
 

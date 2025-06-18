@@ -1,6 +1,7 @@
 import { BASE_POSTER_URL } from '../../../config/constants';
 import { Chip, Stack } from '@mui/material';
 
+import getYearFromDate from '../../helpers/getYearFromDate';
 import LabelWithIcon from '../LabelWithIcon';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -9,11 +10,6 @@ import Typography from '@mui/material/Typography';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
-
-function getYearFromDate(dateStr) {
-  const date = new Date(dateStr);
-  return date.getFullYear();
-}
 
 const CardsList = ({ mediaData, mediaGenres }) => {
   return (

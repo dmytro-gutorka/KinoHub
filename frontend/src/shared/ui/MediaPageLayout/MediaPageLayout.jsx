@@ -1,4 +1,4 @@
-import { CircularProgress, Stack } from '@mui/material';
+import { CircularProgress, Pagination, Stack } from '@mui/material';
 import { useMediaFilters } from '../../hooks/useMediaFilters';
 
 import useFilteredMedia from '../../hooks/useFilteredMedia';
@@ -48,13 +48,10 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
       {searchLoading && <CircularProgress />}
       {mediaData && <CardsList mediaGenres={mediaGenres} mediaData={mediaData}></CardsList>}
 
-      <button disabled={page === 1} onClick={() => handlePageChange(page - 1)}>
-        Prev
-      </button>
-      <span>{page}</span>
-      <button disabled={page === maxPage} onClick={() => handlePageChange(page + 1)}>
-        Next
-      </button>
+      <Stack spacing={2}>
+        <Pagination count={500} variant="outlined" onChange={handlePageChange} />
+        {/*Public API that I use has a restriction to only 500 page, so the value is hardcoded*/}
+      </Stack>
     </Stack>
   );
 }

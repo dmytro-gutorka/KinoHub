@@ -16,9 +16,9 @@ function makeRouter(queryClient) {
       path: '/',
       children: [
         { path: '/', Component: Homepage },
-        { path: '/shows', Component: Shows },
         { path: '/anime', Component: Anime },
         { path: '/dashboard', Component: Swiper },
+        { path: '/shows', Component: Shows },
         { path: '/movies', Component: Movies },
         { path: '/movie/:id', Component: MovieDetails },
       ],
