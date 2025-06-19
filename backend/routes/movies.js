@@ -99,10 +99,25 @@ router.put('/:id/likes', async (req, res) => {
 
 // @movie-action
 router.post('/:id/action', async (req, res) => {
-  const movieID = req.params.id;
+  const movieID = Number(req.params.id);
+  const userID = Number(req.query.userid)
+  //findOrCreate findOrCreate findOrCreate findOrCreate
 
-  await MovieAction.create({ ...req.body, movieId: movieID });
-  res.status(201).json({ ...req.body, movieId: movieID });
+  const isActionExists = await MovieAction.findOne({
+    where: {
+      movieId: movieID,
+      userId: userID,
+      mediaType: 'movie',
+    }
+  })
+
+  if (isActionExists) console.log(isActionExists.dataValues)
+
+  if (isActionExists) return res.status(409).json({error: "Duplicate entry"})
+
+  const action = await MovieAction.create({ ...req.body, movieId: movieID, userId: userID });
+
+  res.status(201).json(action);
 })
 
 router.put('/:id/action', async (req, res) => {

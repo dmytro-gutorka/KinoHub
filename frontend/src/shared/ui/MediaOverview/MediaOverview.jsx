@@ -114,10 +114,7 @@ const MediaOverview = ({ mediaData, mediaType }) => {
           </Grid>
         </Grid>
       )}
-
-</Stack>
-
-
+    </Stack>
   )
 };
 

@@ -1,11 +1,11 @@
 import getMovieDetails from '../../../features/movies/api/getMovieDetails';
-import getMediaActions from '../../../features/movies/api/getMediaActions';
 import MediaHeader from '../MediaHeader';
 import MediaOverview from '../MediaOverview';
 
 import { useLoaderData, useParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
 import { Container } from '@mui/material';
+import createMediaActions from '../../../features/movies/api/createMediaAction';
 
 const MediaDetailsPage = () => {
 
@@ -18,19 +18,13 @@ const MediaDetailsPage = () => {
     staleTime: Infinity,
   });
 
-  const { data: actionData} = useQuery({
+  const { data: actionData } = useQuery({
     queryKey: ['actionData', +id],
-    queryFn: () => getMediaActions(id),
+    queryFn: () => createMediaActions(id, { mediaType }),
     staleTime: Infinity,
   });
-  // ОТПРАВИЛЯТЬ ПОСТ КАЖДЫЙ РАЗ ПРИ ОТКРЫТИИ СТРАНИЦЫ С movieID, userId, mediType и потом
-  // не прийдеться тогда делать условия на POST и PUT
-  // ОТПРАВИЛЯТЬ ПОСТ КАЖДЫЙ РАЗ ПРИ ОТКРЫТИИ СТРАНИЦЫ С movieID, userId, mediType и потом
-  // не прийдеться тогда делать условия на POST и PUT
-  // ОТПРАВИЛЯТЬ ПОСТ КАЖДЫЙ РАЗ ПРИ ОТКРЫТИИ СТРАНИЦЫ С movieID, userId, mediType и потом
-  // не прийдеться тогда делать условия на POST и PUT
-  // ОТПРАВИЛЯТЬ ПОСТ КАЖДЫЙ РАЗ ПРИ ОТКРЫТИИ СТРАНИЦЫ С movieID, userId, mediType и потом
-  // не прийдеться тогда делать условия на POST и PUT
+
+  // а хом пейдж вытянуть все фильмы с лайками и сравнивать где есть вопадении и тому фильму менять икноку лайка/заклдаки
 
   if (actionData) console.log(actionData)
 

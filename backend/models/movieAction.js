@@ -23,7 +23,7 @@ export const MovieActionModel = (sequelize) => {
       defaultValue: false
     },
     mediaType: {
-      type: DataTypes.STRING, // tvShow, movie
+      type: DataTypes.STRING, // tv, movie
       allowNull: false,
     },
     runtime: {
