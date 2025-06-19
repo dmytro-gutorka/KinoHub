@@ -499,7 +499,7 @@
     </routine>
     <schema id="191" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-06-18.12:45:02</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-06-19.16:27:47</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="192" parent="16">
       <ArgumentDirection>R</ArgumentDirection>
@@ -1616,145 +1616,188 @@
     </column>
     <column id="563" parent="555" name="isLiked">
       <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>TINYINT(1)|0s</StoredType>
     </column>
-    <column id="564" parent="555" name="ratings">
+    <column id="564" parent="555" name="isWatched">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
       <Position>5</Position>
-      <StoredType>FLOAT|0s</StoredType>
+      <StoredType>TINYINT(1)|0s</StoredType>
     </column>
-    <column id="565" parent="555" name="createdAt">
+    <column id="565" parent="555" name="mediaType">
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StoredType>DATETIME|0s</StoredType>
+      <StoredType>VARCHAR(255)|0s</StoredType>
     </column>
-    <column id="566" parent="555" name="updatedAt">
-      <NotNull>1</NotNull>
+    <column id="566" parent="555" name="runtime">
+      <DefaultExpression>NULL</DefaultExpression>
       <Position>7</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="567" parent="555" name="ratings">
+      <DefaultExpression>NULL</DefaultExpression>
+      <Position>8</Position>
+      <StoredType>FLOAT|0s</StoredType>
+    </column>
+    <column id="568" parent="555" name="season">
+      <DefaultExpression>NULL</DefaultExpression>
+      <Position>9</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="569" parent="555" name="episode">
+      <DefaultExpression>NULL</DefaultExpression>
+      <Position>10</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="570" parent="555" name="createdAt">
+      <NotNull>1</NotNull>
+      <Position>11</Position>
       <StoredType>DATETIME|0s</StoredType>
     </column>
-    <foreign-key id="567" parent="555">
+    <column id="571" parent="555" name="updatedAt">
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+      <StoredType>DATETIME|0s</StoredType>
+    </column>
+    <foreign-key id="572" parent="555">
       <ColNames>userId</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id</RefColNames>
       <RefTableName>Users</RefTableName>
     </foreign-key>
-    <key id="568" parent="555">
+    <index id="573" parent="555" name="sqlite_autoindex_MovieActions_1">
+      <ColNames>movieId
+userId
+season
+episode</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+    </index>
+    <key id="574" parent="555">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="569" parent="556" name="id">
+    <key id="575" parent="555">
+      <ColNames>movieId
+userId
+season
+episode</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_MovieActions_1</UnderlyingIndexName>
+    </key>
+    <column id="576" parent="556" name="id">
       <AutoIncrement>1</AutoIncrement>
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="570" parent="556" name="movieId">
+    <column id="577" parent="556" name="movieId">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="571" parent="556" name="userId">
+    <column id="578" parent="556" name="userId">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="572" parent="556" name="status">
-      <DefaultExpression>&apos;toWatch&apos;</DefaultExpression>
+    <column id="579" parent="556" name="status">
+      <DefaultExpression>&apos;unassigned&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>VARCHAR(255)|0s</StoredType>
     </column>
-    <column id="573" parent="556" name="createdAt">
+    <column id="580" parent="556" name="createdAt">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>DATETIME|0s</StoredType>
     </column>
-    <column id="574" parent="556" name="updatedAt">
+    <column id="581" parent="556" name="updatedAt">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>DATETIME|0s</StoredType>
     </column>
-    <key id="575" parent="556">
+    <key id="582" parent="556">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="576" parent="557" name="id">
+    <column id="583" parent="557" name="id">
       <AutoIncrement>1</AutoIncrement>
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="577" parent="557" name="nickname">
+    <column id="584" parent="557" name="nickname">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>VARCHAR(255)|0s</StoredType>
     </column>
-    <column id="578" parent="557" name="email">
+    <column id="585" parent="557" name="email">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>VARCHAR(255)|0s</StoredType>
     </column>
-    <column id="579" parent="557" name="password">
+    <column id="586" parent="557" name="password">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>VARCHAR(255)|0s</StoredType>
     </column>
-    <column id="580" parent="557" name="createdAt">
+    <column id="587" parent="557" name="createdAt">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>DATETIME|0s</StoredType>
     </column>
-    <column id="581" parent="557" name="updatedAt">
+    <column id="588" parent="557" name="updatedAt">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>DATETIME|0s</StoredType>
     </column>
-    <index id="582" parent="557" name="sqlite_autoindex_Users_1">
+    <index id="589" parent="557" name="sqlite_autoindex_Users_1">
       <ColNames>nickname</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <index id="583" parent="557" name="sqlite_autoindex_Users_2">
+    <index id="590" parent="557" name="sqlite_autoindex_Users_2">
       <ColNames>email</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="584" parent="557">
+    <key id="591" parent="557">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="585" parent="557">
+    <key id="592" parent="557">
       <ColNames>nickname</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_Users_1</UnderlyingIndexName>
     </key>
-    <key id="586" parent="557">
+    <key id="593" parent="557">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_Users_2</UnderlyingIndexName>
     </key>
-    <column id="587" parent="558" name="type">
+    <column id="594" parent="558" name="type">
       <Position>1</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="588" parent="558" name="name">
+    <column id="595" parent="558" name="name">
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="589" parent="558" name="tbl_name">
+    <column id="596" parent="558" name="tbl_name">
       <Position>3</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="590" parent="558" name="rootpage">
+    <column id="597" parent="558" name="rootpage">
       <Position>4</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="591" parent="558" name="sql">
+    <column id="598" parent="558" name="sql">
       <Position>5</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="592" parent="559" name="name">
+    <column id="599" parent="559" name="name">
       <Position>1</Position>
     </column>
-    <column id="593" parent="559" name="seq">
+    <column id="600" parent="559" name="seq">
       <Position>2</Position>
     </column>
   </database-model>

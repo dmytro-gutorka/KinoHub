@@ -1,4 +1,4 @@
-import { Box, Button, Chip, Container, Stack, Typography } from '@mui/material';
+import { Box, Button, Chip, Container, IconButton, Stack, Typography } from '@mui/material';
 
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
@@ -13,6 +13,7 @@ import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
 import getYearFromDate from '../../helpers/getYearFromDate';
 import LabelWithIcon from '../LabelWithIcon';
 import getPosterURL from '../../helpers/getPosterURL';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 
 
 const MediaHeader = ({mediaData , mediaType}) => {
@@ -34,6 +35,7 @@ const MediaHeader = ({mediaData , mediaType}) => {
 
   return (
     <Stack position='relative'>
+
       <Box sx={{
         backgroundImage: `url(${imgURL})`,
         position: 'absolute',
@@ -42,19 +44,20 @@ const MediaHeader = ({mediaData , mediaType}) => {
         backgroundPosition: 'center',
         filter: 'blur(8px)',
         zIndex: '-1'
-      }}></Box>
+      }}>
+      </Box>
 
       <Container maxWidth="lg">
-
       <Stack direction="row" pt={14} pb={7}>
+
         <Box
           component="img"
           src={imgURL}
           width="256px"
           height="384x"
           sx={{outline: 'lightgrey solid 2px', borderRadius: '10px',}}/>
+        <Box>
 
-        <Box >
           <Typography variant="h2" component="h2">{title}</Typography>
 
           {mediaType === 'movie' && (
@@ -62,15 +65,12 @@ const MediaHeader = ({mediaData , mediaType}) => {
               <LabelWithIcon label={getYearFromDate(releaseDate)}>
                 <CalendarTodayOutlinedIcon fontSize="small" />
               </LabelWithIcon>
-
               <LabelWithIcon label={voteAverage?.toFixed(2)}>
                 <StarBorderIcon fontSize="small" />
               </LabelWithIcon>
-
               <LabelWithIcon label={runtime + 'm'}>
                 <AccessTimeIcon />
               </LabelWithIcon>
-
               <LabelWithIcon label={language.toUpperCase()}>
                 <LanguageIcon />
               </LabelWithIcon>
@@ -79,19 +79,15 @@ const MediaHeader = ({mediaData , mediaType}) => {
 
           {mediaType === 'tv' && (
             <Stack direction="row" spacing={4}>
-
               <LabelWithIcon label={voteAverage?.toFixed(2) + '/10'}>
                 <StarBorderIcon fontSize="small" />
               </LabelWithIcon>
-
               <LabelWithIcon label={numberOfSeasons}>
                 <LiveTvOutlinedIcon fontSize="small" />
               </LabelWithIcon>
-
               <LabelWithIcon label={numberOfEpisodes}>
                 <PlayCircleOutlineOutlinedIcon fontSize="small" />
               </LabelWithIcon>
-
               <LabelWithIcon label={`~${runtimeEpisode[0]}m per episode`}>
                 <AccessTimeIcon fontSize="small" />
               </LabelWithIcon>
@@ -118,6 +114,9 @@ const MediaHeader = ({mediaData , mediaType}) => {
                 <BookmarkAddOutlinedIcon />
               </LabelWithIcon>
             </Button>
+            <IconButton>
+              <VisibilityOffOutlinedIcon/>
+            </IconButton>
           </Stack>
 
         </Box>

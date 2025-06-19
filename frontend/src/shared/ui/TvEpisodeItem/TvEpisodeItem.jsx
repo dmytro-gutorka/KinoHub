@@ -1,10 +1,12 @@
-import { Box, Stack, Typography } from '@mui/material';
-import getPosterURL from '../../helpers/getPosterURL';
-import LabelWithIcon from '../LabelWithIcon';
-import getYearFromDate from '../../helpers/getYearFromDate';
+import { Box, IconButton, Stack, Typography } from '@mui/material';
+
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import getPosterURL from '../../helpers/getPosterURL';
+import LabelWithIcon from '../LabelWithIcon';
+import getYearFromDate from '../../helpers/getYearFromDate';
 
 const TvEpisodeItem = ({ episodeData }) => {
 
@@ -18,12 +20,20 @@ const TvEpisodeItem = ({ episodeData }) => {
     name,
   } = episodeData
 
+  console.log(episodeData)
+
   return (
     <Stack direction="row" border="1px solid lightgrey" borderRadius={1}>
       <Box component="img" src={getPosterURL(posterPath)} width="200px" height="140px" borderRadius={1}/>
       <Box p={3}>
-        <Typography variant="h6" component="h3">{episodeNumber}. {name}</Typography>
+          <Stack direction="row" justifyContent="space-between">
+            <Typography variant="h6" component="h3">{episodeNumber}. {name}</Typography>
+            <IconButton>
+              <VisibilityOffOutlinedIcon sx={{ color: 'rgb(74 222 128)'}}/>
+            </IconButton>
+          </Stack>
         <Stack direction="row" spacing={1} mb={2}>
+
           <LabelWithIcon label={runtime + 'm'}>
             <AccessTimeIcon />
           </LabelWithIcon>
@@ -37,7 +47,7 @@ const TvEpisodeItem = ({ episodeData }) => {
           </LabelWithIcon>
 
         </Stack>
-        <Typography variant="subtitle1" letterSpacing={0.1} lineHeight={1.2}>{overview}</Typography>
+        <Typography variant="subtitle1" lineHeight={1.2}>{overview}</Typography>
       </Box>
     </Stack>
   )

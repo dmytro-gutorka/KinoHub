@@ -11,7 +11,7 @@ router.get('/:id/actions', async (req, res) => {
 })
 
 // @movie board
-router.get('/:id/movieboard', async (req, res) => {
+router.get('/:id/movie-board', async (req, res) => {
   const userID = req.params.id
   const movieBoardItemById = await MovieBoard.findAll({
     where: {
@@ -21,7 +21,7 @@ router.get('/:id/movieboard', async (req, res) => {
   res.status(200).json({movieBoardItemById})
 })
 
-router.post('/:id/movieboard', (req, res) => {
+router.post('/:id/movie-board', (req, res) => {
   const movieID = req.params.id
   MovieBoard.create({
     ...req.body,
@@ -31,7 +31,7 @@ router.post('/:id/movieboard', (req, res) => {
   res.status(201).json({ msg: `MovieBoard item [${movieID}] was created`})
 })
 
-router.put('/:id/movieboard',async (req, res) => {
+router.put('/:id/movie-board',async (req, res) => {
   const movieID = req.params.id
   await MovieBoard.update(
     { status: req.body.status },
@@ -40,14 +40,14 @@ router.put('/:id/movieboard',async (req, res) => {
   res.status(200).json({ msg: `MovieBoard item [${movieID}] was updated`})
 })
 
-router.delete('/:id/movieboard', async (req, res) => {
+router.delete('/:id/movie-board', async (req, res) => {
   const movieID = req.params.id
   await MovieBoard.destroy({ where: { movieId: movieID } })
   res.status(204).json({ msg: `MovieBoard item [${movieID}] was removed`})
 })
 
 // @ratings
-router.post('/:id/ratings', async (req, res) => {
+router.post('/:id/rate', async (req, res) => {
   const movieID = req.params.id;
   const ratings = req.body.ratings
   await MovieAction.create(
@@ -55,7 +55,7 @@ router.post('/:id/ratings', async (req, res) => {
   res.status(201).json({ ratings });
 })
 
-router.put('/:id/ratings', async (req, res) => {
+router.put('/:id/rate', async (req, res) => {
   const movieID = req.params.id;
   const userID = req.body.userId
   const ratings = req.body.ratings
@@ -76,7 +76,7 @@ router.post('/:id/likes', async (req, res) => {
     const isLiked = req.body.isLiked
     await MovieAction.create(
       { ...req.body, movieId: movieID });
-    res.status(200).json({ isLiked });
+    res.status(201).json({ isLiked });
 });
 
 router.put('/:id/likes', async (req, res) => {
@@ -92,4 +92,47 @@ router.put('/:id/likes', async (req, res) => {
   res.status(200).json({
     msg: `Like on movie ${movieID} was ${isLiked ? 'added' : 'removed'}`
   });
+})
+
+// @watched
+
+
+// @movie-action
+router.post('/:id/action', async (req, res) => {
+  const movieID = req.params.id;
+
+  await MovieAction.create({ ...req.body, movieId: movieID });
+  res.status(201).json({ ...req.body, movieId: movieID });
+})
+
+router.put('/:id/action', async (req, res) => {
+  const movieID = req.params.id;
+  const userID = req.body.userId
+
+  await MovieAction.update(
+    { ...req.body, movieId: movieID },
+    { where: { movieId: movieID, userId: userID }}
+  )
+
+  res.status(200).json({
+    msg: `Movie action for movie ${movieID} was updated.`
+  });
+})
+
+router.get('/:id/action', async (req, res) => {
+  const movieID = req.params.id
+  const userID = req.query.userid
+
+  const movieBoardItemById = await MovieAction.findOne({
+    where: {
+      movieId: movieID, userId: userID
+    }
+  })
+
+  if (movieBoardItemById?.length === 0) {
+    res.status(404).json({message: `Could not find anything by on movie ${movieID} for user ${userID}`})
+
+  }
+  res.status(200).json({movieBoardItemById})
+
 })
