@@ -46,7 +46,7 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
       )}
 
       {searchLoading && <CircularProgress />}
-      {mediaData && <CardsList mediaGenres={mediaGenres} mediaData={mediaData}></CardsList>}
+      {mediaData && <CardsList mediaGenres={mediaGenres} mediaData={mediaData} mediaType={mediaType}></CardsList>}
 
       <Stack spacing={2}>
         <Pagination count={500} variant="outlined" onChange={handlePageChange} />

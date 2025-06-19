@@ -1,7 +1,6 @@
 import { FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
 
 const BasicSelect = ({ sortBy, onSortChange }) => {
-  console.log(sortBy);
   return (
     <FormControl sx={{ m: 1, width: 300 }}>
       <InputLabel id="movie-sort-by">Sort by</InputLabel>
@@ -13,8 +12,8 @@ const BasicSelect = ({ sortBy, onSortChange }) => {
         input={<OutlinedInput />}
       >
         <MenuItem value="title.asc">Title</MenuItem>
-        <MenuItem value="vote_average.asc">Rating</MenuItem>
-        <MenuItem value="primary_release_date.asc">Year</MenuItem>
+        <MenuItem value="vote_average.desc">Rating</MenuItem>
+        <MenuItem value="primary_release_date.desc">Year</MenuItem>
       </Select>
     </FormControl>
   );

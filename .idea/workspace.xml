@@ -9,10 +9,15 @@
       <change beforePath="$PROJECT_DIR$/frontend/src/config/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/config/router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getMovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getMovieDetails.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/components/MoviesPreview/MoviePreviewCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/components/MoviesPreview/MoviePreviewCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MovieDetails/MovieDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MovieDetails/MovieDetails.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Anime/Anime.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Anime/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/BasicSelect/BasicSelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/BasicSelect/BasicSelect.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/CardsList/CardsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/CardsList/CardsList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Header/Header.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaDetailsPage/MediaDetailsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaDetailsPage/MediaDetailsPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaHeader/MediaHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaHeader/MediaHeader.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/MediaOverview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/MediaOverview.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaPageLayout/MediaPageLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaPageLayout/MediaPageLayout.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +32,9 @@
         <option value="JSX Component Folder with styles" />
         <option value="tsconfig.json" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
         <option value="JSX Component Folder.jsx.child.0" />
         <option value="JSX Component Folder" />
-        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -113,7 +118,7 @@
       <option name="presentableId" value="Default" />
       <updated>1749465897220</updated>
       <workItem from="1749465898747" duration="105600000" />
-      <workItem from="1749854105809" duration="100659000" />
+      <workItem from="1749854105809" duration="118301000" />
     </task>
     <servers />
   </component>

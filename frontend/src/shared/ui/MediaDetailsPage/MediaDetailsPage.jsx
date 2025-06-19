@@ -2,17 +2,18 @@ import getMovieDetails from '../../../features/movies/api/getMovieDetails';
 import MediaHeader from '../MediaHeader';
 import MediaOverview from '../MediaOverview';
 
-import { useParams } from 'react-router';
+import { useLoaderData, useParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
 import { Container } from '@mui/material';
 
 const MediaDetailsPage = () => {
 
   const { id } = useParams();
+  const mediaType = useLoaderData()
 
   const { data: mediaData, isLoading, isError, } = useQuery({
-    queryKey: ['movie', +id],
-    queryFn: () => getMovieDetails(id),
+    queryKey: ['media', +id],
+    queryFn: () => getMovieDetails(id, mediaType),
     staleTime: Infinity,
   });
 
@@ -22,9 +23,9 @@ const MediaDetailsPage = () => {
 
   return (
     <>
-      <MediaHeader mediaData={mediaData}/>
+      <MediaHeader mediaData={mediaData} mediaType={mediaType}/>
       <Container maxWidth="lg">
-        <MediaOverview mediaData={mediaData}/>
+        <MediaOverview mediaData={mediaData} mediaType={mediaType}/>
       </Container>
     </>
   )

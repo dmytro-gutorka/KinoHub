@@ -18,13 +18,8 @@ const Header = () => {
           <Box component="li">
             <AppNavLink to="/shows">Shows</AppNavLink>
           </Box>
-          <Box component="li">
-            <AppNavLink to="/anime">Anime</AppNavLink>
-          </Box>
         </Stack>
         <Box>
-          <DeleteOutlinedIcon />
-          <DeleteOutlinedIcon />
           <DeleteOutlinedIcon />
         </Box>
       </Stack>

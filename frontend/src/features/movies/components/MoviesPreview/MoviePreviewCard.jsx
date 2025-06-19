@@ -70,7 +70,7 @@ const MoviePreviewCard = ({ movie }) => {
           <Button
             color="buttonColor.light"
             component={Link}
-            to={`movie/${id}?from=topRatedMovies`}
+            to={`movies/${id}`}
             onMouseEnter={prefetch}
             sx={{
               flex: 1,

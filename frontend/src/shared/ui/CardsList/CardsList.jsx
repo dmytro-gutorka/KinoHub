@@ -1,5 +1,6 @@
 import { BASE_POSTER_URL } from '../../../config/constants';
-import { Chip, Stack } from '@mui/material';
+import { Box, Chip, Stack } from '@mui/material';
+import { NavLink } from 'react-router';
 
 import getYearFromDate from '../../helpers/getYearFromDate';
 import LabelWithIcon from '../LabelWithIcon';
@@ -11,7 +12,7 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 
-const CardsList = ({ mediaData, mediaGenres }) => {
+const CardsList = ({ mediaData, mediaGenres, mediaType }) => {
   return (
     <Stack direction="row" flexWrap="wrap" gap={10} justifyContent="center">
       {mediaData.map((movie) => {
@@ -38,6 +39,7 @@ const CardsList = ({ mediaData, mediaGenres }) => {
               '&:hover': { transform: 'scale(1.05)' },
             }}
           >
+            <Box component={NavLink} to={`${id}`}>
             <CardMedia
               sx={{
                 height: 400,
@@ -47,6 +49,7 @@ const CardsList = ({ mediaData, mediaGenres }) => {
               image={imgURL}
               title="Movie card"
             />
+            </Box>
             {adult && (
               <Typography
                 textAlign="center"

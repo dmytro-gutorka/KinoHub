@@ -2,6 +2,11 @@ import { Box, Grid, ListItem, Stack, styled, Typography, List } from '@mui/mater
 import ItemListSpaceBetween from '../ItemListSpaceBetween';
 import convertToUDS from '../../helpers/convertToUSD';
 import { BASE_POSTER_URL } from '../../../config/constants';
+import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import getTvShowSeasonDetails from '../../../features/movies/api/getTvShowSeasonDetails';
+import TvEpisodeList from '../TvEpisodeList';
+import TvSeasonList from '../TvSeasonList';
 
 
 const StyledBox= styled(Box)(() => ({
@@ -10,23 +15,33 @@ const StyledBox= styled(Box)(() => ({
   borderRadius: '10px'
 }))
 
+// + 1 category: Avaliable on Netflix Apple TV....
 
-const MediaOverview = ({mediaData}) => {
+const MediaOverview = ({ mediaData }) => {
+  const [tvSeason, setTvSeason] = useState(1)
 
-  const {overview, budget, spoken_languages: language, production_countries: country, production_companies: companies, release_date: releaseDate, revenue, status, credits: { cast, crew}  } = mediaData
+  const {
+    id,
+    overview,
+    budget,
+    revenue,
+    status,
+    seasons,
+    credits: { cast },
+    spoken_languages: language,
+    production_countries: country,
+    production_companies: companies,
+    release_date: releaseDate,
 
-  console.log(cast)
-  console.log(crew)
-
-  console.log(mediaData)
-
-  const imgURL = `${BASE_POSTER_URL}/ulbVvuBToBN3aCGcV028hwO0MOP.jpg`;
-
+    first_air_date: airDate,
+    episode_run_time: runtimeEpisode,
+    number_of_episodes: numberOfEpisodes,
+    number_of_seasons: numberOfSeasons,
+  } = mediaData
 
   return (
 
-    <Grid container spacing={2}>
-
+    <Grid container>
       <Grid size={8}>
         <Stack>
           <StyledBox>
@@ -41,15 +56,28 @@ const MediaOverview = ({mediaData}) => {
             <Typography variant="h5" component="h3">
               Cast & Crew
             </Typography>
-            <Stack>
-              {/*<Box component="img" src={imgURL} width="80px" height="130px"></Box>*/}
-              {/*<Box></Box>*/}
-              {/*<Box></Box>*/}
+            <Stack direction="row" flexWrap="wrap" gap={8}>
+              {cast.slice(0, 10).map(actor => {
+                const { character, name, profile_path: profilePath, id } = actor
+                const photoURL = `${BASE_POSTER_URL}${profilePath}`;
 
+                return (
+                  <Stack key={id}>
+                    <Box component="img" src={photoURL} width="100px" height="145px"></Box>
+                    <Box>{name}</Box>
+                    <Box color="grey">{character}</Box>
+                  </Stack>
+                )
+              })}
             </Stack>
-
           </StyledBox>
         </Stack>
+
+        <Grid container>
+        <TvSeasonList seasons={seasons} tvSeason={tvSeason} onSetTvSeason={setTvSeason}/>
+        <TvEpisodeList tvSeason={tvSeason}/>
+        </Grid>
+
       </Grid>
 
       <Grid size={4}>
@@ -59,22 +87,28 @@ const MediaOverview = ({mediaData}) => {
               Movie Details
             </Typography>
             <List>
-              <ItemListSpaceBetween label="Release date" data={releaseDate}/>
+              <ItemListSpaceBetween label="Release date" data={releaseDate || airDate}/>
               <ItemListSpaceBetween label="Status" data={status}/>
-              <ItemListSpaceBetween label="Budget" data={convertToUDS(budget)}/>
-              <ItemListSpaceBetween label="Box Office" data={convertToUDS(revenue)}/>
+              {budget && (
+                <ItemListSpaceBetween label="Budget" data={convertToUDS(budget)}/>
+              )}
+              {revenue && (
+                <ItemListSpaceBetween label="Box Office" data={convertToUDS(revenue)}/>
+              )}
               <ItemListSpaceBetween label="Language" data={language?.at(0)?.english_name}/>
               <ItemListSpaceBetween label="Country" data={country?.at(0)?.name}/>
             </List>
           </StyledBox>
-          <StyledBox>
-            <Typography variant="h5" component="h3">
-              Production companies
-            </Typography>
-            <List>
-              {companies.map(({id, name}) => <ListItem key={id}>{name}</ListItem>)}
-            </List>
-          </StyledBox>
+          {companies.length > 0 && (
+            <StyledBox>
+              <Typography variant="h5" component="h3">
+                Production companies
+              </Typography>
+              <List>
+                {companies.map(({id, name}) => <ListItem key={id}>{name}</ListItem>)}
+              </List>
+            </StyledBox>
+          )}
         </Stack>
       </Grid>
 
