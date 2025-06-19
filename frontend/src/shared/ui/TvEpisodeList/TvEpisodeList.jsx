@@ -1,6 +1,9 @@
 import getTvShowSeasonDetails from '../../../features/movies/api/getTvShowSeasonDetails';
+import TvEpisodeItem from '../TvEpisodeItem';
+
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router';
+import { Stack } from '@mui/material';
 
 const TvEpisodeList = ({tvSeason}) => {
   const { id } = useParams()
@@ -12,21 +15,9 @@ const TvEpisodeList = ({tvSeason}) => {
   });
 
   return (
-    <div>
-          {data?.episodes?.map(episode => {
-            const {
-              episode_number: episodeNumber,
-              vote_average: voteAverage,
-              still_path: posterPath,
-              air_date: airDate,
-              overview,
-              runtime,
-              name,
-              id
-            } = episode
-            return <span></span>
-          })}
-    </div>
+    <Stack spacing={2}>
+          {data?.episodes?.map(episode => <TvEpisodeItem key={episode.id} episodeData={episode}/>)}
+    </Stack>
   )
 
 

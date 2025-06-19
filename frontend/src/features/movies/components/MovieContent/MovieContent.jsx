@@ -1,4 +1,3 @@
-import { BASE_POSTER_URL } from '../../../../config/constants';
 import {
   Box,
   Paper,
@@ -10,6 +9,8 @@ import {
   TableRow,
   TableCell,
 } from '@mui/material';
+
+import getPosterURL from '../../../../shared/helpers/getPosterURL';
 
 const StyledTable = styled(Table)(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
@@ -40,7 +41,7 @@ const MovieContent = ({ movie }) => {
     vote_count: voteCount,
   } = movie;
 
-  const imgURL = `${BASE_POSTER_URL}${posterPath}`;
+  const imgURL = getPosterURL(posterPath)
 
   return (
     <Stack direction="row" gap={4}>

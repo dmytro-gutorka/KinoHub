@@ -1,12 +1,11 @@
 import { Box, Grid, ListItem, Stack, styled, Typography, List } from '@mui/material';
+import { useState } from 'react';
+
 import ItemListSpaceBetween from '../ItemListSpaceBetween';
 import convertToUDS from '../../helpers/convertToUSD';
-import { BASE_POSTER_URL } from '../../../config/constants';
-import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import getTvShowSeasonDetails from '../../../features/movies/api/getTvShowSeasonDetails';
 import TvEpisodeList from '../TvEpisodeList';
 import TvSeasonList from '../TvSeasonList';
+import getPosterURL from '../../helpers/getPosterURL';
 
 
 const StyledBox= styled(Box)(() => ({
@@ -32,18 +31,17 @@ const MediaOverview = ({ mediaData }) => {
     production_countries: country,
     production_companies: companies,
     release_date: releaseDate,
-
     first_air_date: airDate,
-    episode_run_time: runtimeEpisode,
-    number_of_episodes: numberOfEpisodes,
-    number_of_seasons: numberOfSeasons,
+
   } = mediaData
 
   return (
-
+    <Stack>
     <Grid container>
+
       <Grid size={8}>
         <Stack>
+
           <StyledBox>
             <Typography variant="h5" component="h3">
               Plot
@@ -52,6 +50,7 @@ const MediaOverview = ({ mediaData }) => {
               {overview}
             </Typography>
           </StyledBox>
+
           <StyledBox>
             <Typography variant="h5" component="h3">
               Cast & Crew
@@ -59,25 +58,18 @@ const MediaOverview = ({ mediaData }) => {
             <Stack direction="row" flexWrap="wrap" gap={8}>
               {cast.slice(0, 10).map(actor => {
                 const { character, name, profile_path: profilePath, id } = actor
-                const photoURL = `${BASE_POSTER_URL}${profilePath}`;
-
+                const photoURL =  getPosterURL(profilePath);
                 return (
                   <Stack key={id}>
                     <Box component="img" src={photoURL} width="100px" height="145px"></Box>
                     <Box>{name}</Box>
                     <Box color="grey">{character}</Box>
                   </Stack>
-                )
-              })}
+                )})}
             </Stack>
           </StyledBox>
+
         </Stack>
-
-        <Grid container>
-        <TvSeasonList seasons={seasons} tvSeason={tvSeason} onSetTvSeason={setTvSeason}/>
-        <TvEpisodeList tvSeason={tvSeason}/>
-        </Grid>
-
       </Grid>
 
       <Grid size={4}>
@@ -111,8 +103,20 @@ const MediaOverview = ({ mediaData }) => {
           )}
         </Stack>
       </Grid>
-
     </Grid>
+
+  <Grid container spacing={8}>
+    <Grid size={3}>
+      <TvSeasonList seasons={seasons} tvSeason={tvSeason} onSetTvSeason={setTvSeason}/>
+    </Grid>
+    <Grid size={9}>
+      <TvEpisodeList tvSeason={tvSeason}/>
+    </Grid>
+  </Grid>
+
+</Stack>
+
+
   )
 };
 

@@ -1,5 +1,4 @@
 import { Box, Button, Chip, Container, Stack, Typography } from '@mui/material';
-import { BASE_POSTER_URL } from '../../../config/constants';
 
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
@@ -13,6 +12,7 @@ import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
 
 import getYearFromDate from '../../helpers/getYearFromDate';
 import LabelWithIcon from '../LabelWithIcon';
+import getPosterURL from '../../helpers/getPosterURL';
 
 
 const MediaHeader = ({mediaData , mediaType}) => {
@@ -30,8 +30,7 @@ const MediaHeader = ({mediaData , mediaType}) => {
     number_of_seasons: numberOfSeasons,
   } = mediaData
 
-  console.log(mediaData)
-  const imgURL = `${BASE_POSTER_URL}${posterPath}`;
+  const imgURL = getPosterURL(posterPath);
 
   return (
     <Stack position='relative'>

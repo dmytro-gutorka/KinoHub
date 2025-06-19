@@ -1,9 +1,9 @@
-import { BASE_POSTER_URL } from '../../../config/constants';
 import { Box, Chip, Stack } from '@mui/material';
 import { NavLink } from 'react-router';
 
 import getYearFromDate from '../../helpers/getYearFromDate';
 import LabelWithIcon from '../LabelWithIcon';
+import getPosterURL from '../../helpers/getPosterURL';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -26,7 +26,8 @@ const CardsList = ({ mediaData, mediaGenres, mediaType }) => {
           adult,
           id,
         } = movie;
-        const imgURL = `${BASE_POSTER_URL}${posterPath}`;
+
+        const imgURL = getPosterURL(posterPath)
 
         return (
           <Card

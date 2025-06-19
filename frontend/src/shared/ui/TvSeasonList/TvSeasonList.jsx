@@ -1,6 +1,5 @@
 import { Stack } from '@mui/material';
 import TvSeasonItem from '../TvSeasonItem';
-import { BASE_POSTER_URL } from '../../../config/constants';
 
 const TvSeasonList = ({seasons, tvSeason, onSetTvSeason}) => {
   return (

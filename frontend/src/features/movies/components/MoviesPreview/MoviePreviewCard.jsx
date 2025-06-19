@@ -12,12 +12,12 @@ import {
 import { Link } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
-import { BASE_POSTER_URL } from '../../../../config/constants';
 import { toggleBookmark } from '../../../../entities/user/model/slice';
 
 import getMovieDetails from '../../api/getMovieDetails';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import getPosterURL from '../../../../shared/helpers/getPosterURL';
 
 const StyledCardContent = styled(CardContent)(() => ({
   display: 'flex',
@@ -37,12 +37,10 @@ const StyledCard = styled(Card)(({ theme }) => ({
 }));
 
 const MoviePreviewCard = ({ movie }) => {
+
   const { vote_average: voteAverage, poster_path: posterPath, id } = movie;
 
-  const imgURL = `${BASE_POSTER_URL}${posterPath}`;
-
-  // const imgURL = '../../../../../public/dummyImage.webp';
-
+  const imgURL = getPosterURL(posterPath)
   const queryClient = useQueryClient();
   const theme = useTheme();
   const dispatch = useDispatch();

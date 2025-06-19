@@ -1,0 +1,46 @@
+import { Box, Stack, Typography } from '@mui/material';
+import getPosterURL from '../../helpers/getPosterURL';
+import LabelWithIcon from '../LabelWithIcon';
+import getYearFromDate from '../../helpers/getYearFromDate';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+
+const TvEpisodeItem = ({ episodeData }) => {
+
+  const {
+    episode_number: episodeNumber,
+    vote_average: voteAverage,
+    still_path: posterPath,
+    air_date: airDate,
+    overview,
+    runtime,
+    name,
+  } = episodeData
+
+  return (
+    <Stack direction="row" border="1px solid lightgrey" borderRadius={1}>
+      <Box component="img" src={getPosterURL(posterPath)} width="200px" height="140px" borderRadius={1}/>
+      <Box p={3}>
+        <Typography variant="h6" component="h3">{episodeNumber}. {name}</Typography>
+        <Stack direction="row" spacing={1} mb={2}>
+          <LabelWithIcon label={runtime + 'm'}>
+            <AccessTimeIcon />
+          </LabelWithIcon>
+
+          <LabelWithIcon label={getYearFromDate(airDate)}>
+            <CalendarTodayOutlinedIcon fontSize="small" />
+          </LabelWithIcon>
+
+          <LabelWithIcon label={voteAverage?.toFixed(2)}>
+            <StarBorderIcon fontSize="small" />
+          </LabelWithIcon>
+
+        </Stack>
+        <Typography variant="subtitle1" letterSpacing={0.1} lineHeight={1.2}>{overview}</Typography>
+      </Box>
+    </Stack>
+  )
+};
+
+export default TvEpisodeItem;
