@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fdc89025-9009-457e-bce3-1be6f69b0ad9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fdc89025-9009-457e-bce3-1be6f69b0ad9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/models/movieAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/movieAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/movieBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/movieBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/movies.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/movies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaHeader/MediaHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaHeader/MediaHeader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/config/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/config/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getMovieActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaDetailsPage/MediaDetailsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaDetailsPage/MediaDetailsPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/MediaOverview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/MediaOverview.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/TvEpisodeItem/TvEpisodeItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/TvEpisodeItem/TvEpisodeItem.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +117,7 @@
       <option name="presentableId" value="Default" />
       <updated>1749465897220</updated>
       <workItem from="1749465898747" duration="105600000" />
-      <workItem from="1749854105809" duration="130579000" />
+      <workItem from="1749854105809" duration="132807000" />
     </task>
     <servers />
   </component>

@@ -1,11 +1,14 @@
 import { router as movieRouters } from './routes/movies.js'
 import { router as userRouters } from './routes/users.js'
 import { sequelize } from './models/index.js';
+
+import cors from 'cors';
 import express, { json, urlencoded } from 'express';
 
 const port = process.env.PORT || 8000
 const app = express()
 
+app.use(cors());
 app.use(json())
 app.use(urlencoded())
 

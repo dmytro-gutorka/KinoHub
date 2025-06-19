@@ -18,7 +18,7 @@ router.get('/:id/movie-board', async (req, res) => {
       userId: userID
     }
   })
-  res.status(200).json({movieBoardItemById})
+  res.status(200).json(movieBoardItemById)
 })
 
 router.post('/:id/movie-board', (req, res) => {
@@ -129,10 +129,11 @@ router.get('/:id/action', async (req, res) => {
     }
   })
 
-  if (movieBoardItemById?.length === 0) {
-    res.status(404).json({message: `Could not find anything by on movie ${movieID} for user ${userID}`})
-
+  if (!movieBoardItemById) {
+    return res.status(404).json({
+      message: `Could not find anything by on movie ${movieID} for user ${userID}`,
+      status: 404,
+    })
   }
-  res.status(200).json({movieBoardItemById})
-
+  res.status(200).json(movieBoardItemById)
 })

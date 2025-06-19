@@ -20,8 +20,6 @@ const TvEpisodeItem = ({ episodeData }) => {
     name,
   } = episodeData
 
-  console.log(episodeData)
-
   return (
     <Stack direction="row" border="1px solid lightgrey" borderRadius={1}>
       <Box component="img" src={getPosterURL(posterPath)} width="200px" height="140px" borderRadius={1}/>

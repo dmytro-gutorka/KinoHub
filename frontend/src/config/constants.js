@@ -1,6 +1,7 @@
 export const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w780';
 export const TMDB_URL = 'https://api.themoviedb.org';
 
+
 export const TMDB_OPTIONS = {
   method: 'GET',
   headers: {
@@ -18,3 +19,8 @@ export const QUERY_KEYS = {
     popularMovies: 'popularMovies',
   },
 };
+
+
+export const LOCAL_URL = 'http://localhost:8080/'
+export const USER_ID = 1
+// hardcode user id just for the sake of developing, will be changed in the future

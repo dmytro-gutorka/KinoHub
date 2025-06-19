@@ -16,11 +16,10 @@ const StyledBox= styled(Box)(() => ({
 
 // + 1 category: Avaliable on Netflix Apple TV....
 
-const MediaOverview = ({ mediaData }) => {
+const MediaOverview = ({ mediaData, mediaType }) => {
   const [tvSeason, setTvSeason] = useState(1)
 
   const {
-    id,
     overview,
     budget,
     revenue,
@@ -105,14 +104,16 @@ const MediaOverview = ({ mediaData }) => {
       </Grid>
     </Grid>
 
-  <Grid container spacing={8}>
-    <Grid size={3}>
-      <TvSeasonList seasons={seasons} tvSeason={tvSeason} onSetTvSeason={setTvSeason}/>
-    </Grid>
-    <Grid size={9}>
-      <TvEpisodeList tvSeason={tvSeason}/>
-    </Grid>
-  </Grid>
+      {mediaType === 'tv' && (
+        <Grid container spacing={8}>
+          <Grid size={3}>
+            <TvSeasonList seasons={seasons} tvSeason={tvSeason} onSetTvSeason={setTvSeason}/>
+          </Grid>
+          <Grid size={9}>
+            <TvEpisodeList tvSeason={tvSeason}/>
+          </Grid>
+        </Grid>
+      )}
 
 </Stack>
 

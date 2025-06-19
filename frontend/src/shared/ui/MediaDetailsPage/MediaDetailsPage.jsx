@@ -1,4 +1,5 @@
 import getMovieDetails from '../../../features/movies/api/getMovieDetails';
+import getMediaActions from '../../../features/movies/api/getMediaActions';
 import MediaHeader from '../MediaHeader';
 import MediaOverview from '../MediaOverview';
 
@@ -16,6 +17,22 @@ const MediaDetailsPage = () => {
     queryFn: () => getMovieDetails(id, mediaType),
     staleTime: Infinity,
   });
+
+  const { data: actionData} = useQuery({
+    queryKey: ['actionData', +id],
+    queryFn: () => getMediaActions(id),
+    staleTime: Infinity,
+  });
+  // ОТПРАВИЛЯТЬ ПОСТ КАЖДЫЙ РАЗ ПРИ ОТКРЫТИИ СТРАНИЦЫ С movieID, userId, mediType и потом
+  // не прийдеться тогда делать условия на POST и PUT
+  // ОТПРАВИЛЯТЬ ПОСТ КАЖДЫЙ РАЗ ПРИ ОТКРЫТИИ СТРАНИЦЫ С movieID, userId, mediType и потом
+  // не прийдеться тогда делать условия на POST и PUT
+  // ОТПРАВИЛЯТЬ ПОСТ КАЖДЫЙ РАЗ ПРИ ОТКРЫТИИ СТРАНИЦЫ С movieID, userId, mediType и потом
+  // не прийдеться тогда делать условия на POST и PUT
+  // ОТПРАВИЛЯТЬ ПОСТ КАЖДЫЙ РАЗ ПРИ ОТКРЫТИИ СТРАНИЦЫ С movieID, userId, mediType и потом
+  // не прийдеться тогда делать условия на POST и PUT
+
+  if (actionData) console.log(actionData)
 
   if (isLoading) return <div>Loading...</div>;
 

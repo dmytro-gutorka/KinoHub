@@ -19,7 +19,7 @@ export const MovieActionModel = (sequelize) => {
     },
     isWatched: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
+      allowNull: true,
       defaultValue: false
     },
     mediaType: {
