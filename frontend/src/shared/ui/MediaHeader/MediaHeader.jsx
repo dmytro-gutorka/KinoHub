@@ -36,7 +36,6 @@ const MediaHeader = ({mediaData , mediaType}) => {
     number_of_seasons: numberOfSeasons,
   } = mediaData
 
-
   const relevantRuntime = runtime?.at(0) || runtimeEpisode?.at(0) || 0
 
   const actionMutation = useMediaAction("mediaActionData", id)

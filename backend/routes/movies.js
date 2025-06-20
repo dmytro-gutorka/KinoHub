@@ -162,13 +162,24 @@ router.post('/:id/action/bulk', async (req, res) => {
       ...episode,
       movieId: movieId,
       userId: userId,
-
     }
   })
 
-  const mediaAction = await MovieAction.bulkCreate()
+  await Promise.all(
+    episodes.map(episode => MovieAction.upsert(episode))
+  )
 
-console.log(req.body)
-  res.status(200).json({message: 'OK'})
+  const updatedEpisodes = await MovieAction.findAll({
+    where: {
+      userId: userId,
+      movieId: movieId,
+      season: req.body[0].season
+    },
+  },
+    {
+      raw: true
+    }
+  )
 
+  res.status(200).json(updatedEpisodes)
 })
