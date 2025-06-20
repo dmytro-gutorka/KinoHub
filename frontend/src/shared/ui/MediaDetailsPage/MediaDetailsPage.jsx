@@ -1,7 +1,7 @@
 import createMediaActions from '../../../features/movies/api/createMediaAction';
 import getMovieDetails from '../../../features/movies/api/getMovieDetails';
-import MediaHeader from '../MediaHeader';
 import MediaOverview from '../MediaOverview';
+import MediaHeader from '../MediaHeader';
 
 import { useLoaderData, useParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
@@ -31,6 +31,7 @@ const MediaDetailsPage = () => {
 
   if (isError) return <div>Error fetching a movie</div>;
 
+  console.log(mediaData)
   return (
     <>
       <MediaHeader mediaData={mediaData} mediaType={mediaType} mediaActionData={mediaActionData}/>

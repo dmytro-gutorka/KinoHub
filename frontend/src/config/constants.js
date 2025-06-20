@@ -20,6 +20,11 @@ export const QUERY_KEYS = {
   },
 };
 
+export const MEDIA_ACTIONS = {
+  isWatched: "is-watched",
+  isLiked: "like",
+  rating: "rating"
+}
 
 export const LOCAL_URL = 'http://localhost:8080/'
 export const USER_ID = 1

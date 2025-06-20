@@ -11,18 +11,13 @@ import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LanguageIcon from '@mui/icons-material/Language';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import getYearFromDate from '../../helpers/getYearFromDate';
 import LabelWithIcon from '../LabelWithIcon';
 import getPosterURL from '../../helpers/getPosterURL';
-import getMediaAction from '../../../features/movies/api/getMediaAction';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import useLikeAction from '../../../features/movies/hooks/useLikeAction';
 
-const MEDIA_ACTIONS = {
-  isWatched: "watch-state",
-  isLiked: "like",
-  rating: "rating"
-}
 
 const MediaHeader = ({mediaData , mediaType, mediaActionData}) => {
 
@@ -40,31 +35,19 @@ const MediaHeader = ({mediaData , mediaType, mediaActionData}) => {
     number_of_seasons: numberOfSeasons,
   } = mediaData
 
+
+
   const {
     isWatched,
     isLiked
   } = mediaActionData
 
-  const queryClient = useQueryClient()
-
-  const likeMutation = useMutation({
-    mutationFn: ({id, isLiked}) =>  getMediaAction(id, { isLiked }, MEDIA_ACTIONS.isLiked),
-    onMutate: async ({ id, isLiked }) => {
-      const queryKey = ['actionData', id]
-      await queryClient.cancelQueries(queryKey)
-      const prevData = queryClient.getQueryData(queryKey)
-
-      queryClient.setQueryData(queryKey, old => ({ ...old, isLiked }))
-
-      return { prevData }
-    },
-    onSettled: () =>
-      queryClient.invalidateQueries(['actionData', id]),
-    onError: (err,_ , context) =>
-      queryClient.setQueryData(['actionData', id], context.prevData)
-  })
-
   const imgURL = getPosterURL(posterPath);
+  const likeMutation = useLikeAction(id)
+
+  const handleLike = () => likeMutation.mutate({ isLiked: !isLiked })
+  const handleWatchStatus = () => likeMutation.mutate({ isWatched: !isWatched })
+
 
   return (
     <Stack position='relative'>
@@ -137,9 +120,7 @@ const MediaHeader = ({mediaData , mediaType, mediaActionData}) => {
                 <PlayArrowOutlinedIcon />
               </LabelWithIcon>
             </Button>
-            <Button onClick={() => likeMutation.mutate(
-              { id, isLiked: !isLiked })}
-            >
+            <Button onClick={handleLike}>
               <LabelWithIcon label="Add to Favorites">
                 {isLiked ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon />}
               </LabelWithIcon>
@@ -149,8 +130,8 @@ const MediaHeader = ({mediaData , mediaType, mediaActionData}) => {
                 {isWatched ? <BookmarkAddedIcon /> : <BookmarkAddOutlinedIcon />}
               </LabelWithIcon>
             </Button>
-            <IconButton>
-              <VisibilityOffOutlinedIcon/>
+            <IconButton onClick={handleWatchStatus}>
+              {isWatched ? <VisibilityIcon/> : <VisibilityOffOutlinedIcon/>}
             </IconButton>
           </Stack>
 

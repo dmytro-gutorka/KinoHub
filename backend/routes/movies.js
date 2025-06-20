@@ -79,9 +79,9 @@ router.put('/:id/like', async (req, res) => {
 })
 
 // @watch-status
-router.put('/:id/watch-status', async (req, res) => {
+router.put('/:id/is-watched', async (req, res) => {
   const movieID = req.params.id;
-  const userID = req.params.userid
+  const userID = req.query.userid
   const isWatched = req.body.isWatched
 
   await MovieAction.update(
