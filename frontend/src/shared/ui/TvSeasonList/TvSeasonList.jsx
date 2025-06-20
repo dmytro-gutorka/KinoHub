@@ -2,7 +2,7 @@ import { Stack } from '@mui/material';
 import TvSeasonItem from '../TvSeasonItem';
 
 const TvSeasonList = ({seasons, tvSeason, onSetTvSeason}) => {
-  console.log(seasons)
+
   return (
     <Stack component="ul" spacing={2}>
       {seasons.map(season => {

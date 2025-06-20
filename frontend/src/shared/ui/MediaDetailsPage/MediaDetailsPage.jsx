@@ -1,3 +1,4 @@
+import createMediaActions from '../../../features/movies/api/createMediaAction';
 import getMovieDetails from '../../../features/movies/api/getMovieDetails';
 import MediaHeader from '../MediaHeader';
 import MediaOverview from '../MediaOverview';
@@ -5,7 +6,6 @@ import MediaOverview from '../MediaOverview';
 import { useLoaderData, useParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
 import { Container } from '@mui/material';
-import createMediaActions from '../../../features/movies/api/createMediaAction';
 
 const MediaDetailsPage = () => {
 
@@ -18,15 +18,14 @@ const MediaDetailsPage = () => {
     staleTime: Infinity,
   });
 
-  const { data: actionData } = useQuery({
+  const { data: mediaActionData } = useQuery({
     queryKey: ['actionData', +id],
     queryFn: () => createMediaActions(id, { mediaType }),
     staleTime: Infinity,
   });
 
-  // а хом пейдж вытянуть все фильмы с лайками и сравнивать где есть вопадении и тому фильму менять икноку лайка/заклдаки
-
-  if (actionData) console.log(actionData)
+  // а хом пейдж вытянуть все фильмы с лайками и сравнивать где есть вопадении
+  // и тому фильму менять икноку лайка/заклдаки
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -34,7 +33,7 @@ const MediaDetailsPage = () => {
 
   return (
     <>
-      <MediaHeader mediaData={mediaData} mediaType={mediaType}/>
+      <MediaHeader mediaData={mediaData} mediaType={mediaType} mediaActionData={mediaActionData}/>
       <Container maxWidth="lg">
         <MediaOverview mediaData={mediaData} mediaType={mediaType}/>
       </Container>

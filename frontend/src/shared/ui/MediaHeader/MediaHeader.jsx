@@ -1,23 +1,33 @@
 import { Box, Button, Chip, Container, IconButton, Stack, Typography } from '@mui/material';
 
+import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
+import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
+import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
+import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LanguageIcon from '@mui/icons-material/Language';
-import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
-import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
-import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
-
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import getYearFromDate from '../../helpers/getYearFromDate';
 import LabelWithIcon from '../LabelWithIcon';
 import getPosterURL from '../../helpers/getPosterURL';
-import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import getMediaAction from '../../../features/movies/api/getMediaAction';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
+const MEDIA_ACTIONS = {
+  isWatched: "watch-state",
+  isLiked: "like",
+  rating: "rating"
+}
 
-const MediaHeader = ({mediaData , mediaType}) => {
+const MediaHeader = ({mediaData , mediaType, mediaActionData}) => {
+
   const {
+    id,
     genres,
     title,
     runtime,
@@ -25,11 +35,34 @@ const MediaHeader = ({mediaData , mediaType}) => {
     vote_average: voteAverage,
     original_language: language,
     release_date: releaseDate,
-
     episode_run_time: runtimeEpisode,
     number_of_episodes: numberOfEpisodes,
     number_of_seasons: numberOfSeasons,
   } = mediaData
+
+  const {
+    isWatched,
+    isLiked
+  } = mediaActionData
+
+  const queryClient = useQueryClient()
+
+  const likeMutation = useMutation({
+    mutationFn: ({id, isLiked}) =>  getMediaAction(id, { isLiked }, MEDIA_ACTIONS.isLiked),
+    onMutate: async ({ id, isLiked }) => {
+      const queryKey = ['actionData', id]
+      await queryClient.cancelQueries(queryKey)
+      const prevData = queryClient.getQueryData(queryKey)
+
+      queryClient.setQueryData(queryKey, old => ({ ...old, isLiked }))
+
+      return { prevData }
+    },
+    onSettled: () =>
+      queryClient.invalidateQueries(['actionData', id]),
+    onError: (err,_ , context) =>
+      queryClient.setQueryData(['actionData', id], context.prevData)
+  })
 
   const imgURL = getPosterURL(posterPath);
 
@@ -104,14 +137,16 @@ const MediaHeader = ({mediaData , mediaType}) => {
                 <PlayArrowOutlinedIcon />
               </LabelWithIcon>
             </Button>
-            <Button>
+            <Button onClick={() => likeMutation.mutate(
+              { id, isLiked: !isLiked })}
+            >
               <LabelWithIcon label="Add to Favorites">
-                <FavoriteBorderOutlinedIcon />
+                {isLiked ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon />}
               </LabelWithIcon>
             </Button>
             <Button>
               <LabelWithIcon label="Add to Watchlist">
-                <BookmarkAddOutlinedIcon />
+                {isWatched ? <BookmarkAddedIcon /> : <BookmarkAddOutlinedIcon />}
               </LabelWithIcon>
             </Button>
             <IconButton>

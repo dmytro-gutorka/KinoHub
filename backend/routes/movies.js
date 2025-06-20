@@ -1,5 +1,5 @@
-import express from 'express'
 import { MovieAction, MovieBoard } from '../models/index.js';
+import express from 'express'
 
 export const router = express.Router()
 
@@ -47,41 +47,25 @@ router.delete('/:id/movie-board', async (req, res) => {
 })
 
 // @ratings
-router.post('/:id/rate', async (req, res) => {
-  const movieID = req.params.id;
-  const ratings = req.body.ratings
-  await MovieAction.create(
-    { ...req.body, movieId: movieID });
-  res.status(201).json({ ratings });
-})
-
-router.put('/:id/rate', async (req, res) => {
+router.put('/:id/rating', async (req, res) => {
   const movieID = req.params.id;
   const userID = req.body.userId
-  const ratings = req.body.ratings
+  const rating = req.body.rating
 
   await MovieAction.update(
-    { ratings: ratings },
+    { rating: rating },
     { where: { movieId: movieID, userId: userID }}
   )
 
   res.status(200).json({
-    msg: `Rating on movie ${movieID} was updated. Current rating is ${ratings}`
+    msg: `Rating on movie ${movieID} was updated. Current rating is ${rating}`
   });
 })
 
-// @likes
-router.post('/:id/likes', async (req, res) => {
-    const movieID = req.params.id;
-    const isLiked = req.body.isLiked
-    await MovieAction.create(
-      { ...req.body, movieId: movieID });
-    res.status(201).json({ isLiked });
-});
-
-router.put('/:id/likes', async (req, res) => {
+// @like
+router.put('/:id/like', async (req, res) => {
   const movieID = req.params.id;
-  const userID = req.body.userId
+  const userID = req.query.userid
   const isLiked = req.body.isLiked
 
   await MovieAction.update(
@@ -90,34 +74,49 @@ router.put('/:id/likes', async (req, res) => {
   )
 
   res.status(200).json({
-    msg: `Like on movie ${movieID} was ${isLiked ? 'added' : 'removed'}`
+    msg: `Like status on movie ${movieID} was changed to ${isLiked ? 'liked' : 'not liked yet'}`
   });
 })
 
-// @watched
+// @watch-status
+router.put('/:id/watch-status', async (req, res) => {
+  const movieID = req.params.id;
+  const userID = req.params.userid
+  const isWatched = req.body.isWatched
+
+  await MovieAction.update(
+    { isWatched: isWatched },
+    { where: { movieId: movieID, userId: userID }}
+  )
+
+  res.status(200).json({
+    msg: `Watch status on movie ${movieID} was changed to ${isWatched ? 'watched' : 'not watched yet'}`
+  });
+})
 
 
 // @movie-action
 router.post('/:id/action', async (req, res) => {
   const movieID = Number(req.params.id);
   const userID = Number(req.query.userid)
-  //findOrCreate findOrCreate findOrCreate findOrCreate
 
-  const isActionExists = await MovieAction.findOne({
+  const mediaAction = await MovieAction.findOrCreate({
     where: {
       movieId: movieID,
       userId: userID,
-      mediaType: 'movie',
-    }
+      season: null,
+      episode: null,
+    },
+    defaults: {
+      ...req.body,
+      movieId: movieID,
+      userId: userID
+    },
+    raw: true
   })
 
-  if (isActionExists) console.log(isActionExists.dataValues)
-
-  if (isActionExists) return res.status(409).json({error: "Duplicate entry"})
-
-  const action = await MovieAction.create({ ...req.body, movieId: movieID, userId: userID });
-
-  res.status(201).json(action);
+  if (mediaAction[1]) return res.status(201).json(mediaAction[0]);
+  if (!mediaAction[1]) return res.status(200).json(mediaAction[0]);
 })
 
 router.put('/:id/action', async (req, res) => {

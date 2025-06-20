@@ -31,19 +31,19 @@ export const MovieActionModel = (sequelize) => {
       allowNull: true,
       defaultValue: null
     },
-    ratings: {
+    rating: {
       type: DataTypes.FLOAT,
       allowNull: true,
       defaultValue: null
     },
     season: {
-      type: DataTypes.INTEGER, // only for tvShows
+      type: DataTypes.INTEGER, // only for tv
       allowNull: true,
       defaultValue: null,
       unique: 'user_media_unique'
     },
     episode: {
-      type: DataTypes.INTEGER,  // only for tvShows
+      type: DataTypes.INTEGER,  // only for tv
       allowNull: true,
       defaultValue: null,
       unique: 'user_media_unique'

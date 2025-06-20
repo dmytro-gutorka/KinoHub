@@ -499,7 +499,7 @@
     </routine>
     <schema id="191" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-06-19.16:27:47</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-06-20.09:55:14</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="192" parent="16">
       <ArgumentDirection>R</ArgumentDirection>
@@ -1622,7 +1622,6 @@
     </column>
     <column id="564" parent="555" name="isWatched">
       <DefaultExpression>0</DefaultExpression>
-      <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>TINYINT(1)|0s</StoredType>
     </column>
@@ -1636,7 +1635,7 @@
       <Position>7</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="567" parent="555" name="ratings">
+    <column id="567" parent="555" name="rating">
       <DefaultExpression>NULL</DefaultExpression>
       <Position>8</Position>
       <StoredType>FLOAT|0s</StoredType>
