@@ -95,7 +95,7 @@ router.put('/:id/is-watched', async (req, res) => {
 })
 
 
-// @movie-action
+// @action
 router.post('/:id/action', async (req, res) => {
   const movieID = Number(req.params.id);
   const userID = Number(req.query.userid)
@@ -150,4 +150,25 @@ router.get('/:id/action', async (req, res) => {
     })
   }
   res.status(200).json(movieBoardItemById)
+})
+
+
+router.post('/:id/action/bulk', async (req, res) => {
+  const movieId = Number(req.params.id);
+  const userId = Number(req.query.userid)
+
+  const episodes = req.body.map(episode => {
+    return {
+      ...episode,
+      movieId: movieId,
+      userId: userId,
+
+    }
+  })
+
+  const mediaAction = await MovieAction.bulkCreate()
+
+console.log(req.body)
+  res.status(200).json({message: 'OK'})
+
 })

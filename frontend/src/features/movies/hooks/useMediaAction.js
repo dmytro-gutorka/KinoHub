@@ -3,7 +3,7 @@ import { getActionForURL } from '../../../shared/helpers/getActionForURL';
 import updateMediaAction from '../api/updateMediaAction';
 
 
-export default function useLikeAction(mediaID) {
+export default function useMediaAction(qrKey, mediaID) {
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -11,19 +11,17 @@ export default function useLikeAction(mediaID) {
       updateMediaAction(mediaID, actionData, getActionForURL(actionData)),
     onSettled: () =>
       queryClient.invalidateQueries({
-        queryKey: ['actionData', mediaID],
+        queryKey: [qrKey, mediaID],
       }),
     onError: (err,_ , context) =>
-      queryClient.setQueryData(['actionData', mediaID], context.prevData),
+      queryClient.setQueryData([qrKey, mediaID], context.prevData),
     onMutate: async ( actionData ) => {
-      const queryKey = ['actionData', mediaID]
-      await queryClient.cancelQueries(queryKey)
-      const prevData = queryClient.getQueryData(queryKey)
+      await queryClient.cancelQueries([qrKey, mediaID])
+      const prevData = queryClient.getQueryData([qrKey, mediaID])
 
-      queryClient.setQueryData(queryKey, old => ({ ...old, ...actionData }))
+      queryClient.setQueryData([qrKey, mediaID], old => ({ ...old, ...actionData }))
 
       return { prevData }
     }}
   )
 }
-

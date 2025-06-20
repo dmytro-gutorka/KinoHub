@@ -1,4 +1,3 @@
-import createMediaActions from '../../../features/movies/api/createMediaAction';
 import getMovieDetails from '../../../features/movies/api/getMovieDetails';
 import MediaOverview from '../MediaOverview';
 import MediaHeader from '../MediaHeader';
@@ -18,12 +17,6 @@ const MediaDetailsPage = () => {
     staleTime: Infinity,
   });
 
-  const { data: mediaActionData } = useQuery({
-    queryKey: ['actionData', +id],
-    queryFn: () => createMediaActions(id, { mediaType }),
-    staleTime: Infinity,
-  });
-
   // а хом пейдж вытянуть все фильмы с лайками и сравнивать где есть вопадении
   // и тому фильму менять икноку лайка/заклдаки
 
@@ -34,7 +27,7 @@ const MediaDetailsPage = () => {
   console.log(mediaData)
   return (
     <>
-      <MediaHeader mediaData={mediaData} mediaType={mediaType} mediaActionData={mediaActionData}/>
+      <MediaHeader mediaData={mediaData} mediaType={mediaType}/>
       <Container maxWidth="lg">
         <MediaOverview mediaData={mediaData} mediaType={mediaType}/>
       </Container>

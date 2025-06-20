@@ -1,11 +1,12 @@
 import { Box, Grid, ListItem, Stack, styled, Typography, List } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import ItemListSpaceBetween from '../ItemListSpaceBetween';
 import convertToUDS from '../../helpers/convertToUSD';
 import TvEpisodeList from '../TvEpisodeList';
 import TvSeasonList from '../TvSeasonList';
 import getPosterURL from '../../helpers/getPosterURL';
+import createMediaAction from '../../../features/movies/api/createMediaAction';
 
 
 const StyledBox= styled(Box)(() => ({
@@ -20,6 +21,7 @@ const MediaOverview = ({ mediaData, mediaType }) => {
   const [tvSeason, setTvSeason] = useState(1)
 
   const {
+    id,
     overview,
     budget,
     revenue,
@@ -31,9 +33,9 @@ const MediaOverview = ({ mediaData, mediaType }) => {
     production_companies: companies,
     release_date: releaseDate,
     first_air_date: airDate,
-
   } = mediaData
 
+  
   return (
     <Stack>
     <Grid container>

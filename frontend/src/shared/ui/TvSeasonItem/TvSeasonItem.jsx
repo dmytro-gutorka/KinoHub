@@ -1,4 +1,5 @@
 import { Box, Stack } from '@mui/material';
+
 import getPosterURL from '../../helpers/getPosterURL';
 
 const TvSeasonItem = ({ seasonData, tvSeason, onSetTvSeason}) => {
@@ -9,6 +10,7 @@ const TvSeasonItem = ({ seasonData, tvSeason, onSetTvSeason}) => {
     episode_count: episodeCount,
     first_air_date: airDate,
   } = seasonData
+
 
   const imgURL = getPosterURL(posterPath)
 
@@ -25,7 +27,7 @@ const TvSeasonItem = ({ seasonData, tvSeason, onSetTvSeason}) => {
         <Stack>
          <Box component="span">Season {seasonNumber}</Box>
           <Box component="span">{episodeCount} episodes</Box>
-          <Box component="span">0/{seasonNumber} watched</Box>
+          <Box component="span">0/{episodeCount} watched</Box>
         </Stack>
       </Stack>
     </Box>

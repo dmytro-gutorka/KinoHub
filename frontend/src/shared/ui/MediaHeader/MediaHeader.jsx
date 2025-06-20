@@ -16,10 +16,11 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import getYearFromDate from '../../helpers/getYearFromDate';
 import LabelWithIcon from '../LabelWithIcon';
 import getPosterURL from '../../helpers/getPosterURL';
-import useLikeAction from '../../../features/movies/hooks/useLikeAction';
+import useMediaAction from '../../../features/movies/hooks/useMediaAction';
+import useActionDataFindOrCreate from '../../../features/movies/hooks/useActionDataFindOrCreate';
 
 
-const MediaHeader = ({mediaData , mediaType, mediaActionData}) => {
+const MediaHeader = ({mediaData , mediaType}) => {
 
   const {
     id,
@@ -36,18 +37,21 @@ const MediaHeader = ({mediaData , mediaType, mediaActionData}) => {
   } = mediaData
 
 
+  const relevantRuntime = runtime?.at(0) || runtimeEpisode?.at(0) || 0
 
-  const {
-    isWatched,
-    isLiked
-  } = mediaActionData
+  const actionMutation = useMediaAction("mediaActionData", id)
+
+  const { data: mediaActionData, isLoading } = useActionDataFindOrCreate(
+    'mediaActionData', id, {mediaType, runtime: relevantRuntime})
+
+  if (isLoading) return <div>Loading...</div> // replace to loaders/spiners
+
+  const { isWatched, isLiked } = mediaActionData
 
   const imgURL = getPosterURL(posterPath);
-  const likeMutation = useLikeAction(id)
 
-  const handleLike = () => likeMutation.mutate({ isLiked: !isLiked })
-  const handleWatchStatus = () => likeMutation.mutate({ isWatched: !isWatched })
-
+  const handleLike = () => actionMutation.mutate({ isLiked: !isLiked })
+  const handleWatchStatus = () => actionMutation.mutate({ isWatched: !isWatched })
 
   return (
     <Stack position='relative'>
@@ -84,7 +88,7 @@ const MediaHeader = ({mediaData , mediaType, mediaActionData}) => {
               <LabelWithIcon label={voteAverage?.toFixed(2)}>
                 <StarBorderIcon fontSize="small" />
               </LabelWithIcon>
-              <LabelWithIcon label={runtime + 'm'}>
+              <LabelWithIcon label={relevantRuntime + 'm'}>
                 <AccessTimeIcon />
               </LabelWithIcon>
               <LabelWithIcon label={language.toUpperCase()}>
@@ -104,7 +108,7 @@ const MediaHeader = ({mediaData , mediaType, mediaActionData}) => {
               <LabelWithIcon label={numberOfEpisodes}>
                 <PlayCircleOutlineOutlinedIcon fontSize="small" />
               </LabelWithIcon>
-              <LabelWithIcon label={`~${runtimeEpisode[0]}m per episode`}>
+              <LabelWithIcon label={`~${relevantRuntime}m per episode`}>
                 <AccessTimeIcon fontSize="small" />
               </LabelWithIcon>
             </Stack>
