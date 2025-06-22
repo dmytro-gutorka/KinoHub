@@ -14,7 +14,6 @@ const MediaDetailsPage = () => {
   const { data: mediaData, isLoading, isError, } = useQuery({
     queryKey: ['media', +id],
     queryFn: () => getMovieDetails(id, mediaType),
-    staleTime: Infinity,
   });
 
   // а хом пейдж вытянуть все фильмы с лайками и сравнивать где есть вопадении

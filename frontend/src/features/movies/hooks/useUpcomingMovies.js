@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import getUpcomingMovies from '../api/getUpcomingMovies';
-import { QUERY_KEYS } from '../../../config/constants';
+import { QUERY_KEYS } from '../../../app/constants';
 
 export const useUpcomingMovies = () => {
   return useQuery({

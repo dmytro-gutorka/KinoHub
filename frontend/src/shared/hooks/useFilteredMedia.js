@@ -5,7 +5,6 @@ const useFilteredMedia = (qrKey, page, minRating, genres, sortBy, mediaType) => 
   return useQuery({
     queryFn: () => getMediaDataByPage(page, minRating, genres, sortBy, mediaType),
     queryKey: [qrKey, page, minRating, genres, sortBy],
-    staleTime: Infinity,
   });
 };
 

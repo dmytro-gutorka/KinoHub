@@ -1,4 +1,4 @@
-import { LOCAL_URL, USER_ID } from '../../../config/constants';
+import { LOCAL_URL, USER_ID } from '../../../app/constants';
 
 async function createMediaActions(mediaId, actionData) {
   const res = await fetch(`${LOCAL_URL}movies/${mediaId}/action/bulk?userid=${USER_ID}`, {

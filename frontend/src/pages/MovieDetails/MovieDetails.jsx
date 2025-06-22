@@ -16,7 +16,6 @@ const MovieDetails = () => {
   // } = useQuery({
   //   queryKey: ['movie', +id],
   //   queryFn: () => getMovieDetails(id),
-  //   staleTime: Infinity,
   // });
   //
   // if (isLoading) return <div>Loading...</div>;

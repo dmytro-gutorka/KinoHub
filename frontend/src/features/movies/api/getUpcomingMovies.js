@@ -1,4 +1,4 @@
-import { TMDB_URL, TMDB_OPTIONS } from '../../../config/constants';
+import { TMDB_URL, TMDB_OPTIONS } from '../../../app/constants';
 
 async function getUpcomingMovies() {
   const page = 1;

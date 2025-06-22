@@ -1,4 +1,4 @@
-import { LOCAL_URL } from '../../../config/constants';
+import { LOCAL_URL } from '../../../app/constants';
 
 async function getMediaActionBySeason(id, season) {
   const res = await fetch(`${LOCAL_URL}movies/${id}/actions?season=${season}`);

@@ -35,9 +35,9 @@ const MediaHeader = ({mediaData , mediaType}) => {
     number_of_episodes: numberOfEpisodes,
     number_of_seasons: numberOfSeasons,
   } = mediaData
-
+console.log(mediaData)
   const actionMutation = useMediaAction("mediaActionData", id)
-  const relevantRuntime = runtime?.at(0) || runtimeEpisode?.at(0) || 0
+  const relevantRuntime = runtime || runtimeEpisode?.at(0) || 0
   const imgURL = getPosterURL(posterPath);
 
   const { data: mediaActionData, isLoading } = useActionDataFindOrCreate(

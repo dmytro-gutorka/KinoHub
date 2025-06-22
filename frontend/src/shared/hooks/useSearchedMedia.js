@@ -6,7 +6,6 @@ const useSearchedMedia = (qrKey, page, searchQuery, mediaType) => {
     queryFn: () => getMediaDataByTitle(page, searchQuery, mediaType),
     queryKey: [qrKey, page, searchQuery],
     enabled: searchQuery.length >= 2,
-    staleTime: Infinity,
   });
 };
 

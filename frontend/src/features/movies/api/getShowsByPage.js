@@ -1,4 +1,4 @@
-import { TMDB_URL, TMDB_OPTIONS } from '../../../config/constants';
+import { TMDB_URL, TMDB_OPTIONS } from '../../../app/constants';
 
 async function getShowsByPage() {
   const page = 1;

@@ -17,7 +17,6 @@ const TvEpisodeList = ({ tvSeason }) => {
   const { data, isSuccess } = useQuery({
     queryKey: ['tvShowSeason', +id, tvSeason],
     queryFn: () => getTvShowSeasonDetails(id, tvSeason),
-    staleTime: Infinity,
   });
 
   useEffect( () => {
@@ -31,7 +30,6 @@ const TvEpisodeList = ({ tvSeason }) => {
   const { data: mediaActionEpisodeList } = useQuery({
     queryKey: ['mediaActionEpisodeList', +id, tvSeason],
     enabled: !!episodesData,
-    staleTime: Infinity,
     queryFn: () => getMediaActionBySeason(id, tvSeason),
     select: (episodes) => episodes.map(episode => {
       return {episode: episode.episode, isWatched: episode.isWatched}

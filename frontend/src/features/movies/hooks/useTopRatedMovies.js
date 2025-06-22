@@ -5,7 +5,6 @@ const useTopRatedMovies = () => {
   return useQuery({
     queryKey: ['topRatedMovies'],
     queryFn: getTopRatedMovies,
-    staleTime: Infinity,
   });
 };
 

@@ -52,7 +52,6 @@ const MoviePreviewCard = ({ movie }) => {
     queryClient.prefetchQuery({
       queryKey: ['movie', id],
       queryFn: () => getMovieDetails(id),
-      staleTime: Infinity,
     });
   };
 

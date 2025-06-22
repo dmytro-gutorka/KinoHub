@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import getPopularMovies from '../api/getPopularMovies';
-import { QUERY_KEYS } from '../../../config/constants';
+import { QUERY_KEYS } from '../../../app/constants';
 
 const usePopularMovies = () => {
   return useQuery({
