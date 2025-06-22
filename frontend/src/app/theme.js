@@ -3,12 +3,7 @@ import { createTheme } from '@mui/material';
 const theme = createTheme({
   palette: {
     mode: 'dark',
-    grey: {
-      900.5: 'rgba(33, 33, 33, 0.5)',
-    },
-    primary: {
-      main: '#b1154c', // #00B9AE
-    },
+    transparentGrey: 'rgb(255 255 255 / 0.1)'
   },
   spacing: 4,
 });
@@ -25,15 +20,9 @@ const finalTheme = createTheme(theme, {
   components: {
     MuiCssBaseline: {
       styleOverrides: {
-        aside: {
-          backgroundColor: '#1c1b1b',
-        },
         ul: {
           padding: '0px',
           margin: '0px',
-        },
-        main: {
-          backgroundColor: '#1c1b1b',
         },
       },
     },
@@ -41,7 +30,7 @@ const finalTheme = createTheme(theme, {
       styleOverrides: {
         root: {
           opacity: 0.3,
-          borderColor: theme.palette.grey[800],
+          borderColor: theme.palette.transparentGrey,
           height: 2,
         },
       },

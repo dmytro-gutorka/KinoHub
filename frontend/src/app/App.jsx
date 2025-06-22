@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { queryClient, router } from './router';
 import { store } from './store';
 
+
 import finalTheme from './theme';
 
 export default function App() {

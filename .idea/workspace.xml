@@ -7,34 +7,13 @@
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/config/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/config/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/config/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/createMediaAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/createMediaAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/createMediaActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/createMediaActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaActionBySeason.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaActionBySeason.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaDataByPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaDataByPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaDataByTitle.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaDataByTitle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getMovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getMovieDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getNowPlayingMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getNowPlayingMovies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getPopularMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getPopularMovies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getShowsByPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getShowsByPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getTopRatedMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getTopRatedMovies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getTvShowSeasonDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getTvShowSeasonDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getUpcomingMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getUpcomingMovies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/updateMediaAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/updateMediaAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/hooks/useNowPlayingMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/hooks/useNowPlayingMovies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/hooks/usePopularMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/hooks/usePopularMovies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/hooks/useUpcomingMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/hooks/useUpcomingMovies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/getActionForURL.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/getActionForURL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/getPosterURL.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/getPosterURL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaHeader/MediaHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaHeader/MediaHeader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles/globals.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/components/MovieSection/MovieSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/components/MovieSection/MovieSection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/components/MoviesPreview/MoviePreviewCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/components/MoviesPreview/MoviePreviewCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/AsideBar/AsideBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/AsideBar/AsideBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Layout/Layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Layout/Layout.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,9 +28,9 @@
         <option value="JSX Component Folder with styles" />
         <option value="tsconfig.json" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
         <option value="JSX Component Folder.jsx.child.0" />
         <option value="JSX Component Folder" />
-        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -136,7 +115,7 @@
       <option name="presentableId" value="Default" />
       <updated>1749465897220</updated>
       <workItem from="1749465898747" duration="105600000" />
-      <workItem from="1749854105809" duration="177174000" />
+      <workItem from="1749854105809" duration="184322000" />
     </task>
     <servers />
   </component>

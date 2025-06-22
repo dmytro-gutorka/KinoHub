@@ -1,65 +1,36 @@
-import { Box, Paper, Stack, Typography } from '@mui/material';
-import AppNavLink from '../AppNavLink';
+import { Box, Stack } from '@mui/material';
 
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
+import SidebarSection from '../SidebarSection';
 
 const AsideBar = () => {
+
+  const menu = {
+    home: <HomeOutlinedIcon />,
+    discover: <MovieOutlinedIcon />,
+    dashboard:  <MovieOutlinedIcon />,
+    achievements: <MovieOutlinedIcon />,
+  }
+
+  const library = {
+    movies: <HomeOutlinedIcon />,
+    shows: <MovieOutlinedIcon />,
+    watchBoard:  <MovieOutlinedIcon />,
+  }
+
+  const general = {
+    settings: <HomeOutlinedIcon />,
+    logout: <MovieOutlinedIcon />,
+  }
+
   return (
-    <Stack component="aside" gap={4}>
+    <Stack>
       <Box>Logo</Box>
-
-      <Stack spacing={2} marginLeft={4}>
-        <Box>
-          <Typography variant="subtitle1" component="h2">
-            Menu
-          </Typography>
-          <Stack component="ul">
-            <AppNavLink to="/" hasIcon>
-              <HomeOutlinedIcon /> Home
-            </AppNavLink>
-            <AppNavLink to="/discover" hasIcon>
-              <MovieOutlinedIcon /> Discover
-            </AppNavLink>
-            <AppNavLink to="/dashboard" hasIcon>
-              <MovieOutlinedIcon /> Dashboard
-            </AppNavLink>
-            <AppNavLink to="/achievements" hasIcon>
-              <MovieOutlinedIcon /> Achievements
-            </AppNavLink>
-          </Stack>
-        </Box>
-
-        <Box>
-          <Typography variant="subtitle1" component="h2">
-            Library
-          </Typography>
-          <Stack component="ul">
-            <AppNavLink to="/recent" hasIcon>
-              <MovieOutlinedIcon /> Recent
-            </AppNavLink>
-            <AppNavLink to="/playlists" hasIcon>
-              <MovieOutlinedIcon /> Playlists
-            </AppNavLink>
-            <AppNavLink to="/watchboard" hasIcon>
-              <MovieOutlinedIcon /> WatchBoard
-            </AppNavLink>
-          </Stack>
-        </Box>
-
-        <Box>
-          <Typography variant="subtitle1" component="h2">
-            General
-          </Typography>
-          <Stack component="ul">
-            <AppNavLink to="/settings" hasIcon>
-              <MovieOutlinedIcon /> Settings
-            </AppNavLink>
-            <AppNavLink to="/" hasIcon>
-              <MovieOutlinedIcon /> Settings
-            </AppNavLink>
-          </Stack>
-        </Box>
+      <Stack>
+        <SidebarSection tabs={menu} title="Menu"/>
+        <SidebarSection tabs={library} title="Library"/>
+        <SidebarSection tabs={general} title="General"/>
       </Stack>
     </Stack>
   );

@@ -32,7 +32,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
   position: 'relative',
   width: '200px',
   height: '300px',
-  border: `1px solid ${theme.palette.grey[900]}`,
+  border: `1px solid ${theme.palette.transparentGrey}`,
   shadow: theme.shadows[12],
 }));
 
@@ -65,10 +65,10 @@ const MoviePreviewCard = ({ movie }) => {
             {isBookmarked ? <BookmarkIcon /> : <BookmarkBorderIcon />}
           </IconButton>
           <Button
-            color="buttonColor.light"
+
+            onMouseEnter={prefetch}
             component={Link}
             to={`movies/${id}`}
-            onMouseEnter={prefetch}
             sx={{
               flex: 1,
               textTransform: 'capitalize',
