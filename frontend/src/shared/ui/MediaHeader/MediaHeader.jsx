@@ -36,9 +36,9 @@ const MediaHeader = ({mediaData , mediaType}) => {
     number_of_seasons: numberOfSeasons,
   } = mediaData
 
-  const relevantRuntime = runtime?.at(0) || runtimeEpisode?.at(0) || 0
-
   const actionMutation = useMediaAction("mediaActionData", id)
+  const relevantRuntime = runtime?.at(0) || runtimeEpisode?.at(0) || 0
+  const imgURL = getPosterURL(posterPath);
 
   const { data: mediaActionData, isLoading } = useActionDataFindOrCreate(
     'mediaActionData', id, {mediaType, runtime: relevantRuntime})
@@ -46,8 +46,6 @@ const MediaHeader = ({mediaData , mediaType}) => {
   if (isLoading) return <div>Loading...</div> // replace to loaders/spiners
 
   const { isWatched, isLiked } = mediaActionData
-
-  const imgURL = getPosterURL(posterPath);
 
   const handleLike = () => actionMutation.mutate({ isLiked: !isLiked })
   const handleWatchStatus = () => actionMutation.mutate({ isWatched: !isWatched })

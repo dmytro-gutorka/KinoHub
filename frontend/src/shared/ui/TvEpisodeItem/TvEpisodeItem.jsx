@@ -7,12 +7,12 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import getYearFromDate from '../../helpers/getYearFromDate';
 import LabelWithIcon from '../LabelWithIcon';
 import getPosterURL from '../../helpers/getPosterURL';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import updateMediaAction from '../../../features/movies/api/updateMediaAction';
 import { getActionForURL } from '../../helpers/getActionForURL';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
-
-const TvEpisodeItem = ({ episodeData, mediaActionEpisodeData }) => {
+const TvEpisodeItem = ({ episodeData, isWatched }) => {
 
   const {
     episode_number: episodeNumber,
@@ -20,47 +20,37 @@ const TvEpisodeItem = ({ episodeData, mediaActionEpisodeData }) => {
     vote_average: voteAverage,
     still_path: posterPath,
     air_date: airDate,
+    show_id: id,
     overview,
     runtime,
     name,
-    show_id: id
   } = episodeData
 
+  const queryClient = useQueryClient();
 
-  // const queryClient = useQueryClient();
-  //
-  // const actionMutation =  useMutation({
-  //   mutationFn: ( actionData ) =>
-  //     updateMediaAction(id, actionData, getActionForURL(actionData)),
-  //   onSettled: () =>
-  //     queryClient.invalidateQueries({
-  //       queryKey: ['episodeActionData', id, seasonNumber, episodeNumber],
-  //     }),
-  //   onError: (err,_ , context) =>
-  //     queryClient.setQueryData(['episodeActionData', id, seasonNumber, episodeNumber], context.prevData),
-  //   onMutate: async ( actionData ) => {
-  //     await queryClient.cancelQueries(['episodeActionData', id, seasonNumber, episodeNumber])
-  //     const prevData = queryClient.getQueryData(['episodeActionData', id, seasonNumber, episodeNumber])
-  //
-  //     queryClient.setQueryData(['episodeActionData', id, seasonNumber, episodeNumber], old => ({ ...old, ...actionData }))
-  //
-  //     return { prevData }
-  //   }}
-  // )
+  const actionMutation =  useMutation({
+    mutationFn: ( actionData ) =>
+      updateMediaAction(id, actionData, getActionForURL(actionData)),
+    onSettled: () =>
+      queryClient.invalidateQueries({
+        queryKey: ['mediaActionEpisodeList', id, seasonNumber],
+      }),
+    onError: (err,_ , context) =>
+      queryClient.setQueryData(['mediaActionEpisodeList', id, seasonNumber], context.prevData),
+    onMutate: async ( actionData ) => {
+      await queryClient.cancelQueries(['mediaActionEpisodeList', id, seasonNumber])
+      const prevData = queryClient.getQueryData(['mediaActionEpisodeList', id, seasonNumber])
 
-  // function handleWatchStatus() {
-  //   actionMutation.mutate({ isWatched: !isWatched })
-  // }
+      queryClient.setQueryData(['mediaActionEpisodeList', id, seasonNumber], old => ({ ...old, ...actionData }))
 
+      return { prevData }
+    }}
+  )
 
-  /// USE MUTATION !!!!!
-  /// USE MUTATION !!!!!
-  /// USE MUTATION !!!!!
-  /// USE MUTATION !!!!!
-  /// USE MUTATION !!!!!
-  /// USE MUTATION !!!!!
-
-  const { isWatched } = mediaActionEpisodeData
+  function handleWatchStatus() {
+    actionMutation.mutate(
+      { isWatched: !isWatched, season: seasonNumber, episode: episodeNumber })
+  }
 
   return (
     <Stack direction="row" border="1px solid lightgrey" borderRadius={1}>
@@ -68,8 +58,9 @@ const TvEpisodeItem = ({ episodeData, mediaActionEpisodeData }) => {
       <Box p={3}>
           <Stack direction="row" justifyContent="space-between">
             <Typography variant="h6" component="h3">{episodeNumber}. {name}</Typography>
-            <IconButton >
-              {isWatched && <VisibilityOffOutlinedIcon sx={{ color: 'rgb(74 222 128)'}}/>}
+            <IconButton onClick={handleWatchStatus}>
+              {!isWatched && <VisibilityOffOutlinedIcon />}
+              {isWatched && <VisibilityIcon sx={{ color: 'rgb(74 222 128)'}}/>}
             </IconButton>
           </Stack>
         <Stack direction="row" spacing={1} mb={2}>

@@ -5,9 +5,19 @@ export const router = express.Router()
 
 // @movie actions
 router.get('/:id/actions', async (req, res) => {
-  const movieID = req.params.id
-  const movieActionById = await MovieAction.findAll({ where: { movieId: movieID } })
-  res.status(200).json({movieActionById})
+  const movieID = Number(req.params.id)
+  const season = Number(req.query?.season)
+
+  let movieActionById
+
+  if (season) movieActionById =
+    await MovieAction.findAll(
+    { where: { movieId: movieID, season: season }, raw: true })
+
+  if (!season) movieActionById =
+    await MovieAction.findAll({ where: { movieId: movieID } })
+
+  res.status(200).json(movieActionById)
 })
 
 // @movie board
@@ -84,9 +94,26 @@ router.put('/:id/is-watched', async (req, res) => {
   const userID = req.query.userid
   const isWatched = req.body.isWatched
 
-  await MovieAction.update(
+  const season = req.body?.season
+  const episode = req.body?.episode
+
+
+  if (season && episode) await MovieAction.update(
     { isWatched: isWatched },
-    { where: { movieId: movieID, userId: userID }}
+    { where: {
+        movieId: movieID,
+        userId: userID,
+        season: season,
+        episode: episode,
+      }}
+  )
+
+  if (!season || !episode ) await MovieAction.update(
+    { isWatched: isWatched },
+    { where: {
+      movieId: movieID,
+        userId: userID
+    }}
   )
 
   res.status(200).json({

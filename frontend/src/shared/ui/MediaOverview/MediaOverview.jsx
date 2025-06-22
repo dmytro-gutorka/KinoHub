@@ -36,10 +36,8 @@ const MediaOverview = ({ mediaData, mediaType }) => {
   return (
     <Stack>
     <Grid container>
-
       <Grid size={8}>
         <Stack>
-
           <StyledBox>
             <Typography variant="h5" component="h3">
               Plot
@@ -48,7 +46,6 @@ const MediaOverview = ({ mediaData, mediaType }) => {
               {overview}
             </Typography>
           </StyledBox>
-
           <StyledBox>
             <Typography variant="h5" component="h3">
               Cast & Crew
@@ -66,10 +63,8 @@ const MediaOverview = ({ mediaData, mediaType }) => {
                 )})}
             </Stack>
           </StyledBox>
-
         </Stack>
       </Grid>
-
       <Grid size={4}>
         <Stack>
           <StyledBox>

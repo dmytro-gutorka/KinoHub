@@ -11,7 +11,6 @@ const TvSeasonItem = ({ seasonData, tvSeason, onSetTvSeason}) => {
     first_air_date: airDate,
   } = seasonData
 
-
   const imgURL = getPosterURL(posterPath)
 
   return (

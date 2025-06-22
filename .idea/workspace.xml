@@ -8,11 +8,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/movies.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/movies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/parseEpisodeData.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/parseEpisodeData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/getActionForURL.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/getActionForURL.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaHeader/MediaHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaHeader/MediaHeader.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/MediaOverview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/MediaOverview.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/TvEpisodeItem/TvEpisodeItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/TvEpisodeItem/TvEpisodeItem.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/TvEpisodeList/TvEpisodeList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/TvEpisodeList/TvEpisodeList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/TvSeasonItem/TvSeasonItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/TvSeasonItem/TvSeasonItem.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +114,7 @@
       <option name="presentableId" value="Default" />
       <updated>1749465897220</updated>
       <workItem from="1749465898747" duration="105600000" />
-      <workItem from="1749854105809" duration="166918000" />
+      <workItem from="1749854105809" duration="174428000" />
     </task>
     <servers />
   </component>
