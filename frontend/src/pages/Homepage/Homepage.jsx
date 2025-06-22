@@ -2,7 +2,7 @@ import useTopRatedMovies from '../../features/movies/hooks/useTopRatedMovies';
 import usePopularMovies from '../../features/movies/hooks/usePopularMovies';
 import useUpcomingMovies from '../../features/movies/hooks/useUpcomingMovies';
 import useNowPlayingMovies from '../../features/movies/hooks/useNowPlayingMovies';
-import MovieSection from '../../features/movies/components/MovieSection';
+import MediaSection from '../../shared/ui/MediaSection';
 
 import { Divider, Stack } from '@mui/material';
 
@@ -30,10 +30,10 @@ const Homepage = () => {
 
   return (
     <Stack rowGap={5} divider={<Divider orientation="horizontal" />}>
-      <MovieSection movieData={topRatedMovies.results} title="Now Playing" />
-      <MovieSection movieData={topRatedMovies.results} title="Popular" />
-      <MovieSection movieData={topRatedMovies.results} title="Top Rated" />
-      <MovieSection movieData={topRatedMovies.results} title="Upcomming" />
+      <MediaSection movieData={topRatedMovies.results} title="Now Playing" />
+      <MediaSection movieData={topRatedMovies.results} title="Popular" />
+      <MediaSection movieData={topRatedMovies.results} title="Top Rated" />
+      <MediaSection movieData={topRatedMovies.results} title="Upcomming" />
     </Stack>
   );
 };

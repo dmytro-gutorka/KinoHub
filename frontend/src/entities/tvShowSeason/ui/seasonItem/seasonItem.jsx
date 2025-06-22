@@ -1,8 +1,8 @@
 import { Box, Stack } from '@mui/material';
 
-import getPosterURL from '../../helpers/getPosterURL';
+import getPosterURL from '../../../../shared/helpers/getPosterURL';
 
-const TvSeasonItem = ({ seasonData, tvSeason, onSetTvSeason}) => {
+const SeasonItem = ({ seasonData, tvSeason, onSetTvSeason}) => {
 
   const {
     poster_path: posterPath,
@@ -33,4 +33,4 @@ const TvSeasonItem = ({ seasonData, tvSeason, onSetTvSeason}) => {
   )
 };
 
-export default TvSeasonItem;
+export default SeasonItem;

@@ -4,7 +4,7 @@ async function getTopRatedMovies() {
   const page = 1;
 
   const res = await fetch(
-    `${TMDB_URL}/3/movie/top_rated?language=en-US&page=${page}`,
+    `${TMDB_URL}/3/movie/top_rated?page=${page}`,
     TMDB_OPTIONS
   );
 

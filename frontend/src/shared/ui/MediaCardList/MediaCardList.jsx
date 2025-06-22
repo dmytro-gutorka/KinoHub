@@ -12,7 +12,8 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 
-const CardsList = ({ mediaData, mediaGenres, mediaType }) => {
+const MediaCardList = ({ mediaData, mediaGenres }) => {
+
   return (
     <Stack direction="row" flexWrap="wrap" gap={10} justifyContent="center">
       {mediaData.map((movie) => {
@@ -110,4 +111,4 @@ const CardsList = ({ mediaData, mediaGenres, mediaType }) => {
   );
 };
 
-export default CardsList;
+export default MediaCardList;

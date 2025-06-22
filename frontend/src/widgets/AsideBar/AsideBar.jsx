@@ -2,7 +2,7 @@ import { Box, Stack } from '@mui/material';
 
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
-import SidebarSection from '../SidebarSection';
+import SidebarSection from '../../shared/ui/SidebarSection';
 
 const AsideBar = () => {
 

@@ -8,30 +8,21 @@ const StyledNavLink = styled(Link)(({ theme }) => ({
   fontSize: '20px',
   letterSpacing: 2,
   textDecoration: 'none',
+  textTransform: 'capitalize',
 
   '&.active': {
     color: theme.palette.primary.main,
     fontWeight: 'bold',
     position: 'relative',
-
-    '&::after': {
-      content: '""',
-      position: 'absolute',
-      width: '2px',
-      height: '100%',
-      backgroundColor: theme.palette.primary.main,
-      top: 0,
-      left: '100%',
-    },
   },
 }));
 
 const StyledStack = styled(Stack)(() => ({
   justifyContent: 'flex-start',
   alignItems: 'center',
-  fontSize: 16,
   flexDirection: 'row',
   columnGap: '10px',
+  fontSize: 16,
 }));
 
 const AppNavLink = ({ children, to, hasIcon }) => {

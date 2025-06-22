@@ -6,7 +6,7 @@ import useSearchedMedia from '../../hooks/useSearchedMedia';
 import MultipleSelect from '../MultipleSelect';
 import BasicSelect from '../BasicSelect';
 import SliderBar from '../SliderBar';
-import CardsList from '../CardsList';
+import MediaCardList from '../MediaCardList';
 import movieGenres from '../../../data/movieGenres';
 import tvShowGenres from '../../../data/tvShowGenres';
 
@@ -46,7 +46,7 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
       )}
 
       {searchLoading && <CircularProgress />}
-      {mediaData && <CardsList mediaGenres={mediaGenres} mediaData={mediaData} mediaType={mediaType}></CardsList>}
+      {mediaData && <MediaCardList mediaGenres={mediaGenres} mediaData={mediaData} mediaType={mediaType}></MediaCardList>}
 
       <Stack spacing={2}>
         <Pagination count={500} variant="outlined" onChange={handlePageChange} />

@@ -12,12 +12,12 @@ import {
 import { Link } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleBookmark } from '../../../../entities/user/model/slice';
+import { toggleBookmark } from '../../../entities/user/model/slice';
 
-import getMovieDetails from '../../api/getMovieDetails';
+import getPosterURL from '../../helpers/getPosterURL';
+import getMovieDetails from '../../../features/movies/api/getMovieDetails';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import getPosterURL from '../../../../shared/helpers/getPosterURL';
 
 const StyledCardContent = styled(CardContent)(() => ({
   display: 'flex',
@@ -59,23 +59,15 @@ const MoviePreviewCard = ({ movie }) => {
     <StyledCard>
       <CardMedia component="img" image={imgURL} alt="Movie cover" />
       <StyledCardContent>
-        <Typography>{voteAverage}</Typography>
         <Stack direction="row" gap={1}>
           <IconButton onClick={() => dispatch(toggleBookmark(id))}>
             {isBookmarked ? <BookmarkIcon /> : <BookmarkBorderIcon />}
           </IconButton>
           <Button
-
             onMouseEnter={prefetch}
             component={Link}
             to={`movies/${id}`}
-            sx={{
-              flex: 1,
-              textTransform: 'capitalize',
-              background: theme.palette.common.black,
-              color: theme.palette.common.white,
-            }}
-          >
+            sx={{ flex: 1, textTransform: 'capitalize', }}>
             Watch
           </Button>
         </Stack>

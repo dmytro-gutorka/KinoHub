@@ -2,17 +2,18 @@ import { Box, IconButton, Stack, Typography } from '@mui/material';
 
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import getYearFromDate from '../../helpers/getYearFromDate';
-import LabelWithIcon from '../LabelWithIcon';
-import getPosterURL from '../../helpers/getPosterURL';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import updateMediaAction from '../../../features/movies/api/updateMediaAction';
-import { getActionForURL } from '../../helpers/getActionForURL';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+import updateMediaAction from '../../../../features/movies/api/updateMediaAction';
+import getYearFromDate from '../../../../shared/helpers/getYearFromDate';
+import LabelWithIcon from '../../../../shared/ui/LabelWithIcon';
+import getPosterURL from '../../../../shared/helpers/getPosterURL';
 
-const TvEpisodeItem = ({ episodeData, isWatched }) => {
+import { getActionForURL } from '../../../../shared/helpers/getActionForURL';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+
+const EpisodeItem = ({ episodeData, isWatched }) => {
 
   const {
     episode_number: episodeNumber,
@@ -59,8 +60,7 @@ const TvEpisodeItem = ({ episodeData, isWatched }) => {
           <Stack direction="row" justifyContent="space-between">
             <Typography variant="h6" component="h3">{episodeNumber}. {name}</Typography>
             <IconButton onClick={handleWatchStatus}>
-              {!isWatched && <VisibilityOffOutlinedIcon />}
-              {isWatched && <VisibilityIcon sx={{ color: 'rgb(74 222 128)'}}/>}
+              {!isWatched ? <VisibilityOffOutlinedIcon /> :  <VisibilityIcon />}
             </IconButton>
           </Stack>
         <Stack direction="row" spacing={1} mb={2}>
@@ -84,4 +84,4 @@ const TvEpisodeItem = ({ episodeData, isWatched }) => {
   )
 };
 
-export default TvEpisodeItem;
+export default EpisodeItem;

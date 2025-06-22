@@ -3,8 +3,8 @@ import {  useState } from 'react';
 
 import ItemListSpaceBetween from '../ItemListSpaceBetween';
 import convertToUDS from '../../helpers/convertToUSD';
-import TvEpisodeList from '../TvEpisodeList';
-import TvSeasonList from '../TvSeasonList';
+import EpisodeList from '../../../entities/tvShowEpisode/ui/episodeList';
+import SeasonList from '../../../entities/tvShowSeason/ui/seasonList';
 import getPosterURL from '../../helpers/getPosterURL';
 
 
@@ -101,10 +101,10 @@ const MediaOverview = ({ mediaData, mediaType }) => {
       {mediaType === 'tv' && (
         <Grid container spacing={8}>
           <Grid size={3}>
-            <TvSeasonList seasons={seasons} tvSeason={tvSeason} onSetTvSeason={setTvSeason}/>
+            <SeasonList seasons={seasons} tvSeason={tvSeason} onSetTvSeason={setTvSeason}/>
           </Grid>
           <Grid size={9}>
-            <TvEpisodeList tvSeason={tvSeason} mediaType={mediaType}/>
+            <EpisodeList tvSeason={tvSeason} mediaType={mediaType}/>
           </Grid>
         </Grid>
       )}

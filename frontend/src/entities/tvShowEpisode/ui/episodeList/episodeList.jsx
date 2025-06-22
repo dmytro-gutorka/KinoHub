@@ -1,8 +1,8 @@
-import getTvShowSeasonDetails from '../../../features/movies/api/getTvShowSeasonDetails';
-import getMediaActionBySeason from '../../../features/movies/api/getMediaActionBySeason';
-import createMediaAction from '../../../features/movies/api/createMediaAction';
-import parseEpisodesData from '../../helpers/parseEpisodeData';
-import TvEpisodeItem from '../TvEpisodeItem';
+import getTvShowSeasonDetails from '../../../../features/movies/api/getTvShowSeasonDetails';
+import getMediaActionBySeason from '../../../../features/movies/api/getMediaActionBySeason';
+import createMediaAction from '../../../../features/movies/api/createMediaAction';
+import parseEpisodesData from '../../../../shared/helpers/parseEpisodeData';
+import EpisodeItem from '../episodeItem';
 
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router';
@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import { Stack } from '@mui/material';
 
 
-const TvEpisodeList = ({ tvSeason }) => {
+const EpisodeList = ({ tvSeason }) => {
   const [episodesData, setEpisodesData] = useState(null)
   const { id } = useParams()
 
@@ -43,9 +43,9 @@ const TvEpisodeList = ({ tvSeason }) => {
       {data?.episodes?.map(episode => {
         const { episode_number: episodeNumber } = episode
         const isWatched =
-          !!mediaActionEpisodeList.find(ep => episodeNumber === ep.episode).isWatched
+          !!mediaActionEpisodeList.find(ep => episodeNumber === ep.episode)?.isWatched
         return (
-          <TvEpisodeItem
+          <EpisodeItem
             isWatched={isWatched}
             mediaActionEpisodeList={mediaActionEpisodeList}
             key={episode.id}
@@ -55,4 +55,4 @@ const TvEpisodeList = ({ tvSeason }) => {
   )
 };
 
-export default TvEpisodeList;
+export default EpisodeList;
