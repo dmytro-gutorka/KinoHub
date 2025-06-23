@@ -1,16 +1,34 @@
 import { Stack, Typography } from '@mui/material';
-import MoviePreviewCard from '../MoviesPreview';
+import MediaCardPreviewShort from "../MediaCardPreviewShort";
 
-const MediaSection = ({ title, movieData }) => {
+const MediaSection = ({ title, mediaData }) => {
+
   return (
-    <Stack component="section" justifyContent="center" alignItems="center">
-      <Typography variant="h4" component="h2">
-        {title}
-      </Typography>
-        <Stack direction="row" flexWrap="wrap" gap={4}>
-          {movieData.map((movie) => (<MoviePreviewCard movie={movie} />))}
-        </Stack>
-    </Stack>
+      <Stack component="section">
+          <Typography
+              variant="h5"
+              component="h2"
+              fontWeight="700"
+              lineHeight="2"
+          >
+              {title}
+          </Typography>
+          <Stack
+              direction="row"
+              flexWrap="wrap"
+              rowGap={9}
+              columnGap={6}
+              justifyContent="center"
+          >
+              {mediaData.map((mediaItem) => (
+                  <MediaCardPreviewShort
+                      key={mediaItem.id}
+                      mediaItem={mediaItem}
+                  />
+              ))}
+          </Stack>
+      </Stack>
+
   );
 };
 

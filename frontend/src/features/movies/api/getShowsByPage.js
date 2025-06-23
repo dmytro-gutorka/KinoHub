@@ -3,7 +3,7 @@ import { TMDB_URL, TMDB_OPTIONS } from '../../../app/constants';
 async function getShowsByPage(page = 1) {
 
   const res = await fetch(
-    `${TMDB_URL}/3/discover/tv?page=${page}`,
+    `${TMDB_URL}discover/tv?page=${page}`,
     TMDB_OPTIONS
   );
 

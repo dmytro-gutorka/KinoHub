@@ -33,13 +33,14 @@ const MediaCardList = ({ mediaData, mediaGenres }) => {
         return (
           <Card
             key={id}
-            sx={{
+            sx={(theme) => ({
+              background: theme.palette.gradientMidnightSpace,
               position: 'relative',
               width: 276,
-              border: '1px solid grey',
+              border: `1px solid ${theme.palette.transparentGrey}`,
               transition: '0.3s',
               '&:hover': { transform: 'scale(1.05)' },
-            }}
+            })}
           >
             <Box component={NavLink} to={`${id}`}>
             <CardMedia

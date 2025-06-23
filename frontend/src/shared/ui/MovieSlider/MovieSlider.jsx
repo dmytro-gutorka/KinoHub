@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
-import MoviePreviewCard from '../MoviesPreview';
+import MoviePreviewCard from '../MediaCardPreviewShort';
 
 import 'swiper/css';
 import './styles.css';

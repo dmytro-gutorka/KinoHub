@@ -1,5 +1,5 @@
 export const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w780';
-export const TMDB_URL = 'https://api.themoviedb.org';
+export const TMDB_URL = 'https://api.themoviedb.org/3/';
 
 
 export const TMDB_OPTIONS = {
@@ -11,13 +11,11 @@ export const TMDB_OPTIONS = {
   },
 };
 
-export const QUERY_KEYS = {
-  movies: {
-    nowPlayingMovies: 'nowPlayingMovies',
-    upcomingMovies: 'upcomingMovies',
-    topRatedMovies: 'topRatedMovies',
-    popularMovies: 'popularMovies',
-  },
+export const TMDB_ENDPOINTS = {
+  TRENDING_MOVIES: 'trending/movie/week',
+  TRENDING_TV: 'trending/tv/week',
+  TV_AIRING_TODAY: 'tv/airing_today',
+  MOVIE_TOP_RATED: 'movie/top_rated',
 };
 
 export const MEDIA_ACTIONS = {

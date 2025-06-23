@@ -46,10 +46,11 @@ const EpisodeList = ({ tvSeason }) => {
           !!mediaActionEpisodeList.find(ep => episodeNumber === ep.episode)?.isWatched
         return (
           <EpisodeItem
-            isWatched={isWatched}
             mediaActionEpisodeList={mediaActionEpisodeList}
+            episodeData={episode}
+            isWatched={isWatched}
             key={episode.id}
-            episodeData={episode} />
+          />
         )})}
     </Stack>
   )

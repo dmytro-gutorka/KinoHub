@@ -11,7 +11,7 @@ const SidebarSection = ({tabs, title}) => {
         {title}
       </Typography>
 
-      <Stack component="ul">
+      <Stack component="ul" >
         {tabsEntries.map(([title ,value]) =>
           <AppNavLink key={title} to={title} hasIcon>{value} {title}</AppNavLink>
         )}
