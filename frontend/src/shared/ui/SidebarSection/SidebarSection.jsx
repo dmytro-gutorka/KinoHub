@@ -7,13 +7,15 @@ const SidebarSection = ({tabs, title}) => {
 
   return (
     <Box>
-      <Typography variant="subtitle1" component="h2">
+      <Typography variant="subtitle2" component="h2" fontWeight="900" letterSpacing={1.5} mb={2}>
         {title}
       </Typography>
 
-      <Stack component="ul" >
+      <Stack component="ul" pl={2} gap={0.5}>
         {tabsEntries.map(([title ,value]) =>
-          <AppNavLink key={title} to={title} hasIcon>{value} {title}</AppNavLink>
+          <AppNavLink key={title} to={value.path} hasIcon>
+              {value.icon} {title}
+          </AppNavLink>
         )}
       </Stack>
     </Box>

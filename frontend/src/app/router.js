@@ -17,6 +17,8 @@ function makeRouter() {
         { path: '/dashboard', Component: Homepage },
         { path: '/shows', Component: Shows },
         { path: '/movies', Component: Movies },
+        { path: '/watch-board', Component: Homepage },
+
       ],
     },
     { path: '/movies/:id', Component: MediaDetailsPage, loader: () => 'movie' },

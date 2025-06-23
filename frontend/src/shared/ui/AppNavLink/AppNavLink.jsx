@@ -9,12 +9,16 @@ const StyledNavLink = styled(Link)(({ theme }) => ({
   letterSpacing: 2,
   textDecoration: 'none',
   textTransform: 'capitalize',
+  borderRadius: theme.spacing(2),
+  paddingBlock: theme.spacing(2.5),
+  paddingRight: theme.spacing(14),
+  paddingLeft: theme.spacing(2),
 
   '&.active': {
     color: theme.palette.primary.main,
-    fontWeight: 'bold',
-    position: 'relative',
-  },
+    background: theme.palette.gradientGrey,
+
+  }
 }));
 
 const StyledStack = styled(Stack)(() => ({

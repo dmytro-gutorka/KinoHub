@@ -34,7 +34,6 @@ export const useMediaFilters = (initialFilters = {}) => {
   };
 
   const handlePageChange = (e, newPage) => {
-    console.log(newPage)
     setFilters((prev) => ({ ...prev, page: newPage }));
   };
 

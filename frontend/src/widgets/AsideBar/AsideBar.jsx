@@ -1,4 +1,4 @@
-import { Box, Stack } from '@mui/material';
+import { Stack } from '@mui/material';
 
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
@@ -11,31 +11,59 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 
 import SidebarSection from '../../shared/ui/SidebarSection';
+import Logo from "../../shared/Logo";
 
 const AsideBar = () => {
 
   const menu = {
-    home: <HomeOutlinedIcon />,
-    movies: <MovieOutlinedIcon />,
-    shows:  <LiveTvRoundedIcon />,
-    history: <RestoreRoundedIcon />,
+    home: {
+      icon: <HomeOutlinedIcon />,
+      path: '/'
+    },
+    movies: {
+      icon: <MovieOutlinedIcon />,
+      path: 'movies'
+    },
+    shows: {
+      icon: <LiveTvRoundedIcon />,
+      path: 'shows',
+    },
+    history: {
+      icon: <RestoreRoundedIcon />,
+      path: '/history'
+    },
   }
 
   const tools = {
-    watchBoard: <DashboardOutlinedIcon />,
-    dashBoard: <InsertChartOutlinedOutlinedIcon />,
-    profile:  <PersonOutlineOutlinedIcon />,
+    watchBoard: {
+      icon: <DashboardOutlinedIcon />,
+      path: 'dashboard'
+    },
+    dashBoard: {
+      icon: <InsertChartOutlinedOutlinedIcon />,
+      path: 'watch-board'
+    },
+    profile: {
+      icon: <PersonOutlineOutlinedIcon />,
+      path: 'profile'
+    },
   }
 
   const general = {
-    settings: <SettingsOutlinedIcon />,
-    logout: <LoginOutlinedIcon />,
+    settings: {
+      icon:  <SettingsOutlinedIcon />,
+      path: 'settings'
+    },
+    logout: {
+      icon: <LoginOutlinedIcon />,
+      path: 'logout'
+    },
   }
 
   return (
-    <Stack>
-      <Box>Logo</Box>
-      <Stack gap={5}>
+      <Stack gap={10}>
+        <Logo />
+      <Stack gap={6} pr={4}>
         <SidebarSection tabs={menu} title="Menu"/>
         <SidebarSection tabs={tools} title="Library"/>
         <SidebarSection tabs={general} title="General"/>

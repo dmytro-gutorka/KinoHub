@@ -24,8 +24,6 @@ const MediaCardPreviewShort = ({ mediaItem }) => {
 
     const isMovie = mediaType ? 'shows' : 'movies'
 
-  console.log(mediaItem)
-
   const imgURL = getPosterURL(posterPath)
   const queryClient = useQueryClient();
 

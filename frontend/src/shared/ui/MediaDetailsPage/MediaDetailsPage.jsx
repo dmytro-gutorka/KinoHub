@@ -23,7 +23,6 @@ const MediaDetailsPage = () => {
 
   if (isError) return <div>Error fetching a movie</div>;
 
-  console.log(mediaData)
   return (
     <>
       <MediaHeader mediaData={mediaData} mediaType={mediaType}/>

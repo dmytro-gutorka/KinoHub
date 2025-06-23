@@ -1,10 +1,10 @@
-import { Stack, Typography } from '@mui/material';
+import { Stack, Typography} from '@mui/material';
 import MediaCardPreviewShort from "../MediaCardPreviewShort";
 
 const MediaSection = ({ title, mediaData }) => {
 
   return (
-      <Stack component="section">
+      <Stack component="section" ml={10} mt={10}>
           <Typography
               variant="h5"
               component="h2"
@@ -18,7 +18,6 @@ const MediaSection = ({ title, mediaData }) => {
               flexWrap="wrap"
               rowGap={9}
               columnGap={6}
-              justifyContent="center"
           >
               {mediaData.map((mediaItem) => (
                   <MediaCardPreviewShort
@@ -28,7 +27,6 @@ const MediaSection = ({ title, mediaData }) => {
               ))}
           </Stack>
       </Stack>
-
   );
 };
 

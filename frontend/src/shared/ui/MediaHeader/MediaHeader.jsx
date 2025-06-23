@@ -35,7 +35,7 @@ const MediaHeader = ({mediaData , mediaType}) => {
     number_of_episodes: numberOfEpisodes,
     number_of_seasons: numberOfSeasons,
   } = mediaData
-console.log(mediaData)
+
   const actionMutation = useMediaAction("mediaActionData", id)
   const relevantRuntime = runtime || runtimeEpisode?.at(0) || 0
   const imgURL = getPosterURL(posterPath);

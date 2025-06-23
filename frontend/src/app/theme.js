@@ -4,7 +4,9 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     transparentGrey: 'rgb(255 255 255 / 0.1)',
-    gradientMidnightSpace: 'linear-gradient(to bottom right, #000000, #0f172a, #000000)'
+    gradientMidnightSpace: 'linear-gradient(to bottom right, #000000, #0f172a, #000000)',
+    gradientGrey: 'linear-gradient(356deg,rgba(71, 85, 105, 1) 0%, rgba(75, 85, 99, 1) 21%, rgba(71, 85, 105, 1) 100%)'
+
 
   },
   spacing: 4,
