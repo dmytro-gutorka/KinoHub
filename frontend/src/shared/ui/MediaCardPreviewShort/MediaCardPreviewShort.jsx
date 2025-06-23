@@ -38,7 +38,7 @@ const MediaCardPreviewShort = ({ mediaItem }) => {
       <Card
           key={id}
           sx={(theme) => ({
-              background: theme.palette.gradientMidnightSpace,
+              background: 'transparent',
               position: 'relative',
               width: 230,
               border: `1px solid ${theme.palette.transparentGrey}`,
