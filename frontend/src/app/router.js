@@ -5,7 +5,8 @@ import Shows from '../pages/Shows';
 import Layout from '../widgets/Layout';
 import Movies from '../pages/Movies';
 import Homepage from '../pages/Homepage';
-import MediaDetailsPage from '../shared/ui/MediaDetailsPage';
+import MediaDetailsPage from '../pages/MediaDetailsPage';
+import WatchBoard from "../pages/WatchBoard";
 
 function makeRouter() {
   return createBrowserRouter([
@@ -17,8 +18,7 @@ function makeRouter() {
         { path: '/dashboard', Component: Homepage },
         { path: '/shows', Component: Shows },
         { path: '/movies', Component: Movies },
-        { path: '/watch-board', Component: Homepage },
-
+        { path: '/watch-board', Component: WatchBoard },
       ],
     },
     { path: '/movies/:id', Component: MediaDetailsPage, loader: () => 'movie' },

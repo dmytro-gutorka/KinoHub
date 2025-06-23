@@ -1,4 +1,4 @@
-import { Box, Button, Chip, Container, IconButton, Stack, Typography } from '@mui/material';
+import {Box, Button, Chip, Container, IconButton, Stack, Typography, useTheme} from '@mui/material';
 
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
@@ -36,14 +36,16 @@ const MediaHeader = ({mediaData , mediaType}) => {
     number_of_seasons: numberOfSeasons,
   } = mediaData
 
+  const theme = useTheme()
   const actionMutation = useMediaAction("mediaActionData", id)
+
   const relevantRuntime = runtime || runtimeEpisode?.at(0) || 0
   const imgURL = getPosterURL(posterPath);
 
   const { data: mediaActionData, isLoading } = useActionDataFindOrCreate(
     'mediaActionData', id, {mediaType, runtime: relevantRuntime})
 
-  if (isLoading) return <div>Loading...</div> // replace to loaders/spiners
+  if (isLoading) return <div>Loading...</div>
 
   const { isWatched, isLiked } = mediaActionData
 
@@ -54,7 +56,7 @@ const MediaHeader = ({mediaData , mediaType}) => {
     <Stack position='relative'>
 
       <Box sx={{
-        backgroundImage: `url(${imgURL})`,
+        background: `url(${imgURL})`,
         position: 'absolute',
         inset: 0,
         backgroundSize: 'cover',
@@ -72,7 +74,7 @@ const MediaHeader = ({mediaData , mediaType}) => {
           src={imgURL}
           width="256px"
           height="384x"
-          sx={{outline: 'lightgrey solid 2px', borderRadius: '10px',}}/>
+          sx={{outline: `${theme.palette.transparentGrey} solid 2px`, borderRadius: '10px',}}/>
         <Box>
 
           <Typography variant="h2" component="h2">{title}</Typography>

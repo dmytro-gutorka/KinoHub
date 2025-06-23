@@ -2,7 +2,7 @@ import { Stack, Typography} from '@mui/material';
 import MediaCardPreviewShort from "../MediaCardPreviewShort";
 
 const MediaSection = ({ title, mediaData }) => {
-
+console.log(mediaData)
   return (
       <Stack component="section" ml={10} mt={10}>
           <Typography
@@ -31,3 +31,5 @@ const MediaSection = ({ title, mediaData }) => {
 };
 
 export default MediaSection;
+
+

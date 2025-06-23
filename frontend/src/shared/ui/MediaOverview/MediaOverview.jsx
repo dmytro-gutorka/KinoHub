@@ -1,4 +1,4 @@
-import { Box, Grid, ListItem, Stack, styled, Typography, List } from '@mui/material';
+import {Box, Grid, ListItem, Stack, styled, Typography, List, useTheme} from '@mui/material';
 import {  useState } from 'react';
 
 import ItemListSpaceBetween from '../ItemListSpaceBetween';
@@ -7,14 +7,12 @@ import EpisodeList from '../../../entities/tvShowEpisode/ui/episodeList';
 import SeasonList from '../../../entities/tvShowSeason/ui/seasonList';
 import getPosterURL from '../../helpers/getPosterURL';
 
-
 const StyledBox= styled(Box)(() => ({
   padding: '16px',
   border: '1px solid grey',
   borderRadius: '10px'
 }))
 
-// + 1 category: Avaliable on Netflix Apple TV....
 
 const MediaOverview = ({ mediaData, mediaType }) => {
   const [tvSeason, setTvSeason] = useState(1)
@@ -34,7 +32,7 @@ const MediaOverview = ({ mediaData, mediaType }) => {
   } = mediaData
 
   return (
-    <Stack>
+    <Stack >
     <Grid container>
       <Grid size={8}>
         <Stack>
