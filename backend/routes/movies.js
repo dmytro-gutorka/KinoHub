@@ -84,17 +84,23 @@ router.put('/:id/is-watched', async (req, res) => {
   });
 })
 
+
+// @watch-status
+
 router.get('/watch-status', async(req, res) => {
   const userId = req.query.userid
 
   const mediaItemsWithStatus = await MovieAction.findAll({
-    where: { userId: userId,  status: { [Op.not]: null }}
+    where: {
+      userId: userId,
+      watchStatus: { [Op.not]: null }
+    },
+    attributes: ['movieId', 'runtime', 'watchStatus']
   })
 
   res.status(200).json(mediaItemsWithStatus)
 })
 
-// @watch-status
 router.put('/:id/watch-status', async (req, res) => {
   const movieID = req.params.id;
   const userID = req.query.userid
