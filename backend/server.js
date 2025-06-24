@@ -1,5 +1,7 @@
 import { router as movieRouters } from './routes/movies.js'
 import { router as userRouters } from './routes/users.js'
+import { router as movieBoardRouters } from './routes/movieBoard.js'
+
 import { sequelize } from './models/index.js';
 
 import cors from 'cors';
@@ -14,6 +16,8 @@ app.use(urlencoded())
 
 app.use('/movies', movieRouters);
 app.use('/users', userRouters);
+app.use('/movie-board', movieBoardRouters);
+
 
 async function startServer() {
   try {

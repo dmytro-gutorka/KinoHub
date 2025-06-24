@@ -10,23 +10,6 @@ import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
 
-export function Droppable({id, children}) {
-    const {isOver, setNodeRef} = useDroppable({id});
-
-    const style = {
-        backgroundColor: isOver ? '#e0ffe0' : '#f0f0f0',
-        width: '150px',
-        minHeight: '150px',
-        border: '1px solid gray',
-    };
-
-    return (
-        <Box ref={setNodeRef} style={style}>
-            {children}
-        </Box>
-    );
-}
-
 const initialItems = [
     {
         posterPath: '/zfbjgQE1uSd9wiPTX4VzsLi0rGG.jpg',
@@ -34,7 +17,7 @@ const initialItems = [
         title: "Movie 1",
         ratings: 8.71,
         runtime: 120,
-        parent: null
+        parent: 'toWatch'
     },
     {
         posterPath: '/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg',
@@ -42,7 +25,7 @@ const initialItems = [
         title: "Movie 2",
         ratings: 7.61,
         runtime: 213,
-        parent: null
+        parent: 'toWatch'
 
     },
     {
@@ -51,7 +34,7 @@ const initialItems = [
         title: "Movie 3",
         ratings: 5,
         runtime: 95,
-        parent: null
+        parent: 'toWatch'
 
     }
 ]
@@ -59,32 +42,31 @@ const initialItems = [
 const WatchBoard = () => {
     const columns = [
         {
-            id: 1,
+            id: 'toWatch',
             label: 'Want to Watch',
             icon: <TurnedInNotOutlinedIcon />
         },
         {
-            id: 2,
+            id: 'isWatching',
             label: 'Currently Watching',
             icon: <PlayCircleOutlineOutlinedIcon/>
         },
         {
-            id: 3,
+            id: 'onHold',
             label: "Watched",
             icon: <RemoveRedEyeOutlinedIcon/>
         },
         {
-            id: 4,
+            id: 'watched',
             label: 'Favorites',
             icon: <FavoriteBorderOutlinedIcon/>
         },
         {
-            id: 5,
+            id: 'archived',
             label: 'Archived',
             icon: <PlayCircleOutlineOutlinedIcon/>
         }
     ]
-
 
     const [items, setItems] = useState(initialItems)
 
@@ -100,7 +82,7 @@ const WatchBoard = () => {
     return (
         <DndContext onDragEnd={handleDragEnd}>
             <Stack direction="row">
-                <Box>
+                <Stack rowGap={2}>
                     {items
                         .filter(item => item.parent === null)
                         .map(item => (
@@ -110,9 +92,8 @@ const WatchBoard = () => {
                                 posterPath={item.posterPath}
                                 title={item.title}
                             />
-                        ))
-                    }
-                </Box>
+                        ))}
+                </Stack>
 
                 {columns.map(({id, icon, label}) => (
                     <MovieBoardColumn id={id} key={id} icon={icon} label={label}>
@@ -125,8 +106,7 @@ const WatchBoard = () => {
                                     posterPath={item.posterPath}
                                     title={item.title}
                                 />
-                            ))
-                        }
+                            ))}
                         </Stack>
                     </MovieBoardColumn>
                 ))}

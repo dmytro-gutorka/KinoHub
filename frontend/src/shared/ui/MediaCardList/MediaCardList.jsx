@@ -10,7 +10,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
-import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 
 const MediaCardList = ({ mediaData, mediaGenres }) => {
 
@@ -24,7 +23,6 @@ const MediaCardList = ({ mediaData, mediaGenres }) => {
           genre_ids: genres,
           overview,
           title,
-          adult,
           id,
         } = movie;
 
@@ -34,7 +32,7 @@ const MediaCardList = ({ mediaData, mediaGenres }) => {
           <Card
             key={id}
             sx={(theme) => ({
-              background: theme.palette.gradientMidnightSpace,
+              background: 'transparent',
               position: 'relative',
               width: 276,
               border: `1px solid ${theme.palette.transparentGrey}`,
@@ -47,28 +45,11 @@ const MediaCardList = ({ mediaData, mediaGenres }) => {
               sx={{
                 height: 400,
                 backgroundSize: 'cover',
-                filter: adult ? 'blur(16px)' : '',
               }}
               image={imgURL}
               title="Movie card"
             />
             </Box>
-            {adult && (
-              <Typography
-                textAlign="center"
-                gutterBottom
-                variant="h6"
-                component="div"
-                position="absolute"
-                top="50%"
-                left="50%"
-                sx={{ transform: 'translate(-50%, -50%)' }}
-                color="lightgrey"
-              >
-                Content 18+ <br />
-                Verify your age
-              </Typography>
-            )}
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {title}
@@ -94,11 +75,6 @@ const MediaCardList = ({ mediaData, mediaGenres }) => {
                 <LabelWithIcon label={avgRating}>
                   <StarBorderIcon fontSize="small" />
                 </LabelWithIcon>
-                {adult && (
-                  <LabelWithIcon label="18+">
-                    <ReportGmailerrorredIcon fontSize="small" />
-                  </LabelWithIcon>
-                )}
               </Stack>
 
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>

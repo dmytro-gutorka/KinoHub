@@ -16,3 +16,15 @@ export const MovieAction = MovieActionModel(sequelize);
 
 User.hasMany(MovieAction, { foreignKey: 'userId' });
 MovieAction.belongsTo(User, { foreignKey: 'userId' });
+
+MovieAction.hasOne(MovieBoard, {
+  foreignKey: 'movieId',
+  sourceKey: 'movieId',
+  as: 'board'
+})
+
+MovieBoard.belongsTo(MovieAction, {
+  foreignKey: 'movieId',
+  sourceKey: 'movieId',
+  as: 'movieAction'
+})

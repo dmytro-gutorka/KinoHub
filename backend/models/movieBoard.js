@@ -13,7 +13,7 @@ export const MovieBoardModel = (sequelize) => {
     status: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 'unassigned' // unassigned, toWatch, inWatching, onHold, watched, archived(?)
+      defaultValue: 'toWatch' //toWatch, inWatching, onHold, watched, archived(?)
     },
   });
 };

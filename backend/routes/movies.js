@@ -17,7 +17,8 @@ router.get('/:id/actions', async (req, res) => {
   if (!season) movieActionById =
     await MovieAction.findAll({ where: { movieId: movieID } })
 
-  res.status(200).json(movieActionById)
+  res.status(200)
+      .json(movieActionById)
 })
 
 // @movie board
@@ -28,7 +29,9 @@ router.get('/:id/movie-board', async (req, res) => {
       userId: userID
     }
   })
-  res.status(200).json(movieBoardItemById)
+
+  res.status(200)
+      .json(movieBoardItemById)
 })
 
 router.post('/:id/movie-board', (req, res) => {
@@ -38,7 +41,8 @@ router.post('/:id/movie-board', (req, res) => {
     movieId: movieID
   })
 
-  res.status(201).json({ msg: `MovieBoard item [${movieID}] was created`})
+  res.status(201)
+      .json({ msg: `MovieBoard item [${movieID}] was created`})
 })
 
 router.put('/:id/movie-board',async (req, res) => {
@@ -53,7 +57,9 @@ router.put('/:id/movie-board',async (req, res) => {
 router.delete('/:id/movie-board', async (req, res) => {
   const movieID = req.params.id
   await MovieBoard.destroy({ where: { movieId: movieID } })
-  res.status(204).json({ msg: `MovieBoard item [${movieID}] was removed`})
+
+  res.status(204)
+      .json({ msg: `MovieBoard item [${movieID}] was removed`})
 })
 
 // @ratings
@@ -203,9 +209,7 @@ router.post('/:id/action/bulk', async (req, res) => {
       season: req.body[0].season
     },
   },
-    {
-      raw: true
-    }
+    { raw: true }
   )
 
   res.status(200).json(updatedEpisodes)

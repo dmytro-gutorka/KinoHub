@@ -49,8 +49,13 @@ const MediaHeader = ({mediaData , mediaType}) => {
 
   const { isWatched, isLiked } = mediaActionData
 
+  console.log(mediaActionData)
+
   const handleLike = () => actionMutation.mutate({ isLiked: !isLiked })
   const handleWatchStatus = () => actionMutation.mutate({ isWatched: !isWatched })
+  // const handleMovieList = () =>
+
+  const isInMovieList = null
 
   return (
     <Stack position='relative'>
@@ -129,8 +134,8 @@ const MediaHeader = ({mediaData , mediaType}) => {
               </LabelWithIcon>
             </Button>
             <Button>
-              <LabelWithIcon label="Add to Watchlist">
-                {isWatched ? <BookmarkAddedIcon /> : <BookmarkAddOutlinedIcon />}
+              <LabelWithIcon label="Add to MovieBoard">
+                {isInMovieList ? <BookmarkAddedIcon /> : <BookmarkAddOutlinedIcon />}
               </LabelWithIcon>
             </Button>
             <IconButton onClick={handleWatchStatus}>

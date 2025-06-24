@@ -11,7 +11,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 
 import SidebarSection from '../../shared/ui/SidebarSection';
-import Logo from "../../shared/Logo";
+import Logo from "../../shared/ui/Logo";
 
 const AsideBar = () => {
 

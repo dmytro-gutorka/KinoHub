@@ -1,4 +1,4 @@
-import {Box, Grid, ListItem, Stack, styled, Typography, List, useTheme} from '@mui/material';
+import {Box, Grid, ListItem, Stack, styled, Typography, List} from '@mui/material';
 import {  useState } from 'react';
 
 import ItemListSpaceBetween from '../ItemListSpaceBetween';

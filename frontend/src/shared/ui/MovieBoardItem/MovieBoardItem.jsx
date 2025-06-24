@@ -19,12 +19,12 @@ const MovieBoardItem = ({id, posterPath, title}) => {
             {...attributes}
             ref={setNodeRef}
             sx={{
+                minWidth: "270px",
                 transform: transform
                     ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
                     : 'none',
                 cursor: 'grab',
                 userSelect: 'none',
-                mb: 1,
                 display: 'flex',
                 padding: theme.spacing(2.5),
                 background: 'transparent',
@@ -36,8 +36,7 @@ const MovieBoardItem = ({id, posterPath, title}) => {
                 alt="Movie cover"
                 sx={{width: '57px', height: '90px', borderRadius: theme.spacing(1.5)}}
             />
-            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <CardContent sx={{ flex: '1 0 auto' }}>
+                <CardContent >
                     <Typography component="div" variant="subtitle1" fontWeight="800">
                         {title}
                     </Typography>
@@ -49,9 +48,7 @@ const MovieBoardItem = ({id, posterPath, title}) => {
                             <StarBorderIcon fontSize="19px" />
                         </LabelWithIcon>
                     </Stack>
-
                 </CardContent>
-            </Box>
         </Card>
     )
 }

@@ -45,8 +45,8 @@ const MovieBoardColumn = ({ id, children, icon, label }) => {
             <Stack
                 direction="row"
                 ref={setNodeRef}
-                minWidth="300px"
-                minHeight="500px"
+                minWidth="270px"
+                minHeight="450px"
                 sx={{ backgroundColor: isOver ? '#e0ffe0' : 'transparent' }}
             >
                 {children}
