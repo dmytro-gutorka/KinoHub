@@ -1,6 +1,7 @@
 import { Stack } from "@mui/material";
 import { DndContext } from '@dnd-kit/core';
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
+import updateMovieBoardItemStatus from "../../features/movies/api/updateMovieBoardItemStatus";
 import getMovieBoardMediaItems from "../../shared/api/getMovieBoardMediaItems";
 import MovieBoardItem from "../../shared/ui/MovieBoardItem";
 import MovieBoardColumn from "../../shared/ui/MovieBoardColumn";
@@ -8,9 +9,8 @@ import TurnedInNotOutlinedIcon from "@mui/icons-material/TurnedInNotOutlined";
 import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutlineOutlined";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import updateMovieBoardItemStatus from "../../features/movies/api/updateMovieBoardItemStatus";
-import updateMediaAction from "../../features/movies/api/updateMediaAction";
-import {getActionForURL} from "../../shared/helpers/getActionForURL";
+import useMovieBoardItemStatus from "../../features/movies/hooks/useMovieBoardItemStatus";
+
 
 const columns = [
     {
@@ -39,10 +39,7 @@ const columns = [
         icon: <PlayCircleOutlineOutlinedIcon/>
     }
 ]
-// setItems(prev => prev.map(item => item.id === active.id
-//     ? { ...item, parent: over ? over.id : null }
-//     : item
-// ))
+
 
 const WatchBoard = () => {
 
@@ -51,24 +48,7 @@ const WatchBoard = () => {
         queryFn: getMovieBoardMediaItems
     })
 
-    const queryClient = useQueryClient();
-
-    const watchBoardStatus = useMutation({
-        mutationFn: ({ watchStatus, mediaId }) => updateMovieBoardItemStatus(watchStatus, mediaId),
-        onSettled: (_, variables) => queryClient.invalidateQueries({
-            queryKey: ["movieBoardMediaItems", variables.mediaId]}),
-        onError: (err, variables , context) => queryClient.setQueryData(
-            ["movieBoardMediaItems", variables.mediaId], context.prevData),
-        onMutate: async ( variables ) => {
-            await queryClient.cancelQueries(["movieBoardMediaItems", variables.mediaId])
-            const prevData = queryClient.getQueryData(["movieBoardMediaItems", variables.mediaId])
-
-            queryClient.setQueryData(["movieBoardMediaItems", variables.mediaId],
-                    old => ({ ...old, ...variables }))
-
-            return { prevData }
-        }}
-    )
+    const watchBoardStatus = useMovieBoardItemStatus()
 
     function handleDragEnd(event) {
         const {over, active} = event

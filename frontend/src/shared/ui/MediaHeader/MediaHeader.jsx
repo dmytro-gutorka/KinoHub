@@ -13,11 +13,11 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import LanguageIcon from '@mui/icons-material/Language';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import useActionDataFindOrCreate from '../../../features/movies/hooks/useActionDataFindOrCreate';
 import getYearFromDate from '../../helpers/getYearFromDate';
 import useMediaAction from '../../../features/movies/hooks/useMediaAction';
 import LabelWithIcon from '../LabelWithIcon';
 import getPosterURL from '../../helpers/getPosterURL';
+import useActionDataCreation from "../../../features/movies/hooks/useActionDataCreation";
 
 const MediaHeader = ({mediaData , mediaType}) => {
 
@@ -43,7 +43,7 @@ const MediaHeader = ({mediaData , mediaType}) => {
 
   const imgURL = getPosterURL(posterPath);
 
-  const { data: mediaActionData, isLoading } = useActionDataFindOrCreate(
+  const { data: mediaActionData, isLoading } = useActionDataCreation(
     'mediaActionData', id, {mediaType, runtime: relevantRuntime})
 
   if (isLoading) return <div>Loading...</div>
@@ -63,7 +63,7 @@ const MediaHeader = ({mediaData , mediaType}) => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         filter: 'blur(8px)',
-        zIndex: '-1'
+        zIndex: '-10'
       }}>
       </Box>
 

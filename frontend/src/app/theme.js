@@ -22,7 +22,10 @@ const finalTheme = createTheme(theme, {
           margin: '0px',
         },
         body: {
-          backgroundColor: theme.palette.transparentGrey
+          background: theme.palette.gradientMidnightSpace,
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
+          backgroundSize: 'cover',
         },
       },
     },

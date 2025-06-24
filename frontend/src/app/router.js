@@ -7,6 +7,11 @@ import Movies from '../pages/Movies';
 import Homepage from '../pages/Homepage';
 import MediaDetailsPage from '../pages/MediaDetailsPage';
 import WatchBoard from "../pages/WatchBoard";
+import Profile from "../pages/Profile";
+import Settings from "../pages/Settings";
+import Dashboard from "../pages/Dashboard";
+import History from "../pages/History";
+
 
 function makeRouter() {
   return createBrowserRouter([
@@ -15,10 +20,15 @@ function makeRouter() {
       path: '/',
       children: [
         { path: '/', Component: Homepage },
-        { path: '/dashboard', Component: Homepage },
-        { path: '/shows', Component: Shows },
         { path: '/movies', Component: Movies },
+        { path: '/shows', Component: Shows },
+        { path: '/history', Component: History },
         { path: '/watch-board', Component: WatchBoard },
+        { path: '/dashboard', Component: Dashboard },
+        { path: '/profile', Component: Profile },
+        { path: '/settings', Component: Settings },
+        { path: '/logout', Component: Homepage },
+
       ],
     },
     { path: '/movies/:id', Component: MediaDetailsPage, loader: () => 'movie' },

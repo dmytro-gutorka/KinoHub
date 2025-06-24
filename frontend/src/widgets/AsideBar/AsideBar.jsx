@@ -37,11 +37,11 @@ const AsideBar = () => {
   const tools = {
     watchBoard: {
       icon: <DashboardOutlinedIcon />,
-      path: 'dashboard'
+      path: 'watch-board'
     },
     dashBoard: {
       icon: <InsertChartOutlinedOutlinedIcon />,
-      path: 'watch-board'
+      path: 'dashboard'
     },
     profile: {
       icon: <PersonOutlineOutlinedIcon />,

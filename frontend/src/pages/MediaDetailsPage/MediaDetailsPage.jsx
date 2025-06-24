@@ -4,13 +4,12 @@ import MediaHeader from '../../shared/ui/MediaHeader';
 
 import { useLoaderData, useParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
-import {Box, Container, useTheme} from '@mui/material';
+import {Box, Container} from '@mui/material';
 
 const MediaDetailsPage = () => {
 
   const { id } = useParams();
   const mediaType = useLoaderData()
-  const theme = useTheme()
 
   const { data: mediaData, isLoading, isError, } = useQuery({
     queryKey: ['media', +id],
@@ -23,7 +22,7 @@ const MediaDetailsPage = () => {
 
   return (
     <>
-        <Box component='main' sx={{background: theme.palette.gradientMidnightSpace}}>
+        <Box component='main' >
             {/*// перебивает картинку баннера*/}
           <MediaHeader mediaData={mediaData} mediaType={mediaType}/>
           <Container maxWidth="lg">
