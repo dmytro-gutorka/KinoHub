@@ -3,6 +3,11 @@ import {DndContext} from '@dnd-kit/core';
 import {useDroppable} from '@dnd-kit/core';
 import {useState} from "react";
 import MovieBoardItem from "../../shared/ui/MovieBoardItem";
+import MovieBoardColumn from "../../shared/ui/MovieBoardColumn";
+import TurnedInNotOutlinedIcon from "@mui/icons-material/TurnedInNotOutlined";
+import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutlineOutlined";
+import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
 
 export function Droppable({id, children}) {
@@ -51,9 +56,36 @@ const initialItems = [
     }
 ]
 
-
 const WatchBoard = () => {
-    const columns = ['To Watch', 'Watching', 'Watched', 'Favorites', 'Archive']
+    const columns = [
+        {
+            id: 1,
+            label: 'Want to Watch',
+            icon: <TurnedInNotOutlinedIcon />
+        },
+        {
+            id: 2,
+            label: 'Currently Watching',
+            icon: <PlayCircleOutlineOutlinedIcon/>
+        },
+        {
+            id: 3,
+            label: "Watched",
+            icon: <RemoveRedEyeOutlinedIcon/>
+        },
+        {
+            id: 4,
+            label: 'Favorites',
+            icon: <FavoriteBorderOutlinedIcon/>
+        },
+        {
+            id: 5,
+            label: 'Archived',
+            icon: <PlayCircleOutlineOutlinedIcon/>
+        }
+    ]
+
+
     const [items, setItems] = useState(initialItems)
 
     function handleDragEnd(event) {
@@ -67,25 +99,10 @@ const WatchBoard = () => {
 
     return (
         <DndContext onDragEnd={handleDragEnd}>
-            <Box>
-                {items
-                    .filter(item => item.parent === null)
-                    .map(item => (
-                        <MovieBoardItem
-                            key={item.id}
-                            id={item.id}
-                            posterPath={item.posterPath}
-                            title={item.title}
-                        />
-                    ))
-                }
-            </Box>
-
-            {columns.map(id => (
-                <Droppable id={id} key={id}>
-                    <Typography variant="h5">{id}</Typography>
-                    <Stack>{items
-                        .filter(item => item.parent === id)
+            <Stack direction="row">
+                <Box>
+                    {items
+                        .filter(item => item.parent === null)
                         .map(item => (
                             <MovieBoardItem
                                 key={item.id}
@@ -95,12 +112,28 @@ const WatchBoard = () => {
                             />
                         ))
                     }
-                    </Stack>
-                </Droppable>
-            ))}
+                </Box>
+
+                {columns.map(({id, icon, label}) => (
+                    <MovieBoardColumn id={id} key={id} icon={icon} label={label}>
+                        <Stack>{items
+                            .filter(item => item.parent === id)
+                            .map(item => (
+                                <MovieBoardItem
+                                    key={item.id}
+                                    id={item.id}
+                                    posterPath={item.posterPath}
+                                    title={item.title}
+                                />
+                            ))
+                        }
+                        </Stack>
+                    </MovieBoardColumn>
+                ))}
+            </Stack>
+
         </DndContext>
     )
-
 }
 
 export default WatchBoard

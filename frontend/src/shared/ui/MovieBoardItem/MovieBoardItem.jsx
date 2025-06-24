@@ -1,5 +1,8 @@
-import {Box, Card, CardContent, CardMedia, Typography, useTheme} from "@mui/material";
+import {Box, Card, CardContent, CardMedia, Stack, Typography, useTheme} from "@mui/material";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
 import getPosterURL from "../../helpers/getPosterURL";
+import LabelWithIcon from "../LabelWithIcon";
 import {useDraggable} from "@dnd-kit/core";
 
 const MovieBoardItem = ({id, posterPath, title}) => {
@@ -9,7 +12,6 @@ const MovieBoardItem = ({id, posterPath, title}) => {
 
     const imgURL = getPosterURL(posterPath)
     const theme = useTheme()
-
 
     return (
         <Card
@@ -25,7 +27,7 @@ const MovieBoardItem = ({id, posterPath, title}) => {
                 mb: 1,
                 display: 'flex',
                 padding: theme.spacing(2.5),
-                background: theme.palette.gradientMidnightSpace,
+                background: 'transparent',
                 border: theme.customComponents.border
         }}>
             <CardMedia
@@ -36,22 +38,22 @@ const MovieBoardItem = ({id, posterPath, title}) => {
             />
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                 <CardContent sx={{ flex: '1 0 auto' }}>
-                    <Typography component="div" variant="h5">
+                    <Typography component="div" variant="subtitle1" fontWeight="800">
                         {title}
                     </Typography>
-                    <Typography
-                        variant="subtitle1"
-                        component="div"
-                        sx={{ color: 'text.secondary' }}
-                    >
-                        Mac Miller
-                    </Typography>
+                    <Stack direction='row'>
+                        <LabelWithIcon label="120m" >
+                            <CalendarTodayOutlinedIcon fontSize="5px"/>
+                        </LabelWithIcon>
+                        <LabelWithIcon label="6">
+                            <StarBorderIcon fontSize="19px" />
+                        </LabelWithIcon>
+                    </Stack>
+
                 </CardContent>
             </Box>
         </Card>
     )
-
-
 }
 
 export default MovieBoardItem
