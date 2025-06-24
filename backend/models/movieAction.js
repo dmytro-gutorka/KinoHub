@@ -36,6 +36,11 @@ export const MovieActionModel = (sequelize) => {
       allowNull: true,
       defaultValue: null
     },
+    watchStatus: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: null //toWatch, inWatching, onHold, watched, archived(?)
+    },
     season: {
       type: DataTypes.INTEGER, // only for tv
       allowNull: true,

@@ -1,5 +1,6 @@
 import { MovieAction, MovieBoard } from '../models/index.js';
 import express from 'express'
+import {Op} from "sequelize";
 
 export const router = express.Router()
 
@@ -19,47 +20,6 @@ router.get('/:id/actions', async (req, res) => {
 
   res.status(200)
       .json(movieActionById)
-})
-
-// @movie board
-router.get('/:id/movie-board', async (req, res) => {
-  const userID = req.params.id
-  const movieBoardItemById = await MovieBoard.findAll({
-    where: {
-      userId: userID
-    }
-  })
-
-  res.status(200)
-      .json(movieBoardItemById)
-})
-
-router.post('/:id/movie-board', (req, res) => {
-  const movieID = req.params.id
-  MovieBoard.create({
-    ...req.body,
-    movieId: movieID
-  })
-
-  res.status(201)
-      .json({ msg: `MovieBoard item [${movieID}] was created`})
-})
-
-router.put('/:id/movie-board',async (req, res) => {
-  const movieID = req.params.id
-  await MovieBoard.update(
-    { status: req.body.status },
-    { where: { movieId: movieID } }
-  )
-  res.status(200).json({ msg: `MovieBoard item [${movieID}] was updated`})
-})
-
-router.delete('/:id/movie-board', async (req, res) => {
-  const movieID = req.params.id
-  await MovieBoard.destroy({ where: { movieId: movieID } })
-
-  res.status(204)
-      .json({ msg: `MovieBoard item [${movieID}] was removed`})
 })
 
 // @ratings
@@ -94,7 +54,7 @@ router.put('/:id/like', async (req, res) => {
   });
 })
 
-// @watch-status
+// @isWatched
 router.put('/:id/is-watched', async (req, res) => {
   const movieID = req.params.id;
   const userID = req.query.userid
@@ -116,14 +76,42 @@ router.put('/:id/is-watched', async (req, res) => {
 
   if (!season || !episode ) await MovieAction.update(
     { isWatched: isWatched },
-    { where: {
-      movieId: movieID,
-        userId: userID
-    }}
+    { where: { movieId: movieID, userId: userID } }
   )
 
   res.status(200).json({
     msg: `Watch status on movie ${movieID} was changed to ${isWatched ? 'watched' : 'not watched yet'}`
+  });
+})
+
+router.get('/watch-status', async(req, res) => {
+  const userId = req.query.userid
+
+  const mediaItemsWithStatus = await MovieAction.findAll({
+    where: { userId: userId,  status: { [Op.not]: null }}
+  })
+
+  res.status(200).json(mediaItemsWithStatus)
+})
+
+// @watch-status
+router.put('/:id/watch-status', async (req, res) => {
+  const movieID = req.params.id;
+  const userID = req.query.userid
+  const watchStatus = req.body.watchStatus
+
+  await MovieAction.update(
+      { watchStatus: watchStatus },
+      { where: {
+          movieId: movieID,
+          userId: userID,
+          season: null,
+          episode: null,
+        }}
+  )
+
+  res.status(200).json({
+    msg: `Watch status on movie ${movieID} was changed to ${watchStatus}`
   });
 })
 

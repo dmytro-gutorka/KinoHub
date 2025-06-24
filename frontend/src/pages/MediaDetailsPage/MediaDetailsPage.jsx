@@ -10,10 +10,9 @@ const MediaDetailsPage = () => {
 
   const { id } = useParams();
   const mediaType = useLoaderData()
-    const theme = useTheme()
+  const theme = useTheme()
 
-
-    const { data: mediaData, isLoading, isError, } = useQuery({
+  const { data: mediaData, isLoading, isError, } = useQuery({
     queryKey: ['media', +id],
     queryFn: () => getMovieDetails(id, mediaType),
   });

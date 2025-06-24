@@ -21,7 +21,9 @@ export const TMDB_ENDPOINTS = {
 export const MEDIA_ACTIONS = {
   isWatched: "is-watched",
   isLiked: "like",
-  rating: "rating"
+  rating: "rating",
+  watchStatus: "watch-status"
+
 }
 
 export const LOCAL_URL = 'http://localhost:8080/'

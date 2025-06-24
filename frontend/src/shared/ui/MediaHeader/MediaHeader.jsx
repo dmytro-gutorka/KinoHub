@@ -1,4 +1,4 @@
-import {Box, Button, Chip, Container, IconButton, Stack, Typography, useTheme} from '@mui/material';
+import { Box, Button, Chip, Container, IconButton, Stack, Typography, useTheme } from '@mui/material';
 
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
@@ -10,15 +10,14 @@ import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import LanguageIcon from '@mui/icons-material/Language';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import LanguageIcon from '@mui/icons-material/Language';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import useActionDataFindOrCreate from '../../../features/movies/hooks/useActionDataFindOrCreate';
 import getYearFromDate from '../../helpers/getYearFromDate';
+import useMediaAction from '../../../features/movies/hooks/useMediaAction';
 import LabelWithIcon from '../LabelWithIcon';
 import getPosterURL from '../../helpers/getPosterURL';
-import useMediaAction from '../../../features/movies/hooks/useMediaAction';
-import useActionDataFindOrCreate from '../../../features/movies/hooks/useActionDataFindOrCreate';
-
 
 const MediaHeader = ({mediaData , mediaType}) => {
 
@@ -37,9 +36,11 @@ const MediaHeader = ({mediaData , mediaType}) => {
   } = mediaData
 
   const theme = useTheme()
+
   const actionMutation = useMediaAction("mediaActionData", id)
 
   const relevantRuntime = runtime || runtimeEpisode?.at(0) || 0
+
   const imgURL = getPosterURL(posterPath);
 
   const { data: mediaActionData, isLoading } = useActionDataFindOrCreate(
@@ -47,19 +48,14 @@ const MediaHeader = ({mediaData , mediaType}) => {
 
   if (isLoading) return <div>Loading...</div>
 
-  const { isWatched, isLiked } = mediaActionData
-
-  console.log(mediaActionData)
+  const { isWatched, isLiked, watchStatus } = mediaActionData
 
   const handleLike = () => actionMutation.mutate({ isLiked: !isLiked })
-  const handleWatchStatus = () => actionMutation.mutate({ isWatched: !isWatched })
-  // const handleMovieList = () =>
-
-  const isInMovieList = null
+  const handleIsWatched = () => actionMutation.mutate({ isWatched: !isWatched })
+  const handleWatchStatus = () => actionMutation.mutate({ watchStatus: watchStatus ? null : "toWatch" })
 
   return (
     <Stack position='relative'>
-
       <Box sx={{
         background: `url(${imgURL})`,
         position: 'absolute',
@@ -133,12 +129,12 @@ const MediaHeader = ({mediaData , mediaType}) => {
                 {isLiked ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon />}
               </LabelWithIcon>
             </Button>
-            <Button>
+            <Button onClick={handleWatchStatus}>
               <LabelWithIcon label="Add to MovieBoard">
-                {isInMovieList ? <BookmarkAddedIcon /> : <BookmarkAddOutlinedIcon />}
+                {watchStatus ? <BookmarkAddedIcon /> : <BookmarkAddOutlinedIcon />}
               </LabelWithIcon>
             </Button>
-            <IconButton onClick={handleWatchStatus}>
+            <IconButton onClick={handleIsWatched}>
               {isWatched ? <VisibilityIcon/> : <VisibilityOffOutlinedIcon/>}
             </IconButton>
           </Stack>
