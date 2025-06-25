@@ -86,7 +86,7 @@ const WatchBoard = () => {
 
                     {columns.map(({id, icon, label, bgColor}) => (
                         <MovieBoardColumn id={id} key={id} icon={icon} label={label} bgColor={bgColor}>
-                            <Stack gap={2}>
+                            <Stack>
                                 {mediaItems
                                     ?.filter(item => item.watchStatus === id)
                                     ?.map(item => (

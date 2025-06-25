@@ -44,10 +44,10 @@ const MovieBoardItem = ({id, posterPath, title, runtime, voteAverage, releaseDat
                     </Typography>
                     <Stack direction='row'>
                         <LabelWithIcon label={getYearFromDate(releaseDate)} >
-                            <CalendarTodayOutlinedIcon fontSize="10px" />
+                            <CalendarTodayOutlinedIcon />
                         </LabelWithIcon>
                         <LabelWithIcon label={voteAverage}>
-                            <StarBorderIcon fontSize="19px" />
+                            <StarBorderIcon />
                         </LabelWithIcon>
                     </Stack>
                 </CardContent>

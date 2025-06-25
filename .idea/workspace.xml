@@ -6,20 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/movies.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/movies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/createMediaAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/createMediaAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/createMediaActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/createMediaActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaActionBySeason.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaActionBySeason.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/getMediaActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/updateMediaAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/updateMediaAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movies/api/updateMovieBoardItemStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movies/api/updateMovieBoardItemStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/WatchBoard/WatchBoard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/WatchBoard/WatchBoard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/getMovieBoardMediaItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/getMovieBoardMediaItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useMediaFilters.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useMediaFilters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MovieBoardColumn/MovieBoardColumn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MovieBoardColumn/MovieBoardColumn.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/icons/ChartUpLineIcon/ChartUpLineIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/icons/ChartUpLineIcon/ChartUpLineIcon.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/icons/MovieOutlineIcon/MovieOutlineIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/icons/MovieOutlineIcon/MovieOutlineIcon.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/icons/TvShowOutlineIcon/TvShowOutlineIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/icons/TvShowOutlineIcon/TvShowOutlineIcon.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MovieBoardItem/MovieBoardItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MovieBoardItem/MovieBoardItem.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,9 +26,9 @@
         <option value="JSX Component Folder with styles" />
         <option value="tsconfig.json" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
         <option value="JSX Component Folder.jsx.child.0" />
         <option value="JSX Component Folder" />
-        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -124,7 +115,7 @@
       <workItem from="1749465898747" duration="105600000" />
       <workItem from="1749854105809" duration="192941000" />
       <workItem from="1750777135847" duration="5581000" />
-      <workItem from="1750843242098" duration="15125000" />
+      <workItem from="1750843242098" duration="22255000" />
     </task>
     <servers />
   </component>
