@@ -51,7 +51,7 @@ const WatchBoard = () => {
     const { data : mediaItems, isSuccess } = useQuery({
         queryKey: ['movieBoardMediaItems'],
         queryFn: getMovieBoardMediaItems,
-        staleTime: 0,
+        staleTime: 5  * 1000, // is infinity it does not refresh the page (figure out why)
     })
 
     const watchBoardStatus = useMovieBoardItemStatus()
@@ -63,7 +63,6 @@ const WatchBoard = () => {
 
     if (!isSuccess) return <div>Loading...</div>
 
-    console.log(mediaItems)
 
     return (
         <DndContext onDragEnd={handleDragEnd}>

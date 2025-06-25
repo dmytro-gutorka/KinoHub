@@ -26,6 +26,6 @@ export const MEDIA_ACTIONS = {
 
 }
 
-export const LOCAL_URL = 'http://localhost:8080/'
+export const LOCALHOST_URL = 'http://localhost:8080/'
 export const USER_ID = 1
 // hardcode user id just for the sake of developing, will be changed in the future

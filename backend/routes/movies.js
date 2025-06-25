@@ -227,3 +227,27 @@ router.post('/:id/action/bulk', async (req, res) => {
 
   res.status(200).json(updatedEpisodes)
 })
+
+router.get('/user-stats', async(req, res) => {
+  const userId = req.query.userid
+
+  const userStatistic = await MovieAction.findAll({
+    attributes: ["mediaType", "runtime", "rating", "episode", "isWatched"],
+    where: {
+      userId: userId,
+        [Op.or]: [
+          {
+            isWatched: { [Op.not] : false }
+          },
+          {
+            isLiked: { [Op.not] : false },
+          },
+          {
+            rating: { [Op.not]: null }
+          }
+        ]
+    }
+  })
+
+  res.status(200).json(userStatistic)
+})

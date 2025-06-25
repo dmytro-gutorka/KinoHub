@@ -20,7 +20,7 @@ const MovieBoardItem = ({id, posterPath, title, runtime, voteAverage, releaseDat
             {...attributes}
             ref={setNodeRef}
             sx={{
-                minWidth: "270px",
+                width: "270px",
                 transform: transform
                     ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
                     : 'none',
@@ -31,25 +31,27 @@ const MovieBoardItem = ({id, posterPath, title, runtime, voteAverage, releaseDat
                 background: 'transparent',
                 border: theme.customComponents.border
         }}>
-            <CardMedia
-                component="img"
-                image={imgURL}
-                alt="Movie cover"
-                sx={{width: '57px', height: '90px', borderRadius: theme.spacing(1.5)}}
-            />
-            <CardContent >
-                <Typography component="div" variant="subtitle1" fontWeight="800">
-                    {title}
-                </Typography>
-                <Stack direction='row'>
-                    <LabelWithIcon label={getYearFromDate(releaseDate)} >
-                        <CalendarTodayOutlinedIcon fontSize="10px" />
-                    </LabelWithIcon>
-                    <LabelWithIcon label={voteAverage}>
-                        <StarBorderIcon fontSize="19px" />
-                    </LabelWithIcon>
-                </Stack>
-            </CardContent>
+            <Stack direction="row" gap={2}>
+                <CardMedia
+                    component="img"
+                    image={imgURL}
+                    alt="Movie cover"
+                    sx={{width: '57px', height: '90px', borderRadius: theme.spacing(1.5)}}
+                />
+                <CardContent >
+                    <Typography component="div" variant="subtitle1" fontWeight="800">
+                        {title}
+                    </Typography>
+                    <Stack direction='row'>
+                        <LabelWithIcon label={getYearFromDate(releaseDate)} >
+                            <CalendarTodayOutlinedIcon fontSize="10px" />
+                        </LabelWithIcon>
+                        <LabelWithIcon label={voteAverage}>
+                            <StarBorderIcon fontSize="19px" />
+                        </LabelWithIcon>
+                    </Stack>
+                </CardContent>
+            </Stack>
         </Card>
     )
 }

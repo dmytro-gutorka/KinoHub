@@ -6,7 +6,7 @@ export const useMediaFilters = (initialFilters = {}) => {
     minRating: 1,
     searchQuery: '',
     genres: [],
-    sortBy: 'title.asc',
+    sortBy: 'primary_release_date.desc',
     isFiltersOpen: false,
     ...initialFilters,
   });

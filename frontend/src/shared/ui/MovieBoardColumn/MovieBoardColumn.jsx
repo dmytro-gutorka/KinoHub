@@ -48,7 +48,11 @@ const MovieBoardColumn = ({ id, children, icon, label, bgColor }) => {
                 ref={setNodeRef}
                 minWidth="270px"
                 minHeight="450px"
-                sx={{ backgroundColor: isOver ? '#e0ffe0' : 'transparent' }}
+                sx={{
+                    // backgroundColor: isOver ? '#e0ffe0' : 'transparent',
+                    opacity: isOver ? '0.5' : '1',
+
+            }}
             >
                 {children}
             </Stack>
