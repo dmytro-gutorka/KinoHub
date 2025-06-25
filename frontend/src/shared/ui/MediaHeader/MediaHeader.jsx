@@ -19,13 +19,14 @@ import LabelWithIcon from '../LabelWithIcon';
 import getPosterURL from '../../helpers/getPosterURL';
 import useActionDataCreation from "../../../features/movies/hooks/useActionDataCreation";
 
-const MediaHeader = ({mediaData , mediaType}) => {
+const MediaHeader = ({mediaData, mediaType}) => {
 
   const {
     id,
     genres,
     title,
     runtime,
+    name,
     poster_path: posterPath,
     vote_average: voteAverage,
     original_language: language,
@@ -33,6 +34,7 @@ const MediaHeader = ({mediaData , mediaType}) => {
     episode_run_time: runtimeEpisode,
     number_of_episodes: numberOfEpisodes,
     number_of_seasons: numberOfSeasons,
+    first_air_date: airDate
   } = mediaData
 
   const theme = useTheme()
@@ -40,6 +42,9 @@ const MediaHeader = ({mediaData , mediaType}) => {
   const actionMutation = useMediaAction("mediaActionData", id)
 
   const relevantRuntime = runtime || runtimeEpisode?.at(0) || 0
+  const relevantReleaseDate = airDate || releaseDate || '0000-00-00'
+  const relevantTitle = name || title
+
 
   const imgURL = getPosterURL(posterPath);
 
@@ -50,9 +55,16 @@ const MediaHeader = ({mediaData , mediaType}) => {
 
   const { isWatched, isLiked, watchStatus } = mediaActionData
 
-  const handleLike = () => actionMutation.mutate({ isLiked: !isLiked })
-  const handleIsWatched = () => actionMutation.mutate({ isWatched: !isWatched })
-  const handleWatchStatus = () => actionMutation.mutate({ watchStatus: watchStatus ? null : "toWatch" })
+  const extraMediaData = {
+    releaseDate: relevantReleaseDate,
+    title: relevantTitle,
+    posterPath,
+    voteAverage,
+  }
+
+  const handleLike = () => actionMutation.mutate({ isLiked: !isLiked, ...extraMediaData })
+  const handleIsWatched = () => actionMutation.mutate({ isWatched: !isWatched, ...extraMediaData })
+  const handleWatchStatus = () => actionMutation.mutate({ watchStatus: watchStatus ? null : "toWatch", ...extraMediaData })
 
   return (
     <Stack position='relative'>

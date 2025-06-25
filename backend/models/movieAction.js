@@ -53,5 +53,25 @@ export const MovieActionModel = (sequelize) => {
       defaultValue: null,
       unique: 'user_media_unique'
     },
+    releaseDate: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: null,
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: null,
+    },
+    posterPath: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: null,
+    },
+    voteAverage: { // TMDB Rating
+      type: DataTypes.FLOAT,
+      allowNull: true,
+      defaultValue: null,
+    },
   });
 };

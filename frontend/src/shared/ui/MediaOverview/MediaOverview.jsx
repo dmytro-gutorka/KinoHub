@@ -13,7 +13,6 @@ const StyledBox= styled(Box)(() => ({
   borderRadius: '10px'
 }))
 
-
 const MediaOverview = ({ mediaData, mediaType }) => {
   const [tvSeason, setTvSeason] = useState(1)
 

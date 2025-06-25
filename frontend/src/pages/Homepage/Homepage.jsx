@@ -22,7 +22,7 @@ const Homepage = () => {
     if (!homepageMediaData?.length) return <div>Loading....</div>
 
         return (
-            <Stack rowGap={10} divider={<Divider orientation="horizontal" />}>
+            <Stack m={10} rowGap={10} divider={<Divider orientation="horizontal" />}>
                 <MediaSection mediaData={homepageMediaData?.at(0).value.results} title="Top Rated Movies" />
                 <MediaSection mediaData={homepageMediaData?.at(1).value.results} title="Trending Movies" />
                 <MediaSection mediaData={homepageMediaData?.at(2).value.results} title="Trending TV Show" />

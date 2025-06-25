@@ -1,10 +1,10 @@
 import { MovieAction, MovieBoard } from '../models/index.js';
+import { Op } from "sequelize";
 import express from 'express'
-import {Op} from "sequelize";
 
 export const router = express.Router()
 
-// @movie actions
+// actions
 router.get('/:id/actions', async (req, res) => {
   const movieID = Number(req.params.id)
   const season = Number(req.query?.season)
@@ -44,9 +44,21 @@ router.put('/:id/like', async (req, res) => {
   const userID = req.query.userid
   const isLiked = req.body.isLiked
 
+  console.log(req.body)
+
   await MovieAction.update(
-    { isLiked: isLiked },
-    { where: { movieId: movieID, userId: userID }}
+    {
+      isLiked: isLiked,
+      releaseDate: req.body.releaseDate,
+      title: req.body.title,
+      posterPath: req.body.posterPath,
+      voteAverage: req.body.voteAverage,
+    },
+    {
+      where: {
+        movieId: movieID, userId: userID
+      }
+    }
   )
 
   res.status(200).json({
@@ -86,7 +98,6 @@ router.put('/:id/is-watched', async (req, res) => {
 
 
 // @watch-status
-
 router.get('/watch-status', async(req, res) => {
   const userId = req.query.userid
 
@@ -95,7 +106,7 @@ router.get('/watch-status', async(req, res) => {
       userId: userId,
       watchStatus: { [Op.not]: null }
     },
-    attributes: ['movieId', 'runtime', 'watchStatus']
+    attributes: ['movieId', 'runtime', 'watchStatus', 'releaseDate', 'title', 'posterPath', 'voteAverage']
   })
 
   res.status(200).json(mediaItemsWithStatus)
@@ -107,13 +118,21 @@ router.put('/:id/watch-status', async (req, res) => {
   const watchStatus = req.body.watchStatus
 
   await MovieAction.update(
-      { watchStatus: watchStatus },
-      { where: {
+      {
+        watchStatus: watchStatus,
+        releaseDate: req.body.releaseDate,
+        title: req.body.title,
+        posterPath: req.body.posterPath,
+        voteAverage: req.body.voteAverage,
+      },
+      {
+        where: {
           movieId: movieID,
           userId: userID,
           season: null,
           episode: null,
-        }}
+        }
+      }
   )
 
   res.status(200).json({

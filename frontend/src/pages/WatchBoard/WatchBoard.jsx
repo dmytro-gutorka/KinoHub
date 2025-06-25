@@ -1,7 +1,6 @@
-import { Stack } from "@mui/material";
+import {Stack, useTheme} from "@mui/material";
 import { DndContext } from '@dnd-kit/core';
-import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
-import updateMovieBoardItemStatus from "../../features/movies/api/updateMovieBoardItemStatus";
+import {useQuery} from "@tanstack/react-query";
 import getMovieBoardMediaItems from "../../shared/api/getMovieBoardMediaItems";
 import MovieBoardItem from "../../shared/ui/MovieBoardItem";
 import MovieBoardColumn from "../../shared/ui/MovieBoardColumn";
@@ -12,40 +11,47 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import useMovieBoardItemStatus from "../../features/movies/hooks/useMovieBoardItemStatus";
 
 
-const columns = [
-    {
-        id: 'toWatch',
-        label: 'Want to Watch',
-        icon: <TurnedInNotOutlinedIcon />
-    },
-    {
-        id: 'isWatching',
-        label: 'Currently Watching',
-        icon: <PlayCircleOutlineOutlinedIcon/>
-    },
-    {
-        id: 'onHold',
-        label: "Watched",
-        icon: <RemoveRedEyeOutlinedIcon/>
-    },
-    {
-        id: 'favorites',
-        label: 'Favorites',
-        icon: <FavoriteBorderOutlinedIcon/>
-    },
-    {
-        id: 'archived',
-        label: 'Archived',
-        icon: <PlayCircleOutlineOutlinedIcon/>
-    }
-]
-
-
 const WatchBoard = () => {
+
+    const theme = useTheme()
+
+    const columns = [
+        {
+            id: 'toWatch',
+            label: 'Want to Watch',
+            icon: <TurnedInNotOutlinedIcon />,
+            bgColor: theme.palette.gradientBlue
+        },
+        {
+            id: 'isWatching',
+            label: 'Currently Watching',
+            icon: <PlayCircleOutlineOutlinedIcon/>,
+            bgColor: theme.palette.gradientOrange
+        },
+        {
+            id: 'onHold',
+            label: "Watched",
+            icon: <RemoveRedEyeOutlinedIcon/>,
+            bgColor: theme.palette.gradientGreen
+        },
+        {
+            id: 'favorites',
+            label: 'Favorites',
+            icon: <FavoriteBorderOutlinedIcon/>,
+            bgColor: theme.palette.gradientRed
+        },
+        {
+            id: 'archived',
+            label: 'Archived',
+            icon: <PlayCircleOutlineOutlinedIcon/>,
+            bgColor: theme.palette.gradientGrey
+        }
+    ]
 
     const { data : mediaItems, isSuccess } = useQuery({
         queryKey: ['movieBoardMediaItems'],
-        queryFn: getMovieBoardMediaItems
+        queryFn: getMovieBoardMediaItems,
+        staleTime: 0,
     })
 
     const watchBoardStatus = useMovieBoardItemStatus()
@@ -57,39 +63,50 @@ const WatchBoard = () => {
 
     if (!isSuccess) return <div>Loading...</div>
 
+    console.log(mediaItems)
 
     return (
         <DndContext onDragEnd={handleDragEnd}>
-            <Stack direction="row">
-                <Stack rowGap={2}>
-                    {mediaItems
-                        ?.filter(item => item.parent === null)
-                        ?.map(item => (
-                            <MovieBoardItem
-                                key={item.movieId}
-                                id={item.movieId}
-                                posterPath="Movie poster URL"
-                                title="Movie Title"
-                            />
-                        ))}
-                </Stack>
-
-                {columns.map(({id, icon, label}) => (
-                    <MovieBoardColumn id={id} key={id} icon={icon} label={label}>
-                        <Stack>{mediaItems
-                            ?.filter(item => item.watchStatus === id)
+            <Stack m={10}>
+                <Stack direction="row" gap={4}>
+                    <Stack>
+                        {mediaItems
+                            ?.filter(item => item.parent === null)
                             ?.map(item => (
                                 <MovieBoardItem
                                     key={item.movieId}
                                     id={item.movieId}
-                                    posterPath="Movie poster URL"
-                                    title="Movie Title"
+                                    posterPath={item.posterPath}
+                                    title={item.title}
+                                    runtime={item.runtime}
+                                    voteAverage={item.voteAverage}
+                                    releaseDate={item.releaseDate}
                                 />
                             ))}
-                        </Stack>
-                    </MovieBoardColumn>
-                ))}
+                    </Stack>
+
+                    {columns.map(({id, icon, label, bgColor}) => (
+                        <MovieBoardColumn id={id} key={id} icon={icon} label={label} bgColor={bgColor}>
+                            <Stack gap={2}>
+                                {mediaItems
+                                    ?.filter(item => item.watchStatus === id)
+                                    ?.map(item => (
+                                        <MovieBoardItem
+                                            key={item.movieId}
+                                            id={item.movieId}
+                                            posterPath={item.posterPath}
+                                            title={item.title}
+                                            runtime={item.runtime}
+                                            voteAverage={item.voteAverage}
+                                            releaseDate={item.releaseDate}
+                                        />
+                                    ))}
+                            </Stack>
+                        </MovieBoardColumn>
+                    ))}
+                </Stack>
             </Stack>
+
         </DndContext>
     )
 }

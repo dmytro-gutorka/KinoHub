@@ -5,7 +5,11 @@ const theme = createTheme({
     mode: 'dark',
     transparentGrey: 'rgb(255 255 255 / 0.1)',
     gradientMidnightSpace: 'linear-gradient(to bottom right, #000000, #0f172a, #000000)',
-    gradientGrey: 'linear-gradient(356deg,rgba(71, 85, 105, 1) 0%, rgba(75, 85, 99, 1) 21%, rgba(71, 85, 105, 1) 100%)'
+    gradientGrey: 'linear-gradient(to right, #475569, #4b5563)',
+    gradientOrange: 'linear-gradient(to right, #eab308 , #f97316)',
+    gradientGreen: 'linear-gradient(to right, #22c55e , #10b981)',
+    gradientRed: 'linear-gradient(to right, #ef4444 , #ec4899)',
+    gradientBlue: 'linear-gradient(to right, #3b82f6 , #06b6d4)',
   },
   spacing: 4,
 });
@@ -44,6 +48,16 @@ const finalTheme = createTheme(theme, {
           color: 'white',
         },
       },
+    },
+    MuiCardContent: {
+      styleOverrides: {
+        root: {
+          padding: '0px',
+          '&:last-child': {
+            paddingBottom: '0px'
+          }
+        }
+      }
     },
     MuiButton: {
       styleOverrides: {
