@@ -3,6 +3,7 @@ import getPosterURL from '../../helpers/getPosterURL';
 
 const MediaCastAndCrewBlock = ({ cast }) => {
   const theme = useTheme();
+  const test = 1;
 
   return (
     <Box borderRadius={2.5} padding={4} border={theme.customComponents.border}>
