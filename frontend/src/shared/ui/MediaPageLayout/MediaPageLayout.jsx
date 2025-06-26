@@ -27,7 +27,7 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
     <Stack component="section" m={10} rowGap={4}>
       <TextField label="Search" variant="outlined" onChange={handleSearch} />
 
-      {searchQuery || (
+      {!!searchQuery.length || (
         <Stack gap={2} direction="row" alignItems="center" justifyContent="space-between">
           <Stack direction="row" gap={2}>
             <BasicSelect sortBy={sortBy} onSortChange={handleSortChange} />
@@ -45,7 +45,7 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
       {searchLoading && <CircularProgress />}
       {mediaData && <MediaCardList mediaGenres={mediaGenres} mediaData={mediaData} mediaType={mediaType} />}
 
-      <Stack spacing={2}>
+      <Stack spacing={2} justifyContent="center" alignItems="center" my={6}>
         <Pagination count={500} variant="outlined" onChange={handlePageChange} />
         {/*Public API that I use has a restriction to only 500 page, so the value is hardcoded*/}
       </Stack>

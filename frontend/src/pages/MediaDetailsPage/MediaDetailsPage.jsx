@@ -4,14 +4,17 @@ import MediaHeader from '../../shared/ui/MediaHeader';
 
 import { useLoaderData, useParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
-import {Box, Container} from '@mui/material';
+import { Box, Container } from '@mui/material';
 
 const MediaDetailsPage = () => {
-
   const { id } = useParams();
-  const mediaType = useLoaderData()
+  const mediaType = useLoaderData();
 
-  const { data: mediaData, isLoading, isError, } = useQuery({
+  const {
+    data: mediaData,
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: ['media', +id],
     queryFn: () => getMovieDetails(id, mediaType),
   });
@@ -22,17 +25,14 @@ const MediaDetailsPage = () => {
 
   return (
     <>
-        <Box component='main' >
-            {/*// перебивает картинку баннера*/}
-          <MediaHeader mediaData={mediaData} mediaType={mediaType}/>
-          <Container maxWidth="lg">
-            <MediaOverview mediaData={mediaData} mediaType={mediaType}/>
-          </Container>
-        </Box>
+      <Box component="main">
+        <MediaHeader mediaData={mediaData} mediaType={mediaType} />
+        <Container maxWidth="lg">
+          <MediaOverview mediaData={mediaData} mediaType={mediaType} />
+        </Container>
+      </Box>
     </>
-  )
+  );
 };
 
 export default MediaDetailsPage;
-
-

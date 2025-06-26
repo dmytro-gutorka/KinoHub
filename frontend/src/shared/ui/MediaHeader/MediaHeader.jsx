@@ -17,10 +17,9 @@ import getYearFromDate from '../../helpers/getYearFromDate';
 import useMediaAction from '../../../features/movies/hooks/useMediaAction';
 import LabelWithIcon from '../LabelWithIcon';
 import getPosterURL from '../../helpers/getPosterURL';
-import useActionDataCreation from "../../../features/movies/hooks/useActionDataCreation";
+import useActionDataCreation from '../../../features/movies/hooks/useActionDataCreation';
 
-const MediaHeader = ({mediaData, mediaType}) => {
-
+const MediaHeader = ({ mediaData, mediaType }) => {
   const {
     id,
     genres,
@@ -34,129 +33,137 @@ const MediaHeader = ({mediaData, mediaType}) => {
     episode_run_time: runtimeEpisode,
     number_of_episodes: numberOfEpisodes,
     number_of_seasons: numberOfSeasons,
-    first_air_date: airDate
-  } = mediaData
+    first_air_date: airDate,
+  } = mediaData;
 
-  const theme = useTheme()
+  const theme = useTheme();
 
-  const actionMutation = useMediaAction("mediaActionData", id)
+  const actionMutation = useMediaAction('mediaActionData', id);
 
-  const relevantRuntime = runtime || runtimeEpisode?.at(0) || 0
-  const relevantReleaseDate = airDate || releaseDate || '0000-00-00'
-  const relevantTitle = name || title
+  const relevantRuntime = runtime || runtimeEpisode?.at(0) || 0;
+  const relevantReleaseDate = airDate || releaseDate || '0000-00-00';
+  const relevantTitle = name || title;
 
+  console.log(Boolean(relevantRuntime));
 
   const imgURL = getPosterURL(posterPath);
 
-  const { data: mediaActionData, isLoading } = useActionDataCreation(
-    'mediaActionData', id, {mediaType, runtime: relevantRuntime})
+  const { data: mediaActionData, isLoading } = useActionDataCreation('mediaActionData', id, {
+    mediaType,
+    runtime: relevantRuntime,
+  });
 
-  if (isLoading) return <div>Loading...</div>
+  if (isLoading) return <div>Loading...</div>;
 
-  const { isWatched, isLiked, watchStatus } = mediaActionData
+  const { isWatched, isLiked, watchStatus } = mediaActionData;
 
   const extraMediaData = {
     releaseDate: relevantReleaseDate,
     title: relevantTitle,
     posterPath,
     voteAverage,
-  }
+  };
 
-  const handleLike = () => actionMutation.mutate({ isLiked: !isLiked, ...extraMediaData })
-  const handleIsWatched = () => actionMutation.mutate({ isWatched: !isWatched, ...extraMediaData })
-  const handleWatchStatus = () => actionMutation.mutate({ watchStatus: watchStatus ? null : "toWatch", ...extraMediaData })
+  const handleLike = () => actionMutation.mutate({ isLiked: !isLiked, ...extraMediaData });
+  const handleIsWatched = () => actionMutation.mutate({ isWatched: !isWatched, ...extraMediaData });
+  const handleWatchStatus = () =>
+    actionMutation.mutate({ watchStatus: watchStatus ? null : 'toWatch', ...extraMediaData });
 
   return (
-    <Stack position='relative'>
-      <Box sx={{
-        background: `url(${imgURL})`,
-        position: 'absolute',
-        inset: 0,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        filter: 'blur(8px)',
-        zIndex: '-10'
-      }}>
-      </Box>
+    <Stack position="relative">
+      <Box
+        sx={{
+          background: `url(${imgURL})`,
+          position: 'absolute',
+          inset: 0,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'blur(8px)',
+          zIndex: '-10',
+        }}
+      />
 
       <Container maxWidth="lg">
-      <Stack direction="row" pt={14} pb={7}>
+        <Stack direction="row" pt={14} pb={7} gap={3} alignItems="end">
+          <Box
+            component="img"
+            src={imgURL}
+            width="256px"
+            height="384x"
+            sx={{ outline: `${theme.palette.transparentGrey} solid 2px`, borderRadius: '10px' }}
+          />
+          <Box>
+            <Typography variant="h2" component="h2" fontWeight="700" mb={10} lineHeight={1.2}>
+              {relevantTitle}
+            </Typography>
 
-        <Box
-          component="img"
-          src={imgURL}
-          width="256px"
-          height="384x"
-          sx={{outline: `${theme.palette.transparentGrey} solid 2px`, borderRadius: '10px',}}/>
-        <Box>
+            {mediaType === 'movie' && (
+              <Stack direction="row" spacing={4}>
+                <LabelWithIcon label={getYearFromDate(releaseDate)}>
+                  <CalendarTodayOutlinedIcon fontSize="small" />
+                </LabelWithIcon>
+                <LabelWithIcon label={voteAverage?.toFixed(2)}>
+                  <StarBorderIcon fontSize="small" />
+                </LabelWithIcon>
+                <LabelWithIcon label={relevantRuntime + 'm'}>
+                  <AccessTimeIcon />
+                </LabelWithIcon>
+                <LabelWithIcon label={language.toUpperCase()}>
+                  <LanguageIcon />
+                </LabelWithIcon>
+              </Stack>
+            )}
 
-          <Typography variant="h2" component="h2">{title}</Typography>
+            {mediaType === 'tv' && (
+              <Stack direction="row" spacing={4}>
+                <LabelWithIcon label={voteAverage?.toFixed(2) + '/10'}>
+                  <StarBorderIcon fontSize="small" />
+                </LabelWithIcon>
+                <LabelWithIcon label={numberOfSeasons}>
+                  <LiveTvOutlinedIcon fontSize="small" />
+                </LabelWithIcon>
+                <LabelWithIcon label={numberOfEpisodes}>
+                  <PlayCircleOutlineOutlinedIcon fontSize="small" />
+                </LabelWithIcon>
+                {!!relevantRuntime && (
+                  <LabelWithIcon label={`~${relevantRuntime}m per episode`}>
+                    <AccessTimeIcon fontSize="small" />
+                  </LabelWithIcon>
+                )}
+              </Stack>
+            )}
 
-          {mediaType === 'movie' && (
-            <Stack direction="row" spacing={4}>
-              <LabelWithIcon label={getYearFromDate(releaseDate)}>
-                <CalendarTodayOutlinedIcon fontSize="small" />
-              </LabelWithIcon>
-              <LabelWithIcon label={voteAverage?.toFixed(2)}>
-                <StarBorderIcon fontSize="small" />
-              </LabelWithIcon>
-              <LabelWithIcon label={relevantRuntime + 'm'}>
-                <AccessTimeIcon />
-              </LabelWithIcon>
-              <LabelWithIcon label={language.toUpperCase()}>
-                <LanguageIcon />
-              </LabelWithIcon>
+            <Stack direction="row" mb={8} mt={3} gap={1}>
+              {genres.map(({ name, id }) => (
+                <Chip label={name} key={id} />
+              ))}
             </Stack>
-          )}
 
-          {mediaType === 'tv' && (
             <Stack direction="row" spacing={4}>
-              <LabelWithIcon label={voteAverage?.toFixed(2) + '/10'}>
-                <StarBorderIcon fontSize="small" />
-              </LabelWithIcon>
-              <LabelWithIcon label={numberOfSeasons}>
-                <LiveTvOutlinedIcon fontSize="small" />
-              </LabelWithIcon>
-              <LabelWithIcon label={numberOfEpisodes}>
-                <PlayCircleOutlineOutlinedIcon fontSize="small" />
-              </LabelWithIcon>
-              <LabelWithIcon label={`~${relevantRuntime}m per episode`}>
-                <AccessTimeIcon fontSize="small" />
-              </LabelWithIcon>
+              <Button>
+                <LabelWithIcon label="Watch trailer">
+                  <PlayArrowOutlinedIcon />
+                </LabelWithIcon>
+              </Button>
+              <Button onClick={handleLike}>
+                <LabelWithIcon label="Add to Favorites">
+                  {isLiked ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon />}
+                </LabelWithIcon>
+              </Button>
+              <Button onClick={handleWatchStatus}>
+                <LabelWithIcon label="Add to MovieBoard">
+                  {watchStatus ? <BookmarkAddedIcon /> : <BookmarkAddOutlinedIcon />}
+                </LabelWithIcon>
+              </Button>
+              <IconButton onClick={handleIsWatched}>
+                {isWatched ? <VisibilityIcon /> : <VisibilityOffOutlinedIcon />}
+              </IconButton>
             </Stack>
-          )}
-
-          <Stack direction="row">
-            {genres.map(({name, id}) => <Chip label={name} key={id}/>)}
-          </Stack>
-
-          <Stack direction="row" spacing={4}>
-            <Button>
-              <LabelWithIcon label="Watch trailer">
-                <PlayArrowOutlinedIcon />
-              </LabelWithIcon>
-            </Button>
-            <Button onClick={handleLike}>
-              <LabelWithIcon label="Add to Favorites">
-                {isLiked ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon />}
-              </LabelWithIcon>
-            </Button>
-            <Button onClick={handleWatchStatus}>
-              <LabelWithIcon label="Add to MovieBoard">
-                {watchStatus ? <BookmarkAddedIcon /> : <BookmarkAddOutlinedIcon />}
-              </LabelWithIcon>
-            </Button>
-            <IconButton onClick={handleIsWatched}>
-              {isWatched ? <VisibilityIcon/> : <VisibilityOffOutlinedIcon/>}
-            </IconButton>
-          </Stack>
-
-        </Box>
-      </Stack>
-    </Container>
-
-  </Stack>
-)
+          </Box>
+        </Stack>
+      </Container>
+    </Stack>
+  );
 };
 
 export default MediaHeader;
