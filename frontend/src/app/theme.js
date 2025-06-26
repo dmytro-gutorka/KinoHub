@@ -24,7 +24,7 @@ const theme = createTheme({
       lightGradient: '',
     },
     orange: {
-      light:'rgb(250 204 21)',
+      light: 'rgb(250 204 21)',
       dark: 'rgb(234 179 8 / 0.2)',
       darkGradient: 'linear-gradient(to bottom right, rgb(234 179 8 / 0.2) , rgb(249 115 22 / 0.2))',
       lightGradient: '',
@@ -34,16 +34,14 @@ const theme = createTheme({
       dark: 'rgb(59 130 246  / 0.2)',
       darkGradient: 'linear-gradient(to bottom right, rgb(59 130 246 / 0.2) , rgb(6 182 212 / 0.2))',
       lightGradient: '',
-    }
-
-
-},
+    },
+  },
   spacing: 4,
 });
 
 const finalTheme = createTheme(theme, {
   customComponents: {
-    border: `1px solid ${theme.palette.transparentGrey}`
+    border: `1px solid ${theme.palette.transparentGrey}`,
   },
   components: {
     MuiCssBaseline: {
@@ -81,10 +79,10 @@ const finalTheme = createTheme(theme, {
         root: {
           padding: '0px',
           '&:last-child': {
-            paddingBottom: '0px'
-          }
-        }
-      }
+            paddingBottom: '0px',
+          },
+        },
+      },
     },
     MuiButton: {
       styleOverrides: {
@@ -109,7 +107,7 @@ const finalTheme = createTheme(theme, {
           paddingInline: theme.spacing(4),
           textTransform: 'capitalize',
           fontWeight: '900',
-          fontSize: theme.spacing(3.75)
+          fontSize: theme.spacing(3.75),
         },
       },
     },

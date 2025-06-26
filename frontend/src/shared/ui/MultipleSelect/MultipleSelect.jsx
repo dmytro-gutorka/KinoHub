@@ -1,10 +1,8 @@
 import { Box, Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
 
-
 const MultipleSelect = ({ genres, onGenresChange, mediaGenres }) => {
-
   return (
-    <FormControl sx={{ m: 1, width: 300 }}>
+    <FormControl sx={{ width: '300px' }}>
       <InputLabel id="movie-genres-filter">Genres</InputLabel>
       <Select
         multiple

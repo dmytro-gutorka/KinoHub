@@ -1,4 +1,4 @@
-import { Box, Chip, Stack } from '@mui/material';
+import { Box, Chip, Stack, useTheme } from '@mui/material';
 import { NavLink } from 'react-router';
 
 import getYearFromDate from '../../helpers/getYearFromDate';
@@ -12,6 +12,7 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 
 const MediaCardList = ({ mediaData, mediaGenres }) => {
+  const theme = useTheme();
 
   return (
     <Stack direction="row" flexWrap="wrap" gap={10} justifyContent="center">
@@ -20,13 +21,16 @@ const MediaCardList = ({ mediaData, mediaGenres }) => {
           release_date: releaseDate,
           poster_path: posterPath,
           vote_average: avgRating,
+          first_air_date: airDate,
           genre_ids: genres,
           overview,
           title,
+          name,
           id,
         } = movie;
 
-        const imgURL = getPosterURL(posterPath)
+        console.log(mediaData);
+        const imgURL = getPosterURL(posterPath);
 
         return (
           <Card
@@ -41,37 +45,43 @@ const MediaCardList = ({ mediaData, mediaGenres }) => {
             })}
           >
             <Box component={NavLink} to={`${id}`}>
-            <CardMedia
-              sx={{
-                height: 400,
-                backgroundSize: 'cover',
-              }}
-              image={imgURL}
-              title="Movie card"
-            />
+              <CardMedia
+                sx={{
+                  height: 400,
+                  backgroundSize: 'cover',
+                }}
+                image={imgURL}
+                title="Movie card"
+              />
             </Box>
-            <CardContent>
+            <CardContent
+              sx={{
+                padding: theme.spacing(4),
+                '&.MuiCardContent-root': {
+                  paddingBottom: theme.spacing(4),
+                },
+              }}
+            >
               <Typography gutterBottom variant="h5" component="div">
-                {title}
+                {title || name}
               </Typography>
-              <Stack direction="row" spacing={1}>
+
+              <Stack direction="row" flexWrap="wrap" gap={1} mb={2}>
                 {genres.map((genreId, index) => {
                   const genreName = mediaGenres.find((movie) => movie.id === genreId)?.name;
                   const numberOfGenres = genres.length;
                   const hideFrom = 2;
 
-                  if (index <= 1) return <Chip key={genreId} label={genreName} />;
+                  if (index <= 1) return <Chip key={genreId} label={genreName} size="small" />;
                   if (index === numberOfGenres - 1 && numberOfGenres > hideFrom)
-                    return <Chip key={genreId} label={`+${numberOfGenres - hideFrom}`} />;
+                    return <Chip key={genreId} label={`+${numberOfGenres - hideFrom}`} size="small" />;
                 })}
               </Stack>
 
               <Stack direction="row" gap={2}>
-                {releaseDate && (
-                  <LabelWithIcon label={getYearFromDate(releaseDate)}>
-                    <CalendarTodayOutlinedIcon fontSize="small" />
-                  </LabelWithIcon>
-                )}
+                <LabelWithIcon label={getYearFromDate(releaseDate || airDate)}>
+                  <CalendarTodayOutlinedIcon fontSize="small" />
+                </LabelWithIcon>
                 <LabelWithIcon label={avgRating}>
                   <StarBorderIcon fontSize="small" />
                 </LabelWithIcon>

@@ -1,4 +1,4 @@
-import { CircularProgress, Pagination, Stack } from '@mui/material';
+import { Box, CircularProgress, Pagination, Stack, TextField } from '@mui/material';
 import { useMediaFilters } from '../../hooks/useMediaFilters';
 
 import useFilteredMedia from '../../hooks/useFilteredMedia';
@@ -10,43 +10,40 @@ import MediaCardList from '../MediaCardList';
 import movieGenres from '../../../data/movieGenres';
 import tvShowGenres from '../../../data/tvShowGenres';
 
-
 const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
-  const mediaGenres = mediaType === 'movie' ? movieGenres : tvShowGenres
+  const mediaGenres = mediaType === 'movie' ? movieGenres : tvShowGenres;
 
   const {
     filters: { page, minRating, searchQuery, genres, sortBy, isFiltersOpen },
-    handlers: {
-      handleGenreChange,
-      handleSearch,
-      handleSortChange,
-      handleRatingChange,
-      handlePageChange,
-    },
+    handlers: { handleGenreChange, handleSearch, handleSortChange, handleRatingChange, handlePageChange },
   } = useMediaFilters();
 
   const { data } = useFilteredMedia(qrKey, page, minRating, genres, sortBy, mediaType);
-  const { data: searchData, isLoading: searchLoading } = useSearchedMedia(
-    qrKey, page, searchQuery, mediaType
-  );
+  const { data: searchData, isLoading: searchLoading } = useSearchedMedia(qrKey, page, searchQuery, mediaType);
 
-  const maxPage = searchData?.total_pages || data?.total_pages;
   const mediaData = searchData?.results.length > 0 ? searchData?.results : data?.results;
 
   return (
-    <Stack component="section">
-      <input type="search" value={searchQuery} onChange={handleSearch} />
+    <Stack component="section" m={10} rowGap={4}>
+      <TextField label="Search" variant="outlined" onChange={handleSearch} />
 
       {searchQuery || (
-        <Stack>
-          <MultipleSelect mediaGenres={mediaGenres} mediaType={mediaType} genres={genres} onGenresChange={handleGenreChange} />
-          <BasicSelect sortBy={sortBy} onSortChange={handleSortChange} />
+        <Stack gap={2} direction="row" alignItems="center" justifyContent="space-between">
+          <Stack direction="row" gap={2}>
+            <BasicSelect sortBy={sortBy} onSortChange={handleSortChange} />
+            <MultipleSelect
+              mediaGenres={mediaGenres}
+              mediaType={mediaType}
+              genres={genres}
+              onGenresChange={handleGenreChange}
+            />
+          </Stack>
           <SliderBar minRating={minRating} onRatingChange={handleRatingChange} />
         </Stack>
       )}
 
       {searchLoading && <CircularProgress />}
-      {mediaData && <MediaCardList mediaGenres={mediaGenres} mediaData={mediaData} mediaType={mediaType}></MediaCardList>}
+      {mediaData && <MediaCardList mediaGenres={mediaGenres} mediaData={mediaData} mediaType={mediaType} />}
 
       <Stack spacing={2}>
         <Pagination count={500} variant="outlined" onChange={handlePageChange} />
@@ -54,6 +51,6 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
       </Stack>
     </Stack>
   );
-}
+};
 
 export default MediaPageLayout;

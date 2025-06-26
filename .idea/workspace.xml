@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/icons/ChartUpLineIcon/ChartUpLineIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/icons/ChartUpLineIcon/ChartUpLineIcon.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/icons/MovieOutlineIcon/MovieOutlineIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/icons/MovieOutlineIcon/MovieOutlineIcon.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/icons/TvShowOutlineIcon/TvShowOutlineIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/icons/TvShowOutlineIcon/TvShowOutlineIcon.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MovieBoardItem/MovieBoardItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MovieBoardItem/MovieBoardItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/BasicSelect/BasicSelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/BasicSelect/BasicSelect.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardList/MediaCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardList/MediaCardList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaPageLayout/MediaPageLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaPageLayout/MediaPageLayout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MultipleSelect/MultipleSelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MultipleSelect/MultipleSelect.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/SliderBar/SliderBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/SliderBar/SliderBar.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +45,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:dmytro-gutorka/MoviesHub.git&quot;,
-    &quot;accountId&quot;: &quot;2614ba0e-4a13-4752-a98f-46c86abd3fa0&quot;
+    &quot;url&quot;: &quot;https://github.com/dmytro-gutorka/KinoHub.git&quot;,
+    &quot;accountId&quot;: &quot;eed02a5a-add1-4623-9110-528a9430ed0c&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -57,30 +59,33 @@
     <option name="showLibraryContents" value="true" />
     <option name="sortKey" value="BY_TIME_ASCENDING" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore_missing_gitignore": "true",
-    "javascript.nodejs.core.library.configured.version": "24.1.0",
-    "javascript.nodejs.core.library.typings.version": "24.0.1",
-    "last_opened_file_path": "/Users/cblpok/Projects/MoviesHub/frontend/public",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/cblpok/Projects/MoviesHub/frontend/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.sourceCode.HTTP Request",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.17.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.15.33&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dima/GitHubProjects/KinoHub&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;/Users/dima/Library/Application Support/JetBrains/WebStorm2025.1/node/versions/22.17.0/bin/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/dima/GitHubProjects/KinoHub/frontend/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/public" />
@@ -100,7 +105,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.157" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.26927.40" />
       </set>
     </attachedChunks>
   </component>
@@ -116,6 +121,13 @@
       <workItem from="1749854105809" duration="192941000" />
       <workItem from="1750777135847" duration="5581000" />
       <workItem from="1750843242098" duration="22255000" />
+      <workItem from="1750941990958" duration="94000" />
+      <workItem from="1750942085618" duration="2373000" />
+      <workItem from="1750944531059" duration="205000" />
+      <workItem from="1750944744615" duration="282000" />
+      <workItem from="1750945036450" duration="48000" />
+      <workItem from="1750945095254" duration="67000" />
+      <workItem from="1750945171163" duration="4067000" />
     </task>
     <servers />
   </component>

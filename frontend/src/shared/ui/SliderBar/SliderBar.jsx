@@ -2,7 +2,7 @@ import { Box, Slider, Typography } from '@mui/material';
 
 const SliderBar = ({ minRating, onRatingChange }) => {
   return (
-    <Box sx={{ width: 250 }}>
+    <Box width="300px">
       <Typography>Average rating</Typography>
       <Slider
         step={0.5}

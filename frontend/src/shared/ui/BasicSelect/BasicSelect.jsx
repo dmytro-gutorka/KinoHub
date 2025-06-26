@@ -2,12 +2,12 @@ import { FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/m
 
 const BasicSelect = ({ sortBy, onSortChange }) => {
   return (
-    <FormControl sx={{ m: 1, width: 300 }}>
-      <InputLabel id="movie-sort-by">Sort by</InputLabel>
+    <FormControl sx={{ width: '300px' }}>
+      <InputLabel id="sort-by-label">Sort by</InputLabel>
       <Select
-        labelId="movie-sort-by"
-        value={sortBy}
+        labelId="sort-by-label"
         variant="standard"
+        value={sortBy}
         onChange={onSortChange}
         input={<OutlinedInput />}
       >
