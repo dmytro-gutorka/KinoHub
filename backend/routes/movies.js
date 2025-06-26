@@ -23,15 +23,35 @@ router.get('/:id/actions', async (req, res) => {
 })
 
 // @ratings
-router.put('/:id/rating', async (req, res) => {
+router.get('/:id/rating', async (req, res) => {
+  const movieID = req.params.id
+  const userID = req.query.userid
+
+  const rating = await MovieAction.findOne({
+    where: {
+      movieId: movieID,
+      userId: userID,
+      season: null,
+      episode: null,
+    },
+    attributes: ['rating']
+  })
+
+
+  res.status(200).json(rating)
+})
+
+
+  router.put('/:id/rating', async (req, res) => {
   const movieID = req.params.id;
-  const userID = req.body.userId
+  const userID = req.query.userid
   const rating = req.body.rating
 
   await MovieAction.update(
-    { rating: rating },
-    { where: { movieId: movieID, userId: userID }}
-  )
+      { rating: rating },
+      { where:
+            { movieId: movieID, userId: userID, season: null, episode: null }
+      })
 
   res.status(200).json({
     msg: `Rating on movie ${movieID} was updated. Current rating is ${rating}`
@@ -56,7 +76,7 @@ router.put('/:id/like', async (req, res) => {
     },
     {
       where: {
-        movieId: movieID, userId: userID
+        movieId: movieID, userId: userID, season: null, episode: null,
       }
     }
   )

@@ -22,29 +22,26 @@ import useActionDataCreation from '../../../features/movies/hooks/useActionDataC
 const MediaHeader = ({ mediaData, mediaType }) => {
   const {
     id,
-    genres,
-    title,
-    runtime,
     name,
+    title,
+    genres,
+    runtime,
     poster_path: posterPath,
-    vote_average: voteAverage,
-    original_language: language,
-    release_date: releaseDate,
-    episode_run_time: runtimeEpisode,
-    number_of_episodes: numberOfEpisodes,
-    number_of_seasons: numberOfSeasons,
     first_air_date: airDate,
+    vote_average: voteAverage,
+    release_date: releaseDate,
+    original_language: language,
+    episode_run_time: runtimeEpisode,
+    number_of_seasons: numberOfSeasons,
+    number_of_episodes: numberOfEpisodes,
   } = mediaData;
 
   const theme = useTheme();
-
   const actionMutation = useMediaAction('mediaActionData', id);
 
   const relevantRuntime = runtime || runtimeEpisode?.at(0) || 0;
   const relevantReleaseDate = airDate || releaseDate || '0000-00-00';
   const relevantTitle = name || title;
-
-  console.log(Boolean(relevantRuntime));
 
   const imgURL = getPosterURL(posterPath);
 

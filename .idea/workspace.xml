@@ -7,13 +7,12 @@
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeItem/episodeItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeItem/episodeItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/seasonItem/seasonItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/seasonItem/seasonItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/seasonList/seasonList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/seasonList/seasonList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/movies.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/movies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/getActionForURL.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/getActionForURL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardList/MediaCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardList/MediaCardList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCastAndCrewBlock/MediaCastAndCrewBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCastAndCrewBlock/MediaCastAndCrewBlock.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaHeader/MediaHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaHeader/MediaHeader.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/MediaOverview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/MediaOverview.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaPageLayout/MediaPageLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaPageLayout/MediaPageLayout.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +27,9 @@
         <option value="JSX Component Folder with styles" />
         <option value="tsconfig.json" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="JSX Component Folder.jsx.child.0" />
         <option value="JSX Component Folder" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -127,7 +126,7 @@
       <workItem from="1750944744615" duration="282000" />
       <workItem from="1750945036450" duration="48000" />
       <workItem from="1750945095254" duration="67000" />
-      <workItem from="1750945171163" duration="10792000" />
+      <workItem from="1750945171163" duration="16174000" />
     </task>
     <servers />
   </component>

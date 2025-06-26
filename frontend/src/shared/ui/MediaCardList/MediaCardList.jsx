@@ -29,7 +29,6 @@ const MediaCardList = ({ mediaData, mediaGenres }) => {
           id,
         } = movie;
 
-        console.log(mediaData);
         const imgURL = getPosterURL(posterPath);
 
         return (

@@ -1,21 +1,43 @@
-import { Grid, ListItem, Stack, Typography, List } from '@mui/material';
+import { Grid, Stack } from '@mui/material';
 import { useState } from 'react';
+
 import EpisodeList from '../../../entities/tvShowEpisode/ui/episodeList';
 import SeasonList from '../../../entities/tvShowSeason/ui/seasonList';
+import MediaRatingBlock from '../MediaRatingBlock';
+import MediaDetailsBlock from '../MediaDetailsBlock';
 import MediaOverviewBlock from '../MediaOverviewBlock';
 import MediaCastAndCrewBlock from '../MediaCastAndCrewBlock';
-import MediaDetailsBlock from '../MediaDetailsBlock';
 import MediaProductionCompaniesBlock from '../MediaProductionCompaniesBlock';
+import useMediaAction from '../../../features/movies/hooks/useMediaAction';
 
 const MediaOverview = ({ mediaData, mediaType }) => {
   const [tvSeason, setTvSeason] = useState(1);
 
   const {
+    id,
+    name,
+    title,
+    poster_path: posterPath,
+    first_air_date: airDate,
+    vote_average: voteAverage,
+    release_date: releaseDate,
     overview,
     seasons,
     credits: { cast },
     production_companies: companies,
   } = mediaData;
+
+  const actionMutation = useMediaAction('mediaActionData', id);
+
+  const relevantReleaseDate = airDate || releaseDate || '0000-00-00';
+  const relevantTitle = name || title;
+
+  const extraMediaData = {
+    releaseDate: relevantReleaseDate,
+    title: relevantTitle,
+    posterPath,
+    voteAverage,
+  };
 
   return (
     <Stack mt={14} gap={6}>
@@ -31,6 +53,7 @@ const MediaOverview = ({ mediaData, mediaType }) => {
           <Stack gap={6}>
             <MediaDetailsBlock mediaData={mediaData} />
             <MediaProductionCompaniesBlock companies={companies} />
+            <MediaRatingBlock mediaId={id} actionMutation={actionMutation} extraMediaData={extraMediaData} />
           </Stack>
         </Grid>
       </Grid>

@@ -1,7 +1,7 @@
 import { MEDIA_ACTIONS } from '../../app/constants';
 
-// action should be always the first
+// action should always be the first
 export function getActionForURL(actionData) {
-  const actionKey = Object.keys(actionData)[0]
-  return MEDIA_ACTIONS[actionKey]
+  const actionKey = Object.keys(actionData)[0];
+  return MEDIA_ACTIONS[actionKey];
 }
