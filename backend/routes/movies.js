@@ -34,7 +34,7 @@ router.get('/:id/rating', async (req, res) => {
       season: null,
       episode: null,
     },
-    attributes: ['rating']
+    raw: true
   })
 
 

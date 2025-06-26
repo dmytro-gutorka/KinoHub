@@ -9,19 +9,20 @@ const MediaRatingBlock = ({ actionMutation, extraMediaData, mediaId }) => {
   const theme = useTheme();
 
   const { data: mediaRating, isSuccess } = useQuery({
-    queryKey: ['mediaRating', extraMediaData.id],
+    queryKey: ['mediaActionData', mediaId],
     queryFn: () => getMediaRating(mediaId),
     staleTime: 0,
   });
 
-  function handleRating(e) {
-    const rating = e.target.value;
-    setRating(rating);
-    actionMutation.mutate({ rating: rating, ...extraMediaData });
+  function handleRating(_event, newRating) {
+    if (newRating !== null) {
+      setRating(newRating);
+      actionMutation.mutate({ rating: newRating, ...extraMediaData });
+    }
   }
 
   useEffect(() => {
-    if (mediaRating?.rating) {
+    if (mediaRating?.rating != null) {
       setRating(mediaRating.rating);
     }
   }, [mediaRating?.rating]);
@@ -52,7 +53,7 @@ const MediaRatingBlock = ({ actionMutation, extraMediaData, mediaId }) => {
         </>
       )}
 
-      <Rating defaultValue={mediaRating.rating || 2} max={10} value={rating} onChange={handleRating} />
+      <Rating max={10} value={rating} onChange={handleRating} />
     </Box>
   );
 };
