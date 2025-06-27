@@ -64,15 +64,15 @@ const EpisodeItem = ({ episodeData, isWatched }) => {
           </IconButton>
         </Stack>
         <Stack direction="row" spacing={1} mb={2}>
-          <LabelWithIcon label={runtime + 'm'}>
+          <LabelWithIcon data={runtime + 'm'}>
             <AccessTimeIcon />
           </LabelWithIcon>
 
-          <LabelWithIcon label={getYearFromDate(airDate)}>
+          <LabelWithIcon data={getYearFromDate(airDate)}>
             <CalendarTodayOutlinedIcon fontSize="small" />
           </LabelWithIcon>
 
-          <LabelWithIcon label={voteAverage?.toFixed(2)}>
+          <LabelWithIcon data={voteAverage?.toFixed(2)}>
             <StarBorderIcon fontSize="small" />
           </LabelWithIcon>
         </Stack>

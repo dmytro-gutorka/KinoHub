@@ -15,15 +15,24 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
 
   const {
     filters: { page, minRating, searchQuery, genres, sortBy, isFiltersOpen },
-    handlers: { handleGenreChange, handleSearch, handleSortChange, handleRatingChange, handlePageChange },
+    handlers: {
+      handleGenreChange,
+      handleSearch,
+      handleSortChange,
+      handleRatingChange,
+      handlePageChange,
+    },
   } = useMediaFilters();
 
   const { data } = useFilteredMedia(qrKey, page, minRating, genres, sortBy, mediaType);
-  const { data: searchData, isLoading: searchLoading } = useSearchedMedia(qrKey, page, searchQuery, mediaType);
+  const { data: searchData, isLoading: searchLoading } = useSearchedMedia(
+    qrKey,
+    page,
+    searchQuery,
+    mediaType
+  );
 
   const mediaData = searchData?.results.length > 0 ? searchData?.results : data?.results;
-
-  console.log(mediaData);
 
   return (
     <Stack component="section" m={10} rowGap={4}>
@@ -45,7 +54,7 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
       )}
 
       {searchLoading && <CircularProgress />}
-      {mediaData && <MediaCardList mediaGenres={mediaGenres} mediaData={mediaData} mediaType={mediaType} />}
+      {mediaData && <MediaCardList mediaGenres={mediaGenres} mediaData={mediaData} />}
 
       <Stack spacing={2} justifyContent="center" alignItems="center" my={6}>
         <Pagination count={500} variant="outlined" onChange={handlePageChange} />

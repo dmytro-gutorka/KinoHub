@@ -107,9 +107,16 @@ router.put('/:id/is-watched', async (req, res) => {
   )
 
   if (!season || !episode ) await MovieAction.update(
-    { isWatched: isWatched },
-    { where: { movieId: movieID, userId: userID } }
-  )
+      { isWatched: isWatched },
+      { where:
+            {
+              movieId: movieID,
+              userId: userID,
+              season: null,
+              episode: null,
+            }
+      }
+      )
 
   res.status(200).json({
     msg: `Watch status on movie ${movieID} was changed to ${isWatched ? 'watched' : 'not watched yet'}`

@@ -1,5 +1,5 @@
-import { Box, Chip, Stack, useTheme } from '@mui/material';
-import { NavLink } from 'react-router';
+import { Box, Stack, useTheme } from '@mui/material';
+import { NavLink, useLoaderData } from 'react-router';
 
 import getYearFromDate from '../../helpers/getYearFromDate';
 import LabelWithIcon from '../LabelWithIcon';
@@ -10,6 +10,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import GenreChipList from '../GenreChipList';
 
 const MediaCardList = ({ mediaData, mediaGenres }) => {
   const theme = useTheme();
@@ -29,7 +30,13 @@ const MediaCardList = ({ mediaData, mediaGenres }) => {
           id,
         } = movie;
 
-        const relevantPoster = posterPath ? getPosterURL(posterPath) : './public/no-image.placeholder.png';
+        const relevantPoster = getPosterURL(posterPath);
+
+        const genreNames = genres.map((genreId) =>
+          mediaGenres.find((genre) => genre.id === genreId && { name: genre?.name })
+        );
+
+        console.log(genreNames);
 
         return (
           <Card
@@ -65,23 +72,17 @@ const MediaCardList = ({ mediaData, mediaGenres }) => {
                 {title || name}
               </Typography>
 
-              <Stack direction="row" flexWrap="wrap" gap={1} mb={2}>
-                {genres.map((genreId, index) => {
-                  const genreName = mediaGenres.find((movie) => movie.id === genreId)?.name;
-                  const numberOfGenres = genres.length;
-                  const hideFrom = 2;
-
-                  if (index <= 1) return <Chip key={genreId} label={genreName} size="small" />;
-                  if (index === numberOfGenres - 1 && numberOfGenres > hideFrom)
-                    return <Chip key={genreId} label={`+${numberOfGenres - hideFrom}`} size="small" />;
-                })}
-              </Stack>
+              {genreNames?.length > 0 && (
+                <Stack direction="row" flexWrap="wrap" gap={1} mb={2}>
+                  <GenreChipList genres={genreNames} renderLimit={2} size="small" />
+                </Stack>
+              )}
 
               <Stack direction="row" gap={2}>
-                <LabelWithIcon label={getYearFromDate(releaseDate || airDate)}>
+                <LabelWithIcon data={getYearFromDate(releaseDate || airDate)}>
                   <CalendarTodayOutlinedIcon fontSize="small" />
                 </LabelWithIcon>
-                <LabelWithIcon label={avgRating}>
+                <LabelWithIcon data={avgRating}>
                   <StarBorderIcon fontSize="small" />
                 </LabelWithIcon>
               </Stack>

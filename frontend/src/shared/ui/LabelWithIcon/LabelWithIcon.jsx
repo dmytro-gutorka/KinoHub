@@ -1,10 +1,10 @@
-import {Box, Stack, Typography} from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 
-const LabelWithIcon = ({ label, children, fnSize = '10px' }) => {
+const LabelWithIcon = ({ data, children }) => {
   return (
     <Stack direction="row" alignItems="center" gap={1}>
       {children}
-      <Typography variant="subtitle1">{label}</Typography>
+      <Typography variant="subtitle1">{data}</Typography>
     </Stack>
   );
 };

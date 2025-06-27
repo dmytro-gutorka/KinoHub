@@ -17,8 +17,7 @@ const StyledNavLink = styled(Link)(({ theme }) => ({
   '&.active': {
     color: theme.palette.primary.main,
     background: theme.palette.gradientGrey,
-
-  }
+  },
 }));
 
 const StyledStack = styled(Stack)(() => ({

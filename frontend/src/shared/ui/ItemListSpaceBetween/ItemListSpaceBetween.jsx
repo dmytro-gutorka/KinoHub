@@ -1,17 +1,12 @@
-import { ListItem, styled } from '@mui/material';
-
-const StyledListItem = styled(ListItem)(() => ({
-  display: 'flex',
-  justifyContent: 'space-between'
-}))
+import { ListItem } from '@mui/material';
 
 const ItemListSpaceBetween = ({ label, data }) => {
   return (
-      <StyledListItem>
-        <span>{label}</span>
-        <span>{data}</span>
-      </StyledListItem>
-  )
+    <ListItem sx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <span>{label}</span>
+      <span>{data}</span>
+    </ListItem>
+  );
 };
 
 export default ItemListSpaceBetween;
