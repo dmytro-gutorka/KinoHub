@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Pagination, Stack, TextField } from '@mui/material';
+import { CircularProgress, Pagination, Stack, TextField } from '@mui/material';
 import { useMediaFilters } from '../../hooks/useMediaFilters';
 
 import useFilteredMedia from '../../hooks/useFilteredMedia';
@@ -7,8 +7,8 @@ import MultipleSelect from '../MultipleSelect';
 import BasicSelect from '../BasicSelect';
 import SliderBar from '../SliderBar';
 import MediaCardList from '../MediaCardList';
-import movieGenres from '../../../data/movieGenres';
-import tvShowGenres from '../../../data/tvShowGenres';
+import movieGenres from '../../data/movieGenres';
+import tvShowGenres from '../../data/tvShowGenres';
 
 const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
   const mediaGenres = mediaType === 'movie' ? movieGenres : tvShowGenres;
@@ -22,6 +22,8 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
   const { data: searchData, isLoading: searchLoading } = useSearchedMedia(qrKey, page, searchQuery, mediaType);
 
   const mediaData = searchData?.results.length > 0 ? searchData?.results : data?.results;
+
+  console.log(mediaData);
 
   return (
     <Stack component="section" m={10} rowGap={4}>

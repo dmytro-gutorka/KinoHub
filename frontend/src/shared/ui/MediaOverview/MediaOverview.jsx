@@ -54,7 +54,6 @@ const MediaOverview = ({ mediaData, mediaType }) => {
             <MediaDetailsBlock mediaData={mediaData} />
             <MediaProductionCompaniesBlock companies={companies} />
             <MediaRatingBlock mediaId={id} actionMutation={actionMutation} extraMediaData={extraMediaData} />
-            Что то с Add to favorites и add to movieboard когда оно включена
           </Stack>
         </Grid>
       </Grid>

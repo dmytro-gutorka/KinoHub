@@ -29,7 +29,7 @@ const MediaCardList = ({ mediaData, mediaGenres }) => {
           id,
         } = movie;
 
-        const imgURL = getPosterURL(posterPath);
+        const relevantPoster = posterPath ? getPosterURL(posterPath) : './public/no-image.placeholder.png';
 
         return (
           <Card
@@ -45,12 +45,12 @@ const MediaCardList = ({ mediaData, mediaGenres }) => {
           >
             <Box component={NavLink} to={`${id}`}>
               <CardMedia
+                image={relevantPoster}
+                title="Movie card"
                 sx={{
                   height: 400,
                   backgroundSize: 'cover',
                 }}
-                image={imgURL}
-                title="Movie card"
               />
             </Box>
             <CardContent

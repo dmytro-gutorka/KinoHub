@@ -7,10 +7,14 @@
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/movies.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/movies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/getAvgRating.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/getAvgRating.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/data/movieGenres.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/data/movieGenres.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/data/tvShowGenres.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/data/tvShowGenres.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardList/MediaCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardList/MediaCardList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardPreviewShort/MediaCardPreviewShort.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardPreviewShort/MediaCardPreviewShort.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/MediaOverview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/MediaOverview.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaRatingBlock/MediaRatingBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaRatingBlock/MediaRatingBlock.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaPageLayout/MediaPageLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaPageLayout/MediaPageLayout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaSection/MediaSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaSection/MediaSection.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +71,7 @@
     "javascript.nodejs.core.library.configured.version": "22.17.0",
     "javascript.nodejs.core.library.typings.version": "22.15.33",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/dima/GitHubProjects/KinoHub",
+    "last_opened_file_path": "/Users/dima/GitHubProjects/KinoHub/frontend/public",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -92,11 +96,11 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/shared" />
       <recent name="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/entities" />
       <recent name="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode" />
-      <recent name="$PROJECT_DIR$/frontend/src/shared/ui" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -124,7 +128,8 @@
       <workItem from="1750944744615" duration="282000" />
       <workItem from="1750945036450" duration="48000" />
       <workItem from="1750945095254" duration="67000" />
-      <workItem from="1750945171163" duration="17164000" />
+      <workItem from="1750945171163" duration="18108000" />
+      <workItem from="1751001550042" duration="3119000" />
     </task>
     <servers />
   </component>
