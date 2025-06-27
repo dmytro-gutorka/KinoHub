@@ -1,24 +1,14 @@
 import { Box, Card, CardContent, CardMedia, Rating, Stack, Typography, useTheme } from '@mui/material';
 import { NavLink } from 'react-router';
-import { useQueryClient } from '@tanstack/react-query';
 import getPosterURL from '../../helpers/getPosterURL';
-import getMovieDetails from '../../../features/movies/api/getMovieDetails';
 
 const MediaCardPreviewShort = ({ mediaItem }) => {
   const { poster_path: posterPath, vote_average: avgRating, media_type: mediaType, title, name, id } = mediaItem;
 
-  const isMovie = mediaType ? 'shows' : 'movies';
   const theme = useTheme();
 
   const imgURL = getPosterURL(posterPath);
-  const queryClient = useQueryClient();
-
-  const prefetch = () => {
-    queryClient.prefetchQuery({
-      queryKey: ['movie', id],
-      queryFn: () => getMovieDetails(id),
-    });
-  };
+  const isMovie = mediaType ? 'shows' : 'movies';
 
   return (
     <Card

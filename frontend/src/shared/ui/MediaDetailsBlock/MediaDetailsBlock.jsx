@@ -23,8 +23,8 @@ const MediaDetailsBlock = ({ mediaData }) => {
       <List>
         <ItemListSpaceBetween label="Release date" data={releaseDate || airDate} />
         <ItemListSpaceBetween label="Status" data={status} />
-        {budget && <ItemListSpaceBetween label="Budget" data={convertToUDS(budget)} />}
-        {revenue && <ItemListSpaceBetween label="Box Office" data={convertToUDS(revenue)} />}
+        {!!budget && <ItemListSpaceBetween label="Budget" data={convertToUDS(budget)} />}
+        {!!revenue && <ItemListSpaceBetween label="Box Office" data={convertToUDS(revenue)} />}
         <ItemListSpaceBetween label="Language" data={language?.at(0)?.english_name} />
         <ItemListSpaceBetween label="Country" data={country?.at(0)?.name} />
       </List>

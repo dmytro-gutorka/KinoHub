@@ -8,7 +8,7 @@ import MediaDetailsBlock from '../MediaDetailsBlock';
 import MediaOverviewBlock from '../MediaOverviewBlock';
 import MediaCastAndCrewBlock from '../MediaCastAndCrewBlock';
 import MediaProductionCompaniesBlock from '../MediaProductionCompaniesBlock';
-import useMediaAction from '../../../features/movies/hooks/useMediaAction';
+import useMediaAction from '../../hooks/useMediaAction';
 
 const MediaOverview = ({ mediaData, mediaType }) => {
   const [tvSeason, setTvSeason] = useState(1);

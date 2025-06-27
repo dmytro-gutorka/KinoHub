@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import getMediaDataByTitle from '../../features/movies/api/getMediaDataByTitle';
+import getMediaDataByTitle from '../api/getMediaDataByTitle';
 
 const useSearchedMedia = (qrKey, page, searchQuery, mediaType) => {
   return useQuery({

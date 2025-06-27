@@ -1,4 +1,4 @@
-import { TMDB_URL, TMDB_OPTIONS } from '../../../app/constants';
+import { TMDB_URL, TMDB_OPTIONS } from '../../app/constants';
 
 async function getMovieDetails(id, mediaType = 'movie') {
   const res = await fetch(`${TMDB_URL}${mediaType}/${id}?append_to_response=credits`, TMDB_OPTIONS);

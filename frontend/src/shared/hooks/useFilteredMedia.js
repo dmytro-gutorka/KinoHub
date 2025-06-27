@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import getMediaDataByPage from '../../features/movies/api/getMediaDataByPage';
+import getMediaDataByPage from '../api/getMediaDataByPage';
 
 const useFilteredMedia = (qrKey, page, minRating, genres, sortBy, mediaType) => {
   return useQuery({

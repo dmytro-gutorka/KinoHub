@@ -14,10 +14,11 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import LanguageIcon from '@mui/icons-material/Language';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import getYearFromDate from '../../helpers/getYearFromDate';
-import useMediaAction from '../../../features/movies/hooks/useMediaAction';
+import useMediaAction from '../../hooks/useMediaAction';
 import LabelWithIcon from '../LabelWithIcon';
 import getPosterURL from '../../helpers/getPosterURL';
-import useActionDataCreation from '../../../features/movies/hooks/useActionDataCreation';
+import useActionDataCreation from '../../hooks/useActionDataCreation';
+import BackgroundBanner from '../BackgroundBanner';
 
 const MediaHeader = ({ mediaData, mediaType }) => {
   const {
@@ -68,20 +69,10 @@ const MediaHeader = ({ mediaData, mediaType }) => {
 
   return (
     <Stack position="relative">
-      <Box
-        sx={{
-          background: `url(${imgURL})`,
-          position: 'absolute',
-          inset: 0,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          filter: 'blur(8px)',
-          zIndex: '-10',
-        }}
-      />
+      <BackgroundBanner imgURL={imgURL} />
 
       <Container maxWidth="lg">
-        <Stack direction="row" pt={14} pb={7} gap={3} alignItems="end">
+        <Stack direction="row" pt={14} pb={6} gap={4} alignItems="end">
           <Box
             component="img"
             src={imgURL}
