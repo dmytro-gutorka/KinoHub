@@ -28,7 +28,7 @@ const StyledStack = styled(Stack)(() => ({
   fontSize: 16,
 }));
 
-const AppNavLink = ({ children, to, hasIcon }) => {
+const AsideBarLink = ({ children, to, hasIcon }) => {
   return (
     <StyledNavLink to={to} component={RouterNavLink}>
       {hasIcon && <StyledStack component="li">{children}</StyledStack>}
@@ -37,4 +37,4 @@ const AppNavLink = ({ children, to, hasIcon }) => {
   );
 };
 
-export default AppNavLink;
+export default AsideBarLink;

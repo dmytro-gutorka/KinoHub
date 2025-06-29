@@ -14,25 +14,29 @@ const theme = createTheme({
     green: {
       light: 'rgb(74 222 128)',
       dark: 'rgb(34 197 94 / 0.2)',
-      darkGradient: 'linear-gradient(to bottom right, rgb(34 197 94 / 0.2) , rgb(16 185 129 / 0.2))',
+      darkGradient:
+        'linear-gradient(to bottom right, rgb(34 197 94 / 0.2) , rgb(16 185 129 / 0.2))',
       lightGradient: '',
     },
     purple: {
       light: 'rgb(192 132 252)',
       dark: 'rgb(168 85 247/ 0.2)',
-      darkGradient: 'linear-gradient(to bottom right, rgb(168 85 247 / 0.2) , rgb(236 72 153 / 0.2))',
+      darkGradient:
+        'linear-gradient(to bottom right, rgb(168 85 247 / 0.2) , rgb(236 72 153 / 0.2))',
       lightGradient: '',
     },
     orange: {
       light: 'rgb(250 204 21)',
       dark: 'rgb(234 179 8 / 0.2)',
-      darkGradient: 'linear-gradient(to bottom right, rgb(234 179 8 / 0.2) , rgb(249 115 22 / 0.2))',
+      darkGradient:
+        'linear-gradient(to bottom right, rgb(234 179 8 / 0.2) , rgb(249 115 22 / 0.2))',
       lightGradient: '',
     },
     blue: {
       light: 'rgb(96 165 250)',
       dark: 'rgb(59 130 246  / 0.2)',
-      darkGradient: 'linear-gradient(to bottom right, rgb(59 130 246 / 0.2) , rgb(6 182 212 / 0.2))',
+      darkGradient:
+        'linear-gradient(to bottom right, rgb(59 130 246 / 0.2) , rgb(6 182 212 / 0.2))',
       lightGradient: '',
     },
   },
@@ -77,9 +81,12 @@ const finalTheme = createTheme(theme, {
     MuiCardContent: {
       styleOverrides: {
         root: {
-          padding: '0px',
+          padding: theme.spacing(4),
           '&:last-child': {
             paddingBottom: '0px',
+          },
+          '&.MuiCardContent-root': {
+            paddingBottom: theme.spacing(4),
           },
         },
       },

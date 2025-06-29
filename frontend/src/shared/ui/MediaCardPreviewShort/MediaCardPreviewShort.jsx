@@ -1,38 +1,31 @@
-import { Box, Card, CardContent, CardMedia, Rating, Stack, Typography, useTheme } from '@mui/material';
+import { Box, CardContent, CardMedia, Rating, Stack, Typography } from '@mui/material';
 import { NavLink } from 'react-router';
 import getPosterURL from '../../helpers/getPosterURL';
+import StyledCard from '../StyledCard';
 
 const MediaCardPreviewShort = ({ mediaItem }) => {
-  const { poster_path: posterPath, vote_average: avgRating, media_type: mediaType, title, name, id } = mediaItem;
-
-  const theme = useTheme();
+  const {
+    poster_path: posterPath,
+    vote_average: avgRating,
+    media_type: mediaType,
+    title,
+    name,
+    id,
+  } = mediaItem;
 
   const imgURL = getPosterURL(posterPath);
   const isMovie = mediaType ? 'shows' : 'movies';
 
   return (
-    <Card
-      key={id}
-      sx={(theme) => ({
-        background: 'transparent',
-        position: 'relative',
-        width: 230,
-        border: `1px solid ${theme.palette.transparentGrey}`,
-        transition: '0.3s',
-        '&:hover': { transform: 'scale(1.05)' },
-      })}
-    >
+    <StyledCard key={id} width={230}>
       <Box component={NavLink} to={`${isMovie}/${id}`}>
-        <CardMedia sx={{ height: 330, backgroundSize: 'cover' }} image={imgURL} title="Movie card" />
+        <CardMedia
+          sx={{ height: 330, backgroundSize: 'cover' }}
+          image={imgURL}
+          title="Movie card"
+        />
       </Box>
-      <CardContent
-        sx={{
-          padding: theme.spacing(4),
-          '&.MuiCardContent-root': {
-            paddingBottom: theme.spacing(4),
-          },
-        }}
-      >
+      <CardContent>
         <Typography gutterBottom variant="subtitle1" component="h3" fontWeight="700">
           {title || name}
         </Typography>
@@ -43,7 +36,7 @@ const MediaCardPreviewShort = ({ mediaItem }) => {
           </Typography>
         </Stack>
       </CardContent>
-    </Card>
+    </StyledCard>
   );
 };
 

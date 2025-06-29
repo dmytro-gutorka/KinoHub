@@ -1,4 +1,4 @@
-import { MovieAction, MovieBoard } from '../models/index.js';
+import { MovieAction } from '../models/index.js';
 import { Op } from "sequelize";
 import express from 'express'
 
@@ -36,7 +36,6 @@ router.get('/:id/rating', async (req, res) => {
     },
     raw: true
   })
-
 
   res.status(200).json(rating)
 })
@@ -115,8 +114,7 @@ router.put('/:id/is-watched', async (req, res) => {
               season: null,
               episode: null,
             }
-      }
-      )
+      })
 
   res.status(200).json({
     msg: `Watch status on movie ${movieID} was changed to ${isWatched ? 'watched' : 'not watched yet'}`
@@ -138,6 +136,7 @@ router.get('/watch-status', async(req, res) => {
 
   res.status(200).json(mediaItemsWithStatus)
 })
+
 
 router.put('/:id/watch-status', async (req, res) => {
   const movieID = req.params.id;

@@ -17,13 +17,13 @@ const MediaOverview = ({ mediaData, mediaType }) => {
     id,
     name,
     title,
+    overview,
+    seasons,
+    credits: { cast },
     poster_path: posterPath,
     first_air_date: airDate,
     vote_average: voteAverage,
     release_date: releaseDate,
-    overview,
-    seasons,
-    credits: { cast },
     production_companies: companies,
   } = mediaData;
 
@@ -53,7 +53,11 @@ const MediaOverview = ({ mediaData, mediaType }) => {
           <Stack gap={6}>
             <MediaDetailsBlock mediaData={mediaData} />
             <MediaProductionCompaniesBlock companies={companies} />
-            <MediaRatingBlock mediaId={id} actionMutation={actionMutation} extraMediaData={extraMediaData} />
+            <MediaRatingBlock
+              mediaId={id}
+              actionMutation={actionMutation}
+              extraMediaData={extraMediaData}
+            />
           </Stack>
         </Grid>
       </Grid>
