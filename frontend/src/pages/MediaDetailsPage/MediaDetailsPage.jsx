@@ -1,6 +1,6 @@
 import useMediaDetailsPage from '../../widgets/MediaDetailsPage/hooks/useMediaDetailsPage';
-import MediaOverview from '../../shared/ui/MediaOverview';
-import MediaHeader from '../../shared/ui/MediaHeader';
+import MediaOverview from '../../widgets/MediaOverview';
+import MediaHeader from '../../widgets/MediaHeader';
 
 import { useLoaderData, useParams } from 'react-router';
 import { Box, Container } from '@mui/material';

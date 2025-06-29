@@ -499,7 +499,7 @@
     </routine>
     <schema id="191" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-06-24.15:07:02</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-06-29.13:28:02</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="192" parent="16">
       <ArgumentDirection>R</ArgumentDirection>
@@ -1655,24 +1655,44 @@
       <Position>11</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="571" parent="555" name="createdAt">
-      <NotNull>1</NotNull>
+    <column id="571" parent="555" name="releaseDate">
+      <DefaultExpression>NULL</DefaultExpression>
       <Position>12</Position>
-      <StoredType>DATETIME|0s</StoredType>
+      <StoredType>VARCHAR(255)|0s</StoredType>
     </column>
-    <column id="572" parent="555" name="updatedAt">
-      <NotNull>1</NotNull>
+    <column id="572" parent="555" name="title">
+      <DefaultExpression>NULL</DefaultExpression>
       <Position>13</Position>
+      <StoredType>VARCHAR(255)|0s</StoredType>
+    </column>
+    <column id="573" parent="555" name="posterPath">
+      <DefaultExpression>NULL</DefaultExpression>
+      <Position>14</Position>
+      <StoredType>VARCHAR(255)|0s</StoredType>
+    </column>
+    <column id="574" parent="555" name="voteAverage">
+      <DefaultExpression>NULL</DefaultExpression>
+      <Position>15</Position>
+      <StoredType>FLOAT|0s</StoredType>
+    </column>
+    <column id="575" parent="555" name="createdAt">
+      <NotNull>1</NotNull>
+      <Position>16</Position>
       <StoredType>DATETIME|0s</StoredType>
     </column>
-    <foreign-key id="573" parent="555">
+    <column id="576" parent="555" name="updatedAt">
+      <NotNull>1</NotNull>
+      <Position>17</Position>
+      <StoredType>DATETIME|0s</StoredType>
+    </column>
+    <foreign-key id="577" parent="555">
       <ColNames>userId</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
       <RefColNames>id</RefColNames>
       <RefTableName>Users</RefTableName>
     </foreign-key>
-    <index id="574" parent="555" name="sqlite_autoindex_MovieActions_1">
+    <index id="578" parent="555" name="sqlite_autoindex_MovieActions_1">
       <ColNames>movieId
 userId
 season
@@ -1680,128 +1700,128 @@ episode</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="575" parent="555">
+    <key id="579" parent="555">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="576" parent="555">
+    <key id="580" parent="555">
       <ColNames>movieId
 userId
 season
 episode</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_MovieActions_1</UnderlyingIndexName>
     </key>
-    <column id="577" parent="556" name="id">
+    <column id="581" parent="556" name="id">
       <AutoIncrement>1</AutoIncrement>
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="578" parent="556" name="movieId">
+    <column id="582" parent="556" name="movieId">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="579" parent="556" name="userId">
+    <column id="583" parent="556" name="userId">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="580" parent="556" name="status">
+    <column id="584" parent="556" name="status">
       <DefaultExpression>&apos;toWatch&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>VARCHAR(255)|0s</StoredType>
     </column>
-    <column id="581" parent="556" name="createdAt">
+    <column id="585" parent="556" name="createdAt">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>DATETIME|0s</StoredType>
     </column>
-    <column id="582" parent="556" name="updatedAt">
+    <column id="586" parent="556" name="updatedAt">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>DATETIME|0s</StoredType>
     </column>
-    <key id="583" parent="556">
+    <key id="587" parent="556">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="584" parent="557" name="id">
+    <column id="588" parent="557" name="id">
       <AutoIncrement>1</AutoIncrement>
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="585" parent="557" name="nickname">
+    <column id="589" parent="557" name="nickname">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>VARCHAR(255)|0s</StoredType>
     </column>
-    <column id="586" parent="557" name="email">
+    <column id="590" parent="557" name="email">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>VARCHAR(255)|0s</StoredType>
     </column>
-    <column id="587" parent="557" name="password">
+    <column id="591" parent="557" name="password">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>VARCHAR(255)|0s</StoredType>
     </column>
-    <column id="588" parent="557" name="createdAt">
+    <column id="592" parent="557" name="createdAt">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>DATETIME|0s</StoredType>
     </column>
-    <column id="589" parent="557" name="updatedAt">
+    <column id="593" parent="557" name="updatedAt">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>DATETIME|0s</StoredType>
     </column>
-    <index id="590" parent="557" name="sqlite_autoindex_Users_1">
+    <index id="594" parent="557" name="sqlite_autoindex_Users_1">
       <ColNames>nickname</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <index id="591" parent="557" name="sqlite_autoindex_Users_2">
+    <index id="595" parent="557" name="sqlite_autoindex_Users_2">
       <ColNames>email</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="592" parent="557">
+    <key id="596" parent="557">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="593" parent="557">
+    <key id="597" parent="557">
       <ColNames>nickname</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_Users_1</UnderlyingIndexName>
     </key>
-    <key id="594" parent="557">
+    <key id="598" parent="557">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_Users_2</UnderlyingIndexName>
     </key>
-    <column id="595" parent="558" name="type">
+    <column id="599" parent="558" name="type">
       <Position>1</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="596" parent="558" name="name">
+    <column id="600" parent="558" name="name">
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="597" parent="558" name="tbl_name">
+    <column id="601" parent="558" name="tbl_name">
       <Position>3</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="598" parent="558" name="rootpage">
+    <column id="602" parent="558" name="rootpage">
       <Position>4</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="599" parent="558" name="sql">
+    <column id="603" parent="558" name="sql">
       <Position>5</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="600" parent="559" name="name">
+    <column id="604" parent="559" name="name">
       <Position>1</Position>
     </column>
-    <column id="601" parent="559" name="seq">
+    <column id="605" parent="559" name="seq">
       <Position>2</Position>
     </column>
   </database-model>

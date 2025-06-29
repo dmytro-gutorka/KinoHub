@@ -1,6 +1,6 @@
 import { Box, List, Typography, useTheme } from '@mui/material';
-import ItemListSpaceBetween from '../ItemListSpaceBetween';
-import convertToUDS from '../../helpers/convertToUSD';
+import ItemListSpaceBetween from '../../../../shared/ui/ItemListSpaceBetween';
+import convertToUDS from '../../../../shared/helpers/convertToUSD';
 
 const MediaDetailsBlock = ({ mediaData }) => {
   const {

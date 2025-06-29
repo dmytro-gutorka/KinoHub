@@ -1,5 +1,5 @@
 import { Box, Stack, Typography, useTheme } from '@mui/material';
-import getPosterURL from '../../helpers/getPosterURL';
+import getPosterURL from '../../../../shared/helpers/getPosterURL';
 
 const MediaCastAndCrewBlock = ({ cast }) => {
   const theme = useTheme();

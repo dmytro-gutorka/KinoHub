@@ -13,7 +13,7 @@ import getPosterURL from '../../../../shared/helpers/getPosterURL';
 import { getActionForURL } from '../../../../shared/helpers/getActionForURL';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-const EpisodeItem = ({ episodeData, isWatched }) => {
+const EpisodeItem = ({ episodeData }) => {
   const {
     episode_number: episodeNumber,
     season_number: seasonNumber,
@@ -21,6 +21,7 @@ const EpisodeItem = ({ episodeData, isWatched }) => {
     still_path: posterPath,
     air_date: airDate,
     show_id: id,
+    isWatched,
     overview,
     runtime,
     name,
@@ -33,15 +34,18 @@ const EpisodeItem = ({ episodeData, isWatched }) => {
     mutationFn: (actionData) => updateMediaAction(id, actionData, getActionForURL(actionData)),
     onSettled: () =>
       queryClient.invalidateQueries({
-        queryKey: ['mediaActionEpisodeList', id, seasonNumber],
+        queryKey: ['tvShowSeasonActions', id, seasonNumber],
       }),
     onError: (err, _, context) =>
-      queryClient.setQueryData(['mediaActionEpisodeList', id, seasonNumber], context.prevData),
+      queryClient.setQueryData(['tvShowSeasonActions', id, seasonNumber], context.prevData),
     onMutate: async (actionData) => {
-      await queryClient.cancelQueries(['mediaActionEpisodeList', id, seasonNumber]);
-      const prevData = queryClient.getQueryData(['mediaActionEpisodeList', id, seasonNumber]);
+      await queryClient.cancelQueries(['tvShowSeasonActions', id, seasonNumber]);
+      const prevData = queryClient.getQueryData(['tvShowSeasonActions', id, seasonNumber]);
 
-      queryClient.setQueryData(['mediaActionEpisodeList', id, seasonNumber], (old) => ({ ...old, ...actionData }));
+      queryClient.setQueryData(['tvShowSeasonActions', id, seasonNumber], (old) => ({
+        ...old,
+        ...actionData,
+      }));
 
       return { prevData };
     },
@@ -53,7 +57,13 @@ const EpisodeItem = ({ episodeData, isWatched }) => {
 
   return (
     <Stack direction="row" border={theme.customComponents.border} borderRadius={1}>
-      <Box component="img" src={getPosterURL(posterPath)} width="200px" height="140px" borderRadius={1} />
+      <Box
+        component="img"
+        src={getPosterURL(posterPath)}
+        width="200px"
+        height="140px"
+        borderRadius={1}
+      />
       <Box p={3}>
         <Stack direction="row" justifyContent="space-between">
           <Typography variant="h6" component="h3">

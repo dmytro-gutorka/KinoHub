@@ -1,18 +1,14 @@
 import { Grid, Stack } from '@mui/material';
-import { useState } from 'react';
 
-import EpisodeList from '../../../entities/tvShowEpisode/ui/episodeList';
-import SeasonList from '../../../entities/tvShowSeason/ui/seasonList';
-import MediaRatingBlock from '../MediaRatingBlock';
-import MediaDetailsBlock from '../MediaDetailsBlock';
-import MediaOverviewBlock from '../MediaOverviewBlock';
-import MediaCastAndCrewBlock from '../MediaCastAndCrewBlock';
-import MediaProductionCompaniesBlock from '../MediaProductionCompaniesBlock';
-import useMediaAction from '../../hooks/useMediaAction';
+import useMediaAction from '../../shared/hooks/useMediaAction';
+import MediaRatingBlock from '../../shared/ui/MediaRatingBlock';
+import MediaDetailsBlock from './components/MediaDetailsBlock';
+import MediaOverviewBlock from './components/MediaOverviewBlock';
+import MediaCastAndCrewBlock from './components/MediaCastAndCrewBlock';
+import SeasonsAndEpisodesBlock from './components/SeasonsAndEpisodesBlock';
+import MediaProductionCompaniesBlock from '../../shared/ui/MediaProductionCompaniesBlock';
 
 const MediaOverview = ({ mediaData, mediaType }) => {
-  const [tvSeason, setTvSeason] = useState(1);
-
   const {
     id,
     name,
@@ -61,17 +57,8 @@ const MediaOverview = ({ mediaData, mediaType }) => {
           </Stack>
         </Grid>
       </Grid>
-      {mediaType === 'tv' && (
-        <Grid container justifyContent="space-between" mt={6}>
-          <Grid size={2.5}>
-            <SeasonList seasons={seasons} tvSeason={tvSeason} onSetTvSeason={setTvSeason} />
-          </Grid>
 
-          <Grid size={9}>
-            <EpisodeList tvSeason={tvSeason} mediaType={mediaType} />
-          </Grid>
-        </Grid>
-      )}
+      {mediaType === 'tv' && <SeasonsAndEpisodesBlock seasons={seasons} />}
     </Stack>
   );
 };

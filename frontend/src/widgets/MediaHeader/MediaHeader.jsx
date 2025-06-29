@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Container,
-  Stack,
-  Typography,
-  useTheme,
-} from '@mui/material';
+import { Box, Button, Container, Stack, Typography, useTheme } from '@mui/material';
 
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
@@ -19,14 +12,14 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import LanguageIcon from '@mui/icons-material/Language';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import useActionDataCreation from '../../hooks/useActionDataCreation';
-import BackgroundBanner from '../BackgroundBanner';
-import getYearFromDate from '../../helpers/getYearFromDate';
-import useMediaAction from '../../hooks/useMediaAction';
-import GenreChipList from '../GenreChipList';
-import getPosterURL from '../../helpers/getPosterURL';
-import ButtonList from '../ButtonList';
-import LabelList from '../LabelList';
+import useActionDataCreation from '../../shared/hooks/useActionDataCreation';
+import BackgroundBanner from '../../shared/ui/BackgroundBanner';
+import getYearFromDate from '../../shared/helpers/getYearFromDate';
+import useMediaAction from '../../shared/hooks/useMediaAction';
+import GenreChipList from '../../shared/ui/GenreChipList';
+import getPosterURL from '../../shared/helpers/getPosterURL';
+import ButtonList from '../../shared/ui/ButtonList';
+import LabelList from '../../shared/ui/LabelList';
 
 const MediaHeader = ({ mediaData, mediaType }) => {
   const {
@@ -54,14 +47,10 @@ const MediaHeader = ({ mediaData, mediaType }) => {
 
   const imgURL = getPosterURL(posterPath);
 
-  const { data: mediaActionData, isLoading } = useActionDataCreation(
-    'mediaActionData',
-    id,
-    {
-      mediaType,
-      runtime: relevantRuntime,
-    }
-  );
+  const { data: mediaActionData, isLoading } = useActionDataCreation('mediaActionData', id, {
+    mediaType,
+    runtime: relevantRuntime,
+  });
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -74,10 +63,8 @@ const MediaHeader = ({ mediaData, mediaType }) => {
     voteAverage,
   };
 
-  const handleLike = () =>
-    actionMutation.mutate({ isLiked: !isLiked, ...extraMediaData });
-  const handleIsWatched = () =>
-    actionMutation.mutate({ isWatched: !isWatched, ...extraMediaData });
+  const handleLike = () => actionMutation.mutate({ isLiked: !isLiked, ...extraMediaData });
+  const handleIsWatched = () => actionMutation.mutate({ isWatched: !isWatched, ...extraMediaData });
   const handleWatchStatus = () =>
     actionMutation.mutate({
       watchStatus: watchStatus ? null : 'toWatch',
@@ -142,13 +129,7 @@ const MediaHeader = ({ mediaData, mediaType }) => {
           />
 
           <Box>
-            <Typography
-              variant="h2"
-              component="h1"
-              fontWeight="700"
-              mb={10}
-              lineHeight={1.2}
-            >
+            <Typography variant="h2" component="h1" fontWeight="700" mb={10} lineHeight={1.2}>
               {relevantTitle}
             </Typography>
 

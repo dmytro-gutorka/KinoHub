@@ -5,29 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/ui/AsideBarLink/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/ui/AsideBarSection/AsideBarSection.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/ui/AsideBarSection/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7fd1e27-f949-47e0-a0cc-722fb7fdd80f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7fd1e27-f949-47e0-a0cc-722fb7fdd80f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/movies.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/movies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/dummyImage.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/test.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/vite.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/AppNavLink/AppNavLink.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/ui/AsideBarLink/AsideBarLink.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/AppNavLink/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardList/MediaCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardList/MediaCardList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardPreviewShort/MediaCardPreviewShort.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardPreviewShort/MediaCardPreviewShort.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/MediaOverview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/MediaOverview.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/SidebarSection/SidebarSection.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/SidebarSection/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/AsideBar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeItem/episodeItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeItem/episodeItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeList/episodeList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeList/episodeList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/seasonList/seasonList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/seasonList/seasonList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCastAndCrewBlock/MediaCastAndCrewBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaCastAndCrewBlock/MediaCastAndCrewBlock.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCastAndCrewBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaCastAndCrewBlock/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaDetailsBlock/MediaDetailsBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaDetailsBlock/MediaDetailsBlock.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaDetailsBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaDetailsBlock/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaHeader/MediaHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/MediaHeader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaHeader/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/MediaOverview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/MediaOverview.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverviewBlock/MediaOverviewBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaOverviewBlock/MediaOverviewBlock.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverviewBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaOverviewBlock/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +37,9 @@
         <option value="JSX Component Folder with styles" />
         <option value="tsconfig.json" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="JSX Component Folder.jsx.child.0" />
         <option value="JSX Component Folder" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -109,11 +104,11 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components" />
+      <recent name="$PROJECT_DIR$/frontend/src/widgets" />
       <recent name="$PROJECT_DIR$/frontend/src/widgets/AsideBar/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/shared/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/shared/hooks" />
-      <recent name="$PROJECT_DIR$/frontend/src/shared/api" />
-      <recent name="$PROJECT_DIR$/frontend/src/shared" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -144,7 +139,7 @@
       <workItem from="1750945171163" duration="18108000" />
       <workItem from="1751001550042" duration="27347000" />
       <workItem from="1751093523237" duration="599000" />
-      <workItem from="1751178907724" duration="4762000" />
+      <workItem from="1751178907724" duration="14294000" />
     </task>
     <servers />
   </component>
