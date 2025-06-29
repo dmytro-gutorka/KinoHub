@@ -12,7 +12,6 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import LanguageIcon from '@mui/icons-material/Language';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import useActionDataCreation from '../../shared/hooks/useActionDataCreation';
 import BackgroundBanner from '../../shared/ui/BackgroundBanner';
 import getYearFromDate from '../../shared/helpers/getYearFromDate';
 import useMediaAction from '../../shared/hooks/useMediaAction';
@@ -21,65 +20,41 @@ import getPosterURL from '../../shared/helpers/getPosterURL';
 import ButtonList from '../../shared/ui/ButtonList';
 import LabelList from '../../shared/ui/LabelList';
 
-const MediaHeader = ({ mediaData, mediaType }) => {
+const MediaHeader = ({ mediaDataWithActions, mediaType }) => {
   const {
     id,
-    name,
     title,
     genres,
     runtime,
+    isLiked,
+    isWatched,
+    watchStatus,
     poster_path: posterPath,
-    first_air_date: airDate,
     vote_average: voteAverage,
-    release_date: releaseDate,
     original_language: language,
-    episode_run_time: runtimeEpisode,
     number_of_seasons: numberOfSeasons,
     number_of_episodes: numberOfEpisodes,
-  } = mediaData;
+  } = mediaDataWithActions;
 
   const theme = useTheme();
-  const actionMutation = useMediaAction('mediaActionData', id);
-
-  const relevantRuntime = runtime || runtimeEpisode?.at(0) || 0;
-  const relevantReleaseDate = airDate || releaseDate;
-  const relevantTitle = name || title;
+  const actionMutation = useMediaAction('mediaDetailsExtraData', id);
 
   const imgURL = getPosterURL(posterPath);
 
-  const { data: mediaActionData, isLoading } = useActionDataCreation('mediaActionData', id, {
-    mediaType,
-    runtime: relevantRuntime,
-  });
-
-  if (isLoading) return <div>Loading...</div>;
-
-  const { isWatched, isLiked, watchStatus } = mediaActionData ?? {};
-
-  const extraMediaData = {
-    releaseDate: relevantReleaseDate,
-    title: relevantTitle,
-    posterPath,
-    voteAverage,
-  };
-
-  const handleLike = () => actionMutation.mutate({ isLiked: !isLiked, ...extraMediaData });
-  const handleIsWatched = () => actionMutation.mutate({ isWatched: !isWatched, ...extraMediaData });
+  const handleLike = () => actionMutation.mutate({ isLiked: !isLiked });
+  const handleIsWatched = () => actionMutation.mutate({ isWatched: !isWatched });
   const handleWatchStatus = () =>
-    actionMutation.mutate({
-      watchStatus: watchStatus ? null : 'toWatch',
-      ...extraMediaData,
-    });
+    actionMutation.mutate({ watchStatus: watchStatus ? null : 'toWatch' });
 
   const movieLabels = [
     { icon: <StarBorderIcon />, data: voteAverage?.toFixed(2) + '/10' },
     {
       icon: <CalendarTodayOutlinedIcon fontSize="small" />,
-      data: getYearFromDate(relevantReleaseDate),
+      data: getYearFromDate(runtime),
     },
     {
       icon: <AccessTimeIcon />,
-      data: relevantRuntime ? relevantRuntime + 'm' : 'N/A',
+      data: runtime ? runtime + 'm' : 'N/A',
     },
     { icon: <LanguageIcon />, data: language.toUpperCase() },
   ];
@@ -91,7 +66,7 @@ const MediaHeader = ({ mediaData, mediaType }) => {
       icon: <PlayCircleOutlineOutlinedIcon fontSize="small" />,
       data: numberOfEpisodes,
     },
-    { icon: <AccessTimeIcon />, data: `~${relevantRuntime}m per episode` },
+    { icon: <AccessTimeIcon />, data: `~${runtime}m per episode` },
   ];
 
   const buttons = [
@@ -130,7 +105,7 @@ const MediaHeader = ({ mediaData, mediaType }) => {
 
           <Box>
             <Typography variant="h2" component="h1" fontWeight="700" mb={10} lineHeight={1.2}>
-              {relevantTitle}
+              {title}
             </Typography>
 
             <Stack gap={2}>

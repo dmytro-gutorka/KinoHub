@@ -63,8 +63,6 @@ router.put('/:id/like', async (req, res) => {
   const userID = req.query.userid
   const isLiked = req.body.isLiked
 
-  console.log(req.body)
-
   await MovieAction.update(
     {
       isLiked: isLiked,
@@ -184,8 +182,11 @@ router.post('/:id/action', async (req, res) => {
       movieId: movieID,
       userId: userID
     },
+    attributes: ['isWatched', 'isLiked', 'rating', 'watchStatus', 'runtime', 'title'],
     raw: true
   })
+
+  console.log(mediaAction)
 
   if (mediaAction[1]) return res.status(201).json(mediaAction[0]);
   if (!mediaAction[1]) return res.status(200).json(mediaAction[0]);

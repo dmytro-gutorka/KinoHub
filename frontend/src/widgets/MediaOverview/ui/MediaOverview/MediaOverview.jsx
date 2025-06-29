@@ -8,7 +8,7 @@ import MediaRatingBlock from '../../../../shared/ui/MediaRatingBlock';
 import useMediaAction from '../../../../shared/hooks/useMediaAction';
 import MediaPlotBlock from '../MediaPlotBlock';
 
-const MediaOverview = ({ mediaData, mediaType }) => {
+const MediaOverview = ({ mediaDataWithActions, mediaType }) => {
   const {
     id,
     name,
@@ -21,7 +21,7 @@ const MediaOverview = ({ mediaData, mediaType }) => {
     vote_average: voteAverage,
     release_date: releaseDate,
     production_companies: companies,
-  } = mediaData;
+  } = mediaDataWithActions;
 
   const actionMutation = useMediaAction('mediaActionData', id);
 
@@ -47,7 +47,7 @@ const MediaOverview = ({ mediaData, mediaType }) => {
 
         <Grid size={4}>
           <Stack gap={6}>
-            <MediaDetailsBlock mediaData={mediaData} />
+            <MediaDetailsBlock mediaDataWithActions={mediaDataWithActions} />
             <MediaProductionCompaniesBlock companies={companies} />
             <MediaRatingBlock
               mediaId={id}

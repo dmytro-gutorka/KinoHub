@@ -2,7 +2,7 @@ import { Box, List, Typography, useTheme } from '@mui/material';
 import ItemListSpaceBetween from '../../../../shared/ui/ItemListSpaceBetween';
 import convertToUDS from '../../../../shared/helpers/convertToUSD';
 
-const MediaDetailsBlock = ({ mediaData }) => {
+const MediaDetailsBlock = ({ mediaDataWithActions }) => {
   const {
     spoken_languages: language,
     production_countries: country,
@@ -11,7 +11,7 @@ const MediaDetailsBlock = ({ mediaData }) => {
     budget,
     revenue,
     status,
-  } = mediaData;
+  } = mediaDataWithActions;
 
   const theme = useTheme();
 
