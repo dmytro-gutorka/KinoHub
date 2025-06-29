@@ -11,6 +11,8 @@ const MediaDetailsPage = () => {
   const { id } = useParams();
   const { data: mediaData, isLoading, isError } = useMediaDetailsPage(Number(id), mediaType);
 
+  console.log(mediaData);
+
   if (isLoading) return <div>Loading...</div>;
 
   if (isError) return <div>Error fetching a movie</div>;

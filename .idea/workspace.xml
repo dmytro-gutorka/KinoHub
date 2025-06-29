@@ -5,24 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7fd1e27-f949-47e0-a0cc-722fb7fdd80f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7fd1e27-f949-47e0-a0cc-722fb7fdd80f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeItem/episodeItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeItem/episodeItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeList/episodeList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeList/episodeList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/seasonList/seasonList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/seasonList/seasonList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCastAndCrewBlock/MediaCastAndCrewBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaCastAndCrewBlock/MediaCastAndCrewBlock.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCastAndCrewBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaCastAndCrewBlock/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaDetailsBlock/MediaDetailsBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaDetailsBlock/MediaDetailsBlock.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaDetailsBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaDetailsBlock/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaHeader/MediaHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/MediaHeader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaHeader/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/MediaOverview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/MediaOverview.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverview/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverviewBlock/MediaOverviewBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaOverviewBlock/MediaOverviewBlock.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaOverviewBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaOverviewBlock/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/MediaOverview.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaCastAndCrewBlock/MediaCastAndCrewBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaCastAndCrewBlock/MediaCastAndCrewBlock.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaCastAndCrewBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaCastAndCrewBlock/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaDetailsBlock/MediaDetailsBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaDetailsBlock/MediaDetailsBlock.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaDetailsBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaDetailsBlock/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaOverviewBlock/MediaOverviewBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaPlotBlock/MediaPlotBlock.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/MediaOverviewBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaPlotBlock/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/SeasonsAndEpisodesBlock/SeasonsAndEpisodesBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/SeasonsAndEpisodesBlock/SeasonsAndEpisodesBlock.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components/SeasonsAndEpisodesBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/SeasonsAndEpisodesBlock/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/hooks/useCreateEpisodesData.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/index.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,11 +100,11 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/widgets/MediaOverview" />
       <recent name="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components" />
       <recent name="$PROJECT_DIR$/frontend/src/widgets" />
       <recent name="$PROJECT_DIR$/frontend/src/widgets/AsideBar/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/shared/ui" />
-      <recent name="$PROJECT_DIR$/frontend/src/shared/hooks" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -139,7 +135,7 @@
       <workItem from="1750945171163" duration="18108000" />
       <workItem from="1751001550042" duration="27347000" />
       <workItem from="1751093523237" duration="599000" />
-      <workItem from="1751178907724" duration="14294000" />
+      <workItem from="1751178907724" duration="16880000" />
     </task>
     <servers />
   </component>

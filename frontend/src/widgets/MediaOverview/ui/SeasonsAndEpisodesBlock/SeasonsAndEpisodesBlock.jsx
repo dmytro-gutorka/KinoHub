@@ -10,7 +10,7 @@ const SeasonsAndEpisodesBlock = ({ seasons }) => {
   const [tvSeason, setTvSeason] = useState(1);
 
   const { id } = useParams();
-  const { episodesData, isLoading } = useTvShowSeasonDetails(Number(id), tvSeason);
+  const { episodesData } = useTvShowSeasonDetails(Number(id), tvSeason);
 
   if (!episodesData?.length) return <div>Loading...</div>;
 

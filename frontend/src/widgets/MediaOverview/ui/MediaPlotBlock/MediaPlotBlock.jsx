@@ -1,6 +1,6 @@
 import { Box, Typography, useTheme } from '@mui/material';
 
-const MediaOverviewBlock = ({ overview }) => {
+const MediaPlotBlock = ({ overview }) => {
   const theme = useTheme();
 
   return (
@@ -15,4 +15,4 @@ const MediaOverviewBlock = ({ overview }) => {
   );
 };
 
-export default MediaOverviewBlock;
+export default MediaPlotBlock;

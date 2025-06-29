@@ -1,12 +1,12 @@
 import { Grid, Stack } from '@mui/material';
 
-import useMediaAction from '../../shared/hooks/useMediaAction';
-import MediaRatingBlock from '../../shared/ui/MediaRatingBlock';
-import MediaDetailsBlock from './components/MediaDetailsBlock';
-import MediaOverviewBlock from './components/MediaOverviewBlock';
-import MediaCastAndCrewBlock from './components/MediaCastAndCrewBlock';
-import SeasonsAndEpisodesBlock from './components/SeasonsAndEpisodesBlock';
-import MediaProductionCompaniesBlock from '../../shared/ui/MediaProductionCompaniesBlock';
+import MediaProductionCompaniesBlock from '../../../../shared/ui/MediaProductionCompaniesBlock';
+import SeasonsAndEpisodesBlock from '../SeasonsAndEpisodesBlock';
+import MediaCastAndCrewBlock from '../MediaCastAndCrewBlock';
+import MediaDetailsBlock from '../MediaDetailsBlock';
+import MediaRatingBlock from '../../../../shared/ui/MediaRatingBlock';
+import useMediaAction from '../../../../shared/hooks/useMediaAction';
+import MediaPlotBlock from '../MediaPlotBlock';
 
 const MediaOverview = ({ mediaData, mediaType }) => {
   const {
@@ -40,7 +40,7 @@ const MediaOverview = ({ mediaData, mediaType }) => {
       <Grid container justifyContent="space-between">
         <Grid size={7.5}>
           <Stack gap={6}>
-            <MediaOverviewBlock overview={overview} />
+            <MediaPlotBlock overview={overview} />
             <MediaCastAndCrewBlock cast={cast} />
           </Stack>
         </Grid>
