@@ -1,37 +1,17 @@
 import { Box, Rating, Typography, useTheme } from '@mui/material';
-import { useQuery } from '@tanstack/react-query';
+import useMediaAction from '../../../../shared/hooks/useMediaAction';
 
-import getMediaRating from '../../api/getMediaRating';
-import { useEffect, useState } from 'react';
+const MediaRatingBlock = ({ mediaDataWithActions }) => {
+  const { id, rating } = mediaDataWithActions;
 
-const MediaRatingBlock = ({ actionMutation, extraMediaData, mediaId }) => {
-  const [rating, setRating] = useState(0);
   const theme = useTheme();
+  const actionMutation = useMediaAction('mediaDetailsExtraData', id);
 
-  const { data: mediaRating, isSuccess } = useQuery({
-    queryKey: ['mediaActionData', mediaId],
-    queryFn: () => getMediaRating(mediaId),
-    staleTime: 0,
-  });
-
-  function handleRating(_event, newRating) {
-    if (newRating !== null) {
-      setRating(newRating);
-      actionMutation.mutate({ rating: newRating, ...extraMediaData });
-    }
-  }
-
-  useEffect(() => {
-    if (mediaRating?.rating != null) {
-      setRating(mediaRating.rating);
-    }
-  }, [mediaRating?.rating]);
-
-  if (!isSuccess) return <div>Loading...</div>;
+  const handleRating = (e) => actionMutation.mutate({ rating: e.target.value });
 
   return (
     <Box borderRadius={2.5} padding={4} border={theme.customComponents.border}>
-      {!mediaRating?.rating && (
+      {!rating && (
         <>
           <Typography variant="h5" component="h3" mb={1}>
             Rate the movie
@@ -42,7 +22,7 @@ const MediaRatingBlock = ({ actionMutation, extraMediaData, mediaId }) => {
         </>
       )}
 
-      {mediaRating?.rating && (
+      {rating && (
         <>
           <Typography variant="h5" component="h3" mb={1}>
             Want to change your rate ?

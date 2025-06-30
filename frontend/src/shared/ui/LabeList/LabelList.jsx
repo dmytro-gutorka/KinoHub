@@ -1,4 +1,4 @@
-import LabelWithIcon from './LabelWithIcon';
+import LabelWithIcon from '../LabelWithIcon';
 import { Stack } from '@mui/material';
 
 export default function LabelList({ items }) {

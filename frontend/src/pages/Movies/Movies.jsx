@@ -1,8 +1,7 @@
-import MediaPageLayout from '../../shared/ui/MediaPageLayout';
-
+import MediaPageLayout from '../../widgets/MediaPageLayout';
 
 const Movies = () => {
-  return <MediaPageLayout qrKey="movies" mediaType="movie"/>
-}
+  return <MediaPageLayout qrKey="movies" mediaType="movie" />;
+};
 
-export default Movies
+export default Movies;

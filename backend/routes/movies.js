@@ -52,7 +52,7 @@ router.get('/:id/rating', async (req, res) => {
             { movieId: movieID, userId: userID, season: null, episode: null }
       })
 
-  res.status(200).json({
+    res.status(200).json({
     msg: `Rating on movie ${movieID} was updated. Current rating is ${rating}`
   });
 })
@@ -186,8 +186,6 @@ router.post('/:id/action', async (req, res) => {
     raw: true
   })
 
-  console.log(mediaAction)
-
   if (mediaAction[1]) return res.status(201).json(mediaAction[0]);
   if (!mediaAction[1]) return res.status(200).json(mediaAction[0]);
 })
@@ -263,15 +261,9 @@ router.get('/user-stats', async(req, res) => {
     where: {
       userId: userId,
         [Op.or]: [
-          {
-            isWatched: { [Op.not] : false }
-          },
-          {
-            isLiked: { [Op.not] : false },
-          },
-          {
-            rating: { [Op.not]: null }
-          }
+          { isWatched: { [Op.not] : false } },
+          { isLiked: { [Op.not] : false } },
+          { rating: { [Op.not]: null } }
         ]
     }
   })

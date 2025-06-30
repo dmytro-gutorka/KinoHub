@@ -1,10 +1,10 @@
 import { Card, CardContent, CardMedia, Stack, Typography, useTheme } from '@mui/material';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import getPosterURL from '../../helpers/getPosterURL';
-import LabelWithIcon from '../LabelWithIcon';
+import getPosterURL from '../../../../shared/helpers/getPosterURL';
+import LabelWithIcon from '../../../../shared/ui/LabelWithIcon';
 import { useDraggable } from '@dnd-kit/core';
-import getYearFromDate from '../../helpers/getYearFromDate';
+import getYearFromDate from '../../../../shared/helpers/getYearFromDate';
 
 const MovieBoardItem = ({ id, posterPath, title, runtime, voteAverage, releaseDate }) => {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({

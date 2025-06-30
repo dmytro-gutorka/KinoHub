@@ -2,15 +2,15 @@ import { Stack, useTheme } from '@mui/material';
 import { DndContext } from '@dnd-kit/core';
 import { useQuery } from '@tanstack/react-query';
 import getWatchBoardMedia from '../../shared/api/getWatchBoardMedia';
-import MovieBoardItem from '../../shared/ui/MovieBoardItem';
-import MovieBoardColumn from '../../shared/ui/MovieBoardColumn';
+import MovieBoardItem from '../../entities/movieBoard/ui/MovieBoardItem';
+import MovieBoardColumn from '../../entities/movieBoard/ui/MovieBoardColumn';
 import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import useMovieBoardItemStatus from '../../shared/hooks/useMovieBoardItemStatus';
 
-const WatchBoard = () => {
+const MovieBoard = () => {
   const theme = useTheme();
 
   const columns = [
@@ -83,7 +83,7 @@ const WatchBoard = () => {
 
           {columns.map(({ id, icon, label, bgColor }) => (
             <MovieBoardColumn id={id} key={id} icon={icon} label={label} bgColor={bgColor}>
-              <Stack>
+              <Stack gap={2}>
                 {mediaItems
                   ?.filter((item) => item.watchStatus === id)
                   ?.map((item) => (
@@ -106,4 +106,4 @@ const WatchBoard = () => {
   );
 };
 
-export default WatchBoard;
+export default MovieBoard;

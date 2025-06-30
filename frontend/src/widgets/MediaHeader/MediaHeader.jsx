@@ -18,7 +18,7 @@ import useMediaAction from '../../shared/hooks/useMediaAction';
 import GenreChipList from '../../shared/ui/GenreChipList';
 import getPosterURL from '../../shared/helpers/getPosterURL';
 import ButtonList from '../../shared/ui/ButtonList';
-import LabelList from '../../shared/ui/LabelList';
+import LabelList from '../../shared/ui/LabeList/LabelList';
 
 const MediaHeader = ({ mediaDataWithActions, mediaType }) => {
   const {

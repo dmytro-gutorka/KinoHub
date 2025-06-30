@@ -7,7 +7,7 @@ const GenreChipList = ({ genres, renderLimit = false, size = 'medium' }) => {
         <Chip label={genre?.name} key={genre?.name} size={size} />
       ))}
       {renderLimit && genres.length > renderLimit && (
-        <Chip label={genres.length - renderLimit} size={size} />
+        <Chip label={`+${genres.length - renderLimit}`} size={size} />
       )}
     </Stack>
   );

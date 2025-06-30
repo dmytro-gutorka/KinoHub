@@ -1,14 +1,14 @@
 import { CircularProgress, Pagination, Stack, TextField } from '@mui/material';
-import { useMediaFilters } from '../../hooks/useMediaFilters';
+import { useMediaFilters } from '../../shared/hooks/useMediaFilters';
 
-import useFilteredMedia from '../../hooks/useFilteredMedia';
-import useSearchedMedia from '../../hooks/useSearchedMedia';
-import MultipleSelect from '../MultipleSelect';
-import BasicSelect from '../BasicSelect';
-import SliderBar from '../SliderBar';
-import MediaCardList from '../MediaCardList';
-import movieGenres from '../../data/movieGenres';
-import tvShowGenres from '../../data/tvShowGenres';
+import useFilteredMedia from '../../shared/hooks/useFilteredMedia';
+import useSearchedMedia from '../../shared/hooks/useSearchedMedia';
+import MultipleSelect from '../../shared/ui/MultipleSelect';
+import BasicSelect from '../../shared/ui/BasicSelect';
+import SliderBar from '../../shared/ui/SliderBar';
+import MediaCardList from '../../shared/ui/MediaCardList';
+import movieGenres from '../../shared/data/movieGenres';
+import tvShowGenres from '../../shared/data/tvShowGenres';
 
 const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
   const mediaGenres = mediaType === 'movie' ? movieGenres : tvShowGenres;

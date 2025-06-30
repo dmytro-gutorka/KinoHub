@@ -13,16 +13,16 @@ export default function useMediaDetails(mediaId, mediaType) {
   const { data: mediaDataWithActions } = useQuery({
     queryKey: ['mediaDetailsExtraData', mediaId],
     queryFn: () => {
-      return createMediaActions(mediaId, parseMediaDetails(mediaData, mediaType)).then((data) => ({
-        ...mediaData,
-        ...data,
-      }));
+      return createMediaActions(mediaId, parseMediaDetails(mediaData, mediaType)).then(
+        (actionsData) => ({
+          ...actionsData,
+          ...mediaData,
+        })
+      );
     },
     enabled: isSuccess,
     staleTime: 0,
   });
-
-  if (isSuccess) console.log(mediaData);
 
   return { mediaDataWithActions };
 }
