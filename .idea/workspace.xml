@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7fd1e27-f949-47e0-a0cc-722fb7fdd80f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7fd1e27-f949-47e0-a0cc-722fb7fdd80f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/movies.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/movies.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/getMovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/getMediaDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useActionDataCreation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaDetailsPage/hooks/useMediaDetailsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaDetailsPage/hooks/useMediaDetailsPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/MediaHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/MediaHeader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/hooks/useMediaDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/hooks/useMediaDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaDetailsBlock/MediaDetailsBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaDetailsBlock/MediaDetailsBlock.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaOverview/MediaOverview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaOverview/MediaOverview.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,11 +90,11 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/shared/helpers" />
+      <recent name="$PROJECT_DIR$/frontend/src/widgets/MediaDetailsPage/hooks" />
       <recent name="$PROJECT_DIR$/frontend/src/widgets/MediaOverview" />
       <recent name="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/components" />
       <recent name="$PROJECT_DIR$/frontend/src/widgets" />
-      <recent name="$PROJECT_DIR$/frontend/src/widgets/AsideBar/ui" />
-      <recent name="$PROJECT_DIR$/frontend/src/shared/ui" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -133,7 +125,8 @@
       <workItem from="1750945171163" duration="18108000" />
       <workItem from="1751001550042" duration="27347000" />
       <workItem from="1751093523237" duration="599000" />
-      <workItem from="1751178907724" duration="20869000" />
+      <workItem from="1751178907724" duration="22327000" />
+      <workItem from="1751262253164" duration="1683000" />
     </task>
     <servers />
   </component>

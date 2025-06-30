@@ -38,13 +38,9 @@ const MediaHeader = ({ mediaDataWithActions, mediaType }) => {
 
   const theme = useTheme();
   const actionMutation = useMediaAction('mediaDetailsExtraData', id);
+  const handleMediaAction = (action) => actionMutation.mutate(action);
 
   const imgURL = getPosterURL(posterPath);
-
-  const handleLike = () => actionMutation.mutate({ isLiked: !isLiked });
-  const handleIsWatched = () => actionMutation.mutate({ isWatched: !isWatched });
-  const handleWatchStatus = () =>
-    actionMutation.mutate({ watchStatus: watchStatus ? null : 'toWatch' });
 
   const movieLabels = [
     { icon: <StarBorderIcon />, data: voteAverage?.toFixed(2) + '/10' },
@@ -78,12 +74,12 @@ const MediaHeader = ({ mediaDataWithActions, mediaType }) => {
     {
       icon: isLiked ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon />,
       data: 'Add to Favorites',
-      onClick: () => handleLike(),
+      onClick: () => handleMediaAction({ isLiked: !isLiked }),
     },
     {
       icon: watchStatus ? <BookmarkAddedIcon /> : <BookmarkAddOutlinedIcon />,
       data: 'Add to MovieBoard',
-      onClick: () => handleWatchStatus(),
+      onClick: () => handleMediaAction({ watchStatus: watchStatus ? null : 'toWatch' }),
     },
   ];
 
@@ -117,7 +113,7 @@ const MediaHeader = ({ mediaDataWithActions, mediaType }) => {
 
             <Stack direction="row" spacing={4} mt={8}>
               <ButtonList items={buttons} />
-              <Button onClick={handleIsWatched}>
+              <Button onClick={() => handleMediaAction({ isWatched: !isWatched })}>
                 {isWatched ? <VisibilityIcon /> : <VisibilityOffOutlinedIcon />}
               </Button>
             </Stack>

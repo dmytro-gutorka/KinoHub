@@ -15,6 +15,7 @@ const MediaOverview = ({ mediaDataWithActions, mediaType }) => {
     title,
     overview,
     seasons,
+    rating,
     credits: { cast },
     poster_path: posterPath,
     first_air_date: airDate,
@@ -22,6 +23,8 @@ const MediaOverview = ({ mediaDataWithActions, mediaType }) => {
     release_date: releaseDate,
     production_companies: companies,
   } = mediaDataWithActions;
+
+  console.log(rating);
 
   const actionMutation = useMediaAction('mediaActionData', id);
 
