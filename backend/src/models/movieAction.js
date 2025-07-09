@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize'
+import { DataTypes } from 'sequelize';
 
 export const MovieActionModel = (sequelize) => {
   return sequelize.define('MovieAction', {
@@ -20,7 +20,7 @@ export const MovieActionModel = (sequelize) => {
     isWatched: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
-      defaultValue: false
+      defaultValue: false,
     },
     mediaType: {
       type: DataTypes.STRING, // tv, movie
@@ -29,29 +29,29 @@ export const MovieActionModel = (sequelize) => {
     runtime: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      defaultValue: null
+      defaultValue: null,
     },
     rating: {
       type: DataTypes.FLOAT,
       allowNull: true,
-      defaultValue: null
+      defaultValue: null,
     },
     watchStatus: {
       type: DataTypes.STRING,
       allowNull: true,
-      defaultValue: null //toWatch, isWatching, onHold, favorites, archived
+      defaultValue: null, //toWatch, isWatching, onHold, favorites, archived
     },
     season: {
       type: DataTypes.INTEGER, // only for tv
       allowNull: true,
       defaultValue: null,
-      unique: 'user_media_unique'
+      unique: 'user_media_unique',
     },
     episode: {
-      type: DataTypes.INTEGER,  // only for tv
+      type: DataTypes.INTEGER, // only for tv
       allowNull: true,
       defaultValue: null,
-      unique: 'user_media_unique'
+      unique: 'user_media_unique',
     },
     releaseDate: {
       type: DataTypes.STRING,
@@ -68,7 +68,8 @@ export const MovieActionModel = (sequelize) => {
       allowNull: true,
       defaultValue: null,
     },
-    voteAverage: { // TMDB Rating
+    voteAverage: {
+      // TMDB Rating
       type: DataTypes.FLOAT,
       allowNull: true,
       defaultValue: null,
