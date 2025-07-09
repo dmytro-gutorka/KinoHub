@@ -27,7 +27,6 @@ export default defineConfig([
       "n/no-unpublished-import": "off",
     },
   },
-  // TypeScript-specific config
   {
     files: ["**/*.ts"],
     languageOptions: {
