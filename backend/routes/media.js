@@ -48,9 +48,12 @@ router.get('/:id/rating', async (req, res) => {
 
   await MovieAction.update(
       { rating: rating },
-      { where:
-            { movieId: movieID, userId: userID, season: null, episode: null }
-      })
+      { where: {
+        movieId: movieID,
+          userId: userID,
+          season: null,
+          episode: null
+      }})
 
     res.status(200).json({
     msg: `Rating on movie ${movieID} was updated. Current rating is ${rating}`
@@ -269,4 +272,6 @@ router.get('/user-stats', async(req, res) => {
   })
 
   res.status(200).json(userStatistic)
+
 })
+

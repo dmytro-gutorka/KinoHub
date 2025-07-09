@@ -2,9 +2,9 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "config/server.js",
   "scripts": {
-    "dev": "node --env-file=.env --watch server.js"
+    "dev": "node --env-file=.env --watch config/server.js"
   },
   "keywords": [],
   "author": "",
