@@ -12,16 +12,7 @@ export const MovieActionModel = (sequelize) => {
       allowNull: false,
       unique: 'user_media_unique',
     },
-    isLiked: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false,
-    },
-    isWatched: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-      defaultValue: false,
-    },
+
     mediaType: {
       type: DataTypes.STRING, // tv, movie
       allowNull: false,
