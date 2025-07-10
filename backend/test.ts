@@ -1,54 +1,28 @@
-function sum(a: number, b: number): number {
-  return a + b;
-}
-
-type SumFn = typeof sum;
-
-function performAction(cb: SumFn) {
-  cb(1, 2);
-}
-
-type User = {
-  name: string;
+interface User {
+  lastName: string;
+  firstName: string;
   age: number;
-  gender: 'male' | 'female';
+}
+
+type ReadonlyType<T> = {
+  readonly [K in keyof T]-?: T[K];
 };
 
-type UserKeys = keyof User;
-
-function getProp<T extends object, U extends keyof T>(obj: T, key: U): T[U] {
-  if (!obj.hasOwnProperty(key)) throw new Error('Accessing undefined or null value');
-
-  return obj[key];
-}
-
-type AppUser = {
-  name: string;
-  age: number;
-  permission: {
-    id: string;
-    title: string;
-    description: string;
-  }[];
+type ArrayAnalog<T> = {
+  [K in number]: T;
 };
 
-type Perms = AppUser['permission'];
+const array: ArrayAnalog<string> = ['a', 'b', 'c'];
 
-const Color = {
-  Red: 'red',
-  Green: 'green',
-  Blue: 'blue',
-} as const;
+type WithoutAge<T> = Omit<T, 'age'>;
 
-type Color = (typeof Color)[keyof typeof Color];
+type UserWithoutAge<T> = {
+  [K in keyof T as Exclude<K, 'age'>]: T[K];
+};
 
-const enum Direction {
-  Up = 'Up ',
-  Down = 'Down ',
-  Left = 'Left ',
-  Right = 'Right',
-}
+type test = UserWithoutAge<User>;
 
-let move = Direction['Up'];
-
-console.log(move);
+const UserTest: test = {
+  lastName: 'dima',
+  firstName: 'dima',
+};
