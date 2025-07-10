@@ -6,5 +6,20 @@ export const AppDataSource = new DataSource({
   database: 'database.sqlite',
   synchronize: true,
   logging: true,
-  entities: [User], // for compiled version - ['dist/entity/**/*.js']
+  entities: ['dist/entity/**/*.js'],
 });
+
+export async function initDB() {
+  AppDataSource.initialize()
+    .then(async () => {
+      console.log('SQLite is initialized');
+
+      const user = new User();
+      user.name = 'Alice';
+
+      await AppDataSource.manager.save(user);
+
+      console.log('User is saved');
+    })
+    .catch((error) => console.error('Connection error:', error));
+}
