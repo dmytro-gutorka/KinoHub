@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-enum WatchStatus {
+export enum WatchStatus {
   ToWatch = 'toWatch',
   IsWatching = 'isWatching',
   OnHold = 'onHold',

@@ -1,12 +1,23 @@
 import { DataSource } from 'typeorm';
-import { User } from '../entity/User.js';
+import { MediaUserActions, WatchStatus } from '../entity/MediaUserActions.js';
+import { fileURLToPath } from 'node:url';
+import path from 'path';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+console.log(__dirname);
 
 export const AppDataSource = new DataSource({
-  type: 'sqlite',
-  database: 'database.sqlite',
+  type: 'postgres',
+  port: Number(process.env.DB_PORT),
+  host: process.env.DB_HOST,
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  entities: ['dist/entity/**/*.js'], // is path correct ???
+  migrations: ['dist/migration/**/*.js'],
   synchronize: true,
-  logging: true,
-  entities: ['dist/entity/**/*.js'],
+  logging: false,
 });
 
 export async function initDB() {
@@ -14,12 +25,15 @@ export async function initDB() {
     .then(async () => {
       console.log('SQLite is initialized');
 
-      const user = new User();
-      user.name = 'Alice';
+      const mediaActions = new MediaUserActions();
 
-      await AppDataSource.manager.save(user);
+      mediaActions.isLiked = false;
+      mediaActions.isWatched = false;
+      mediaActions.watchStatus = WatchStatus.ToWatch;
 
-      console.log('User is saved');
+      await AppDataSource.manager.save(mediaActions);
+
+      console.log('mediaActions is saved');
     })
     .catch((error) => console.error('Connection error:', error));
 }
