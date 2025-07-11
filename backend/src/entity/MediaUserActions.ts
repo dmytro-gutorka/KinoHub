@@ -10,7 +10,7 @@ export enum WatchStatus {
 }
 
 @Entity()
-@Unique(['mediaId', 'userId'])
+@Unique(['mediaInfo', 'userId'])
 export class MediaUserActions {
   @PrimaryGeneratedColumn()
   id!: number;

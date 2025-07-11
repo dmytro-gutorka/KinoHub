@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, OneToMany } from 'typeorm';
 import { MediaUserActions } from './MediaUserActions.js';
 
 @Entity()
@@ -30,6 +30,6 @@ export class MediaInfo {
   @Column()
   mediaType!: 'tv' | 'movie';
 
-  @OneToOne(() => MediaUserActions, (mediaUserActions) => mediaUserActions.mediaInfo)
+  @OneToMany(() => MediaUserActions, (mediaUserActions) => mediaUserActions.mediaInfo)
   userActions!: MediaUserActions[];
 }

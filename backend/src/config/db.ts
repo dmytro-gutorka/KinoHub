@@ -1,5 +1,4 @@
 import { DataSource } from 'typeorm';
-import { MediaUserActions, WatchStatus } from '../entity/MediaUserActions.js';
 import { fileURLToPath } from 'node:url';
 import path from 'path';
 
@@ -22,18 +21,6 @@ export const AppDataSource = new DataSource({
 
 export async function initDB() {
   AppDataSource.initialize()
-    .then(async () => {
-      console.log('SQLite is initialized');
-
-      const mediaActions = new MediaUserActions();
-
-      mediaActions.isLiked = false;
-      mediaActions.isWatched = false;
-      mediaActions.watchStatus = WatchStatus.ToWatch;
-
-      await AppDataSource.manager.save(mediaActions);
-
-      console.log('mediaActions is saved');
-    })
+    .then(() => console.log(`Database "${process.env.DB_DATABASE}" is initialized`))
     .catch((error) => console.error('Connection error:', error));
 }
