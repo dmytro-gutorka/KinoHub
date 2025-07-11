@@ -1,9 +1,9 @@
 import 'reflect-metadata';
 
-import { initDB } from './config/db.js';
-import express, { json, urlencoded, Application } from 'express';
+import routes from './routes/index.js';
 import cors from 'cors';
-// import router from './routes/index.ts'
+import express, { json, urlencoded, Application } from 'express';
+import { initDB } from './config/db.js';
 
 const port: number = Number(process.env.PORT) || 8000;
 const app: Application = express();
@@ -12,7 +12,7 @@ app.use(cors());
 app.use(json());
 app.use(urlencoded());
 
-// app.use('/', router);
+app.use('/', routes);
 
 async function startServer() {
   try {
