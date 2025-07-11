@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne, Unique } from 'typeorm';
+import { MediaInfo } from './MediaInfo.js';
 
 export enum WatchStatus {
   ToWatch = 'toWatch',
@@ -9,9 +10,13 @@ export enum WatchStatus {
 }
 
 @Entity()
+@Unique(['mediaId', 'userId'])
 export class MediaUserActions {
   @PrimaryGeneratedColumn()
   id!: number;
+
+  @Column()
+  userId!: number;
 
   @Column({ default: false })
   isLiked!: boolean;
@@ -21,4 +26,11 @@ export class MediaUserActions {
 
   @Column({ default: null, nullable: true, type: 'enum', enum: WatchStatus })
   watchStatus!: WatchStatus | null;
+
+  @ManyToOne(() => MediaInfo, (mediaInfo) => mediaInfo.userActions, {
+    cascade: true,
+    eager: true,
+  })
+  @JoinColumn({ name: 'mediaId', referencedColumnName: 'mediaId' })
+  mediaInfo!: MediaInfo;
 }
