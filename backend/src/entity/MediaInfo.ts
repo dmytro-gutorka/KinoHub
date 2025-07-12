@@ -13,9 +13,6 @@ export class MediaInfo {
   runtime!: number;
 
   @Column()
-  rating!: number;
-
-  @Column()
   releaseDate!: string;
 
   @Column()
