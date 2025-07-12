@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { mediaUserActionsRepository } from '../repositories/mediaUserActionsRepository.js';
-import { createMediaUserActions } from '../services/mediaUserActions.service.js';
-import { createMediaInfo } from '../services/mediaInfo.service.js';
+import { createMediaUserActions } from '../services/media/userActions.service';
+import { createMediaInfo } from '../services/media/info.service';
 
 export async function cacheMedia(req: Request, res: Response) {
   const mediaId = Number(req.params.mediaId);

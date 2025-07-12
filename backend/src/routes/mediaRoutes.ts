@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { cacheMedia } from '../controllers/media.controller.js';
+import { cacheMedia } from '../controllers/mediaСontroller';
 
 export const router: Router = express.Router();
 

@@ -1,11 +1,13 @@
-import { router as routerActions } from './media.js';
-import { router as userRouter } from './users.js';
+import { router as mediaRouter } from './mediaRoutes';
+import { router as usersRouter } from './usersRoutes';
+import { router as actionsRouter } from './actionsRoutes';
 
 import express from 'express';
 
 const router = express.Router();
 
-router.use('/media', routerActions);
-router.use('/users', userRouter);
+router.use('/media', mediaRouter);
+router.use('/users', usersRouter);
+router.use('/actions', actionsRouter);
 
 export default router;
