@@ -10,5 +10,7 @@ export class MediaUserActionsService {
     }
   }
 
-  async update(mediaId: number) {}
+  async update(mediaId: number, userId: number, action: object) {
+    await mediaUserActionsRepository.update({ mediaId, userId }, { ...action });
+  }
 }

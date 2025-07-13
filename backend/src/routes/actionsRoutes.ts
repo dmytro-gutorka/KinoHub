@@ -1,5 +1,5 @@
+import { updateMediaActions } from '../controllers/actionsСontroller.js';
 import express, { Router } from 'express';
-import { updateMediaActions } from '../controllers/actionsСontroller';
 
 export const router: Router = express.Router();
 
