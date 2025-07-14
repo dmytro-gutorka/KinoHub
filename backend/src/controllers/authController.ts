@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { authService } from '../services/auth.service.js';
+import { Error } from 'sequelize';
 
 export async function register(req: Request, res: Response) {
   try {
@@ -8,7 +9,11 @@ export async function register(req: Request, res: Response) {
 
     res.status(201).send({ message: `User ${username} was created` });
   } catch (error) {
-    res.status(400).json({ error });
+    if (error instanceof Error) {
+      res.status(400).json({ error: error.message });
+    } else {
+      res.status(400).json({ error: String(error) });
+    }
   }
 }
 
@@ -24,8 +29,12 @@ export async function login(req: Request, res: Response) {
         secure: false, // true in production (process.env.NODE_ENV === 'production')
         maxAge: 24 * 7 * 3600 * 1000,
       })
-      .send(tokens.accessToken);
+      .json({ accessToken: tokens.accessToken });
   } catch (error) {
-    res.status(400).json({ error });
+    if (error instanceof Error) {
+      res.status(400).json({ error: error.message });
+    } else {
+      res.status(400).json({ error: String(error) });
+    }
   }
 }

@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { mediaUserActionsRepository } from '../repositories/mediaUserActionsRepository.js';
 import { mediaServices } from '../services/media/index.js';
+import { Error } from 'sequelize';
 
 export async function cacheMedia(req: Request, res: Response) {
   const mediaId = Number(req.params.mediaId);
@@ -18,7 +19,10 @@ export async function cacheMedia(req: Request, res: Response) {
 
     res.status(200).json({ data: mediaData });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: 'Internal server error' });
+    if (error instanceof Error) {
+      res.status(500).json({ error: error.message });
+    } else {
+      res.status(500).json({ error: String(error) });
+    }
   }
 }
