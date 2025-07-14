@@ -15,6 +15,6 @@ export function formatMediaDetailsData(data: any) {
     releaseDate: first_air_date || release_date,
     title: name || original_title,
     posterPath: backdrop_path || '',
-    voteAverage: vote_average || 0,
+    voteAverage: vote_average,
   };
 }

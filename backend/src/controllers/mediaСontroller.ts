@@ -11,12 +11,10 @@ export async function cacheMedia(req: Request, res: Response) {
     await mediaServices.info.create(mediaId, mediaType);
     await mediaServices.actions.create(mediaId, userId);
 
-    const mediaData = { message: 'Media is cached' };
-
-    // const mediaData = await mediaUserActionsRepository.find({
-    //   where: { mediaId, userId },
-    //   relations: ['mediaInfo'],
-    // });
+    const mediaData = await mediaUserActionsRepository.find({
+      where: { mediaId, userId },
+      relations: ['mediaInfo'],
+    });
 
     res.status(200).json({ data: mediaData });
   } catch (error) {

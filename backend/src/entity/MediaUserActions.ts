@@ -27,7 +27,7 @@ export class MediaUserActions {
   @Column({ default: null, nullable: true })
   isWatched!: boolean;
 
-  @Column({ default: null, nullable: true })
+  @Column({ default: null, nullable: true, type: 'double precision' })
   rating!: number;
 
   @Column({ default: null, nullable: true, type: 'enum', enum: WatchStatus })

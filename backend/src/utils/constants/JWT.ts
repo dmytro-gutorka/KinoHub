@@ -1,0 +1,2 @@
+export const ACCESS_TOKEN_TIME_EXPIRATION = '15m';
+export const REFRESH_TOKEN_TIME_EXPIRATION = '1d';

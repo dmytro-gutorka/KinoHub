@@ -8,12 +8,9 @@ export class MediaInfoService {
     const mediaDataFromTMDB = await getMediaDetailsFromTMDB(mediaId, mediaType);
     const formatedData = formatMediaDetailsData(mediaDataFromTMDB);
 
-    console.log(mediaDataFromTMDB);
-    console.log(formatedData);
-    //
-    // if (!isMediaInfo) {
-    //   const mediaInfoEntity = mediaInfoRepository.create({ mediaId, mediaType, ...formatedData });
-    //   await mediaInfoRepository.save(mediaInfoEntity);
-    // }
+    if (!isMediaInfo) {
+      const mediaInfoEntity = mediaInfoRepository.create({ mediaId, mediaType, ...formatedData });
+      await mediaInfoRepository.save(mediaInfoEntity);
+    }
   }
 }

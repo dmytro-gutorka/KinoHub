@@ -9,7 +9,7 @@ export class MediaInfo {
   @Column({ unique: true })
   mediaId!: number;
 
-  @Column()
+  @Column({ type: 'double precision' })
   runtime!: number;
 
   @Column()
@@ -21,7 +21,7 @@ export class MediaInfo {
   @Column()
   posterPath!: string;
 
-  @Column()
+  @Column({ type: 'double precision' })
   voteAverage!: number;
 
   @Column()
