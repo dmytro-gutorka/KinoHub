@@ -15,7 +15,7 @@ export async function updateActions(req: Request, res: Response) {
   }
 }
 
-export async function getActions(req: Request, res: Response) {
-  const mediaId = Number(req.params.mediaId);
-  const userId = 1;
-}
+// export async function getActions(req: Request, res: Response) {
+//   const mediaId = Number(req.params.mediaId);
+//   const userId = 1;
+// }
