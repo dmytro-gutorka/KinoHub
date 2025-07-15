@@ -1,7 +1,10 @@
 import { Request, Response } from 'express';
+import { HttpError } from '../errors/HttpError.js';
 
 export function errorHandler(err: any, req: Request, res: Response) {
-  const status = err.status || 500;
-
-  res.status(status).json({ error: err.message || 'Internal Server Error' });
+  if (err instanceof HttpError) {
+    res.status(err.status).json({ error: err.message });
+  } else {
+    res.status(500).json({ error: 'Internal server error' });
+  }
 }
