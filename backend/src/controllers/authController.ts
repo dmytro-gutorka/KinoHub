@@ -32,7 +32,7 @@ export async function activateEmail(req: Request, res: Response) {
 
   await authService.activateEmail(activationLink);
 
-  res.redirect('/');
+  res.status(301).redirect('/');
 }
 
 export async function refresh(req: Request, res: Response) {
