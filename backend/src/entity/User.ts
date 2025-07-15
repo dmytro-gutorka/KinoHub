@@ -1,4 +1,5 @@
-import { Entity, Column, BaseEntity, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, OneToOne } from 'typeorm';
+import { UserAuthentication } from './UserAuthentication.js';
 
 @Entity()
 export class User extends BaseEntity {
@@ -13,4 +14,9 @@ export class User extends BaseEntity {
 
   @Column()
   password!: string;
+
+  @OneToOne(() => UserAuthentication, (userAuthentication) => userAuthentication.user, {
+    cascade: true,
+  })
+  userAuth!: UserAuthentication;
 }

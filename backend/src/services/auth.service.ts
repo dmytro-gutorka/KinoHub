@@ -1,6 +1,9 @@
 import { userRepository } from '../repositories/userRepository.js';
 import { comparePasswords, hashPassword } from '../utils/auth/password.js';
 import { signAccessToken, signRefreshToken } from '../utils/auth/jwt.js';
+import { userAuthRepository } from '../repositories/userAuthentication.js';
+import { v4 as uuid4 } from 'uuid';
+import bcrypt from 'bcrypt';
 
 export class AuthService {
   async register(email: string, password: string, username: string) {
@@ -10,7 +13,11 @@ export class AuthService {
       throw new Error('User already exists');
     }
 
-    const hashedPassword = await hashPassword(password);
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const userAuthData = userAuthRepository.create({
+      activationLink: uuid4(),
+      // refreshToken
+    });
     const user = userRepository.create({ password: hashedPassword, email, username });
     await userRepository.save(user);
   }
@@ -20,7 +27,7 @@ export class AuthService {
 
     if (!user) throw new Error('User does not exist');
 
-    const isPasswordMatch = await comparePasswords(password, user.password);
+    const isPasswordMatch = await bcrypt.compare(password, user.password);
 
     if (!isPasswordMatch) throw new Error('Password does not match');
 

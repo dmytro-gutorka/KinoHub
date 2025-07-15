@@ -5,4 +5,4 @@ import { authGuard } from '../middleware/auth.middleware.js';
 export const router: Router = express.Router();
 
 router.post('/login', authGuard(), login);
-router.post('/register', authGuard(), register);
+router.post('/register', register);

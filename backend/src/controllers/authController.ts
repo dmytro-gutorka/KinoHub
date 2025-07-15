@@ -25,9 +25,9 @@ export async function login(req: Request, res: Response) {
     res
       .status(200)
       .cookie('refreshToken', tokens.refreshToken, {
-        httpOnly: false, // true in production
+        httpOnly: true,
         secure: false, // true in production (process.env.NODE_ENV === 'production')
-        maxAge: 24 * 7 * 3600 * 1000,
+        maxAge: 24 * 7 * 60 * 60 * 1000,
       })
       .json({ accessToken: tokens.accessToken });
   } catch (error) {
