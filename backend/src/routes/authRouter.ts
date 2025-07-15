@@ -7,7 +7,7 @@ import { asyncHandler } from '../middleware/asyncHandler.middleware.js';
 export const router: Router = express.Router();
 
 router.post('/register', asyncHandler(register));
-router.post('/login', authGuard(), login);
-router.post('/logout', logout);
-router.get('/refresh', refresh);
-router.get('/activate/:link', activateEmail);
+router.post('/login', authGuard(), asyncHandler(login));
+router.post('/logout', asyncHandler(logout));
+router.get('/refresh', asyncHandler(refresh));
+router.get('/activate/:link', asyncHandler(activateEmail));

@@ -5,6 +5,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import express, { json, urlencoded, Application } from 'express';
 import { initDB } from './config/db.js';
+import { errorHandler } from './middleware/errorHandler.middleware.js';
 
 const port: number = Number(process.env.PORT) || 8000;
 const app: Application = express();
@@ -15,6 +16,8 @@ app.use(json());
 app.use(urlencoded());
 
 app.use('/', routes);
+
+app.use(errorHandler);
 
 async function startServer() {
   try {
