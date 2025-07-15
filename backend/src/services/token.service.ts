@@ -1,21 +1,26 @@
+import { Response } from 'express';
 import jwt from 'jsonwebtoken';
-import {
-  ACCESS_TOKEN_TIME_EXPIRATION,
-  REFRESH_TOKEN_TIME_EXPIRATION,
-} from '../utils/constants/JWT.js';
 
-type JwtPayload = {
+interface JwtPayload {
   userId: number;
-};
+}
+
+interface JwtTokens {
+  accessToken: string;
+  refreshToken: string;
+}
 
 export class TokenService {
-  async generateTokens(payload: JwtPayload) {
+  private readonly ACCESS_EXPIRES_IN = 15 * 60; // 15 minutes
+  private readonly REFRESH_EXPIRES_IN = 7 * 24 * 60 * 60; // 7 days
+
+  generateTokens(payload: JwtPayload): JwtTokens {
     return {
       accessToken: jwt.sign(payload, process.env.JWT_ACCESS_SECRET!, {
-        expiresIn: ACCESS_TOKEN_TIME_EXPIRATION,
+        expiresIn: this.ACCESS_EXPIRES_IN,
       }),
       refreshToken: jwt.sign(payload, process.env.JWT_REFRESH_SECRET!, {
-        expiresIn: REFRESH_TOKEN_TIME_EXPIRATION,
+        expiresIn: this.REFRESH_EXPIRES_IN,
       }),
     };
   }
@@ -27,4 +32,14 @@ export class TokenService {
   async validateRefreshToken(refreshToken: string) {
     return jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET!);
   }
+
+  setRefreshTokenToCookies(refreshToken: string, res: Response): void {
+    res.cookie('refreshToken', refreshToken, {
+      httpOnly: true,
+      secure: false, // true in production (process.env.NODE_ENV === 'production')
+      maxAge: this.REFRESH_EXPIRES_IN,
+    });
+  }
 }
+
+export const tokenService = new TokenService();

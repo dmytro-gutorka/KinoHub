@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, OneToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, OneToOne, Relation } from 'typeorm';
 import { UserAuthentication } from './UserAuthentication.js';
 
 @Entity()
@@ -18,5 +18,5 @@ export class User extends BaseEntity {
   @OneToOne(() => UserAuthentication, (userAuthentication) => userAuthentication.user, {
     cascade: true,
   })
-  userAuth!: UserAuthentication;
+  userAuth!: Relation<UserAuthentication>;
 }
