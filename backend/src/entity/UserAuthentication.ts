@@ -20,6 +20,9 @@ export class UserAuthentication extends BaseEntity {
   @Column({ unique: true, nullable: true, default: null })
   activationLink!: string;
 
+  @Column({ default: false })
+  isEmailConfirmed!: boolean;
+
   @OneToOne(() => User, (user) => user.userAuth)
   @JoinColumn()
   user!: Relation<User>;

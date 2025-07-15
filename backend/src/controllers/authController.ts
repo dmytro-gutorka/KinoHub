@@ -26,3 +26,9 @@ export async function login(req: Request, res: Response) {
     if (error instanceof Error) res.status(400).json({ error: error.message });
   }
 }
+
+export async function logout(req: Request, res: Response) {}
+
+export async function emailConfirmation(req: Request, res: Response) {}
+
+export async function refresh(req: Request, res: Response) {}
