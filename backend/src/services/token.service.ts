@@ -1,10 +1,6 @@
 import { Response } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 
-// export interface JwtPayload {
-//   userId: number;
-// }
-
 interface JwtTokens {
   accessToken: string;
   refreshToken: string;
@@ -26,29 +22,25 @@ export class TokenService {
   }
 
   validateAccessToken(accessToken: string): JwtPayload {
-    const data = jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET!);
+    const payload = jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET!);
 
-    if (typeof data === 'string') {
-      throw new Error('Invalid token');
-    }
+    if (typeof payload === 'string') throw new Error('Invalid token');
 
-    return data;
+    return payload;
   }
 
-  validateRefreshToken(refreshToken: string) {
-    const data = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET!);
+  validateRefreshToken(refreshToken: string): JwtPayload {
+    const payload = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET!);
 
-    if (typeof data === 'string') {
-      throw new Error('Invalid token');
-    }
+    if (typeof payload == 'string') throw new Error('Invalid token');
 
-    return data;
+    return payload;
   }
 
   setRefreshTokenToCookies(refreshToken: string, res: Response): void {
     res.cookie('refreshToken', refreshToken, {
       httpOnly: true,
-      secure: false, // true in production (process.env.NODE_ENV === 'production')
+      secure: false, // true in production or use (process.env.NODE_ENV === 'production')
       maxAge: this.REFRESH_EXPIRES_IN,
     });
   }

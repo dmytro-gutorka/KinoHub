@@ -21,7 +21,7 @@ export class EmailService {
       to,
       subject: 'KinoHub Registration Confirmation',
       text: '',
-      html: `<div><h1>Confirm your email:</h1><a href=${process.env.SERVER_URL}/activate/${link}>Click to confirm your email</a></div>`,
+      html: `<div><h1>Confirm your email:</h1><a href=${process.env.SERVER_URL}/auth/activate/${link}>Click to confirm your email</a></div>`,
     });
   }
 }
