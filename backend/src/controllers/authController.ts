@@ -9,7 +9,8 @@ export async function register(req: Request, res: Response) {
     const tokens = await authService.register(email, password, username);
 
     tokenService.setRefreshTokenToCookies(tokens.refreshToken, res);
-    res.status(201).json(tokens);
+
+    res.status(200).json({ accessToken: tokens.accessToken });
   } catch (error) {
     if (error instanceof Error) res.status(400).json({ error: error.message });
   }
@@ -21,14 +22,36 @@ export async function login(req: Request, res: Response) {
     const tokens = await authService.login(email, password);
 
     tokenService.setRefreshTokenToCookies(tokens.refreshToken, res);
-    res.status(200).json(tokens);
+
+    res.status(200).json({ accessToken: tokens.accessToken });
   } catch (error) {
     if (error instanceof Error) res.status(400).json({ error: error.message });
   }
 }
 
-export async function logout(req: Request, res: Response) {}
+export async function logout(req: Request, res: Response) {
+  const { refreshToken } = req.cookies;
 
-export async function emailConfirmation(req: Request, res: Response) {}
+  await authService.logout(refreshToken);
 
-export async function refresh(req: Request, res: Response) {}
+  res.clearCookie('refreshToken');
+  res.json({ message: 'Refresh token has been deleted' });
+}
+
+export async function activateEmail(req: Request, res: Response) {
+  const { link: activationLink } = req.params;
+
+  await authService.activateEmail(activationLink);
+
+  res.redirect('/');
+}
+
+export async function refresh(req: Request, res: Response) {
+  const { refreshToken } = req.cookies;
+
+  const newTokens = await authService.refresh(refreshToken);
+
+  tokenService.setRefreshTokenToCookies(newTokens.refreshToken, res);
+
+  res.status(200).json({ accessToken: newTokens.accessToken });
+}

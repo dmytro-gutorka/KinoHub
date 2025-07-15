@@ -1,9 +1,9 @@
 import { Response } from 'express';
-import jwt from 'jsonwebtoken';
+import jwt, { JwtPayload } from 'jsonwebtoken';
 
-interface JwtPayload {
-  userId: number;
-}
+// export interface JwtPayload {
+//   userId: number;
+// }
 
 interface JwtTokens {
   accessToken: string;
@@ -17,20 +17,32 @@ export class TokenService {
   generateTokens(payload: JwtPayload): JwtTokens {
     return {
       accessToken: jwt.sign(payload, process.env.JWT_ACCESS_SECRET!, {
-        expiresIn: this.ACCESS_EXPIRES_IN,
+        expiresIn: '15m', // this.ACCESS_EXPIRES_IN
       }),
       refreshToken: jwt.sign(payload, process.env.JWT_REFRESH_SECRET!, {
-        expiresIn: this.REFRESH_EXPIRES_IN,
+        expiresIn: '7d', // this.REFRESH_EXPIRES_IN
       }),
     };
   }
 
-  async validateAccessToken(accessToken: string) {
-    return jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET!);
+  validateAccessToken(accessToken: string): JwtPayload {
+    const data = jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET!);
+
+    if (typeof data === 'string') {
+      throw new Error('Invalid token');
+    }
+
+    return data;
   }
 
-  async validateRefreshToken(refreshToken: string) {
-    return jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET!);
+  validateRefreshToken(refreshToken: string) {
+    const data = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET!);
+
+    if (typeof data === 'string') {
+      throw new Error('Invalid token');
+    }
+
+    return data;
   }
 
   setRefreshTokenToCookies(refreshToken: string, res: Response): void {
