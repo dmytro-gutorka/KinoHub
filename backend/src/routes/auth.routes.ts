@@ -1,4 +1,4 @@
-import { activateEmail, login, logout, refresh, register } from '../controllers/authController.js';
+import { activateEmail, login, logout, refresh, register } from '../controllers/auth.controller';
 import { asyncHandler } from '../middleware/asyncHandler.middleware.js';
 import { Router } from 'express';
 import express from 'express';

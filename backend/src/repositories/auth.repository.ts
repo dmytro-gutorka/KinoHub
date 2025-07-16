@@ -1,4 +1,4 @@
 import { AppDataSource } from '../config/db.js';
 import { UserAuthentication } from '../entity/UserAuthentication.js';
 
-export const userAuthRepository = AppDataSource.getRepository(UserAuthentication);
+export const authRepository = AppDataSource.getRepository(UserAuthentication);

@@ -1,7 +1,7 @@
-import { MediaInfoService } from './mediaInfo.service.js';
-import { MediaUserActionsService } from './userActions.service.js';
+import { MediaService } from './media.service';
+import { MediaUserActionsService } from './actions.service';
 
 export const mediaServices = {
-  info: new MediaInfoService(),
+  info: new MediaService(),
   actions: new MediaUserActionsService(),
 };

@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { MediaUserActions } from './MediaUserActions.js';
-import { MediaType } from '../types.js';
+import { MediaType } from '../types/types.js';
 
 @Entity()
 export class MediaInfo {

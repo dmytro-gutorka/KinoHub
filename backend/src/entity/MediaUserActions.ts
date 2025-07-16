@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne, Unique } from 'typeorm';
 import { MediaInfo } from './MediaInfo.js';
-import { WatchStatus } from '../types.js';
+import { WatchStatus } from '../types/types.js';
 
 @Entity()
 @Unique(['mediaInfo', 'userId'])

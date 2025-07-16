@@ -1,4 +1,4 @@
-import { updateActions } from '../controllers/actionsСontroller.js';
+import { updateActions } from '../controllers/actions.controller.js';
 import express, { Router } from 'express';
 
 export const router: Router = express.Router();

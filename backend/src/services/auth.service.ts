@@ -1,10 +1,10 @@
-import { userRepository } from '../repositories/userRepository.js';
-import { userAuthRepository } from '../repositories/userAuthentication.js';
+import { JwtPayload } from 'jsonwebtoken';
+import { userRepository } from '../repositories/user.repository.js';
+import { authRepository } from '../repositories/auth.repository.js';
 import { tokenService } from './token.service.js';
 import { emailService } from './email.service.js';
-import { v4 as uuid4 } from 'uuid';
-import { JwtPayload } from 'jsonwebtoken';
 import { HttpError } from '../errors/HttpError.js';
+import { v4 as uuid4 } from 'uuid';
 import bcrypt from 'bcrypt';
 
 export class AuthService {
@@ -18,13 +18,13 @@ export class AuthService {
 
     const tokens = tokenService.generateTokens({ userId: user.id });
 
-    const userAuthData = userAuthRepository.create({
+    const userAuthData = authRepository.create({
       activationLink: uuid4(),
       refreshToken: tokens.refreshToken,
       user: user,
     });
 
-    await userAuthRepository.save(userAuthData);
+    await authRepository.save(userAuthData);
     await emailService.sendEmailConfirmation(user.email, userAuthData.activationLink);
 
     return tokens;
@@ -41,11 +41,11 @@ export class AuthService {
   }
 
   async logout(refreshToken: string) {
-    await userAuthRepository.delete({ refreshToken });
+    await authRepository.delete({ refreshToken });
   }
 
   async activateEmail(link: string) {
-    const userAuth = await userAuthRepository.findOneBy({ activationLink: link });
+    const userAuth = await authRepository.findOneBy({ activationLink: link });
     if (!userAuth) throw HttpError.NotFound('User does not exist');
 
     userAuth.isEmailConfirmed = true;
@@ -57,10 +57,10 @@ export class AuthService {
     if (!oldRefreshToken) throw HttpError.Unauthorized('No refresh token provided');
 
     const payload: JwtPayload = tokenService.validateRefreshToken(oldRefreshToken);
-    const isTokenExist = await userAuthRepository.existsBy({ refreshToken: oldRefreshToken });
+    const isTokenExist = await authRepository.existsBy({ refreshToken: oldRefreshToken });
     if (!payload || !isTokenExist) throw HttpError.Unauthorized('Invalid refresh token');
 
-    const userAuth = await userAuthRepository.findOneBy({ refreshToken: oldRefreshToken });
+    const userAuth = await authRepository.findOneBy({ refreshToken: oldRefreshToken });
     if (!userAuth) throw HttpError.NotFound('User does not exist');
 
     const tokens = tokenService.generateTokens({ userId: payload.userId });
