@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { MediaUserActions } from './MediaUserActions.js';
+import { MediaType } from '../types.js';
 
 @Entity()
 export class MediaInfo {
@@ -25,7 +26,7 @@ export class MediaInfo {
   voteAverage!: number;
 
   @Column()
-  mediaType!: 'tv' | 'movie';
+  mediaType!: MediaType;
 
   @OneToMany(() => MediaUserActions, (mediaUserActions) => mediaUserActions.mediaInfo)
   userActions!: MediaUserActions[];

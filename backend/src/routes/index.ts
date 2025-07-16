@@ -1,14 +1,19 @@
-import { router as usersRouter } from './usersRoutes.js';
+import { authGuard } from '../middleware/auth.middleware.js';
 import { router as mediaRouter } from './mediaRoutes.js';
 import { router as actionsRouter } from './actionsRoutes.js';
 import { router as authRouter } from './authRouter.js';
+import { router as usersRouter } from './usersRoutes.js';
+
 import express from 'express';
 
-const router = express.Router();
+const privateRoutes = express.Router();
+const publicRoutes = express.Router();
 
-router.use('/users', usersRouter);
-router.use('/media', mediaRouter);
-router.use('/actions', actionsRouter);
-router.use('/auth', authRouter);
+publicRoutes.use('/auth', authRouter);
 
-export default router;
+privateRoutes.use(authGuard());
+privateRoutes.use('/users', usersRouter);
+privateRoutes.use('/media', mediaRouter);
+privateRoutes.use('/actions', actionsRouter);
+
+export { privateRoutes, publicRoutes };

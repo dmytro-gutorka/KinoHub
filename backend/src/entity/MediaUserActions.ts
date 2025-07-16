@@ -1,13 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne, Unique } from 'typeorm';
 import { MediaInfo } from './MediaInfo.js';
-
-export enum WatchStatus {
-  ToWatch = 'toWatch',
-  IsWatching = 'isWatching',
-  OnHold = 'onHold',
-  Favorites = 'favorites',
-  Archived = 'archived',
-}
+import { WatchStatus } from '../types.js';
 
 @Entity()
 @Unique(['mediaInfo', 'userId'])

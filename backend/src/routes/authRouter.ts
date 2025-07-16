@@ -1,8 +1,7 @@
 import { activateEmail, login, logout, refresh, register } from '../controllers/authController.js';
-import { authGuard } from '../middleware/auth.middleware.js';
+import { asyncHandler } from '../middleware/asyncHandler.middleware.js';
 import { Router } from 'express';
 import express from 'express';
-import { asyncHandler } from '../middleware/asyncHandler.middleware.js';
 
 export const router: Router = express.Router();
 

@@ -14,10 +14,10 @@ export class TokenService {
   generateTokens(payload: JwtPayload): JwtTokens {
     return {
       accessToken: jwt.sign(payload, process.env.JWT_ACCESS_SECRET!, {
-        expiresIn: this.ACCESS_EXPIRES_IN, // this.ACCESS_EXPIRES_IN
+        expiresIn: this.ACCESS_EXPIRES_IN,
       }),
       refreshToken: jwt.sign(payload, process.env.JWT_REFRESH_SECRET!, {
-        expiresIn: this.REFRESH_EXPIRES_IN, // this.REFRESH_EXPIRES_IN
+        expiresIn: this.REFRESH_EXPIRES_IN,
       }),
     };
   }
