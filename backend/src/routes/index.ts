@@ -2,7 +2,6 @@ import { router as usersRouter } from './usersRoutes.js';
 import { router as mediaRouter } from './mediaRoutes.js';
 import { router as actionsRouter } from './actionsRoutes.js';
 import { router as authRouter } from './authRouter.js';
-
 import express from 'express';
 
 const router = express.Router();

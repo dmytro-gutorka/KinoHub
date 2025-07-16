@@ -1,5 +1,6 @@
 import { Response } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
+import { HttpError } from '../errors/HttpError.js';
 
 interface JwtTokens {
   accessToken: string;
@@ -7,16 +8,16 @@ interface JwtTokens {
 }
 
 export class TokenService {
-  private readonly ACCESS_EXPIRES_IN = 15 * 60; // 15 minutes
-  private readonly REFRESH_EXPIRES_IN = 7 * 24 * 60 * 60; // 7 days
+  private readonly ACCESS_EXPIRES_IN = 15 * 60 * 1000; // 15 minutes
+  private readonly REFRESH_EXPIRES_IN = 20 * 1000; // 7 days 7 * 24 * 60 * 60 * 1000
 
   generateTokens(payload: JwtPayload): JwtTokens {
     return {
       accessToken: jwt.sign(payload, process.env.JWT_ACCESS_SECRET!, {
-        expiresIn: '15m', // this.ACCESS_EXPIRES_IN
+        expiresIn: this.ACCESS_EXPIRES_IN, // this.ACCESS_EXPIRES_IN
       }),
       refreshToken: jwt.sign(payload, process.env.JWT_REFRESH_SECRET!, {
-        expiresIn: '7d', // this.REFRESH_EXPIRES_IN
+        expiresIn: this.REFRESH_EXPIRES_IN, // this.REFRESH_EXPIRES_IN
       }),
     };
   }
@@ -24,7 +25,7 @@ export class TokenService {
   validateAccessToken(accessToken: string): JwtPayload {
     const payload = jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET!);
 
-    if (typeof payload === 'string') throw new Error('Invalid token');
+    if (typeof payload === 'string') throw HttpError.Unauthorized('Invalid access token');
 
     return payload;
   }
@@ -32,7 +33,7 @@ export class TokenService {
   validateRefreshToken(refreshToken: string): JwtPayload {
     const payload = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET!);
 
-    if (typeof payload == 'string') throw new Error('Invalid token');
+    if (typeof payload === 'string') throw HttpError.Unauthorized('Invalid refresh token');
 
     return payload;
   }
