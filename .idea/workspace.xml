@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43112296-68e2-4936-862b-e82bccf25ce6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43112296-68e2-4936-862b-e82bccf25ce6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43112296-68e2-4936-862b-e82bccf25ce6/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43112296-68e2-4936-862b-e82bccf25ce6/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/actionsСontroller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/actionsСontroller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/mediaСontroller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/mediaСontroller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/entity/MediaInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/MediaInfo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/entity/MediaUserActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/MediaUserActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/middleware/auth.middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/middleware/auth.middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/authRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/authRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/media/info.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/media/info.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/token.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/token.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/media/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/media/info.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/mediaInfo.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/media/userActions.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/userActions.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +149,7 @@
       <workItem from="1752364341922" duration="618000" />
       <workItem from="1752432027107" duration="18179000" />
       <workItem from="1752513097517" duration="16967000" />
-      <workItem from="1752600159633" duration="20166000" />
+      <workItem from="1752600159633" duration="20546000" />
     </task>
     <servers />
   </component>

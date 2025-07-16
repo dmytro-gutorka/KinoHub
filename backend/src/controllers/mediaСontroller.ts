@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { MediaType } from '../types.js';
 import { mediaUserActionsRepository } from '../repositories/mediaUserActionsRepository.js';
-import { mediaServices } from '../services/media/index.js';
+import { mediaServices } from '../services/index.js';
 
 export async function cacheMedia(
   req: Request<any, any, any, { mediaType: MediaType }>,

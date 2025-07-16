@@ -1,7 +1,7 @@
-import { MediaType } from '../../types.js';
-import { mediaInfoRepository } from '../../repositories/mediaInfoRepository.js';
-import { getMediaDetailsFromTMDB } from '../../utils/api/getMediaDetailsFromTMDB.js';
-import { formatMediaDetailsData } from '../../utils/helpers/formatMediaDetailsData.js';
+import { getMediaDetailsFromTMDB } from '../utils/api/getMediaDetailsFromTMDB.js';
+import { formatMediaDetailsData } from '../utils/helpers/formatMediaDetailsData.js';
+import { mediaInfoRepository } from '../repositories/mediaInfoRepository.js';
+import { MediaType } from '../types.js';
 
 export class MediaInfoService {
   async create(mediaId: number, mediaType: MediaType) {

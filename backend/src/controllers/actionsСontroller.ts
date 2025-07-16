@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { mediaServices } from '../services/media/index.js';
+import { mediaServices } from '../services/index.js';
 import { Error } from 'sequelize';
 
 export async function updateActions(req: Request, res: Response) {

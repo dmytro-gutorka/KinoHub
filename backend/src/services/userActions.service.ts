@@ -1,4 +1,4 @@
-import { mediaUserActionsRepository } from '../../repositories/mediaUserActionsRepository.js';
+import { mediaUserActionsRepository } from '../repositories/mediaUserActionsRepository';
 
 export class MediaUserActionsService {
   async create(mediaId: number, userId: number) {
