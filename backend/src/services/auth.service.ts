@@ -10,7 +10,7 @@ import bcrypt from 'bcrypt';
 export class AuthService {
   async register(email: string, password: string, username: string) {
     const isUser = await userRepository.existsBy({ email, username });
-    if (isUser) throw HttpError.Conflict('User does not exist');
+    if (isUser) throw HttpError.Conflict('User already exist');
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = userRepository.create({ password: hashedPassword, email, username });

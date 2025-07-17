@@ -12,8 +12,8 @@ const publicRoutes = express.Router();
 publicRoutes.use('/auth', authRouter);
 
 privateRoutes.use(authGuard());
-privateRoutes.use('/users', usersRouter);
 privateRoutes.use('/media', mediaRouter);
 privateRoutes.use('/actions', actionsRouter);
+privateRoutes.use('/users', usersRouter);
 
 export { privateRoutes, publicRoutes };

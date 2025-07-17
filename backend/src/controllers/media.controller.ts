@@ -12,7 +12,7 @@ export async function cacheMedia(
   const mediaType = req.query.mediaType;
 
   await mediaServices.info.create(mediaId, mediaType);
-  await mediaServices.actions.create(mediaId, userId);
+  // await mediaServices.actions.create(mediaId, userId);
 
   const mediaData = await actionsRepository.findOne({
     where: { mediaId, userId },

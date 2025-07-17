@@ -1,32 +1,46 @@
 import { UserAction } from '../types/types.js';
 import { actionsRepository } from '../repositories/actions.repository.js';
-import { HttpError } from '../errors/HttpError.js';
 
 export class MediaUserActionsService {
-  async read(userId: number, mediaId: number): Promise<UserAction> {
-    let userActions: UserAction | null = await actionsRepository.findOneBy({ userId, mediaId });
-
-    if (userActions) return userActions;
-
-    return {
+  async read(userId: number | undefined, mediaId: number): Promise<UserAction> {
+    const defaultUserAction: UserAction = {
       isLiked: false,
       isWatched: false,
       rating: null,
       watchStatus: null,
     };
+
+    const userAction: UserAction | null = await actionsRepository.findOneBy({ userId, mediaId });
+
+    return !userAction ? defaultUserAction : userAction;
   }
 
-  async create(userId: number, mediaId: number, action: Partial<UserAction>) {
-    const userActionsExists = await actionsRepository.existsBy({ mediaId, userId });
+  async getOrCreate(userId: number | undefined, mediaId: number): Promise<UserAction | number> {
+    try {
+      const isUserActionExists: UserAction | null = await actionsRepository.findOneBy({
+        mediaId,
+        userId,
+      });
 
-    if (userActionsExists) throw HttpError.Conflict('User actions already exists');
+      if (isUserActionExists) return isUserActionExists;
 
-    const userActionsEntity = actionsRepository.create({ ...action, mediaId, userId });
-    await actionsRepository.save(userActionsEntity);
+      const userAction: UserAction = actionsRepository.create({ mediaId, userId });
+      await actionsRepository.save(userAction);
+
+      return userAction;
+    } catch (error) {
+      console.error(error);
+      return 1;
+    }
   }
 
-  async update(userId: number, mediaId: number, action: Partial<UserAction>) {
-    await actionsRepository.update({ mediaId, userId }, { ...action });
+  async update(
+    userId: number | undefined,
+    mediaId: number,
+    action: UserAction
+  ): Promise<UserAction | null> {
+    await actionsRepository.update({ mediaId, userId }, action);
+    return await actionsRepository.findOneBy({ mediaId, userId });
   }
 }
 
