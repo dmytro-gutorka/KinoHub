@@ -5,7 +5,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import { json, urlencoded, Application } from 'express';
 import { privateRoutes, publicRoutes } from './routes/index.js';
-import { errorHandler } from './middleware/errorHandler.middleware.js';
+import { errorHandler } from './middleware/error-handler.middleware.js';
 import { initDB } from './config/db.js';
 
 const port: number = Number(process.env.PORT) || 8000;

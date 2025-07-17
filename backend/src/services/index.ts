@@ -1,5 +1,5 @@
-import { MediaService } from './media.service';
-import { MediaUserActionsService } from './actions.service';
+import { MediaService } from './media.service.js';
+import { MediaUserActionsService } from './actions.service.js';
 
 export const mediaServices = {
   info: new MediaService(),

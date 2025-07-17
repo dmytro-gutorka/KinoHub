@@ -14,14 +14,14 @@ export class MediaUserActions {
   @Column()
   userId!: number;
 
-  @Column({ default: null, nullable: true })
+  @Column({ default: false })
   isLiked!: boolean;
 
-  @Column({ default: null, nullable: true })
+  @Column({ default: false })
   isWatched!: boolean;
 
   @Column({ default: null, nullable: true, type: 'double precision' })
-  rating!: number;
+  rating!: number | null;
 
   @Column({ default: null, nullable: true, type: 'enum', enum: WatchStatus })
   watchStatus!: WatchStatus | null;

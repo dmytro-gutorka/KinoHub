@@ -1,8 +1,8 @@
+import { router as usersRouter } from './user.routes.js';
+import { router as mediaRouter } from './media.routes.js';
+import { router as actionsRouter } from './actions.routes.js';
+import { router as authRouter } from './auth.routes.js';
 import { authGuard } from '../middleware/auth.middleware.js';
-import { router as mediaRouter } from './media.routes';
-import { router as actionsRouter } from './actions.routes';
-import { router as authRouter } from './auth.routes';
-import { router as usersRouter } from './user.routes';
 
 import express from 'express';
 

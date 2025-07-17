@@ -1,16 +1,33 @@
 import { Request, Response } from 'express';
+import { UserAction } from '../types/types.js';
 import { mediaServices } from '../services/index.js';
-import { Error } from 'sequelize';
+import { mediaUserActionsService } from '../services/actions.service.js';
 
-export async function updateActions(req: Request, res: Response) {
+export async function getAction(req: Request, res: Response) {
   const mediaId = Number(req.params.mediaId);
-  const userId = 1;
+  const userId = req.user?.id;
+
+  const userAction: UserAction = await mediaUserActionsService.read(userId, mediaId);
+
+  res.status(200).json({ data: userAction });
+}
+
+export async function createAction(req: Request, res: Response) {
+  const mediaId = Number(req.params.mediaId);
+  const userId = req.user?.id;
   const action = req.body;
 
-  try {
-    await mediaServices.actions.update(mediaId, userId, action);
-    res.status(201).send(action);
-  } catch (error) {
-    if (error instanceof Error) res.status(500).json({ error: error.message });
-  }
+  const userAction = await mediaUserActionsService.create(userId, mediaId, action);
+
+  res.status(201).json({ data: userAction });
+}
+
+export async function updateAction(req: Request, res: Response) {
+  const mediaId = Number(req.params.mediaId);
+  const userId = req.user?.id;
+  const action = req.body;
+
+  await mediaServices.actions.update(userId, mediaId, action);
+
+  res.status(200).json({ data: action });
 }

@@ -6,9 +6,11 @@ import { tokenService } from '../services/token.service.js';
 export function authGuard() {
   return (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization?.split(' ')[1];
+
     if (!token) throw HttpError.Forbidden('You need to be logged in to access this resource');
 
     const payload: JwtPayload = tokenService.validateAccessToken(token);
+
     req.user = { id: payload.userId };
     next();
   };

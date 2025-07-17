@@ -1,5 +1,5 @@
-import { activateEmail, login, logout, refresh, register } from '../controllers/auth.controller';
-import { asyncHandler } from '../middleware/asyncHandler.middleware.js';
+import { activateEmail, login, logout, refresh, register } from '../controllers/auth.controller.js';
+import { asyncHandler } from '../middleware/async-handler.middleware.js';
 import { Router } from 'express';
 import express from 'express';
 

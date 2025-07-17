@@ -1,5 +1,5 @@
-import { DataSource } from 'typeorm';
 import { fileURLToPath } from 'node:url';
+import { DataSource } from 'typeorm';
 import path from 'path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

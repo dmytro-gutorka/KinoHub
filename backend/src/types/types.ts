@@ -7,3 +7,10 @@ export enum WatchStatus {
   Favorites = 'favorites',
   Archived = 'archived',
 }
+
+export interface UserAction {
+  isLiked: boolean;
+  isWatched: boolean;
+  rating: number | null;
+  watchStatus: WatchStatus | null;
+}
