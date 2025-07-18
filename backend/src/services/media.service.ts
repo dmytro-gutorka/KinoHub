@@ -20,16 +20,19 @@ export class MediaService {
     return media;
   }
 
-  async update(mediaId: number) {
+  async update(mediaId: number): Promise<MediaInfo> {
     // fetch data from TMDB
     const fetchedData = {
       runtime: mediaId,
       title: `Title ${mediaId}`,
     };
 
-    const updatedMedia = await mediaRepository.update({ mediaId }, fetchedData);
+    await mediaRepository.update({ mediaId }, fetchedData);
+    const media: MediaInfo | null = await mediaRepository.findOneBy({ mediaId });
 
-    console.log(updatedMedia);
+    if (!media) throw HttpError.NotFound('Media not found');
+
+    return media;
   }
 }
 

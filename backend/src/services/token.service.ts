@@ -8,8 +8,8 @@ interface JwtTokens {
 }
 
 export class TokenService {
-  private readonly ACCESS_EXPIRES_IN = 15 * 60 * 1000; // 15 minutes
-  private readonly REFRESH_EXPIRES_IN = 20 * 1000; // 7 days 7 * 24 * 60 * 60 * 1000
+  private readonly ACCESS_EXPIRES_IN = 365 * 24 * 60 * 60 * 1000; // 15 minutes
+  private readonly REFRESH_EXPIRES_IN = 365 * 24 * 60 * 60 * 1000; // 7 days 7 * 24 * 60 * 60 * 1000
 
   generateTokens(payload: JwtPayload): JwtTokens {
     return {
