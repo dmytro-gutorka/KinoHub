@@ -10,7 +10,7 @@ import {
 import { User } from './User.js';
 
 @Entity()
-export class UserAuthentication extends BaseEntity {
+export class UserAuth extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 

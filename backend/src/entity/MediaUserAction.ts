@@ -1,10 +1,18 @@
-import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne, Unique } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  JoinColumn,
+  ManyToOne,
+  Unique,
+  Relation,
+} from 'typeorm';
 import { WatchStatus } from '../types/types.js';
 import { MediaInfo } from './MediaInfo.js';
 
 @Entity()
 @Unique(['mediaInfo', 'userId'])
-export class MediaUserActions {
+export class MediaUserAction {
   @PrimaryGeneratedColumn()
   id!: number;
 
@@ -32,5 +40,5 @@ export class MediaUserActions {
     lazy: true,
   })
   @JoinColumn({ name: 'mediaId', referencedColumnName: 'mediaId' })
-  mediaInfo!: Promise<MediaInfo>;
+  mediaInfo!: Relation<MediaInfo>;
 }

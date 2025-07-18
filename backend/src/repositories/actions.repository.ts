@@ -1,4 +1,4 @@
 import { AppDataSource } from '../config/db.js';
-import { MediaUserActions } from '../entity/MediaUserActions.js';
+import { MediaUserAction } from '../entity/MediaUserAction.js';
 
-export const actionsRepository = AppDataSource.getRepository(MediaUserActions);
+export const actionsRepository = AppDataSource.getRepository(MediaUserAction);

@@ -1,7 +1,7 @@
 import { Entity, Column, BaseEntity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class MediaEpisodes extends BaseEntity {
+export class MediaEpisode extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
@@ -20,3 +20,4 @@ export class MediaEpisodes extends BaseEntity {
   @Column()
   isWatched!: boolean;
 }
+// make unique together

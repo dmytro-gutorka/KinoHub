@@ -1,5 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { MediaUserActions } from './MediaUserActions.js';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, Relation } from 'typeorm';
+import { MediaUserAction } from './MediaUserAction.js';
 import { MediaType } from '../types/types.js';
 
 @Entity()
@@ -28,6 +28,6 @@ export class MediaInfo {
   @Column()
   mediaType!: MediaType;
 
-  @OneToMany(() => MediaUserActions, (mediaUserActions) => mediaUserActions.mediaInfo)
-  userActions!: Promise<MediaUserActions[]>;
+  @OneToMany(() => MediaUserAction, (mediaUserActions) => mediaUserActions.mediaInfo)
+  userActions!: Relation<MediaUserAction>;
 }

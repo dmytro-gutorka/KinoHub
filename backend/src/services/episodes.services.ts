@@ -1,10 +1,10 @@
-import { MediaEpisodes } from '../entity/MediaEpisodes.js';
+import { MediaEpisode } from '../entity/MediaEpisode.js';
 import { HttpError } from '../errors/HttpError.js';
 import { episodesRepository } from '../repositories/episodes.repository.js';
 
 export class EpisodesServices {
-  async read(mediaId: number, season: number, userId: number): Promise<MediaEpisodes[]> {
-    const episodes: MediaEpisodes[] = await MediaEpisodes.findBy({ mediaId, season, userId });
+  async read(mediaId: number, season: number, userId: number): Promise<MediaEpisode[]> {
+    const episodes: MediaEpisode[] = await MediaEpisode.findBy({ mediaId, season, userId });
 
     if (episodes.length === 0) throw HttpError.NotFound('Episodes not found');
 
@@ -13,25 +13,25 @@ export class EpisodesServices {
 
   async create(
     mediaId: number,
+    userId: number | undefined,
     season: number,
-    userId: number,
     episodesNumber: number
-  ): Promise<MediaEpisodes[]> {
-    const isEpisodesExist: MediaEpisodes[] = await MediaEpisodes.findBy({
+  ): Promise<MediaEpisode[]> {
+    const isEpisodesExist: MediaEpisode[] = await MediaEpisode.findBy({
       mediaId,
-      season,
       userId,
+      season,
     });
 
     if (isEpisodesExist.length > 0) throw HttpError.Conflict('Episodes already exists');
 
-    const episodes: MediaEpisodes[] = new Array(episodesNumber).map(
-      (_, i): MediaEpisodes =>
+    const episodes: MediaEpisode[] = new Array(episodesNumber).fill(1).map(
+      (_, i): MediaEpisode =>
         episodesRepository.create({
           mediaId,
           userId,
           season,
-          episode: i,
+          episode: i + 1,
           isWatched: false,
         })
     );
@@ -41,12 +41,12 @@ export class EpisodesServices {
     return episodes;
   }
 
-  async update(
-    mediaId: number,
-    season: number,
-    userId: number,
-    episode: number
-  ): Promise<MediaEpisodes> {}
+  // async update(
+  //   mediaId: number,
+  //   season: number,
+  //   userId: number,
+  //   episode: number
+  // ): Promise<MediaEpisodes> {}
 }
 
 export const episodesServices = new EpisodesServices();
