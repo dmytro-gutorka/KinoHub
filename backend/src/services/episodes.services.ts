@@ -1,9 +1,9 @@
+import { episodesRepository } from '../repositories/episodes.repository.js';
 import { MediaEpisode } from '../entity/MediaEpisode.js';
 import { HttpError } from '../errors/HttpError.js';
-import { episodesRepository } from '../repositories/episodes.repository.js';
 
 export class EpisodesServices {
-  async read(mediaId: number, season: number, userId: number): Promise<MediaEpisode[]> {
+  async read(mediaId: number, userId: number | undefined, season: number): Promise<MediaEpisode[]> {
     const episodes: MediaEpisode[] = await MediaEpisode.findBy({ mediaId, season, userId });
 
     if (episodes.length === 0) throw HttpError.NotFound('Episodes not found');
@@ -41,12 +41,24 @@ export class EpisodesServices {
     return episodes;
   }
 
-  // async update(
-  //   mediaId: number,
-  //   season: number,
-  //   userId: number,
-  //   episode: number
-  // ): Promise<MediaEpisodes> {}
+  async update(
+    mediaId: number,
+    season: number,
+    userId: number | undefined,
+    episode: number,
+    action: object
+  ): Promise<void> {
+    const isEpisodeExists: MediaEpisode | null = await episodesRepository.findOneBy({
+      mediaId,
+      season,
+      episode,
+      userId,
+    });
+
+    if (!isEpisodeExists) throw HttpError.Conflict('Episode does not exist');
+
+    await episodesRepository.update({ mediaId, season, episode, userId }, action);
+  }
 }
 
 export const episodesServices = new EpisodesServices();
