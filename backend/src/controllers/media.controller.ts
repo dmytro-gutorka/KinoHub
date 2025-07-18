@@ -1,23 +1,32 @@
 import { Request, Response } from 'express';
 import { MediaType } from '../types/types.js';
-import { actionsRepository } from '../repositories/actions.repository.js';
-import { mediaServices } from '../services/index.js';
+import { mediaService } from '../services/media.service.js';
+import { MediaInfo } from '../entity/MediaInfo.js';
 
-export async function cacheMedia(
+export async function readMedia(req: Request, res: Response) {
+  const mediaId: number = Number(req.params.mediaId);
+
+  const media: MediaInfo = await mediaService.read(mediaId);
+
+  res.status(200).json(media);
+}
+
+export async function createMedia(
   req: Request<any, any, any, { mediaType: MediaType }>,
   res: Response
 ) {
-  const mediaId = Number(req.params.mediaId);
-  const userId = Number(req.user?.id);
-  const mediaType = req.query.mediaType;
+  const mediaId: number = Number(req.params.mediaId);
+  const mediaType: MediaType = req.query.mediaType;
 
-  await mediaServices.info.create(mediaId, mediaType);
-  // await mediaServices.actions.create(mediaId, userId);
+  const media = await mediaService.create(mediaId, mediaType);
 
-  const mediaData = await actionsRepository.findOne({
-    where: { mediaId, userId },
-    relations: ['mediaInfo'],
-  });
+  res.status(200).json(media);
+}
 
-  res.status(200).json({ data: mediaData });
+export async function updateMedia(req: Request, res: Response) {
+  const mediaId: number = Number(req.params.mediaId);
+
+  const media = await mediaService.update(mediaId);
+
+  res.status(200).json(media);
 }

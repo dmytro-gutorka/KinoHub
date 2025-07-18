@@ -1,17 +1,36 @@
-import { getMediaDetailsFromTMDB } from '../utils/api/getMediaDetailsFromTMDB.js';
-import { formatMediaDetailsData } from '../utils/helpers/formatMediaDetailsData.js';
-import { mediaRepository } from '../repositories/media.repository.js';
 import { MediaType } from '../types/types.js';
+import { mediaRepository } from '../repositories/media.repository.js';
+import { HttpError } from '../errors/HttpError.js';
+import { MediaInfo } from '../entity/MediaInfo.js';
 
 export class MediaService {
-  async create(mediaId: number, mediaType: MediaType) {
-    const isMediaInfo = await mediaRepository.existsBy({ mediaId });
-    const mediaDataFromTMDB = await getMediaDetailsFromTMDB(mediaId, mediaType);
-    const formatedData = formatMediaDetailsData(mediaDataFromTMDB);
+  async read(mediaId: number): Promise<MediaInfo> {
+    const media: MediaInfo | null = await mediaRepository.findOneBy({ mediaId });
 
-    if (!isMediaInfo) {
-      const mediaInfoEntity = mediaRepository.create({ mediaId, mediaType, ...formatedData });
-      await mediaRepository.save(mediaInfoEntity);
-    }
+    if (!media) throw HttpError.NotFound('Media not found');
+
+    return media;
+  }
+
+  async create(mediaId: number, mediaType: MediaType): Promise<MediaInfo> {
+    const media: MediaInfo = mediaRepository.create({ mediaId, mediaType });
+
+    await mediaRepository.save(media);
+
+    return media;
+  }
+
+  async update(mediaId: number) {
+    // fetch data from TMDB
+    const fetchedData = {
+      runtime: mediaId,
+      title: `Title ${mediaId}`,
+    };
+
+    const updatedMedia = await mediaRepository.update({ mediaId }, fetchedData);
+
+    console.log(updatedMedia);
   }
 }
+
+export const mediaService = new MediaService();

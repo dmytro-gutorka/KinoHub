@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne, Unique } from 'typeorm';
-import { MediaInfo } from './MediaInfo.js';
 import { WatchStatus } from '../types/types.js';
+import { MediaInfo } from './MediaInfo.js';
 
 @Entity()
 @Unique(['mediaInfo', 'userId'])
@@ -29,7 +29,8 @@ export class MediaUserActions {
   @ManyToOne(() => MediaInfo, (mediaInfo) => mediaInfo.userActions, {
     cascade: true,
     eager: true,
+    lazy: true,
   })
   @JoinColumn({ name: 'mediaId', referencedColumnName: 'mediaId' })
-  mediaInfo!: MediaInfo;
+  mediaInfo!: Promise<MediaInfo>;
 }

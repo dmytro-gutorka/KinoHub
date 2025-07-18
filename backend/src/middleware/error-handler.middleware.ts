@@ -3,8 +3,8 @@ import { HttpError } from '../errors/HttpError.js';
 
 export function errorHandler(err: any, req: Request, res: Response, next: NextFunction) {
   if (err instanceof HttpError) {
-    res.status(500).json({ error: err.message });
+    res.status(err.status).json({ error: err.message });
   } else {
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Internal server error', details: err.message });
   }
 }

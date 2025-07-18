@@ -10,24 +10,24 @@ export class MediaInfo {
   @Column({ unique: true })
   mediaId!: number;
 
-  @Column({ type: 'double precision' })
+  @Column({ default: 0, type: 'double precision' })
   runtime!: number;
 
-  @Column()
+  @Column({ default: 'N/a' })
   releaseDate!: string;
 
-  @Column()
+  @Column({ default: 'N/a' })
   title!: string;
 
-  @Column()
+  @Column({ default: 'N/a' })
   posterPath!: string;
 
-  @Column({ type: 'double precision' })
+  @Column({ default: null, nullable: true, type: 'double precision' })
   voteAverage!: number;
 
   @Column()
   mediaType!: MediaType;
 
   @OneToMany(() => MediaUserActions, (mediaUserActions) => mediaUserActions.mediaInfo)
-  userActions!: MediaUserActions[];
+  userActions!: Promise<MediaUserActions[]>;
 }

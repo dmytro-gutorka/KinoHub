@@ -9,8 +9,6 @@ export function authGuard() {
 
     if (!token) throw HttpError.Unauthorized('You need to be logged in to access this resource');
 
-    console.log(token);
-
     const payload: JwtPayload = tokenService.validateAccessToken(token);
 
     req.user = { id: payload.userId };
