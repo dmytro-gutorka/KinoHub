@@ -1,5 +1,6 @@
 import { UserAction } from '../types/types.js';
 import { actionsRepository } from '../repositories/actions.repository.js';
+import { HttpError } from '../errors/HttpError.js';
 
 export class MediaUserActionsService {
   async read(userId: number | undefined, mediaId: number): Promise<UserAction> {
@@ -15,23 +16,12 @@ export class MediaUserActionsService {
     return !userAction ? defaultUserAction : userAction;
   }
 
-  async getOrCreate(userId: number | undefined, mediaId: number): Promise<UserAction | number> {
-    try {
-      const isUserActionExists: UserAction | null = await actionsRepository.findOneBy({
-        mediaId,
-        userId,
-      });
+  async create(userId: number | undefined, mediaId: number): Promise<UserAction> {
+    const isUserActionExists: boolean = await actionsRepository.existsBy({ mediaId, userId });
 
-      if (isUserActionExists) return isUserActionExists;
+    if (isUserActionExists) throw HttpError.Conflict('User action already exists');
 
-      const userAction: UserAction = actionsRepository.create({ mediaId, userId });
-      await actionsRepository.save(userAction);
-
-      return userAction;
-    } catch (error) {
-      console.error(error);
-      return 1;
-    }
+    return actionsRepository.create({ mediaId, userId });
   }
 
   async update(
@@ -39,7 +29,12 @@ export class MediaUserActionsService {
     mediaId: number,
     action: UserAction
   ): Promise<UserAction | null> {
+    const isUserActionExists: boolean = await actionsRepository.existsBy({ mediaId, userId });
+
+    if (!isUserActionExists) throw HttpError.Conflict('User action does not exist');
+
     await actionsRepository.update({ mediaId, userId }, action);
+
     return await actionsRepository.findOneBy({ mediaId, userId });
   }
 }

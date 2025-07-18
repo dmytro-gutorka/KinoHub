@@ -2,6 +2,8 @@ import { router as usersRouter } from './user.routes.js';
 import { router as mediaRouter } from './media.routes.js';
 import { router as actionsRouter } from './actions.routes.js';
 import { router as authRouter } from './auth.routes.js';
+import { router as episodesRouter } from './episodes.routes.js';
+
 import { authGuard } from '../middleware/auth.middleware.js';
 
 import express from 'express';
@@ -14,6 +16,7 @@ publicRoutes.use('/auth', authRouter);
 privateRoutes.use(authGuard());
 privateRoutes.use('/media', mediaRouter);
 privateRoutes.use('/actions', actionsRouter);
+privateRoutes.use('/episodes', episodesRouter);
 privateRoutes.use('/users', usersRouter);
 
 export { privateRoutes, publicRoutes };

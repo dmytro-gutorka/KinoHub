@@ -8,8 +8,8 @@ interface JwtTokens {
 }
 
 export class TokenService {
-  private readonly ACCESS_EXPIRES_IN = 365 * 24 * 60 * 60 * 1000; // 15 minutes
-  private readonly REFRESH_EXPIRES_IN = 365 * 24 * 60 * 60 * 1000; // 7 days 7 * 24 * 60 * 60 * 1000
+  private readonly ACCESS_EXPIRES_IN: number = 365 * 24 * 60 * 60 * 1000; // 15 minutes
+  private readonly REFRESH_EXPIRES_IN: number = 365 * 24 * 60 * 60 * 1000; // 7 days 7 * 24 * 60 * 60 * 1000
 
   generateTokens(payload: JwtPayload): JwtTokens {
     return {
@@ -23,7 +23,7 @@ export class TokenService {
   }
 
   validateAccessToken(accessToken: string): JwtPayload {
-    const payload = jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET!);
+    const payload: string | JwtPayload = jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET!);
 
     if (typeof payload === 'string') throw HttpError.Unauthorized('Invalid access token');
 
@@ -31,7 +31,7 @@ export class TokenService {
   }
 
   validateRefreshToken(refreshToken: string): JwtPayload {
-    const payload = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET!);
+    const payload: string | JwtPayload = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET!);
 
     if (typeof payload === 'string') throw HttpError.Unauthorized('Invalid refresh token');
 

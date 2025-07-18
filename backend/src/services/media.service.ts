@@ -13,8 +13,11 @@ export class MediaService {
   }
 
   async create(mediaId: number, mediaType: MediaType): Promise<MediaInfo> {
-    const media: MediaInfo = mediaRepository.create({ mediaId, mediaType });
+    const isMediaExists: MediaInfo | null = await mediaRepository.findOneBy({ mediaId });
 
+    if (isMediaExists) throw HttpError.Conflict('Media already exists');
+
+    const media: MediaInfo = mediaRepository.create({ mediaId, mediaType });
     await mediaRepository.save(media);
 
     return media;
@@ -27,10 +30,11 @@ export class MediaService {
       title: `Title ${mediaId}`,
     };
 
-    await mediaRepository.update({ mediaId }, fetchedData);
     const media: MediaInfo | null = await mediaRepository.findOneBy({ mediaId });
 
     if (!media) throw HttpError.NotFound('Media not found');
+
+    await mediaRepository.update({ mediaId }, fetchedData);
 
     return media;
   }

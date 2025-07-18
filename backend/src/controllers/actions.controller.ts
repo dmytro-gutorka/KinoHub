@@ -11,11 +11,11 @@ export async function getAction(req: Request, res: Response) {
   res.status(200).json(userAction);
 }
 
-export async function getOrCreateAction(req: Request, res: Response) {
+export async function createAction(req: Request, res: Response) {
   const mediaId: number = Number(req.params.mediaId);
   const userId: number | undefined = req.user?.id;
 
-  const userAction = await mediaUserActionsService.getOrCreate(userId, mediaId);
+  const userAction: UserAction = await mediaUserActionsService.create(userId, mediaId);
 
   res.status(201).json(userAction);
 }
@@ -25,7 +25,7 @@ export async function updateAction(req: Request, res: Response) {
   const userId: number | undefined = req.user?.id;
   const action: UserAction = req.body;
 
-  await mediaUserActionsService.update(userId, mediaId, action);
+  const userAction = await mediaUserActionsService.update(userId, mediaId, action);
 
-  res.status(200).json(action);
+  res.status(200).json(userAction);
 }

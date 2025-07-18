@@ -1,8 +1,8 @@
-import { getAction, getOrCreateAction, updateAction } from '../controllers/actions.controller.js';
+import { getAction, createAction, updateAction } from '../controllers/actions.controller.js';
 import express, { Router } from 'express';
 
 export const router: Router = express.Router();
 
 router.get('/:mediaId', getAction);
-router.put('/:mediaId', getOrCreateAction);
+router.post('/:mediaId', createAction);
 router.patch('/:mediaId', updateAction);

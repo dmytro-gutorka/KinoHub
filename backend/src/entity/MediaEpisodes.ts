@@ -9,6 +9,9 @@ export class MediaEpisodes extends BaseEntity {
   mediaId!: number;
 
   @Column()
+  userId!: number;
+
+  @Column()
   season!: number;
 
   @Column()
