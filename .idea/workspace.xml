@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43112296-68e2-4936-862b-e82bccf25ce6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43112296-68e2-4936-862b-e82bccf25ce6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43112296-68e2-4936-862b-e82bccf25ce6/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43112296-68e2-4936-862b-e82bccf25ce6/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7fd1e27-f949-47e0-a0cc-722fb7fdd80f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7fd1e27-f949-47e0-a0cc-722fb7fdd80f.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/eslint.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/signIn/ui/SignInForm/SignInForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/signIn/ui/SignInForm/SignInForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +29,7 @@
         <option value="JavaScript File" />
         <option value="TypeScript File" />
         <option value="JSX Component Folder.jsx.child.0" />
+        <option value="JSX Component Folder.tsx.child.0" />
         <option value="JSX Component Folder" />
       </list>
     </option>
@@ -157,7 +156,7 @@
       <workItem from="1752686234001" duration="15856000" />
       <workItem from="1752734841356" duration="617000" />
       <workItem from="1752772736852" duration="18166000" />
-      <workItem from="1752859226514" duration="9355000" />
+      <workItem from="1752859226514" duration="10805000" />
     </task>
     <servers />
   </component>

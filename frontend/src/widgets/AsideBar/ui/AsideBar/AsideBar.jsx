@@ -1,16 +1,16 @@
+import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import InsertChartOutlinedOutlinedIcon from '@mui/icons-material/InsertChartOutlinedOutlined';
+import LiveTvRoundedIcon from '@mui/icons-material/LiveTvRounded';
+import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
+import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import RestoreRoundedIcon from '@mui/icons-material/RestoreRounded';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Stack } from '@mui/material';
 
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
-import LiveTvRoundedIcon from '@mui/icons-material/LiveTvRounded';
-import RestoreRoundedIcon from '@mui/icons-material/RestoreRounded';
-import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
-import InsertChartOutlinedOutlinedIcon from '@mui/icons-material/InsertChartOutlinedOutlined';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
-import AsideBarSection from '../AsideBarSection';
 import Logo from '../../../../shared/ui/Logo';
+import AsideBarSection from '../AsideBarSection';
 
 const AsideBar = () => {
   const menu = {
@@ -55,6 +55,10 @@ const AsideBar = () => {
     logout: {
       icon: <LoginOutlinedIcon />,
       path: 'logout',
+    },
+    signIn: {
+      icon: <LoginOutlinedIcon />,
+      path: 'signIn',
     },
   };
 
