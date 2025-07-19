@@ -1,6 +1,7 @@
 import MediaSection from '../../shared/ui/MediaSection';
 import useHomePageMedia from '../../widgets/Homepage/hooks/useHomePageMedia';
 import { Divider, Stack } from '@mui/material';
+import SignInForm from '@features/auth/signIn/ui/SignInForm';
 
 const Homepage = () => {
   const { data: homepageMediaData, isLoading, isError } = useHomePageMedia();
@@ -14,7 +15,10 @@ const Homepage = () => {
       <MediaSection mediaList={homepageMediaData?.at(0).value.results} title="Top Rated Movies" />
       <MediaSection mediaList={homepageMediaData?.at(1).value.results} title="Trending Movies" />
       <MediaSection mediaList={homepageMediaData?.at(2).value.results} title="Trending TV Show" />
-      <MediaSection mediaList={homepageMediaData?.at(3).value.results} title="TV show airing today" />
+      <MediaSection
+        mediaList={homepageMediaData?.at(3).value.results}
+        title="TV show airing today"
+      />
     </Stack>
   );
 };

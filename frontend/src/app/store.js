@@ -4,4 +4,4 @@
 //   reducer: {},
 // });
 
-// No need for RTK in this project for now, let it be here fo the future
+// No need for RTK in this project for now, let it be here for the future
