@@ -4,20 +4,11 @@ import importPlugin from 'eslint-plugin-import';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const aliasResolver = {
-  alias: {
-    map: [
-      ['@app', './src/app'],
-      ['@pages', './src/pages'],
-      ['@widgets', './src/widgets'],
-      ['@features', './src/features'],
-      ['@entities', './src/entities'],
-      ['@shared', './src/shared'],
-    ],
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
-  },
-};
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export default [
   { ignores: ['dist'] },
@@ -68,7 +59,18 @@ export default [
     },
     settings: {
       'import/resolver': {
-        alias: aliasResolver,
+        alias: {
+          map: [
+            ['@app', path.resolve(__dirname, 'src/app')],
+            ['@pages', path.resolve(__dirname, 'src/pages')],
+            ['@widgets', path.resolve(__dirname, 'src/widgets')],
+            ['@features', path.resolve(__dirname, 'src/features')],
+            ['@entities', path.resolve(__dirname, 'src/entities')],
+            ['@shared', path.resolve(__dirname, 'src/shared')],
+          ],
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        },
+        typescript: {},
       },
     },
   },
