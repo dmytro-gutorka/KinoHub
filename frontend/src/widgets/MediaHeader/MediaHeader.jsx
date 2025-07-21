@@ -1,23 +1,23 @@
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
+import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import LanguageIcon from '@mui/icons-material/Language';
+import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
+import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import { Box, Button, Container, Stack, Typography, useTheme } from '@mui/material';
 
-import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
-import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
-import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
-import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
-import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import LanguageIcon from '@mui/icons-material/Language';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import BackgroundBanner from '../../shared/ui/BackgroundBanner';
+import getPosterURL from '../../shared/helpers/getPosterURL';
 import getYearFromDate from '../../shared/helpers/getYearFromDate';
 import useMediaAction from '../../shared/hooks/useMediaAction';
-import GenreChipList from '../../shared/ui/GenreChipList';
-import getPosterURL from '../../shared/helpers/getPosterURL';
+import BackgroundBanner from '../../shared/ui/BackgroundBanner';
 import ButtonList from '../../shared/ui/ButtonList';
+import GenreChipList from '../../shared/ui/GenreChipList';
 import LabelList from '../../shared/ui/LabeList/LabelList';
 
 const MediaHeader = ({ mediaDataWithActions, mediaType }) => {

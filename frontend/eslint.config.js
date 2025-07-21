@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import importPlugin from 'eslint-plugin-import';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -12,6 +13,22 @@ const __dirname = path.dirname(__filename);
 
 export default [
   { ignores: ['dist'] },
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: true,
+      },
+    },
+    plugins: {
+      '@typescript-eslint': tseslint.plugin,
+    },
+    rules: {
+      ...tseslint.configs.recommendedTypeChecked.rules,
+    },
+  },
+
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
@@ -74,5 +91,6 @@ export default [
       },
     },
   },
+
   eslintConfigPrettier,
 ];

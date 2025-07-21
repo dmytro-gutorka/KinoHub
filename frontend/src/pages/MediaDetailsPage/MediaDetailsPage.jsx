@@ -1,9 +1,9 @@
-import MediaOverview from '../../widgets/MediaOverview';
-import MediaHeader from '../../widgets/MediaHeader';
-import useMediaDetails from '../../widgets/MediaDetailsPage/hooks/useMediaDetails';
-
-import { useLoaderData, useParams } from 'react-router';
 import { Box, Container } from '@mui/material';
+import { useLoaderData, useParams } from 'react-router';
+
+import useMediaDetails from '../../widgets/MediaDetailsPage/hooks/useMediaDetails';
+import MediaHeader from '../../widgets/MediaHeader';
+import MediaOverview from '../../widgets/MediaOverview';
 
 const MediaDetailsPage = () => {
   const mediaType = useLoaderData();

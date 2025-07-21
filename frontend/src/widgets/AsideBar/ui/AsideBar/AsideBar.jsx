@@ -63,7 +63,7 @@ const AsideBar = () => {
   };
 
   return (
-    <Stack gap={10}>
+    <Stack gap={10} ml={4}>
       <Logo />
       <Stack gap={6} pr={4}>
         <AsideBarSection tabs={menu} title="Menu" />
