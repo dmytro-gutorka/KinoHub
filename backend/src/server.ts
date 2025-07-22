@@ -11,7 +11,12 @@ import { initDB } from './config/db.js';
 const port: number = Number(process.env.PORT) || 8000;
 const app: Application = express();
 
-app.use(cors(), cookieParser(), json(), urlencoded());
+app.use(
+  cors({ origin: process.env.CLIENT_URL, credentials: true }),
+  cookieParser(),
+  json(),
+  urlencoded()
+);
 
 app.use('/api/v1', publicRoutes);
 app.use('/api/v1', privateRoutes);

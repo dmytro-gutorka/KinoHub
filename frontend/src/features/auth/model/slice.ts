@@ -33,7 +33,6 @@ const authSlice = createSlice({
     });
     builder.addCase(logout.fulfilled, (state, action) => {
       state = initialState;
-      console.log(state);
     });
   },
 });

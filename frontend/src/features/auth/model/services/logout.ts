@@ -4,5 +4,18 @@ import { API_URL, authEndpoints } from '@app/constants';
 import axios from 'axios';
 
 export const logout = createAsyncThunk('auth/logout', async () => {
-  await axios.get(`${API_URL}/${authEndpoints.LOGIN}`);
+  const accessToken = localStorage.getItem('accessToken');
+
+  await axios.post(
+    `${API_URL}/${authEndpoints.LOGOUT}`,
+    {},
+    {
+      withCredentials: true,
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }
+  );
+
+  localStorage.removeItem('accessToken');
 });
