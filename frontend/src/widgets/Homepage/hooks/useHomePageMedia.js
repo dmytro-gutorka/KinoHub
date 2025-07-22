@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import getHomepageMediaData from '../api/getHomepageMediaData';
-import { TMDB_ENDPOINTS } from '../../../app/constants';
+import { TMDB_ENDPOINTS } from '@app/constants';
 
 export default function useHomePageMedia() {
   return useQuery({

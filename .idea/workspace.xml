@@ -5,14 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/signIn/ui/SignInModal/SignInModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/signIn/ui/SignInModal/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/store.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginForm/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginModal/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationForm/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43112296-68e2-4936-862b-e82bccf25ce6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43112296-68e2-4936-862b-e82bccf25ce6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43112296-68e2-4936-862b-e82bccf25ce6/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43112296-68e2-4936-862b-e82bccf25ce6/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/signIn/ui/SignInForm/SignInForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/signIn/ui/SignInForm/SignInForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/signUp/ui/SignUpForm/SignUpForm.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/auth.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/store.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/signIn/ui/SignInForm/SignInForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginForm/LoginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/signIn/ui/SignInForm/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/signIn/ui/SignInModal/SignInModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginModal/LoginModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/signIn/ui/SignInModal/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/signUp/ui/SignUpForm/SignUpForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationForm/RegistrationForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/signUp/ui/SignUpForm/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/signUp/ui/SignUpModal/SignUpModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/signUp/ui/SignUpModal/SignUpModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/signUp/ui/SignUpModal/SignUpModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal/RegistrationModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/signUp/ui/SignUpModal/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/createMediaAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/createMediaAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/getMediaActionBySeason.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/getMediaActionBySeason.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/getMediaActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/getMediaActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/getMediaDataByPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/getMediaDataByPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/getMediaDataByTitle.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/getMediaDataByTitle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/getMediaDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/getMediaDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/getMediaRating.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/getMediaRating.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/getShowsByPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/getShowsByPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/getTvShowSeasonDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/getTvShowSeasonDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/getWatchBoardMedia.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/getWatchBoardMedia.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/updateMediaAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/updateMediaAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/updateMovieBoardItemStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/updateMovieBoardItemStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/getActionForURL.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/getActionForURL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/getPosterURL.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/getPosterURL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/Dashboard/api/getUserStats.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/Dashboard/api/getUserStats.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/widgets/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/Homepage/api/getHomepageMediaData.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/Homepage/api/getHomepageMediaData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/Homepage/hooks/useHomePageMedia.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/Homepage/hooks/useHomePageMedia.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +59,10 @@
         <option value="tsconfig.json" />
         <option value="HTML File" />
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="JSX Component Folder.jsx.child.0" />
         <option value="JSX Component Folder.tsx.child.0" />
         <option value="JSX Component Folder" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -101,11 +132,11 @@
       <recent name="$PROJECT_DIR$/src/features/movies/api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/features/auth/model" />
+      <recent name="$PROJECT_DIR$/frontend/src/features/auth/ui" />
+      <recent name="$PROJECT_DIR$/frontend/src/features/auth/Login" />
       <recent name="$PROJECT_DIR$/frontend/src/features/auth" />
       <recent name="$PROJECT_DIR$/backend/src/types" />
-      <recent name="$PROJECT_DIR$/backend/src/services" />
-      <recent name="$PROJECT_DIR$/backend/src/utils/auth" />
-      <recent name="$PROJECT_DIR$/backend/src" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -167,7 +198,7 @@
       <workItem from="1753047103128" duration="575000" />
       <workItem from="1753047689905" duration="6733000" />
       <workItem from="1753062954733" duration="7655000" />
-      <workItem from="1753119869836" duration="2524000" />
+      <workItem from="1753119869836" duration="15078000" />
     </task>
     <servers />
   </component>

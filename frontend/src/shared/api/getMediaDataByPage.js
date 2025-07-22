@@ -1,4 +1,4 @@
-import { TMDB_URL, TMDB_OPTIONS } from '../../app/constants';
+import { TMDB_URL, TMDB_OPTIONS } from '@app/constants';
 
 async function getMediaDataByPage(page = 1, minRating, genres, sortBy, mediaType) {
   const concatGenres = genres.map((movie) => movie.id).join('%20%7C%20');

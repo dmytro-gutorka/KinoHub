@@ -1,4 +1,4 @@
-import { MEDIA_ACTIONS } from '../../app/constants';
+import { MEDIA_ACTIONS } from '@app/constants';
 
 // action should always be the first
 export function getActionForURL(actionData) {

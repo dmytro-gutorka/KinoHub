@@ -1,6 +1,9 @@
 export const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w780';
 export const TMDB_URL = 'https://api.themoviedb.org/3/';
 
+export const CLIENT_URL = 'http://localhost:3000/';
+export const API_URL = 'http://localhost:8080/api/v1';
+
 export const TMDB_OPTIONS = {
   method: 'GET',
   headers: {
@@ -24,6 +27,11 @@ export const MEDIA_ACTIONS = {
   watchStatus: 'watch-status',
 };
 
-export const LOCALHOST_URL = 'http://localhost:8080/';
+export enum authEndpoints {
+  LOGOUT = 'auth/logout',
+  LOGIN = 'auth/login',
+  REGISTER = 'auth/register',
+  REFRESH = 'auth/refresh',
+}
+
 export const USER_ID = 1;
-// hardcode user id just for the sake of developing, will be changed in the future, when auth is implemented

@@ -1,15 +1,15 @@
-import { Box, DialogContent, Icon, Stack, Typography, useTheme } from '@mui/material';
+import { DialogContent, Stack, Typography, useTheme } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import LogoIcon from '@shared/icons/LogoIcon';
-import SignInForm from '@features/auth/signIn/ui/SignInForm';
+import SignUpForm from '@features/auth/ui/RegistrationForm';
 import CloseIcon from '@mui/icons-material/Close';
 
-interface SignInModalProps {
+interface SignUpModalProps {
   isOpen: boolean;
   onClick: (a: boolean) => void;
 }
 
-const SignInModal = ({ isOpen, onClick }: SignInModalProps) => {
+const RegistrationModal = ({ isOpen, onClick }: SignUpModalProps) => {
   const theme = useTheme();
 
   return (
@@ -20,20 +20,20 @@ const SignInModal = ({ isOpen, onClick }: SignInModalProps) => {
             <Stack direction="row" alignItems="center">
               <LogoIcon />
               <Typography fontWeight={900} fontSize={25} component="h2">
-                Welcome Back
+                Join Kinohub
               </Typography>
             </Stack>
             <CloseIcon cursor="pointer" onClick={() => onClick(false)} />
           </Stack>
-          <Typography>Sign in to continue your movie journey</Typography>
+          <Typography>Create your account to start tracking movies</Typography>
         </Stack>
         <Stack sx={{ padding: 6, background: 'transparent' }}>
-          <SignInForm />
+          <SignUpForm />
         </Stack>
       </DialogContent>
-      <Typography>Don't have an account? Sign up</Typography>
+      <Typography>Already have an account? Sign in</Typography>
     </Dialog>
   );
 };
 
-export default SignInModal;
+export default RegistrationModal;

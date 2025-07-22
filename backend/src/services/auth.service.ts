@@ -6,38 +6,41 @@ import { emailService } from './email.service.js';
 import { HttpError } from '../errors/HttpError.js';
 import { v4 as uuid4 } from 'uuid';
 import bcrypt from 'bcrypt';
+import { User } from '../entity/User.js';
+import { UserAuth } from '../entity/UserAuth.js';
 
 export class AuthService {
   async register(email: string, password: string, username: string) {
-    const isUser = await userRepository.existsBy({ email, username });
+    const isUser: boolean = await userRepository.existsBy({ email, username });
     if (isUser) throw HttpError.Conflict('User already exist');
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = userRepository.create({ password: hashedPassword, email, username });
+    const hashedPassword: string = await bcrypt.hash(password, 10);
+    const user: User = userRepository.create({ password: hashedPassword, email, username });
     await userRepository.save(user);
 
     const tokens = tokenService.generateTokens({ userId: user.id });
 
-    const userAuthData = authRepository.create({
+    const userAuthData: UserAuth = authRepository.create({
       activationLink: uuid4(),
       refreshToken: tokens.refreshToken,
       user: user,
     });
 
     await authRepository.save(userAuthData);
-    await emailService.sendEmailConfirmation(user.email, userAuthData.activationLink);
-
-    return tokens;
+    // await emailService.sendEmailConfirmation(user.email, userAuthData.activationLink); // error on client ??
   }
 
   async login(email: string, password: string) {
-    const user = await userRepository.findOneBy({ email });
+    const user: User | null = await userRepository.findOneBy({ email });
     if (!user) throw HttpError.NotFound('User does not exist');
 
-    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    const isPasswordMatch: boolean = await bcrypt.compare(password, user.password);
     if (!isPasswordMatch) throw HttpError.Unauthorized('Invalid password');
 
-    return tokenService.generateTokens({ userId: user.id });
+    return {
+      tokens: tokenService.generateTokens({ userId: user.id }),
+      userData: { email, username: user.username },
+    };
   }
 
   async logout(refreshToken: string) {
