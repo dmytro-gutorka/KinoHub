@@ -14,3 +14,13 @@ export interface UserAction {
   rating: number | null;
   watchStatus: WatchStatus | null;
 }
+
+export interface JwtTokens {
+  accessToken: string;
+  refreshToken: string;
+}
+
+export interface LoginResponse {
+  tokens: JwtTokens;
+  data: { email: string; username: string };
+}

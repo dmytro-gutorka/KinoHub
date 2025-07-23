@@ -1,11 +1,7 @@
 import { Response } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { HttpError } from '../errors/HttpError.js';
-
-interface JwtTokens {
-  accessToken: string;
-  refreshToken: string;
-}
+import { JwtTokens } from '../types/types.js';
 
 export class TokenService {
   private readonly ACCESS_EXPIRES_IN: number = 365 * 24 * 60 * 60 * 1000; // 15 minutes

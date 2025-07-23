@@ -26,7 +26,9 @@ authInstance.interceptors.response.use(
 
         // originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`; Is there any need it this?
         return authInstance.request(originalRequest);
-      } catch (e) {}
+      } catch (e) {
+        console.log('Not authorized');
+      }
     }
   }
 );

@@ -14,11 +14,11 @@ export async function register(req: Request, res: Response) {
 
 export async function login(req: Request, res: Response) {
   const { email, password } = req.body;
-  const { tokens, userData } = await authService.login(email, password);
+  const { tokens, data } = await authService.login(email, password);
 
   tokenService.setRefreshTokenToCookies(tokens.refreshToken, res);
 
-  res.status(200).json({ accessToken: tokens.accessToken, userData });
+  res.status(200).json({ accessToken: tokens.accessToken, data });
 }
 
 export async function logout(req: Request, res: Response) {
@@ -40,8 +40,10 @@ export async function activateEmail(req: Request, res: Response) {
 
 export async function refresh(req: Request, res: Response) {
   const { refreshToken } = req.cookies;
-  const newTokens = await authService.refresh(refreshToken);
+  console.log(refreshToken);
+  const { tokens, data } = await authService.refresh(refreshToken);
 
-  tokenService.setRefreshTokenToCookies(newTokens.refreshToken, res);
-  res.status(200).json({ accessToken: newTokens.accessToken });
+  tokenService.setRefreshTokenToCookies(tokens.refreshToken, res);
+
+  res.status(200).json({ accessToken: tokens.accessToken, data });
 }

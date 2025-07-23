@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { register } from '@features/auth/model/services/register';
 import { login } from '@features/auth/model/services/login';
 import { logout } from '@features/auth/model/services/logout';
+import { checkAuth } from '@features/auth/model/services/checkAuth';
 
 const initialState: AuthState = {
   user: null,
@@ -29,7 +30,7 @@ const authSlice = createSlice({
     });
     builder.addCase(login.fulfilled, (state, action) => {
       state.isAuthenticated = true;
-      state.user = action.payload.userData;
+      state.user = action.payload.data;
       state.isLoading = false;
     });
     builder.addCase(login.pending, (state, action) => {
@@ -40,6 +41,15 @@ const authSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(logout.fulfilled, () => initialState);
+    builder.addCase(checkAuth.fulfilled, (state, action) => {
+      state.isAuthenticated = true;
+      state.user = action.payload.data;
+      state.isLoading = false;
+      console.log(action);
+    });
+    builder.addCase(checkAuth.rejected, (state, action) => {
+      console.log(action.payload);
+    });
   },
 });
 
