@@ -25,15 +25,21 @@ const authSlice = createSlice({
     });
     builder.addCase(register.rejected, (state, action) => {
       state.isLoading = false;
-      state.error = action?.error?.message;
+      state.error = action.error.message ?? 'Unknown error';
     });
     builder.addCase(login.fulfilled, (state, action) => {
       state.isAuthenticated = true;
       state.user = action.payload.userData;
+      state.isLoading = false;
     });
-    builder.addCase(logout.fulfilled, (state, action) => {
-      state = initialState;
+    builder.addCase(login.pending, (state, action) => {
+      state.isLoading = true;
     });
+    builder.addCase(login.rejected, (state, action) => {
+      state.error = action.error.message ?? 'Unknown error';
+      state.isLoading = false;
+    });
+    builder.addCase(logout.fulfilled, () => initialState);
   },
 });
 

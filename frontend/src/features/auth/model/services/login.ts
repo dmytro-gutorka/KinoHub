@@ -1,15 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { UserLoginCredentials } from '@features/auth/model/types';
+import { LoginResponse, UserLoginCredentials } from '@features/auth/model/types';
 import { API_URL, authEndpoints } from '@app/constants';
-// @ts-ignore
-import axios from 'axios';
 
-export const login = createAsyncThunk('auth/login', async (loginData: UserLoginCredentials) => {
-  const res = await axios.post(`${API_URL}/${authEndpoints.LOGIN}`, loginData, {
-    withCredentials: true,
-  });
+export const login = createAsyncThunk(
+  'auth/login',
+  async (loginData: UserLoginCredentials): Promise<LoginResponse> => {
+    try {
+      const res: LoginResponse = await axios.post(`${API_URL}/${authEndpoints.LOGIN}`, loginData);
 
-  localStorage.setItem('accessToken', res?.data?.accessToken);
+      localStorage.setItem('accessToken', res.data?.accessToken);
 
-  return res?.data;
-});
+      return res?.data;
+    } catch (error: any) {
+      const errMessage = error?.response?.data?.message || error?.message || 'Something went wrong';
+      throw new Error(errMessage);
+    }
+  }
+);

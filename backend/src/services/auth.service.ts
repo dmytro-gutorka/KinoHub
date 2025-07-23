@@ -2,12 +2,12 @@ import { JwtPayload } from 'jsonwebtoken';
 import { userRepository } from '../repositories/user.repository.js';
 import { authRepository } from '../repositories/auth.repository.js';
 import { tokenService } from './token.service.js';
-import { emailService } from './email.service.js';
 import { HttpError } from '../errors/HttpError.js';
+import { UserAuth } from '../entity/UserAuth.js';
+import { User } from '../entity/User.js';
+import { emailService } from './email.service.js';
 import { v4 as uuid4 } from 'uuid';
 import bcrypt from 'bcrypt';
-import { User } from '../entity/User.js';
-import { UserAuth } from '../entity/UserAuth.js';
 
 export class AuthService {
   async register(email: string, password: string, username: string) {
