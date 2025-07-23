@@ -16,7 +16,14 @@ export async function login(req: Request, res: Response) {
   const { email, password } = req.body;
   const { tokens, data } = await authService.login(email, password);
 
-  tokenService.setRefreshTokenToCookies(tokens.refreshToken, res);
+  // tokenService.setRefreshTokenToCookies(tokens.refreshToken, res);
+
+  console.log(tokens.refreshToken);
+  res.cookie('refreshToken', tokens.refreshToken, {
+    httpOnly: false,
+    secure: false,
+    maxAge: 1000 * 60 * 60 * 24 * 7,
+  });
 
   res.status(200).json({ accessToken: tokens.accessToken, data });
 }
@@ -40,7 +47,6 @@ export async function activateEmail(req: Request, res: Response) {
 
 export async function refresh(req: Request, res: Response) {
   const { refreshToken } = req.cookies;
-  console.log(refreshToken);
   const { tokens, data } = await authService.refresh(refreshToken);
 
   tokenService.setRefreshTokenToCookies(tokens.refreshToken, res);
