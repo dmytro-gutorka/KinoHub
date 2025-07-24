@@ -29,6 +29,8 @@ export class AuthService {
 
     await authRepository.save(userAuthData);
     // await emailService.sendEmailConfirmation(user.email, userAuthData.activationLink); // error on client ??
+
+    return user;
   }
 
   async login(email: string, password: string): Promise<LoginResponse> {

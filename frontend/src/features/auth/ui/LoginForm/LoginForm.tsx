@@ -17,7 +17,6 @@ const LoginForm = () => {
   } = useForm<Inputs>();
 
   const dispatch = useAppDispatch();
-
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => dispatch(login(data));
 
   return (

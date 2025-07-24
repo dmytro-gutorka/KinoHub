@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 import SignUpModal from '@features/auth/ui/RegistrationModal';
 import LoginModal from '@features/auth/ui/LoginModal';
-import { useAppDispatch } from '@shared/hooks/redux';
+import { useAppDispatch, useAppSelector } from '@shared/hooks/redux';
 import { logout } from '@features/auth/model/services/logout';
 
 function Header() {
@@ -13,20 +13,25 @@ function Header() {
   const [openSignInModal, setOpenLoginModal] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
+  const isAuthenticated: boolean = useAppSelector((state) => state.auth.isAuthenticated);
 
   return (
     <Stack direction="row" py={5} mx={10} justifyContent="end" gap={3}>
-      <Button onClick={() => setOpenLoginModal(true)}>
-        <PersonAddAltOutlinedIcon fontSize="small" sx={{ marginRight: 1 }} />
-        Sign In
-      </Button>
+      {!isAuthenticated && (
+        <Button onClick={() => setOpenLoginModal(true)}>
+          <PersonAddAltOutlinedIcon fontSize="small" sx={{ marginRight: 1 }} />
+          Sign In
+        </Button>
+      )}
 
-      <Button onClick={() => setOpenRegistrationModal(true)}>
-        <LoginIcon fontSize="small" sx={{ marginRight: 1 }} />
-        Sign Up
-      </Button>
+      {!isAuthenticated && (
+        <Button onClick={() => setOpenRegistrationModal(true)}>
+          <LoginIcon fontSize="small" sx={{ marginRight: 1 }} />
+          Sign Up
+        </Button>
+      )}
 
-      <Button onClick={() => dispatch(logout())}>Logout</Button>
+      {isAuthenticated && <Button onClick={() => dispatch(logout())}>Logout</Button>}
 
       <SignUpModal isOpen={openSignUpModal} onClick={setOpenRegistrationModal} />
       <LoginModal isOpen={openSignInModal} onClick={setOpenLoginModal} />

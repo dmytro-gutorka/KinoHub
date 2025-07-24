@@ -1,24 +1,22 @@
 import { Request, Response } from 'express';
 import { authService } from '../services/auth.service.js';
 import { tokenService } from '../services/token.service.js';
+import { User } from '../entity/User.js';
 
 export async function register(req: Request, res: Response) {
   const { username, password, email } = req.body;
 
-  await authService.register(email, password, username);
+  const user: User = await authService.register(email, password, username);
 
-  res
-    .status(201)
-    .json({ message: 'User has been created. Please check your email for activation link' });
+  res.status(201).json(user);
 }
 
 export async function login(req: Request, res: Response) {
   const { email, password } = req.body;
   const { tokens, data } = await authService.login(email, password);
 
-  // tokenService.setRefreshTokenToCookies(tokens.refreshToken, res);
+  tokenService.setRefreshTokenToCookies(tokens.refreshToken, res);
 
-  console.log(tokens.refreshToken);
   res.cookie('refreshToken', tokens.refreshToken, {
     httpOnly: false,
     secure: false,

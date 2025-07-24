@@ -17,6 +17,7 @@ function makeRouter() {
     {
       Component: Layout,
       path: '/',
+      errorPage: Homepage, // check later and change
       children: [
         { path: '/', Component: Homepage },
         { path: '/movies', Component: Movies },

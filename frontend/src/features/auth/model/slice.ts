@@ -1,6 +1,5 @@
 import { AuthState } from '@features/auth/model/types';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { register } from '@features/auth/model/services/register';
+import { createSlice, isFulfilled, isPending, isRejected, PayloadAction } from '@reduxjs/toolkit';
 import { login } from '@features/auth/model/services/login';
 import { logout } from '@features/auth/model/services/logout';
 import { checkAuth } from '@features/auth/model/services/checkAuth';
@@ -18,37 +17,29 @@ const authSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(register.fulfilled, (state, action) => {
-      state.isLoading = false;
-    });
-    builder.addCase(register.pending, (state, action) => {
-      state.isLoading = true;
-    });
-    builder.addCase(register.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.error.message ?? 'Unknown error';
-    });
-    builder.addCase(login.fulfilled, (state, action) => {
-      state.isAuthenticated = true;
-      state.user = action.payload.data;
-      state.isLoading = false;
-    });
-    builder.addCase(login.pending, (state, action) => {
-      state.isLoading = true;
-    });
-    builder.addCase(login.rejected, (state, action) => {
-      state.error = action.error.message ?? 'Unknown error';
-      state.isLoading = false;
-    });
     builder.addCase(logout.fulfilled, () => initialState);
-    builder.addCase(checkAuth.fulfilled, (state, action) => {
+    builder.addCase(login.fulfilled, (state, action): void => {
       state.isAuthenticated = true;
       state.user = action.payload.data;
-      state.isLoading = false;
-      console.log(action);
     });
-    builder.addCase(checkAuth.rejected, (state, action) => {
-      console.log(action.payload);
+    builder.addCase(checkAuth.fulfilled, (state, action): void => {
+      state.isAuthenticated = true;
+      state.user = action.payload.data;
+    });
+    builder.addCase(checkAuth.rejected, (state, action): void => {
+      state.isAuthenticated = false;
+    });
+
+    builder.addMatcher(isPending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addMatcher(isRejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.error.message ?? 'Unknown error';
+      console.log(1111);
+    });
+    builder.addMatcher(isFulfilled, (state) => {
+      state.isLoading = false;
     });
   },
 });
