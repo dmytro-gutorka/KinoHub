@@ -1,15 +1,15 @@
-import { Box, DialogContent, Icon, Stack, Typography, useTheme } from '@mui/material';
+import { DialogContent, Stack, Typography, useTheme } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import LogoIcon from '@shared/icons/LogoIcon';
 import LoginForm from '@features/auth/ui/LoginForm';
 import CloseIcon from '@mui/icons-material/Close';
 
-interface SignInModalProps {
+interface LoginModalProps {
   isOpen: boolean;
-  onClick: (a: boolean) => void;
+  setOpenLoginModal: (a: boolean) => void;
 }
 
-const LoginModal = ({ isOpen, onClick }: SignInModalProps) => {
+const LoginModal = ({ isOpen, setOpenLoginModal }: LoginModalProps) => {
   const theme = useTheme();
 
   return (
@@ -23,12 +23,12 @@ const LoginModal = ({ isOpen, onClick }: SignInModalProps) => {
                 Welcome Back
               </Typography>
             </Stack>
-            <CloseIcon cursor="pointer" onClick={() => onClick(false)} />
+            <CloseIcon cursor="pointer" onClick={() => setOpenLoginModal(false)} />
           </Stack>
           <Typography>Sign in to continue your movie journey</Typography>
         </Stack>
         <Stack sx={{ padding: 6, background: 'transparent' }}>
-          <LoginForm />
+          <LoginForm setOpenLoginModal={setOpenLoginModal} />
         </Stack>
       </DialogContent>
       <Typography>Don't have an account? Sign up</Typography>

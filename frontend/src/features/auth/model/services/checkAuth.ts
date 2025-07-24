@@ -1,9 +1,10 @@
+import { UserAuthData } from '@features/auth/model/types';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { API_URL, authEndpoints } from '@app/constants';
+import { setAccessToken } from '@shared/helpers/localStorage/setAccessToken';
 
 // @ts-ignore
 import axios, { AxiosResponse } from 'axios';
-import { API_URL, authEndpoints } from '@app/constants';
-import { UserAuthData } from '@features/auth/model/types';
 
 export const checkAuth = createAsyncThunk('auth/checkAuth', async (): Promise<UserAuthData> => {
   try {
@@ -13,6 +14,9 @@ export const checkAuth = createAsyncThunk('auth/checkAuth', async (): Promise<Us
         withCredentials: true,
       }
     );
+
+    const accessToken: string = response?.data?.accessToken;
+    setAccessToken(accessToken);
 
     return response?.data;
   } catch (error: any) {

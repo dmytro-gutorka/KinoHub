@@ -7,7 +7,7 @@ import SignUpModal from '@features/auth/ui/RegistrationModal';
 import LoginModal from '@features/auth/ui/LoginModal';
 import { useAppDispatch, useAppSelector } from '@shared/hooks/redux';
 import { logout } from '@features/auth/model/services/logout';
-import { selectIsAuthenticated, selectIsLoading } from '@features/auth/model/selectors';
+import { selectIsAuthenticated } from '@features/auth/model/selectors';
 
 function Header() {
   const [openSignUpModal, setOpenRegistrationModal] = useState<boolean>(false);
@@ -15,7 +15,6 @@ function Header() {
 
   const dispatch = useAppDispatch();
   const isAuthenticated: boolean = useAppSelector(selectIsAuthenticated);
-  const isLoading: boolean = useAppSelector(selectIsLoading);
 
   return (
     <Stack direction="row" py={5} mx={10} justifyContent="end" gap={3}>
@@ -35,8 +34,8 @@ function Header() {
 
       {isAuthenticated && <Button onClick={() => dispatch(logout())}>Logout</Button>}
 
-      <SignUpModal isOpen={openSignUpModal} onClick={setOpenRegistrationModal} />
-      <LoginModal isOpen={openSignInModal} onClick={setOpenLoginModal} />
+      <SignUpModal isOpen={openSignUpModal} setOpenRegistrationModal={setOpenRegistrationModal} />
+      <LoginModal isOpen={openSignInModal} setOpenLoginModal={setOpenLoginModal} />
     </Stack>
   );
 }

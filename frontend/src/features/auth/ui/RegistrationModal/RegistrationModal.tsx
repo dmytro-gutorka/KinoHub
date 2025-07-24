@@ -6,10 +6,10 @@ import CloseIcon from '@mui/icons-material/Close';
 
 interface SignUpModalProps {
   isOpen: boolean;
-  onClick: (a: boolean) => void;
+  setOpenRegistrationModal: (a: boolean) => void;
 }
 
-const RegistrationModal = ({ isOpen, onClick }: SignUpModalProps) => {
+const RegistrationModal = ({ isOpen, setOpenRegistrationModal }: SignUpModalProps) => {
   const theme = useTheme();
 
   return (
@@ -23,7 +23,7 @@ const RegistrationModal = ({ isOpen, onClick }: SignUpModalProps) => {
                 Join Kinohub
               </Typography>
             </Stack>
-            <CloseIcon cursor="pointer" onClick={() => onClick(false)} />
+            <CloseIcon cursor="pointer" onClick={() => setOpenRegistrationModal(false)} />
           </Stack>
           <Typography>Create your account to start tracking movies</Typography>
         </Stack>

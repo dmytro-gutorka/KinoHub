@@ -42,11 +42,18 @@ export class AuthService {
 
     const tokens: JwtTokens = tokenService.generateTokens({ userId: user.id });
 
-    const userAuth: UserAuth = authRepository.create({
-      activationLink: uuid4(),
-      refreshToken: tokens.refreshToken,
-      user: user,
-    });
+    let userAuth: UserAuth | null = await authRepository.findOneBy({ user });
+
+    if (!userAuth) {
+      userAuth = authRepository.create({
+        activationLink: uuid4(),
+        refreshToken: tokens.refreshToken,
+        user: user,
+      });
+    } else {
+      userAuth.refreshToken = tokens.refreshToken;
+      await userAuth.save();
+    }
 
     await authRepository.upsert(userAuth, ['refreshToken']);
 

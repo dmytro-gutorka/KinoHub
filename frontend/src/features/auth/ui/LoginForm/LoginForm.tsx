@@ -1,15 +1,23 @@
-import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import TextField from '@mui/material/TextField';
 import { Button, Stack } from '@mui/material';
+import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useAppDispatch } from '@shared/hooks/redux';
 import { login } from '@features/auth/model/services/login';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { selectLoginError, selectLoginStatus } from '@features/auth/model/selectors';
+import TextField from '@mui/material/TextField';
+import { RequestStatus } from '@features/auth/model/types';
 
 type Inputs = {
   email: string;
   password: string;
 };
 
-const LoginForm = () => {
+interface LoginFormProps {
+  setOpenLoginModal: (a: boolean) => void;
+}
+
+const LoginForm = ({ setOpenLoginModal }: LoginFormProps) => {
   const {
     handleSubmit,
     control,
@@ -18,9 +26,16 @@ const LoginForm = () => {
 
   const dispatch = useAppDispatch();
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => dispatch(login(data));
+  const loginStatus: RequestStatus = useSelector(selectLoginStatus('auth/login'));
+  const loginError: string | null = useSelector(selectLoginError('auth/login'));
+
+  useEffect(() => {
+    if (loginStatus === 'success') setOpenLoginModal(false);
+  }, [loginStatus, setOpenLoginModal]);
 
   return (
     <Stack component="form" onSubmit={handleSubmit(onSubmit)} gap={4}>
+      {loginError && <div>{loginError}</div>}
       <Controller
         name="email"
         rules={{ required: true }}
