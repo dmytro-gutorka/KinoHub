@@ -1,14 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { LoginResponse, UserLoginCredentials } from '@features/auth/model/types';
+import { LoginAxiosResponse, UserAuthData, UserLoginCredentials } from '@features/auth/model/types';
 import { API_URL, authEndpoints } from '@app/constants';
 // @ts-ignore
 import axios from 'axios';
 
 export const login = createAsyncThunk(
   'auth/login',
-  async (loginData: UserLoginCredentials): Promise<LoginResponse> => {
+  async (loginData: UserLoginCredentials): Promise<UserAuthData> => {
     try {
-      const response: LoginResponse = await axios.post(
+      const response: LoginAxiosResponse = await axios.post(
         `${API_URL}/${authEndpoints.LOGIN}`,
         loginData,
         { withCredentials: true }

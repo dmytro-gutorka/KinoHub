@@ -24,3 +24,14 @@ export interface LoginResponse {
   tokens: JwtTokens;
   data: { email: string; username: string };
 }
+
+export interface User {
+  id: number;
+  email: string;
+  username: string;
+}
+
+export interface RefreshResponse {
+  data: User;
+  tokens: JwtTokens;
+}

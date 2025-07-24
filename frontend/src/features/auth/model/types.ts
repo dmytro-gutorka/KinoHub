@@ -1,8 +1,10 @@
 // @ts-ignore
 import { AxiosResponse } from 'axios';
 
-interface User {
-  userId: number;
+export interface User {
+  id: number;
+  email: string;
+  username: string;
 }
 
 export interface AuthState {
@@ -18,9 +20,16 @@ export interface UserLoginCredentials {
   password: string;
 }
 
-export interface UserRegisterCredentials extends UserLoginCredentials {
+export interface UserRegisterCredentials {
+  email: string;
+  password: string;
   username: string;
 }
 
-export type LoginResponse = AxiosResponse<{ accessToken: string }>;
-export type RegisterResponse = AxiosResponse<string>;
+export interface UserAuthData {
+  data: User;
+  accessToken: string;
+}
+
+export type LoginAxiosResponse = AxiosResponse<UserAuthData>;
+export type RegisterAxiosResponse = AxiosResponse<User>;

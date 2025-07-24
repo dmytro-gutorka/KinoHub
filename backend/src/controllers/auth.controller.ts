@@ -3,15 +3,15 @@ import { authService } from '../services/auth.service.js';
 import { tokenService } from '../services/token.service.js';
 import { User } from '../entity/User.js';
 
-export async function register(req: Request, res: Response) {
+export async function register(req: Request, res: Response): Promise<void> {
   const { username, password, email } = req.body;
 
-  const user: User = await authService.register(email, password, username);
+  const user: Partial<User> = await authService.register(email, password, username);
 
   res.status(201).json(user);
 }
 
-export async function login(req: Request, res: Response) {
+export async function login(req: Request, res: Response): Promise<void> {
   const { email, password } = req.body;
   const { tokens, data } = await authService.login(email, password);
 
@@ -26,7 +26,7 @@ export async function login(req: Request, res: Response) {
   res.status(200).json({ accessToken: tokens.accessToken, data });
 }
 
-export async function logout(req: Request, res: Response) {
+export async function logout(req: Request, res: Response): Promise<void> {
   const { refreshToken } = req.cookies;
 
   await authService.logout(refreshToken);
@@ -35,7 +35,7 @@ export async function logout(req: Request, res: Response) {
   res.json({ message: 'Refresh token has been deleted' });
 }
 
-export async function activateEmail(req: Request, res: Response) {
+export async function activateEmail(req: Request, res: Response): Promise<void> {
   const { link: activationLink } = req.params;
 
   await authService.activateEmail(activationLink);
@@ -43,7 +43,7 @@ export async function activateEmail(req: Request, res: Response) {
   res.status(301).redirect('/');
 }
 
-export async function refresh(req: Request, res: Response) {
+export async function refresh(req: Request, res: Response): Promise<void> {
   const { refreshToken } = req.cookies;
   const { tokens, data } = await authService.refresh(refreshToken);
 
