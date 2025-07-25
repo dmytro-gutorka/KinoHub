@@ -14,6 +14,7 @@ const MediaCardList = ({ mediaData, mediaGenresList }) => {
 
         return (
           <MediaCardPreviewLong
+            key={media.id}
             mediaData={media}
             relevantPoster={relevantPoster}
             genreNames={genreNames}

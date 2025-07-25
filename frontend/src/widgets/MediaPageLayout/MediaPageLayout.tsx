@@ -3,7 +3,7 @@ import { Stack, CircularProgress, Pagination, TextField } from '@mui/material';
 import { useMediaFilters } from '@shared/hooks/useMediaFilters';
 
 import useFilteredMedia from '@shared/hooks/useFilteredMedia';
-import useSearchedMedia from '../../shared/hooks/useSearchedMedia';
+import useSearchedMedia from '@shared/hooks/useSearchedMedia';
 import MultipleSelect from '@shared/ui/MultipleSelect';
 import BasicSelect from '../../shared/ui/BasicSelect';
 import SliderBar from '@shared/ui/SliderBar';
@@ -20,7 +20,7 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }: MediaPageLayoutProps) =
   const mediaGenresList = mediaType === 'movie' ? AllMovieGenres : AllTvShowGenres;
 
   const {
-    filters: { page, minRating, searchQuery, genres, sortBy, isFiltersOpen },
+    filters: { page, minRating, searchQuery, genres, sortBy },
     handlers: {
       handleGenreChange,
       handleSearch,
@@ -30,16 +30,23 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }: MediaPageLayoutProps) =
     },
   } = useMediaFilters();
 
-  const { data } = useFilteredMedia(qrKey, page, mediaType, minRating, genres, sortBy);
-
-  const { data: searchData, isLoading: searchLoading } = useSearchedMedia(
+  const { data: filteredData, isLoading: filterLoading } = useFilteredMedia({
     qrKey,
     mediaType,
-    searchQuery,
-    page
-  );
+    minRating,
+    genres,
+    sortBy,
+    page,
+  });
 
-  const mediaData = searchData?.results.length > 0 ? searchData?.results : data?.results;
+  const { data: searchData, isLoading: searchLoading } = useSearchedMedia({
+    mediaType,
+    qrKey,
+    searchQuery,
+    page,
+  });
+
+  const mediaData = searchData?.results.length > 0 ? searchData?.results : filteredData?.results;
 
   return (
     <Stack component="section" m={10} rowGap={4}>

@@ -1,24 +1,26 @@
 import { useState, useEffect, ChangeEvent } from 'react';
-import { Genres, SortBy } from '@shared/types/generalTypes';
+import { Genres, MediaFiltersBase, SortBy } from '@shared/types/generalTypes';
 import { SelectChangeEvent } from '@mui/material';
 
-interface MediaFilters {
-  page: number;
-  minRating: number;
+interface MediaFiltersWithSearch extends MediaFiltersBase {
   searchQuery: string;
-  genres: Genres[];
-  sortBy: SortBy;
-  isFiltersOpen: boolean;
+}
+
+interface MediaFiltersHandlers {
+  handleGenreChange: (e: SelectChangeEvent<unknown>) => void;
+  handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleSortChange: (e: ChangeEvent<{ value: SortBy }>) => void;
+  handleRatingChange: (value: number) => void;
+  handlePageChange: (e: unknown, newPage: number) => void;
 }
 
 export const useMediaFilters = (initialFilters = {}) => {
-  const [filters, setFilters] = useState<MediaFilters>({
+  const [filters, setFilters] = useState<MediaFiltersWithSearch>({
     page: 1,
     minRating: 1,
     searchQuery: '',
     genres: [],
     sortBy: SortBy.YearDESC,
-    isFiltersOpen: false,
     ...initialFilters,
   });
 
@@ -28,8 +30,8 @@ export const useMediaFilters = (initialFilters = {}) => {
     setFilters((prev) => ({ ...prev, searchQuery }));
   };
 
-  const handleGenreChange = (event: SelectChangeEvent<unknown>) => {
-    const genres = event.target.value as Genres[];
+  const handleGenreChange = (e: SelectChangeEvent<unknown>) => {
+    const genres = e.target.value as Genres[];
 
     setFilters((prev) => ({ ...prev, genres }));
   };
