@@ -16,7 +16,7 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="kinohub@localhost" uuid="43112296-68e2-4936-862b-e82bccf25ce6">
+    <data-source source="LOCAL" name="kinohub@localhost" uuid="32ea58b3-a6ca-4053-918f-3466849c7832">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

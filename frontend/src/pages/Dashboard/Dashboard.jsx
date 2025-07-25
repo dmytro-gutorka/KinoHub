@@ -1,6 +1,6 @@
 import { Stack, useTheme } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
-import getUserStats from '../../widgets/Dashboard/api/getUserStats';
+import getUserStats from '@shared/api/kinohub/getUserStats';
 import getNumberOfWatchedEpisodes from '../../shared/helpers/getNumberOfWatchedEpisodes';
 import getNumberOfWatchedMedia from '../../shared/helpers/getNumberOfWatchedMedia';
 import getAvgRating from '../../shared/helpers/getAvgRating';

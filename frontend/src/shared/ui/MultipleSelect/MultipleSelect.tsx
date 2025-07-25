@@ -1,6 +1,14 @@
 import { Box, Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
+import { SelectChangeEvent } from '@mui/material';
+import { Genres } from '@shared/types/generalTypes';
 
-const MultipleSelect = ({ genres, onGenresChange, mediaGenres }) => {
+interface MultipleSelectProps {
+  genres: Genres[];
+  onGenresChange: (event: SelectChangeEvent<Genres[]>) => void;
+  mediaGenresList: Genres[];
+}
+
+const MultipleSelect = ({ genres, onGenresChange, mediaGenresList }: MultipleSelectProps) => {
   return (
     <FormControl sx={{ width: '300px' }}>
       <InputLabel id="movie-genres-filter">Genres</InputLabel>
@@ -19,7 +27,8 @@ const MultipleSelect = ({ genres, onGenresChange, mediaGenres }) => {
           </Box>
         )}
       >
-        {mediaGenres.map((movie) => (
+        {mediaGenresList.map((movie) => (
+          // @ts-ignore
           <MenuItem key={movie.id} value={movie}>
             {movie.name}
           </MenuItem>

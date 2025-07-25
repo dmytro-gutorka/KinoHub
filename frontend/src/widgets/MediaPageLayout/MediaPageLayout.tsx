@@ -1,17 +1,23 @@
-import { CircularProgress, Pagination, Stack, TextField } from '@mui/material';
-import { useMediaFilters } from '../../shared/hooks/useMediaFilters';
+import { MediaType } from '@shared/types/generalTypes';
+import { Stack, CircularProgress, Pagination, TextField } from '@mui/material';
+import { useMediaFilters } from '@shared/hooks/useMediaFilters';
 
-import useFilteredMedia from '../../shared/hooks/useFilteredMedia';
+import useFilteredMedia from '@shared/hooks/useFilteredMedia';
 import useSearchedMedia from '../../shared/hooks/useSearchedMedia';
-import MultipleSelect from '../../shared/ui/MultipleSelect';
+import MultipleSelect from '@shared/ui/MultipleSelect';
 import BasicSelect from '../../shared/ui/BasicSelect';
-import SliderBar from '../../shared/ui/SliderBar';
+import SliderBar from '@shared/ui/SliderBar';
 import MediaCardList from '../../shared/ui/MediaCardList';
-import movieGenres from '../../shared/data/movieGenres';
-import tvShowGenres from '../../shared/data/tvShowGenres';
+import AllMovieGenres from '../../shared/data/AllMovieGenres';
+import AllTvShowGenres from '../../shared/data/AllTvShowGenres';
 
-const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
-  const mediaGenres = mediaType === 'movie' ? movieGenres : tvShowGenres;
+interface MediaPageLayoutProps {
+  qrKey: string;
+  mediaType?: MediaType;
+}
+
+const MediaPageLayout = ({ qrKey, mediaType = 'movie' }: MediaPageLayoutProps) => {
+  const mediaGenresList = mediaType === 'movie' ? AllMovieGenres : AllTvShowGenres;
 
   const {
     filters: { page, minRating, searchQuery, genres, sortBy, isFiltersOpen },
@@ -24,12 +30,13 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
     },
   } = useMediaFilters();
 
-  const { data } = useFilteredMedia(qrKey, page, minRating, genres, sortBy, mediaType);
+  const { data } = useFilteredMedia(qrKey, page, mediaType, minRating, genres, sortBy);
+
   const { data: searchData, isLoading: searchLoading } = useSearchedMedia(
     qrKey,
-    page,
+    mediaType,
     searchQuery,
-    mediaType
+    page
   );
 
   const mediaData = searchData?.results.length > 0 ? searchData?.results : data?.results;
@@ -43,10 +50,9 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
           <Stack direction="row" gap={2}>
             <BasicSelect sortBy={sortBy} onSortChange={handleSortChange} />
             <MultipleSelect
-              mediaGenres={mediaGenres}
-              mediaType={mediaType}
               genres={genres}
               onGenresChange={handleGenreChange}
+              mediaGenresList={mediaGenresList}
             />
           </Stack>
           <SliderBar minRating={minRating} onRatingChange={handleRatingChange} />
@@ -54,7 +60,7 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }) => {
       )}
 
       {searchLoading && <CircularProgress />}
-      {mediaData && <MediaCardList mediaGenres={mediaGenres} mediaData={mediaData} />}
+      {mediaData && <MediaCardList mediaGenresList={mediaGenresList} mediaData={mediaData} />}
 
       <Stack spacing={2} justifyContent="center" alignItems="center" my={6}>
         <Pagination count={500} variant="outlined" onChange={handlePageChange} />

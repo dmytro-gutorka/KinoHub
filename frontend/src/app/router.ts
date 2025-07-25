@@ -12,12 +12,12 @@ import Settings from '../pages/Settings';
 import Dashboard from '../pages/Dashboard';
 import History from '../pages/History';
 
-function makeRouter() {
+function makeRouter(queryClient: QueryClient) {
   return createBrowserRouter([
     {
       Component: Layout,
+      errorElement: '',
       path: '/',
-      errorPage: Homepage, // check later and change
       children: [
         { path: '/', Component: Homepage },
         { path: '/movies', Component: Movies },

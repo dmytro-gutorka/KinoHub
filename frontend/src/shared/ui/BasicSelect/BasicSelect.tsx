@@ -1,6 +1,12 @@
 import { FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
+import { SortBy } from '@shared/types/generalTypes';
 
-const BasicSelect = ({ sortBy, onSortChange }) => {
+interface BasicSelectProps {
+  sortBy: SortBy;
+  onSortChange: (e: any) => void;
+}
+
+const BasicSelect = ({ sortBy, onSortChange }: BasicSelectProps) => {
   return (
     <FormControl sx={{ width: '300px' }}>
       <InputLabel id="sort-by-label">Sort by</InputLabel>
@@ -11,9 +17,9 @@ const BasicSelect = ({ sortBy, onSortChange }) => {
         onChange={onSortChange}
         input={<OutlinedInput />}
       >
-        <MenuItem value="title.asc">Title</MenuItem>
-        <MenuItem value="vote_average.desc">Rating</MenuItem>
-        <MenuItem value="primary_release_date.desc">Year</MenuItem>
+        <MenuItem value={SortBy.TitleASC}>Title</MenuItem>
+        <MenuItem value={SortBy.RatingDESC}>Rating</MenuItem>
+        <MenuItem value={SortBy.YearDESC}>Year</MenuItem>
       </Select>
     </FormControl>
   );

@@ -1,7 +1,7 @@
 import { Stack, useTheme } from '@mui/material';
 import { DndContext } from '@dnd-kit/core';
 import { useQuery } from '@tanstack/react-query';
-import getWatchBoardMedia from '../../shared/api/getWatchBoardMedia';
+import getWatchBoardMedia from '@shared/api/kinohub/getWatchBoardMedia';
 import MovieBoardItem from '../../entities/movieBoard/ui/MovieBoardItem';
 import MovieBoardColumn from '../../entities/movieBoard/ui/MovieBoardColumn';
 import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';

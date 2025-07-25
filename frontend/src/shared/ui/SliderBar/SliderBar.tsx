@@ -1,6 +1,12 @@
 import { Box, Slider, Typography } from '@mui/material';
+import { ChangeEvent } from 'react';
 
-const SliderBar = ({ minRating, onRatingChange }) => {
+interface SliderBarProps {
+  minRating: number;
+  onRatingChange: (rating: number) => void;
+}
+
+const SliderBar = ({ minRating, onRatingChange }: SliderBarProps) => {
   return (
     <Box width="300px">
       <Typography>Average rating</Typography>
@@ -10,7 +16,8 @@ const SliderBar = ({ minRating, onRatingChange }) => {
         valueLabelDisplay="auto"
         min={0}
         max={10}
-        onChange={(e) => onRatingChange(e.target.value)}
+        // @ts-ignore
+        onChange={(e: ChangeEvent<HTMLInputElement>) => onRatingChange(Number(e.target.value))}
       />
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography variant="body2" onClick={() => onRatingChange(0)} sx={{ cursor: 'pointer' }}>

@@ -45,6 +45,7 @@ const authSlice = createSlice({
     builder.addMatcher(isAuthRejected, (state, action): void => {
       const prefix = getPrefixFromType(action.type);
       const error = action.payload ?? action.error.message ?? 'Unknown error';
+      // @ts-ignore
       state.requests[prefix] = { status: 'error', error };
     });
     builder.addMatcher(isAuthFulfilled, (state, action): void => {

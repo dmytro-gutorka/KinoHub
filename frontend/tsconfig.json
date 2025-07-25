@@ -11,6 +11,7 @@
     "isolatedModules": true,
     "strict": true,
     "baseUrl": "./src",
+    "typeRoots": ["./src/app", "./node_modules/@types"],
     "paths": {
       "@app/*": ["app/*"],
       "@pages/*": ["pages/*"],

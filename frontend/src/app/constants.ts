@@ -1,7 +1,7 @@
 export const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w780';
-export const TMDB_URL = 'https://api.themoviedb.org/3/';
+export const TMDB_URL = 'https://api.themoviedb.org/3';
 
-export const CLIENT_URL = 'http://localhost:3000/';
+export const CLIENT_URL = 'http://localhost:3000';
 export const API_URL = 'http://localhost:8080/api/v1';
 
 export const TMDB_OPTIONS = {

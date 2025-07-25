@@ -1,10 +1,10 @@
-import { RouterProvider } from 'react-router';
 import { useEffect, useRef } from 'react';
-import { router } from '@app/router';
+import { RouterProvider } from 'react-router';
 import { useAppDispatch } from '@shared/hooks/redux';
 import { checkAuth } from '@features/auth/model/services/checkAuth';
+import { router } from '@app/router';
 
-export default function AppWrapper() {
+export default function App() {
   const dispatch = useAppDispatch();
   const isDispatchedRef = useRef(false);
 

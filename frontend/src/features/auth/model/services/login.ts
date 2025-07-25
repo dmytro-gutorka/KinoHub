@@ -1,5 +1,5 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import { UserAuthData, UserLoginCredentials } from '@features/auth/model/types';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { API_URL, authEndpoints } from '@app/constants';
 // @ts-ignore
 import axios, { AxiosError } from 'axios';
@@ -17,14 +17,8 @@ export const login = createAsyncThunk<UserAuthData, UserLoginCredentials, { reje
       setAccessToken(accessToken);
 
       return response?.data;
-    } catch (e) {
-      const error = e as AxiosError<{ message: string }>;
-
-      if (error.response && error.response.data?.message) {
-        return rejectWithValue(error.response.data.message);
-      }
-
-      return rejectWithValue('Something went wrong');
+    } catch (err: AxiosError<{ message: string }>) {
+      return rejectWithValue(err.response.data.message || 'Something went wrong');
     }
   }
 );

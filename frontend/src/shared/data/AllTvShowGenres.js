@@ -1,4 +1,4 @@
-const tvShowGenres = [
+const AllTvShowGenres = [
   {
     id: 10759,
     name: 'Action & Adventure',
@@ -57,4 +57,4 @@ const tvShowGenres = [
   },
 ];
 
-export default tvShowGenres;
+export default AllTvShowGenres;

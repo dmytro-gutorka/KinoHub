@@ -7,8 +7,8 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { queryClient } from '@app/router';
 import { store } from '@app/store';
 
-import finalTheme from './app/theme';
-import AppWrapper from '@app/AppWrapper';
+import finalTheme from '@app/theme';
+import App from '@app/App';
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
@@ -16,7 +16,7 @@ createRoot(document.getElementById('root') as HTMLElement).render(
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={finalTheme}>
           <CssBaseline />
-          <AppWrapper />
+          <App />
         </ThemeProvider>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>

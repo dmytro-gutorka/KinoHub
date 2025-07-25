@@ -1,4 +1,3 @@
-import { RequestStatus } from '@features/auth/model/types';
 import { SubmitHandler, useForm, Controller } from 'react-hook-form';
 import { Button, Stack } from '@mui/material';
 import { selectRequestError, selectRequestStatus } from '@features/auth/model/selectors';
@@ -7,7 +6,7 @@ import { register } from '@features/auth/model/services/register';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import TextField from '@mui/material/TextField';
-import { setStateRequest } from '@features/auth/model/slice';
+import { RequestStatus } from '@shared/types/state/auth';
 
 type Inputs = {
   email: string;
@@ -31,8 +30,6 @@ const RegistrationForm = ({ setOpenRegistrationModal }: RegistrationFormProps) =
   const dispatch = useAppDispatch();
   const registerStatus: RequestStatus = useSelector(selectRequestStatus('auth/register'));
   const registerError: string | null = useSelector(selectRequestError('auth/register'));
-
-  console.log(registerStatus);
 
   useEffect(() => {
     if (registerStatus === 'success') setOpenRegistrationModal(false);

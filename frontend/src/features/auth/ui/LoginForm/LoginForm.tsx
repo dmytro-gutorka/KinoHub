@@ -1,12 +1,12 @@
 import { Button, Stack } from '@mui/material';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
+import { selectRequestError, selectRequestStatus } from '@features/auth/model/selectors';
 import { useAppDispatch } from '@shared/hooks/redux';
 import { login } from '@features/auth/model/services/login';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import TextField from '@mui/material/TextField';
-import { RequestStatus } from '@features/auth/model/types';
-import { selectRequestError, selectRequestStatus } from '@features/auth/model/selectors';
+import { RequestStatus } from '@shared/types/state/auth';
 
 type Inputs = {
   email: string;

@@ -13,13 +13,13 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="kinohub@localhost" uuid="43112296-68e2-4936-862b-e82bccf25ce6">
+    <data-source name="kinohub@localhost" uuid="32ea58b3-a6ca-4053-918f-3466849c7832">
       <database-info product="PostgreSQL" version="15.13 (Homebrew)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.7.3" dbms="POSTGRES" exact-version="15.13" exact-driver-version="42.7">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <user-name>kinopub_admin</user-name>
+      <user-name>dima</user-name>
       <schema-mapping>
         <introspection-scope>
           <node kind="database" qname="@">

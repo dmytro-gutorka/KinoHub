@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import getMediaDataByTitle from '../api/getMediaDataByTitle';
+import getMediaByTitle from '../api/TMDB/getMediaByTitle';
 
 const useSearchedMedia = (qrKey, page, searchQuery, mediaType) => {
   return useQuery({
-    queryFn: () => getMediaDataByTitle(page, searchQuery, mediaType),
+    queryFn: () => getMediaByTitle(page, searchQuery, mediaType),
     queryKey: [qrKey, page, searchQuery],
     enabled: searchQuery.length >= 2,
   });

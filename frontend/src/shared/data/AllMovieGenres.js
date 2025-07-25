@@ -1,4 +1,4 @@
-const MovieGenres = [
+const AllMovieGenres = [
   {
     id: 28,
     name: 'Action',
@@ -77,4 +77,4 @@ const MovieGenres = [
   },
 ];
 
-export default MovieGenres;
+export default AllMovieGenres;

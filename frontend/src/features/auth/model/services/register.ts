@@ -14,7 +14,6 @@ export const register = createAsyncThunk<User, UserRegisterCredentials, { reject
       );
       return response.data;
     } catch (err: AxiosError<{ message: string }>) {
-      console.log(err.response.data.message);
       return rejectWithValue(err.response.data.message || 'Something went wrong');
     }
   }
