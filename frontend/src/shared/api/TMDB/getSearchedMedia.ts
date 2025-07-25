@@ -1,4 +1,4 @@
-import { TMDB_URL, TMDB_OPTIONS } from '@app/constants';
+import { TMDB_URL, TMDB_HEADERS } from '@app/constants';
 
 // @ts-ignore
 import axios from 'axios';
@@ -10,7 +10,7 @@ async function getSearchedMedia({
   searchQuery = '',
 }: SearchedMediaParams) {
   const response = await axios.get(`${TMDB_URL}/search/${mediaType}`, {
-    ...TMDB_OPTIONS,
+    ...TMDB_HEADERS,
     params: { query: searchQuery, page },
   });
 

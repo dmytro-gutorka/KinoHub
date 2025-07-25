@@ -4,8 +4,7 @@ export const TMDB_URL = 'https://api.themoviedb.org/3';
 export const CLIENT_URL = 'http://localhost:3000';
 export const API_URL = 'http://localhost:8080/api/v1';
 
-export const TMDB_OPTIONS = {
-  method: 'GET',
+export const TMDB_HEADERS = {
   headers: {
     accept: 'application/json',
     Authorization:

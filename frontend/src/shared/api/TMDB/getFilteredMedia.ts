@@ -1,4 +1,4 @@
-import { TMDB_URL, TMDB_OPTIONS } from '@app/constants';
+import { TMDB_URL, TMDB_HEADERS } from '@app/constants';
 import { MediaFiltersBase, MediaType, SortBy } from '@shared/types/generalTypes';
 
 // @ts-ignore
@@ -14,7 +14,7 @@ async function getFilteredMedia({
   const genreString: string = genres.map((g) => g.id).join('|');
 
   const response = await axios.get(`${TMDB_URL}/discover/${mediaType}`, {
-    ...TMDB_OPTIONS,
+    ...TMDB_HEADERS,
     params: {
       page,
       sort_by: sortBy,

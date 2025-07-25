@@ -2,9 +2,20 @@ import { Divider, Stack } from '@mui/material';
 
 import MediaSection from '../../shared/ui/MediaSection';
 import useHomePageMedia from '../../widgets/Homepage/hooks/useHomePageMedia';
+import { useEffect } from 'react';
+import getSeasonDetails from '@shared/api/TMDB/getSeasonDetails';
 
 const Homepage = () => {
   const { data: homepageMediaData, isLoading, isError } = useHomePageMedia();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getSeasonDetails(124364, 1);
+      console.log(data);
+    };
+
+    fetchData().then((r) => console.log('Finish!'));
+  }, []);
 
   if (isLoading) return <div>Loading....</div>;
 
