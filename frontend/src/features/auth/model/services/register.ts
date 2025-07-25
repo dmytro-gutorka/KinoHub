@@ -1,16 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { RegisterAxiosResponse, User, UserRegisterCredentials } from '@features/auth/model/types';
+import { User, UserRegisterCredentials } from '@features/auth/model/types';
 import { API_URL, authEndpoints } from '@app/constants';
 // @ts-ignore
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
-export const register = createAsyncThunk(
+export const register = createAsyncThunk<User, UserRegisterCredentials, { rejectValue: string }>(
   'auth/register',
-  async (registrationData: UserRegisterCredentials): Promise<User> => {
-    const response: RegisterAxiosResponse = await axios.post(
-      `${API_URL}/${authEndpoints.REGISTER}`,
-      registrationData
-    );
-    return response?.data;
+  async (registrationData, { rejectWithValue }) => {
+    try {
+      const response = await axios.post<User>(
+        `${API_URL}/${authEndpoints.REGISTER}`,
+        registrationData
+      );
+      return response.data;
+    } catch (err: AxiosError<{ message: string }>) {
+      console.log(err.response.data.message);
+      return rejectWithValue(err.response.data.message || 'Something went wrong');
+    }
   }
 );

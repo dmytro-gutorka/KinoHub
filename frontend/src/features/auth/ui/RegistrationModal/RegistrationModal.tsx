@@ -1,7 +1,7 @@
 import { DialogContent, Stack, Typography, useTheme } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import LogoIcon from '@shared/icons/LogoIcon';
-import SignUpForm from '@features/auth/ui/RegistrationForm';
+import RegistrationForm from '@features/auth/ui/RegistrationForm';
 import CloseIcon from '@mui/icons-material/Close';
 
 interface SignUpModalProps {
@@ -28,7 +28,7 @@ const RegistrationModal = ({ isOpen, setOpenRegistrationModal }: SignUpModalProp
           <Typography>Create your account to start tracking movies</Typography>
         </Stack>
         <Stack sx={{ padding: 6, background: 'transparent' }}>
-          <SignUpForm />
+          <RegistrationForm setOpenRegistrationModal={setOpenRegistrationModal} />
         </Stack>
       </DialogContent>
       <Typography>Already have an account? Sign in</Typography>

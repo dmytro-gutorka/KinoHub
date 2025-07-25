@@ -1,5 +1,5 @@
 // @ts-ignore
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { API_URL, authEndpoints } from '@app/constants';
 import { UserAuthData } from '@features/auth/model/types';
 import { setAccessToken } from '@shared/helpers/localStorage/setAccessToken';
@@ -7,7 +7,7 @@ import { getAccessToken } from '@shared/helpers/localStorage/getAccessToken';
 
 export const axiosInstanceWithRefresh = axios.create({
   withCredentials: true,
-  baseURL: `${API_URL}/auth`,
+  baseURL: `${API_URL}`,
 });
 
 axiosInstanceWithRefresh.interceptors.request.use((config: any) => {
@@ -20,10 +20,8 @@ axiosInstanceWithRefresh.interceptors.request.use((config: any) => {
 
 axiosInstanceWithRefresh.interceptors.response.use(
   (response: any): any => response,
-  async (error: any): Promise<any> => {
+  async (error: AxiosError): Promise<any> => {
     const originalRequest = error.config;
-
-    console.log(originalRequest);
 
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
@@ -34,13 +32,17 @@ axiosInstanceWithRefresh.interceptors.response.use(
 
         setAccessToken(newAccessToken);
 
-        originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
-
+        originalRequest.headers = {
+          ...(originalRequest.headers || {}),
+          Authorization: `Bearer ${newAccessToken}`,
+        };
         return axiosInstanceWithRefresh.request(originalRequest);
       } catch (refreshError) {
         console.log(`Refresh token failed ${refreshError}`);
-        return Promise.reject(error);
+        return Promise.reject(refreshError);
       }
     }
+
+    return Promise.reject(error);
   }
 );

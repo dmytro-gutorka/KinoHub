@@ -4,9 +4,9 @@ import { useAppDispatch } from '@shared/hooks/redux';
 import { login } from '@features/auth/model/services/login';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { selectLoginError, selectLoginStatus } from '@features/auth/model/selectors';
 import TextField from '@mui/material/TextField';
 import { RequestStatus } from '@features/auth/model/types';
+import { selectRequestError, selectRequestStatus } from '@features/auth/model/selectors';
 
 type Inputs = {
   email: string;
@@ -26,8 +26,8 @@ const LoginForm = ({ setOpenLoginModal }: LoginFormProps) => {
 
   const dispatch = useAppDispatch();
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => dispatch(login(data));
-  const loginStatus: RequestStatus = useSelector(selectLoginStatus('auth/login'));
-  const loginError: string | null = useSelector(selectLoginError('auth/login'));
+  const loginStatus: RequestStatus = useSelector(selectRequestStatus('auth/login'));
+  const loginError: string | null = useSelector(selectRequestError('auth/login'));
 
   useEffect(() => {
     if (loginStatus === 'success') setOpenLoginModal(false);

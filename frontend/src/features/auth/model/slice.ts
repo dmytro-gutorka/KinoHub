@@ -1,9 +1,9 @@
-import { AuthState, UserAuthData } from '@features/auth/model/types';
-import { Action, createSlice, PayloadAction, UnknownAction } from '@reduxjs/toolkit';
-import { login } from '@features/auth/model/services/login';
-import { logout } from '@features/auth/model/services/logout';
-import { checkAuth } from '@features/auth/model/services/checkAuth';
 import { isAuthFulfilled, isAuthPending, isAuthRejected } from '@features/auth/model/matchers';
+import { AuthState, UserAuthData } from '@features/auth/model/types';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { checkAuth } from '@features/auth/model/services/checkAuth';
+import { logout } from '@features/auth/model/services/logout';
+import { login } from '@features/auth/model/services/login';
 
 const initialState: AuthState = {
   user: null,
@@ -19,7 +19,11 @@ const getPrefixFromType = (type: string): string => {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    setStateRequest: (state, action: PayloadAction<string>): void => {
+      state.requests[action.payload] = { status: 'idle', error: null };
+    },
+  },
   extraReducers: (builder): void => {
     builder.addCase(logout.fulfilled, (): AuthState => initialState);
     builder.addCase(login.fulfilled, (state, action: PayloadAction<UserAuthData>): void => {
@@ -51,6 +55,6 @@ const authSlice = createSlice({
 });
 
 const { reducer: authReducer, actions: authActions } = authSlice;
-export const {} = authActions;
+export const { setStateRequest } = authActions;
 
 export default authReducer;

@@ -1,6 +1,3 @@
-// @ts-ignore
-import { AxiosResponse } from 'axios';
-
 export interface User {
   id: number;
   email: string;
@@ -32,6 +29,3 @@ export interface UserAuthData {
   data: User;
   accessToken: string;
 }
-
-export type LoginAxiosResponse = AxiosResponse<UserAuthData>;
-export type RegisterAxiosResponse = AxiosResponse<User>;

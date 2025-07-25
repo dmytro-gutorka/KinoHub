@@ -4,16 +4,13 @@ import { API_URL, authEndpoints } from '@app/constants';
 import { setAccessToken } from '@shared/helpers/localStorage/setAccessToken';
 
 // @ts-ignore
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 export const checkAuth = createAsyncThunk('auth/checkAuth', async (): Promise<UserAuthData> => {
   try {
-    const response: AxiosResponse<UserAuthData> = await axios.get(
-      `${API_URL}/${authEndpoints.REFRESH}`,
-      {
-        withCredentials: true,
-      }
-    );
+    const response = await axios.get<UserAuthData>(`${API_URL}/${authEndpoints.REFRESH}`, {
+      withCredentials: true,
+    });
 
     const accessToken: string = response?.data?.accessToken;
     setAccessToken(accessToken);

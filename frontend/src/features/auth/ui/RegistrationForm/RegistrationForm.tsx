@@ -1,8 +1,13 @@
-import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import TextField from '@mui/material/TextField';
+import { RequestStatus } from '@features/auth/model/types';
+import { SubmitHandler, useForm, Controller } from 'react-hook-form';
 import { Button, Stack } from '@mui/material';
+import { selectRequestError, selectRequestStatus } from '@features/auth/model/selectors';
 import { useAppDispatch } from '@shared/hooks/redux';
 import { register } from '@features/auth/model/services/register';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import TextField from '@mui/material/TextField';
+import { setStateRequest } from '@features/auth/model/slice';
 
 type Inputs = {
   email: string;
@@ -10,18 +15,33 @@ type Inputs = {
   password: string;
 };
 
-const RegistrationForm = () => {
+interface RegistrationFormProps {
+  setOpenRegistrationModal: (a: boolean) => void;
+}
+
+const RegistrationForm = ({ setOpenRegistrationModal }: RegistrationFormProps) => {
   const {
     handleSubmit,
     control,
     formState: { errors },
   } = useForm<Inputs>();
 
-  const dispatch = useAppDispatch();
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => dispatch(register(data));
+
+  const dispatch = useAppDispatch();
+  const registerStatus: RequestStatus = useSelector(selectRequestStatus('auth/register'));
+  const registerError: string | null = useSelector(selectRequestError('auth/register'));
+
+  console.log(registerStatus);
+
+  useEffect(() => {
+    if (registerStatus === 'success') setOpenRegistrationModal(false);
+  }, [setOpenRegistrationModal, registerStatus]);
 
   return (
     <Stack component="form" onSubmit={handleSubmit(onSubmit)} gap={4}>
+      {registerError && <div>{registerError}</div>}
+
       <Controller
         name="username"
         rules={{ required: true }}
