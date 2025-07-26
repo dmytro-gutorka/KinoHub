@@ -1,8 +1,8 @@
 import { CLIENT_URL } from '@app/constants';
 
-async function getMediaActionBySeason(id, season) {
+async function getEpisodeListActions(id: number, season: number) {
   const res = await fetch(`${CLIENT_URL}movies/${id}/actions?season=${season}`);
   return await res.json();
 }
 
-export default getMediaActionBySeason;
+export default getEpisodeListActions;

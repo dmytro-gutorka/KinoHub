@@ -1,6 +1,6 @@
 // @ts-ignore
 import axios, { AxiosError } from 'axios';
-import { API_URL, authEndpoints } from '@app/constants';
+import { API_URL, AUTH_ENDPOINTS } from '@app/constants';
 import { UserAuthData } from '@features/auth/model/types';
 import { setAccessToken } from '@shared/helpers/localStorage/setAccessToken';
 import { getAccessToken } from '@shared/helpers/localStorage/getAccessToken';
@@ -27,7 +27,7 @@ axiosInstanceWithRefresh.interceptors.response.use(
       originalRequest._retry = true;
 
       try {
-        const response = await axios.get<UserAuthData>(`${API_URL}/${authEndpoints.REFRESH}`);
+        const response = await axios.get<UserAuthData>(`${API_URL}/${AUTH_ENDPOINTS.REFRESH}`);
         const newAccessToken = response?.data?.accessToken;
 
         setAccessToken(newAccessToken);

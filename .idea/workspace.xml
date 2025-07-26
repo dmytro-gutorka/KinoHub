@@ -5,15 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32ea58b3-a6ca-4053-918f-3466849c7832.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32ea58b3-a6ca-4053-918f-3466849c7832.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeItem/episodeItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeItem/episodeItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/services/checkAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/services/checkAuth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/services/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/services/login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/services/logout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/services/logout.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/services/register.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/services/register.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/TMDB/getFilteredMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/TMDB/getFilteredMedia.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/TMDB/getMediaDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/TMDB/getMediaDetails.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/TMDB/getSearchedMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/TMDB/getSearchedMedia.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/TMDB/getSeasonDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/TMDB/getSeasonDetails.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/TMDB/getFilteredMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/tmdb/getFilteredMedia.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/TMDB/getMediaDetails.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/tmdb/getMediaDetails.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/TMDB/getSearchedMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/tmdb/getSearchedMedia.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/TMDB/getSeasonDetails.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/tmdb/getSeasonDetails.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/axios/axiosInstanceWithRefresh.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/axios/axiosInstanceWithRefresh.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/createMediaAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/createMediaAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/getMediaActionBySeason.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/getEpisodeAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/getMediaActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/getMediaAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/getMediaRating.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/getUserStats.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/getWatchBoardMedia.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/updateMediaAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/updateMediaAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/updateMovieBoardItemStatus.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useFilteredMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useFilteredMedia.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useMediaAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useMediaAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useSearchedMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useSearchedMedia.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/Homepage/api/getHomepageMediaData.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/Homepage/api/getHomepageMediaData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaDetailsPage/hooks/useMediaDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaDetailsPage/hooks/useMediaDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/hooks/useTvShowSeasonDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/hooks/useTvShowSeasonDetails.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +208,7 @@
       <workItem from="1753405908365" duration="1302000" />
       <workItem from="1753408003846" duration="330000" />
       <workItem from="1753408345104" duration="10293000" />
-      <workItem from="1753465279134" duration="6895000" />
+      <workItem from="1753465279134" duration="17015000" />
     </task>
     <servers />
   </component>

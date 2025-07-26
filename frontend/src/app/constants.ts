@@ -1,6 +1,5 @@
 export const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w780';
 export const TMDB_URL = 'https://api.themoviedb.org/3';
-
 export const CLIENT_URL = 'http://localhost:3000';
 export const API_URL = 'http://localhost:8080/api/v1';
 
@@ -17,20 +16,19 @@ export const TMDB_ENDPOINTS = {
   TRENDING_TV: 'trending/tv/week',
   TV_AIRING_TODAY: 'tv/airing_today',
   MOVIE_TOP_RATED: 'movie/top_rated',
-};
+} as const;
 
 export const MEDIA_ACTIONS = {
-  isWatched: 'is-watched',
-  isLiked: 'like',
-  rating: 'rating',
-  watchStatus: 'watch-status',
-};
+  IS_WATCHED: 'isWatched',
+  IS_LIKED: 'isLiked',
+  RATING: 'rating',
+  WATCH_STATUS: 'watchStatus',
+} as const;
 
-export enum authEndpoints {
-  LOGOUT = 'auth/logout',
-  LOGIN = 'auth/login',
-  REGISTER = 'auth/register',
-  REFRESH = 'auth/refresh',
-}
-
-export const USER_ID = 1;
+export const WATCH_STATUS = {
+  TO_WATCH: 'toWatch',
+  IS_WATCHING: 'isWatching',
+  ON_HOLD: 'onHold',
+  FAVORITES: 'favorites',
+  ARCHIVED: 'archived',
+} as const;

@@ -1,3 +1,5 @@
+import { MEDIA_ACTIONS, WATCH_STATUS } from '@app/constants';
+
 export type MediaType = 'movie' | 'tv';
 
 export enum SortBy {
@@ -26,3 +28,6 @@ export interface SearchedMediaParams {
   searchQuery: string;
   mediaType: MediaType;
 }
+
+export type MediaAction = (typeof MEDIA_ACTIONS)[keyof typeof MEDIA_ACTIONS];
+export type WatchStatus = (typeof WATCH_STATUS)[keyof typeof WATCH_STATUS];

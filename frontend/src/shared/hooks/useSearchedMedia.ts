@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import getSearchedMedia from '../api/TMDB/getSearchedMedia';
+import getSearchedMedia from '@shared/api/tmdb/getSearchedMedia';
 import { SearchedMediaParams } from '@shared/types/generalTypes';
 
 interface SearchedMediaForQuery extends SearchedMediaParams {

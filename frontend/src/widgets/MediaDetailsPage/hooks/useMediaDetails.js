@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import getMediaDetails from '@shared/api/TMDB/getMediaDetails';
+import getMediaDetails from '@shared/api/tmdb/getMediaDetails';
 import createMediaActions from '@shared/api/kinohub/createMediaAction';
 import parseMediaDetails from '../../../shared/helpers/parseMediaDetails';
 

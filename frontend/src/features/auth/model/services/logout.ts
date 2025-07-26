@@ -1,10 +1,10 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { API_URL, authEndpoints } from '@app/constants';
-import { axiosInstanceWithRefresh } from '@shared/api/axios/axiosInstanceWithRefresh';
 import { removeAccessToken } from '@shared/helpers/localStorage/removeAccessToken';
+import { axiosInstanceWithRefresh } from '@shared/api/axios/axiosInstanceWithRefresh';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { api } from '@shared/api/kinohub/apiPaths';
 
 export const logout = createAsyncThunk('auth/logout', async () => {
-  await axiosInstanceWithRefresh.post(`${API_URL}/${authEndpoints.LOGOUT}`);
+  await axiosInstanceWithRefresh.post(api.auth.logout());
 
   removeAccessToken();
 });

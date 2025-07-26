@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import getTvShowSeasonDetails from '@shared/api/TMDB/getSeasonDetails';
+import getTvShowSeasonDetails from '@shared/api/tmdb/getSeasonDetails';
 import createMediaAction from '@shared/api/kinohub/createMediaAction';
 import parseEpisodesData from '../../../shared/helpers/parseEpisodeData';
-import getMediaActionBySeason from '@shared/api/kinohub/getMediaActionBySeason';
+import getEpisodeActions from '@shared/api/kinohub/getEpisodeAction';
 
 export default function useTvShowSeasonDetails(tvShowId, tvSeason) {
   const { data: data, isSuccess } = useQuery({
@@ -21,7 +21,7 @@ export default function useTvShowSeasonDetails(tvShowId, tvSeason) {
 
   const { data: episodeMediaData, isLoading } = useQuery({
     queryKey: ['tvShowSeasonActions', tvShowId, tvSeason],
-    queryFn: () => getMediaActionBySeason(tvShowId, tvSeason),
+    queryFn: () => getEpisodeActions(tvShowId, tvSeason),
     select: (episodes) => episodes.map(({ isWatched }) => ({ isWatched: isWatched })),
     staleTime: 0,
     enabled: isSuccess,
