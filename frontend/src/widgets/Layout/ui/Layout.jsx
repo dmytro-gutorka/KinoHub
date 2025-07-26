@@ -1,7 +1,7 @@
 import { Stack, useTheme } from '@mui/material';
 import { Outlet } from 'react-router';
 
-import AsideBar from '../AsideBar';
+import AsideBar from '../../AsideBar';
 import Header from '@widgets/Header';
 
 const Layout = () => {

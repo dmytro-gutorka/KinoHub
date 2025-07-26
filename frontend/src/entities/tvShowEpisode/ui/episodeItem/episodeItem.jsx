@@ -5,7 +5,7 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import updateMediaAction from '@shared/api/kinohub/updateMediaAction';
+import updateMediaAction from '@shared/api/kinohub/services/updateMediaAction';
 import getYearFromDate from '../../../../shared/helpers/getYearFromDate';
 import LabelWithIcon from '../../../../shared/ui/LabelWithIcon';
 import getPosterURL from '../../../../shared/helpers/getPosterURL';

@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import getMediaDetails from '@shared/api/tmdb/getMediaDetails';
-import createMediaActions from '@shared/api/kinohub/createMediaAction';
+import getMediaDetails from '@shared/api/tmdb/services/getMediaDetails';
+import createMediaActions from '@shared/api/kinohub/services/createMediaAction';
 import parseMediaDetails from '../../../shared/helpers/parseMediaDetails';
 
 export default function useMediaDetails(mediaId, mediaType) {

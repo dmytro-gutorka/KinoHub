@@ -1,20 +1,19 @@
 import { TMDB_HEADERS, TMDB_URL } from '@app/constants';
 
-// @ts-ignore
-import axios, { AxiosInstance } from 'axios';
+import axios from 'axios';
 import {
   MediaFiltersBase,
   MediaType,
   SearchedMediaParams,
   SortBy,
 } from '@shared/types/generalTypes';
+import AxiosInstance = Axios.AxiosInstance;
 
 class TmdbService {
-  public axiosInstance: any;
+  public axiosInstance: AxiosInstance;
 
   constructor() {
     this.axiosInstance = axios.create({
-      method: 'get',
       baseURL: TMDB_URL,
       headers: TMDB_HEADERS.headers,
     });

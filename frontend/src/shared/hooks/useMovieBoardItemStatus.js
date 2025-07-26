@@ -1,5 +1,4 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import updateMovieBoardItemStatus from '../api/kinohub/updateMovieBoardItemStatus';
 
 export default function useMovieBoardItemStatus() {
   const queryClient = useQueryClient();

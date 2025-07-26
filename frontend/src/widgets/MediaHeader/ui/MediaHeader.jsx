@@ -12,13 +12,13 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import { Box, Button, Container, Stack, Typography, useTheme } from '@mui/material';
 
-import getPosterURL from '../../shared/helpers/getPosterURL';
-import getYearFromDate from '../../shared/helpers/getYearFromDate';
-import useMediaAction from '../../shared/hooks/useMediaAction';
-import BackgroundBanner from '../../shared/ui/BackgroundBanner';
-import ButtonList from '../../shared/ui/ButtonList';
-import GenreChipList from '../../shared/ui/GenreChipList';
-import LabelList from '../../shared/ui/LabeList/LabelList';
+import getPosterURL from '@shared/helpers/getPosterURL';
+import getYearFromDate from '@shared/helpers/getYearFromDate';
+import useMediaAction from '@shared/hooks/useMediaAction';
+import BackgroundBanner from '@shared/ui/BackgroundBanner';
+import ButtonList from '@shared/ui/ButtonList';
+import GenreChipList from '@shared/ui/GenreChipList';
+import LabelList from '@shared/ui/LabeList/LabelList';
 
 const MediaHeader = ({ mediaDataWithActions, mediaType }) => {
   const {

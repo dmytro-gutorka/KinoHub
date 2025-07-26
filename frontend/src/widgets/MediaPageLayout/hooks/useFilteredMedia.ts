@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import getFilteredMedia from '@shared/api/tmdb/getFilteredMedia';
+import getFilteredMedia from '@shared/api/tmdb/services/getFilteredMedia';
 import { MediaFiltersBase, MediaType } from '@shared/types/generalTypes';
 
 interface MediaFiltersForQuery extends MediaFiltersBase {

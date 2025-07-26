@@ -1,15 +1,15 @@
 import { MediaType } from '@shared/types/generalTypes';
 import { Stack, CircularProgress, Pagination, TextField } from '@mui/material';
-import { useMediaFilters } from '@shared/hooks/useMediaFilters';
+import { useMediaFilters } from '@widgets/MediaPageLayout/hooks/useMediaFilters';
 
-import useFilteredMedia from '@shared/hooks/useFilteredMedia';
-import useSearchedMedia from '@shared/hooks/useSearchedMedia';
+import useFilteredMedia from '@widgets/MediaPageLayout/hooks/useFilteredMedia';
+import useSearchedMedia from '@widgets/MediaPageLayout/hooks/useSearchedMedia';
 import MultipleSelect from '@shared/ui/MultipleSelect';
-import BasicSelect from '../../shared/ui/BasicSelect';
+import BasicSelect from '@shared/ui/BasicSelect';
 import SliderBar from '@shared/ui/SliderBar';
-import MediaCardList from '../../shared/ui/MediaCardList';
-import AllMovieGenres from '../../shared/data/AllMovieGenres';
-import AllTvShowGenres from '../../shared/data/AllTvShowGenres';
+import MediaCardList from '@shared/ui/MediaCardList';
+import AllMovieGenres from '@shared/data/AllMovieGenres';
+import AllTvShowGenres from '@shared/data/AllTvShowGenres';
 
 interface MediaPageLayoutProps {
   qrKey: string;

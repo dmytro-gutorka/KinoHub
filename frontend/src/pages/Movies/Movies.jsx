@@ -1,4 +1,4 @@
-import MediaPageLayout from '../../widgets/MediaPageLayout';
+import MediaPageLayout from '@widgets/MediaPageLayout';
 
 const Movies = () => {
   return <MediaPageLayout qrKey="movies" mediaType="movie" />;

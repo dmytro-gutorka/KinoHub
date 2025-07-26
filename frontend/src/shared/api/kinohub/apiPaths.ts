@@ -1,5 +1,7 @@
 import { API_URL } from '@app/constants';
 
+const getMediaActionUrl = (movieId: number) => `${API_URL}/actions/${movieId}`;
+
 export const api = {
   media: {},
   auth: {
@@ -9,9 +11,9 @@ export const api = {
     refresh: () => `${API_URL}/auth/refresh`,
   },
   actions: {
-    getMediaAction: (movieId: number) => `${API_URL}/actions/${movieId}`,
-    updateMediaAction: (movieId: number) => `${API_URL}/actions/${movieId}`,
-    createMediaAction: (movieId: number) => `${API_URL}/actions/${movieId}`,
+    getMediaAction: (movieId: number) => getMediaActionUrl(movieId),
+    updateMediaAction: (movieId: number) => getMediaActionUrl(movieId),
+    createMediaAction: (movieId: number) => getMediaActionUrl(movieId),
   },
   episode: {},
 };

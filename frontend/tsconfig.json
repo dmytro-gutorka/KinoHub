@@ -11,6 +11,8 @@
     "isolatedModules": true,
     "strict": true,
     "baseUrl": "./src",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "typeRoots": ["./src/app", "./node_modules/@types"],
     "paths": {
       "@app/*": ["app/*"],

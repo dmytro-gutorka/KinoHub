@@ -1,33 +1,38 @@
-// @ts-ignore
-import axios, { AxiosError } from 'axios';
-import { API_URL, AUTH_ENDPOINTS } from '@app/constants';
 import { UserAuthData } from '@features/auth/model/types';
+import { API_URL } from '@app/constants';
+import { api } from '@shared/api/kinohub/apiPaths';
 import { setAccessToken } from '@shared/helpers/localStorage/setAccessToken';
 import { getAccessToken } from '@shared/helpers/localStorage/getAccessToken';
 
-export const axiosInstanceWithRefresh = axios.create({
+import axios from 'axios';
+
+export const axiosWithAuth = axios.create({
+  baseURL: API_URL,
   withCredentials: true,
-  baseURL: `${API_URL}`,
+  headers: {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+  },
 });
 
-axiosInstanceWithRefresh.interceptors.request.use((config: any) => {
-  const token: string | null = getAccessToken();
+axiosWithAuth.interceptors.request.use((config: any) => {
+  const accessToken: string | null = getAccessToken();
 
-  if (token && config.headers) config.headers.Authorization = `Bearer ${token}`;
+  if (accessToken && config.headers) config.headers.Authorization = `Bearer ${accessToken}`;
 
   return config;
 });
 
-axiosInstanceWithRefresh.interceptors.response.use(
+axiosWithAuth.interceptors.response.use(
   (response: any): any => response,
-  async (error: AxiosError): Promise<any> => {
+  async (error): Promise<any> => {
     const originalRequest = error.config;
 
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       try {
-        const response = await axios.get<UserAuthData>(`${API_URL}/${AUTH_ENDPOINTS.REFRESH}`);
+        const response = await axios.get<UserAuthData>(api.auth.refresh());
         const newAccessToken = response?.data?.accessToken;
 
         setAccessToken(newAccessToken);
@@ -36,7 +41,7 @@ axiosInstanceWithRefresh.interceptors.response.use(
           ...(originalRequest.headers || {}),
           Authorization: `Bearer ${newAccessToken}`,
         };
-        return axiosInstanceWithRefresh.request(originalRequest);
+        return axiosWithAuth.request(originalRequest);
       } catch (refreshError) {
         console.log(`Refresh token failed ${refreshError}`);
         return Promise.reject(refreshError);

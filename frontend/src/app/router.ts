@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router';
 import { QueryClient } from '@tanstack/react-query';
 
 import Shows from '../pages/Shows';
-import Layout from '../widgets/Layout';
+import Layout from '@widgets/Layout';
 import Movies from '../pages/Movies';
 import Homepage from '../pages/Homepage';
 import MediaDetailsPage from '../pages/MediaDetailsPage';
