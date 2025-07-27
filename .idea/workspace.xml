@@ -6,20 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/actions.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/actions.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/media.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/media.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeItem/episodeItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeItem/episodeItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/apiPaths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/apiPaths.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/createMediaAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/actions/createMediaAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/getEpisodeAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/episode/getEpisodeAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/getMediaAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/actions/getMediaAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/updateMediaAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/actions/updateMediaAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useMediaAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useMediaAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaDetailsPage/hooks/useMediaDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaDetailsPage/hooks/useMediaDetails.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/ui/MediaHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/ui/MediaHeader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/hooks/useTvShowSeasonDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/hooks/useTvShowSeasonDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/media.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/media.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +184,7 @@
       <workItem from="1753408345104" duration="10293000" />
       <workItem from="1753465279134" duration="22360000" />
       <workItem from="1753556531510" duration="3569000" />
-      <workItem from="1753641641060" duration="6017000" />
+      <workItem from="1753641641060" duration="6813000" />
     </task>
     <servers />
   </component>

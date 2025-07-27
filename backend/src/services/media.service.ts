@@ -3,6 +3,7 @@ import { mediaRepository } from '../repositories/media.repository.js';
 import { HttpError } from '../errors/HttpError.js';
 import { MediaInfo } from '../entity/MediaInfo.js';
 import axios from 'axios';
+import { TMDB_BASE_URL, TMDB_OPTIONS } from '../utils/constants/TMDB.js';
 
 export class MediaService {
   async read(mediaId: number): Promise<MediaInfo> {
@@ -18,7 +19,8 @@ export class MediaService {
 
     if (isMediaExists) throw HttpError.Conflict('Media already exists');
 
-    const data = await axios.get();
+    const data = await axios.get(`${TMDB_BASE_URL}/${mediaType}/${mediaId}`, TMDB_OPTIONS);
+    console.log(data.data);
 
     const media: MediaInfo = mediaRepository.create({ mediaId, mediaType });
     await mediaRepository.save(media);
