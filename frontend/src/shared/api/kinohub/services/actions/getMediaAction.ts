@@ -1,8 +1,8 @@
 import { axiosWithAuth } from '@shared/api/kinohub/kinohubAxios';
 import { api } from '@shared/api/kinohub/apiPaths';
 
-async function getMediaAction(movieId: number) {
-  const response = await axiosWithAuth.get(api.actions.getMediaAction(movieId));
+async function getMediaAction(mediaId: number) {
+  const response = await axiosWithAuth.get(api.actions.getMediaAction(mediaId));
 
   return response?.data;
 }

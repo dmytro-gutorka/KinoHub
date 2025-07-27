@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { getActionForURL } from '../helpers/getActionForURL';
-import updateMediaAction from '../api/kinohub/services/updateMediaAction';
+import updateMediaAction from '../api/kinohub/services/actions/updateMediaAction';
 
 export default function useMediaAction(qrKey, mediaID) {
   const queryClient = useQueryClient();

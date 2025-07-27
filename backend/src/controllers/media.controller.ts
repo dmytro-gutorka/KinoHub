@@ -12,11 +12,11 @@ export async function readMedia(req: Request, res: Response): Promise<void> {
 }
 
 export async function createMedia(
-  req: Request<any, any, any, { mediaType: MediaType }>,
+  req: Request<any, any, any, { media_type: MediaType }>,
   res: Response
 ): Promise<void> {
   const mediaId: number = Number(req.params.mediaId);
-  const mediaType: MediaType = req.query.mediaType;
+  const mediaType: MediaType = req.query.media_type;
 
   const media: MediaInfo = await mediaService.create(mediaId, mediaType);
 

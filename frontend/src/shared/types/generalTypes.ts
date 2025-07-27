@@ -31,3 +31,13 @@ export interface SearchedMediaParams {
 
 export type MediaAction = (typeof MEDIA_ACTIONS)[keyof typeof MEDIA_ACTIONS];
 export type WatchStatus = (typeof WATCH_STATUS)[keyof typeof WATCH_STATUS];
+
+export interface MediaDetails {
+  mediaId: number;
+  runtime: number;
+  releaseDate: string;
+  title: string;
+  posterPath: string;
+  voteAverage: number;
+  mediaType: MediaType;
+}

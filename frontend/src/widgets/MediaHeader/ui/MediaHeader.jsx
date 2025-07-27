@@ -16,8 +16,8 @@ import getPosterURL from '@shared/helpers/getPosterURL';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 import useMediaAction from '@shared/hooks/useMediaAction';
 import BackgroundBanner from '@shared/ui/BackgroundBanner';
-import ButtonList from '@shared/ui/ButtonList';
 import GenreChipList from '@shared/ui/GenreChipList';
+import ButtonList from '@shared/ui/ButtonList';
 import LabelList from '@shared/ui/LabeList/LabelList';
 
 const MediaHeader = ({ mediaDataWithActions, mediaType }) => {

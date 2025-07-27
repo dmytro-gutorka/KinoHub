@@ -2,6 +2,7 @@ import { MediaType } from '../types/types.js';
 import { mediaRepository } from '../repositories/media.repository.js';
 import { HttpError } from '../errors/HttpError.js';
 import { MediaInfo } from '../entity/MediaInfo.js';
+import axios from 'axios';
 
 export class MediaService {
   async read(mediaId: number): Promise<MediaInfo> {
@@ -16,6 +17,8 @@ export class MediaService {
     const isMediaExists: MediaInfo | null = await mediaRepository.findOneBy({ mediaId });
 
     if (isMediaExists) throw HttpError.Conflict('Media already exists');
+
+    const data = await axios.get();
 
     const media: MediaInfo = mediaRepository.create({ mediaId, mediaType });
     await mediaRepository.save(media);

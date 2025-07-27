@@ -1,14 +1,14 @@
 import { Box, Container } from '@mui/material';
 import { useLoaderData, useParams } from 'react-router';
 
-import useMediaDetails from '../../widgets/MediaDetailsPage/hooks/useMediaDetails';
 import MediaHeader from '../../widgets/MediaHeader';
 import MediaOverview from '../../widgets/MediaOverview';
+import useEnsureMediaDetails from '@widgets/MediaDetailsPage/hooks/useMediaDetails';
 
 const MediaDetailsPage = () => {
   const mediaType = useLoaderData();
   const { id } = useParams();
-  const { mediaDataWithActions } = useMediaDetails(Number(id), mediaType);
+  const { mediaDataWithActions } = useEnsureMediaDetails(Number(id), mediaType);
 
   if (mediaDataWithActions) {
     return (
