@@ -13,15 +13,21 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  entities: ['dist/entity/**/*.js'], // is a path correct ???
-  migrations: ['dist/migration/**/*.js'],
+  schema: 'public',
   synchronize: true,
   logging: false,
-  dropSchema: false, // ?
+  dropSchema: false,
+  entities: [__dirname + '/../entity/**/*.js'],
+  migrations: [__dirname + '/../migration/**/*.js'],
 });
 
 export async function initDB() {
-  AppDataSource.initialize()
-    .then(() => console.log(`Database "${process.env.DB_DATABASE}" is initialized`))
-    .catch((error) => console.error('Connection error:', error));
+  try {
+    await AppDataSource.initialize();
+    console.log(`Database "${process.env.DB_DATABASE}" is initialized`);
+    return true;
+  } catch (error) {
+    console.error('Connection error:', error);
+    throw error;
+  }
 }

@@ -3,10 +3,14 @@ import { MediaType } from '../types/types.js';
 import { mediaService } from '../services/media.service.js';
 import { MediaInfo } from '../entity/MediaInfo.js';
 
-export async function readMedia(req: Request, res: Response): Promise<void> {
+export async function readMedia(
+  req: Request<any, any, any, { media_type: MediaType }>,
+  res: Response
+): Promise<void> {
   const mediaId: number = Number(req.params.mediaId);
+  const mediaType: MediaType = req.query.media_type;
 
-  const media: MediaInfo = await mediaService.read(mediaId);
+  const media: MediaInfo = await mediaService.read(mediaId, mediaType);
 
   res.status(200).json(media);
 }
@@ -23,10 +27,14 @@ export async function createMedia(
   res.status(201).json(media);
 }
 
-export async function updateMedia(req: Request, res: Response): Promise<void> {
+export async function updateMedia(
+  req: Request<any, any, any, { media_type: MediaType }>,
+  res: Response
+): Promise<void> {
   const mediaId: number = Number(req.params.mediaId);
+  const mediaType: MediaType = req.query.media_type;
 
-  const media: MediaInfo = await mediaService.update(mediaId);
+  const media: MediaInfo = await mediaService.update(mediaId, mediaType);
 
   res.status(200).json(media);
 }

@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 import { User } from './User.js';
 
-@Entity()
+@Entity({ schema: 'public' })
 export class UserAuth extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;

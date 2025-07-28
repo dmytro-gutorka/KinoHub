@@ -1,6 +1,6 @@
 import { Entity, Column, BaseEntity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity({ schema: 'public' })
 export class MediaEpisode extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;

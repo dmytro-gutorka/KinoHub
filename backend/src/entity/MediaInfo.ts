@@ -1,13 +1,14 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, Relation } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, Relation, Unique } from 'typeorm';
 import { MediaUserAction } from './MediaUserAction.js';
 import { MediaType } from '../types/types.js';
 
-@Entity()
+@Entity({ schema: 'public' })
+@Unique(['mediaId', 'mediaType'])
 export class MediaInfo {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ unique: true })
+  @Column()
   mediaId!: number;
 
   @Column({ default: 0, type: 'double precision' })

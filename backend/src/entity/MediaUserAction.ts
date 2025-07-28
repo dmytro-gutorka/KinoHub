@@ -9,12 +9,16 @@ import {
 } from 'typeorm';
 import { WatchStatus } from '../types/types.js';
 import { MediaInfo } from './MediaInfo.js';
+import { MediaType } from 'express';
 
-@Entity()
-@Unique(['mediaInfo', 'userId'])
+@Entity({ schema: 'public' })
+@Unique(['mediaId', 'userId', 'mediaType'])
 export class MediaUserAction {
   @PrimaryGeneratedColumn()
   id!: number;
+
+  @Column()
+  mediaInfoId!: number;
 
   @Column()
   mediaId!: number;
@@ -34,11 +38,13 @@ export class MediaUserAction {
   @Column({ default: null, nullable: true, type: 'enum', enum: WatchStatus })
   watchStatus!: WatchStatus | null;
 
+  @Column()
+  mediaType!: 'tv' | 'movie';
+
   @ManyToOne(() => MediaInfo, (mediaInfo) => mediaInfo.userActions, {
     cascade: true,
     eager: true,
-    lazy: true,
   })
-  @JoinColumn({ name: 'mediaId', referencedColumnName: 'mediaId' })
+  @JoinColumn({ name: 'mediaInfoId' })
   mediaInfo!: Relation<MediaInfo>;
 }

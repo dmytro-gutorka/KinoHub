@@ -21,4 +21,7 @@ export class HttpError extends Error {
 
   public static Conflict = (msg: string = HttpError.generalErrorMessage) =>
     new HttpError(409, `Conflict: ${msg}`);
+
+  public static InternalServerError = (msg: string = HttpError.generalErrorMessage) =>
+    new HttpError(500, `Internal server error: ${msg}`);
 }

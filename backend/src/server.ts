@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-
 import cors from 'cors';
 import express from 'express';
 import cookieParser from 'cookie-parser';
@@ -15,7 +14,7 @@ app.use(
   cors({ origin: process.env.CLIENT_URL, credentials: true }),
   cookieParser(),
   json(),
-  urlencoded()
+  urlencoded({ extended: true })
 );
 
 app.use('/api/v1', publicRoutes);
@@ -28,7 +27,8 @@ async function startServer() {
     await initDB();
     app.listen(port, () => console.log(`Server is running on ${port} port`));
   } catch (error) {
-    console.error('Connecting error:', error);
+    console.error('Failed to start server:', error);
+    throw error;
   }
 }
 

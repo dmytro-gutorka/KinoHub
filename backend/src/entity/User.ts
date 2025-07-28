@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, OneToOne, Relation } from 'typeorm';
 import { UserAuth } from './UserAuth.js';
 
-@Entity()
+@Entity({ schema: 'public' })
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
