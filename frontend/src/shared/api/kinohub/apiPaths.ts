@@ -1,14 +1,16 @@
 import { API_URL } from '@app/constants';
 import { MediaType } from '@shared/types/generalTypes';
 
-const getMediaActionUrl = (mediaId: number) => `${API_URL}/actions/${mediaId}`;
+const getMediaActionUrl = (mediaId: number, mediaType: MediaType) =>
+  `${API_URL}/actions/${mediaId}?media_type=${mediaType}`;
+const getMediaUrl = (mediaId: number, mediaType: MediaType) =>
+  `${API_URL}/media/${mediaId}?media_type=${mediaType}`;
 
 export const api = {
   media: {
-    getMedia: (mediaId: number) => `${API_URL}/media/${mediaId}`,
-    updateMedia: (mediaId: number) => `${API_URL}/media/${mediaId}`,
-    createMedia: (mediaId: number, mediaType: MediaType) =>
-      `${API_URL}/media/${mediaId}?media_type=${mediaType}`,
+    getMedia: (mediaId: number, mediaType: MediaType) => getMediaUrl(mediaId, mediaType),
+    updateMedia: (mediaId: number, mediaType: MediaType) => getMediaUrl(mediaId, mediaType),
+    createMedia: (mediaId: number, mediaType: MediaType) => getMediaUrl(mediaId, mediaType),
   },
   auth: {
     login: () => `${API_URL}/auth/login`,
@@ -17,9 +19,12 @@ export const api = {
     refresh: () => `${API_URL}/auth/refresh`,
   },
   actions: {
-    getMediaAction: (mediaId: number) => getMediaActionUrl(mediaId),
-    updateMediaAction: (mediaId: number) => getMediaActionUrl(mediaId),
-    createMediaAction: (mediaId: number) => getMediaActionUrl(mediaId),
+    getMediaAction: (mediaId: number, mediaType: MediaType) =>
+      getMediaActionUrl(mediaId, mediaType),
+    updateMediaAction: (mediaId: number, mediaType: MediaType) =>
+      getMediaActionUrl(mediaId, mediaType),
+    createMediaAction: (mediaId: number, mediaType: MediaType) =>
+      getMediaActionUrl(mediaId, mediaType),
   },
   episode: {},
 };

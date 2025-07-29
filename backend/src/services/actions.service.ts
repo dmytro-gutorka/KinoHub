@@ -6,17 +6,20 @@ import { MediaInfo } from '../entity/MediaInfo.js';
 import { MediaUserAction } from '../entity/MediaUserAction.js';
 
 export class MediaUserActionsService {
-  async read(userId: number | undefined, mediaId: number): Promise<UserAction> {
-    const defaultUserAction: UserAction = {
-      isLiked: false,
-      isWatched: false,
-      rating: null,
-      watchStatus: null,
-    };
+  async read(
+    userId: number | undefined,
+    mediaId: number,
+    mediaType: MediaType
+  ): Promise<UserAction> {
+    const userAction: UserAction | null = await actionsRepository.findOneBy({
+      userId,
+      mediaId,
+      mediaType,
+    });
 
-    const userAction: UserAction | null = await actionsRepository.findOneBy({ userId, mediaId });
+    if (!userAction) throw HttpError.NotFound('Media action is not found');
 
-    return !userAction ? defaultUserAction : userAction;
+    return userAction;
   }
 
   async create(
@@ -31,17 +34,19 @@ export class MediaUserActionsService {
         'Media info not found. Please create media info instance, before creating user action'
       );
 
-    const isUserActionExists: boolean = await actionsRepository.existsBy({
+    const isUserActionExist: boolean = await actionsRepository.existsBy({
       mediaId,
       userId,
+      mediaType,
       mediaInfoId: mediaInfo.id,
     });
 
-    if (isUserActionExists) throw HttpError.Conflict('User action already exists');
+    if (isUserActionExist) throw HttpError.Conflict('Media action already exists');
 
     const mediaUserAction: MediaUserAction = actionsRepository.create({
       mediaId,
       userId,
+      mediaType,
       mediaInfoId: mediaInfo.id,
     });
     await actionsRepository.save(mediaUserAction);
@@ -52,15 +57,20 @@ export class MediaUserActionsService {
   async update(
     userId: number | undefined,
     mediaId: number,
-    action: UserAction
+    mediaType: MediaType,
+    action: Partial<UserAction>
   ): Promise<UserAction | null> {
-    const isUserActionExists: boolean = await actionsRepository.existsBy({ mediaId, userId });
+    const isUserActionExist: boolean = await actionsRepository.existsBy({
+      mediaId,
+      userId,
+      mediaType,
+    });
 
-    if (!isUserActionExists) throw HttpError.Conflict('User action does not exist');
+    if (!isUserActionExist) throw HttpError.Conflict('Media action does not exist');
 
-    await actionsRepository.update({ mediaId, userId }, action);
+    await actionsRepository.update({ mediaId, userId, mediaType }, action);
 
-    return await actionsRepository.findOneBy({ mediaId, userId });
+    return await actionsRepository.findOneBy({ mediaId, userId, mediaType });
   }
 }
 

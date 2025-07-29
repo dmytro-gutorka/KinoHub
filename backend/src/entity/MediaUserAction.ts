@@ -9,7 +9,6 @@ import {
 } from 'typeorm';
 import { WatchStatus } from '../types/types.js';
 import { MediaInfo } from './MediaInfo.js';
-import { MediaType } from 'express';
 
 @Entity({ schema: 'public' })
 @Unique(['mediaId', 'userId', 'mediaType'])
