@@ -29,7 +29,7 @@ const MediaOverview = ({ tmdbMediaData, mediaAction, mediaType }) => {
           <Stack gap={6}>
             <MediaDetailsBlock tmdbMediaData={tmdbMediaData} />
             <MediaProductionCompaniesBlock companies={companies} />
-            <MediaRatingBlock tmdbMediaData={tmdbMediaData} mediaAction={mediaAction} />
+            <MediaRatingBlock mediaAction={mediaAction} mediaType={mediaType} />
           </Stack>
         </Grid>
       </Grid>

@@ -1,13 +1,14 @@
 import { Box, Rating, Typography, useTheme } from '@mui/material';
 import useMediaAction from '../../../MediaHeader/hooks/useMediaAction';
 
-const MediaRatingBlock = ({ mediaAction }) => {
-  const { id, rating } = mediaAction;
+const MediaRatingBlock = ({ mediaAction, mediaType }) => {
+  const { mediaId, rating } = mediaAction;
+
+  const { mutate: updateAction } = useMediaAction(String(mediaId), mediaType);
 
   const theme = useTheme();
-  const actionMutation = useMediaAction('mediaDetailsExtraData', id);
 
-  const handleRating = (e) => actionMutation.mutate({ rating: e.target.value });
+  const handleRating = (e) => updateAction({ rating: e.target.value });
 
   return (
     <Box borderRadius={2.5} padding={4} border={theme.customComponents.border}>
