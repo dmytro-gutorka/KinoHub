@@ -6,7 +6,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import getMediaAction from '@shared/api/kinohub/services/actions/getMediaAction';
 import createMediaAction from '@shared/api/kinohub/services/actions/createMediaAction';
 
-export default function useMediaActions(
+export default function useEnsureMediaAction(
   mediaId: number,
   mediaType: MediaType,
   options?: { enabled: boolean }
@@ -20,7 +20,7 @@ export default function useMediaActions(
     error: fetchError,
     isLoading: isFetching,
   } = useQuery({
-    queryKey: ['mediaActions', mediaId, mediaType],
+    queryKey: ['mediaAction', mediaType, mediaId],
     queryFn: () => getMediaAction(mediaId, mediaType),
     retry: false,
     enabled: options?.enabled,
@@ -35,7 +35,7 @@ export default function useMediaActions(
     mutationFn: () => createMediaAction(mediaId, mediaType),
     onSuccess: (createdMedia: MediaActions) => {
       setCreatedAction(createdMedia);
-      queryClient.setQueryData(['mediaActions', mediaId, mediaType], createdMedia);
+      queryClient.setQueryData(['mediaAction', mediaType, mediaId], createdMedia);
     },
   });
 
@@ -44,8 +44,7 @@ export default function useMediaActions(
   }, [fetchError, options?.enabled]);
 
   return {
-    isLoading: isFetching || isCreating,
-    mediaActions: existingAction ?? createdAction,
-    error: fetchError || (isCreateError ? new Error('Mutation failed') : null),
+    isActionsLoading: isFetching || isCreating,
+    mediaAction: existingAction ?? createdAction,
   };
 }

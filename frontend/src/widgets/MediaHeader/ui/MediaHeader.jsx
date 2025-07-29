@@ -14,33 +14,32 @@ import { Box, Button, Container, Stack, Typography, useTheme } from '@mui/materi
 
 import getPosterURL from '@shared/helpers/getPosterURL';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
-import useMediaAction from '@shared/hooks/useMediaAction';
+import useMediaAction from '@widgets/MediaHeader/hooks/useMediaAction';
 import BackgroundBanner from '@shared/ui/BackgroundBanner';
 import GenreChipList from '@shared/ui/GenreChipList';
 import ButtonList from '@shared/ui/ButtonList';
 import LabelList from '@shared/ui/LabeList/LabelList';
 
-const MediaHeader = ({ mediaDataWithActions, mediaType }) => {
+const MediaHeader = ({ tmdbMediaData, mediaAction, mediaType }) => {
   const {
-    id,
     title,
     genres,
     runtime,
-    isLiked,
-    isWatched,
-    watchStatus,
+    id: mediaId,
     poster_path: posterPath,
     vote_average: voteAverage,
     original_language: language,
     number_of_seasons: numberOfSeasons,
     number_of_episodes: numberOfEpisodes,
-  } = mediaDataWithActions;
+  } = tmdbMediaData;
+
+  const { isLiked, isWatched, watchStatus } = mediaAction;
+  const { mutate: updateAction } = useMediaAction(String(mediaId), mediaType);
 
   const theme = useTheme();
-  const actionMutation = useMediaAction('mediaDetailsExtraData', id);
-  const handleMediaAction = (action) => actionMutation.mutate(action);
-
   const imgURL = getPosterURL(posterPath);
+
+  const handleMediaAction = (action) => updateAction(action);
 
   const movieLabels = [
     { icon: <StarBorderIcon />, data: voteAverage?.toFixed(2) + '/10' },
@@ -91,8 +90,8 @@ const MediaHeader = ({ mediaDataWithActions, mediaType }) => {
           <Box
             component="img"
             src={imgURL}
-            width="256px"
-            height="384px"
+            width="260px"
+            height="380px"
             sx={{
               outline: `${theme.palette.transparentGrey} solid 2px`,
               borderRadius: '10px',

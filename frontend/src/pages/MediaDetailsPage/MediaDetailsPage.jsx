@@ -3,20 +3,40 @@ import { useLoaderData, useParams } from 'react-router';
 
 import MediaHeader from '../../widgets/MediaHeader';
 import MediaOverview from '../../widgets/MediaOverview';
-import useEnsureMediaDetails from '@widgets/MediaDetailsPage/hooks/useMediaDetails';
+import useEnsureMediaDetails from '@widgets/MediaDetailsPage/hooks/useEnsureMediaDetails';
+import useEnsureMediaAction from '@widgets/MediaDetailsPage/hooks/useEnsureMediaAction';
+import useTmdbMediaDetails from '@widgets/MediaDetailsPage/hooks/useTmdbMediaDetails';
 
 const MediaDetailsPage = () => {
   const mediaType = useLoaderData();
-  const { id } = useParams();
-  const { mediaDataWithActions } = useEnsureMediaDetails(Number(id), mediaType);
+  const { id: mediaId } = useParams();
 
-  if (mediaDataWithActions) {
+  const { data: tmdbMediaData, isLoading: isTmdbMediaLoading } = useTmdbMediaDetails(
+    mediaId,
+    mediaType
+  );
+  const { mediaData, isMediaLoading, isMediaSuccess } = useEnsureMediaDetails(mediaId, mediaType);
+  const { mediaAction, isActionsLoading } = useEnsureMediaAction(mediaId, mediaType, {
+    enabled: isMediaSuccess && !!mediaData,
+  });
+
+  if (isMediaLoading || isActionsLoading || isTmdbMediaLoading) return <div>Loading...</div>;
+
+  if (mediaData && mediaAction && tmdbMediaData) {
     return (
       <>
         <Box component="main">
-          <MediaHeader mediaDataWithActions={mediaDataWithActions} mediaType={mediaType} />
+          <MediaHeader
+            tmdbMediaData={tmdbMediaData}
+            mediaAction={mediaAction}
+            mediaType={mediaType}
+          />
           <Container maxWidth="lg">
-            <MediaOverview mediaDataWithActions={mediaDataWithActions} mediaType={mediaType} />
+            <MediaOverview
+              tmdbMediaData={tmdbMediaData}
+              mediaAction={mediaAction}
+              mediaType={mediaType}
+            />
           </Container>
         </Box>
       </>

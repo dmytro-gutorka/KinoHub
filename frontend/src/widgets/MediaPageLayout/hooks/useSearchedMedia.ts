@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import getSearchedMedia from '@shared/api/tmdb/services/getSearchedMedia';
+import getTmdbSearchedMedia from '@shared/api/tmdb/services/getTmdbSearchedMedia';
 import { SearchedMediaParams } from '@shared/types/generalTypes';
 
 interface SearchedMediaForQuery extends SearchedMediaParams {
@@ -7,7 +7,7 @@ interface SearchedMediaForQuery extends SearchedMediaParams {
 }
 const useSearchedMedia = ({ qrKey, page, mediaType, searchQuery }: SearchedMediaForQuery) => {
   return useQuery({
-    queryFn: () => getSearchedMedia({ page, mediaType, searchQuery }),
+    queryFn: () => getTmdbSearchedMedia({ page, mediaType, searchQuery }),
     queryKey: [qrKey, mediaType, page, searchQuery],
     enabled: searchQuery.length >= 2,
   });

@@ -7,13 +7,13 @@ import MediaDetailsBlock from '../MediaDetailsBlock';
 import MediaRatingBlock from '../MediaRatingBlock';
 import MediaPlotBlock from '../MediaPlotBlock';
 
-const MediaOverview = ({ mediaDataWithActions, mediaType }) => {
+const MediaOverview = ({ tmdbMediaData, mediaAction, mediaType }) => {
   const {
     overview,
     seasons,
     credits: { cast },
     production_companies: companies,
-  } = mediaDataWithActions;
+  } = tmdbMediaData;
 
   return (
     <Stack mt={14} gap={6}>
@@ -27,9 +27,9 @@ const MediaOverview = ({ mediaDataWithActions, mediaType }) => {
 
         <Grid size={4}>
           <Stack gap={6}>
-            <MediaDetailsBlock mediaDataWithActions={mediaDataWithActions} />
+            <MediaDetailsBlock tmdbMediaData={tmdbMediaData} />
             <MediaProductionCompaniesBlock companies={companies} />
-            <MediaRatingBlock mediaDataWithActions={mediaDataWithActions} />
+            <MediaRatingBlock tmdbMediaData={tmdbMediaData} mediaAction={mediaAction} />
           </Stack>
         </Grid>
       </Grid>

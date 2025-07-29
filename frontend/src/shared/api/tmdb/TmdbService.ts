@@ -19,14 +19,14 @@ class TmdbService {
     });
   }
 
-  getSeasonDetails(id: number = 1, season: number = 1) {
-    return this.axiosInstance.get(`/tv/${id}/season/${season}`, {
+  getSeasonDetails(mediaId: number = 1, season: number = 1) {
+    return this.axiosInstance.get(`/tv/${mediaId}/season/${season}`, {
       params: { append_to_response: 'episode' },
     });
   }
 
-  getMediaDetails(id: number = 1, mediaType: MediaType = 'movie') {
-    return this.axiosInstance.get(`/${mediaType}/${id}`, {
+  getMediaDetails(mediaId: number = 1, mediaType: MediaType = 'movie') {
+    return this.axiosInstance.get(`/${mediaType}/${mediaId}`, {
       params: { append_to_response: 'credits' },
     });
   }

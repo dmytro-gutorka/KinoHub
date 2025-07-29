@@ -1,8 +1,8 @@
 import { Box, Rating, Typography, useTheme } from '@mui/material';
-import useMediaAction from '../../../../shared/hooks/useMediaAction';
+import useMediaAction from '../../../MediaHeader/hooks/useMediaAction';
 
-const MediaRatingBlock = ({ mediaDataWithActions }) => {
-  const { id, rating } = mediaDataWithActions;
+const MediaRatingBlock = ({ mediaAction }) => {
+  const { id, rating } = mediaAction;
 
   const theme = useTheme();
   const actionMutation = useMediaAction('mediaDetailsExtraData', id);

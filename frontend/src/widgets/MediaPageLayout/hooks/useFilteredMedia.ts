@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import getFilteredMedia from '@shared/api/tmdb/services/getFilteredMedia';
+import getTmdbFilteredMedia from '@shared/api/tmdb/services/getTmdbFilteredMedia';
 import { MediaFiltersBase, MediaType } from '@shared/types/generalTypes';
 
 interface MediaFiltersForQuery extends MediaFiltersBase {
@@ -16,7 +16,7 @@ const useFilteredMedia = ({
   sortBy,
 }: MediaFiltersForQuery) => {
   return useQuery({
-    queryFn: () => getFilteredMedia({ page, mediaType, minRating, genres, sortBy }),
+    queryFn: () => getTmdbFilteredMedia({ page, mediaType, minRating, genres, sortBy }),
     queryKey: [qrKey, mediaType, page, minRating, genres, sortBy],
   });
 };

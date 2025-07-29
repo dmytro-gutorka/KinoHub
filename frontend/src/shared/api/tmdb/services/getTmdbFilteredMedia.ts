@@ -1,7 +1,7 @@
 import { MediaFiltersBase, MediaType } from '@shared/types/generalTypes';
 import { tmdbService } from '@shared/api/tmdb/TmdbService';
 
-async function getFilteredMedia({
+async function getTmdbFilteredMedia({
   mediaType,
   genres,
   page,
@@ -19,4 +19,4 @@ async function getFilteredMedia({
   return response?.data;
 }
 
-export default getFilteredMedia;
+export default getTmdbFilteredMedia;
