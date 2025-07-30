@@ -1,11 +1,11 @@
 import { Grid, Stack } from '@mui/material';
 
-import MediaProductionCompaniesBlock from '../MediaProductionCompaniesBlock';
-import SeasonsAndEpisodesBlock from '../SeasonsAndEpisodesBlock';
-import MediaCastAndCrewBlock from '../MediaCastAndCrewBlock';
-import MediaDetailsBlock from '../MediaDetailsBlock';
-import MediaRatingBlock from '../MediaRatingBlock';
-import MediaPlotBlock from '../MediaPlotBlock';
+import MediaProductionCompaniesBlock from '@features/media/MediaProductionCompaniesBlock';
+import SeasonsAndEpisodesBlock from '@features/media/SeasonsAndEpisodesBlock';
+import MediaCastAndCrewBlock from '@features/media/MediaCastAndCrewBlock';
+import MediaDetailsBlock from '@features/media/MediaDetailsBlock';
+import MediaRatingBlock from '@features/media/MediaRatingBlock';
+import MediaPlotBlock from '@features/media/MediaPlotBlock';
 
 const MediaOverview = ({ tmdbMediaData, mediaAction, mediaType }) => {
   const {

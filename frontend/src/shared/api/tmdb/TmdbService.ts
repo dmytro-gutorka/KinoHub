@@ -10,9 +10,11 @@ import {
 import AxiosInstance = Axios.AxiosInstance;
 
 class TmdbService {
-  public axiosInstance: AxiosInstance;
+  private readonly genresToExclude: string;
+  private axiosInstance: AxiosInstance;
 
   constructor() {
+    this.genresToExclude = '10763|10767';
     this.axiosInstance = axios.create({
       baseURL: TMDB_URL,
       headers: TMDB_HEADERS.headers,
@@ -40,12 +42,15 @@ class TmdbService {
   }: MediaFiltersBase & { mediaType: MediaType }) {
     const genreString: string = genres.map((g) => g.id).join('|');
 
+    console.log(genreString);
+
     return this.axiosInstance.get(`/discover/${mediaType}`, {
       params: {
         page,
         sort_by: sortBy,
         with_genres: genreString || undefined,
         'vote_average.gte': minRating,
+        without_genres: this.genresToExclude,
       },
     });
   }

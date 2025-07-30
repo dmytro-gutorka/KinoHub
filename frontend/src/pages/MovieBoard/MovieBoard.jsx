@@ -1,8 +1,8 @@
 import { Stack, useTheme } from '@mui/material';
 import { DndContext } from '@dnd-kit/core';
 import { useQuery } from '@tanstack/react-query';
-import MovieBoardItem from '../../entities/movieBoard/ui/MovieBoardItem';
-import MovieBoardColumn from '../../entities/movieBoard/ui/MovieBoardColumn';
+import MovieBoardItem from '@features/movieBoard/ui/MovieBoardItem';
+import MovieBoardColumn from '@features/movieBoard/ui/MovieBoardColumn';
 import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';

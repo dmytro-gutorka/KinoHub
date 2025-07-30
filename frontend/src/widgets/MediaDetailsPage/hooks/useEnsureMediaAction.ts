@@ -27,11 +27,7 @@ export default function useEnsureMediaAction(
     staleTime: 0,
   });
 
-  const {
-    mutate: create,
-    isPending: isCreating,
-    isError: isCreateError,
-  } = useMutation({
+  const { mutate: create, isPending: isCreating } = useMutation({
     mutationFn: () => createMediaAction(mediaId, mediaType),
     onSuccess: (createdMedia: MediaActions) => {
       setCreatedAction(createdMedia);

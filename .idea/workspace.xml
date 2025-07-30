@@ -5,8 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaOverview/MediaOverview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaOverview/MediaOverview.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaRatingBlock/MediaRatingBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaRatingBlock/MediaRatingBlock.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeItem/episodeItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/EpisodeItem/EpisodeItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeItem/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/EpisodeItem/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeList/episodeList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/EpisodeList/EpisodeList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/episodeList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowEpisode/ui/EpisodeList/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/seasonItem/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/SeasonItem/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/seasonItem/seasonItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/SeasonItem/SeasonItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/seasonList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/SeasonList/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/seasonList/seasonList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/tvShowSeason/ui/SeasonList/SeasonList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/tmdb/TmdbService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/tmdb/TmdbService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/data/AllMovieGenres.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/data/movieGenres.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/data/AllTvShowGenres.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/data/tvShowGenres.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/getNumberOfWatchedEpisodes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/getWatchedEpisodeNumb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/getNumberOfWatchedMedia.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/getWatchedMediaNumb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardList/MediaCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardList/MediaCardList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaDetailsPage/hooks/useEnsureMediaAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaDetailsPage/hooks/useEnsureMediaAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/SeasonsAndEpisodesBlock/SeasonsAndEpisodesBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/SeasonsAndEpisodesBlock/SeasonsAndEpisodesBlock.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaPageLayout/ui/MediaPageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaPageLayout/ui/MediaPageLayout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +203,10 @@
       <workItem from="1753641641060" duration="12360000" />
       <workItem from="1753662910580" duration="4996000" />
       <workItem from="1753668439652" duration="631000" />
-      <workItem from="1753725866626" duration="11517000" />
+      <workItem from="1753725866626" duration="14034000" />
+      <workItem from="1753810748382" duration="6858000" />
+      <workItem from="1753843401880" duration="714000" />
+      <workItem from="1753844760858" duration="1070000" />
     </task>
     <servers />
   </component>

@@ -10,7 +10,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Stack } from '@mui/material';
 
 import Logo from '../../../../shared/ui/Logo';
-import AsideBarSection from '../AsideBarSection';
+import AsideBarSection from '@features/asideBar/AsideBarSection';
 
 const AsideBar = () => {
   const menu = {

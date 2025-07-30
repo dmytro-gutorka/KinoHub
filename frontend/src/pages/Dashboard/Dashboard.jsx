@@ -1,7 +1,7 @@
 import { Stack, useTheme } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
-import getNumberOfWatchedEpisodes from '../../shared/helpers/getNumberOfWatchedEpisodes';
-import getNumberOfWatchedMedia from '../../shared/helpers/getNumberOfWatchedMedia';
+import getWatchedEpisodeNumber from '@shared/helpers/getWatchedEpisodeNumber';
+import getWatchedMediaNumber from '@shared/helpers/getWatchedMediaNumber';
 import getAvgRating from '../../shared/helpers/getAvgRating';
 import getAvgRuntime from '../../shared/helpers/getAvgRuntime';
 import MovieOutlineIcon from '../../shared/icons/MovieOutlineIcon';
@@ -25,9 +25,9 @@ const Dashboard = () => {
 
   if (!isSuccess) return <div>Loading...</div>;
 
-  const NumberOfWatchedMovies = getNumberOfWatchedMedia(userStats, 'movie');
-  const NumberOfWatchedTvShows = getNumberOfWatchedMedia(userStats, 'tv');
-  const NumberOfWatchedEpisodes = getNumberOfWatchedEpisodes(userStats);
+  const NumberOfWatchedMovies = getWatchedMediaNumber(userStats, 'movie');
+  const NumberOfWatchedTvShows = getWatchedMediaNumber(userStats, 'tv');
+  const NumberOfWatchedEpisodes = getWatchedEpisodeNumber(userStats);
 
   const avgRating = getAvgRating(userStats);
   const avgRuntime = getAvgRuntime(userStats);

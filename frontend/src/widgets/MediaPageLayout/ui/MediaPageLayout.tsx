@@ -8,8 +8,8 @@ import MultipleSelect from '@shared/ui/MultipleSelect';
 import BasicSelect from '@shared/ui/BasicSelect';
 import SliderBar from '@shared/ui/SliderBar';
 import MediaCardList from '@shared/ui/MediaCardList';
-import AllMovieGenres from '@shared/data/AllMovieGenres';
-import AllTvShowGenres from '@shared/data/AllTvShowGenres';
+import movieGenres from '@shared/data/movieGenres';
+import tvShowGenres from '@shared/data/tvShowGenres';
 
 interface MediaPageLayoutProps {
   qrKey: string;
@@ -17,7 +17,7 @@ interface MediaPageLayoutProps {
 }
 
 const MediaPageLayout = ({ qrKey, mediaType = 'movie' }: MediaPageLayoutProps) => {
-  const mediaGenresList = mediaType === 'movie' ? AllMovieGenres : AllTvShowGenres;
+  const mediaGenresList = mediaType === 'movie' ? movieGenres : tvShowGenres;
 
   const {
     filters: { page, minRating, searchQuery, genres, sortBy },
@@ -71,7 +71,7 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }: MediaPageLayoutProps) =
 
       <Stack spacing={2} justifyContent="center" alignItems="center" my={6}>
         <Pagination count={500} variant="outlined" onChange={handlePageChange} />
-        {/*Public API that I use has a restriction to only 500 page, so the value is hardcoded*/}
+        {/*TMDB API that I use has a restriction to only 500 page, so the value count is hardcoded*/}
       </Stack>
     </Stack>
   );
