@@ -2,6 +2,8 @@ import { MEDIA_ACTIONS, WATCH_STATUS } from '@app/constants';
 
 export type MediaType = 'movie' | 'tv';
 
+export type Cast = Actor[];
+
 export enum SortBy {
   TitleASC = 'title.asc',
   TitleDESC = 'title.desc',
@@ -27,6 +29,13 @@ export interface SearchedMediaParams {
   page: number;
   searchQuery: string;
   mediaType: MediaType;
+}
+
+export interface Actor {
+  character: string;
+  name: string;
+  profile_path: string;
+  id: number;
 }
 
 export type MediaActionType = (typeof MEDIA_ACTIONS)[keyof typeof MEDIA_ACTIONS];

@@ -17,7 +17,7 @@ import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutline
 const Dashboard = () => {
   const { data: userStats, isSuccess } = useQuery({
     queryKey: ['userStats'],
-    queryFn: getUserStats,
+    queryFn: () => 'getUserStats',
     staleTime: 5 * 1000,
   });
 

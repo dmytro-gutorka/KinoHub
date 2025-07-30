@@ -3,7 +3,6 @@ import useMediaAction from '@widgets/MediaHeader/hooks/useMediaAction';
 
 const MediaRatingBlock = ({ mediaAction, mediaType }) => {
   const { mediaId, rating } = mediaAction;
-
   const { mutate: updateAction } = useMediaAction(String(mediaId), mediaType);
 
   const theme = useTheme();
@@ -11,14 +10,14 @@ const MediaRatingBlock = ({ mediaAction, mediaType }) => {
   const handleRating = (e) => updateAction({ rating: e.target.value });
 
   return (
-    <Box borderRadius={2.5} padding={4} border={theme.customComponents.border}>
+    <Box borderRadius={2.5} padding={4} border={theme.customStyles.border}>
       {!rating && (
         <>
           <Typography variant="h5" component="h3" mb={1}>
             Rate the movie
           </Typography>
           <Typography variant="subtitle2" component="h4" mb={2} sx={{ color: 'grey' }}>
-            You haven't rated it yet
+            You haven not rated it yet
           </Typography>
         </>
       )}

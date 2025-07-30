@@ -1,7 +1,7 @@
 import MediaPageLayout from '@widgets/MediaPageLayout';
 
-const Shows = () => {
+const TvShow = () => {
   return <MediaPageLayout qrKey="shows" mediaType="tv" />;
 };
 
-export default Shows;
+export default TvShow;

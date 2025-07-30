@@ -1,13 +1,14 @@
 import { Stack, useTheme } from '@mui/material';
 import { DndContext } from '@dnd-kit/core';
 import { useQuery } from '@tanstack/react-query';
+
 import MovieBoardItem from '@features/movieBoard/ui/MovieBoardItem';
 import MovieBoardColumn from '@features/movieBoard/ui/MovieBoardColumn';
+import useMovieBoardItemStatus from '../../shared/hooks/useMovieBoardItemStatus';
 import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import useMovieBoardItemStatus from '../../shared/hooks/useMovieBoardItemStatus';
 
 const MovieBoard = () => {
   const theme = useTheme();
@@ -47,15 +48,15 @@ const MovieBoard = () => {
 
   const { data: mediaItems, isSuccess } = useQuery({
     queryKey: ['movieBoardMediaItems'],
-    queryFn: getWatchBoardMedia,
+    queryFn: 'getWatchBoardMedia',
     staleTime: 5 * 1000,
   });
 
-  const watchBoardStatus = useMovieBoardItemStatus();
+  const { mutate: update } = useMovieBoardItemStatus();
 
   function handleDragEnd(event) {
     const { over, active } = event;
-    watchBoardStatus.mutate({ watchStatus: over.id, mediaId: active.id });
+    update({ watchStatus: over.id, mediaId: active.id });
   }
 
   if (!isSuccess) return <div>Loading...</div>;
@@ -71,9 +72,9 @@ const MovieBoard = () => {
                 <MovieBoardItem
                   key={item.movieId}
                   id={item.movieId}
-                  posterPath={item.posterPath}
                   title={item.title}
                   runtime={item.runtime}
+                  posterPath={item.posterPath}
                   voteAverage={item.voteAverage}
                   releaseDate={item.releaseDate}
                 />
@@ -87,11 +88,11 @@ const MovieBoard = () => {
                   ?.filter((item) => item.watchStatus === id)
                   ?.map((item) => (
                     <MovieBoardItem
-                      key={item.movieId}
                       id={item.movieId}
-                      posterPath={item.posterPath}
+                      key={item.movieId}
                       title={item.title}
                       runtime={item.runtime}
+                      posterPath={item.posterPath}
                       voteAverage={item.voteAverage}
                       releaseDate={item.releaseDate}
                     />

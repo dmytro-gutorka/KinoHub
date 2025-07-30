@@ -6,7 +6,7 @@ const MediaProductionCompaniesBlock = ({ companies }) => {
   return (
     <>
       {companies.length > 0 && (
-        <Box borderRadius={2.5} padding={4} border={theme.customComponents.border}>
+        <Box borderRadius={2.5} padding={4} border={theme.customStyles.border}>
           <Typography variant="h5" component="h3">
             Production companies
           </Typography>

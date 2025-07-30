@@ -45,7 +45,7 @@ const theme = createTheme({
 });
 
 const finalTheme = createTheme(theme, {
-  customComponents: {
+  customStyles: {
     border: `1px solid ${theme.palette.transparentGrey}`,
   },
   components: {

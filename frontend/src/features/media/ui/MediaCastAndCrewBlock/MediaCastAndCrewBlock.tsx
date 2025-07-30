@@ -1,11 +1,12 @@
+import { MediaCastAndCrewBlockProps } from '@features/media/model/mediaTypes';
 import { Box, Stack, Typography, useTheme } from '@mui/material';
 import getPosterURL from '@shared/helpers/getPosterURL';
 
-const MediaCastAndCrewBlock = ({ cast }) => {
+const MediaCastAndCrewBlock = ({ cast }: MediaCastAndCrewBlockProps) => {
   const theme = useTheme();
 
   return (
-    <Box borderRadius={2.5} padding={4} border={theme.customComponents.border}>
+    <Box borderRadius={2.5} padding={4} border={theme.customStyles.border}>
       <Typography variant="h5" component="h3" mb={2}>
         Cast & Crew
       </Typography>

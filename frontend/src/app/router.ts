@@ -1,16 +1,16 @@
-import { createBrowserRouter } from 'react-router';
 import { QueryClient } from '@tanstack/react-query';
+import { createBrowserRouter } from 'react-router';
 
-import Shows from '../pages/Shows';
+import TvShow from '@pages/TvShow';
 import Layout from '@widgets/Layout';
-import Movies from '../pages/Movies';
-import Homepage from '../pages/Homepage';
-import MediaDetailsPage from '../pages/MediaDetailsPage';
-import MovieBoard from '../pages/MovieBoard';
-import Profile from '../pages/Profile';
-import Settings from '../pages/Settings';
-import Dashboard from '../pages/Dashboard';
-import History from '../pages/History';
+import Movies from '@pages/Movies';
+import Homepage from '@pages/Homepage';
+import MediaDetailsPage from '@pages/MediaDetailsPage';
+import MovieBoard from '@pages/MovieBoard';
+import Profile from '@pages/Profile';
+import Settings from '@pages/Settings';
+import Dashboard from '@pages/Dashboard';
+import History from '@pages/History';
 
 function makeRouter(queryClient: QueryClient) {
   return createBrowserRouter([
@@ -21,9 +21,9 @@ function makeRouter(queryClient: QueryClient) {
       children: [
         { path: '/', Component: Homepage },
         { path: '/movies', Component: Movies },
-        { path: '/shows', Component: Shows },
+        { path: '/tv-show', Component: TvShow },
         { path: '/history', Component: History },
-        { path: '/watch-board', Component: MovieBoard },
+        { path: '/movie-board', Component: MovieBoard },
         { path: '/dashboard', Component: Dashboard },
         { path: '/profile', Component: Profile },
         { path: '/settings', Component: Settings },

@@ -1,6 +1,18 @@
 import '@mui/material/styles';
 
 declare module '@mui/material/styles' {
+  interface Theme {
+    customStyles: {
+      border: string;
+    };
+  }
+
+  interface ThemeOptions {
+    customStyles?: {
+      border?: string;
+    };
+  }
+
   interface Palette {
     transparentGrey: string;
     gradientMidnightSpace: string;
@@ -9,7 +21,6 @@ declare module '@mui/material/styles' {
     gradientGreen: string;
     gradientRed: string;
     gradientBlue: string;
-
     green: CustomColor;
     purple: CustomColor;
     orange: CustomColor;
@@ -24,7 +35,6 @@ declare module '@mui/material/styles' {
     gradientGreen?: string;
     gradientRed?: string;
     gradientBlue?: string;
-
     green?: CustomColor;
     purple?: CustomColor;
     orange?: CustomColor;
