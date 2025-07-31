@@ -1,7 +1,13 @@
-import { TmdbCast, TmdbProductionCompanies } from '@shared/types/tmdbResponces';
+import {
+  TmdbCast,
+  TmdbMediaDetailsResponse,
+  TmdbProductionCompanies,
+} from '@shared/types/tmdbEntities';
 import { ReactNode } from 'react';
+import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
+import { MediaActionEntity } from '@shared/types/kinohubEntities';
 
-export interface MediaDetailsProps {
+export interface MediaPlotProps {
   overview: string;
 }
 
@@ -22,6 +28,18 @@ export interface MediaContentBlockProps {
   children: ReactNode;
 }
 
-export interface MediaDetailsProps {
-  tmdbMediaData: '';
+export interface MediaOverviewProps<T extends MediaType> {
+  tmdbMediaData: TmdbMediaDetailsResponse<T>;
+  mediaAction: MediaUserActions;
+  mediaType: T;
+}
+
+export interface MediaDetailsProps<T extends MediaType> {
+  tmdbMediaData: TmdbMediaDetailsResponse<T>;
+  mediaType: T;
+}
+
+export interface MediaRatingProps {
+  mediaAction: MediaActionEntity;
+  mediaType: MediaType;
 }

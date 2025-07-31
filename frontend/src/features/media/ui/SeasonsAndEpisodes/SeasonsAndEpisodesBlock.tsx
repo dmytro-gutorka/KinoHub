@@ -9,8 +9,10 @@ import SeasonList from '@features/tvShowSeason/ui/SeasonList';
 const SeasonsAndEpisodesBlock = ({ seasons }) => {
   const [tvSeason, setTvSeason] = useState(1);
 
-  const { id } = useParams();
-  const { episodesData } = useTvShowSeasonDetails(Number(id), tvSeason);
+  const params: Readonly<any> = useParams();
+  const mediaId: string = params?.id;
+
+  const { episodesData } = useTvShowSeasonDetails(mediaId, tvSeason);
 
   if (!episodesData?.length) return <div>Loading...</div>;
 

@@ -1,5 +1,5 @@
 import { MediaType } from '@shared/types/generalTypes';
-import { MediaDetails } from '@widgets/MediaDetailsPage/model/types';
+import { MediaDetailsEntities } from '@shared/types/kinohubEntities';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { createMedia } from '@shared/api/kinohub/services/media/createMedia';
@@ -7,7 +7,7 @@ import { updateMedia } from '@shared/api/kinohub/services/media/updateMedia';
 import { getMedia } from '@shared/api/kinohub/services/media/getMedia';
 
 export default function useEnsureMediaDetails(mediaId: number, mediaType: MediaType) {
-  const [finalMedia, setFinalMedia] = useState<MediaDetails | null>(null);
+  const [finalMedia, setFinalMedia] = useState<MediaDetailsEntities | null>(null);
 
   const {
     data: existingMedia,

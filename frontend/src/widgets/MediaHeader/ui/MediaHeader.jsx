@@ -34,7 +34,7 @@ const MediaHeader = ({ tmdbMediaData, mediaAction, mediaType }) => {
   } = tmdbMediaData;
 
   const { isLiked, isWatched, watchStatus } = mediaAction;
-  const { mutate: updateAction } = useMediaAction(String(mediaId), mediaType);
+  const { mutate: updateAction } = useMediaAction(mediaId, mediaType);
 
   const theme = useTheme();
   const imgURL = getPosterURL(posterPath);

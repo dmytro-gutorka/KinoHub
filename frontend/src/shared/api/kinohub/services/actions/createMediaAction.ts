@@ -1,10 +1,10 @@
 import { axiosWithAuth } from '@shared/api/kinohub/kinohubAxios';
 import { api } from '@shared/api/kinohub/apiPaths';
 import { MediaType } from '@shared/types/generalTypes';
-import { MediaActions } from '@widgets/MediaDetailsPage/model/types';
+import { MediaActionEntity } from '@shared/types/kinohubEntities';
 
 async function createMediaAction(mediaId: number, mediaType: MediaType) {
-  const response = await axiosWithAuth.post<MediaActions>(
+  const response = await axiosWithAuth.post<MediaActionEntity>(
     api.actions.createMediaAction(mediaId, mediaType)
   );
 

@@ -1,4 +1,4 @@
-import { MediaActions } from '@widgets/MediaDetailsPage/model/types';
+import { MediaActionEntity } from '@shared/types/kinohubEntities';
 import { MediaType } from '@shared/types/generalTypes';
 import { useEffect, useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
@@ -11,7 +11,7 @@ export default function useEnsureMediaAction(
   mediaType: MediaType,
   options?: { enabled: boolean }
 ) {
-  const [createdAction, setCreatedAction] = useState<null | MediaActions>(null);
+  const [createdAction, setCreatedAction] = useState<null | MediaActionEntity>(null);
 
   const queryClient = useQueryClient();
 
@@ -29,7 +29,7 @@ export default function useEnsureMediaAction(
 
   const { mutate: create, isPending: isCreating } = useMutation({
     mutationFn: () => createMediaAction(mediaId, mediaType),
-    onSuccess: (createdMedia: MediaActions) => {
+    onSuccess: (createdMedia: MediaActionEntity) => {
       setCreatedAction(createdMedia);
       queryClient.setQueryData(['mediaAction', mediaType, mediaId], createdMedia);
     },

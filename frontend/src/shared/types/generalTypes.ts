@@ -1,5 +1,6 @@
 import { MEDIA_ACTIONS, WATCH_STATUS } from '@app/constants';
-import { TmdbGenreList } from '@shared/types/tmdbResponces';
+import { TmdbGenreList } from '@shared/types/tmdbEntities';
+import { MediaActionEntity } from '@shared/types/kinohubEntities';
 
 export type MediaType = 'movie' | 'tv';
 
@@ -27,3 +28,7 @@ export interface SearchedMediaParams {
 
 export type MediaActionType = (typeof MEDIA_ACTIONS)[keyof typeof MEDIA_ACTIONS];
 export type WatchStatus = (typeof WATCH_STATUS)[keyof typeof WATCH_STATUS];
+
+export type MediaUserActions = {
+  [key in MediaActionType]: MediaActionEntity[key];
+};

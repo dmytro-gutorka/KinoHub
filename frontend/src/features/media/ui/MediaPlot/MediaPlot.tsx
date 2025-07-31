@@ -1,7 +1,7 @@
 import { Box, Typography, useTheme } from '@mui/material';
-import { MediaDetailsProps } from '@features/media/model/mediaTypes';
+import { MediaDetailsProps, MediaPlotProps } from '@features/media/model/mediaTypes';
 
-const MediaPlot = ({ overview }: MediaDetailsProps) => {
+const MediaPlot = ({ overview }: MediaPlotProps) => {
   const theme = useTheme();
 
   return (

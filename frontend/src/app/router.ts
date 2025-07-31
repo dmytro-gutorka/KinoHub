@@ -31,7 +31,7 @@ function makeRouter(queryClient: QueryClient) {
       ],
     },
     { path: '/movies/:id', Component: MediaDetailsPage, loader: () => 'movie' },
-    { path: '/shows/:id', Component: MediaDetailsPage, loader: () => 'tv' },
+    { path: '/tv-show/:id', Component: MediaDetailsPage, loader: () => 'tv' },
   ]);
 }
 

@@ -1,13 +1,17 @@
+import { MediaRatingProps } from '@features/media/model/mediaTypes';
 import { Box, Rating, Typography, useTheme } from '@mui/material';
 import useMediaAction from '@widgets/MediaHeader/hooks/useMediaAction';
+import { MediaUserActions } from '@shared/types/generalTypes';
 
-const MediaRating = ({ mediaAction, mediaType }) => {
+const MediaRating = ({ mediaAction, mediaType }: MediaRatingProps) => {
   const { mediaId, rating } = mediaAction;
-  const { mutate: updateAction } = useMediaAction(String(mediaId), mediaType);
+  const { mutate: updateAction } = useMediaAction(mediaId, mediaType);
 
   const theme = useTheme();
 
-  const handleRating = (e) => updateAction({ rating: e.target.value });
+  const handleRating = (_: any, value: any?????) => {
+    updateAction({ rating: value });
+  };
 
   return (
     <Box borderRadius={2.5} padding={4} border={theme.customStyles.border}>
@@ -17,7 +21,7 @@ const MediaRating = ({ mediaAction, mediaType }) => {
             Rate the movie
           </Typography>
           <Typography variant="subtitle2" component="h4" mb={2} sx={{ color: 'grey' }}>
-            You haven not rated it yet
+            You haven't rated it yet
           </Typography>
         </>
       )}
@@ -25,7 +29,7 @@ const MediaRating = ({ mediaAction, mediaType }) => {
       {rating && (
         <>
           <Typography variant="h5" component="h3" mb={1}>
-            Want to change your rate ?
+            Want to change your rate?
           </Typography>
           <Typography variant="subtitle2" component="h4" mb={2} sx={{ color: 'grey' }}>
             Your current rate is {rating} stars

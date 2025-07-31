@@ -1,3 +1,5 @@
+import { MediaType } from '@shared/types/generalTypes';
+
 export interface TmdbGenreList {
   id: number;
   name: string;
@@ -31,31 +33,31 @@ export interface TmdbCreatedBy {
 }
 
 export interface TmdbSeasonBriefInfo {
+  poster_path: string | null;
   air_date: string;
-  episode_count: number;
-  id: number;
   name: string;
   overview: string;
-  poster_path: string | null;
+  episode_count: number;
+  id: number;
   season_number: number;
   vote_average: number;
 }
 
 export interface TmdbTvShowNetworks {
-  id: number;
   logo_path: string | null;
   name: string;
   origin_country: string;
+  id: number;
 }
 
 export interface TmdbPersonInfo {
+  adult: boolean;
   id: number;
+  gender: number;
+  popularity: number;
   name: string;
   original_name: string;
-  adult: boolean;
-  gender: number;
   known_for_department: string;
-  popularity: number;
   profile_path: string | null;
 }
 
@@ -72,45 +74,43 @@ export interface TmdbCrew extends TmdbPersonInfo {
   job: string;
 }
 
-export interface TmdbMediaDetail {
-  homepage: string;
-  id: number;
+export interface TmdbMediaDetails {
   adult: boolean;
+  id: number;
+  vote_average: number;
+  popularity: number;
+  vote_count: number;
   backdrop_path: string;
-  origin_country: Array<string>;
+  homepage: string;
   original_language: string;
   overview: string;
-  popularity: number;
   poster_path: string;
+  status: string;
+  tagline: string;
+  origin_country: Array<string>;
   production_companies: Array<TmdbProductionCompanies>;
   production_countries: Array<TmdbProductionCountries>;
   spoken_languages: Array<TmdbSpokenLanguages>;
-  status: string;
-  tagline: string;
-  vote_average: number;
-  vote_count: number;
+  genres: Array<TmdbGenreList>;
   credits?: {
     cast: Array<TmdbCast>;
     crew: Array<TmdbCrew>;
   };
 }
 
-export interface TmdbMovieDetails extends TmdbMediaDetail {
+export interface TmdbMovieDetails extends TmdbMediaDetails {
   belongs_to_collection: any;
   video: boolean;
   budget: number;
   runtime: number;
   revenue: number;
-  vote_average: number;
-  vote_count: number;
   imdb_id: string;
   original_title: string;
   release_date: string;
   title: string;
-  genres: Array<TmdbGenreList>;
 }
 
-export interface TmdbTvShowDetails extends TmdbMediaDetail {
+export interface TmdbTvShowDetails extends TmdbMediaDetails {
   in_production: boolean;
   popularity: number;
   number_of_episodes: number;
@@ -118,13 +118,15 @@ export interface TmdbTvShowDetails extends TmdbMediaDetail {
   first_air_date: string;
   last_air_date: string;
   original_name: string;
-  poster_path: string;
   name: string;
   type: string;
   episode_run_time: Array<number>;
   languages: Array<string>;
-  genres: Array<TmdbGenreList>;
   created_by: Array<TmdbCreatedBy>;
   networks: Array<TmdbTvShowNetworks>;
-  seasons: Array<TmdbSeasonBriefInfo>;
+  seasons?: Array<TmdbSeasonBriefInfo>;
 }
+
+export type TmdbMediaDetailsResponse<T extends MediaType> = T extends 'tv'
+  ? TmdbTvShowDetails
+  : TmdbMovieDetails;
