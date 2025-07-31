@@ -1,11 +1,11 @@
 import { Grid, Stack } from '@mui/material';
 
-import MediaProductionCompaniesBlock from '@features/media/ui/MediaProductionCompaniesBlock';
-import SeasonsAndEpisodesBlock from '@features/media/ui/SeasonsAndEpisodesBlock';
-import MediaCastAndCrewBlock from '@features/media/ui/MediaCastAndCrewBlock';
-import MediaDetailsBlock from '@features/media/ui/MediaDetailsBlock';
-import MediaRatingBlock from '@features/media/ui/MediaRatingBlock';
-import MediaPlotBlock from '@features/media/ui/MediaPlotBlock';
+import SeasonsAndEpisodesBlock from '@features/media/ui/SeasonsAndEpisodes';
+import MediaCastAndCrew from '@features/media/ui/MediaCastAndCrew';
+import MediaRating from '@features/media/ui/MediaRating';
+import MediaPlot from '@features/media/ui/MediaPlot';
+import MediaProdCompanies from '@features/media/ui/MediaProdCompanies';
+import MediaDetails from '@features/media/ui/MediaDetails';
 
 const MediaOverview = ({ tmdbMediaData, mediaAction, mediaType }) => {
   const {
@@ -20,16 +20,16 @@ const MediaOverview = ({ tmdbMediaData, mediaAction, mediaType }) => {
       <Grid container justifyContent="space-between">
         <Grid size={7.5}>
           <Stack gap={6}>
-            <MediaPlotBlock overview={overview} />
-            <MediaCastAndCrewBlock cast={cast} />
+            <MediaPlot overview={overview} />
+            <MediaCastAndCrew cast={cast} />
           </Stack>
         </Grid>
 
         <Grid size={4}>
           <Stack gap={6}>
-            <MediaDetailsBlock tmdbMediaData={tmdbMediaData} />
-            <MediaProductionCompaniesBlock companies={companies} />
-            <MediaRatingBlock mediaAction={mediaAction} mediaType={mediaType} />
+            <MediaDetails tmdbMediaData={tmdbMediaData} />
+            <MediaProdCompanies companies={companies} />
+            <MediaRating mediaAction={mediaAction} mediaType={mediaType} />
           </Stack>
         </Grid>
       </Grid>

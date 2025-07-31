@@ -1,8 +1,7 @@
 import { MEDIA_ACTIONS, WATCH_STATUS } from '@app/constants';
+import { TmdbGenreList } from '@shared/types/tmdbResponces';
 
 export type MediaType = 'movie' | 'tv';
-
-export type Cast = Actor[];
 
 export enum SortBy {
   TitleASC = 'title.asc',
@@ -13,29 +12,17 @@ export enum SortBy {
   YearDESC = 'primary_release_date.desc',
 }
 
-export interface Genres {
-  id: number;
-  name: string;
-}
-
 export interface MediaFiltersBase {
   page: number;
   minRating: number;
-  genres: Genres[];
   sortBy: SortBy;
+  genres: TmdbGenreList[];
 }
 
 export interface SearchedMediaParams {
   page: number;
   searchQuery: string;
   mediaType: MediaType;
-}
-
-export interface Actor {
-  character: string;
-  name: string;
-  profile_path: string;
-  id: number;
 }
 
 export type MediaActionType = (typeof MEDIA_ACTIONS)[keyof typeof MEDIA_ACTIONS];

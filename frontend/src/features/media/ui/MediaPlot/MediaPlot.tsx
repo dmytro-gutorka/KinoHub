@@ -1,7 +1,7 @@
 import { Box, Typography, useTheme } from '@mui/material';
 import { MediaDetailsProps } from '@features/media/model/mediaTypes';
 
-const MediaPlotBlock = ({ overview }: MediaDetailsProps) => {
+const MediaPlot = ({ overview }: MediaDetailsProps) => {
   const theme = useTheme();
 
   return (
@@ -16,4 +16,4 @@ const MediaPlotBlock = ({ overview }: MediaDetailsProps) => {
   );
 };
 
-export default MediaPlotBlock;
+export default MediaPlot;

@@ -1,7 +1,7 @@
 import { Box, Rating, Typography, useTheme } from '@mui/material';
 import useMediaAction from '@widgets/MediaHeader/hooks/useMediaAction';
 
-const MediaRatingBlock = ({ mediaAction, mediaType }) => {
+const MediaRating = ({ mediaAction, mediaType }) => {
   const { mediaId, rating } = mediaAction;
   const { mutate: updateAction } = useMediaAction(String(mediaId), mediaType);
 
@@ -38,4 +38,4 @@ const MediaRatingBlock = ({ mediaAction, mediaType }) => {
   );
 };
 
-export default MediaRatingBlock;
+export default MediaRating;

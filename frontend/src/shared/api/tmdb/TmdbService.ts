@@ -42,8 +42,6 @@ class TmdbService {
   }: MediaFiltersBase & { mediaType: MediaType }) {
     const genreString: string = genres.map((g) => g.id).join('|');
 
-    console.log(genreString);
-
     return this.axiosInstance.get(`/discover/${mediaType}`, {
       params: {
         page,

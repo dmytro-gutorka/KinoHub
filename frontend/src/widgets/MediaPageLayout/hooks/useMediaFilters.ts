@@ -1,6 +1,7 @@
 import { useState, useEffect, ChangeEvent } from 'react';
-import { Genres, MediaFiltersBase, SortBy } from '@shared/types/generalTypes';
+import { MediaFiltersBase, SortBy } from '@shared/types/generalTypes';
 import { SelectChangeEvent } from '@mui/material';
+import { TmdbGenreList } from '@shared/types/tmdbResponces';
 
 interface MediaFiltersWithSearch extends MediaFiltersBase {
   searchQuery: string;
@@ -31,7 +32,7 @@ export const useMediaFilters = (initialFilters = {}) => {
   };
 
   const handleGenreChange = (e: SelectChangeEvent<unknown>) => {
-    const genres = e.target.value as Genres[];
+    const genres = e.target.value as Array<TmdbGenreList>;
 
     setFilters((prev) => ({ ...prev, genres }));
   };
