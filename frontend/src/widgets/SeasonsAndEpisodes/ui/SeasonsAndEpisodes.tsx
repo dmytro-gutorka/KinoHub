@@ -1,12 +1,11 @@
+import { SeasonsAndEpisodesProps } from '@features/media/model/mediaTypes';
 import { Grid } from '@mui/material';
 import { useState } from 'react';
 import { useParams } from 'react-router';
+import { EpisodeList, SeasonList } from '@features/tvShow/ui';
+import useTvShowSeasonDetails from '@widgets/SeasonsAndEpisodes/hooks/useTvShowSeasonDetails';
 
-import useTvShowSeasonDetails from '@widgets/MediaOverview/hooks/useTvShowSeasonDetails';
-import EpisodeList from '@features/tvShowEpisode/ui/EpisodeList';
-import SeasonList from '@features/tvShowSeason/ui/SeasonList';
-
-const SeasonsAndEpisodesBlock = ({ seasons }) => {
+const SeasonsAndEpisodes = ({ seasons }: SeasonsAndEpisodesProps) => {
   const [tvSeason, setTvSeason] = useState(1);
 
   const params: Readonly<any> = useParams();
@@ -29,4 +28,4 @@ const SeasonsAndEpisodesBlock = ({ seasons }) => {
   );
 };
 
-export default SeasonsAndEpisodesBlock;
+export default SeasonsAndEpisodes;

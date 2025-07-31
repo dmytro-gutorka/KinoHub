@@ -2,7 +2,7 @@ import { MediaType } from '@shared/types/generalTypes';
 import { Box, Container } from '@mui/material';
 import { useLoaderData, useParams } from 'react-router';
 
-import MediaHeader from '../../widgets/MediaHeader';
+import MediaHeader from '@widgets/MediaHeader';
 import MediaOverview from '@widgets/MediaOverview/ui/MediaOverview';
 import useEnsureMediaDetails from '@widgets/MediaDetailsPage/hooks/useEnsureMediaDetails';
 import useEnsureMediaAction from '@widgets/MediaDetailsPage/hooks/useEnsureMediaAction';

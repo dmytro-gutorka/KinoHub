@@ -1,7 +1,7 @@
 import { Divider, Stack } from '@mui/material';
 
 import MediaSection from '../../shared/ui/MediaSection';
-import useHomepageMedia from '@widgets/Homepage/hooks/useHomepageMedia';
+import useHomepageMedia from '@shared/hooks/useHomepageMedia';
 
 const Homepage = () => {
   const { data: homepageMediaData, isLoading, isError } = useHomepageMedia();

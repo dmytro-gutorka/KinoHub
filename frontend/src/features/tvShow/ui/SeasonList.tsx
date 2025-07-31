@@ -1,5 +1,5 @@
 import { Stack } from '@mui/material';
-import SeasonItem from '../SeasonItem';
+import SeasonItem from './SeasonItem';
 
 const SeasonList = ({ seasons, tvSeason, onSetTvSeason }) => {
   return (

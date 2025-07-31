@@ -10,7 +10,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 import AsideBarSection from '@features/asideBar/ui/AsideBarSection';
 import AsideBarLink from '@features/asideBar/ui/AsideBarLink';
-import Logo from '../../../../shared/ui/Logo';
+import Logo from '@shared/ui/Logo';
 
 const AsideBar = () => {
   return (

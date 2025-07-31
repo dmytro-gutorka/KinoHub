@@ -1,6 +1,6 @@
 import { Grid, Stack } from '@mui/material';
 
-import SeasonsAndEpisodesBlock from '@features/media/ui/SeasonsAndEpisodes';
+import SeasonsAndEpisodes from '@widgets/SeasonsAndEpisodes';
 import MediaCastAndCrew from '@features/media/ui/MediaCastAndCrew';
 import MediaRating from '@features/media/ui/MediaRating';
 import MediaPlot from '@features/media/ui/MediaPlot';
@@ -34,7 +34,7 @@ export default function MediaOverview<T extends MediaType>({
           </Stack>
         </Grid>
       </Grid>
-      {'seasons' in tmdbMediaData && <SeasonsAndEpisodesBlock seasons={tmdbMediaData.seasons} />}
+      {'seasons' in tmdbMediaData && <SeasonsAndEpisodes seasons={tmdbMediaData.seasons} />}
     </Stack>
   );
 }

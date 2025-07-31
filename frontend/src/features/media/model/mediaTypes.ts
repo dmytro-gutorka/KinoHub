@@ -2,6 +2,7 @@ import {
   TmdbCast,
   TmdbMediaDetailsResponse,
   TmdbProductionCompanies,
+  TmdbSeasonBriefInfo,
 } from '@shared/types/tmdbEntities';
 import { ReactNode } from 'react';
 import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
@@ -42,4 +43,8 @@ export interface MediaDetailsProps<T extends MediaType> {
 export interface MediaRatingProps {
   mediaAction: MediaActionEntity;
   mediaType: MediaType;
+}
+
+export interface SeasonsAndEpisodesProps {
+  seasons: Array<TmdbSeasonBriefInfo>;
 }

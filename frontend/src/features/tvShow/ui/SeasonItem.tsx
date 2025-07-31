@@ -1,5 +1,4 @@
 import { Box, Stack, useTheme } from '@mui/material';
-
 import getPosterURL from '@shared/helpers/getPosterURL';
 
 const SeasonItem = ({ seasonData, tvSeason, onSetTvSeason }) => {
@@ -16,7 +15,7 @@ const SeasonItem = ({ seasonData, tvSeason, onSetTvSeason }) => {
   return (
     <Box
       onClick={() => onSetTvSeason(seasonNumber)}
-      border={theme.customComponents.border}
+      border={theme.customStyles.border}
       width="100%"
       borderRadius={1}
       p={2}
