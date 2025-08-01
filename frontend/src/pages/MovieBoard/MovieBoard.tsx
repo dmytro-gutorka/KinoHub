@@ -3,7 +3,7 @@ import { DndContext } from '@dnd-kit/core';
 import { useQuery } from '@tanstack/react-query';
 
 import MovieBoardItem from '@features/movieBoard/ui/MovieBoardItem';
-import MovieBoardColumn from '@features/movieBoard/ui/MovieBoardColumn';
+import MovieBoardColumn from '@features/movieBoard';
 import useMovieBoardItemStatus from '../../shared/hooks/useMovieBoardItemStatus';
 import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';

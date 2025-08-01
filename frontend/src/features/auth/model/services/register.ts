@@ -1,4 +1,4 @@
-import { User, UserRegisterCredentials } from '@features/auth/model/types';
+import { User, UserRegisterCredentials } from '@features/auth/model/authTypes';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { api } from '@shared/api/kinohub/apiPaths';
 

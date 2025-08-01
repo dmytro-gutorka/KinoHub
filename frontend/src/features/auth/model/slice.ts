@@ -1,5 +1,5 @@
 import { isAuthFulfilled, isAuthPending, isAuthRejected } from '@features/auth/model/matchers';
-import { AuthState, UserAuthData } from '@features/auth/model/types';
+import { AuthState, UserAuthData } from '@features/auth/model/authTypes';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { checkAuth } from '@features/auth/model/services/checkAuth';
 import { logout } from '@features/auth/model/services/logout';

@@ -14,7 +14,7 @@ const MovieBoardColumn = ({ id, children, icon, label, bgColor }) => {
   const theme = useTheme();
 
   return (
-    <Stack border={theme.customComponents.border} padding={3} borderRadius={1.5}>
+    <Stack border={theme.customStyles.border} padding={3} borderRadius={1.5}>
       <Stack gap={4} mb={8}>
         <Stack direction="row" gap={2}>
           <MovieBoardIcon

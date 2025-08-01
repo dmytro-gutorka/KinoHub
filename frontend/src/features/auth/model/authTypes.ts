@@ -29,3 +29,11 @@ export interface UserAuthData {
   data: User;
   accessToken: string;
 }
+
+export interface LoginFormProps {
+  setOpenLoginModal: (a: boolean) => void;
+}
+
+export interface RegistrationFormProps {
+  setOpenRegistrationModal: (a: boolean) => void;
+}

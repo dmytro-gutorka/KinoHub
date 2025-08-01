@@ -1,4 +1,4 @@
-import { UserAuthData } from '@features/auth/model/types';
+import { UserAuthData } from '@features/auth/model/authTypes';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { api } from '@shared/api/kinohub/apiPaths';
 import { setAccessToken } from '@shared/helpers/localStorage/setAccessToken';

@@ -1,9 +1,10 @@
 import { Card, CardContent, CardMedia, Stack, Typography, useTheme } from '@mui/material';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import getPosterURL from '@shared/helpers/getPosterURL';
-import LabelWithIcon from '@shared/ui/LabelWithIcon';
+
 import { useDraggable } from '@dnd-kit/core';
+import LabelWithIcon from '@shared/ui/LabelWithIcon';
+import getPosterURL from '@shared/helpers/getPosterURL';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 
 const MovieBoardItem = ({ id, posterPath, title, runtime, voteAverage, releaseDate }) => {
@@ -27,7 +28,7 @@ const MovieBoardItem = ({ id, posterPath, title, runtime, voteAverage, releaseDa
         display: 'flex',
         padding: theme.spacing(2.5),
         background: 'transparent',
-        border: theme.customComponents.border,
+        border: theme.customStyles.border,
       }}
     >
       <Stack direction="row" gap={2}>

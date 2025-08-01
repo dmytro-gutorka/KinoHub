@@ -16,6 +16,8 @@ export default function MediaOverview<T extends MediaType>({
 }: MediaOverviewProps<T>) {
   const { overview, credits, production_companies: companies } = tmdbMediaData;
 
+  // make all Media... component compound with COntex API
+
   return (
     <Stack mt={14} gap={6}>
       <Grid container justifyContent="space-between">
