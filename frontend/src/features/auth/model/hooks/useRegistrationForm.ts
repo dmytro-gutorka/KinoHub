@@ -13,10 +13,10 @@ export default function useRegistrationForm(setOpenRegistrationModal: (a: boolea
     formState: { errors },
   } = useForm<UserRegisterCredentials>();
 
+  const dispatch = useAppDispatch();
   const onSubmit: SubmitHandler<UserRegisterCredentials> = (data: UserRegisterCredentials) =>
     dispatch(register(data));
 
-  const dispatch = useAppDispatch();
   const registerStatus: RequestStatus = useSelector(selectRequestStatus('auth/register'));
   const registerServerError: string | null = useSelector(selectRequestError('auth/register'));
 

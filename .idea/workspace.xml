@@ -5,46 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/asideBar/ui/AsideBarLink/AsideBarLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/asideBar/ui/AsideBarLink.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/asideBar/ui/AsideBarLink/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/asideBar/ui/AsideBarSection/AsideBarSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/asideBar/ui/AsideBarSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/asideBar/ui/AsideBarSection/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/asideBar/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/services/checkAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/services/checkAuth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/services/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/services/login.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/services/register.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/services/register.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/slice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/authTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginForm/LoginForm.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginForm/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginModal/LoginModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginModal/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationForm/RegistrationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationForm/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal/RegistrationModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCastAndCrew/MediaCastAndCrew.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCastAndCrew.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCastAndCrew/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaContent/MediaContentBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaContentBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaContent/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaDetails/MediaDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaDetails/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPlot/MediaPlot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPlot.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPlot/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaProdCompanies/MediaProdCompanies.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaProdCompanies.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaProdCompanies/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating/MediaRating.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movieBoard/ui/MovieBoardColumn/MovieBoardColumn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movieBoard/ui/MovieBoardColumn.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movieBoard/ui/MovieBoardColumn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movieBoard/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movieBoard/ui/MovieBoardItem/MovieBoardItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movieBoard/ui/MovieBoardItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/movieBoard/ui/MovieBoardItem/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tvShow/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/hooks/useRegistrationForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/hooks/useRegistrationForm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/MovieBoard/MovieBoard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MovieBoard/MovieBoard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/kinohubAxios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/kinohubAxios.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useHomepageMedia.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useHomepageMedia.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useMovieBoardItemStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useMovieBoardItemStatus.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaOverview.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/ui/SeasonsAndEpisodes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/ui/SeasonsAndEpisodes.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +200,9 @@
       <workItem from="1753844760858" duration="6495000" />
       <workItem from="1753851288142" duration="2622000" />
       <workItem from="1753898127457" duration="22250000" />
-      <workItem from="1753983101868" duration="4239000" />
+      <workItem from="1753983101868" duration="4904000" />
+      <workItem from="1754073032651" duration="6296000" />
+      <workItem from="1754153769150" duration="1669000" />
     </task>
     <servers />
   </component>

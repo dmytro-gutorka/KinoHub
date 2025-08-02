@@ -1,3 +1,5 @@
+import { MediaOverviewProps } from '@features/media/model/mediaTypes';
+import { MediaType } from '@shared/types/generalTypes';
 import { Grid, Stack } from '@mui/material';
 
 import SeasonsAndEpisodes from '@widgets/SeasonsAndEpisodes';
@@ -6,8 +8,6 @@ import MediaRating from '@features/media/ui/MediaRating';
 import MediaPlot from '@features/media/ui/MediaPlot';
 import MediaProdCompanies from '@features/media/ui/MediaProdCompanies';
 import MediaDetails from '@features/media/ui/MediaDetails';
-import { MediaType } from '@shared/types/generalTypes';
-import { MediaOverviewProps } from '@features/media/model/mediaTypes';
 
 export default function MediaOverview<T extends MediaType>({
   tmdbMediaData,
@@ -16,7 +16,7 @@ export default function MediaOverview<T extends MediaType>({
 }: MediaOverviewProps<T>) {
   const { overview, credits, production_companies: companies } = tmdbMediaData;
 
-  // make all Media... component compound with COntex API
+  // make all Media... component compound with Contex API
 
   return (
     <Stack mt={14} gap={6}>

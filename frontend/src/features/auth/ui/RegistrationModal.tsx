@@ -3,15 +3,19 @@ import Dialog from '@mui/material/Dialog';
 import LogoIcon from '@shared/icons/LogoIcon';
 import RegistrationForm from '@features/auth/ui/RegistrationForm';
 import CloseIcon from '@mui/icons-material/Close';
+import { createPortal } from 'react-dom';
 
 interface SignUpModalProps {
   isOpen: boolean;
   setOpenRegistrationModal: (a: boolean) => void;
 }
 
+// TODO: createPorate(JSX, NodeElement)
+
 const RegistrationModal = ({ isOpen, setOpenRegistrationModal }: SignUpModalProps) => {
   const theme = useTheme();
 
+  // createPortal()
   return (
     <Dialog open={isOpen}>
       <DialogContent sx={{ padding: 0 }}>
