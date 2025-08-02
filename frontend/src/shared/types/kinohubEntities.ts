@@ -1,6 +1,6 @@
 import { MediaType, WatchStatus } from '@shared/types/generalTypes';
 
-export interface MediaDetailsEntities {
+export interface MediaInfoEntity {
   id: number;
   mediaId: number;
   mediaType: MediaType;
@@ -11,7 +11,7 @@ export interface MediaDetailsEntities {
   voteAverage: number;
 }
 
-export interface MediaActionEntity {
+export interface UserMediaActionEntity {
   id: number;
   isLiked: boolean;
   isWatched: boolean;

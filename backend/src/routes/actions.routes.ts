@@ -1,8 +1,15 @@
-import { getAction, createAction, updateAction } from '../controllers/actions.controller.js';
+import {
+  getUserMediaAction,
+  createUserMediaAction,
+  updateUserMediaAction,
+  getUserMediaActionListByUserId,
+} from '../controllers/actions.controller.js';
 import express, { Router } from 'express';
 
 export const router: Router = express.Router();
 
-router.get('/:mediaId', getAction);
-router.post('/:mediaId', createAction);
-router.patch('/:mediaId', updateAction);
+router.get('/:mediaId', getUserMediaAction);
+router.post('/:mediaId', createUserMediaAction);
+router.patch('/:mediaId', updateUserMediaAction);
+
+// router.get('/', getUserMediaActionListByUserId);

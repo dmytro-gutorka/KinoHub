@@ -1,12 +1,14 @@
 import { axiosWithAuth } from '@shared/api/kinohub/kinohubAxios';
-import { api } from '@shared/api/kinohub/apiPaths';
-import { MediaDetails, MediaType } from '@shared/types/generalTypes';
+import { getApiPaths } from '@shared/api/kinohub/apiPaths';
+import { MediaType } from '@shared/types/generalTypes';
+import { MediaInfoEntity } from '@shared/types/kinohubEntities';
 
 export async function updateMedia(
   mediaId: number,
   mediaType: MediaType = 'movie'
-): Promise<MediaDetails> {
-  const response = await axiosWithAuth.put<MediaDetails>(api.media.updateMedia(mediaId, mediaType));
+): Promise<MediaInfoEntity> {
+  const url: string = getApiPaths.media.put(mediaId, mediaType);
+  const response = await axiosWithAuth.put<MediaInfoEntity>(url);
 
   return response?.data;
 }

@@ -4,13 +4,13 @@ import { setAccessToken } from '@shared/helpers/localStorage/setAccessToken';
 
 // @ts-ignore
 import axios, { AxiosError } from 'axios';
-import { api } from '@shared/api/kinohub/apiPaths';
+import { getApiPaths } from '@shared/api/kinohub/apiPaths';
 
 export const login = createAsyncThunk<UserAuthData, UserLoginCredentials, { rejectValue: string }>(
   'auth/login',
   async (loginData, { rejectWithValue }) => {
     try {
-      const response = await axios.post(api.auth.login(), loginData, {
+      const response = await axios.post(getApiPaths.auth.login(), loginData, {
         withCredentials: true,
       });
 

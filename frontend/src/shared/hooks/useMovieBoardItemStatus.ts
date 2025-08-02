@@ -9,7 +9,7 @@ export default function useMovieBoardItemStatus() {
       queryClient.invalidateQueries({
         queryKey: ['movieBoardMediaItems', variables.mediaId],
       }),
-    onError: (err, variables, context) =>
+    onError: (_, variables, context) =>
       queryClient.setQueryData(['movieBoardMediaItems', variables.mediaId], context.prevData),
     onMutate: async (variables) => {
       await queryClient.cancelQueries(['movieBoardMediaItems', variables.mediaId]);

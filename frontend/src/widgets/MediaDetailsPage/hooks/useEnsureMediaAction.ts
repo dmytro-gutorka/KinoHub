@@ -1,17 +1,17 @@
-import { MediaActionEntity } from '@shared/types/kinohubEntities';
+import { UserMediaActionEntity } from '@shared/types/kinohubEntities';
 import { MediaType } from '@shared/types/generalTypes';
 import { useEffect, useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import getMediaAction from '@shared/api/kinohub/services/actions/getMediaAction';
-import createMediaAction from '@shared/api/kinohub/services/actions/createMediaAction';
+import getUserMediaAction from '@shared/api/kinohub/services/userMediaActions/getUserMediaAction';
+import createUserMediaAction from '@shared/api/kinohub/services/userMediaActions/createUserMediaAction';
 
 export default function useEnsureMediaAction(
   mediaId: number,
   mediaType: MediaType,
   options?: { enabled: boolean }
 ) {
-  const [createdAction, setCreatedAction] = useState<null | MediaActionEntity>(null);
+  const [createdAction, setCreatedAction] = useState<null | UserMediaActionEntity>(null);
 
   const queryClient = useQueryClient();
 
@@ -21,15 +21,15 @@ export default function useEnsureMediaAction(
     isLoading: isFetching,
   } = useQuery({
     queryKey: ['mediaAction', mediaType, mediaId],
-    queryFn: () => getMediaAction(mediaId, mediaType),
+    queryFn: () => getUserMediaAction(mediaId, mediaType),
     retry: false,
     enabled: options?.enabled,
     staleTime: 0,
   });
 
   const { mutate: create, isPending: isCreating } = useMutation({
-    mutationFn: () => createMediaAction(mediaId, mediaType),
-    onSuccess: (createdMedia: MediaActionEntity) => {
+    mutationFn: () => createUserMediaAction(mediaId, mediaType),
+    onSuccess: (createdMedia: UserMediaActionEntity) => {
       setCreatedAction(createdMedia);
       queryClient.setQueryData(['mediaAction', mediaType, mediaId], createdMedia);
     },

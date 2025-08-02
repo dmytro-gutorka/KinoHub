@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { MediaType, UserAction } from '../types/types.js';
 import { mediaUserActionsService } from '../services/actions.service.js';
 
-export async function getAction(
+export async function getUserMediaAction(
   req: Request<any, any, any, { media_type: MediaType }>,
   res: Response
 ): Promise<void> {
@@ -10,12 +10,12 @@ export async function getAction(
   const userId: number | undefined = req.user?.id;
   const mediaType: MediaType = req.query.media_type;
 
-  const userAction: UserAction = await mediaUserActionsService.read(userId, mediaId, mediaType);
+  const userAction: UserAction = await mediaUserActionsService.getOneBy(userId, mediaId, mediaType);
 
   res.status(200).json(userAction);
 }
 
-export async function createAction(
+export async function createUserMediaAction(
   req: Request<any, any, any, { media_type: MediaType }>,
   res: Response
 ): Promise<void> {
@@ -28,7 +28,7 @@ export async function createAction(
   res.status(201).json(userAction);
 }
 
-export async function updateAction(
+export async function updateUserMediaAction(
   req: Request<any, any, any, { media_type: MediaType }>,
   res: Response
 ): Promise<void> {
@@ -45,4 +45,12 @@ export async function updateAction(
   );
 
   res.status(200).json(userAction);
+}
+
+export async function getUserMediaActionListByUserId(req: Request, res: Response) {
+  const userId: number | undefined = req.user?.id;
+
+  const userActions: Array<UserAction> = await mediaUserActionsService.getListBy(userId);
+
+  res.status(200).json(userActions);
 }

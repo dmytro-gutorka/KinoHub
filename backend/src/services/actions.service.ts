@@ -1,12 +1,12 @@
 import { MediaType, UserAction } from '../types/types.js';
 import { actionsRepository } from '../repositories/actions.repository.js';
-import { HttpError } from '../errors/HttpError.js';
 import { mediaRepository } from '../repositories/media.repository.js';
-import { MediaInfo } from '../entity/MediaInfo.js';
 import { MediaUserAction } from '../entity/MediaUserAction.js';
+import { MediaInfo } from '../entity/MediaInfo.js';
+import { HttpError } from '../errors/HttpError.js';
 
 export class MediaUserActionsService {
-  async read(
+  async getOneBy(
     userId: number | undefined,
     mediaId: number,
     mediaType: MediaType
@@ -20,6 +20,16 @@ export class MediaUserActionsService {
     if (!userAction) throw HttpError.NotFound('Media action is not found');
 
     return userAction;
+  }
+
+  async getListBy(userId: number | undefined): Promise<Array<UserAction>> {
+    const userActions: Array<UserAction> | null = await actionsRepository.findBy({
+      userId,
+    });
+
+    if (!userActions) throw HttpError.NotFound('Media action is not found');
+
+    return userActions;
   }
 
   async create(

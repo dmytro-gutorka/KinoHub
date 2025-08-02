@@ -12,8 +12,6 @@ const MediaCardList = ({ mediaData, mediaGenresList }) => {
           mediaGenresList.find((genre) => genre.id === genreId && { name: genre?.name })
         );
 
-        console.log(mediaGenresList);
-
         return (
           <MediaCardPreviewLong
             key={media.id}

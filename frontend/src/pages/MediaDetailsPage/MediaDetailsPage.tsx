@@ -1,12 +1,11 @@
 import { MediaType } from '@shared/types/generalTypes';
 import { Box, Container } from '@mui/material';
 import { useLoaderData, useParams } from 'react-router';
-
-import MediaHeader from '@widgets/MediaHeader';
-import MediaOverview from '@widgets/MediaOverview/ui/MediaOverview';
+import useTmdbMediaDetails from '@widgets/MediaDetailsPage/hooks/useTmdbMediaDetails';
 import useEnsureMediaDetails from '@widgets/MediaDetailsPage/hooks/useEnsureMediaDetails';
 import useEnsureMediaAction from '@widgets/MediaDetailsPage/hooks/useEnsureMediaAction';
-import useTmdbMediaDetails from '@widgets/MediaDetailsPage/hooks/useTmdbMediaDetails';
+import MediaHeader from '@widgets/MediaHeader';
+import MediaOverview from '@widgets/MediaOverview';
 
 export default function MediaDetailsPage() {
   const mediaType: MediaType = useLoaderData();

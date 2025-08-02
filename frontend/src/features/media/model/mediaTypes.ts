@@ -6,7 +6,7 @@ import {
 } from '@shared/types/tmdbEntities';
 import { ReactNode } from 'react';
 import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
-import { MediaActionEntity } from '@shared/types/kinohubEntities';
+import { UserMediaActionEntity } from '@shared/types/kinohubEntities';
 
 export interface MediaPlotProps {
   overview: string;
@@ -41,7 +41,7 @@ export interface MediaDetailsProps<T extends MediaType> {
 }
 
 export interface MediaRatingProps {
-  mediaAction: MediaActionEntity;
+  mediaAction: UserMediaActionEntity;
   mediaType: MediaType;
 }
 

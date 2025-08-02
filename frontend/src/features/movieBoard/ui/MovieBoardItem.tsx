@@ -7,10 +7,9 @@ import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import getPosterURL from '@shared/helpers/getPosterURL';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 
-const MovieBoardItem = ({ id, posterPath, title, runtime, voteAverage, releaseDate }) => {
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id,
-  });
+const MovieBoardItem = ({ mediaData }) => {
+  const { movieId: id, title, runtime, posterPath, voteAverage, releaseDate } = mediaData;
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({ id });
 
   const imgURL = getPosterURL(posterPath);
   const theme = useTheme();

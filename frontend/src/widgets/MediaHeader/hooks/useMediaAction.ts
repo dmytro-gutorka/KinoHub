@@ -1,13 +1,13 @@
 import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
 import { useMutation, UseMutationOptions, useQueryClient } from '@tanstack/react-query';
-import updateMediaAction from '@shared/api/kinohub/services/actions/updateMediaAction';
+import updateUserMediaAction from '@shared/api/kinohub/services/userMediaActions/updateUserMediaAction';
 
 export default function useMediaAction(mediaId: number, mediaType: MediaType) {
   const queryClient = useQueryClient();
 
   return useMutation<MediaUserActions, Error, Partial<MediaUserActions>, { prevData: any }>({
     mutationFn: (action: Partial<MediaUserActions>) =>
-      updateMediaAction(mediaId, mediaType, action),
+      updateUserMediaAction(mediaId, mediaType, action),
     onSettled: () =>
       queryClient.invalidateQueries({
         queryKey: ['mediaAction', mediaType, mediaId],

@@ -5,7 +5,7 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import updateMediaAction from '@shared/api/kinohub/services/actions/updateMediaAction';
+import updateUserMediaAction from '@shared/api/kinohub/services/userMediaActions/updateUserMediaAction';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import getPosterURL from '@shared/helpers/getPosterURL';
@@ -31,7 +31,7 @@ const EpisodeItem = ({ episodeData }) => {
   const theme = useTheme();
 
   const actionMutation = useMutation({
-    mutationFn: (actionData) => updateMediaAction(id, actionData, getActionForURL(actionData)),
+    mutationFn: (actionData) => updateUserMediaAction(id, actionData, getActionForURL(actionData)),
     onSettled: () =>
       queryClient.invalidateQueries({
         queryKey: ['tvShowSeasonActions', id, seasonNumber],

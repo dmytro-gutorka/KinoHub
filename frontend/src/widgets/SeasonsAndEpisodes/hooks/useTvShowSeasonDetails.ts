@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import getTvShowSeasonDetails from '@shared/api/tmdb/services/getTmdbSeasonDetails';
-import createMediaAction from '@shared/api/kinohub/services/actions/createMediaAction';
+import createMediaAction from '@shared/api/kinohub/services/userMediaActions/createUserMediaAction';
 import parseEpisodesData from '@shared/helpers/mapEpisodeData';
 import getEpisodeActions from '@shared/api/kinohub/services/episode/getEpisodeAction';
 

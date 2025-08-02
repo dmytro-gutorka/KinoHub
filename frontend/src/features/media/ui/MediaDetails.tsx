@@ -5,7 +5,7 @@ import { List } from '@mui/material';
 import { JSX } from 'react';
 import ItemListSpaceBetween from '@shared/ui/ItemListSpaceBetween';
 import convertToUSD from '@shared/helpers/convertToUSD';
-import MediaContentBlock from '@features/media/ui/MediaContent';
+import MediaContentBlock from './MediaContentBlock';
 
 export default function MediaDetails<T extends MediaType>({
   tmdbMediaData,

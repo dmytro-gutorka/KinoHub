@@ -6,7 +6,7 @@ import { mediaRepository } from '../repositories/media.repository.js';
 import axios from 'axios';
 
 export class MediaService {
-  async read(mediaId: number, mediaType: MediaType): Promise<MediaInfo> {
+  async getOneBy(mediaId: number, mediaType: MediaType): Promise<MediaInfo> {
     const media: MediaInfo | null = await mediaRepository.findOneBy({ mediaId, mediaType });
 
     if (!media) throw HttpError.NotFound('Media not found');
