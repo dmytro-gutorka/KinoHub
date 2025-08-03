@@ -1,5 +1,5 @@
 import { Box, Typography, useTheme } from '@mui/material';
-import { MediaContentBlockProps } from '@features/media/model/mediaTypes';
+import { MediaContentBlockProps } from '@features/media/model/types/mediaTypes';
 
 export default function MediaContentBlock({ blockTitle, children }: MediaContentBlockProps) {
   const theme = useTheme();

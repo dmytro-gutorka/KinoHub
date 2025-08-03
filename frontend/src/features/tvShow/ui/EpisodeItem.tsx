@@ -5,13 +5,10 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import updateUserMediaAction from '@shared/api/kinohub/services/userMediaActions/updateUserMediaAction';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 import LabelWithIcon from '@shared/ui/LabelWithIcon';
-import getPosterURL from '@shared/helpers/getPosterURL';
-
-import { getActionForURL } from '@shared/helpers/getActionForURL';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import getPosterUrl from '@shared/helpers/getPosterUrl';
+import { useQueryClient } from '@tanstack/react-query';
 
 const EpisodeItem = ({ episodeData }) => {
   const {
@@ -30,36 +27,11 @@ const EpisodeItem = ({ episodeData }) => {
   const queryClient = useQueryClient();
   const theme = useTheme();
 
-  const actionMutation = useMutation({
-    mutationFn: (actionData) => updateUserMediaAction(id, actionData, getActionForURL(actionData)),
-    onSettled: () =>
-      queryClient.invalidateQueries({
-        queryKey: ['tvShowSeasonActions', id, seasonNumber],
-      }),
-    onError: (err, _, context) =>
-      queryClient.setQueryData(['tvShowSeasonActions', id, seasonNumber], context.prevData),
-    onMutate: async (actionData) => {
-      await queryClient.cancelQueries(['tvShowSeasonActions', id, seasonNumber]);
-      const prevData = queryClient.getQueryData(['tvShowSeasonActions', id, seasonNumber]);
-
-      queryClient.setQueryData(['tvShowSeasonActions', id, seasonNumber], (old) => ({
-        ...old,
-        ...actionData,
-      }));
-
-      return { prevData };
-    },
-  });
-
-  function handleWatchStatus() {
-    actionMutation.mutate({ isWatched: !isWatched, season: seasonNumber, episode: episodeNumber });
-  }
-
   return (
-    <Stack direction="row" border={theme.customComponents.border} borderRadius={1}>
+    <Stack direction="row" border={theme.customStyles.border} borderRadius={1}>
       <Box
         component="img"
-        src={getPosterURL(posterPath)}
+        src={getPosterUrl(posterPath)}
         width="200px"
         height="140px"
         borderRadius={1}

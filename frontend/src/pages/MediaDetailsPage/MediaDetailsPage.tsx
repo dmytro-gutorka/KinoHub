@@ -1,9 +1,9 @@
 import { MediaType } from '@shared/types/generalTypes';
 import { Box, Container } from '@mui/material';
 import { useLoaderData, useParams } from 'react-router';
-import useTmdbMediaDetails from '@widgets/MediaDetailsPage/hooks/useTmdbMediaDetails';
-import useEnsureMediaDetails from '@widgets/MediaDetailsPage/hooks/useEnsureMediaDetails';
-import useGetOrCreateMediaAction from '@widgets/MediaDetailsPage/hooks/useGetOrCreateMediaAction';
+import useTmdbMediaDetails from '@features/media/model/hooks/useTmdbMediaDetails';
+import useEnsureMediaDetails from '@features/media/model/hooks/useEnsureMediaDetails';
+import useGetOrCreateMediaAction from '@features/media/model/hooks/useGetOrCreateMediaAction';
 import MediaHeader from '@widgets/MediaHeader';
 import MediaOverview from '@widgets/MediaOverview';
 

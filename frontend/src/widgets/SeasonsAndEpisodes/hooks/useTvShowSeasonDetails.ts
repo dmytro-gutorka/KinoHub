@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import getTvShowSeasonDetails from '@shared/api/tmdb/services/getTmdbSeasonDetails';
 import createMediaAction from '@shared/api/kinohub/services/userMediaActions/createUserMediaAction';
-import parseEpisodesData from '@shared/helpers/mapEpisodeData';
+import mapEpisodesDetails from '@shared/helpers/mapEpisodeDetails';
 import getEpisodeActions from '@shared/api/kinohub/services/episode/getEpisodeAction';
 
 export default function useTvShowSeasonDetails(tvShowId, tvSeason) {
@@ -15,7 +15,7 @@ export default function useTvShowSeasonDetails(tvShowId, tvSeason) {
   useEffect(() => {
     if (!isSuccess || !data?.episodes) return;
     (async () => {
-      await createMediaAction(tvShowId, parseEpisodesData(data.episodes), true);
+      await createMediaAction(tvShowId, mapEpisodesDetails(data.episodes), true);
     })();
   }, [isSuccess, data, tvShowId]);
 

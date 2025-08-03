@@ -1,4 +1,6 @@
-export default function mapMediaDetails(mediaData, mediaType) {
+import { MediaType } from '@shared/types/generalTypes';
+
+export default function mapMediaDetails(mediaItems: [any], mediaType: MediaType = 'movie') {
   const {
     first_air_date: airDate,
     vote_average: voteAverage,
@@ -7,17 +9,17 @@ export default function mapMediaDetails(mediaData, mediaType) {
     runtime,
     title,
     name,
-  } = mediaData;
+  } = mediaItems;
 
   const relevantReleaseDate = airDate || releaseDate || 'N/A';
   const relevantTitle = name || title || 'No title';
 
   return {
-    releaseDate: relevantReleaseDate,
     title: relevantTitle,
+    mediaType,
+    releaseDate: relevantReleaseDate,
     voteAverage,
     posterPath,
-    mediaType,
     runtime,
   };
 }

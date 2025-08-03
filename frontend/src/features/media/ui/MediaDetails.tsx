@@ -1,6 +1,6 @@
 import { MediaType } from '@shared/types/generalTypes';
 import { TmdbMovieDetails, TmdbTvShowDetails } from '@entities/types/tmdbEntities';
-import { MediaDetailsProps } from '@features/media/model/mediaTypes';
+import { MediaDetailsProps } from '@features/media/model/types/mediaTypes';
 import { List } from '@mui/material';
 import { JSX } from 'react';
 import ItemListSpaceBetween from '@shared/ui/ItemListSpaceBetween';

@@ -1,10 +1,10 @@
 import { Box, Stack } from '@mui/material';
-import getPosterURL from '@shared/helpers/getPosterURL';
-import { MediaActorProps } from '@features/media/model/mediaTypes';
+import getPosterUrl from '@shared/helpers/getPosterUrl';
+import { MediaActorProps } from '@features/media/model/types/mediaTypes';
 
 export default function MediaActorCard({ actor }: MediaActorProps) {
   const { id, character, name, profile_path: profilePath } = actor;
-  const photoPath = getPosterURL(profilePath);
+  const photoPath = getPosterUrl(profilePath);
 
   return (
     <Stack key={id}>

@@ -13,13 +13,6 @@ export const TMDB_HEADERS = {
   },
 };
 
-export const TMDB_ENDPOINTS = {
-  TRENDING_MOVIES: 'trending/movie/week',
-  TRENDING_TV: 'trending/tv/week',
-  TV_AIRING_TODAY: 'tv/airing_today',
-  MOVIE_TOP_RATED: 'movie/top_rated',
-} as const;
-
 export const MEDIA_ACTIONS = {
   IS_WATCHED: 'isWatched',
   IS_LIKED: 'isLiked',

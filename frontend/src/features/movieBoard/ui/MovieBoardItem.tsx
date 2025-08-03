@@ -1,20 +1,21 @@
+import { MediaInfoEntity } from '@entities/types/kinohubEntities';
 import { Card, CardContent, CardMedia, Stack, Typography, useTheme } from '@mui/material';
+import { useDraggable } from '@dnd-kit/core';
+
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-
-import { useDraggable } from '@dnd-kit/core';
 import LabelWithIcon from '@shared/ui/LabelWithIcon';
-import getPosterURL from '@shared/helpers/getPosterURL';
+import getPosterUrl from '@shared/helpers/getPosterUrl';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 
-const MovieBoardItem = ({ mediaData }) => {
-  const { mediaId, title, runtime, posterPath, voteAverage, releaseDate, mediaType } = mediaData;
+const MovieBoardItem = ({ mediaInfo }: { mediaInfo: MediaInfoEntity }) => {
+  const { mediaId, title, runtime, posterPath, voteAverage, releaseDate, mediaType } = mediaInfo;
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: mediaId,
     data: { mediaType },
   });
 
-  const imgURL = getPosterURL(posterPath);
+  const imgURL = getPosterUrl(posterPath);
   const theme = useTheme();
 
   return (

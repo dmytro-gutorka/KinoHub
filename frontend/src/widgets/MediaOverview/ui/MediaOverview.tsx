@@ -1,4 +1,4 @@
-import { MediaOverviewProps } from '@features/media/model/mediaTypes';
+import { MediaOverviewProps } from '@features/media/model/types/mediaTypes';
 import { MediaType } from '@shared/types/generalTypes';
 import { Grid, Stack } from '@mui/material';
 

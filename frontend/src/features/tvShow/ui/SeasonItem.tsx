@@ -1,5 +1,5 @@
 import { Box, Stack, useTheme } from '@mui/material';
-import getPosterURL from '@shared/helpers/getPosterURL';
+import getPosterUrl from '@shared/helpers/getPosterUrl';
 
 const SeasonItem = ({ seasonData, tvSeason, onSetTvSeason }) => {
   const {
@@ -10,7 +10,7 @@ const SeasonItem = ({ seasonData, tvSeason, onSetTvSeason }) => {
   } = seasonData;
 
   const theme = useTheme();
-  const imgURL = getPosterURL(posterPath);
+  const imgURL = getPosterUrl(posterPath);
 
   return (
     <Box

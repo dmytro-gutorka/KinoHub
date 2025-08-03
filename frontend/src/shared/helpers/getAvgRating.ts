@@ -1,5 +1,5 @@
-export default function getAvgRating(mediaActionList) {
-  const recordsWithRuntime = mediaActionList.filter((mediaAction) => mediaAction.rating);
+export default function getAvgRating(mediaActions: [any]) {
+  const recordsWithRuntime = mediaActions.filter((mediaAction) => mediaAction.rating);
   const ratingSum = recordsWithRuntime.reduce((acc, { rating }) => acc + rating, 0);
 
   if (!recordsWithRuntime.length) return 0;

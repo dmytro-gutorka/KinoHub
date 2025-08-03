@@ -1,20 +1,24 @@
+import { WatchStatus } from '@shared/types/generalTypes';
+import { DragEndEvent, DndContext } from '@dnd-kit/core';
 import { Stack } from '@mui/material';
-import { DndContext } from '@dnd-kit/core';
+import { MovieBoardColumnList } from '@features/movieBoard';
 import useUpdateMovieBoardItem from '@features/movieBoard/hooks/useUpdateMovieBoardItem';
 import useMovieBoardItems from '@features/movieBoard/hooks/useMovieBoardItems';
-import MovieBoardColumnList from '@features/movieBoard/ui/MovieBoardColumnList';
 
 const MovieBoard = () => {
-  const { data: mediaItems, isSuccess } = useMovieBoardItems();
+  const { data: movieBoardItems, isSuccess } = useMovieBoardItems();
   const { mutate: updateAction } = useUpdateMovieBoardItem();
 
-  function handleDragEnd(event) {
+  function handleDragEnd(event: DragEndEvent) {
     if (event.over === null) return;
 
+    const mediaId = Number(event.active.id);
+    const watchStatus = event.over.id as WatchStatus;
+
     updateAction({
-      mediaId: event.active.id,
+      mediaId,
       mediaType: event.active?.data?.current?.mediaType,
-      action: { watchStatus: event.over.id },
+      action: { watchStatus },
     });
   }
 
@@ -23,7 +27,7 @@ const MovieBoard = () => {
   return (
     <DndContext onDragEnd={handleDragEnd}>
       <Stack m={10}>
-        <MovieBoardColumnList mediaItems={mediaItems} />
+        <MovieBoardColumnList movieBoardItems={movieBoardItems} />
       </Stack>
     </DndContext>
   );

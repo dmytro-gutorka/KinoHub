@@ -1,5 +1,5 @@
 import { Stack } from '@mui/material';
-import getPosterURL from '../../helpers/getPosterURL';
+import getPosterUrl from '../../helpers/getPosterUrl';
 import MediaCardPreviewLong from '../MediaCardPreviewLong';
 
 const MediaCardList = ({ mediaData, mediaGenresList }) => {
@@ -7,7 +7,7 @@ const MediaCardList = ({ mediaData, mediaGenresList }) => {
     <Stack direction="row" flexWrap="wrap" gap={10} justifyContent="center">
       {mediaData.map((media) => {
         const { poster_path: posterPath, genre_ids: genres } = media;
-        const relevantPoster = getPosterURL(posterPath);
+        const relevantPoster = getPosterUrl(posterPath);
         const genreNames = genres.map((genreId) =>
           mediaGenresList.find((genre) => genre.id === genreId && { name: genre?.name })
         );

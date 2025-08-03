@@ -1,4 +1,4 @@
-import { SeasonsAndEpisodesProps } from '@features/media/model/mediaTypes';
+import { SeasonsAndEpisodesProps } from '@features/media/model/types/mediaTypes';
 import { Grid } from '@mui/material';
 import { useState } from 'react';
 import { useParams } from 'react-router';

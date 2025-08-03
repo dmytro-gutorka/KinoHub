@@ -1,4 +1,4 @@
-import { MediaCastAndCrewProps } from '@features/media/model/mediaTypes';
+import { MediaCastAndCrewProps } from '@features/media/model/types/mediaTypes';
 import { Stack } from '@mui/material';
 import MediaActorCard from '@shared/ui/MediaActorCard';
 import MediaContentBlock from './MediaContentBlock';

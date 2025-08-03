@@ -10,7 +10,7 @@ interface SignUpModalProps {
   setOpenRegistrationModal: (a: boolean) => void;
 }
 
-// TODO: createPorate(JSX, NodeElement)
+// TODO: createPortal(JSX, NodeElement)
 
 const RegistrationModal = ({ isOpen, setOpenRegistrationModal }: SignUpModalProps) => {
   const theme = useTheme();

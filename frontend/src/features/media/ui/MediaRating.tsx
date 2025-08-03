@@ -1,4 +1,4 @@
-import { MediaRatingProps } from '@features/media/model/mediaTypes';
+import { MediaRatingProps } from '@features/media/model/types/mediaTypes';
 import { Box, Rating, Typography, useTheme } from '@mui/material';
 import useUpdateMediaAction from '@widgets/MediaHeader/hooks/useUpdateMediaAction';
 

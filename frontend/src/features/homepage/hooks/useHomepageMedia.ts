@@ -1,13 +1,6 @@
-import { TMDB_ENDPOINTS } from '@app/constants';
+import { HomepageMedia, TMDB_ENDPOINTS } from '@features/homepage/types/homepageTypes';
 import { useQuery } from '@tanstack/react-query';
-import getHomepageMedia from '@shared/api/getHomepageMedia';
-
-type HomepageMedia = [
-  PromiseSettledResult<any>,
-  PromiseSettledResult<any>,
-  PromiseSettledResult<any>,
-  PromiseSettledResult<any>,
-];
+import getHomepageMedia from '@features/homepage/api/getHomepageMedia';
 
 export default function useHomepageMedia() {
   return useQuery<HomepageMedia>({

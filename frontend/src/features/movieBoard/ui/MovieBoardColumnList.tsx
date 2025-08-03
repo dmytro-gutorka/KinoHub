@@ -4,11 +4,15 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';
 import { MovieBoardColumn, MovieBoardItem } from '@features/movieBoard';
+import {
+  MovieBoardColumnData,
+  MovieBoardColumnListProps,
+} from '@features/movieBoard/model/types/movieBoardTypes';
 
-export default function MovieBoardColumnList({ mediaItems }) {
+export default function MovieBoardColumnList({ movieBoardItems }: MovieBoardColumnListProps) {
   const theme = useTheme();
 
-  const columns = [
+  const columns: Array<MovieBoardColumnData> = [
     {
       id: 'toWatch',
       label: 'Want to Watch',
@@ -44,11 +48,15 @@ export default function MovieBoardColumnList({ mediaItems }) {
   return (
     <Stack direction="row" gap={4}>
       {columns.map((columnData) => (
-        <MovieBoardColumn key={columnData.id} mediaItems={mediaItems} columnData={columnData}>
+        <MovieBoardColumn
+          key={columnData.id}
+          movieBoardItems={movieBoardItems}
+          columnData={columnData}
+        >
           <Stack gap={2}>
-            {mediaItems
+            {movieBoardItems
               ?.filter((item) => item.watchStatus === columnData.id)
-              ?.map((item) => <MovieBoardItem key={item.mediaId} mediaData={item.mediaInfo} />)}
+              ?.map((item) => <MovieBoardItem key={item.mediaId} mediaInfo={item.mediaInfo} />)}
           </Stack>
         </MovieBoardColumn>
       ))}

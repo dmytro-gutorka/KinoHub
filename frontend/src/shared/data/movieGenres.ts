@@ -1,4 +1,6 @@
-const movieGenres = [
+import { TmdbGenreList } from '@entities/types/tmdbEntities';
+
+const movieGenres: Array<TmdbGenreList> = [
   {
     id: 28,
     name: 'Action',

@@ -1,5 +1,6 @@
 import { useDroppable } from '@dnd-kit/core';
 import { Stack, styled, Typography, useTheme } from '@mui/material';
+import { MovieBoardColumnProps } from '@features/movieBoard/model/types/movieBoardTypes';
 
 const MovieBoardIcon = styled(Stack)(() => ({
   minWidth: '45px',
@@ -9,12 +10,14 @@ const MovieBoardIcon = styled(Stack)(() => ({
   alignItems: 'center',
 }));
 
-const MovieBoardColumn = ({ children, columnData, mediaItems }) => {
+const MovieBoardColumn = ({ children, columnData, movieBoardItems }: MovieBoardColumnProps) => {
   const { id, icon, label, bgColor } = columnData;
   const { isOver, setNodeRef } = useDroppable({ id });
 
   const theme = useTheme();
-  const mediaItemsInColumn = mediaItems.filter((mediaItem) => mediaItem.watchStatus === id)?.length;
+  const mediaItemsInColumn = movieBoardItems.filter(
+    (mediaItem) => mediaItem.watchStatus === id
+  )?.length;
 
   return (
     <Stack border={theme.customStyles.border} padding={3} borderRadius={1.5}>

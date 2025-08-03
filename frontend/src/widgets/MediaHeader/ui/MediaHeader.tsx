@@ -12,7 +12,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import { Box, Button, Container, Stack, Typography, useTheme } from '@mui/material';
 
-import getPosterURL from '@shared/helpers/getPosterURL';
+import getPosterUrl from '@shared/helpers/getPosterUrl';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 import useUpdateMediaAction from '@widgets/MediaHeader/hooks/useUpdateMediaAction';
 import BackgroundBanner from '@shared/ui/BackgroundBanner';
@@ -37,7 +37,7 @@ const MediaHeader = ({ tmdbMediaData, mediaAction, mediaType }) => {
   const { isLiked, isWatched, watchStatus } = mediaAction;
 
   const theme = useTheme();
-  const imgURL = getPosterURL(posterPath);
+  const imgURL = getPosterUrl(posterPath);
 
   const { mutate: updateAction } = useUpdateMediaAction(mediaId, mediaType);
   const handleMediaAction = (action: Partial<MediaUserActions>) => updateAction(action);

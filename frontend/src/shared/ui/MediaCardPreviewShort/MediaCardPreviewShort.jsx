@@ -1,6 +1,6 @@
 import { Box, CardContent, CardMedia, Rating, Stack, Typography } from '@mui/material';
 import { NavLink } from 'react-router';
-import getPosterURL from '../../helpers/getPosterURL';
+import getPosterUrl from '../../helpers/getPosterUrl';
 import StyledCard from '../StyledCard';
 
 const MediaCardPreviewShort = ({ mediaItem }) => {
@@ -13,7 +13,7 @@ const MediaCardPreviewShort = ({ mediaItem }) => {
     id,
   } = mediaItem;
 
-  const imgURL = getPosterURL(posterPath);
+  const imgURL = getPosterUrl(posterPath);
   const isMovie = mediaType ? 'shows' : 'movies';
 
   return (

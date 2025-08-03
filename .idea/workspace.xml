@@ -5,11 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/mapEpisodeDetails.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/entities/types/kinohubEntities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/types/kinohubEntities.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/model/mediaTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/model/types/mediaTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCastAndCrew.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCastAndCrew.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaContentBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaContentBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPlot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPlot.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaProdCompanies.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaProdCompanies.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/movieBoard/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movieBoard/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/movieBoard/ui/MovieBoardColumn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movieBoard/ui/MovieBoardColumn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/movieBoard/ui/MovieBoardColumnList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movieBoard/ui/MovieBoardColumnList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/movieBoard/ui/MovieBoardItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/movieBoard/ui/MovieBoardItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/EpisodeItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/EpisodeItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/SeasonItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/SeasonItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/MovieBoard/MovieBoard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MovieBoard/MovieBoard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/getHomepageMedia.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/homepage/api/getHomepageMedia.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/movieBoardItem/getMovieBoardItems.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/movieBoardItem/getMovieBoardItems.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/data/movieGenres.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/data/movieGenres.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/data/tvShowGenres.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/data/tvShowGenres.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/convertToUSD.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/convertToUSD.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/getActionForURL.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/getPosterURL.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/getPosterUrl.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/getWatchedMediaNumber.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/getWatchedMediaNumber.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/mapEpisodeData.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/mapMediaDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/mapMediaDetails.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useHomepageMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/homepage/hooks/useHomepageMedia.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useMovieBoardItemStatus.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaActorCard/MediaActorCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaActorCard/MediaActorCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardList/MediaCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardList/MediaCardList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardPreviewShort/MediaCardPreviewShort.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardPreviewShort/MediaCardPreviewShort.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MovieSlider/MovieSlider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/deprecated/MovieSlider/MovieSlider.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MovieSlider/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/deprecated/MovieSlider/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MovieSlider/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/deprecated/MovieSlider/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaDetailsPage/hooks/useEnsureMediaDetails.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/model/hooks/useEnsureMediaDetails.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaDetailsPage/hooks/useGetOrCreateMediaAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/model/hooks/useGetOrCreateMediaAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaDetailsPage/hooks/useTmdbMediaDetails.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/model/hooks/useTmdbMediaDetails.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/ui/MediaHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/ui/MediaHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaOverview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/hooks/useTvShowSeasonDetails.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/hooks/useTvShowSeasonDetails.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/ui/SeasonsAndEpisodes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/ui/SeasonsAndEpisodes.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +66,9 @@
         <option value="HTML File" />
         <option value="JSX Component Folder.jsx.child.0" />
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="JSX Component Folder.tsx.child.0" />
         <option value="JSX Component Folder" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -100,11 +140,11 @@
       <recent name="$PROJECT_DIR$/backend/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/frontend/src/features/movieBoard/ui" />
-      <recent name="$PROJECT_DIR$/frontend/src/features/movieBoard/hooks" />
-      <recent name="$PROJECT_DIR$/frontend/src/entities/types" />
-      <recent name="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/movieBoardItem" />
-      <recent name="$PROJECT_DIR$/frontend/src/features/movieBoard" />
+      <recent name="$PROJECT_DIR$/frontend/src/features/movieBoard/model/types" />
+      <recent name="$PROJECT_DIR$/frontend/src/shared/deprecated" />
+      <recent name="$PROJECT_DIR$/frontend/src/features/homepage/api" />
+      <recent name="$PROJECT_DIR$/frontend/src/features/homepage/hooks" />
+      <recent name="$PROJECT_DIR$/frontend/src/features/homepage/types" />
     </key>
   </component>
   <component name="RunManager">
@@ -198,7 +238,9 @@
       <workItem from="1753898127457" duration="22250000" />
       <workItem from="1753983101868" duration="4904000" />
       <workItem from="1754073032651" duration="6296000" />
-      <workItem from="1754153769150" duration="20148000" />
+      <workItem from="1754153769150" duration="21425000" />
+      <workItem from="1754242485088" duration="4268000" />
+      <workItem from="1754252659501" duration="1302000" />
     </task>
     <servers />
   </component>
