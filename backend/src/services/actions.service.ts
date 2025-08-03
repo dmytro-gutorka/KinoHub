@@ -4,6 +4,7 @@ import { mediaRepository } from '../repositories/media.repository.js';
 import { MediaUserAction } from '../entity/MediaUserAction.js';
 import { MediaInfo } from '../entity/MediaInfo.js';
 import { HttpError } from '../errors/HttpError.js';
+import { IsNull, Not } from 'typeorm';
 
 export class MediaUserActionsService {
   async getOneBy(
@@ -22,9 +23,10 @@ export class MediaUserActionsService {
     return userAction;
   }
 
-  async getListBy(userId: number | undefined): Promise<Array<UserAction>> {
-    const userActions: Array<UserAction> | null = await actionsRepository.findBy({
-      userId,
+  async getListBy(userId: number | undefined): Promise<Array<MediaUserAction>> {
+    const userActions: Array<MediaUserAction> | null = await actionsRepository.find({
+      where: { userId, watchStatus: Not(IsNull()) },
+      select: ['watchStatus', 'mediaId'],
     });
 
     if (!userActions) throw HttpError.NotFound('Media action is not found');

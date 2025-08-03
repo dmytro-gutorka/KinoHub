@@ -3,10 +3,10 @@ import {
   TmdbMediaDetailsResponse,
   TmdbProductionCompanies,
   TmdbSeasonBriefInfo,
-} from '@shared/types/tmdbEntities';
+} from '@entities/types/tmdbEntities';
 import { ReactNode } from 'react';
 import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
-import { UserMediaActionEntity } from '@shared/types/kinohubEntities';
+import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
 
 export interface MediaPlotProps {
   overview: string;

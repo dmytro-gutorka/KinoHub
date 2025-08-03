@@ -1,7 +1,7 @@
 import { axiosWithAuth } from '@shared/api/kinohub/kinohubAxios';
 import { getApiPaths } from '@shared/api/kinohub/apiPaths';
 import { MediaType } from '@shared/types/generalTypes';
-import { MediaInfoEntity } from '@shared/types/kinohubEntities';
+import { MediaInfoEntity } from '@entities/types/kinohubEntities';
 
 export async function updateMedia(
   mediaId: number,

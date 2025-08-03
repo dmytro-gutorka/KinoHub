@@ -1,7 +1,7 @@
 import { axiosWithAuth } from '@shared/api/kinohub/kinohubAxios';
 import { getApiPaths } from '@shared/api/kinohub/apiPaths';
 import { MediaType } from '@shared/types/generalTypes';
-import { UserMediaActionEntity } from '@shared/types/kinohubEntities';
+import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
 
 async function createUserMediaAction(mediaId: number, mediaType: MediaType) {
   const url: string = getApiPaths.userMediaActions.post(mediaId, mediaType);

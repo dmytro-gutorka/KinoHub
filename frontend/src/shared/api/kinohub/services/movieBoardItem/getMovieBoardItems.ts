@@ -1,12 +1,12 @@
 import { axiosWithAuth } from '@shared/api/kinohub/kinohubAxios';
 import { getApiPaths } from '@shared/api/kinohub/apiPaths';
-import { UserMediaActionEntity } from '@shared/types/kinohubEntities';
+import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
 
-const getUserMediaActionListByUserId = async () => {
-  const url: string = getApiPaths.userMediaActions.getListBy();
+const getMovieBoardItems = async () => {
+  const url: string = getApiPaths.movieBoardItems.getList();
   const response = await axiosWithAuth.get<Array<UserMediaActionEntity>>(url);
 
   return response?.data;
 };
 
-export default getUserMediaActionListByUserId;
+export default getMovieBoardItems;

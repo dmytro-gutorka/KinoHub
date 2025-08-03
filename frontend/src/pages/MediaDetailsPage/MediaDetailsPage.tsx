@@ -3,7 +3,7 @@ import { Box, Container } from '@mui/material';
 import { useLoaderData, useParams } from 'react-router';
 import useTmdbMediaDetails from '@widgets/MediaDetailsPage/hooks/useTmdbMediaDetails';
 import useEnsureMediaDetails from '@widgets/MediaDetailsPage/hooks/useEnsureMediaDetails';
-import useEnsureMediaAction from '@widgets/MediaDetailsPage/hooks/useEnsureMediaAction';
+import useGetOrCreateMediaAction from '@widgets/MediaDetailsPage/hooks/useGetOrCreateMediaAction';
 import MediaHeader from '@widgets/MediaHeader';
 import MediaOverview from '@widgets/MediaOverview';
 
@@ -17,7 +17,7 @@ export default function MediaDetailsPage() {
     mediaType
   );
   const { mediaData, isMediaLoading, isMediaSuccess } = useEnsureMediaDetails(mediaId, mediaType);
-  const { mediaAction, isActionsLoading } = useEnsureMediaAction(mediaId, mediaType, {
+  const { mediaAction, isActionsLoading } = useGetOrCreateMediaAction(mediaId, mediaType, {
     enabled: isMediaSuccess && !!mediaData,
   });
 

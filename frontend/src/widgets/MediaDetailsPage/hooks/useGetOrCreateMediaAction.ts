@@ -1,4 +1,4 @@
-import { UserMediaActionEntity } from '@shared/types/kinohubEntities';
+import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
 import { MediaType } from '@shared/types/generalTypes';
 import { useEffect, useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
@@ -6,7 +6,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import getUserMediaAction from '@shared/api/kinohub/services/userMediaActions/getUserMediaAction';
 import createUserMediaAction from '@shared/api/kinohub/services/userMediaActions/createUserMediaAction';
 
-export default function useEnsureMediaAction(
+export default function useGetOrCreateMediaAction(
   mediaId: number,
   mediaType: MediaType,
   options?: { enabled: boolean }

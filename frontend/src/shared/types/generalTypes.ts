@@ -1,6 +1,6 @@
 import { MEDIA_ACTIONS, WATCH_STATUS } from '@app/constants';
-import { TmdbGenreList } from '@shared/types/tmdbEntities';
-import { UserMediaActionEntity } from '@shared/types/kinohubEntities';
+import { TmdbGenreList } from '@entities/types/tmdbEntities';
+import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
 
 export type MediaType = 'movie' | 'tv';
 

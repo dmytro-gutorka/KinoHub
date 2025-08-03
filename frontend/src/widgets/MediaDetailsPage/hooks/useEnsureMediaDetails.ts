@@ -1,5 +1,5 @@
 import { MediaType } from '@shared/types/generalTypes';
-import { MediaInfoEntity } from '@shared/types/kinohubEntities';
+import { MediaInfoEntity } from '@entities/types/kinohubEntities';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { createMedia } from '@shared/api/kinohub/services/media/createMedia';

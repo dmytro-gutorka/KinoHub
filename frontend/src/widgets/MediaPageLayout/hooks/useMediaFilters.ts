@@ -1,7 +1,7 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 import { MediaFiltersBase, SortBy } from '@shared/types/generalTypes';
 import { SelectChangeEvent } from '@mui/material';
-import { TmdbGenreList } from '@shared/types/tmdbEntities';
+import { TmdbGenreList } from '@entities/types/tmdbEntities';
 
 interface MediaFiltersWithSearch extends MediaFiltersBase {
   searchQuery: string;

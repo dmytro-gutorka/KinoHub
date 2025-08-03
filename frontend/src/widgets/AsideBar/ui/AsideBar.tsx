@@ -33,7 +33,7 @@ const AsideBar = () => {
         </AsideBarSection>
 
         <AsideBarSection title="Library">
-          <AsideBarLink to="movie-board'" hasIcon>
+          <AsideBarLink to="movie-board" hasIcon>
             <DashboardOutlinedIcon /> MovieBoard
           </AsideBarLink>
           <AsideBarLink to="dashboard" hasIcon>

@@ -1,4 +1,4 @@
-import { MediaInfoEntity } from '@shared/types/kinohubEntities';
+import { MediaInfoEntity } from '@entities/types/kinohubEntities';
 import { MediaType } from '@shared/types/generalTypes';
 import { getApiPaths } from '@shared/api/kinohub/apiPaths';
 import { axiosWithAuth } from '@shared/api/kinohub/kinohubAxios';

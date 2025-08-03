@@ -1,5 +1,5 @@
 import { MediaType } from '@shared/types/generalTypes';
-import { TmdbMediaDetailsResponse } from '@shared/types/tmdbEntities';
+import { TmdbMediaDetailsResponse } from '@entities/types/tmdbEntities';
 import { tmdbService } from '@shared/api/tmdb/TmdbService';
 
 export default async function getTmdbMediaDetails<T extends MediaType>(

@@ -1,10 +1,10 @@
 import { MediaRatingProps } from '@features/media/model/mediaTypes';
 import { Box, Rating, Typography, useTheme } from '@mui/material';
-import useMediaAction from '@widgets/MediaHeader/hooks/useMediaAction';
+import useUpdateMediaAction from '@widgets/MediaHeader/hooks/useUpdateMediaAction';
 
 const MediaRating = ({ mediaAction, mediaType }: MediaRatingProps) => {
   const { mediaId, rating } = mediaAction;
-  const { mutate: updateAction } = useMediaAction(mediaId, mediaType);
+  const { mutate: updateAction } = useUpdateMediaAction(mediaId, mediaType);
 
   const theme = useTheme();
   //TODO: value: any

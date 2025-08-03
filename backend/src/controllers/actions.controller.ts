@@ -47,7 +47,7 @@ export async function updateUserMediaAction(
   res.status(200).json(userAction);
 }
 
-export async function getUserMediaActionListByUserId(req: Request, res: Response) {
+export async function getMovieBoardItems(req: Request, res: Response) {
   const userId: number | undefined = req.user?.id;
 
   const userActions: Array<UserAction> = await mediaUserActionsService.getListBy(userId);

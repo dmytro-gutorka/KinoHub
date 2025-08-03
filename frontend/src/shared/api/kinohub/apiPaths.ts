@@ -22,8 +22,9 @@ export const getApiPaths = {
     getOneBy: (mediaId: number, mediaType: MediaType) => getUserMediaActionUrl(mediaId, mediaType),
     post: (mediaId: number, mediaType: MediaType) => getUserMediaActionUrl(mediaId, mediaType),
     patch: (mediaId: number, mediaType: MediaType) => getUserMediaActionUrl(mediaId, mediaType),
-
-    getListBy: () => `${API_URL}/actions`,
+  },
+  movieBoardItems: {
+    getList: () => `${API_URL}/actions/movie-board`,
   },
   episode: {},
 };

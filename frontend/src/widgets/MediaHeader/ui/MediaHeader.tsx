@@ -14,11 +14,12 @@ import { Box, Button, Container, Stack, Typography, useTheme } from '@mui/materi
 
 import getPosterURL from '@shared/helpers/getPosterURL';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
-import useMediaAction from '@widgets/MediaHeader/hooks/useMediaAction';
+import useUpdateMediaAction from '@widgets/MediaHeader/hooks/useUpdateMediaAction';
 import BackgroundBanner from '@shared/ui/BackgroundBanner';
 import GenreChipList from '@shared/ui/GenreChipList';
 import ButtonList from '@shared/ui/ButtonList';
 import LabelList from '@shared/ui/LabeList/LabelList';
+import { MediaUserActions } from '@shared/types/generalTypes';
 
 const MediaHeader = ({ tmdbMediaData, mediaAction, mediaType }) => {
   const {
@@ -34,12 +35,12 @@ const MediaHeader = ({ tmdbMediaData, mediaAction, mediaType }) => {
   } = tmdbMediaData;
 
   const { isLiked, isWatched, watchStatus } = mediaAction;
-  const { mutate: updateAction } = useMediaAction(mediaId, mediaType);
 
   const theme = useTheme();
   const imgURL = getPosterURL(posterPath);
 
-  const handleMediaAction = (action) => updateAction(action);
+  const { mutate: updateAction } = useUpdateMediaAction(mediaId, mediaType);
+  const handleMediaAction = (action: Partial<MediaUserActions>) => updateAction(action);
 
   const movieLabels = [
     { icon: <StarBorderIcon />, data: voteAverage?.toFixed(2) + '/10' },

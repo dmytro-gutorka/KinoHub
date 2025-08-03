@@ -2,14 +2,14 @@ import {
   getUserMediaAction,
   createUserMediaAction,
   updateUserMediaAction,
-  getUserMediaActionListByUserId,
+  getMovieBoardItems,
 } from '../controllers/actions.controller.js';
 import express, { Router } from 'express';
 
 export const router: Router = express.Router();
 
+router.get('/movie-board', getMovieBoardItems);
+
 router.get('/:mediaId', getUserMediaAction);
 router.post('/:mediaId', createUserMediaAction);
 router.patch('/:mediaId', updateUserMediaAction);
-
-// router.get('/', getUserMediaActionListByUserId);

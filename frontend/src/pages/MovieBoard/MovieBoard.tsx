@@ -3,12 +3,12 @@ import { MovieBoardColumn, MovieBoardItem } from '@features/movieBoard';
 import { DndContext } from '@dnd-kit/core';
 import { useQuery } from '@tanstack/react-query';
 
-import useMovieBoardItemStatus from '@shared/hooks/useMovieBoardItemStatus';
+import getMovieBoardItems from '@shared/api/kinohub/services/movieBoardItem/getMovieBoardItems';
+import useUpdateMediaAction from '@widgets/MediaHeader/hooks/useUpdateMediaAction';
 import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import getUserMediaActionListByUserId from '@shared/api/kinohub/services/userMediaActions/getUserMediaActionListByUserId';
 
 const MovieBoard = () => {
   const theme = useTheme();
@@ -47,43 +47,43 @@ const MovieBoard = () => {
   ];
 
   const { data: mediaItems, isSuccess } = useQuery({
-    queryKey: ['movieBoardMediaItems'],
-    queryFn: getUserMediaActionListByUserId,
+    queryKey: ['mediaAction'],
+    queryFn: getMovieBoardItems,
     staleTime: 5 * 1000,
   });
 
-  // const { mutate: update } = useMovieBoardItemStatus();
-  //
-  // function handleDragEnd(event) {
-  //   const { over, active } = event;
-  //   update({ watchStatus: over.id, mediaId: active.id });
-  // }
+  function handleDragEnd(event) {
+    const { mutate: updateAction } = useUpdateMediaAction(238, 'movie');
+    const { over, active } = event;
+
+    updateAction({ watchStatus: over.id });
+  }
 
   if (!isSuccess) return <div>Loading...</div>;
   console.log(mediaItems);
+
   return (
-    <div>111</div>
-    // <DndContext onDragEnd={handleDragEnd}>
-    //   <Stack m={10}>
-    //     <Stack direction="row" gap={4}>
-    //       <Stack>
-    //         {mediaItems
-    //           ?.filter((item) => item.parent === null)
-    //           ?.map((item) => <MovieBoardItem key={item.movieId} mediaData={item} />)}
-    //       </Stack>
-    //
-    //       {columns.map(({ id, icon, label, bgColor }) => (
-    //         <MovieBoardColumn id={id} key={id} icon={icon} label={label} bgColor={bgColor}>
-    //           <Stack gap={2}>
-    //             {mediaItems
-    //               ?.filter((item) => item.watchStatus === id)
-    //               ?.map((item) => <MovieBoardItem id={item.movieId} key={item.movieId} />)}
-    //           </Stack>
-    //         </MovieBoardColumn>
-    //       ))}
-    //     </Stack>
-    //   </Stack>
-    // </DndContext>
+    <DndContext onDragEnd={handleDragEnd}>
+      <Stack m={10}>
+        <Stack direction="row" gap={4}>
+          <Stack>
+            {mediaItems
+              ?.filter((item) => item.parent === null)
+              ?.map((item) => <MovieBoardItem key={item.movieId} mediaData={item} />)}
+          </Stack>
+
+          {columns.map(({ id, icon, label, bgColor }) => (
+            <MovieBoardColumn id={id} key={id} icon={icon} label={label} bgColor={bgColor}>
+              <Stack gap={2}>
+                {mediaItems
+                  ?.filter((item) => item.watchStatus === id)
+                  ?.map((item) => <MovieBoardItem id={item.movieId} key={item.movieId} />)}
+              </Stack>
+            </MovieBoardColumn>
+          ))}
+        </Stack>
+      </Stack>
+    </DndContext>
   );
 };
 
