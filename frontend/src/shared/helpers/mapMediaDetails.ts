@@ -1,6 +1,6 @@
 import { MediaType } from '@shared/types/generalTypes';
 
-export default function mapMediaDetails(mediaItems: [any], mediaType: MediaType = 'movie') {
+export default function mapMediaDetails(mediaItems: any[any], mediaType: MediaType = 'movie') {
   const {
     first_air_date: airDate,
     vote_average: voteAverage,

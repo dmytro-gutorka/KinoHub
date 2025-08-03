@@ -1,15 +1,18 @@
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
-import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
-import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import LanguageIcon from '@mui/icons-material/Language';
-import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
+import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
+import { MediaHeaderProps } from '@features/media/model/types/mediaTypes';
+import { TmdbMovieDetails, TmdbTvShowDetails } from '@entities/types/tmdbEntities';
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
+import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
+import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import LanguageIcon from '@mui/icons-material/Language';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { Box, Button, Container, Stack, Typography, useTheme } from '@mui/material';
 
 import getPosterUrl from '@shared/helpers/getPosterUrl';
@@ -19,34 +22,59 @@ import BackgroundBanner from '@shared/ui/BackgroundBanner';
 import GenreChipList from '@shared/ui/GenreChipList';
 import ButtonList from '@shared/ui/ButtonList';
 import LabelList from '@shared/ui/LabeList/LabelList';
-import { MediaUserActions } from '@shared/types/generalTypes';
 
-const MediaHeader = ({ tmdbMediaData, mediaAction, mediaType }) => {
+export default function MediaHeader<T extends MediaType>({
+  tmdbMediaData,
+  mediaAction,
+  mediaType,
+}: MediaHeaderProps<T>) {
   const {
-    title,
     genres,
-    runtime,
     id: mediaId,
     poster_path: posterPath,
     vote_average: voteAverage,
     original_language: language,
-    number_of_seasons: numberOfSeasons,
-    number_of_episodes: numberOfEpisodes,
   } = tmdbMediaData;
 
-  const { isLiked, isWatched, watchStatus } = mediaAction;
+  const imgUrl = getPosterUrl(posterPath) || '';
+
+  let numberOfSeasons: number = 0;
+  let numberOfEpisodes: number = 0;
+  let episodeRunTime: number | string = 'N/A';
+  let runtime: number | string = 'N/A';
+  let releaseDate: string = 'Unknown';
+  let title: string = 'Unknown';
+
+  if (mediaType === 'tv') {
+    numberOfSeasons = (tmdbMediaData as TmdbTvShowDetails).number_of_seasons;
+    numberOfEpisodes = (tmdbMediaData as TmdbTvShowDetails).number_of_episodes;
+    episodeRunTime = (tmdbMediaData as TmdbTvShowDetails).episode_run_time[0];
+    releaseDate = (tmdbMediaData as TmdbTvShowDetails).first_air_date;
+    title = (tmdbMediaData as TmdbTvShowDetails).name;
+    runtime = (tmdbMediaData as TmdbTvShowDetails).first_air_date?.[0];
+  }
+
+  if (mediaType === 'movie') {
+    releaseDate = (tmdbMediaData as TmdbMovieDetails).release_date;
+    title = (tmdbMediaData as TmdbMovieDetails).title;
+    runtime = (tmdbMediaData as TmdbMovieDetails).runtime || 'N/A';
+  }
 
   const theme = useTheme();
-  const imgURL = getPosterUrl(posterPath);
 
+  const { isLiked, isWatched, watchStatus } = mediaAction;
   const { mutate: updateAction } = useUpdateMediaAction(mediaId, mediaType);
+
   const handleMediaAction = (action: Partial<MediaUserActions>) => updateAction(action);
 
   const movieLabels = [
-    { icon: <StarBorderIcon />, data: voteAverage?.toFixed(2) + '/10' },
+    {
+      icon: <StarBorderIcon />,
+      data: voteAverage?.toFixed(2) + '/10',
+    },
     {
       icon: <CalendarTodayOutlinedIcon fontSize="small" />,
-      data: getYearFromDate(runtime),
+      data: getYearFromDate(releaseDate),
     },
     {
       icon: <AccessTimeIcon />,
@@ -56,13 +84,22 @@ const MediaHeader = ({ tmdbMediaData, mediaAction, mediaType }) => {
   ];
 
   const tvLabels = [
-    { icon: <StarBorderIcon />, data: voteAverage?.toFixed(2) + '/10' },
-    { icon: <LiveTvOutlinedIcon fontSize="small" />, data: numberOfSeasons },
+    {
+      icon: <StarBorderIcon />,
+      data: voteAverage?.toFixed(2) + '/10',
+    },
+    {
+      icon: <LiveTvOutlinedIcon fontSize="small" />,
+      data: numberOfSeasons,
+    },
     {
       icon: <PlayCircleOutlineOutlinedIcon fontSize="small" />,
       data: numberOfEpisodes,
     },
-    { icon: <AccessTimeIcon />, data: `~${runtime}m per episode` },
+    {
+      icon: <AccessTimeIcon />,
+      data: `~${episodeRunTime}m per episode`,
+    },
   ];
 
   const buttons = [
@@ -85,12 +122,12 @@ const MediaHeader = ({ tmdbMediaData, mediaAction, mediaType }) => {
 
   return (
     <Stack position="relative">
-      <BackgroundBanner imgURL={imgURL} />
+      <BackgroundBanner imgURL={imgUrl} />
       <Container maxWidth="lg">
         <Stack direction="row" pt={14} pb={6} gap={4} alignItems="end">
           <Box
             component="img"
-            src={imgURL}
+            src={imgUrl}
             width="260px"
             height="380px"
             sx={{
@@ -122,6 +159,4 @@ const MediaHeader = ({ tmdbMediaData, mediaAction, mediaType }) => {
       </Container>
     </Stack>
   );
-};
-
-export default MediaHeader;
+}

@@ -4,7 +4,7 @@ import useUpdateMediaAction from '@widgets/MediaHeader/hooks/useUpdateMediaActio
 
 const MediaRating = ({ mediaAction, mediaType }: MediaRatingProps) => {
   const { mediaId, rating } = mediaAction;
-  const { mutate: updateAction } = useUpdateMediaAction(mediaId, mediaType);
+  const { mutate: updateAction } = useUpdateMediaAction(Number(mediaId), mediaType);
 
   const theme = useTheme();
   //TODO: value: any
