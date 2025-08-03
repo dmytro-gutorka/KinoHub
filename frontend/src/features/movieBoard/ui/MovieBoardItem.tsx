@@ -8,8 +8,11 @@ import getPosterURL from '@shared/helpers/getPosterURL';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 
 const MovieBoardItem = ({ mediaData }) => {
-  const { movieId: id, title, runtime, posterPath, voteAverage, releaseDate } = mediaData;
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({ id });
+  const { mediaId, title, runtime, posterPath, voteAverage, releaseDate, mediaType } = mediaData;
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+    id: mediaId,
+    data: { mediaType },
+  });
 
   const imgURL = getPosterURL(posterPath);
   const theme = useTheme();
@@ -32,10 +35,10 @@ const MovieBoardItem = ({ mediaData }) => {
     >
       <Stack direction="row" gap={2}>
         <CardMedia
-          component="img"
           image={imgURL}
+          component="img"
           alt="Movie cover"
-          sx={{ width: '57px', height: '90px', borderRadius: theme.spacing(1.5) }}
+          sx={{ width: '60px', height: '90px', borderRadius: theme.spacing(1.5) }}
         />
         <CardContent>
           <Typography component="div" variant="subtitle1" fontWeight="800">

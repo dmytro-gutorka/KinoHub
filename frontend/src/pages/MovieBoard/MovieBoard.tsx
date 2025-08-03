@@ -1,87 +1,29 @@
-import { Stack, useTheme } from '@mui/material';
-import { MovieBoardColumn, MovieBoardItem } from '@features/movieBoard';
+import { Stack } from '@mui/material';
 import { DndContext } from '@dnd-kit/core';
-import { useQuery } from '@tanstack/react-query';
-
-import getMovieBoardItems from '@shared/api/kinohub/services/movieBoardItem/getMovieBoardItems';
-import useUpdateMediaAction from '@widgets/MediaHeader/hooks/useUpdateMediaAction';
-import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';
-import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
-import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import useUpdateMovieBoardItem from '@features/movieBoard/hooks/useUpdateMovieBoardItem';
+import useMovieBoardItems from '@features/movieBoard/hooks/useMovieBoardItems';
+import MovieBoardColumnList from '@features/movieBoard/ui/MovieBoardColumnList';
 
 const MovieBoard = () => {
-  const theme = useTheme();
-
-  const columns = [
-    {
-      id: 'toWatch',
-      label: 'Want to Watch',
-      icon: <TurnedInNotOutlinedIcon />,
-      bgColor: theme.palette.gradientBlue,
-    },
-    {
-      id: 'isWatching',
-      label: 'Currently Watching',
-      icon: <PlayCircleOutlineOutlinedIcon />,
-      bgColor: theme.palette.gradientOrange,
-    },
-    {
-      id: 'onHold',
-      label: 'Watched',
-      icon: <RemoveRedEyeOutlinedIcon />,
-      bgColor: theme.palette.gradientGreen,
-    },
-    {
-      id: 'favorites',
-      label: 'Favorites',
-      icon: <FavoriteBorderOutlinedIcon />,
-      bgColor: theme.palette.gradientRed,
-    },
-    {
-      id: 'archived',
-      label: 'Archived',
-      icon: <PlayCircleOutlineOutlinedIcon />,
-      bgColor: theme.palette.gradientGrey,
-    },
-  ];
-
-  const { data: mediaItems, isSuccess } = useQuery({
-    queryKey: ['mediaAction'],
-    queryFn: getMovieBoardItems,
-    staleTime: 5 * 1000,
-  });
+  const { data: mediaItems, isSuccess } = useMovieBoardItems();
+  const { mutate: updateAction } = useUpdateMovieBoardItem();
 
   function handleDragEnd(event) {
-    const { mutate: updateAction } = useUpdateMediaAction(238, 'movie');
-    const { over, active } = event;
+    if (event.over === null) return;
 
-    updateAction({ watchStatus: over.id });
+    updateAction({
+      mediaId: event.active.id,
+      mediaType: event.active?.data?.current?.mediaType,
+      action: { watchStatus: event.over.id },
+    });
   }
 
   if (!isSuccess) return <div>Loading...</div>;
-  console.log(mediaItems);
 
   return (
     <DndContext onDragEnd={handleDragEnd}>
       <Stack m={10}>
-        <Stack direction="row" gap={4}>
-          <Stack>
-            {mediaItems
-              ?.filter((item) => item.parent === null)
-              ?.map((item) => <MovieBoardItem key={item.movieId} mediaData={item} />)}
-          </Stack>
-
-          {columns.map(({ id, icon, label, bgColor }) => (
-            <MovieBoardColumn id={id} key={id} icon={icon} label={label} bgColor={bgColor}>
-              <Stack gap={2}>
-                {mediaItems
-                  ?.filter((item) => item.watchStatus === id)
-                  ?.map((item) => <MovieBoardItem id={item.movieId} key={item.movieId} />)}
-              </Stack>
-            </MovieBoardColumn>
-          ))}
-        </Stack>
+        <MovieBoardColumnList mediaItems={mediaItems} />
       </Stack>
     </DndContext>
   );

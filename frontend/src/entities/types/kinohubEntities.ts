@@ -17,6 +17,7 @@ export interface UserMediaActionEntity {
   isWatched: boolean;
   mediaId: number;
   mediaInfoId: number;
+  mediaInfo: MediaInfoEntity;
   mediaType: MediaType;
   rating: number | null;
   userId: number;

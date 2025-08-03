@@ -9,9 +9,12 @@ const MovieBoardIcon = styled(Stack)(() => ({
   alignItems: 'center',
 }));
 
-const MovieBoardColumn = ({ id, children, icon, label, bgColor }) => {
+const MovieBoardColumn = ({ children, columnData, mediaItems }) => {
+  const { id, icon, label, bgColor } = columnData;
   const { isOver, setNodeRef } = useDroppable({ id });
+
   const theme = useTheme();
+  const mediaItemsInColumn = mediaItems.filter((mediaItem) => mediaItem.watchStatus === id)?.length;
 
   return (
     <Stack border={theme.customStyles.border} padding={3} borderRadius={1.5}>
@@ -28,7 +31,7 @@ const MovieBoardColumn = ({ id, children, icon, label, bgColor }) => {
           <Stack>
             <Typography fontWeight="900">{label}</Typography>
             <Typography color={theme.palette.grey[300]} variant="subtitle2">
-              1 movies
+              {mediaItemsInColumn} items
             </Typography>
           </Stack>
         </Stack>
@@ -54,13 +57,13 @@ const MovieBoardColumn = ({ id, children, icon, label, bgColor }) => {
       </Stack>
 
       <Stack
-        direction="row"
         ref={setNodeRef}
+        direction="row"
         minWidth="270px"
         minHeight="450px"
         sx={{
           backgroundColor: isOver ? '' : 'transparent',
-          opacity: isOver ? '0.5' : '1',
+          opacity: isOver ? '0.2' : '1',
         }}
       >
         {children}
