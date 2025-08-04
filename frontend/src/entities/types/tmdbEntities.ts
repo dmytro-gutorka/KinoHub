@@ -32,15 +32,33 @@ export interface TmdbCreatedBy {
   profile_path: string | null;
 }
 
-export interface TmdbSeasonBriefInfo {
+export interface TmdbSeasonInfo {
   poster_path: string | null;
+  episode_count: number;
   air_date: string;
   name: string;
   overview: string;
-  episode_count: number;
   id: number;
   season_number: number;
   vote_average: number;
+}
+
+export interface TmdbEpisodeInfo {
+  air_date: string;
+  episode_number: number;
+  episode_type: string;
+  id: number;
+  name: string;
+  overview: string;
+  production_code: string;
+  runtime: number | null;
+  season_number: number;
+  show_id: number;
+  vote_average: number;
+  still_path: string;
+  vote_count: number;
+  crew: Array<TmdbCrew>;
+  guest_stars: Array<never>;
 }
 
 export interface TmdbTvShowNetworks {
@@ -52,12 +70,12 @@ export interface TmdbTvShowNetworks {
 
 export interface TmdbPersonInfo {
   adult: boolean;
-  id: number;
   gender: number;
-  popularity: number;
+  id: number;
+  known_for_department: string;
   name: string;
   original_name: string;
-  known_for_department: string;
+  popularity: number;
   profile_path: string | null;
 }
 
@@ -99,7 +117,7 @@ export interface TmdbMediaDetails {
 }
 
 export interface TmdbMovieDetails extends TmdbMediaDetails {
-  belongs_to_collection: any;
+  belongs_to_collection: never;
   video: boolean;
   budget: number;
   runtime: number;
@@ -124,7 +142,7 @@ export interface TmdbTvShowDetails extends TmdbMediaDetails {
   languages: Array<string>;
   created_by: Array<TmdbCreatedBy>;
   networks: Array<TmdbTvShowNetworks>;
-  seasons?: Array<TmdbSeasonBriefInfo>;
+  seasons?: Array<TmdbSeasonInfo>;
 }
 
 export type TmdbMediaDetailsResponse<T extends MediaType> = T extends 'tv'

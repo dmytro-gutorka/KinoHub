@@ -5,7 +5,7 @@ import createMediaAction from '@shared/api/kinohub/services/userMediaActions/cre
 import mapEpisodesDetails from '@shared/helpers/mapEpisodeDetails';
 import getEpisodeActions from '@shared/api/kinohub/services/episode/getEpisodeAction';
 
-export default function useTvShowSeasonDetails(tvShowId, tvSeason) {
+export default function useTvShowSeasonDetails(tvShowId: number, tvSeason: number) {
   const { data: data, isSuccess } = useQuery({
     queryKey: ['tvShowSeasonDetails', tvShowId, tvSeason],
     queryFn: () => getTvShowSeasonDetails(tvShowId, tvSeason),

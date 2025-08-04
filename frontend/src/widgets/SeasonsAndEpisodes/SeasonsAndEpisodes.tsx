@@ -3,7 +3,7 @@ import { Grid } from '@mui/material';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import { EpisodeList, SeasonList } from '@features/tvShow';
-import useTvShowSeasonDetails from '@widgets/SeasonsAndEpisodes/hooks/useTvShowSeasonDetails';
+import useTvShowSeasonDetails from '@features/tvShow/model/hooks/useTvShowSeasonDetails';
 
 const SeasonsAndEpisodes = ({ seasons }: SeasonsAndEpisodesProps) => {
   const [tvSeason, setTvSeason] = useState(1);

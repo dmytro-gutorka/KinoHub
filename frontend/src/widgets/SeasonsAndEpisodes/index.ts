@@ -1,3 +1,3 @@
-import SeasonsAndEpisodes from './ui/SeasonsAndEpisodes';
+import SeasonsAndEpisodes from './SeasonsAndEpisodes';
 
 export default SeasonsAndEpisodes;

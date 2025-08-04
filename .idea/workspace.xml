@@ -5,12 +5,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/LabelList/LabelList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaActionButtonList/MediaActionButtonList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/MediaHeader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/eslint.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/types/tmdbEntities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/types/tmdbEntities.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/media/model/types/mediaTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/model/types/mediaTypes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/mapMediaDetails.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/mapMediaDetails.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/ui/MediaHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/ui/MediaHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaOverview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/EpisodeItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/EpisodeItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/EpisodeList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/EpisodeList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/SeasonItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/SeasonItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/SeasonList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/SeasonList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/deprecated/MovieSlider/MovieSlider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/deprecated/MovieSlider/MovieSlider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/deprecated/MovieSlider/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/deprecated/MovieSlider/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/getPosterUrl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/getPosterUrl.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/icons/ChartActivityIcon/ChartActivityIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/icons/ChartActivityIcon/ChartActivityIcon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/icons/ChartActivityIcon/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/icons/ChartActivityIcon/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/icons/ChartUpLineIcon/ChartUpLineIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/icons/ChartUpLineIcon/ChartUpLineIcon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/icons/ChartUpLineIcon/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/icons/ChartUpLineIcon/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/icons/MovieOutlineIcon/MovieOutlineIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/icons/MovieOutlineIcon/MovieOutlineIcon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/icons/MovieOutlineIcon/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/icons/MovieOutlineIcon/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/icons/TvShowOutlineIcon/TvShowOutlineIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/icons/TvShowOutlineIcon/TvShowOutlineIcon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/icons/TvShowOutlineIcon/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/icons/TvShowOutlineIcon/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/BackgroundBanner/BackgroundBanner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/BackgroundBanner/BackgroundBanner.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/BackgroundBanner/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/BackgroundBanner/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/BasicSelect/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/BasicSelect/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/ButtonList/ButtonList.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/ButtonList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaActionButtonList/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/DashboardCard/DashboardCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/DashboardCard/DashboardCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/DashboardCard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/DashboardCard/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/LabeList/LabelList.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/LabeList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/LabelList/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/LabelWithIcon/LabelWithIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/LabelWithIcon/LabelWithIcon.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/ui/AsideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/AsideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/Header/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/Header/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/Header/ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/Layout/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/Layout/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/Layout/ui/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/Layout/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/hooks/useUpdateMediaAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/model/hooks/useUpdateMediaAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/ui/MediaHeader.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/ui/MediaOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/MediaOverview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaPageLayout/hooks/useFilteredMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/filters/hooks/useFilteredMedia.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaPageLayout/hooks/useMediaFilters.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/filters/hooks/useMediaFilters.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaPageLayout/hooks/useSearchedMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/filters/hooks/useSearchedMedia.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaPageLayout/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaPageLayout/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaPageLayout/ui/MediaPageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaPageLayout/MediaPageLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/hooks/useTvShowSeasonDetails.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tvShow/model/hooks/useTvShowSeasonDetails.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/ui/SeasonsAndEpisodes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/SeasonsAndEpisodes.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +79,9 @@
         <option value="HTML File" />
         <option value="JSX Component Folder.jsx.child.0" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
         <option value="JSX Component Folder.tsx.child.0" />
         <option value="JSX Component Folder" />
-        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -48,6 +100,9 @@
     &quot;accountId&quot;: &quot;eed02a5a-add1-4623-9110-528a9430ed0c&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
@@ -101,11 +156,11 @@
       <recent name="$PROJECT_DIR$/backend/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/frontend/src/features/movieBoard/model/types" />
-      <recent name="$PROJECT_DIR$/frontend/src/shared/deprecated" />
-      <recent name="$PROJECT_DIR$/frontend/src/features/homepage/api" />
-      <recent name="$PROJECT_DIR$/frontend/src/features/homepage/hooks" />
-      <recent name="$PROJECT_DIR$/frontend/src/features/homepage/types" />
+      <recent name="$PROJECT_DIR$/frontend/src/features/auth/ui" />
+      <recent name="$PROJECT_DIR$/frontend/src/features/tvShow/model/types" />
+      <recent name="$PROJECT_DIR$/frontend/src/features/tvShow/model/hooks" />
+      <recent name="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes" />
+      <recent name="$PROJECT_DIR$/frontend/src/features/filters/hooks" />
     </key>
   </component>
   <component name="RunManager">
@@ -201,7 +256,9 @@
       <workItem from="1754073032651" duration="6296000" />
       <workItem from="1754153769150" duration="21425000" />
       <workItem from="1754242485088" duration="4268000" />
-      <workItem from="1754252659501" duration="5945000" />
+      <workItem from="1754252659501" duration="12373000" />
+      <workItem from="1754328319282" duration="1353000" />
+      <workItem from="1754329874735" duration="7019000" />
     </task>
     <servers />
   </component>

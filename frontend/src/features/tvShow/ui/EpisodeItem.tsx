@@ -1,5 +1,5 @@
+import { EpisodeItemProps } from '@features/tvShow/model/types/tvShowTypes';
 import { Box, IconButton, Stack, Typography, useTheme } from '@mui/material';
-
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -10,7 +10,7 @@ import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
 import { useQueryClient } from '@tanstack/react-query';
 
-const EpisodeItem = ({ episodeData }) => {
+const EpisodeItem = ({ episodeData }: EpisodeItemProps) => {
   const {
     episode_number: episodeNumber,
     season_number: seasonNumber,
@@ -18,7 +18,7 @@ const EpisodeItem = ({ episodeData }) => {
     still_path: posterPath,
     air_date: airDate,
     show_id: id,
-    isWatched,
+    // isWatched,
     overview,
     runtime,
     name,
@@ -41,9 +41,9 @@ const EpisodeItem = ({ episodeData }) => {
           <Typography variant="h6" component="h3">
             {episodeNumber}. {name}
           </Typography>
-          <IconButton onClick={handleWatchStatus}>
-            {!isWatched ? <VisibilityOffOutlinedIcon /> : <VisibilityIcon />}
-          </IconButton>
+          {/*<IconButton onClick={handleWatchStatus}>*/}
+          {/*  {!isWatched ? <VisibilityOffOutlinedIcon /> : <VisibilityIcon />}*/}
+          {/*</IconButton>*/}
         </Stack>
         <Stack direction="row" spacing={1} mb={2}>
           <LabelWithIcon data={runtime + 'm'}>

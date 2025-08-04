@@ -1,3 +1,3 @@
-import MediaPageLayout from './ui/MediaPageLayout';
+import MediaPageLayout from './MediaPageLayout';
 
 export default MediaPageLayout;

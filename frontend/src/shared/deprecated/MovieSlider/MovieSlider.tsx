@@ -6,7 +6,7 @@ import MoviePreviewCard from '../../ui/MediaCardPreviewShort';
 import 'swiper/css';
 import './styles.css';
 
-const MovieSlider = ({ movieData }) => {
+const MovieSlider = ({ movieData }: { movieData: any }) => {
   return (
     <>
       <Swiper
@@ -16,10 +16,8 @@ const MovieSlider = ({ movieData }) => {
         modules={[Navigation]}
         spaceBetween={20}
       >
-        {movieData.map((movie) => (
-          <SwiperSlide>
-            <MoviePreviewCard movie={movie} />
-          </SwiperSlide>
+        {movieData.map((movie: any) => (
+          <SwiperSlide>{/*<MoviePreviewCard movie={movie} />*/}</SwiperSlide>
         ))}
       </Swiper>
     </>

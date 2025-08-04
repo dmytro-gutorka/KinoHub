@@ -1,9 +1,9 @@
 import { MediaType } from '@shared/types/generalTypes';
 import { Stack, CircularProgress, Pagination, TextField } from '@mui/material';
-import { useMediaFilters } from '@widgets/MediaPageLayout/hooks/useMediaFilters';
+import { useMediaFilters } from '@features/filters/hooks/useMediaFilters';
 
-import useFilteredMedia from '@widgets/MediaPageLayout/hooks/useFilteredMedia';
-import useSearchedMedia from '@widgets/MediaPageLayout/hooks/useSearchedMedia';
+import useFilteredMedia from '@features/filters/hooks/useFilteredMedia';
+import useSearchedMedia from '@features/filters/hooks/useSearchedMedia';
 import MultipleSelect from '@shared/ui/MultipleSelect';
 import BasicSelect from '@shared/ui/BasicSelect';
 import SliderBar from '@shared/ui/SliderBar';

@@ -3,19 +3,17 @@ import Dialog from '@mui/material/Dialog';
 import LogoIcon from '@shared/icons/LogoIcon';
 import RegistrationForm from '@features/auth/ui/RegistrationForm';
 import CloseIcon from '@mui/icons-material/Close';
-import { createPortal } from 'react-dom';
 
 interface SignUpModalProps {
   isOpen: boolean;
-  setOpenRegistrationModal: (a: boolean) => void;
+  onClick: (a: boolean) => void;
 }
 
 // TODO: createPortal(JSX, NodeElement)
 
-const RegistrationModal = ({ isOpen, setOpenRegistrationModal }: SignUpModalProps) => {
+const RegistrationModal = ({ isOpen, onClick }: SignUpModalProps) => {
   const theme = useTheme();
 
-  // createPortal()
   return (
     <Dialog open={isOpen}>
       <DialogContent sx={{ padding: 0 }}>
@@ -27,12 +25,12 @@ const RegistrationModal = ({ isOpen, setOpenRegistrationModal }: SignUpModalProp
                 Join Kinohub
               </Typography>
             </Stack>
-            <CloseIcon cursor="pointer" onClick={() => setOpenRegistrationModal(false)} />
+            <CloseIcon cursor="pointer" onClick={() => onClick(false)} />
           </Stack>
           <Typography>Create your account to start tracking movies</Typography>
         </Stack>
         <Stack sx={{ padding: 6, background: 'transparent' }}>
-          <RegistrationForm setOpenRegistrationModal={setOpenRegistrationModal} />
+          <RegistrationForm setOpenRegistrationModal={onClick} />
         </Stack>
       </DialogContent>
       <Typography>Already have an account? Sign in</Typography>

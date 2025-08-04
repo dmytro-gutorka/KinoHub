@@ -1,3 +1,3 @@
-import AsideBar from './ui/AsideBar';
+import AsideBar from './AsideBar';
 
 export default AsideBar;

@@ -1,14 +1,16 @@
+import { SeasonItemProps } from '@features/tvShow/model/types/tvShowTypes';
 import { Box, Stack, useTheme } from '@mui/material';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
 
-const SeasonItem = ({ seasonData, tvSeason, onSetTvSeason }) => {
+const SeasonItem = ({ seasonData, tvSeason, onSetTvSeason }: SeasonItemProps) => {
   const {
     poster_path: posterPath,
     season_number: seasonNumber,
-    episode_count: episodeCount,
-    first_air_date: airDate,
+    air_date: airDate,
+    episodes,
   } = seasonData;
 
+  const episodesNumber = episodes?.length;
   const theme = useTheme();
   const imgURL = getPosterUrl(posterPath);
 
@@ -27,8 +29,8 @@ const SeasonItem = ({ seasonData, tvSeason, onSetTvSeason }) => {
         <Box component="img" src={imgURL} width="48px" height="72px" borderRadius={1} />
         <Stack>
           <Box component="span">Season {seasonNumber}</Box>
-          <Box component="span">{episodeCount} episodes</Box>
-          <Box component="span">0/{episodeCount} watched</Box>
+          <Box component="span">{episodesNumber} episodes</Box>
+          <Box component="span">0/{episodesNumber} watched</Box>
         </Stack>
       </Stack>
     </Box>

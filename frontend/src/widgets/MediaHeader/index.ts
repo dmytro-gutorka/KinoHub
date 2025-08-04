@@ -1,3 +1,3 @@
-import MediaHeader from './ui/MediaHeader';
+import MediaHeader from './MediaHeader';
 
 export default MediaHeader;

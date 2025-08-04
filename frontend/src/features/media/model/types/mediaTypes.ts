@@ -2,7 +2,7 @@ import {
   TmdbCast,
   TmdbMediaDetailsResponse,
   TmdbProductionCompanies,
-  TmdbSeasonBriefInfo,
+  TmdbSeasonInfo,
 } from '@entities/types/tmdbEntities';
 import { ReactNode } from 'react';
 import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
@@ -10,7 +10,7 @@ import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
 
 export interface MediaHeaderProps<T extends MediaType> {
   tmdbMediaData: TmdbMediaDetailsResponse<T>;
-  mediaAction: Partial<UserMediaActionEntity>;
+  mediaAction: UserMediaActionEntity;
   mediaType: T;
 }
 
@@ -52,5 +52,5 @@ export interface MediaRatingProps {
 }
 
 export interface SeasonsAndEpisodesProps {
-  seasons: Array<TmdbSeasonBriefInfo>;
+  seasons: Array<TmdbSeasonInfo>;
 }

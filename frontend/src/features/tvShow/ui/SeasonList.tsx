@@ -1,10 +1,11 @@
 import { Stack } from '@mui/material';
 import SeasonItem from './SeasonItem';
+import { SeasonListProps } from '@features/tvShow/model/types/tvShowTypes';
 
-const SeasonList = ({ seasons, tvSeason, onSetTvSeason }) => {
+const SeasonList = ({ seasonList, tvSeason, onSetTvSeason }: SeasonListProps) => {
   return (
     <Stack component="ul" spacing={2}>
-      {seasons.map((season) => (
+      {seasonList.map((season) => (
         <SeasonItem
           key={season.id}
           seasonData={season}

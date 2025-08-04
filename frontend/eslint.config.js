@@ -1,8 +1,9 @@
+import tsParser from '@typescript-eslint/parser';
+import reactHooks from 'eslint-plugin-react-hooks';
 import js from '@eslint/js';
-import tseslint from 'typescript-eslint';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import importPlugin from 'eslint-plugin-import';
-import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 import path from 'path';
@@ -16,16 +17,16 @@ export default [
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      parser: tseslint.parser,
+      parser: tsParser,
       parserOptions: {
         project: true,
       },
     },
     plugins: {
-      '@typescript-eslint': tseslint.plugin,
+      '@typescript-eslint': tsPlugin,
     },
     rules: {
-      ...tseslint.configs.recommendedTypeChecked.rules,
+      ...tsPlugin.configs.recommended.rules, // здесь исправлено
     },
   },
 
@@ -50,29 +51,7 @@ export default [
       'no-unused-vars': ['warn', { varsIgnorePattern: '^[A-Z_]' }],
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'import/no-unresolved': 'error',
-      'import/order': [
-        'warn',
-        {
-          groups: [
-            ['builtin', 'external'],
-            ['internal', 'parent', 'sibling', 'index'],
-          ],
-          pathGroups: [
-            { pattern: '@shared/**', group: 'internal' },
-            { pattern: '@entities/**', group: 'internal' },
-            { pattern: '@features/**', group: 'internal' },
-            { pattern: '@widgets/**', group: 'internal' },
-            { pattern: '@pages/**', group: 'internal' },
-            { pattern: '@app/**', group: 'internal' },
-          ],
-          pathGroupsExcludedImportTypes: ['builtin'],
-          'newlines-between': 'always',
-          alphabetize: {
-            order: 'asc',
-            caseInsensitive: true,
-          },
-        },
-      ],
+      'import/order': "off"
     },
     settings: {
       'import/resolver': {

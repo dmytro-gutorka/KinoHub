@@ -1,3 +1,3 @@
-import MediaOverview from './ui/MediaOverview';
+import MediaOverview from './MediaOverview';
 
 export default MediaOverview;

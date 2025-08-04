@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 
-const BackgroundBanner = ({ imgURL }) => {
+const BackgroundBanner = ({ imgURL }: { imgURL: string }) => {
   return (
     <Box
       sx={{

@@ -1,7 +1,8 @@
 export const BASE_POSTER_URL = 'https://image.tmdb.org/t/p/w780';
-export const TMDB_URL = 'https://api.themoviedb.org/3';
 export const CLIENT_URL = 'http://localhost:3000';
 export const API_URL = 'http://localhost:8080/api/v1';
+
+export const TMDB_URL = 'https://api.themoviedb.org/3'; // move to /constants/TMDB.ts
 
 export const TMDB_HEADERS = {
   headers: {
@@ -11,7 +12,7 @@ export const TMDB_HEADERS = {
       '6MTczMzQ3NTU0OC45NzYsInN1YiI6IjY3NTJiY2RjODBlNWI4ZjBhNzU2MzEzMyIsInNjb3BlcyI6WyJhcGlfcmVhZC' +
       'JdLCJ2ZXJzaW9uIjoxfQ.zX82V-5f3weDqX-4sTp4rvxY2YPyT7Z_AHdTLYYI2mI',
   },
-};
+}; // move to /constants/TMDB.ts
 
 export const MEDIA_ACTIONS = {
   IS_WATCHED: 'isWatched',

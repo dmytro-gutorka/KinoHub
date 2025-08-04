@@ -6,10 +6,10 @@ import CloseIcon from '@mui/icons-material/Close';
 
 interface LoginModalProps {
   isOpen: boolean;
-  setOpenLoginModal: (a: boolean) => void;
+  onClick: (a: boolean) => void;
 }
 
-const LoginModal = ({ isOpen, setOpenLoginModal }: LoginModalProps) => {
+const LoginModal = ({ isOpen, onClick }: LoginModalProps) => {
   const theme = useTheme();
 
   return (
@@ -23,12 +23,12 @@ const LoginModal = ({ isOpen, setOpenLoginModal }: LoginModalProps) => {
                 Welcome Back
               </Typography>
             </Stack>
-            <CloseIcon cursor="pointer" onClick={() => setOpenLoginModal(false)} />
+            <CloseIcon cursor="pointer" onClick={() => onClick(false)} />
           </Stack>
           <Typography>Sign in to continue your movie journey</Typography>
         </Stack>
         <Stack sx={{ padding: 6, background: 'transparent' }}>
-          <LoginForm setOpenLoginModal={setOpenLoginModal} />
+          <LoginForm setOpenLoginModal={onClick} />
         </Stack>
       </DialogContent>
       <Typography>Don't have an account? Sign up</Typography>
