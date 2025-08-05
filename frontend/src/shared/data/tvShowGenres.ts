@@ -1,6 +1,6 @@
-import { TmdbGenreList } from '@entities/types/tmdbEntities';
+import { TmdbGenre } from '@entities/types/tmdbEntities';
 
-const tvShowGenres: Array<TmdbGenreList> = [
+const tvShowGenres: Array<TmdbGenre> = [
   {
     id: 10759,
     name: 'Action & Adventure',

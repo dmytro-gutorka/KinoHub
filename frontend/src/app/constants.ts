@@ -28,3 +28,8 @@ export const WATCH_STATUS = {
   FAVORITES: 'favorites',
   ARCHIVED: 'archived',
 } as const;
+
+export const MEDIA_TYPES = {
+  MOVIE: 'movie',
+  TV_SHOW: 'tv',
+};

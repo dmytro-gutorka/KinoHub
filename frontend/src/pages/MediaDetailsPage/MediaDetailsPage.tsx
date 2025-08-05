@@ -12,10 +12,7 @@ export default function MediaDetailsPage() {
   const params: Readonly<any> = useParams();
   const mediaId: number = Number(params?.id);
 
-  const { data: tmdbMediaData, isLoading: isTmdbMediaLoading } = useTmdbMediaDetails(
-    mediaId,
-    mediaType
-  );
+  const { tmdbMediaData, isTmdbMediaLoading } = useTmdbMediaDetails(mediaId, mediaType);
   const { mediaData, isMediaLoading, isMediaSuccess } = useEnsureMediaDetails(mediaId, mediaType);
   const { mediaAction, isActionsLoading } = useGetOrCreateMediaAction(mediaId, mediaType, {
     enabled: isMediaSuccess && !!mediaData,

@@ -1,4 +1,4 @@
 export default function getYearFromDate(dateStr: string) {
-  const date = new Date(dateStr);
-  return date.getFullYear();
+  if (!dateStr) return 'N/A';
+  return new Date(dateStr)?.getFullYear();
 }

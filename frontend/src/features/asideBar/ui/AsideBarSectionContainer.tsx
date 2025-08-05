@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from '@mui/material';
 import { AsideBarSectionProps } from '@features/asideBar/model/asideBarTypes';
 
-const AsideBarSection = ({ children, title }: AsideBarSectionProps) => {
+const AsideBarSectionContainer = ({ children, title }: AsideBarSectionProps) => {
   return (
     <Box>
       <Typography variant="subtitle2" component="h2" fontWeight="900" letterSpacing={1.5} mb={2}>
@@ -15,4 +15,4 @@ const AsideBarSection = ({ children, title }: AsideBarSectionProps) => {
   );
 };
 
-export default AsideBarSection;
+export default AsideBarSectionContainer;

@@ -1,6 +1,6 @@
 import { MediaType } from '@shared/types/generalTypes';
 
-export interface TmdbGenreList {
+export interface TmdbGenre {
   id: number;
   name: string;
 }
@@ -109,7 +109,7 @@ export interface TmdbMediaDetails {
   production_companies: Array<TmdbProductionCompanies>;
   production_countries: Array<TmdbProductionCountries>;
   spoken_languages: Array<TmdbSpokenLanguages>;
-  genres: Array<TmdbGenreList>;
+  genres: Array<TmdbGenre>;
   credits?: {
     cast: Array<TmdbCast>;
     crew: Array<TmdbCrew>;
@@ -143,6 +143,13 @@ export interface TmdbTvShowDetails extends TmdbMediaDetails {
   created_by: Array<TmdbCreatedBy>;
   networks: Array<TmdbTvShowNetworks>;
   seasons?: Array<TmdbSeasonInfo>;
+}
+
+export interface TmdbSearchFilteredResults<T extends MediaType> {
+  page: number;
+  total_pages: number;
+  total_results: number;
+  results: TmdbMediaDetailsResponse<T> | undefined;
 }
 
 export type TmdbMediaDetailsResponse<T extends MediaType> = T extends 'tv'

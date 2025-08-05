@@ -16,7 +16,7 @@ export default function MediaOverview<T extends MediaType>({
 }: MediaOverviewProps<T>) {
   const { overview, credits, production_companies: companies } = tmdbMediaData;
 
-  // make all Media... component compound with Contex API
+  // TODO:1 make all Media... component compound with Contex API
 
   return (
     <Stack mt={14} gap={6}>

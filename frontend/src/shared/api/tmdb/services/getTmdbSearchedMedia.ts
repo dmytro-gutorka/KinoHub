@@ -1,8 +1,12 @@
-import { SearchedMediaParams } from '@shared/types/generalTypes';
+import { SearchMediaParams } from '@shared/types/generalTypes';
 import { tmdbService } from '@shared/api/tmdb/TmdbService';
 
-async function getTmdbSearchedMedia({ page, mediaType, searchQuery }: SearchedMediaParams) {
-  const response = await tmdbService.getSearchedMedia({ page, mediaType, searchQuery });
+async function getTmdbSearchedMedia({ page, mediaType, searchQuery }: SearchMediaParams) {
+  const response = await tmdbService.getSearchedMedia({
+    page,
+    mediaType,
+    searchQuery,
+  });
 
   return response?.data;
 }

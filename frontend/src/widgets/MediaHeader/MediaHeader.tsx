@@ -1,6 +1,6 @@
 import { MediaHeaderProps } from '@features/media/model/types/mediaTypes';
 import { MediaType } from '@shared/types/generalTypes';
-import { Box, Container, Stack, Typography, useTheme } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
 
 import BackgroundBanner from '@shared/ui/BackgroundBanner';
 import GenreChipList from '@shared/ui/GenreChipList';
@@ -19,17 +19,21 @@ export default function MediaHeader<T extends MediaType>({
   return (
     <Stack position="relative">
       <BackgroundBanner imgURL={imgUrl} />
+
       <Container maxWidth="lg">
         <Stack direction="row" pt={14} pb={6} gap={4} alignItems="end">
           <MediaHeaderPoster imgUrl={imgUrl} />
+
           <Box>
             <Typography variant="h2" component="h1" fontWeight="700" mb={10} lineHeight={1.2}>
               {title}
             </Typography>
+
             <Stack gap={2}>
               <LabelList mediaType={mediaType} tmdbMediaData={tmdbMediaData} />
               <GenreChipList genres={genres} />
             </Stack>
+
             <MediaActionButtonList
               mediaActions={mediaAction}
               mediaId={mediaId}

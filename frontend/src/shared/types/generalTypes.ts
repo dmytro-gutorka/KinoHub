@@ -1,5 +1,5 @@
 import { MEDIA_ACTIONS, WATCH_STATUS } from '@app/constants';
-import { TmdbGenreList } from '@entities/types/tmdbEntities';
+import { TmdbGenre } from '@entities/types/tmdbEntities';
 import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
 
 export type MediaType = 'movie' | 'tv';
@@ -7,6 +7,8 @@ export type MediaType = 'movie' | 'tv';
 export enum SortBy {
   TitleASC = 'title.asc',
   TitleDESC = 'title.desc',
+  // FOR TV UTS name.acs
+  // title.asc is only for movies !!!!!!!!!
   RatingASC = 'vote_average.asc',
   RatingDESC = 'vote_average.desc',
   YearASC = 'primary_release_date.asc',
@@ -17,10 +19,10 @@ export interface MediaFiltersBase {
   page: number;
   minRating: number;
   sortBy: SortBy;
-  genres: TmdbGenreList[];
+  genres: TmdbGenre[];
 }
 
-export interface SearchedMediaParams {
+export interface SearchMediaParams {
   page: number;
   searchQuery: string;
   mediaType: MediaType;

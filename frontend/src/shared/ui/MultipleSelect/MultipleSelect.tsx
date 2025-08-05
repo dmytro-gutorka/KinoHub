@@ -1,14 +1,14 @@
 import { Box, Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
 import { SelectChangeEvent } from '@mui/material';
-import { Genres } from '@shared/types/generalTypes';
+import { TmdbGenre } from '@entities/types/tmdbEntities';
 
 interface MultipleSelectProps {
-  genres: Genres[];
-  onGenresChange: (event: SelectChangeEvent<Genres[]>) => void;
-  mediaGenresList: Genres[];
+  genres: Array<TmdbGenre>;
+  onGenresChange: (event: SelectChangeEvent<Array<TmdbGenre>>) => void;
+  genresList: Array<TmdbGenre>;
 }
 
-const MultipleSelect = ({ genres, onGenresChange, mediaGenresList }: MultipleSelectProps) => {
+const MultipleSelect = ({ genres, onGenresChange, genresList }: MultipleSelectProps) => {
   return (
     <FormControl sx={{ width: '300px' }}>
       <InputLabel id="movie-genres-filter">Genres</InputLabel>
@@ -27,8 +27,7 @@ const MultipleSelect = ({ genres, onGenresChange, mediaGenresList }: MultipleSel
           </Box>
         )}
       >
-        {mediaGenresList.map((movie) => (
-          // @ts-ignore
+        {genresList.map((movie) => (
           <MenuItem key={movie.id} value={movie}>
             {movie.name}
           </MenuItem>

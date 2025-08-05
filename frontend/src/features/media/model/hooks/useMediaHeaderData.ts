@@ -1,9 +1,9 @@
 import getPosterUrl from '@shared/helpers/getPosterUrl';
-import { TmdbGenreList, TmdbMovieDetails, TmdbTvShowDetails } from '@entities/types/tmdbEntities';
+import { TmdbGenre, TmdbMovieDetails, TmdbTvShowDetails } from '@entities/types/tmdbEntities';
 import { MediaType } from '@shared/types/generalTypes';
 
 interface UseMediaHeaderDataReturn {
-  genres: Array<TmdbGenreList>;
+  genres: Array<TmdbGenre>;
   mediaId: number;
   imgUrl: string;
   title: string;

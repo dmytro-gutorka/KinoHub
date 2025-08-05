@@ -1,13 +1,8 @@
 import { TMDB_HEADERS, TMDB_URL } from '@app/constants';
-
-import axios from 'axios';
-import {
-  MediaFiltersBase,
-  MediaType,
-  SearchedMediaParams,
-  SortBy,
-} from '@shared/types/generalTypes';
+import { TmdbMediaDetailsResponse, TmdbSearchFilteredResults } from '@entities/types/tmdbEntities';
+import { MediaFiltersBase, MediaType, SearchMediaParams, SortBy } from '@shared/types/generalTypes';
 import AxiosInstance = Axios.AxiosInstance;
+import axios from 'axios';
 
 class TmdbService {
   private readonly genresToExclude: string;
@@ -42,21 +37,27 @@ class TmdbService {
   }: MediaFiltersBase & { mediaType: MediaType }) {
     const genreString: string = genres.map((g) => g.id).join('|');
 
-    return this.axiosInstance.get(`/discover/${mediaType}`, {
-      params: {
-        page,
-        sort_by: sortBy,
-        with_genres: genreString || undefined,
-        'vote_average.gte': minRating,
-        without_genres: this.genresToExclude,
-      },
-    });
+    return this.axiosInstance.get<TmdbSearchFilteredResults<typeof mediaType>>(
+      `/discover/${mediaType}`,
+      {
+        params: {
+          page,
+          sort_by: sortBy,
+          with_genres: genreString || undefined,
+          'vote_average.gte': minRating,
+          without_genres: this.genresToExclude,
+        },
+      }
+    );
   }
 
-  getSearchedMedia({ page = 1, mediaType = 'movie', searchQuery = '' }: SearchedMediaParams) {
-    return this.axiosInstance.get(`/search/${mediaType}`, {
-      params: { query: searchQuery, page },
-    });
+  getSearchedMedia({ page = 1, mediaType = 'movie', searchQuery = '' }: SearchMediaParams) {
+    return this.axiosInstance.get<TmdbSearchFilteredResults<typeof mediaType>>(
+      `/search/${mediaType}`,
+      {
+        params: { query: searchQuery, page },
+      }
+    );
   }
 }
 

@@ -51,7 +51,8 @@ export default [
       'no-unused-vars': ['warn', { varsIgnorePattern: '^[A-Z_]' }],
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'import/no-unresolved': 'error',
-      'import/order': "off"
+      'import/order': "off",
+      'no-undef': 'off'
     },
     settings: {
       'import/resolver': {
