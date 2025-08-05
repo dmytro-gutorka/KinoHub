@@ -66,12 +66,12 @@ const MediaPageLayout = ({ qrKey, mediaType = 'movie' }: MediaPageLayoutProps) =
         </Stack>
       )}
 
-      {searchLoading && <CircularProgress />}
+      {(searchLoading || filterLoading) && <CircularProgress />}
       {mediaData && <MediaCardList mediaGenresList={mediaGenresList} mediaData={mediaData} />}
 
       <Stack spacing={2} justifyContent="center" alignItems="center" my={6}>
         <Pagination count={500} variant="outlined" onChange={handlePageChange} />
-        {/*TMDB API that I use has a restriction to only 500 page, so the value count is hardcoded*/}
+        // TODO : Get rid of hardcoded 500
       </Stack>
     </Stack>
   );

@@ -9,6 +9,7 @@ import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import cutText from '@shared/helpers/cutText';
 
 const MediaCardPreviewLong = ({ mediaData, relevantPoster, genreNames }) => {
   const {
@@ -35,24 +36,19 @@ const MediaCardPreviewLong = ({ mediaData, relevantPoster, genreNames }) => {
         <Typography gutterBottom variant="h5" component="div">
           {title || name}
         </Typography>
-
-        {genreNames?.length > 0 && (
-          <Stack direction="row" flexWrap="wrap" gap={1} mb={2}>
-            <GenreChipList genres={genreNames} renderLimit={2} size="small" />
-          </Stack>
-        )}
+        <GenreChipList genres={genreNames} renderLimit={2} size="small" />
 
         <Stack direction="row" gap={2}>
-          <LabelWithIcon data={getYearFromDate(releaseDate || airDate)}>
+          <LabelWithIcon label={getYearFromDate(releaseDate || airDate)}>
             <CalendarTodayOutlinedIcon fontSize="small" />
           </LabelWithIcon>
-          <LabelWithIcon data={avgRating}>
+          <LabelWithIcon label={avgRating}>
             <StarBorderIcon fontSize="small" />
           </LabelWithIcon>
         </Stack>
 
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {`${overview.split(' ').slice(0, 15).join(' ')}`} ...
+          {cutText(overview, 15)}
         </Typography>
       </CardContent>
     </StyledCard>

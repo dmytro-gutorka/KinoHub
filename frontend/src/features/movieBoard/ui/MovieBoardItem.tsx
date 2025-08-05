@@ -46,10 +46,10 @@ const MovieBoardItem = ({ mediaInfo }: { mediaInfo: MediaInfoEntity }) => {
             {title}
           </Typography>
           <Stack direction="row">
-            <LabelWithIcon data={getYearFromDate(releaseDate)}>
+            <LabelWithIcon label={getYearFromDate(releaseDate)}>
               <CalendarTodayOutlinedIcon />
             </LabelWithIcon>
-            <LabelWithIcon data={voteAverage}>
+            <LabelWithIcon label={voteAverage}>
               <StarBorderIcon />
             </LabelWithIcon>
           </Stack>

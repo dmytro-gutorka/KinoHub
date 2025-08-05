@@ -7,6 +7,7 @@ import GenreChipList from '@shared/ui/GenreChipList';
 import LabelList from '@shared/ui/LabelList/LabelList';
 import MediaActionButtonList from '@shared/ui/MediaActionButtonList';
 import useMediaHeaderData from '@features/media/model/hooks/useMediaHeaderData';
+import MediaHeaderPoster from '@features/media/ui/MediaHeaderPoster';
 
 export default function MediaHeader<T extends MediaType>({
   tmdbMediaData,
@@ -15,24 +16,12 @@ export default function MediaHeader<T extends MediaType>({
 }: MediaHeaderProps<T>) {
   const { genres, mediaId, imgUrl, title } = useMediaHeaderData(tmdbMediaData, mediaType);
 
-  const theme = useTheme();
-
   return (
     <Stack position="relative">
       <BackgroundBanner imgURL={imgUrl} />
       <Container maxWidth="lg">
         <Stack direction="row" pt={14} pb={6} gap={4} alignItems="end">
-          <Box
-            component="img"
-            src={imgUrl}
-            width="260px"
-            height="380px"
-            sx={{
-              outline: `${theme.palette.transparentGrey} solid 2px`,
-              borderRadius: '10px',
-            }}
-          />
-
+          <MediaHeaderPoster imgUrl={imgUrl} />
           <Box>
             <Typography variant="h2" component="h1" fontWeight="700" mb={10} lineHeight={1.2}>
               {title}
