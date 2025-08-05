@@ -1,11 +1,11 @@
-import { MediaType } from '@shared/types/generalTypes';
 import { TmdbMovieDetails, TmdbTvShowDetails } from '@entities/types/tmdbEntities';
 import { MediaDetailsProps } from '@features/media/model/types/mediaTypes';
+import { MediaType } from '@shared/types/generalTypes';
 import { List } from '@mui/material';
 import { JSX } from 'react';
-import ItemListSpaceBetween from '@shared/ui/ItemListSpaceBetween';
-import convertToUSD from '@shared/helpers/convertToUSD';
 import MediaContentBlock from './MediaContentBlock';
+import MediaItemList from '@features/media/ui/MediaItemList';
+import convertToUSD from '@shared/helpers/convertToUSD';
 
 export default function MediaDetails<T extends MediaType>({
   tmdbMediaData,
@@ -23,13 +23,13 @@ export default function MediaDetails<T extends MediaType>({
     return (
       <MediaContentBlock blockTitle="TV Show Details">
         <List>
-          <ItemListSpaceBetween label="Air date" data={airDate} />
-          <ItemListSpaceBetween label="Number of Seasons" data={seasonsNumber} />
-          <ItemListSpaceBetween label="Number of Episode" data={episodesNumber} />
+          <MediaItemList label="Air date" data={airDate} />
+          <MediaItemList label="Number of Seasons" data={seasonsNumber} />
+          <MediaItemList label="Number of Episode" data={episodesNumber} />
 
-          <ItemListSpaceBetween label="Status" data={status} />
-          <ItemListSpaceBetween label="Language" data={language?.[0]?.english_name || 'N/A'} />
-          <ItemListSpaceBetween label="Country" data={country?.[0]?.name || 'Unknown'} />
+          <MediaItemList label="Status" data={status} />
+          <MediaItemList label="Language" data={language?.[0]?.english_name || 'N/A'} />
+          <MediaItemList label="Country" data={country?.[0]?.name || 'Unknown'} />
         </List>
       </MediaContentBlock>
     );
@@ -41,15 +41,15 @@ export default function MediaDetails<T extends MediaType>({
     return (
       <MediaContentBlock blockTitle="Movie Details">
         <List>
-          <ItemListSpaceBetween label="Release date" data={releaseDate} />
-          <ItemListSpaceBetween label="Status" data={status} />
+          <MediaItemList label="Release date" data={releaseDate} />
+          <MediaItemList label="Status" data={status} />
 
-          {!!budget && <ItemListSpaceBetween label="Budget" data={convertToUSD(budget)} />}
-          {!!revenue && <ItemListSpaceBetween label="Box Office" data={convertToUSD(revenue)} />}
+          {!!budget && <MediaItemList label="Budget" data={convertToUSD(budget)} />}
+          {!!revenue && <MediaItemList label="Box Office" data={convertToUSD(revenue)} />}
 
-          <ItemListSpaceBetween label="Status" data={status} />
-          <ItemListSpaceBetween label="Language" data={language?.[0]?.english_name || 'N/A'} />
-          <ItemListSpaceBetween label="Country" data={country?.[0]?.name || 'Unknown'} />
+          <MediaItemList label="Status" data={status} />
+          <MediaItemList label="Language" data={language?.[0]?.english_name || 'N/A'} />
+          <MediaItemList label="Country" data={country?.[0]?.name || 'Unknown'} />
         </List>
       </MediaContentBlock>
     );

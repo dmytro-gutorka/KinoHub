@@ -1,17 +1,17 @@
 import { Box, Stack, Typography } from '@mui/material';
 import { NavLink } from 'react-router';
 
-import StyledCard from '../StyledCard';
-import getYearFromDate from '../../helpers/getYearFromDate';
-import GenreChipList from '../GenreChipList';
-import LabelWithIcon from '../LabelWithIcon';
+import MediaCardHover from '@features/media/ui/styledMUIComponents/MediaCardHover';
+import getYearFromDate from '@shared/helpers/getYearFromDate';
+import GenreChipList from '@shared/ui/GenreChipList';
+import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import cutText from '@shared/helpers/cutText';
 
-const MediaCardPreviewLong = ({ mediaData, relevantPoster, genreNames }) => {
+const MediaCardDetailed = ({ mediaData, relevantPoster, genreNames }) => {
   const {
     release_date: releaseDate,
     vote_average: avgRating,
@@ -23,7 +23,7 @@ const MediaCardPreviewLong = ({ mediaData, relevantPoster, genreNames }) => {
   } = mediaData;
 
   return (
-    <StyledCard key={id} width={276}>
+    <MediaCardHover key={id} width={276}>
       <Box component={NavLink} to={`${id}`}>
         <CardMedia
           image={relevantPoster}
@@ -51,8 +51,8 @@ const MediaCardPreviewLong = ({ mediaData, relevantPoster, genreNames }) => {
           {cutText(overview, 15)}
         </Typography>
       </CardContent>
-    </StyledCard>
+    </MediaCardHover>
   );
 };
 
-export default MediaCardPreviewLong;
+export default MediaCardDetailed;

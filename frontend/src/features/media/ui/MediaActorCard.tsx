@@ -1,6 +1,6 @@
+import { MediaActorProps } from '@features/media/model/types/mediaTypes';
 import { Box, Stack } from '@mui/material';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
-import { MediaActorProps } from '@features/media/model/types/mediaTypes';
 
 export default function MediaActorCard({ actor }: MediaActorProps) {
   const { id, character, name, profile_path: profilePath } = actor;

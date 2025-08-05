@@ -1,5 +1,5 @@
 import { Stack, Typography } from '@mui/material';
-import MediaCardPreviewShort from '../MediaCardPreviewShort';
+import MediaCardBrief from '../MediaCardBrief';
 
 const MediaSection = ({ title, mediaList }) => {
   return (
@@ -9,7 +9,7 @@ const MediaSection = ({ title, mediaList }) => {
       </Typography>
       <Stack direction="row" flexWrap="wrap" rowGap={9} columnGap={6}>
         {mediaList.map((mediaItem) => (
-          <MediaCardPreviewShort key={mediaItem.id} mediaItem={mediaItem} />
+          <MediaCardBrief key={mediaItem.id} mediaItem={mediaItem} />
         ))}
       </Stack>
     </Stack>

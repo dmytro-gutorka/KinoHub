@@ -1,6 +1,11 @@
 import { ListItem } from '@mui/material';
 
-const ItemListSpaceBetween = ({ label, data }) => {
+interface MediaItemListProps {
+  label: string;
+  data: string | number;
+}
+
+const MediaItemList = ({ label, data }: MediaItemListProps) => {
   return (
     <ListItem sx={{ display: 'flex', justifyContent: 'space-between' }}>
       <span>{label}</span>
@@ -9,4 +14,4 @@ const ItemListSpaceBetween = ({ label, data }) => {
   );
 };
 
-export default ItemListSpaceBetween;
+export default MediaItemList;

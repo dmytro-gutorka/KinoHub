@@ -6,39 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/eslint.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/router.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/entities/types/tmdbEntities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/types/tmdbEntities.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/asideBar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/asideBar/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/asideBar/ui/AsideBarSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/asideBar/ui/AsideBarSectionContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/filters/hooks/useFilteredMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/filters/hooks/useFilteredMedia.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/filters/hooks/useMediaFilters.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/filters/hooks/useMediaFilters.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/filters/hooks/useSearchedMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/filters/hooks/useSearchedMedia.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/homepage/hooks/useHomepageMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/homepage/hooks/useHomepageMedia.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/model/hooks/useMediaHeaderData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/model/hooks/useMediaHeaderData.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/model/hooks/useTmdbMediaDetails.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/model/hooks/useTmdbMediaDetails.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage/Homepage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Movies/Movies.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Movies/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/TvShow/TvShow.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/TvShow/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/tmdb/TmdbService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/tmdb/TmdbService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/tmdb/services/getTmdbSearchedMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/tmdb/services/getTmdbSearchedMedia.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/data/movieGenres.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/data/movieGenres.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/data/tvShowGenres.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/data/tvShowGenres.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/helpers/getYearFromDate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/helpers/getYearFromDate.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardList/MediaCardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaCardList/MediaCardList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/MultipleSelect/MultipleSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MultipleSelect/MultipleSelect.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/AsideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/AsideBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/Layout/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/Layout/Layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/MediaHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/MediaHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/MediaOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/MediaOverview.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaPageLayout/MediaPageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaListPage/MediaListPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaPageLayout/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaListPage/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/types/theme/theme.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/types/dts/theme.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/GenreChipList/GenreChipList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/GenreChipList/GenreChipList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/GenreChipList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/GenreChipList/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/ItemListSpaceBetween/ItemListSpaceBetween.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaItemList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/ItemListSpaceBetween/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/LabelWithIcon/LabelWithIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/LabelWithIcon/LabelWithIcon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/LabelWithIcon/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/LabelWithIcon/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +210,8 @@
       <workItem from="1754252659501" duration="12373000" />
       <workItem from="1754328319282" duration="1353000" />
       <workItem from="1754329874735" duration="11939000" />
-      <workItem from="1754355217008" duration="8418000" />
+      <workItem from="1754355217008" duration="9173000" />
+      <workItem from="1754413903101" duration="2131000" />
     </task>
     <servers />
   </component>

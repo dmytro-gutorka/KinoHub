@@ -1,9 +1,9 @@
 import { Box, CardContent, CardMedia, Rating, Stack, Typography } from '@mui/material';
 import { NavLink } from 'react-router';
-import getPosterUrl from '../../helpers/getPosterUrl';
-import StyledCard from '../StyledCard';
+import getPosterUrl from '@shared/helpers/getPosterUrl';
+import MediaCardHover from '@features/media/ui/styledMUIComponents/MediaCardHover';
 
-const MediaCardPreviewShort = ({ mediaItem }) => {
+const MediaCardBrief = ({ mediaItem }) => {
   const {
     poster_path: posterPath,
     vote_average: avgRating,
@@ -17,7 +17,7 @@ const MediaCardPreviewShort = ({ mediaItem }) => {
   const isMovie = mediaType ? 'shows' : 'movies';
 
   return (
-    <StyledCard key={id} width={230}>
+    <MediaCardHover key={id} width={230}>
       <Box component={NavLink} to={`${isMovie}/${id}`}>
         <CardMedia
           sx={{ height: 330, backgroundSize: 'cover' }}
@@ -36,8 +36,8 @@ const MediaCardPreviewShort = ({ mediaItem }) => {
           </Typography>
         </Stack>
       </CardContent>
-    </StyledCard>
+    </MediaCardHover>
   );
 };
 
-export default MediaCardPreviewShort;
+export default MediaCardBrief;

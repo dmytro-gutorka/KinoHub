@@ -10,7 +10,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Button, Stack } from '@mui/material';
 import { JSX } from 'react';
-import LabelWithIcon from '../LabelWithIcon';
+import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import useUpdateMediaAction from '@features/media/model/hooks/useUpdateMediaAction';
 
 interface ActionButton {

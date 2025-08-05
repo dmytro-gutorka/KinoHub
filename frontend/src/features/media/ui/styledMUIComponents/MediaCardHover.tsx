@@ -1,6 +1,6 @@
 import Card from '@mui/material/Card';
 
-const StyledCard = ({ children, width }) => {
+const MediaCardHover = ({ children, width }) => {
   return (
     <Card
       sx={(theme) => ({
@@ -17,4 +17,4 @@ const StyledCard = ({ children, width }) => {
   );
 };
 
-export default StyledCard;
+export default MediaCardHover;
