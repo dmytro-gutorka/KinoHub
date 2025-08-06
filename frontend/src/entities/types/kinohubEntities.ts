@@ -23,3 +23,12 @@ export interface UserMediaActionEntity {
   userId: number;
   watchStatus: WatchStatus | null;
 }
+
+export interface EpisodeEntity {
+  id: number;
+  tvShowId: number;
+  userId: number;
+  season: number;
+  episode: number;
+  isWatched: boolean;
+}

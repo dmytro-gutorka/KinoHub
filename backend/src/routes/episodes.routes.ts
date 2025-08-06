@@ -7,7 +7,7 @@ import {
 
 export const router: Router = express.Router();
 
-router.get('/:mediaId/season/:season', getEpisodeList);
-router.post('/:mediaId/season/:season', createEpisodeList);
+router.get('/:tvShowId/season/:season', getEpisodeList);
+router.post('/:tvShowId/season/:season', createEpisodeList);
 
-router.patch('/:mediaId/season/:season/episode/:episode', updateEpisode);
+router.patch('/:tvShowId/season/:season/episode/:episode', updateEpisode);

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router';
 import { EpisodeList, SeasonList } from '@features/tvShow';
 import useEpisodeList from '@features/tvShow/model/hooks/useEpisodeList';
+import useEpisodeActionList from '@features/tvShow/model/hooks/useEpisodeActionList';
 
 const SeasonsAndEpisodes = ({ seasons }: SeasonsAndEpisodesProps) => {
   const [currentSeasonNumber, setSeasonNumber] = useState(1);
@@ -12,7 +13,10 @@ const SeasonsAndEpisodes = ({ seasons }: SeasonsAndEpisodesProps) => {
   const tvShowId: number = Number(params?.id);
 
   const { episodeList } = useEpisodeList(tvShowId, currentSeasonNumber);
+  const { episodeActionList } = useEpisodeActionList(tvShowId, currentSeasonNumber, episodeList);
 
+  console.log(1111, episodeActionList);
+  console.log(episodeList);
   return (
     <Grid container justifyContent="space-between" mt={6}>
       <Grid size={2.5}>

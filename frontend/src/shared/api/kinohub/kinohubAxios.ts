@@ -1,6 +1,6 @@
 import { UserAuthData } from '@features/auth/model/authTypes';
 import { API_URL } from '@app/constants';
-import { getApiPaths } from '@shared/api/kinohub/apiPaths';
+import { apiPath } from '@shared/api/kinohub/apiPaths';
 import { setAccessToken } from '@shared/helpers/localStorage/setAccessToken';
 import { getAccessToken } from '@shared/helpers/localStorage/getAccessToken';
 
@@ -32,7 +32,7 @@ axiosWithAuth.interceptors.response.use(
       originalRequest._retry = true;
 
       try {
-        const response = await axios.get<UserAuthData>(getApiPaths.auth.refresh());
+        const response = await axios.get<UserAuthData>(apiPath.auth.refresh());
         const newAccessToken = response?.data?.accessToken;
 
         setAccessToken(newAccessToken);

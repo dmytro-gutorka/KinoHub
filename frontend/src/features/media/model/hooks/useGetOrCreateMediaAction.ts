@@ -37,7 +37,7 @@ export default function useGetOrCreateMediaAction(
 
   useEffect(() => {
     if (fetchError && options?.enabled) create();
-  }, [fetchError, options?.enabled]);
+  }, [create, fetchError, options?.enabled]);
 
   return {
     isActionsLoading: isFetching || isCreating,

@@ -6,7 +6,7 @@ const getUserMediaActionUrl = (mediaId: number, mediaType: MediaType) =>
 const getMediaUrl = (mediaId: number, mediaType: MediaType) =>
   `${API_URL}/media/${mediaId}?media_type=${mediaType}`;
 
-export const getApiPaths = {
+export const apiPath = {
   media: {
     getOneBy: (mediaId: number, mediaType: MediaType) => getMediaUrl(mediaId, mediaType),
     post: (mediaId: number, mediaType: MediaType) => getMediaUrl(mediaId, mediaType),
@@ -20,11 +20,19 @@ export const getApiPaths = {
   },
   userMediaActions: {
     getOneBy: (mediaId: number, mediaType: MediaType) => getUserMediaActionUrl(mediaId, mediaType),
-    post: (mediaId: number, mediaType: MediaType) => getUserMediaActionUrl(mediaId, mediaType),
-    patch: (mediaId: number, mediaType: MediaType) => getUserMediaActionUrl(mediaId, mediaType),
+    create: (mediaId: number, mediaType: MediaType) => getUserMediaActionUrl(mediaId, mediaType),
+    update: (mediaId: number, mediaType: MediaType) => getUserMediaActionUrl(mediaId, mediaType),
   },
   movieBoardItems: {
     getList: () => `${API_URL}/actions/movie-board`,
   },
-  episode: {},
+  episode: {
+    getList: (tvShowId: number, season: number) =>
+      `${API_URL}/episodes/${tvShowId}/season/${season}`,
+    createList: (tvShowId: number, season: number, episodesNumber: number) =>
+      `${API_URL}/episodes/${tvShowId}/season/${season}?episodes_number=${episodesNumber}`,
+
+    update: (tvShowId: number, season: number, episode: number) =>
+      `${API_URL}/episodes/${tvShowId}/season/${season}/episode/${episode}`,
+  },
 };
