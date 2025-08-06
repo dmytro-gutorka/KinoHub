@@ -94,15 +94,15 @@ export interface TmdbCrew extends TmdbPersonInfo {
 
 export interface TmdbMediaDetails {
   adult: boolean;
-  id: number;
-  vote_average: number;
-  popularity: number;
-  vote_count: number;
   backdrop_path: string;
-  homepage: string;
+  id: number;
   original_language: string;
   overview: string;
   poster_path: string;
+  vote_average: number;
+  popularity: number;
+  vote_count: number;
+  homepage: string;
   status: string;
   tagline: string;
   origin_country: Array<string>;
@@ -179,12 +179,36 @@ export interface TmdbMediaListResults<T> {
   results: T;
 }
 
-export interface TmdbSearchFilteredResults<T extends MediaType> {
-  page: number;
-  total_pages: number;
-  total_results: number;
-  results: TmdbMediaDetailsResponse<T> | undefined;
+export interface TmdbMediaSearchedFilteredList {
+  adult: boolean;
+  backdrop_path: string | null;
+  genre_ids: Array<number>;
+  id: number;
+  original_language: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  vote_average: number;
+  vote_count: number;
 }
+
+export interface TmdbMovieSearchedFilteredList extends TmdbMediaSearchedFilteredList {
+  original_title: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+}
+
+export interface TmdbTvShowSearchedFilteredList extends TmdbMediaSearchedFilteredList {
+  origin_country: Array<string>;
+  original_name: string;
+  first_air_date: string;
+  name: string;
+}
+
+export type TmdbMediaSearchedFilteredResponse<T extends MediaType> = T extends 'tv'
+  ? TmdbTvShowSearchedFilteredList
+  : TmdbMovieSearchedFilteredList;
 
 export type TmdbMediaDetailsResponse<T extends MediaType> = T extends 'tv'
   ? TmdbTvShowDetails

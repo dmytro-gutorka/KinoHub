@@ -1,31 +1,31 @@
 import { Request, Response } from 'express';
-import { MediaEpisode } from '../entity/MediaEpisode.js';
 import { episodesServices } from '../services/episodes.services.js';
+import { Episode } from '../entity/Episode.js';
 
-export async function getEpisodes(
-  req: Request<{ season: number; mediaId: number }>,
+export async function getEpisodeList(
+  req: Request<{ season: number; tvShowId: number }>,
   res: Response
 ): Promise<void> {
-  const mediaId: number = Number(req.params.mediaId);
+  const tvShowId: number = Number(req.params.tvShowId);
   const season: number = Number(req.params.season);
   const userId: number | undefined = req.user?.id;
 
-  const episodes: MediaEpisode[] = await episodesServices.read(mediaId, userId, season);
+  const episodes: Episode[] = await episodesServices.getListBy(tvShowId, userId, season);
 
   res.status(200).json(episodes);
 }
 
-export async function createEpisodes(
-  req: Request<any, any, any, { season: number; episodesNumber: number }>,
+export async function createEpisodeList(
+  req: Request<any, any, any, { season: number; episodes_number: number }>,
   res: Response
 ): Promise<void> {
-  const mediaId: number = Number(req.params.mediaId);
+  const tvShowId: number = Number(req.params.tvShowId);
   const season: number = Number(req.params.season);
   const userId: number | undefined = req.user?.id;
-  const episodesNumber: number = Number(req.query.episodesNumber);
+  const episodesNumber: number = Number(req.query.episodes_number);
 
-  const episodes: MediaEpisode[] = await episodesServices.create(
-    mediaId,
+  const episodes: Episode[] = await episodesServices.create(
+    tvShowId,
     userId,
     season,
     episodesNumber
@@ -34,7 +34,7 @@ export async function createEpisodes(
   res.status(201).json(episodes);
 }
 
-export async function updateEpisodes(
+export async function updateEpisode(
   req: Request<{ season: number; mediaId: number; episode: number }>,
   res: Response
 ): Promise<void> {

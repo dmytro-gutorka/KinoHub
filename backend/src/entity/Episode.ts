@@ -1,12 +1,13 @@
-import { Entity, Column, BaseEntity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, Unique } from 'typeorm';
 
 @Entity({ schema: 'public' })
-export class MediaEpisode extends BaseEntity {
+@Unique(['userId', 'tvShowId', 'season', 'episode'])
+export class Episode extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
   @Column()
-  mediaId!: number;
+  tvShowId!: number;
 
   @Column()
   userId!: number;
@@ -20,4 +21,3 @@ export class MediaEpisode extends BaseEntity {
   @Column()
   isWatched!: boolean;
 }
-// make unique together

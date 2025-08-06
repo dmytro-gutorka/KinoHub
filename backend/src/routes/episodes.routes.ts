@@ -1,9 +1,13 @@
 import express, { Router } from 'express';
-import { createEpisodes, getEpisodes, updateEpisodes } from '../controllers/episodes.controller.js';
+import {
+  createEpisodeList,
+  getEpisodeList,
+  updateEpisode,
+} from '../controllers/episodes.controller.js';
 
 export const router: Router = express.Router();
 
-router.get('/:mediaId/season/:season', getEpisodes);
-router.post('/:mediaId/season/:season', createEpisodes);
+router.get('/:mediaId/season/:season', getEpisodeList);
+router.post('/:mediaId/season/:season', createEpisodeList);
 
-router.patch('/:mediaId/season/:season/episode/:episode', updateEpisodes);
+router.patch('/:mediaId/season/:season/episode/:episode', updateEpisode);

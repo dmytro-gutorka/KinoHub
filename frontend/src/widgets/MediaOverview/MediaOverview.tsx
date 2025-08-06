@@ -36,7 +36,7 @@ export default function MediaOverview<T extends MediaType>({
           </Stack>
         </Grid>
       </Grid>
-      {/*{'seasons' in tmdbMediaData && <SeasonsAndEpisodes seasons={tmdbMediaData.seasons} />}*/}
+      {'seasons' in tmdbMediaData && <SeasonsAndEpisodes seasons={tmdbMediaData.seasons} />}
     </Stack>
   );
 }

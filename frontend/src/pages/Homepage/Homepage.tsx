@@ -10,10 +10,10 @@ const Homepage = () => {
 
   return (
     <Stack m={10} mt={0} rowGap={10} divider={<Divider orientation="horizontal" />}>
-      <MediaSection mediaList={topRatedMovies} sectionTitle="Top Rated Movies" />
-      <MediaSection mediaList={trendingMovies} sectionTitle="Trending Movies" />
-      <MediaSection mediaList={trendingTv} sectionTitle="Trending TV Show" />
-      <MediaSection mediaList={tvAiringToday} sectionTitle="TV show airing today" />
+      <MediaSection mediaList={topRatedMovies} mediaType="movie" sectionTitle="Top Rated Movies" />
+      <MediaSection mediaList={trendingMovies} mediaType="movie" sectionTitle="Trending Movies" />
+      <MediaSection mediaList={trendingTv} mediaType="tv" sectionTitle="Trending TV Show" />
+      <MediaSection mediaList={tvAiringToday} mediaType="tv" sectionTitle="TV show airing today" />
     </Stack>
   );
 };

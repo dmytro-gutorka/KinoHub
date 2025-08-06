@@ -1,6 +1,9 @@
 import useFilteredMedia from '@features/filters/hooks/useFilteredMedia';
 import useSearchedMedia from '@features/filters/hooks/useSearchedMedia';
-import { TmdbMediaDetailsResponse } from '@entities/types/tmdbEntities';
+import {
+  TmdbMediaListResults,
+  TmdbMediaSearchedFilteredResponse,
+} from '@entities/types/tmdbEntities';
 import { MediaFiltersBase, MediaType } from '@shared/types/generalTypes';
 
 export default function useExtractedFilteredSearchedData(
@@ -25,8 +28,9 @@ export default function useExtractedFilteredSearchedData(
     page,
   });
 
-  const mediaList: TmdbMediaDetailsResponse<typeof mediaType> | undefined =
-    searchData?.results || filteredData?.results;
+  const mediaList:
+    | TmdbMediaListResults<Array<TmdbMediaSearchedFilteredResponse<typeof mediaType>>>
+    | undefined = searchData?.results || filteredData?.results;
 
   let limitedPage: number | undefined;
   const pages: number | undefined = searchData?.total_pages || filteredData?.total_pages;

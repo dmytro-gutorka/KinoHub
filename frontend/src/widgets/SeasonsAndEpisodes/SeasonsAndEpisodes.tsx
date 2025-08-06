@@ -3,26 +3,28 @@ import { Grid } from '@mui/material';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import { EpisodeList, SeasonList } from '@features/tvShow';
-import useTvShowSeasonDetails from '@features/tvShow/model/hooks/useTvShowSeasonDetails';
+import useEpisodeList from '@features/tvShow/model/hooks/useEpisodeList';
 
 const SeasonsAndEpisodes = ({ seasons }: SeasonsAndEpisodesProps) => {
-  const [tvSeason, setTvSeason] = useState(1);
+  const [currentSeasonNumber, setSeasonNumber] = useState(1);
 
   const params: Readonly<any> = useParams();
-  const mediaId: string = params?.id;
+  const tvShowId: number = Number(params?.id);
 
-  const { episodesData } = useTvShowSeasonDetails(mediaId, tvSeason);
-
-  if (!episodesData?.length) return <div>Loading...</div>;
+  const { episodeList } = useEpisodeList(tvShowId, currentSeasonNumber);
 
   return (
     <Grid container justifyContent="space-between" mt={6}>
       <Grid size={2.5}>
-        <SeasonList seasons={seasons} tvSeason={tvSeason} onSetTvSeason={setTvSeason} />
+        <SeasonList
+          seasonList={seasons}
+          currentSeasonNumber={currentSeasonNumber}
+          onSeasonNumber={setSeasonNumber}
+        />
       </Grid>
 
       <Grid size={9}>
-        <EpisodeList episodesData={episodesData} />
+        <EpisodeList episodeList={episodeList} />
       </Grid>
     </Grid>
   );

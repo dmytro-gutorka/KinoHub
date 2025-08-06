@@ -15,7 +15,7 @@ export default function AsideBarMenuSectionLinks() {
       <AsideBarLink to="movies" hasIcon>
         <MovieOutlinedIcon /> Movie
       </AsideBarLink>
-      <AsideBarLink to="tv-show" hasIcon>
+      <AsideBarLink to="series" hasIcon>
         <LiveTvRoundedIcon /> TV Show
       </AsideBarLink>
       <AsideBarLink to="history" hasIcon>

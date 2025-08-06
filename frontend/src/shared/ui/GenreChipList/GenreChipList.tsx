@@ -2,7 +2,7 @@ import { Chip, Stack } from '@mui/material';
 import { TmdbGenre } from '@entities/types/tmdbEntities';
 
 interface GenreChipListProps {
-  genres: Array<TmdbGenre>;
+  genres: Array<TmdbGenre | undefined>;
   renderLimit?: number | false;
   size?: 'small' | 'medium';
 }

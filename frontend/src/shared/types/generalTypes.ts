@@ -1,5 +1,5 @@
 import { MEDIA_ACTIONS, WATCH_STATUS } from '@app/constants';
-import { TmdbGenre } from '@entities/types/tmdbEntities';
+import { TmdbEpisodeInfo, TmdbGenre, TmdbSeasonInfo } from '@entities/types/tmdbEntities';
 import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
 
 export type MediaType = 'movie' | 'tv';
@@ -34,3 +34,5 @@ export type WatchStatus = (typeof WATCH_STATUS)[keyof typeof WATCH_STATUS];
 export type MediaUserActions = {
   [key in MediaActionType]: UserMediaActionEntity[key];
 };
+
+export type SeasonDataWithEpisodes = TmdbSeasonInfo & { episodes: Array<TmdbEpisodeInfo> };

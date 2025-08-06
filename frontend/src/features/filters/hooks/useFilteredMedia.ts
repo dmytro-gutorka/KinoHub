@@ -1,7 +1,10 @@
 import { MediaFiltersBase, MediaType } from '@shared/types/generalTypes';
-import { TmdbSearchFilteredResults } from '@entities/types/tmdbEntities';
 import { useQuery } from '@tanstack/react-query';
 import getTmdbFilteredMedia from '@shared/api/tmdb/services/getTmdbFilteredMedia';
+import {
+  TmdbMediaListResults,
+  TmdbMediaSearchedFilteredResponse,
+} from '@entities/types/tmdbEntities';
 
 interface MediaFiltersForQuery extends MediaFiltersBase {
   mediaType: MediaType;
@@ -17,7 +20,7 @@ const useFilteredMedia = ({
   sortBy,
 }: MediaFiltersForQuery) => {
   const { data: filteredData, isLoading: filterLoading } = useQuery<
-    TmdbSearchFilteredResults<typeof mediaType>
+    TmdbMediaListResults<Array<TmdbMediaSearchedFilteredResponse<typeof mediaType>>>
   >({
     queryFn: () => getTmdbFilteredMedia({ page, mediaType, minRating, genres, sortBy }),
     queryKey: [qrKey, mediaType, page, minRating, genres, sortBy],

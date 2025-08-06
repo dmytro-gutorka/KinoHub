@@ -1,6 +1,6 @@
 import { MediaType } from '@shared/types/generalTypes';
 import { MediaInfoEntity } from '@entities/types/kinohubEntities';
-import { useQuery, useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { createMedia } from '@shared/api/kinohub/services/media/createMedia';
 import { updateMedia } from '@shared/api/kinohub/services/media/updateMedia';
@@ -15,7 +15,7 @@ export default function useEnsureMediaDetails(mediaId: number, mediaType: MediaT
     isLoading: isFetching,
     isSuccess: isFetchSuccess,
   } = useQuery({
-    queryKey: ['mediaDetails', mediaType, mediaId],
+    queryKey: ['kinohubMediaDetails', mediaType, mediaId],
     queryFn: () => getMedia(mediaId, mediaType),
     retry: false,
   });
@@ -41,7 +41,7 @@ export default function useEnsureMediaDetails(mediaId: number, mediaType: MediaT
   useEffect(() => {
     if (fetchError) create();
     if (existingMedia) update();
-  }, [fetchError, existingMedia]);
+  }, [fetchError, existingMedia, create, update]);
 
   return {
     mediaData: finalMedia ?? existingMedia,

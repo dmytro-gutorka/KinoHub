@@ -9,7 +9,7 @@ import Profile from '@pages/Profile';
 import Settings from '@pages/Settings';
 import Dashboard from '@pages/Dashboard';
 import History from '@pages/History';
-import MediaListPage from '@widgets/MediaListPage';
+import MediaListPage from '@pages/MediaListPage';
 
 const router = makeRouter();
 
@@ -22,7 +22,7 @@ function makeRouter() {
       children: [
         { path: '/', Component: Homepage },
         { path: '/movies', Component: MediaListPage, loader: () => MEDIA_TYPES.MOVIE },
-        { path: '/tv-show', Component: MediaListPage, loader: () => MEDIA_TYPES.TV_SHOW },
+        { path: '/series', Component: MediaListPage, loader: () => MEDIA_TYPES.TV_SHOW },
         { path: '/history', Component: History },
         { path: '/movie-board', Component: MovieBoard },
         { path: '/dashboard', Component: Dashboard },
@@ -31,8 +31,8 @@ function makeRouter() {
         { path: '/logout', Component: Homepage },
       ],
     },
-    { path: '/movies/:id', Component: MediaDetailsPage, loader: () => MEDIA_TYPES.MOVIE },
-    { path: '/tv-show/:id', Component: MediaDetailsPage, loader: () => MEDIA_TYPES.TV_SHOW },
+    { path: '/movie/:id', Component: MediaDetailsPage, loader: () => MEDIA_TYPES.MOVIE },
+    { path: '/tv/:id', Component: MediaDetailsPage, loader: () => MEDIA_TYPES.TV_SHOW },
   ]);
 }
 

@@ -1,6 +1,5 @@
 import { AppDataSource } from '../config/db.js';
-import { MediaEpisode } from '../entity/MediaEpisode.js';
+import { Episode } from '../entity/Episode';
 import { Repository } from 'typeorm';
 
-export const episodesRepository: Repository<MediaEpisode> =
-  AppDataSource.getRepository(MediaEpisode);
+export const episodesRepository: Repository<Episode> = AppDataSource.getRepository(Episode);

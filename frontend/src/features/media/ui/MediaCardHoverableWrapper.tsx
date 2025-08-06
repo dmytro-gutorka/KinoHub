@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { NavLink } from 'react-router';
+import { useNavigate } from 'react-router';
 import { Box, CardMedia } from '@mui/material';
 import Card from '@mui/material/Card';
 
@@ -18,6 +18,8 @@ export default function MediaCardHoverableWrapper({
   imgURL,
   navTo,
 }: MediaCardHoverableWrapperProps) {
+  const navigate = useNavigate();
+
   return (
     <Card
       sx={(theme) => ({
@@ -29,7 +31,7 @@ export default function MediaCardHoverableWrapper({
         '&:hover': { transform: 'scale(1.05)' },
       })}
     >
-      <Box component={NavLink} to={navTo}>
+      <Box onClick={() => navigate(navTo)}>
         <CardMedia sx={{ height, backgroundSize: 'cover' }} image={imgURL} title="Movie card" />
       </Box>
       <>{children}</>

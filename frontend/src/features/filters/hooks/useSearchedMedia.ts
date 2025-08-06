@@ -1,4 +1,7 @@
-import { TmdbSearchFilteredResults } from '@entities/types/tmdbEntities';
+import {
+  TmdbMediaListResults,
+  TmdbMediaSearchedFilteredResponse,
+} from '@entities/types/tmdbEntities';
 import { SearchMediaParams } from '@shared/types/generalTypes';
 import { useQuery } from '@tanstack/react-query';
 import getTmdbSearchedMedia from '@shared/api/tmdb/services/getTmdbSearchedMedia';
@@ -9,7 +12,7 @@ interface SearchedMediaQuery extends SearchMediaParams {
 
 const useSearchedMedia = ({ qrKey, page, mediaType, searchQuery }: SearchedMediaQuery) => {
   const { data: searchData, isLoading: searchLoading } = useQuery<
-    TmdbSearchFilteredResults<typeof mediaType>
+    TmdbMediaListResults<Array<TmdbMediaSearchedFilteredResponse<typeof mediaType>>>
   >({
     queryFn: () => getTmdbSearchedMedia({ page, mediaType, searchQuery }),
     queryKey: [qrKey, mediaType, page, searchQuery],

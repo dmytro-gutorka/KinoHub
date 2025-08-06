@@ -1,10 +1,14 @@
 import { episodesRepository } from '../repositories/episodes.repository.js';
-import { MediaEpisode } from '../entity/MediaEpisode.js';
+import { Episode } from '../entity/Episode.js';
 import { HttpError } from '../errors/HttpError.js';
 
 export class EpisodesServices {
-  async read(mediaId: number, userId: number | undefined, season: number): Promise<MediaEpisode[]> {
-    const episodes: MediaEpisode[] = await MediaEpisode.findBy({ mediaId, season, userId });
+  async getListBy(
+    tvShowId: number,
+    userId: number | undefined,
+    season: number
+  ): Promise<Episode[]> {
+    const episodes: Episode[] = await Episode.findBy({ tvShowId, season, userId });
 
     if (episodes.length === 0) throw HttpError.NotFound('Episodes not found');
 
@@ -12,23 +16,23 @@ export class EpisodesServices {
   }
 
   async create(
-    mediaId: number,
+    tvShowId: number,
     userId: number | undefined,
     season: number,
     episodesNumber: number
-  ): Promise<MediaEpisode[]> {
-    const isEpisodesExist: MediaEpisode[] = await MediaEpisode.findBy({
-      mediaId,
+  ): Promise<Episode[]> {
+    const episodeList: Episode[] = await Episode.findBy({
+      tvShowId,
       userId,
       season,
     });
 
-    if (isEpisodesExist.length > 0) throw HttpError.Conflict('Episodes already exists');
+    if (episodeList.length > 0) throw HttpError.Conflict('Episodes already exists');
 
-    const episodes: MediaEpisode[] = new Array(episodesNumber).fill(1).map(
-      (_, i): MediaEpisode =>
+    const episodes: Episode[] = new Array(episodesNumber).fill(1).map(
+      (_, i): Episode =>
         episodesRepository.create({
-          mediaId,
+          tvShowId,
           userId,
           season,
           episode: i + 1,
@@ -42,14 +46,14 @@ export class EpisodesServices {
   }
 
   async update(
-    mediaId: number,
+    tvShowId: number,
     season: number,
     userId: number | undefined,
     episode: number,
     action: object
   ): Promise<void> {
-    const isEpisodeExists: MediaEpisode | null = await episodesRepository.findOneBy({
-      mediaId,
+    const isEpisodeExists: Episode | null = await episodesRepository.findOneBy({
+      tvShowId,
       season,
       episode,
       userId,
@@ -57,7 +61,7 @@ export class EpisodesServices {
 
     if (!isEpisodeExists) throw HttpError.Conflict('Episode does not exist');
 
-    await episodesRepository.update({ mediaId, season, episode, userId }, action);
+    await episodesRepository.update({ tvShowId, season, episode, userId }, action);
   }
 }
 

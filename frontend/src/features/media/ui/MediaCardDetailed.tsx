@@ -8,20 +8,40 @@ import cutText from '@shared/helpers/cutText';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CardContent from '@mui/material/CardContent';
+import {
+  TmdbGenre,
+  TmdbMovieSearchedFilteredList,
+  TmdbTvShowSearchedFilteredList,
+} from '@entities/types/tmdbEntities';
+import { MediaType } from '@shared/types/generalTypes';
 
-const MediaCardDetailed = ({ mediaData, relevantPoster, genreNames }) => {
+interface MediaCardDetailedProps {
+  mediaItem: TmdbMovieSearchedFilteredList | TmdbTvShowSearchedFilteredList;
+  relevantPoster: string;
+  genreNames: Array<TmdbGenre | undefined>;
+  mediaType: MediaType;
+}
+
+const MediaCardDetailed = ({
+  mediaItem,
+  relevantPoster,
+  genreNames,
+  mediaType,
+}: MediaCardDetailedProps) => {
   const {
-    release_date: releaseDate,
     vote_average: avgRating,
+    release_date: releaseDate,
     first_air_date: airDate,
     overview,
     title,
     name,
     id,
-  } = mediaData;
+  } = mediaItem;
+
+  const navTo = `/${mediaType}/${String(id)}`;
 
   return (
-    <MediaCardHoverableWrapper width={276} height={400} imgURL={relevantPoster} navTo={id}>
+    <MediaCardHoverableWrapper width={276} height={400} imgURL={relevantPoster} navTo={navTo}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title || name}

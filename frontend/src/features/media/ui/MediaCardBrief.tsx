@@ -2,19 +2,11 @@ import { CardContent, Rating, Stack, Typography } from '@mui/material';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
 import StyledMediaCardBrief from '@features/media/ui/MediaCardHoverableWrapper';
 
-const MediaCardBrief = ({ mediaItem }) => {
-  const {
-    poster_path: posterPath,
-    vote_average: avgRating,
-    media_type: mediaType,
-    title,
-    name,
-    id,
-  } = mediaItem;
+const MediaCardBrief = ({ mediaItem, mediaType }) => {
+  const { poster_path: posterPath, vote_average: avgRating, title, name, id } = mediaItem;
 
   const imgURL: string = getPosterUrl(posterPath);
-  const isMovie: 'shows' | 'movies' = mediaType ? 'shows' : 'movies';
-  const navTo = `${isMovie}/${id}`;
+  const navTo = `${mediaType}/${id}`;
 
   return (
     <StyledMediaCardBrief width={230} height={330} navTo={navTo} imgURL={imgURL}>

@@ -1,13 +1,13 @@
 import { MediaType } from '@shared/types/generalTypes';
-import { Stack, CircularProgress, TextField } from '@mui/material';
+import { CircularProgress, Stack, TextField } from '@mui/material';
 import { useMediaFilters } from '@features/filters/hooks/useMediaFilters';
 import { useLoaderData } from 'react-router';
 import useExtractedFilteredSearchedData from '@features/media/model/hooks/useExtractedFilteredSearchedData';
 import MediaPagePagination from '@features/media/ui/MediaPagePagination';
 import MediaFilters from '@features/media/ui/MediaFilters';
+import MediaCardList from '@features/media/ui/MediaCardList';
 import movieGenres from '@shared/data/movieGenres';
 import tvShowGenres from '@shared/data/tvShowGenres';
-import MediaCardList from '@features/media/ui/MediaCardList';
 
 const MediaListPage = () => {
   const mediaType: MediaType = useLoaderData();
@@ -20,10 +20,9 @@ const MediaListPage = () => {
   return (
     <Stack component="section" m={10} rowGap={4}>
       {isLoading && <CircularProgress />}
-
       <TextField label="Search" variant="outlined" onChange={handleSearch} />
       <MediaFilters handlers={handlers} filters={filters} genresList={genresList} />
-      <MediaCardList genresList={genresList} mediaList={mediaList} />
+      <MediaCardList genresList={genresList} mediaList={mediaList} mediaType={mediaType} />
       <MediaPagePagination pages={pages} handlePageChange={handlePageChange} />
     </Stack>
   );
