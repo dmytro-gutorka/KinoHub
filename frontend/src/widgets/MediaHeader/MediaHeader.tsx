@@ -5,9 +5,9 @@ import { Box, Container, Stack, Typography } from '@mui/material';
 import BackgroundBanner from '@shared/ui/BackgroundBanner';
 import GenreChipList from '@shared/ui/GenreChipList';
 import LabelList from '@shared/ui/LabelList/LabelList';
-import MediaActionButtonList from '@shared/ui/MediaActionButtonList';
 import useMediaHeaderData from '@features/media/model/hooks/useMediaHeaderData';
 import MediaHeaderPoster from '@features/media/ui/MediaHeaderPoster';
+import MediaActionButtonList from '@features/media/ui/MediaActionButtonList';
 
 export default function MediaHeader<T extends MediaType>({
   tmdbMediaData,

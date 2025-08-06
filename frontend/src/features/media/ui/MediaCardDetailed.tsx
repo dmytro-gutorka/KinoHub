@@ -1,15 +1,13 @@
-import { Box, Stack, Typography } from '@mui/material';
-import { NavLink } from 'react-router';
+import { Stack, Typography } from '@mui/material';
 
-import MediaCardHover from '@features/media/ui/styledMUIComponents/MediaCardHover';
+import MediaCardHoverableWrapper from '@features/media/ui/MediaCardHoverableWrapper';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 import GenreChipList from '@shared/ui/GenreChipList';
 import LabelWithIcon from '@shared/ui/LabelWithIcon';
+import cutText from '@shared/helpers/cutText';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import cutText from '@shared/helpers/cutText';
 
 const MediaCardDetailed = ({ mediaData, relevantPoster, genreNames }) => {
   const {
@@ -23,15 +21,7 @@ const MediaCardDetailed = ({ mediaData, relevantPoster, genreNames }) => {
   } = mediaData;
 
   return (
-    <MediaCardHover key={id} width={276}>
-      <Box component={NavLink} to={`${id}`}>
-        <CardMedia
-          image={relevantPoster}
-          title="Movie card"
-          sx={{ height: 400, backgroundSize: 'cover' }}
-        />
-      </Box>
-
+    <MediaCardHoverableWrapper width={276} height={400} imgURL={relevantPoster} navTo={id}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title || name}
@@ -51,7 +41,7 @@ const MediaCardDetailed = ({ mediaData, relevantPoster, genreNames }) => {
           {cutText(overview, 15)}
         </Typography>
       </CardContent>
-    </MediaCardHover>
+    </MediaCardHoverableWrapper>
   );
 };
 

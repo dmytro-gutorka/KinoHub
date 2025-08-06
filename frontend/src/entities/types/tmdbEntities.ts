@@ -145,6 +145,40 @@ export interface TmdbTvShowDetails extends TmdbMediaDetails {
   seasons?: Array<TmdbSeasonInfo>;
 }
 
+export interface TmdbTrendingMediaDetails {
+  adult: boolean;
+  backdrop_path: string | null;
+  genre_ids: Array<number>;
+  id: number;
+  original_language: string;
+  overview: string;
+  popularity: number;
+  poster_path: string | null;
+  vote_average: number;
+  vote_count: number;
+}
+
+export interface TmdbTrendingTvShowDetails extends TmdbTrendingMediaDetails {
+  name: string;
+  first_air_date: string;
+  original_name: string;
+  origin_country: Array<string>;
+}
+
+export interface TmdbTrendingMovieDetails extends TmdbTrendingMediaDetails {
+  title: string;
+  release_date: string;
+  original_title: string;
+  video: boolean;
+}
+
+export interface TmdbMediaListResults<T> {
+  page: number;
+  total_pages: number;
+  total_results: number;
+  results: T;
+}
+
 export interface TmdbSearchFilteredResults<T extends MediaType> {
   page: number;
   total_pages: number;

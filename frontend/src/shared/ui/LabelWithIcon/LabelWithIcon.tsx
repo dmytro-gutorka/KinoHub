@@ -2,7 +2,7 @@ import { Stack, Typography } from '@mui/material';
 import { JSX } from 'react';
 
 interface LabelWithIconProps {
-  label: string;
+  label: string | number;
   children: JSX.Element;
 }
 

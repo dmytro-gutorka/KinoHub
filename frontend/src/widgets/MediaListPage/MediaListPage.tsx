@@ -4,10 +4,10 @@ import { useMediaFilters } from '@features/filters/hooks/useMediaFilters';
 import { useLoaderData } from 'react-router';
 import useExtractedFilteredSearchedData from '@features/media/model/hooks/useExtractedFilteredSearchedData';
 import MediaPagePagination from '@features/media/ui/MediaPagePagination';
-import MediaCardList from '@shared/ui/MediaCardList';
 import MediaFilters from '@features/media/ui/MediaFilters';
 import movieGenres from '@shared/data/movieGenres';
 import tvShowGenres from '@shared/data/tvShowGenres';
+import MediaCardList from '@features/media/ui/MediaCardList';
 
 const MediaListPage = () => {
   const mediaType: MediaType = useLoaderData();

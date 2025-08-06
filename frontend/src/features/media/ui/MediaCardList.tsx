@@ -1,6 +1,6 @@
 import { Stack } from '@mui/material';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
-import MediaCardDetailed from '@shared/ui/MediaCardPreviewLong';
+import MediaCardDetailed from '@features/media/ui/MediaCardDetailed';
 
 const MediaCardList = ({ mediaList, genresList }) => {
   return (

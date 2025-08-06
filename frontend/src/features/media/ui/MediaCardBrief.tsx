@@ -1,7 +1,6 @@
-import { Box, CardContent, CardMedia, Rating, Stack, Typography } from '@mui/material';
-import { NavLink } from 'react-router';
+import { CardContent, Rating, Stack, Typography } from '@mui/material';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
-import MediaCardHover from '@features/media/ui/styledMUIComponents/MediaCardHover';
+import StyledMediaCardBrief from '@features/media/ui/MediaCardHoverableWrapper';
 
 const MediaCardBrief = ({ mediaItem }) => {
   const {
@@ -13,18 +12,12 @@ const MediaCardBrief = ({ mediaItem }) => {
     id,
   } = mediaItem;
 
-  const imgURL = getPosterUrl(posterPath);
-  const isMovie = mediaType ? 'shows' : 'movies';
+  const imgURL: string = getPosterUrl(posterPath);
+  const isMovie: 'shows' | 'movies' = mediaType ? 'shows' : 'movies';
+  const navTo = `${isMovie}/${id}`;
 
   return (
-    <MediaCardHover key={id} width={230}>
-      <Box component={NavLink} to={`${isMovie}/${id}`}>
-        <CardMedia
-          sx={{ height: 330, backgroundSize: 'cover' }}
-          image={imgURL}
-          title="Movie card"
-        />
-      </Box>
+    <StyledMediaCardBrief width={230} height={330} navTo={navTo} imgURL={imgURL}>
       <CardContent>
         <Typography gutterBottom variant="subtitle1" component="h3" fontWeight="700">
           {title || name}
@@ -36,7 +29,7 @@ const MediaCardBrief = ({ mediaItem }) => {
           </Typography>
         </Stack>
       </CardContent>
-    </MediaCardHover>
+    </StyledMediaCardBrief>
   );
 };
 

@@ -1,8 +1,10 @@
 import { TMDB_HEADERS, TMDB_URL } from '@app/constants';
-import { TmdbMediaDetailsResponse, TmdbSearchFilteredResults } from '@entities/types/tmdbEntities';
+import { TmdbMediaListResults, TmdbSearchFilteredResults } from '@entities/types/tmdbEntities';
 import { MediaFiltersBase, MediaType, SearchMediaParams, SortBy } from '@shared/types/generalTypes';
-import AxiosInstance = Axios.AxiosInstance;
-import axios from 'axios';
+import { AxiosResponse } from 'axios';
+
+// import axios from 'axios';
+// import AxiosInstance = Axios.AxiosInstance;
 
 class TmdbService {
   private readonly genresToExclude: string;
@@ -43,9 +45,9 @@ class TmdbService {
         params: {
           page,
           sort_by: sortBy,
+          without_genres: this.genresToExclude,
           with_genres: genreString || undefined,
           'vote_average.gte': minRating,
-          without_genres: this.genresToExclude,
         },
       }
     );
@@ -58,6 +60,10 @@ class TmdbService {
         params: { query: searchQuery, page },
       }
     );
+  }
+
+  getMediaList<T>(endpoint: string): Promise<AxiosResponse<TmdbMediaListResults<Array<T>>>> {
+    return this.axiosInstance.get(endpoint);
   }
 }
 

@@ -1,6 +1,6 @@
 import { Divider, Stack } from '@mui/material';
-import MediaSection from '@shared/ui/MediaSection';
-import useHomepageMedia from '@features/homepage/hooks/useHomepageMedia';
+import useHomepageMedia from '@shared/hooks/useHomepageMedia';
+import MediaSection from '@features/media/ui/MediaSection';
 
 const Homepage = () => {
   const { topRatedMovies, trendingMovies, trendingTv, tvAiringToday, isLoading } =
@@ -10,10 +10,10 @@ const Homepage = () => {
 
   return (
     <Stack m={10} mt={0} rowGap={10} divider={<Divider orientation="horizontal" />}>
-      <MediaSection mediaList={topRatedMovies} title="Top Rated Movies" />
-      <MediaSection mediaList={trendingMovies} title="Trending Movies" />
-      <MediaSection mediaList={trendingTv} title="Trending TV Show" />
-      <MediaSection mediaList={tvAiringToday} title="TV show airing today" />
+      <MediaSection mediaList={topRatedMovies} sectionTitle="Top Rated Movies" />
+      <MediaSection mediaList={trendingMovies} sectionTitle="Trending Movies" />
+      <MediaSection mediaList={trendingTv} sectionTitle="Trending TV Show" />
+      <MediaSection mediaList={tvAiringToday} sectionTitle="TV show airing today" />
     </Stack>
   );
 };
