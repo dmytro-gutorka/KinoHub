@@ -31,7 +31,6 @@ export const apiPath = {
       `${API_URL}/episodes/${tvShowId}/season/${season}`,
     createList: (tvShowId: number, season: number, episodesNumber: number) =>
       `${API_URL}/episodes/${tvShowId}/season/${season}?episodes_number=${episodesNumber}`,
-
     update: (tvShowId: number, season: number, episode: number) =>
       `${API_URL}/episodes/${tvShowId}/season/${season}/episode/${episode}`,
   },

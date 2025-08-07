@@ -8,27 +8,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database.sqlite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/repositories/episodes.repository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/repositories/episodes.repository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/episodes.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/episodes.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/routes/episodes.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/episodes.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/entities/types/kinohubEntities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/types/kinohubEntities.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/services/checkAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/services/checkAuth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/services/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/services/login.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/services/logout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/services/logout.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/services/register.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/services/register.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/model/hooks/useGetOrCreateMediaAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/model/hooks/useGetOrCreateMediaAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/tvShow/model/hooks/useEpisodeList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tvShow/model/hooks/useEpisodeList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tvShow/model/hooks/useEpisodeActionList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tvShow/model/hooks/useGetOrCreateEpisodeActionList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/EpisodeItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/EpisodeItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/EpisodeList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/EpisodeList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/apiPaths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/apiPaths.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/kinohubAxios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/kinohubAxios.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/episode/getEpisodeAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/episode/getEpisodeActionList.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/media/createMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/media/createMedia.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/media/getMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/media/getMedia.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/media/updateMedia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/media/updateMedia.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/movieBoardItem/getMovieBoardItems.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/movieBoardItem/getMovieBoardItems.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/movieBoardItem/updateMovieBoardItem.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/movieBoardItem/updateMovieBoardItem.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/userMediaActions/createUserMediaAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/userMediaActions/createUserMediaAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/userMediaActions/getUserMediaAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/userMediaActions/getUserMediaAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/userMediaActions/updateUserMediaAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/userMediaActions/updateUserMediaAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/episode/getEpisodeActionList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/episode/getEpisodeActionList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/episode/updateEpisodeAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/episode/updateEpisodeAction.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/SeasonsAndEpisodes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/SeasonsAndEpisodes.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +61,7 @@
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -239,7 +226,9 @@
       <workItem from="1754418466766" duration="5073000" />
       <workItem from="1754450304329" duration="1743000" />
       <workItem from="1754464179458" duration="1210000" />
-      <workItem from="1754488192149" duration="14636000" />
+      <workItem from="1754488192149" duration="15287000" />
+      <workItem from="1754552150089" duration="4777000" />
+      <workItem from="1754574720718" duration="3222000" />
     </task>
     <servers />
   </component>

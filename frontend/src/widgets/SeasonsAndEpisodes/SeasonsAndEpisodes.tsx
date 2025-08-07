@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router';
 import { EpisodeList, SeasonList } from '@features/tvShow';
 import useEpisodeList from '@features/tvShow/model/hooks/useEpisodeList';
-import useEpisodeActionList from '@features/tvShow/model/hooks/useEpisodeActionList';
+import useGetOrCreateEpisodeActionList from '@features/tvShow/model/hooks/useGetOrCreateEpisodeActionList';
 
 const SeasonsAndEpisodes = ({ seasons }: SeasonsAndEpisodesProps) => {
   const [currentSeasonNumber, setSeasonNumber] = useState(1);
@@ -13,10 +13,14 @@ const SeasonsAndEpisodes = ({ seasons }: SeasonsAndEpisodesProps) => {
   const tvShowId: number = Number(params?.id);
 
   const { episodeList } = useEpisodeList(tvShowId, currentSeasonNumber);
-  const { episodeActionList } = useEpisodeActionList(tvShowId, currentSeasonNumber, episodeList);
+  const { episodeActionList } = useGetOrCreateEpisodeActionList(
+    tvShowId,
+    currentSeasonNumber,
+    episodeList
+  );
 
-  console.log(1111, episodeActionList);
-  console.log(episodeList);
+  if (!episodeList || !episodeActionList) return <div>Loading...</div>;
+
   return (
     <Grid container justifyContent="space-between" mt={6}>
       <Grid size={2.5}>
@@ -28,7 +32,7 @@ const SeasonsAndEpisodes = ({ seasons }: SeasonsAndEpisodesProps) => {
       </Grid>
 
       <Grid size={9}>
-        <EpisodeList episodeList={episodeList} />
+        <EpisodeList episodeList={episodeList} episodeActionList={episodeActionList} />
       </Grid>
     </Grid>
   );

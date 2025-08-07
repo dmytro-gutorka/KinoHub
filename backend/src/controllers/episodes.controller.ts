@@ -35,16 +35,16 @@ export async function createEpisodeList(
 }
 
 export async function updateEpisode(
-  req: Request<{ season: number; mediaId: number; episode: number }>,
+  req: Request<{ tvShowId: number; season: number; episode: number }>,
   res: Response
 ): Promise<void> {
-  const mediaId: number = Number(req.params.mediaId);
+  const tvShowId: number = Number(req.params.tvShowId);
   const season: number = Number(req.params.season);
   const episode: number = Number(req.params.episode);
   const userId: number | undefined = req.user?.id;
   const action = req.body;
 
-  await episodesServices.update(mediaId, season, userId, episode, action);
+  await episodesServices.update(tvShowId, season, userId, episode, action);
 
   res.status(200).json({ message: 'Episode is updated' });
 }
