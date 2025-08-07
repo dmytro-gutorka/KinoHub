@@ -6,10 +6,10 @@ import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import getYearFromDate from '@shared/helpers/getYearFromDate';
-import LabelWithIcon from '@shared/ui/LabelWithIcon';
-import getPosterUrl from '@shared/helpers/getPosterUrl';
 import useUpdateEpisodeAction from '@features/tvShow/model/hooks/useUpdateEpisodeAction';
+import LabelWithIcon from '@shared/ui/LabelWithIcon';
+import getYearFromDate from '@shared/helpers/getYearFromDate';
+import getPosterUrl from '@shared/helpers/getPosterUrl';
 
 export interface EpisodeItemProps {
   episodeItem: TmdbEpisodeInfo;
@@ -30,37 +30,28 @@ const EpisodeItem = ({ episodeItem, episodeActionItem }: EpisodeItemProps) => {
   } = episodeItem;
 
   const theme = useTheme();
+  const imageUrl = posterPath
+    ? getPosterUrl(posterPath)
+    : './public/no-image-placeholder-horizontal.jpg';
 
   const { isWatched } = episodeActionItem;
-  const { mutate: updateEpisodeAction, variables } = useUpdateEpisodeAction(
+  const { mutate: updateEpisodeAction } = useUpdateEpisodeAction(
     tvShowId,
     seasonNumber,
     episodeNumber
   );
 
-  if (variables) console.log(variables);
+  const handleIsWatchedChange = () => updateEpisodeAction({ isWatched: !isWatched });
 
   return (
-    <Stack
-      direction="row"
-      border={theme.customStyles.border}
-      borderRadius={1}
-      justifyContent="space-between"
-      p={2}
-    >
-      <Box
-        component="img"
-        src={getPosterUrl(posterPath)}
-        width="200px"
-        height="140px"
-        borderRadius={1}
-      />
-      <Box pl={3}>
+    <Stack direction="row" border={theme.customStyles.border} borderRadius={1} p={2}>
+      <Box component="img" src={imageUrl} width="200px" height="140px" borderRadius={1} />
+      <Stack pl={3} flexGrow={1}>
         <Stack direction="row" justifyContent="space-between">
           <Typography variant="h6" component="h3" mb={1}>
             {episodeNumber}. {name}
           </Typography>
-          <IconButton onClick={() => updateEpisodeAction({ isWatched: !isWatched })}>
+          <IconButton onClick={handleIsWatchedChange}>
             {!isWatched ? <VisibilityOffOutlinedIcon /> : <VisibilityIcon />}
           </IconButton>
         </Stack>
@@ -82,7 +73,7 @@ const EpisodeItem = ({ episodeItem, episodeActionItem }: EpisodeItemProps) => {
         <Typography variant="subtitle1" lineHeight={1.2}>
           {overview.slice(0, 200) + '...'}
         </Typography>
-      </Box>
+      </Stack>
     </Stack>
   );
 };
