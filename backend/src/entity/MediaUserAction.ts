@@ -1,11 +1,11 @@
 import {
-  Entity,
   Column,
-  PrimaryGeneratedColumn,
+  Entity,
   JoinColumn,
   ManyToOne,
-  Unique,
+  PrimaryGeneratedColumn,
   Relation,
+  Unique,
 } from 'typeorm';
 import { WatchStatus } from '../types/types.js';
 import { MediaInfo } from './MediaInfo.js';
@@ -40,7 +40,7 @@ export class MediaUserAction {
   @Column()
   mediaType!: 'tv' | 'movie';
 
-  @ManyToOne(() => MediaInfo, (mediaInfo) => mediaInfo.userActions, {
+  @ManyToOne(() => MediaInfo, (mi) => mi.userActions, {
     cascade: true,
     eager: true,
   })

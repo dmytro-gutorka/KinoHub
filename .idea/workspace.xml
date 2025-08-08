@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/no-image.placeholder.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/no-image-placeholder-vertical.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/tvShow/model/hooks/useUpdateEpisodeAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tvShow/model/hooks/useUpdateEpisodeAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/EpisodeItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tvShow/ui/EpisodeItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/episode/updateEpisodeAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/episode/updateEpisodeAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/entity/MediaInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/MediaInfo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/entity/MediaUserAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/MediaUserAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/entity/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/User.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +220,8 @@
       <workItem from="1754464179458" duration="1210000" />
       <workItem from="1754488192149" duration="15287000" />
       <workItem from="1754552150089" duration="4777000" />
-      <workItem from="1754574720718" duration="6060000" />
+      <workItem from="1754574720718" duration="9369000" />
+      <workItem from="1754638428855" duration="3964000" />
     </task>
     <servers />
   </component>
