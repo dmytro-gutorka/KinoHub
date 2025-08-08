@@ -1,4 +1,4 @@
-import { Response, NextFunction, Request } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { JwtPayload } from 'jsonwebtoken';
 import { tokenService } from '../services/token.service.js';
 import { HttpError } from '../errors/HttpError.js';
@@ -10,6 +10,8 @@ export function authGuard() {
     if (!token) throw HttpError.Unauthorized('You need to be logged in to access this resource');
 
     const payload: JwtPayload = tokenService.validateAccessToken(token);
+
+    if (!payload) throw HttpError.Unauthorized('Your session has expired');
 
     req.user = { id: payload.userId };
     next();

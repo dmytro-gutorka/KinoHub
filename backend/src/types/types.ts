@@ -1,3 +1,5 @@
+import { Request } from 'express';
+
 export type MediaType = 'tv' | 'movie';
 
 export enum WatchStatus {
@@ -35,3 +37,7 @@ export interface RefreshResponse {
   data: User;
   tokens: JwtTokens;
 }
+
+export type AuthedRequest<P = any, ResB = any, ReqB = any, Q = any> = Request<P, ResB, ReqB, Q> & {
+  user: { id: number };
+};

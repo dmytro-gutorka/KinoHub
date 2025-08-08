@@ -10,18 +10,21 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { User } from './User.js';
+import { MediaType } from '../types/types.js';
 
 @Entity({ name: 'comments', schema: 'public' })
 export class Comment {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Index()
-  @Column({ nullable: true })
-  parentId?: number | null;
+  @Column()
+  review!: string;
 
   @Column()
-  overview!: string;
+  mediaId!: number;
+
+  @Column()
+  mediaType!: MediaType;
 
   @Column({ default: 0 })
   likesCount!: number;
@@ -29,18 +32,25 @@ export class Comment {
   @Column({ default: 0 })
   dislikesCount!: number;
 
+  @ManyToOne(() => User, (u) => u.comments, { onDelete: 'SET NULL', nullable: true })
+  user?: Relation<User>;
+
+  @Column()
+  userId!: number;
+
+  @ManyToOne(() => Comment, (c) => c.children, { onDelete: 'CASCADE', nullable: true })
+  parent?: Relation<Comment> | null;
+
+  @Index()
+  @Column({ nullable: true })
+  parentId?: number | null;
+
+  @OneToMany(() => Comment, (c) => c.parent)
+  children!: Relation<Array<Comment>>;
+
   @CreateDateColumn()
   createdAt!: Date;
 
   @UpdateDateColumn()
   updatedAt!: Date;
-
-  @ManyToOne(() => User, (u) => u.comments, { onDelete: 'SET NULL', nullable: true })
-  author?: Relation<User>;
-
-  @ManyToOne(() => Comment, (c) => c.children, { onDelete: 'CASCADE', nullable: true })
-  parent?: Relation<Comment> | null;
-
-  @OneToMany(() => Comment, (c) => c.parent)
-  children!: Relation<Array<Comment>>;
 }

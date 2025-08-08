@@ -27,6 +27,6 @@ export class User extends BaseEntity {
   @OneToOne(() => UserAuth, (userAuth) => userAuth.user, { cascade: true })
   userAuth!: Relation<UserAuth>;
 
-  @OneToMany(() => Comment, (c) => c.author)
+  @OneToMany(() => Comment, (c) => c.user)
   comments!: Relation<Array<Comment>>;
 }

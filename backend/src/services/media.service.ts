@@ -1,9 +1,8 @@
 import { MediaType } from '../types/types.js';
-import { TMDB_BASE_URL, TMDB_OPTIONS } from '../utils/constants/TMDB.js';
 import { HttpError } from '../errors/HttpError.js';
 import { MediaInfo } from '../entity/MediaInfo.js';
 import { mediaRepository } from '../repositories/media.repository.js';
-import axios from 'axios';
+import getTmdbMediaDetails from '../utils/api/getTmdbMediaDetails.js';
 
 export class MediaService {
   async getOneBy(mediaId: number, mediaType: MediaType): Promise<MediaInfo> {
@@ -32,31 +31,10 @@ export class MediaService {
     if (!media) throw HttpError.NotFound('Media not found');
 
     const mappedMediaData = await getTmdbMediaDetails(mediaId, mediaType);
-
     await mediaRepository.update({ mediaId }, mappedMediaData);
 
     return media;
   }
-}
-
-// move to another folder
-async function getTmdbMediaDetails(mediaId: number, mediaType: MediaType) {
-  const response = await axios.get(`${TMDB_BASE_URL}/${mediaType}/${mediaId}`, TMDB_OPTIONS);
-
-  if (!response?.data) throw HttpError.InternalServerError('Could not fetch media data from TMDB');
-
-  return mapMediaData(response?.data);
-}
-
-// move to another folder
-function mapMediaData(data: any) {
-  return {
-    runtime: data?.runtime ?? data?.episode_run_time?.[0] ?? 0,
-    releaseDate: data?.release_date ?? data?.first_air_date ?? 'N/A',
-    title: data?.title ?? data?.name ?? 'No title',
-    posterPath: data?.poster_path,
-    voteAverage: data?.vote_average ?? 0,
-  };
 }
 
 export const mediaService = new MediaService();
