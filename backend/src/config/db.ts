@@ -4,8 +4,6 @@ import path from 'path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-console.log(__dirname);
-
 export const AppDataSource = new DataSource({
   type: 'postgres',
   port: Number(process.env.DB_PORT),
