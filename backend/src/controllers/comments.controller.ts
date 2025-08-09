@@ -37,7 +37,7 @@ export async function createComment(
 }
 
 export async function updateComment(req: Request, res: Response): Promise<void> {
-  const updatedReview: string = req.body.updatedReview;
+  const updatedReview: string = req.body.review;
   const commentId: number = Number(req.params.commentId);
   const userId: number | undefined = req.user?.id;
 
@@ -52,5 +52,5 @@ export async function deleteComment(req: Request, res: Response): Promise<void> 
 
   await commentsService.delete(commentId, userId);
 
-  res.status(204).json({ message: `Comment ${commentId} is deleted` });
+  res.status(204).json();
 }

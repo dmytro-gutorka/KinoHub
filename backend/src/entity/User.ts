@@ -9,6 +9,7 @@ import {
 } from 'typeorm';
 import { UserAuth } from './UserAuth.js';
 import { Comment } from './Comment.js';
+import { CommentVote } from './CommentVote.js';
 
 @Entity({ schema: 'public' })
 export class User extends BaseEntity {
@@ -29,4 +30,7 @@ export class User extends BaseEntity {
 
   @OneToMany(() => Comment, (c) => c.user)
   comments!: Relation<Array<Comment>>;
+
+  @OneToMany(() => CommentVote, (cv) => cv.user)
+  votes!: Relation<CommentVote[]>;
 }

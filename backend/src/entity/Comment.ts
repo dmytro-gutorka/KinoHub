@@ -3,6 +3,7 @@ import {
   CreateDateColumn,
   Entity,
   Index,
+  JoinColumn,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -11,6 +12,7 @@ import {
 } from 'typeorm';
 import { User } from './User.js';
 import { MediaType } from '../types/types.js';
+import { CommentVote } from './CommentVote.js';
 
 @Entity({ name: 'comments', schema: 'public' })
 export class Comment {
@@ -20,9 +22,11 @@ export class Comment {
   @Column()
   review!: string;
 
+  @Index()
   @Column()
   mediaId!: number;
 
+  @Index()
   @Column()
   mediaType!: MediaType;
 
@@ -32,21 +36,32 @@ export class Comment {
   @Column({ default: 0 })
   dislikesCount!: number;
 
-  @ManyToOne(() => User, (u) => u.comments, { onDelete: 'SET NULL', nullable: true })
-  user?: Relation<User>;
+  @ManyToOne(() => User, (u: User): Comment[] => u.comments, {
+    onDelete: 'SET NULL',
+    nullable: true,
+  })
+  @JoinColumn({ name: 'userId' })
+  user?: Relation<User> | null;
 
-  @Column()
-  userId!: number;
+  @Column({ nullable: true })
+  userId?: number | null;
 
-  @ManyToOne(() => Comment, (c) => c.children, { onDelete: 'CASCADE', nullable: true })
-  parent?: Relation<Comment> | null;
+  @ManyToOne(() => Comment, (c: Comment): Comment[] => c.children, {
+    onDelete: 'CASCADE',
+    nullable: true,
+  })
+  @JoinColumn({ name: 'parentId' })
+  parent!: Relation<Comment> | null;
 
   @Index()
   @Column({ nullable: true })
   parentId?: number | null;
 
-  @OneToMany(() => Comment, (c) => c.parent)
-  children!: Relation<Array<Comment>>;
+  @OneToMany(() => Comment, (c: Comment): Comment | null => c.parent)
+  children!: Relation<Comment[]>;
+
+  @OneToMany(() => CommentVote, (cv: CommentVote): Comment => cv.comment, { eager: true })
+  votes?: Relation<CommentVote[]> | null;
 
   @CreateDateColumn()
   createdAt!: Date;

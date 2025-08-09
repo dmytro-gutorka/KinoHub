@@ -1,3 +1,4 @@
+import { createCommentVote, updateCommentVote } from '../controllers/commentVote.controller.js';
 import { createMedia, getMedia, updateMedia } from '../controllers/media.controller.js';
 import express, { Router } from 'express';
 import {
@@ -15,8 +16,8 @@ router.put('/:mediaId', updateMedia);
 
 router.get('/:mediaId/comments', getCommentList);
 router.post('/:mediaId/comments', createComment);
-router.put('/:mediaId/comments/:commentId', updateComment);
+router.patch('/:mediaId/comments/:commentId', updateComment);
 router.delete('/:mediaId/comments/:commentId', deleteComment);
 
-// router.post('/:mediaId/comments/:commentId/vote', getMedia);
-// router.patch('/:mediaId/comments/:commentId/vote', getMedia);
+router.post('/comments/:commentId/vote', createCommentVote);
+router.patch('/comments/:commentId/vote', updateCommentVote);

@@ -10,14 +10,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/comments.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/comments.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/entity/Comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/Comment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/entity/CommentVote.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/CommentVote.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/entity/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/middleware/auth.middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/middleware/auth.middleware.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/routes/media.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/media.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/media.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/media.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/types/express/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/types/express/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/types/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/utils/api/getMediaDetailsFromTMDB.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/utils/api/getTmdbMediaDetails.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/utils/helpers/formatMediaDetailsData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/utils/helpers/mapTmdbMediaData.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +226,8 @@
       <workItem from="1754552150089" duration="4777000" />
       <workItem from="1754574720718" duration="9369000" />
       <workItem from="1754638428855" duration="7448000" />
-      <workItem from="1754664939390" duration="6312000" />
+      <workItem from="1754664939390" duration="10038000" />
+      <workItem from="1754727074402" duration="8707000" />
     </task>
     <servers />
   </component>
