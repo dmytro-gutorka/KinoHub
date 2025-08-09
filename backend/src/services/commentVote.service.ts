@@ -23,6 +23,7 @@ class CommentVoteService {
     });
 
     await this.voteTransaction(voteValue, commentId, userId);
+
     return await commentVotesRepository.save(createdCommentVote);
   }
 
@@ -41,6 +42,7 @@ class CommentVoteService {
     commentVote.vote = voteValue;
 
     await this.voteTransaction(voteValue, commentId, userId);
+
     return await commentVotesRepository.save(commentVote);
   }
 
@@ -54,14 +56,8 @@ class CommentVoteService {
       userId,
     });
 
-    console.log(existing, value);
-
     const deltaLike = (existing?.vote === 1 ? -1 : 0) + (value === 1 ? 1 : 0);
     const deltaDislike = (existing?.vote === -1 ? -1 : 0) + (value === -1 ? 1 : 0);
-
-    if (value === 0 && existing !== undefined) {
-      await commentVotesRepository.delete({ commentId, userId });
-    }
 
     await commentsRepository.increment({ id: commentId }, 'likesCount', deltaLike);
     await commentsRepository.increment({ id: commentId }, 'dislikesCount', deltaDislike);
