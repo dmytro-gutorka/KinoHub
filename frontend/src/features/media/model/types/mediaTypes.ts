@@ -39,6 +39,7 @@ export interface MediaOverviewProps<T extends MediaType> {
   tmdbMediaData: TmdbMediaDetailsResponse<T>;
   mediaAction: MediaUserActions;
   mediaType: T;
+  mediaId: number;
 }
 
 export interface MediaDetailsProps<T extends MediaType> {

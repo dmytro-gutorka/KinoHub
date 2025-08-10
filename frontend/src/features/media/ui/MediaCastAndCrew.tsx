@@ -1,6 +1,6 @@
 import { MediaCastAndCrewProps } from '@features/media/model/types/mediaTypes';
 import { Stack } from '@mui/material';
-import MediaContentBlock from './MediaContentBlock';
+import MediaContentBlock from '@shared/ui/MediaContentBlock';
 import MediaActorCard from '@features/media/ui/MediaActorCard';
 
 export default function MediaCastAndCrew({ cast }: MediaCastAndCrewProps) {

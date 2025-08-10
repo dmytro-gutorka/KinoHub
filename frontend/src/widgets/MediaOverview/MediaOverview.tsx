@@ -8,11 +8,13 @@ import MediaRating from '@features/media/ui/MediaRating';
 import MediaPlot from '@features/media/ui/MediaPlot';
 import MediaProdCompanies from '@features/media/ui/MediaProdCompanies';
 import MediaDetails from '@features/media/ui/MediaDetails';
+import MediaComments from '@widgets/MediaComments';
 
 export default function MediaOverview<T extends MediaType>({
   tmdbMediaData,
   mediaAction,
   mediaType,
+  mediaId,
 }: MediaOverviewProps<T>) {
   const { overview, credits, production_companies: companies } = tmdbMediaData;
 
@@ -36,6 +38,7 @@ export default function MediaOverview<T extends MediaType>({
           </Stack>
         </Grid>
       </Grid>
+      <MediaComments mediaType={mediaType} mediaId={mediaId}></MediaComments>
       {'seasons' in tmdbMediaData && <SeasonsAndEpisodes seasons={tmdbMediaData.seasons} />}
     </Stack>
   );

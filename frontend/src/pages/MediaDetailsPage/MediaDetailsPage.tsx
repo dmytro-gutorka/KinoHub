@@ -34,6 +34,7 @@ export default function MediaDetailsPage() {
               tmdbMediaData={tmdbMediaData}
               mediaAction={mediaAction}
               mediaType={mediaType}
+              mediaId={mediaId}
             />
           </Container>
         </Box>

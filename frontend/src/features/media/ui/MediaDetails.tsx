@@ -3,7 +3,7 @@ import { MediaDetailsProps } from '@features/media/model/types/mediaTypes';
 import { MediaType } from '@shared/types/generalTypes';
 import { List } from '@mui/material';
 import { JSX } from 'react';
-import MediaContentBlock from './MediaContentBlock';
+import MediaContentBlock from '@shared/ui/MediaContentBlock';
 import MediaItemList from '@features/media/ui/MediaItemList';
 import convertToUSD from '@shared/helpers/convertToUSD';
 
