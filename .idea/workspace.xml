@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/model/types/mediaTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/model/types/mediaTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCastAndCrew.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCastAndCrew.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaContentBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/MediaContentBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MediaDetailsPage/MediaDetailsPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/MediaOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/MediaOverview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/comments.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/comments.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/entity/Comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/Comment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/media.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/media.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/apiPaths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/apiPaths.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaComments/MediaComments.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaComments/MediaComments.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +31,9 @@
         <option value="HTML File" />
         <option value="JSX Component Folder.jsx.child.0" />
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="JSX Component Folder.tsx.child.0" />
         <option value="JSX Component Folder" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -228,7 +230,7 @@
       <workItem from="1754638428855" duration="7448000" />
       <workItem from="1754664939390" duration="10038000" />
       <workItem from="1754727074402" duration="11721000" />
-      <workItem from="1754812459647" duration="2226000" />
+      <workItem from="1754812459647" duration="4751000" />
     </task>
     <servers />
   </component>

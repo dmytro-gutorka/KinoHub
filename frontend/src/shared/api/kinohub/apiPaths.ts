@@ -34,4 +34,13 @@ export const apiPath = {
     update: (tvShowId: number, season: number, episode: number) =>
       `${API_URL}/episodes/${tvShowId}/season/${season}/episode/${episode}`,
   },
+
+  comments: {
+    getList: (mediaId: number, mediaType: MediaType) =>
+      `${API_URL}/media/${mediaId}/comments?media_type=${mediaType}`,
+    create: (mediaId: number, mediaType: MediaType, parentId: number | null = null) =>
+      `${API_URL}/media/${mediaId}/comments?media_type=${mediaType}&parent_id=${parentId}`,
+    update: (commentId: number) => `${API_URL}/media/comments/${commentId}`,
+    delete: (commentId: number) => `${API_URL}/media/comments/${commentId}`,
+  },
 };

@@ -16,8 +16,9 @@ router.put('/:mediaId', updateMedia);
 
 router.get('/:mediaId/comments', getCommentList);
 router.post('/:mediaId/comments', createComment);
-router.patch('/:mediaId/comments/:commentId', updateComment);
-router.delete('/:mediaId/comments/:commentId', deleteComment);
+
+router.patch('/comments/:commentId', updateComment);
+router.delete('/comments/:commentId', deleteComment);
 
 router.post('/comments/:commentId/vote', createCommentVote);
 router.patch('/comments/:commentId/vote', updateCommentVote);

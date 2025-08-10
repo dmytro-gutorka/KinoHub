@@ -39,6 +39,7 @@ export class Comment {
   @ManyToOne(() => User, (u: User): Comment[] => u.comments, {
     onDelete: 'SET NULL',
     nullable: true,
+    eager: true,
   })
   @JoinColumn({ name: 'userId' })
   user?: Relation<User> | null;

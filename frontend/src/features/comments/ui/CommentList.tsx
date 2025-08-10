@@ -1,6 +1,14 @@
-interface CommentListProps {
-}
+import { Stack } from '@mui/material';
+import CommentItem from '@features/comments/ui/CommentItem';
 
-export default function CommentList({}): CommentListProps {
-  return ();
+interface CommentListProps {}
+
+export default function CommentList({ commentList }): CommentListProps {
+  return (
+    <Stack spacing={4} mt={10} ml={8}>
+      {commentList.map((commentData) => (
+        <CommentItem key={commentData.id} commentData={commentData} />
+      ))}
+    </Stack>
+  );
 }

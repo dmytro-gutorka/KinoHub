@@ -19,14 +19,14 @@ export async function createComment(
   req: Request<any, any, any, { media_type: MediaType; parent_id?: number | null }>,
   res: Response
 ): Promise<void> {
-  const overview: string = req.body.review;
+  const review: string = req.body.review;
   const mediaType: MediaType = req.query.media_type;
   const mediaId: number = req.params.mediaId;
   const parentId: number | null = req.query.parent_id || null;
   const userId: number | undefined = req.user?.id;
 
   const comment: Comment = await commentsService.create(
-    overview,
+    review,
     mediaType,
     mediaId,
     parentId,
