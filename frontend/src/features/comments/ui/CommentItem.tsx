@@ -1,9 +1,10 @@
-import { Box, Stack, Typography, useTheme } from '@mui/material';
+import { Avatar, Stack, Typography, useTheme } from '@mui/material';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import MarkCircleIcon from '@shared/icons/MarkCircleIcon';
 import getDateFromISO from '@shared/helpers/getDateFromISO';
+import fullnameToInitials from '@shared/helpers/fullnameToInitials';
 
 interface CommentItemProps {
   commentData: unknown;
@@ -18,14 +19,7 @@ export default function CommentItem({ commentData }) {
 
   return (
     <Stack direction="row" spacing={4}>
-      <Box
-        component="img"
-        src="/public/no-user-image-placeholder.jpg"
-        width="50px"
-        height="50px"
-        borderRadius="50%"
-        sx={{ margin: theme.spacing(5) }}
-      />
+      <Avatar {...fullnameToInitials(`${firstName} ${lastName}`)} />
 
       <Stack flexGrow={1}>
         <Stack direction="row" spacing={1} alignItems="center">
