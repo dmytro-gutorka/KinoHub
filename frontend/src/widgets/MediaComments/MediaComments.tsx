@@ -1,7 +1,7 @@
 import { MediaType } from '@shared/types/generalTypes';
 import { useQuery } from '@tanstack/react-query';
-import getCommentList from '@shared/api/kinohub/services/comments/getCommentList';
 import { MediaContentBlock } from '@features/media';
+import getCommentList from '@shared/api/kinohub/services/comments/getCommentList';
 import CommentList from '@features/comments/ui/CommentList';
 import CommentForm from '@features/comments/ui/CommentForm';
 
@@ -20,10 +20,8 @@ export default function MediaComments({ mediaId, mediaType }: MediaCommentsProps
 
   if (isLoading) return <div>Loading...</div>;
 
-  console.log(commentList);
-
   return (
-    <MediaContentBlock blockTitle={`Reviews (${commentList?.length || 0})`}>
+    <MediaContentBlock blockTitle={`Reviews (${commentList?.length || 0})`} titleFontWeight={900}>
       <CommentForm mediaId={mediaId} mediaType={mediaType} />
       <CommentList commentList={commentList} />
     </MediaContentBlock>
