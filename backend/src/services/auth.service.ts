@@ -55,27 +55,32 @@ export class AuthService {
 
     let userAuth: UserAuth | null = await authRepository.findOneBy({ user });
 
-    if (!userAuth) {
-      userAuth = authRepository.create({
-        activationLink: uuid4(),
-        refreshToken: tokens.refreshToken,
-        user: user,
-      });
-    } else {
+    if (userAuth) {
       userAuth.refreshToken = tokens.refreshToken;
       await userAuth.save();
     }
 
-    await authRepository.upsert(userAuth, ['refreshToken']);
+    if (!userAuth) {
+      authRepository.create({
+        activationLink: uuid4(),
+        refreshToken: tokens.refreshToken,
+        user: user,
+      });
+    }
 
     return {
-      tokens: tokenService.generateTokens({ userId: user.id }),
+      tokens,
       data: { email, username: user.username },
     };
   }
 
   async logout(refreshToken: string): Promise<void> {
-    await authRepository.delete({ refreshToken });
+    const userAuth: UserAuth | null = await authRepository.findOneBy({ refreshToken });
+
+    if (!userAuth) throw HttpError.NotFound('User does not exist');
+
+    userAuth.refreshToken = '';
+    await userAuth.save();
   }
 
   async activateEmail(link: string): Promise<void> {

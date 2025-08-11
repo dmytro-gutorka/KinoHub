@@ -2,6 +2,7 @@ import { Box, Stack, Typography } from '@mui/material';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import LabelWithIcon from '@shared/ui/LabelWithIcon';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 interface CommentItemProps {
   commentData: unknown;
@@ -9,7 +10,8 @@ interface CommentItemProps {
 
 export default function CommentItem({ commentData }) {
   const { createdAt, dislikesCount, likesCount, review, user, id } = commentData;
-  const { email, username } = user;
+  const { firstName, lastName, userAuth } = user;
+  const { isEmailConfirmed } = userAuth;
   const isConfirmed = id % 2 === 0; // just random, fetch from API later
 
   return (
@@ -24,10 +26,10 @@ export default function CommentItem({ commentData }) {
 
       <Stack>
         <Stack>
-          <Typography>
-            {username} {email}
+          <Typography fontWeight="900">
+            {firstName} {lastName}
           </Typography>
-          Icon is Confirmed
+          {isEmailConfirmed && <CheckCircleIcon />}
         </Stack>
 
         <Typography>{review}</Typography>
