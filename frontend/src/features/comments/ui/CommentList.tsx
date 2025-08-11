@@ -1,4 +1,4 @@
-import { Stack } from '@mui/material';
+import { Divider, Stack } from '@mui/material';
 import CommentItem from '@features/comments/ui/CommentItem';
 
 interface CommentListProps {
@@ -11,7 +11,10 @@ export default function CommentList({ commentList }: CommentListProps) {
   return (
     <Stack spacing={8} mt={10} ml={8}>
       {sortedCommentList.map((commentData) => (
-        <CommentItem key={commentData.id} commentData={commentData} />
+        <>
+          <CommentItem key={commentData.id} commentData={commentData} />
+          <Divider />
+        </>
       ))}
     </Stack>
   );

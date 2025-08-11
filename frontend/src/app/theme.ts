@@ -66,7 +66,7 @@ const finalTheme = createTheme(theme, {
     MuiDivider: {
       styleOverrides: {
         root: {
-          opacity: 0.3,
+          opacity: 0.9,
           borderColor: theme.palette.transparentGrey,
           height: 2,
         },
