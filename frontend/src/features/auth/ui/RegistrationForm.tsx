@@ -13,6 +13,24 @@ const RegistrationForm = ({ setOpenRegistrationModal }: RegistrationFormProps) =
       {registerServerError && <div>{registerServerError}</div>}
 
       <Controller
+        name="firstName"
+        rules={{ required: true }}
+        control={control}
+        defaultValue=""
+        render={({ field }) => <TextField {...field} label="First name" sx={{ width: '350px' }} />}
+      />
+      {errors.firstName && <span>This field is required</span>}
+
+      <Controller
+        name="lastName"
+        rules={{ required: true }}
+        control={control}
+        defaultValue=""
+        render={({ field }) => <TextField {...field} label="Last name" sx={{ width: '350px' }} />}
+      />
+      {errors.lastName && <span>This field is required</span>}
+
+      <Controller
         name="username"
         rules={{ required: true }}
         control={control}

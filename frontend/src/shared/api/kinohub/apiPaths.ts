@@ -38,8 +38,8 @@ export const apiPath = {
   comments: {
     getList: (mediaId: number, mediaType: MediaType) =>
       `${API_URL}/media/${mediaId}/comments?media_type=${mediaType}`,
-    create: (mediaId: number, mediaType: MediaType, parentId: number | null = null) =>
-      `${API_URL}/media/${mediaId}/comments?media_type=${mediaType}&parent_id=${parentId}`,
+    create: (mediaId: number, mediaType: MediaType, parentId?: number) =>
+      `${API_URL}/media/${mediaId}/comments?media_type=${mediaType}${parentId ? `&parent_id=${parentId}` : ''}`,
     update: (commentId: number) => `${API_URL}/media/comments/${commentId}`,
     delete: (commentId: number) => `${API_URL}/media/comments/${commentId}`,
   },

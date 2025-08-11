@@ -17,8 +17,8 @@ router.put('/:mediaId', updateMedia);
 router.get('/:mediaId/comments', getCommentList);
 router.post('/:mediaId/comments', createComment);
 
-router.patch('/comments/:commentId', updateComment);
-router.delete('/comments/:commentId', deleteComment);
+router.patch('/comments/:commentId', updateComment); // TODO: may be add back :mediaId for semantic reasons
+router.delete('/comments/:commentId', deleteComment); // TODO: may be add back :mediaId for semantic reasons
 
 router.post('/comments/:commentId/vote', createCommentVote);
 router.patch('/comments/:commentId/vote', updateCommentVote);

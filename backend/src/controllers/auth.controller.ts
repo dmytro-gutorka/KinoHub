@@ -4,9 +4,15 @@ import { tokenService } from '../services/token.service.js';
 import { User } from '../entity/User.js';
 
 export async function register(req: Request, res: Response): Promise<void> {
-  const { username, password, email } = req.body;
+  const { username, password, email, firstName, lastName } = req.body;
 
-  const user: Partial<User> = await authService.register(email, password, username);
+  const user: Partial<User> = await authService.register(
+    email,
+    password,
+    username,
+    firstName,
+    lastName
+  );
 
   res.status(201).json(user);
 }

@@ -1,10 +1,10 @@
 import { RequestStatus, UserRegisterCredentials } from '@features/auth/model/authTypes';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { register } from '@features/auth/model/services/register';
+import { selectRequestError, selectRequestStatus } from '@features/auth/model/selectors';
 import { useAppDispatch } from '@shared/hooks/redux';
 import { useSelector } from 'react-redux';
-import { selectRequestError, selectRequestStatus } from '@features/auth/model/selectors';
 import { useEffect } from 'react';
+import { register } from '@features/auth/model/services/register';
 
 export default function useRegistrationForm(setOpenRegistrationModal: (a: boolean) => void) {
   const {

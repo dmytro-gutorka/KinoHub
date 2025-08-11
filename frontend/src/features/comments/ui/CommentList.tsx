@@ -1,7 +1,9 @@
 import { Stack } from '@mui/material';
 import CommentItem from '@features/comments/ui/CommentItem';
 
-interface CommentListProps {}
+interface CommentListProps {
+  commentList: any;
+}
 
 export default function CommentList({ commentList }): CommentListProps {
   return (

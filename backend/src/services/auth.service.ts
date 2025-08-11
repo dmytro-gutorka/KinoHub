@@ -7,16 +7,27 @@ import { v4 as uuid4 } from 'uuid';
 import { HttpError } from '../errors/HttpError.js';
 import { UserAuth } from '../entity/UserAuth.js';
 import { User } from '../entity/User.js';
-import { emailService } from './email.service.js';
 import bcrypt from 'bcrypt';
 
 export class AuthService {
-  async register(email: string, password: string, username: string): Promise<Partial<User>> {
+  async register(
+    email: string,
+    password: string,
+    username: string,
+    firstName: string,
+    lastName: string
+  ): Promise<Partial<User>> {
     const isUser: boolean = await userRepository.existsBy({ email, username });
     if (isUser) throw HttpError.Conflict('User already exist');
 
     const hashedPassword: string = await bcrypt.hash(password, 10);
-    const user: User = userRepository.create({ password: hashedPassword, email, username });
+    const user: User = userRepository.create({
+      password: hashedPassword,
+      email,
+      username,
+      firstName,
+      lastName,
+    });
     await userRepository.save(user);
 
     const tokens: JwtTokens = tokenService.generateTokens({ userId: user.id });

@@ -33,6 +33,7 @@ function makeRouter() {
     },
     { path: '/movie/:id', Component: MediaDetailsPage, loader: () => MEDIA_TYPES.MOVIE },
     { path: '/tv/:id', Component: MediaDetailsPage, loader: () => MEDIA_TYPES.TV_SHOW },
+    // TODO: change :id to :mediaId
   ]);
 }
 

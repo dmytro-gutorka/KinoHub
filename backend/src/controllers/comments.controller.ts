@@ -22,7 +22,7 @@ export async function createComment(
   const review: string = req.body.review;
   const mediaType: MediaType = req.query.media_type;
   const mediaId: number = req.params.mediaId;
-  const parentId: number | null = req.query.parent_id || null;
+  const parentId: number | null = req.query?.parent_id || null;
   const userId: number | undefined = req.user?.id;
 
   const comment: Comment = await commentsService.create(

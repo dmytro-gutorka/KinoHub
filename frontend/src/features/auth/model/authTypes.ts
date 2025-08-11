@@ -23,6 +23,8 @@ export interface UserRegisterCredentials {
   email: string;
   password: string;
   username: string;
+  firstName: string;
+  lastName: string;
 }
 
 export interface UserAuthData {
