@@ -2,16 +2,23 @@ import React from 'react';
 import ContextMenu from '@shared/ui/ContextMenu';
 import CommentDeleteModal from '@features/comments/ui/CommentDeleteModal';
 import ModalProvider from '@shared/providers/ModalProvider';
-import { MenuItem } from '@mui/material';
+import CommentUpdateModal from '@features/comments/ui/CommentUpdateModal';
 
-export default function CommentContextMenu({ commentId }) {
+export default function CommentContextMenu({ commentId, mediaType, mediaId, currentReview }) {
   return (
     <ContextMenu>
       <ModalProvider>
-        <CommentDeleteModal commentId={commentId} />
+        <CommentDeleteModal commentId={commentId} mediaId={mediaId} mediaType={mediaType} />
       </ModalProvider>
 
-      <MenuItem> Update comment</MenuItem>
+      <ModalProvider>
+        <CommentUpdateModal
+          commentId={commentId}
+          mediaId={mediaId}
+          mediaType={mediaType}
+          currentReview={currentReview}
+        />
+      </ModalProvider>
     </ContextMenu>
   );
 }

@@ -16,7 +16,16 @@ interface CommentItemProps {
 }
 
 export default function CommentItem({ commentData }) {
-  const { createdAt, dislikesCount, likesCount, review, user, id: commentId } = commentData;
+  const {
+    createdAt,
+    dislikesCount,
+    likesCount,
+    review,
+    user,
+    id: commentId,
+    mediaId,
+    mediaType,
+  } = commentData;
   const { firstName, lastName, userAuth, id: commentUserId } = user;
   const { isEmailConfirmed } = userAuth;
 
@@ -37,7 +46,12 @@ export default function CommentItem({ commentData }) {
           </Stack>
           {userId === commentUserId && (
             <MenuProvider>
-              <CommentContextMenu commentId={commentId} />
+              <CommentContextMenu
+                commentId={commentId}
+                mediaId={mediaId}
+                mediaType={mediaType}
+                currentReview={review}
+              />
             </MenuProvider>
           )}
         </Stack>

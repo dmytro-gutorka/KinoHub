@@ -7,9 +7,9 @@
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentContextMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentContextMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentDeleteDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentDeleteModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentDeleteModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentDeleteModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/ContextMenu/ContextMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/ContextMenu/ContextMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/comments/updateComment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/comments/updateComment.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/DialogWindow/DialogWindow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/DialogWindow/DialogWindow.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -231,7 +231,7 @@
       <workItem from="1754900629533" duration="9561000" />
       <workItem from="1754920512300" duration="3671000" />
       <workItem from="1754924220820" duration="7528000" />
-      <workItem from="1754984253907" duration="15124000" />
+      <workItem from="1754984253907" duration="18152000" />
     </task>
     <servers />
   </component>
