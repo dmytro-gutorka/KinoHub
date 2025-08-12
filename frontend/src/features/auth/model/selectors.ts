@@ -1,4 +1,6 @@
-import { RootState } from 'app/store';
+import { RootState } from '@app/store';
+
+export const selectUserMetaData = (state: RootState) => state.auth.user;
 
 export const selectIsAuthenticated = (state: RootState) => state.auth.isAuthenticated;
 

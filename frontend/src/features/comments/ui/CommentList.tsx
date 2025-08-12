@@ -10,12 +10,16 @@ export default function CommentList({ commentList }: CommentListProps) {
 
   return (
     <Stack spacing={8} mt={10} ml={8}>
-      {sortedCommentList.map((commentData) => (
-        <>
-          <CommentItem key={commentData.id} commentData={commentData} />
-          <Divider />
-        </>
-      ))}
+      {sortedCommentList.map((commentData, index) => {
+        const isLastItem = index !== sortedCommentList.length - 1;
+
+        return (
+          <>
+            <CommentItem key={commentData.id} commentData={commentData} />
+            {isLastItem && <Divider />}
+          </>
+        );
+      })}
     </Stack>
   );
 }

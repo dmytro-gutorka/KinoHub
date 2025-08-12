@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentForm/CommentForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentForm/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/selectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/selectors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentContextMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentContextMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentDeleteDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentDeleteDialog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/comments/deleteComment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/comments/deleteComment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/DialogWindow/DialogWindow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/DialogWindow/DialogWindow.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +233,7 @@
       <workItem from="1754900629533" duration="9561000" />
       <workItem from="1754920512300" duration="3671000" />
       <workItem from="1754924220820" duration="7528000" />
-      <workItem from="1754984253907" duration="2622000" />
+      <workItem from="1754984253907" duration="9529000" />
     </task>
     <servers />
   </component>
