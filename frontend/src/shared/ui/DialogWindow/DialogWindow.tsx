@@ -5,16 +5,14 @@ import React, { useId } from 'react';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
+import { useModalContext } from '@shared/providers/ModalProvider/ModalProvider';
+import { MenuItem } from '@mui/material';
 
-export default function DialogWindow({
-  actions = true,
-  description,
-  onClickYes,
-  children,
-  onClose,
-  title,
-  open,
-}) {
+export default function DialogWindow({ actions = true, description, onClickYes, children, title }) {
+  const { isModalOpen, closeModal, openModal } = useModalContext();
+
+  console.log(isModalOpen);
+
   const titleId = useId();
   const descriptionId = useId();
 
@@ -25,8 +23,8 @@ export default function DialogWindow({
 
   return (
     <React.Fragment>
-      {children}
-      <Dialog open={open} onClose={onClose} {...aria}>
+      <MenuItem onClick={openModal}>Delete comment</MenuItem>
+      <Dialog open={isModalOpen} onClose={closeModal} {...aria}>
         {title && <DialogTitle id={titleId}>{title}</DialogTitle>}
         {description && (
           <DialogContent>
@@ -35,7 +33,7 @@ export default function DialogWindow({
         )}
         {actions && (
           <DialogActions>
-            <Button onClick={onClose}>No</Button>
+            <Button onClick={closeModal}>No</Button>
             <Button onClick={onClickYes} autoFocus>
               Yes
             </Button>

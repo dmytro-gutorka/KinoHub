@@ -9,6 +9,7 @@ import getDateFromISO from '@shared/helpers/getDateFromISO';
 import fullnameToInitials from '@shared/helpers/fullnameToInitials';
 import CommentContextMenu from '@features/comments/ui/CommentContextMenu';
 import React from 'react';
+import MenuProvider from '@shared/providers/MenuProvider';
 
 interface CommentItemProps {
   commentData: unknown;
@@ -34,7 +35,11 @@ export default function CommentItem({ commentData }) {
             </Typography>
             {isEmailConfirmed && <MarkCircleIcon />}
           </Stack>
-          {userId === commentUserId && <CommentContextMenu commentId={commentId} />}
+          {userId === commentUserId && (
+            <MenuProvider>
+              <CommentContextMenu commentId={commentId} />
+            </MenuProvider>
+          )}
         </Stack>
 
         <Typography color={theme.palette.grey[300]}>{review}</Typography>
