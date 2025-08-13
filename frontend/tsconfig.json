@@ -13,6 +13,7 @@
     "baseUrl": "./src",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "typeRoots": ["./src/app", "./node_modules/@types"],
     "paths": {
       "@app/*": ["app/*"],

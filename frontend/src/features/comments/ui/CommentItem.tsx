@@ -1,30 +1,24 @@
+import { Avatar, Stack, Typography, useTheme } from '@mui/material';
 import { selectUserMetaData } from '@features/auth/model/selectors';
 import { useSelector } from 'react-redux';
-import { Avatar, IconButton, Stack, Typography, useTheme } from '@mui/material';
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
-import LabelWithIcon from '@shared/ui/LabelWithIcon';
-import MarkCircleIcon from '@shared/icons/MarkCircleIcon';
-import getDateFromISO from '@shared/helpers/getDateFromISO';
+import CommentActionButtonList from '@features/comments/ui/CommentActionButtonList';
 import fullnameToInitials from '@shared/helpers/fullnameToInitials';
 import CommentContextMenu from '@features/comments/ui/CommentContextMenu';
-import React from 'react';
+import MarkCircleIcon from '@shared/icons/MarkCircleIcon';
+import getDateFromISO from '@shared/helpers/getDateFromISO';
 import MenuProvider from '@shared/providers/MenuProvider';
-
-interface CommentItemProps {
-  commentData: unknown;
-}
+import React from 'react';
 
 export default function CommentItem({ commentData }) {
   const {
-    createdAt,
+    id: commentId,
     dislikesCount,
     likesCount,
+    createdAt,
+    mediaType,
+    mediaId,
     review,
     user,
-    id: commentId,
-    mediaId,
-    mediaType,
   } = commentData;
   const { firstName, lastName, userAuth, id: commentUserId } = user;
   const { isEmailConfirmed } = userAuth;
@@ -55,22 +49,9 @@ export default function CommentItem({ commentData }) {
             </MenuProvider>
           )}
         </Stack>
-
+        <CommentActionButtonList dislikesCount={dislikesCount} likesCount={likesCount} />
         <Typography color={theme.palette.grey[300]}>{review}</Typography>
-
         <Stack direction="row" justifyContent="space-between" alignItems="center" mt={4} mb={1}>
-          <Stack direction="row" color={theme.palette.grey[300]}>
-            <IconButton>
-              <LabelWithIcon label={likesCount}>
-                <ThumbUpOffAltIcon />
-              </LabelWithIcon>
-            </IconButton>
-            <IconButton>
-              <LabelWithIcon label={dislikesCount}>
-                <ThumbDownOffAltIcon />
-              </LabelWithIcon>
-            </IconButton>
-          </Stack>
           <Typography color={theme.palette.grey[300]}> {getDateFromISO(createdAt)}</Typography>
         </Stack>
       </Stack>
