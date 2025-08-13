@@ -79,7 +79,8 @@ export class AuthService {
 
     if (!userAuth) throw HttpError.NotFound('User does not exist');
 
-    userAuth.refreshToken = '';
+    userAuth.refreshToken = uuid4(); // TODO: temporary fix for multiple account bug with logout, try to fix later
+
     await userAuth.save();
   }
 

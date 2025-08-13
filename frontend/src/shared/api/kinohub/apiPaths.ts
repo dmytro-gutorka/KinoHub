@@ -43,4 +43,9 @@ export const apiPath = {
     update: (commentId: number) => `${API_URL}/media/comments/${commentId}`,
     delete: (commentId: number) => `${API_URL}/media/comments/${commentId}`,
   },
+
+  commentsVote: {
+    create: (commentId: number) => `${API_URL}/media/comments/${commentId}/vote`,
+    update: (commentId: number) => `${API_URL}/media/comments/${commentId}/vote`,
+  },
 };

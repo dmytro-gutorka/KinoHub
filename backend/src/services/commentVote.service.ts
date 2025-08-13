@@ -4,9 +4,11 @@ import { HttpError } from '../errors/HttpError.js';
 import { commentsRepository } from '../repositories/comments.repository.js';
 import { AppDataSource } from '../config/db.js';
 
+export type CommentVoteValueType = -1 | 0 | 1; // TODO: move to somewhere
+
 class CommentVoteService {
   async create(
-    voteValue: 1 | -1,
+    vote: Exclude<CommentVoteValueType, 0>,
     commentId: number,
     userId: number | undefined
   ): Promise<CommentVote> {
@@ -19,17 +21,18 @@ class CommentVoteService {
 
     const createdCommentVote: CommentVote = commentVotesRepository.create({
       commentId,
-      vote: 0,
+      vote: vote,
       userId,
     });
 
+    await this.voteTransaction(vote, commentId, userId);
     await commentVotesRepository.save(createdCommentVote);
 
-    return await this.voteTransaction(voteValue, commentId, userId);
+    return createdCommentVote;
   }
 
   async update(
-    voteValue: 1 | 0 | -1,
+    vote: CommentVoteValueType,
     commentId: number,
     userId: number | undefined
   ): Promise<CommentVote> {
@@ -40,21 +43,21 @@ class CommentVoteService {
 
     if (!commentVote) throw HttpError.NotFound('Comment vote not found');
 
-    return await this.voteTransaction(voteValue, commentId, userId);
+    return await this.voteTransaction(vote, commentId, userId);
   }
 
-  async voteTransaction(value: -1 | 0 | 1, commentId: number, userId: number | undefined) {
+  async voteTransaction(vote: CommentVoteValueType, commentId: number, userId: number | undefined) {
     return await AppDataSource.transaction(async (): Promise<CommentVote> => {
       const existing = (await commentVotesRepository.findOneBy({
         commentId,
         userId,
       })) as CommentVote;
 
-      const deltaLike = (existing?.vote === 1 ? -1 : 0) + (value === 1 ? 1 : 0);
-      const deltaDislike = (existing?.vote === -1 ? -1 : 0) + (value === -1 ? 1 : 0);
+      const deltaLike = (existing?.vote === 1 ? -1 : 0) + (vote === 1 ? 1 : 0);
+      const deltaDislike = (existing?.vote === -1 ? -1 : 0) + (vote === -1 ? 1 : 0);
 
       if (existing) {
-        existing.vote = value;
+        existing.vote = vote;
         await commentVotesRepository.save(existing);
       }
 

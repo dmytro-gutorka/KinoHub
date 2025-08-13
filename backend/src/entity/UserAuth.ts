@@ -1,11 +1,11 @@
 import {
-  Relation,
   BaseEntity,
-  Entity,
   Column,
-  PrimaryGeneratedColumn,
+  Entity,
   JoinColumn,
   OneToOne,
+  PrimaryGeneratedColumn,
+  Relation,
 } from 'typeorm';
 import { User } from './User.js';
 

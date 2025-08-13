@@ -2,19 +2,21 @@ import { useMenuContext } from '@shared/providers/MenuProvider/MenuProvider';
 import { useModalContext } from '@shared/providers/ModalProvider/ModalProvider';
 import { useMutation } from '@tanstack/react-query';
 import { MenuItem, TextField } from '@mui/material';
-import React, { useRef, useState } from 'react';
+import React, { RefObject, useRef, useState } from 'react';
 import DialogWindow from '@shared/ui/DialogWindow';
 import updateComment from '@shared/api/kinohub/services/comments/updateComment';
 import queryClient from '@app/queryClient';
 
+type reviewRefType = HTMLInputElement | HTMLTextAreaElement | null;
+
 export default function CommentUpdateModal({ currentReview, commentId, mediaType, mediaId }) {
-  const reviewRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
+  const reviewRef: RefObject<reviewRefType> = useRef<reviewRefType>(null);
   const [error, setError] = useState<string | null>(null);
 
   const { closeMenu } = useMenuContext();
   const { openModal } = useModalContext();
 
-  const { mutate: mutateUpdate } = useMutation({
+  const { mutate: mutateCommentUpdate } = useMutation({
     mutationFn: (updatedReview: { review: string }) => updateComment(commentId, updatedReview),
     onSuccess: () => {
       closeMenu();
@@ -33,7 +35,7 @@ export default function CommentUpdateModal({ currentReview, commentId, mediaType
       return setError('Review must be between 10 and 500 characters');
 
     setError(null);
-    mutateUpdate({ review: reviewTest });
+    mutateCommentUpdate({ review: reviewTest });
   }
 
   const title = 'Update your review';

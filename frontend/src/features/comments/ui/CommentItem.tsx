@@ -3,11 +3,11 @@ import { selectUserMetaData } from '@features/auth/model/selectors';
 import { useSelector } from 'react-redux';
 import CommentActionButtonList from '@features/comments/ui/CommentActionButtonList';
 import fullnameToInitials from '@shared/helpers/fullnameToInitials';
-import CommentContextMenu from '@features/comments/ui/CommentContextMenu';
 import MarkCircleIcon from '@shared/icons/MarkCircleIcon';
 import getDateFromISO from '@shared/helpers/getDateFromISO';
 import MenuProvider from '@shared/providers/MenuProvider';
 import React from 'react';
+import CommentContextMenu from '@features/comments/ui/CommentContextMenu';
 
 export default function CommentItem({ commentData }) {
   const {
@@ -25,6 +25,10 @@ export default function CommentItem({ commentData }) {
 
   const userId: number | undefined = useSelector(selectUserMetaData)?.id;
   const theme = useTheme();
+
+  console.log(userId, commentUserId);
+
+  console.log(commentData);
 
   return (
     <Stack direction="row" spacing={4}>
@@ -49,7 +53,13 @@ export default function CommentItem({ commentData }) {
             </MenuProvider>
           )}
         </Stack>
-        <CommentActionButtonList dislikesCount={dislikesCount} likesCount={likesCount} />
+        <CommentActionButtonList
+          dislikesCount={dislikesCount}
+          likesCount={likesCount}
+          commentId={commentId}
+          mediaType={mediaType}
+          mediaId={mediaId}
+        />
         <Typography color={theme.palette.grey[300]}>{review}</Typography>
         <Stack direction="row" justifyContent="space-between" alignItems="center" mt={4} mb={1}>
           <Typography color={theme.palette.grey[300]}> {getDateFromISO(createdAt)}</Typography>
