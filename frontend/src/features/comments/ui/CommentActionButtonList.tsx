@@ -12,6 +12,7 @@ export default function CommentActionButtonList({
   commentId,
   mediaId,
   mediaType,
+  prevUserVote,
 }) {
   const theme = useTheme();
 
@@ -19,12 +20,12 @@ export default function CommentActionButtonList({
 
   return (
     <Stack direction="row" color={theme.palette.grey[300]}>
-      <IconButton onClick={() => mutate({ vote: 1 })}>
+      <IconButton onClick={() => mutate({ vote: prevUserVote === 1 ? 0 : 1 })}>
         <LabelWithIcon label={likesCount}>
           <ThumbUpOffAltIcon />
         </LabelWithIcon>
       </IconButton>
-      <IconButton onClick={() => mutate({ vote: -1 })}>
+      <IconButton onClick={() => mutate({ vote: prevUserVote === -1 ? 0 : -1 })}>
         <LabelWithIcon label={dislikesCount}>
           <ThumbDownOffAltIcon />
         </LabelWithIcon>

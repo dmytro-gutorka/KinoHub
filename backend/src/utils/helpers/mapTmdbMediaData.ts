@@ -5,5 +5,9 @@ export default function mapTmdbMediaData(data: any) {
     title: data?.title ?? data?.name ?? 'No title',
     posterPath: data?.poster_path,
     voteAverage: data?.vote_average ?? 0,
+    genres:
+      data?.genres?.length > 0
+        ? data?.genres.map((genre: { name: string; id: number }) => genre.name).join(',')
+        : '',
   };
 }

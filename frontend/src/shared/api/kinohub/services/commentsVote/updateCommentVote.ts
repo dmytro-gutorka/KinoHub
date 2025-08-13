@@ -6,8 +6,6 @@ export default async function updateCommentVote(
   commentId: number,
   commentActionValue: { vote: CommentVoteValue }
 ) {
-  console.log('update', commentActionValue);
-
   const url: string = apiPath.commentsVote.update(commentId);
   const response = await axiosWithAuth.patch(url, commentActionValue);
 

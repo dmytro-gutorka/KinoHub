@@ -6,8 +6,6 @@ export default async function createCommentVote(
   commentId: number,
   commentActionValue: { vote: CommentVoteValue }
 ) {
-  console.log('create', commentActionValue);
-
   const url: string = apiPath.commentsVote.create(commentId);
   const response = await axiosWithAuth.post(url, commentActionValue);
 

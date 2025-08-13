@@ -18,6 +18,7 @@ export default function CommentItem({ commentData }) {
     mediaType,
     mediaId,
     review,
+    votes,
     user,
   } = commentData;
   const { firstName, lastName, userAuth, id: commentUserId } = user;
@@ -26,9 +27,8 @@ export default function CommentItem({ commentData }) {
   const userId: number | undefined = useSelector(selectUserMetaData)?.id;
   const theme = useTheme();
 
-  console.log(userId, commentUserId);
-
-  console.log(commentData);
+  let prevUserVote;
+  if (votes.length > 0) prevUserVote = votes.find((v) => v.userId === userId)?.vote;
 
   return (
     <Stack direction="row" spacing={4}>
@@ -53,15 +53,17 @@ export default function CommentItem({ commentData }) {
             </MenuProvider>
           )}
         </Stack>
-        <CommentActionButtonList
-          dislikesCount={dislikesCount}
-          likesCount={likesCount}
-          commentId={commentId}
-          mediaType={mediaType}
-          mediaId={mediaId}
-        />
         <Typography color={theme.palette.grey[300]}>{review}</Typography>
+
         <Stack direction="row" justifyContent="space-between" alignItems="center" mt={4} mb={1}>
+          <CommentActionButtonList
+            dislikesCount={dislikesCount}
+            likesCount={likesCount}
+            commentId={commentId}
+            mediaType={mediaType}
+            mediaId={mediaId}
+            prevUserVote={prevUserVote}
+          />
           <Typography color={theme.palette.grey[300]}> {getDateFromISO(createdAt)}</Typography>
         </Stack>
       </Stack>

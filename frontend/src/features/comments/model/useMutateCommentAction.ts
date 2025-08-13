@@ -2,8 +2,8 @@ import { CommentVoteValue } from '@features/comments/ui/CommentActionButtonList'
 import { MediaType } from '@shared/types/generalTypes';
 import { useMutation } from '@tanstack/react-query';
 import updateCommentVote from '@shared/api/kinohub/services/commentsVote/updateCommentVote';
-import queryClient from '@app/queryClient';
 import createCommentVote from '@shared/api/kinohub/services/commentsVote/createCommentVote';
+import queryClient from '@app/queryClient';
 
 export default function useMutateCommentAction(
   commentId: number,

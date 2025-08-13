@@ -26,6 +26,9 @@ export class MediaInfo {
   @Column({ default: null, nullable: true, type: 'double precision' })
   voteAverage!: number;
 
+  @Column({ default: '' })
+  genres!: string;
+
   @Column()
   mediaType!: MediaType;
 
