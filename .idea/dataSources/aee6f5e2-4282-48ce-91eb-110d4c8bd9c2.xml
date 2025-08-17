@@ -3,14 +3,22 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <Grants>24671||-9223372036854775808|c|G
+      <Grants>1||-9223372036854775808|c|G
+1||10|c|G
+1||10|C|G
+1||10|T|G
+4||-9223372036854775808|c|G
+4||10|c|G
+4||10|C|G
+4||10|T|G
+24671||-9223372036854775808|c|G
 24671||24669|c|G
 24671||24669|C|G
 24671||-9223372036854775808|T|G
 24671||24669|T|G</Grants>
-      <IntrospectionStateNumber>2886</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3633</IntrospectionStateNumber>
       <ServerVersion>15.13</ServerVersion>
-      <StartupTime>1754897532</StartupTime>
+      <StartupTime>1755422439</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -806,7 +814,7 @@ false Zulu
 13547||10|C|G
 13547||-9223372036854775808|U|G
 13547||10|U|G</Grants>
-      <IntrospectionStateNumber>2886</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3633</IntrospectionStateNumber>
       <ObjectId>24671</ObjectId>
       <OwnerName>admin</OwnerName>
     </database>
@@ -4232,8 +4240,8 @@ false Zulu
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>2886</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-08-11.13:46:32</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>3633</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-08-17.15:42:32</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>517</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4340,7 +4348,7 @@ archived</Labels>
     </table>
     <table id="278" parent="264" name="media_info">
       <ObjectId>26219</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3610</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
@@ -4758,7 +4766,15 @@ episode</ColNames>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="336" parent="278" name="PK_69aba157c8990377e88bebb272a">
+    <column id="336" parent="278" name="genres">
+      <DefaultExpression>&apos;&apos;::character varying</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StateNumber>3610</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="337" parent="278" name="PK_69aba157c8990377e88bebb272a">
       <ColNames>id</ColNames>
       <ObjectId>26229</ObjectId>
       <Primary>1</Primary>
@@ -4766,7 +4782,7 @@ episode</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="337" parent="278" name="UQ_c042d3faeb00c28c5e8393d4266">
+    <index id="338" parent="278" name="UQ_c042d3faeb00c28c5e8393d4266">
       <ColNames>mediaId
 mediaType</ColNames>
       <ObjectId>26231</ObjectId>
@@ -4780,18 +4796,18 @@ pg_catalog</CollationParentNames>
       <CollationNames>
 default</CollationNames>
     </index>
-    <key id="338" parent="278" name="PK_69aba157c8990377e88bebb272a">
+    <key id="339" parent="278" name="PK_69aba157c8990377e88bebb272a">
       <ObjectId>26230</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2883</StateNumber>
       <UnderlyingIndexId>26229</UnderlyingIndexId>
     </key>
-    <key id="339" parent="278" name="UQ_c042d3faeb00c28c5e8393d4266">
+    <key id="340" parent="278" name="UQ_c042d3faeb00c28c5e8393d4266">
       <ObjectId>26232</ObjectId>
       <StateNumber>2883</StateNumber>
       <UnderlyingIndexId>26231</UnderlyingIndexId>
     </key>
-    <column id="340" parent="279" name="id">
+    <column id="341" parent="279" name="id">
       <DefaultExpression>nextval(&apos;media_user_action_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4800,28 +4816,28 @@ default</CollationNames>
       <SequenceId>26205</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="341" parent="279" name="mediaInfoId">
+    <column id="342" parent="279" name="mediaInfoId">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>2883</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="342" parent="279" name="mediaId">
+    <column id="343" parent="279" name="mediaId">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>2883</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="343" parent="279" name="userId">
+    <column id="344" parent="279" name="userId">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>2883</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="344" parent="279" name="isLiked">
+    <column id="345" parent="279" name="isLiked">
       <DefaultExpression>false</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>5</Position>
@@ -4829,7 +4845,7 @@ default</CollationNames>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <column id="345" parent="279" name="isWatched">
+    <column id="346" parent="279" name="isWatched">
       <DefaultExpression>false</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
@@ -4837,33 +4853,33 @@ default</CollationNames>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <column id="346" parent="279" name="rating">
+    <column id="347" parent="279" name="rating">
       <Position>7</Position>
       <StateNumber>2883</StateNumber>
       <StoredType>double precision|0s</StoredType>
       <TypeId>701</TypeId>
     </column>
-    <column id="347" parent="279" name="watchStatus">
+    <column id="348" parent="279" name="watchStatus">
       <Position>8</Position>
       <StateNumber>2883</StateNumber>
       <StoredType>media_user_action_watchstatus_enum|0s</StoredType>
       <TypeId>24674</TypeId>
     </column>
-    <column id="348" parent="279" name="mediaType">
+    <column id="349" parent="279" name="mediaType">
       <NotNull>1</NotNull>
       <Position>9</Position>
       <StateNumber>2883</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="349" parent="279" name="FK_511341f22a523b25d6fe73f29d7">
+    <foreign-key id="350" parent="279" name="FK_511341f22a523b25d6fe73f29d7">
       <ColNames>mediaInfoId</ColNames>
       <ObjectId>26274</ObjectId>
       <StateNumber>2883</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>26219</RefTableId>
     </foreign-key>
-    <index id="350" parent="279" name="PK_c7aae7a237dbacfa6dfe15eb08d">
+    <index id="351" parent="279" name="PK_c7aae7a237dbacfa6dfe15eb08d">
       <ColNames>id</ColNames>
       <ObjectId>26214</ObjectId>
       <Primary>1</Primary>
@@ -4871,7 +4887,7 @@ default</CollationNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="351" parent="279" name="UQ_ddb5651ceb9c130cd0169c4e96b">
+    <index id="352" parent="279" name="UQ_ddb5651ceb9c130cd0169c4e96b">
       <ColNames>mediaId
 userId
 mediaType</ColNames>
@@ -4889,18 +4905,18 @@ pg_catalog</CollationParentNames>
 
 100</CollationIds>
     </index>
-    <key id="352" parent="279" name="PK_c7aae7a237dbacfa6dfe15eb08d">
+    <key id="353" parent="279" name="PK_c7aae7a237dbacfa6dfe15eb08d">
       <ObjectId>26215</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2883</StateNumber>
       <UnderlyingIndexId>26214</UnderlyingIndexId>
     </key>
-    <key id="353" parent="279" name="UQ_ddb5651ceb9c130cd0169c4e96b">
+    <key id="354" parent="279" name="UQ_ddb5651ceb9c130cd0169c4e96b">
       <ObjectId>26217</ObjectId>
       <StateNumber>2883</StateNumber>
       <UnderlyingIndexId>26216</UnderlyingIndexId>
     </key>
-    <column id="354" parent="280" name="id">
+    <column id="355" parent="280" name="id">
       <DefaultExpression>nextval(&apos;user_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4909,42 +4925,42 @@ pg_catalog</CollationParentNames>
       <SequenceId>26166</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="355" parent="280" name="email">
+    <column id="356" parent="280" name="email">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>2883</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="356" parent="280" name="username">
+    <column id="357" parent="280" name="username">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>2883</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="357" parent="280" name="password">
+    <column id="358" parent="280" name="password">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>2883</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="358" parent="280" name="firstName">
+    <column id="359" parent="280" name="firstName">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>2883</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="359" parent="280" name="lastName">
+    <column id="360" parent="280" name="lastName">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StateNumber>2883</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="360" parent="280" name="PK_cace4a159ff9f2512dd42373760">
+    <index id="361" parent="280" name="PK_cace4a159ff9f2512dd42373760">
       <ColNames>id</ColNames>
       <ObjectId>26173</ObjectId>
       <Primary>1</Primary>
@@ -4952,7 +4968,7 @@ pg_catalog</CollationParentNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="361" parent="280" name="UQ_e12875dfb3b1d92d7d7c5377e22">
+    <index id="362" parent="280" name="UQ_e12875dfb3b1d92d7d7c5377e22">
       <ColNames>email</ColNames>
       <ObjectId>26175</ObjectId>
       <StateNumber>2883</StateNumber>
@@ -4962,7 +4978,7 @@ pg_catalog</CollationParentNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="362" parent="280" name="UQ_78a916df40e02a9deb1c4b75edb">
+    <index id="363" parent="280" name="UQ_78a916df40e02a9deb1c4b75edb">
       <ColNames>username</ColNames>
       <ObjectId>26177</ObjectId>
       <StateNumber>2883</StateNumber>
@@ -4972,23 +4988,23 @@ pg_catalog</CollationParentNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="363" parent="280" name="PK_cace4a159ff9f2512dd42373760">
+    <key id="364" parent="280" name="PK_cace4a159ff9f2512dd42373760">
       <ObjectId>26174</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2883</StateNumber>
       <UnderlyingIndexId>26173</UnderlyingIndexId>
     </key>
-    <key id="364" parent="280" name="UQ_e12875dfb3b1d92d7d7c5377e22">
+    <key id="365" parent="280" name="UQ_e12875dfb3b1d92d7d7c5377e22">
       <ObjectId>26176</ObjectId>
       <StateNumber>2883</StateNumber>
       <UnderlyingIndexId>26175</UnderlyingIndexId>
     </key>
-    <key id="365" parent="280" name="UQ_78a916df40e02a9deb1c4b75edb">
+    <key id="366" parent="280" name="UQ_78a916df40e02a9deb1c4b75edb">
       <ObjectId>26178</ObjectId>
       <StateNumber>2883</StateNumber>
       <UnderlyingIndexId>26177</UnderlyingIndexId>
     </key>
-    <column id="366" parent="281" name="id">
+    <column id="367" parent="281" name="id">
       <DefaultExpression>nextval(&apos;user_auth_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4997,19 +5013,19 @@ pg_catalog</CollationParentNames>
       <SequenceId>26150</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="367" parent="281" name="refreshToken">
+    <column id="368" parent="281" name="refreshToken">
       <Position>2</Position>
       <StateNumber>2883</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="368" parent="281" name="activationLink">
+    <column id="369" parent="281" name="activationLink">
       <Position>3</Position>
       <StateNumber>2883</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="369" parent="281" name="isEmailConfirmed">
+    <column id="370" parent="281" name="isEmailConfirmed">
       <DefaultExpression>false</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
@@ -5017,20 +5033,20 @@ pg_catalog</CollationParentNames>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <column id="370" parent="281" name="userId">
+    <column id="371" parent="281" name="userId">
       <Position>5</Position>
       <StateNumber>2883</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="371" parent="281" name="FK_52403f2133a7b1851d8ab4dc9db">
+    <foreign-key id="372" parent="281" name="FK_52403f2133a7b1851d8ab4dc9db">
       <ColNames>userId</ColNames>
       <ObjectId>26249</ObjectId>
       <StateNumber>2883</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>26167</RefTableId>
     </foreign-key>
-    <index id="372" parent="281" name="PK_56d00ec31dc3eed1c3f6bff4f58">
+    <index id="373" parent="281" name="PK_56d00ec31dc3eed1c3f6bff4f58">
       <ColNames>id</ColNames>
       <ObjectId>26158</ObjectId>
       <Primary>1</Primary>
@@ -5038,7 +5054,7 @@ pg_catalog</CollationParentNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="373" parent="281" name="UQ_e36d4921f085616d899451c5854">
+    <index id="374" parent="281" name="UQ_e36d4921f085616d899451c5854">
       <ColNames>refreshToken</ColNames>
       <ObjectId>26160</ObjectId>
       <StateNumber>2883</StateNumber>
@@ -5048,7 +5064,7 @@ pg_catalog</CollationParentNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="374" parent="281" name="UQ_6d0131277dd2906be838d5a883a">
+    <index id="375" parent="281" name="UQ_6d0131277dd2906be838d5a883a">
       <ColNames>activationLink</ColNames>
       <ObjectId>26162</ObjectId>
       <StateNumber>2883</StateNumber>
@@ -5058,30 +5074,30 @@ pg_catalog</CollationParentNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="375" parent="281" name="REL_52403f2133a7b1851d8ab4dc9d">
+    <index id="376" parent="281" name="REL_52403f2133a7b1851d8ab4dc9d">
       <ColNames>userId</ColNames>
       <ObjectId>26164</ObjectId>
       <StateNumber>2883</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="376" parent="281" name="PK_56d00ec31dc3eed1c3f6bff4f58">
+    <key id="377" parent="281" name="PK_56d00ec31dc3eed1c3f6bff4f58">
       <ObjectId>26159</ObjectId>
       <Primary>1</Primary>
       <StateNumber>2883</StateNumber>
       <UnderlyingIndexId>26158</UnderlyingIndexId>
     </key>
-    <key id="377" parent="281" name="UQ_e36d4921f085616d899451c5854">
+    <key id="378" parent="281" name="UQ_e36d4921f085616d899451c5854">
       <ObjectId>26161</ObjectId>
       <StateNumber>2883</StateNumber>
       <UnderlyingIndexId>26160</UnderlyingIndexId>
     </key>
-    <key id="378" parent="281" name="UQ_6d0131277dd2906be838d5a883a">
+    <key id="379" parent="281" name="UQ_6d0131277dd2906be838d5a883a">
       <ObjectId>26163</ObjectId>
       <StateNumber>2883</StateNumber>
       <UnderlyingIndexId>26162</UnderlyingIndexId>
     </key>
-    <key id="379" parent="281" name="REL_52403f2133a7b1851d8ab4dc9d">
+    <key id="380" parent="281" name="REL_52403f2133a7b1851d8ab4dc9d">
       <ObjectId>26165</ObjectId>
       <StateNumber>2883</StateNumber>
       <UnderlyingIndexId>26164</UnderlyingIndexId>

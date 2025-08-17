@@ -12,8 +12,16 @@ class UsersService {
 
 export const usersService = new UsersService();
 
-// Avg rating
-// Max/Min rating
+// AVG/MAX/MIN rating:
+// SELECT
+// AVG(rating) AS avg_rating,
+//   MAX(rating) AS max_rating,
+//   MIN(rating) AS min_rating
+// FROM
+// "media_user_action"
+// WHERE
+// "userId" = 1
+
 // Favorites genres 3-5
 // Number of rated MEDIA
 // Number of comments
