@@ -14,7 +14,8 @@ export const usersService = new UsersService();
 
 // AVG/MAX/MIN rating:
 // SELECT
-// AVG(rating) AS avg_rating,
+//   COUNT(*) AS number_of_ratings,
+//   AVG(rating) AS avg_rating,
 //   MAX(rating) AS max_rating,
 //   MIN(rating) AS min_rating
 // FROM
@@ -22,9 +23,23 @@ export const usersService = new UsersService();
 // WHERE
 // "userId" = 1
 
-// Favorites genres 3-5
-// Number of rated MEDIA
+// TOP 10 rated movies/tv show
+// SELECT
+//     "mediaInfoId",
+//     "rating",
+//     "mediaType"
+// FROM
+//      "media_user_action"
+// WHERE
+//     "userId" = 1 AND "mediaType" = 'movie' / 'tv'
+// ORDER BY
+//     "rating" DESC
+// LIMIT
+//     10;
+
 // Number of comments
+
+// Favorites genres 3-5
 // Number of watched EPISODES
 
 // Number of watched MOVIES
@@ -32,9 +47,6 @@ export const usersService = new UsersService();
 
 // Overall MOVIES runtime
 // Overall TV runtime
-
-// Most rater MOVIES
-// Most rater TV
 
 // ?? Times Rewatched
 // ?? Review likes received
