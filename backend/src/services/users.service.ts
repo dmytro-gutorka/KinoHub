@@ -47,22 +47,50 @@ export const usersService = new UsersService();
 
 // Overall MOVIES runtime
 // Overall TV runtime
+
+// VARIANT 1:
 // SELECT
-//    AVG(runtime)
+//    SUM(CASE WHEN "mi"."mediaType" = 'movie' THEN "mi"."runtime" ELSE 0 END) as overall_movie_runtime,
+//    SUM(CASE WHEN "mi"."mediaType" = 'tv' THEN "mi"."runtime" ELSE 0 END) as overall_tv_runtime
+// FROM "media_user_action" as mua
+//     LEFT JOIN "media_info" as mi ON "mi"."id" = "mua"."mediaInfoId"
+// WHERE mua."userId" = 1;
+
+// VARIANT 2:
+// SELECT
+//    mi."mediaType",
+//    SUM(mi."runtime") AS total_runtime
 // FROM
-//    "media_user_action" as mua
-// LEFT JOIN
-//    "media_info" as mi
+//    "media_user_action" AS mua
+// JOIN
+//    "media_info" AS mi
 // ON
-//    "mi"."id" = "mua"."mediaInfoId"
+//    mi."id" = mua."mediaInfoId"
 // WHERE
-//    "userId" = 1 AND "mi"."mediaType" = 'movie';
+//    mua."userId" = 1
+// GROUP BY
+//     mi."mediaType";
+
+// Number of watched MOVIES/TV
+// SELECT
+//     mua."mediaType",
+//     COUNT(*)
+// FROM "media_user_action" as mua
+//          LEFT JOIN "media_info" as mi ON "mi"."id" = "mua"."mediaInfoId"
+// WHERE
+//     mua."userId" = 1 AND mua."isWatched" = true
+// GROUP BY
+//     mua."mediaType";
+
+// Number of watched EPISODES
+// SELECT
+//     COUNT(*)
+// FROM "episode"
+//     WHERE
+//         "isWatched" = true
+//       AND
+//         "userId" = 1;
 
 // Favorites genres 3-5
-// Number of watched EPISODES
-
-// Number of watched MOVIES
-// Number of watched TV
-
 // ?? Times Rewatched
 // ?? Review likes received
