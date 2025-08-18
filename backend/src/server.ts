@@ -1,11 +1,10 @@
 import 'reflect-metadata';
-import cors from 'cors';
-import express from 'express';
-import cookieParser from 'cookie-parser';
-import { json, urlencoded, Application } from 'express';
+import express, { Application, json, urlencoded } from 'express';
 import { privateRoutes, publicRoutes } from './routes/index.js';
 import { errorHandler } from './middleware/error-handler.middleware.js';
 import { initDB } from './config/db.js';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 const port: number = Number(process.env.PORT) || 8000;
 const app: Application = express();

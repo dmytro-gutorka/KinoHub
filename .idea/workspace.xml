@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/userStats.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/users.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/entity/CommentVote.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/CommentVote.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/user.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/user.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/userStats.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/userStats.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +237,7 @@
       <workItem from="1755242729467" duration="598000" />
       <workItem from="1755330140945" duration="2395000" />
       <workItem from="1755422447988" duration="5707000" />
-      <workItem from="1755513687395" duration="5246000" />
+      <workItem from="1755513687395" duration="7385000" />
     </task>
     <servers />
   </component>
