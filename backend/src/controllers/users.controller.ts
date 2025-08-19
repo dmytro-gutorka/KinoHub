@@ -4,7 +4,15 @@ import { usersStatsService } from '../services/userStats.service.js';
 export async function getUserStats(req: Request, res: Response) {
   const userId: number | undefined = req.user?.id;
 
-  const userStats = await usersStatsService.getCard(userId);
+  const data = await Promise.all([
+    usersStatsService.getCard(userId),
+    usersStatsService.getTopRatedMedia(userId, 'tv'),
+    usersStatsService.getTopRatedMedia(userId, 'movie'),
+  ]);
 
-  res.status(200).json(userStats);
+  res.status(200).json({
+    userStats: data[0],
+    topRatedTv: data[1],
+    topRatedMovie: data[2],
+  });
 }

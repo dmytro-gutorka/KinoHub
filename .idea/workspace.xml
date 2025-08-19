@@ -7,10 +7,8 @@
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/users.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/entity/CommentVote.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/CommentVote.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/user.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/user.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/services/userStats.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/userStats.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/types/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +78,7 @@
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.17.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.16.4&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/dima/GitHubProjects/KinoHub/frontend/src/types&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dima/GitHubProjects/KinoHub/backend/dist/services&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
@@ -105,11 +103,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/dist/services" />
       <recent name="$PROJECT_DIR$/frontend/src/types" />
       <recent name="$PROJECT_DIR$/frontend/src/features/auth" />
       <recent name="$PROJECT_DIR$/backend" />
       <recent name="$PROJECT_DIR$/frontend/public" />
-      <recent name="$PROJECT_DIR$/backend/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/src/features/comments/ui" />
@@ -237,7 +235,9 @@
       <workItem from="1755242729467" duration="598000" />
       <workItem from="1755330140945" duration="2395000" />
       <workItem from="1755422447988" duration="5707000" />
-      <workItem from="1755513687395" duration="7385000" />
+      <workItem from="1755513687395" duration="8147000" />
+      <workItem from="1755537348759" duration="1229000" />
+      <workItem from="1755583436592" duration="4325000" />
     </task>
     <servers />
   </component>
