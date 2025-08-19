@@ -5,11 +5,11 @@ import { userRepository } from '../repositories/user.repository.js';
 import { AppDataSource } from '../config/db.js';
 import { DataSource } from 'typeorm';
 import { HttpError } from '../errors/HttpError.js';
+import { MediaInfo } from '../entity/MediaInfo.js';
 import { User } from '../entity/User.js';
 import path from 'path';
 
 import * as fs from 'node:fs';
-import { MediaInfo } from '../entity/MediaInfo.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const userStatsSQL = fs.readFileSync(path.join(__dirname, './queries/user_stats_card.sql'), 'utf8');
@@ -17,7 +17,7 @@ const userStatsSQL = fs.readFileSync(path.join(__dirname, './queries/user_stats_
 class UserStatsService {
   constructor(private readonly ds: DataSource) {}
 
-  async getCard(userId: number | undefined): Promise<UserStatsCard> {
+  async getUserMediaStats(userId: number | undefined): Promise<UserStatsCard> {
     const user: User | null = await userRepository.findOneBy({ id: userId });
 
     if (!user) throw HttpError.NotFound('User not found');
@@ -26,16 +26,16 @@ class UserStatsService {
     const row = rows[0] ?? {};
 
     return {
-      number_of_ratings: Number(row.number_of_ratings ?? 0),
-      avg_rating: row.avg_rating == null ? null : Number(row.avg_rating),
-      max_rating: row.max_rating == null ? null : Number(row.max_rating),
-      min_rating: row.min_rating == null ? null : Number(row.min_rating),
-      runtime_movie: Number(row.runtime_movie ?? 0),
-      runtime_tv: Number(row.runtime_tv ?? 0),
-      watched_movie: Number(row.watched_movie ?? 0),
-      watched_tv: Number(row.watched_tv ?? 0),
-      comment_count: Number(row.comment_count ?? 0),
-      episodes_watched: Number(row.episodes_watched ?? 0),
+      avgRating: row.avg_rating == null ? null : Number(row.avg_rating),
+      maxRating: row.max_rating == null ? null : Number(row.max_rating),
+      minRating: row.min_rating == null ? null : Number(row.min_rating),
+      ratingCount: Number(row.number_of_ratings ?? 0),
+      runtimeMovie: Number(row.runtime_movie ?? 0),
+      runtimeTv: Number(row.runtime_tv ?? 0),
+      watchedMovie: Number(row.watched_movie ?? 0),
+      watchedTv: Number(row.watched_tv ?? 0),
+      watchedEpisodes: Number(row.episodes_watched ?? 0),
+      commentsCount: Number(row.comment_count ?? 0),
     };
   }
 
@@ -55,21 +55,3 @@ class UserStatsService {
 }
 
 export const usersStatsService = new UserStatsService(AppDataSource);
-
-// TOP 10 rated movies/tv show
-// SELECT
-//    "mediaInfoId",
-//    "rating",
-//    "mediaType"
-// FROM
-//    "media_user_action"
-// WHERE
-//     "userId" = 1 AND "mediaType" = 'movie' / 'tv'
-// ORDER BY
-//    "rating" DESC
-// LIMIT
-//    10;
-
-// TOP 3-5 genres
-// ?? Times Rewatched
-// ?? Review likes received

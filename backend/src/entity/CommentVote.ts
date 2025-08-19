@@ -1,8 +1,17 @@
 import { Comment } from './Comment.js';
 import { User } from './User.js';
-import { Column, Entity, Index, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Relation, Unique } from 'typeorm';
+import {
+  Column,
+  Entity,
+  Index,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  Relation,
+  Unique,
+} from 'typeorm';
 
-@Entity({ name: 'comment_votes' })
+@Entity({ schema: 'public' })
 @Unique(['userId', 'commentId'])
 export class CommentVote {
   @PrimaryGeneratedColumn()

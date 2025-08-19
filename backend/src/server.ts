@@ -6,6 +6,9 @@ import { initDB } from './config/db.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
+import { genresRepository } from './repositories/genres.repository.js';
+import { mediaGenres } from './utils/json/mediaGenres.js';
+
 const port: number = Number(process.env.PORT) || 8000;
 const app: Application = express();
 
@@ -24,6 +27,7 @@ app.use(errorHandler);
 async function startServer() {
   try {
     await initDB();
+    await genresRepository.upsert(mediaGenres, ['id']);
     app.listen(port, () => console.log(`Server is running on ${port} port`));
   } catch (error) {
     console.error('Failed to start server:', error);

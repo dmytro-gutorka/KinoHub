@@ -43,14 +43,14 @@ export type AuthedRequest<P = any, ResB = any, ReqB = any, Q = any> = Request<P,
 };
 
 export interface UserStatsCard {
-  number_of_ratings: number;
-  avg_rating: number | null;
-  max_rating: number | null;
-  min_rating: number | null;
-  runtime_movie: number;
-  runtime_tv: number;
-  watched_movie: number;
-  watched_tv: number;
-  comment_count: number;
-  episodes_watched: number;
+  avgRating: number | null;
+  maxRating: number | null;
+  minRating: number | null;
+  ratingCount: number;
+  runtimeMovie: number;
+  runtimeTv: number;
+  watchedMovie: number;
+  watchedTv: number;
+  watchedEpisodes: number;
+  commentsCount: number;
 }

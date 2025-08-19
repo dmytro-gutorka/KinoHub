@@ -14,7 +14,7 @@ import { User } from './User.js';
 import { MediaType } from '../types/types.js';
 import { CommentVote } from './CommentVote.js';
 
-@Entity({ name: 'comments', schema: 'public' })
+@Entity({ name: 'comments' })
 export class Comment {
   @PrimaryGeneratedColumn()
   id!: number;

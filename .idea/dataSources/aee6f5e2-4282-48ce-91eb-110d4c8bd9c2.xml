@@ -3,22 +3,14 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G
-24671||-9223372036854775808|c|G
+      <Grants>24671||-9223372036854775808|c|G
 24671||24669|c|G
 24671||24669|C|G
 24671||-9223372036854775808|T|G
 24671||24669|T|G</Grants>
-      <IntrospectionStateNumber>3633</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3726</IntrospectionStateNumber>
       <ServerVersion>15.13</ServerVersion>
-      <StartupTime>1755422439</StartupTime>
+      <StartupTime>1755583431</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -808,13 +800,12 @@ false Zulu
       <Grants>11||10|C|G
 11||-9223372036854775808|U|G
 11||10|U|G
-2200||6171|C|G
-2200||-9223372036854775808|U|G
-2200||6171|U|G
 13547||10|C|G
 13547||-9223372036854775808|U|G
-13547||10|U|G</Grants>
-      <IntrospectionStateNumber>3633</IntrospectionStateNumber>
+13547||10|U|G
+26281||24669|C|G
+26281||24669|U|G</Grants>
+      <IntrospectionStateNumber>3726</IntrospectionStateNumber>
       <ObjectId>24671</ObjectId>
       <OwnerName>admin</OwnerName>
     </database>
@@ -4238,13 +4229,12 @@ false Zulu
       <OwnerName>postgres</OwnerName>
     </schema>
     <schema id="264" parent="2" name="public">
-      <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>3633</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-08-17.15:42:32</LastIntrospectionLocalTimestamp>
-      <ObjectId>2200</ObjectId>
-      <StateNumber>517</StateNumber>
-      <OwnerName>pg_database_owner</OwnerName>
+      <IntrospectionStateNumber>3726</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-08-19.16:21:56</LastIntrospectionLocalTimestamp>
+      <ObjectId>26281</ObjectId>
+      <StateNumber>3681</StateNumber>
+      <OwnerName>admin</OwnerName>
     </schema>
     <object-type id="265" parent="264" name="media_user_action_watchstatus_enum">
       <Labels>toWatch
@@ -4252,541 +4242,684 @@ isWatching
 onHold
 favorites
 archived</Labels>
-      <ObjectId>24674</ObjectId>
-      <StateNumber>930</StateNumber>
+      <ObjectId>26667</ObjectId>
+      <StateNumber>3724</StateNumber>
       <SubCategory>enum</SubCategory>
       <SubKind>enum</SubKind>
       <OwnerName>admin</OwnerName>
     </object-type>
-    <sequence id="266" parent="264" name="comment_votes_id_seq">
-      <ObjectId>26195</ObjectId>
+    <sequence id="266" parent="264" name="comment_vote_id_seq">
+      <ObjectId>26706</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
     <sequence id="267" parent="264" name="comments_id_seq">
-      <ObjectId>26179</ObjectId>
+      <ObjectId>26716</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
     <sequence id="268" parent="264" name="episode_id_seq">
-      <ObjectId>26233</ObjectId>
+      <ObjectId>26745</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
-    <sequence id="269" parent="264" name="media_episode_id_seq">
-      <ObjectId>26242</ObjectId>
+    <sequence id="269" parent="264" name="genre_id_seq">
+      <ObjectId>26629</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
-    <sequence id="270" parent="264" name="media_info_id_seq">
-      <ObjectId>26218</ObjectId>
+    <sequence id="270" parent="264" name="media_episode_id_seq">
+      <ObjectId>26754</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
-    <sequence id="271" parent="264" name="media_user_action_id_seq">
-      <ObjectId>26205</ObjectId>
+    <sequence id="271" parent="264" name="media_genre_id_seq">
+      <ObjectId>26640</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
-    <sequence id="272" parent="264" name="user_auth_id_seq">
-      <ObjectId>26150</ObjectId>
+    <sequence id="272" parent="264" name="media_info_id_seq">
+      <ObjectId>26651</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
-    <sequence id="273" parent="264" name="user_id_seq">
-      <ObjectId>26166</ObjectId>
+    <sequence id="273" parent="264" name="media_user_action_id_seq">
+      <ObjectId>26677</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
-    <table id="274" parent="264" name="comment_votes">
-      <ObjectId>26196</ObjectId>
-      <StateNumber>2883</StateNumber>
+    <sequence id="274" parent="264" name="user_auth_id_seq">
+      <ObjectId>26690</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>3724</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <OwnerName>admin</OwnerName>
+    </sequence>
+    <sequence id="275" parent="264" name="user_id_seq">
+      <ObjectId>26732</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>3724</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <OwnerName>admin</OwnerName>
+    </sequence>
+    <table id="276" parent="264" name="comment_vote">
+      <ObjectId>26707</ObjectId>
+      <StateNumber>3724</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <table id="275" parent="264" name="comments">
-      <ObjectId>26180</ObjectId>
-      <StateNumber>2883</StateNumber>
+    <table id="277" parent="264" name="comments">
+      <ObjectId>26717</ObjectId>
+      <StateNumber>3724</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <table id="276" parent="264" name="episode">
-      <ObjectId>26234</ObjectId>
-      <StateNumber>2883</StateNumber>
+    <table id="278" parent="264" name="episode">
+      <ObjectId>26746</ObjectId>
+      <StateNumber>3724</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <table id="277" parent="264" name="media_episode">
-      <ObjectId>26243</ObjectId>
-      <StateNumber>2883</StateNumber>
+    <table id="279" parent="264" name="genre">
+      <ObjectId>26630</ObjectId>
+      <StateNumber>3724</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <table id="278" parent="264" name="media_info">
-      <ObjectId>26219</ObjectId>
-      <StateNumber>3610</StateNumber>
+    <table id="280" parent="264" name="media_episode">
+      <ObjectId>26755</ObjectId>
+      <StateNumber>3724</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <table id="279" parent="264" name="media_user_action">
-      <ObjectId>26206</ObjectId>
-      <StateNumber>2883</StateNumber>
+    <table id="281" parent="264" name="media_genre">
+      <ObjectId>26641</ObjectId>
+      <StateNumber>3724</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <table id="280" parent="264" name="user">
-      <ObjectId>26167</ObjectId>
-      <StateNumber>2883</StateNumber>
+    <table id="282" parent="264" name="media_info">
+      <ObjectId>26652</ObjectId>
+      <StateNumber>3724</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <table id="281" parent="264" name="user_auth">
-      <ObjectId>26151</ObjectId>
-      <StateNumber>2883</StateNumber>
+    <table id="283" parent="264" name="media_user_action">
+      <ObjectId>26678</ObjectId>
+      <StateNumber>3724</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <column id="282" parent="274" name="id">
-      <DefaultExpression>nextval(&apos;comment_votes_id_seq&apos;::regclass)</DefaultExpression>
+    <table id="284" parent="264" name="user">
+      <ObjectId>26733</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>admin</OwnerName>
+    </table>
+    <table id="285" parent="264" name="user_auth">
+      <ObjectId>26691</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>admin</OwnerName>
+    </table>
+    <column id="286" parent="276" name="id">
+      <DefaultExpression>nextval(&apos;comment_vote_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>26195</SequenceId>
+      <SequenceId>26706</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="283" parent="274" name="vote">
+    <column id="287" parent="276" name="vote">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>smallint|0s</StoredType>
       <TypeId>21</TypeId>
     </column>
-    <column id="284" parent="274" name="commentId">
+    <column id="288" parent="276" name="commentId">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="285" parent="274" name="userId">
+    <column id="289" parent="276" name="userId">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="286" parent="274" name="FK_db0f40562fcbaec17222882574b">
+    <foreign-key id="290" parent="276" name="FK_5d77d92a6925ae3fc8da14e1257">
       <ColNames>commentId</ColNames>
-      <ObjectId>26264</ObjectId>
+      <ObjectId>26781</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>26180</RefTableId>
+      <RefTableId>26717</RefTableId>
     </foreign-key>
-    <foreign-key id="287" parent="274" name="FK_c70cad98b28ff8502621ad0e6f3">
+    <foreign-key id="291" parent="276" name="FK_ade7498b89296b9fb63bcd8dbdd">
       <ColNames>userId</ColNames>
-      <ObjectId>26269</ObjectId>
+      <ObjectId>26786</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>26167</RefTableId>
+      <RefTableId>26733</RefTableId>
     </foreign-key>
-    <index id="288" parent="274" name="PK_2f0e8a57401e7d3fc0e966e771e">
+    <index id="292" parent="276" name="PK_4b5d08afceeb89bd5da77cfd71f">
       <ColNames>id</ColNames>
-      <ObjectId>26200</ObjectId>
+      <ObjectId>26711</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="289" parent="274" name="UQ_dfdbe89dc8423c08d53bdc1ccfb">
+    <index id="293" parent="276" name="UQ_9194f426d41fb9a8abc3aae5114">
       <ColNames>userId
 commentId</ColNames>
-      <ObjectId>26202</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26713</ObjectId>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="290" parent="274" name="IDX_db0f40562fcbaec17222882574">
+    <index id="294" parent="276" name="IDX_5d77d92a6925ae3fc8da14e125">
       <ColNames>commentId</ColNames>
-      <ObjectId>26204</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26715</ObjectId>
+      <StateNumber>3724</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="291" parent="274" name="PK_2f0e8a57401e7d3fc0e966e771e">
-      <ObjectId>26201</ObjectId>
+    <key id="295" parent="276" name="PK_4b5d08afceeb89bd5da77cfd71f">
+      <ObjectId>26712</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26200</UnderlyingIndexId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26711</UnderlyingIndexId>
     </key>
-    <key id="292" parent="274" name="UQ_dfdbe89dc8423c08d53bdc1ccfb">
-      <ObjectId>26203</ObjectId>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26202</UnderlyingIndexId>
+    <key id="296" parent="276" name="UQ_9194f426d41fb9a8abc3aae5114">
+      <ObjectId>26714</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26713</UnderlyingIndexId>
     </key>
-    <column id="293" parent="275" name="id">
+    <column id="297" parent="277" name="id">
       <DefaultExpression>nextval(&apos;comments_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>26179</SequenceId>
+      <SequenceId>26716</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="294" parent="275" name="review">
+    <column id="298" parent="277" name="review">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="295" parent="275" name="mediaId">
+    <column id="299" parent="277" name="mediaId">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="296" parent="275" name="mediaType">
+    <column id="300" parent="277" name="mediaType">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="297" parent="275" name="likesCount">
+    <column id="301" parent="277" name="likesCount">
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="298" parent="275" name="dislikesCount">
+    <column id="302" parent="277" name="dislikesCount">
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="299" parent="275" name="userId">
+    <column id="303" parent="277" name="userId">
       <Position>7</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="300" parent="275" name="parentId">
+    <column id="304" parent="277" name="parentId">
       <Position>8</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="301" parent="275" name="createdAt">
+    <column id="305" parent="277" name="createdAt">
       <DefaultExpression>now()</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>9</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>timestamp|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
-    <column id="302" parent="275" name="updatedAt">
+    <column id="306" parent="277" name="updatedAt">
       <DefaultExpression>now()</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>10</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>timestamp|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
-    <foreign-key id="303" parent="275" name="FK_7e8d7c49f218ebb14314fdb3749">
+    <foreign-key id="307" parent="277" name="FK_7e8d7c49f218ebb14314fdb3749">
       <ColNames>userId</ColNames>
-      <ObjectId>26254</ObjectId>
+      <ObjectId>26791</ObjectId>
       <OnDelete>set-null</OnDelete>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>26167</RefTableId>
+      <RefTableId>26733</RefTableId>
     </foreign-key>
-    <foreign-key id="304" parent="275" name="FK_8770bd9030a3d13c5f79a7d2e81">
+    <foreign-key id="308" parent="277" name="FK_8770bd9030a3d13c5f79a7d2e81">
       <ColNames>parentId</ColNames>
-      <ObjectId>26259</ObjectId>
+      <ObjectId>26796</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>26180</RefTableId>
+      <RefTableId>26717</RefTableId>
     </foreign-key>
-    <index id="305" parent="275" name="PK_8bf68bc960f2b69e818bdb90dcb">
+    <index id="309" parent="277" name="PK_8bf68bc960f2b69e818bdb90dcb">
       <ColNames>id</ColNames>
-      <ObjectId>26190</ObjectId>
+      <ObjectId>26727</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="306" parent="275" name="IDX_549ad90feb94af81fd0a8ce118">
+    <index id="310" parent="277" name="IDX_549ad90feb94af81fd0a8ce118">
       <ColNames>mediaId</ColNames>
-      <ObjectId>26192</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26729</ObjectId>
+      <StateNumber>3724</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="307" parent="275" name="IDX_d66105ba79cc452eb34962e9d1">
+    <index id="311" parent="277" name="IDX_d66105ba79cc452eb34962e9d1">
       <ColNames>mediaType</ColNames>
-      <ObjectId>26193</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26730</ObjectId>
+      <StateNumber>3724</StateNumber>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="308" parent="275" name="IDX_8770bd9030a3d13c5f79a7d2e8">
+    <index id="312" parent="277" name="IDX_8770bd9030a3d13c5f79a7d2e8">
       <ColNames>parentId</ColNames>
-      <ObjectId>26194</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26731</ObjectId>
+      <StateNumber>3724</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="309" parent="275" name="PK_8bf68bc960f2b69e818bdb90dcb">
-      <ObjectId>26191</ObjectId>
+    <key id="313" parent="277" name="PK_8bf68bc960f2b69e818bdb90dcb">
+      <ObjectId>26728</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26190</UnderlyingIndexId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26727</UnderlyingIndexId>
     </key>
-    <column id="310" parent="276" name="id">
+    <column id="314" parent="278" name="id">
       <DefaultExpression>nextval(&apos;episode_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>26233</SequenceId>
+      <SequenceId>26745</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="311" parent="276" name="tvShowId">
+    <column id="315" parent="278" name="tvShowId">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="312" parent="276" name="userId">
+    <column id="316" parent="278" name="userId">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="313" parent="276" name="season">
+    <column id="317" parent="278" name="season">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="314" parent="276" name="episode">
+    <column id="318" parent="278" name="episode">
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="315" parent="276" name="isWatched">
+    <column id="319" parent="278" name="isWatched">
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <index id="316" parent="276" name="PK_7258b95d6d2bf7f621845a0e143">
+    <index id="320" parent="278" name="PK_7258b95d6d2bf7f621845a0e143">
       <ColNames>id</ColNames>
-      <ObjectId>26238</ObjectId>
+      <ObjectId>26750</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="317" parent="276" name="UQ_556408205d0d091ae661573043c">
+    <index id="321" parent="278" name="UQ_556408205d0d091ae661573043c">
       <ColNames>userId
 tvShowId
 season
 episode</ColNames>
-      <ObjectId>26240</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26752</ObjectId>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="318" parent="276" name="PK_7258b95d6d2bf7f621845a0e143">
-      <ObjectId>26239</ObjectId>
+    <key id="322" parent="278" name="PK_7258b95d6d2bf7f621845a0e143">
+      <ObjectId>26751</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26238</UnderlyingIndexId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26750</UnderlyingIndexId>
     </key>
-    <key id="319" parent="276" name="UQ_556408205d0d091ae661573043c">
-      <ObjectId>26241</ObjectId>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26240</UnderlyingIndexId>
+    <key id="323" parent="278" name="UQ_556408205d0d091ae661573043c">
+      <ObjectId>26753</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26752</UnderlyingIndexId>
     </key>
-    <column id="320" parent="277" name="id">
+    <column id="324" parent="279" name="id">
+      <DefaultExpression>nextval(&apos;genre_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>3724</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <SequenceId>26629</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="325" parent="279" name="name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>3724</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="326" parent="279" name="PK_0285d4f1655d080cfcf7d1ab141">
+      <ColNames>id</ColNames>
+      <ObjectId>26636</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>3724</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="327" parent="279" name="UQ_dd8cd9e50dd049656e4be1f7e8c">
+      <ColNames>name</ColNames>
+      <ObjectId>26638</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <key id="328" parent="279" name="PK_0285d4f1655d080cfcf7d1ab141">
+      <ObjectId>26637</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26636</UnderlyingIndexId>
+    </key>
+    <key id="329" parent="279" name="UQ_dd8cd9e50dd049656e4be1f7e8c">
+      <ObjectId>26639</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26638</UnderlyingIndexId>
+    </key>
+    <column id="330" parent="280" name="id">
       <DefaultExpression>nextval(&apos;media_episode_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>26242</SequenceId>
+      <SequenceId>26754</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="321" parent="277" name="mediaId">
+    <column id="331" parent="280" name="mediaId">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="322" parent="277" name="userId">
+    <column id="332" parent="280" name="userId">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="323" parent="277" name="season">
+    <column id="333" parent="280" name="season">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="324" parent="277" name="episode">
+    <column id="334" parent="280" name="episode">
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="325" parent="277" name="isWatched">
+    <column id="335" parent="280" name="isWatched">
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <index id="326" parent="277" name="PK_fa20c2cf09c3a2e89456234746d">
+    <index id="336" parent="280" name="PK_fa20c2cf09c3a2e89456234746d">
       <ColNames>id</ColNames>
-      <ObjectId>26247</ObjectId>
+      <ObjectId>26759</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="327" parent="277" name="PK_fa20c2cf09c3a2e89456234746d">
-      <ObjectId>26248</ObjectId>
+    <key id="337" parent="280" name="PK_fa20c2cf09c3a2e89456234746d">
+      <ObjectId>26760</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26247</UnderlyingIndexId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26759</UnderlyingIndexId>
     </key>
-    <column id="328" parent="278" name="id">
+    <column id="338" parent="281" name="id">
+      <DefaultExpression>nextval(&apos;media_genre_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>3724</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <SequenceId>26640</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="339" parent="281" name="mediaItemId">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>3724</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="340" parent="281" name="genreId">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>3724</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="341" parent="281" name="FK_4118c0fd0b27351ca1749bbafd7">
+      <ColNames>mediaItemId</ColNames>
+      <ObjectId>26761</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>3724</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>26652</RefTableId>
+    </foreign-key>
+    <foreign-key id="342" parent="281" name="FK_987aeeaf619ab9361306fa3e179">
+      <ColNames>genreId</ColNames>
+      <ObjectId>26766</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>3724</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>26630</RefTableId>
+    </foreign-key>
+    <index id="343" parent="281" name="PK_653e770cde3582aeac246902907">
+      <ColNames>id</ColNames>
+      <ObjectId>26645</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>3724</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="344" parent="281" name="UQ_e9a52ba5ea66826c73bc88d3eaa">
+      <ColNames>mediaItemId
+genreId</ColNames>
+      <ObjectId>26647</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="345" parent="281" name="IDX_4118c0fd0b27351ca1749bbafd">
+      <ColNames>mediaItemId</ColNames>
+      <ObjectId>26649</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="346" parent="281" name="IDX_987aeeaf619ab9361306fa3e17">
+      <ColNames>genreId</ColNames>
+      <ObjectId>26650</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="347" parent="281" name="PK_653e770cde3582aeac246902907">
+      <ObjectId>26646</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26645</UnderlyingIndexId>
+    </key>
+    <key id="348" parent="281" name="UQ_e9a52ba5ea66826c73bc88d3eaa">
+      <ObjectId>26648</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26647</UnderlyingIndexId>
+    </key>
+    <column id="349" parent="282" name="id">
       <DefaultExpression>nextval(&apos;media_info_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>26218</SequenceId>
+      <SequenceId>26651</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="329" parent="278" name="mediaId">
+    <column id="350" parent="282" name="mediaId">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="330" parent="278" name="runtime">
+    <column id="351" parent="282" name="runtime">
       <DefaultExpression>&apos;0&apos;::double precision</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>double precision|0s</StoredType>
       <TypeId>701</TypeId>
     </column>
-    <column id="331" parent="278" name="releaseDate">
+    <column id="352" parent="282" name="releaseDate">
       <DefaultExpression>&apos;N/a&apos;::character varying</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="332" parent="278" name="title">
+    <column id="353" parent="282" name="title">
       <DefaultExpression>&apos;N/a&apos;::character varying</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="333" parent="278" name="posterPath">
+    <column id="354" parent="282" name="posterPath">
       <DefaultExpression>&apos;N/a&apos;::character varying</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="334" parent="278" name="voteAverage">
+    <column id="355" parent="282" name="voteAverage">
       <Position>7</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>double precision|0s</StoredType>
       <TypeId>701</TypeId>
     </column>
-    <column id="335" parent="278" name="mediaType">
+    <column id="356" parent="282" name="mediaType">
       <NotNull>1</NotNull>
       <Position>8</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="336" parent="278" name="genres">
-      <DefaultExpression>&apos;&apos;::character varying</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>9</Position>
-      <StateNumber>3610</StateNumber>
-      <StoredType>varchar|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="337" parent="278" name="PK_69aba157c8990377e88bebb272a">
+    <index id="357" parent="282" name="PK_69aba157c8990377e88bebb272a">
       <ColNames>id</ColNames>
-      <ObjectId>26229</ObjectId>
+      <ObjectId>26662</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="338" parent="278" name="UQ_c042d3faeb00c28c5e8393d4266">
+    <index id="358" parent="282" name="UQ_c042d3faeb00c28c5e8393d4266">
       <ColNames>mediaId
 mediaType</ColNames>
-      <ObjectId>26231</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26664</ObjectId>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationIds>
@@ -4796,103 +4929,103 @@ pg_catalog</CollationParentNames>
       <CollationNames>
 default</CollationNames>
     </index>
-    <key id="339" parent="278" name="PK_69aba157c8990377e88bebb272a">
-      <ObjectId>26230</ObjectId>
+    <key id="359" parent="282" name="PK_69aba157c8990377e88bebb272a">
+      <ObjectId>26663</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26229</UnderlyingIndexId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26662</UnderlyingIndexId>
     </key>
-    <key id="340" parent="278" name="UQ_c042d3faeb00c28c5e8393d4266">
-      <ObjectId>26232</ObjectId>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26231</UnderlyingIndexId>
+    <key id="360" parent="282" name="UQ_c042d3faeb00c28c5e8393d4266">
+      <ObjectId>26665</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26664</UnderlyingIndexId>
     </key>
-    <column id="341" parent="279" name="id">
+    <column id="361" parent="283" name="id">
       <DefaultExpression>nextval(&apos;media_user_action_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>26205</SequenceId>
+      <SequenceId>26677</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="342" parent="279" name="mediaInfoId">
+    <column id="362" parent="283" name="mediaInfoId">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="343" parent="279" name="mediaId">
+    <column id="363" parent="283" name="mediaId">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="344" parent="279" name="userId">
+    <column id="364" parent="283" name="userId">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="345" parent="279" name="isLiked">
+    <column id="365" parent="283" name="isLiked">
       <DefaultExpression>false</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <column id="346" parent="279" name="isWatched">
+    <column id="366" parent="283" name="isWatched">
       <DefaultExpression>false</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <column id="347" parent="279" name="rating">
+    <column id="367" parent="283" name="rating">
       <Position>7</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>double precision|0s</StoredType>
       <TypeId>701</TypeId>
     </column>
-    <column id="348" parent="279" name="watchStatus">
+    <column id="368" parent="283" name="watchStatus">
       <Position>8</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>media_user_action_watchstatus_enum|0s</StoredType>
-      <TypeId>24674</TypeId>
+      <TypeId>26667</TypeId>
     </column>
-    <column id="349" parent="279" name="mediaType">
+    <column id="369" parent="283" name="mediaType">
       <NotNull>1</NotNull>
       <Position>9</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="350" parent="279" name="FK_511341f22a523b25d6fe73f29d7">
+    <foreign-key id="370" parent="283" name="FK_511341f22a523b25d6fe73f29d7">
       <ColNames>mediaInfoId</ColNames>
-      <ObjectId>26274</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26771</ObjectId>
+      <StateNumber>3724</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>26219</RefTableId>
+      <RefTableId>26652</RefTableId>
     </foreign-key>
-    <index id="351" parent="279" name="PK_c7aae7a237dbacfa6dfe15eb08d">
+    <index id="371" parent="283" name="PK_c7aae7a237dbacfa6dfe15eb08d">
       <ColNames>id</ColNames>
-      <ObjectId>26214</ObjectId>
+      <ObjectId>26686</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="352" parent="279" name="UQ_ddb5651ceb9c130cd0169c4e96b">
+    <index id="372" parent="283" name="UQ_ddb5651ceb9c130cd0169c4e96b">
       <ColNames>mediaId
 userId
 mediaType</ColNames>
-      <ObjectId>26216</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26688</ObjectId>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>
@@ -4905,202 +5038,202 @@ pg_catalog</CollationParentNames>
 
 100</CollationIds>
     </index>
-    <key id="353" parent="279" name="PK_c7aae7a237dbacfa6dfe15eb08d">
-      <ObjectId>26215</ObjectId>
+    <key id="373" parent="283" name="PK_c7aae7a237dbacfa6dfe15eb08d">
+      <ObjectId>26687</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26214</UnderlyingIndexId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26686</UnderlyingIndexId>
     </key>
-    <key id="354" parent="279" name="UQ_ddb5651ceb9c130cd0169c4e96b">
-      <ObjectId>26217</ObjectId>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26216</UnderlyingIndexId>
+    <key id="374" parent="283" name="UQ_ddb5651ceb9c130cd0169c4e96b">
+      <ObjectId>26689</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26688</UnderlyingIndexId>
     </key>
-    <column id="355" parent="280" name="id">
+    <column id="375" parent="284" name="id">
       <DefaultExpression>nextval(&apos;user_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>26166</SequenceId>
+      <SequenceId>26732</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="356" parent="280" name="email">
+    <column id="376" parent="284" name="email">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="357" parent="280" name="username">
+    <column id="377" parent="284" name="username">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="358" parent="280" name="password">
+    <column id="378" parent="284" name="password">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="359" parent="280" name="firstName">
+    <column id="379" parent="284" name="firstName">
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="360" parent="280" name="lastName">
+    <column id="380" parent="284" name="lastName">
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="361" parent="280" name="PK_cace4a159ff9f2512dd42373760">
+    <index id="381" parent="284" name="PK_cace4a159ff9f2512dd42373760">
       <ColNames>id</ColNames>
-      <ObjectId>26173</ObjectId>
+      <ObjectId>26739</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="362" parent="280" name="UQ_e12875dfb3b1d92d7d7c5377e22">
+    <index id="382" parent="284" name="UQ_e12875dfb3b1d92d7d7c5377e22">
       <ColNames>email</ColNames>
-      <ObjectId>26175</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26741</ObjectId>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="363" parent="280" name="UQ_78a916df40e02a9deb1c4b75edb">
+    <index id="383" parent="284" name="UQ_78a916df40e02a9deb1c4b75edb">
       <ColNames>username</ColNames>
-      <ObjectId>26177</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26743</ObjectId>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="364" parent="280" name="PK_cace4a159ff9f2512dd42373760">
-      <ObjectId>26174</ObjectId>
+    <key id="384" parent="284" name="PK_cace4a159ff9f2512dd42373760">
+      <ObjectId>26740</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26173</UnderlyingIndexId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26739</UnderlyingIndexId>
     </key>
-    <key id="365" parent="280" name="UQ_e12875dfb3b1d92d7d7c5377e22">
-      <ObjectId>26176</ObjectId>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26175</UnderlyingIndexId>
+    <key id="385" parent="284" name="UQ_e12875dfb3b1d92d7d7c5377e22">
+      <ObjectId>26742</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26741</UnderlyingIndexId>
     </key>
-    <key id="366" parent="280" name="UQ_78a916df40e02a9deb1c4b75edb">
-      <ObjectId>26178</ObjectId>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26177</UnderlyingIndexId>
+    <key id="386" parent="284" name="UQ_78a916df40e02a9deb1c4b75edb">
+      <ObjectId>26744</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26743</UnderlyingIndexId>
     </key>
-    <column id="367" parent="281" name="id">
+    <column id="387" parent="285" name="id">
       <DefaultExpression>nextval(&apos;user_auth_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>26150</SequenceId>
+      <SequenceId>26690</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="368" parent="281" name="refreshToken">
+    <column id="388" parent="285" name="refreshToken">
       <Position>2</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="369" parent="281" name="activationLink">
+    <column id="389" parent="285" name="activationLink">
       <Position>3</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="370" parent="281" name="isEmailConfirmed">
+    <column id="390" parent="285" name="isEmailConfirmed">
       <DefaultExpression>false</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <column id="371" parent="281" name="userId">
+    <column id="391" parent="285" name="userId">
       <Position>5</Position>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="372" parent="281" name="FK_52403f2133a7b1851d8ab4dc9db">
+    <foreign-key id="392" parent="285" name="FK_52403f2133a7b1851d8ab4dc9db">
       <ColNames>userId</ColNames>
-      <ObjectId>26249</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26776</ObjectId>
+      <StateNumber>3724</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>26167</RefTableId>
+      <RefTableId>26733</RefTableId>
     </foreign-key>
-    <index id="373" parent="281" name="PK_56d00ec31dc3eed1c3f6bff4f58">
+    <index id="393" parent="285" name="PK_56d00ec31dc3eed1c3f6bff4f58">
       <ColNames>id</ColNames>
-      <ObjectId>26158</ObjectId>
+      <ObjectId>26698</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="374" parent="281" name="UQ_e36d4921f085616d899451c5854">
+    <index id="394" parent="285" name="UQ_e36d4921f085616d899451c5854">
       <ColNames>refreshToken</ColNames>
-      <ObjectId>26160</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26700</ObjectId>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="375" parent="281" name="UQ_6d0131277dd2906be838d5a883a">
+    <index id="395" parent="285" name="UQ_6d0131277dd2906be838d5a883a">
       <ColNames>activationLink</ColNames>
-      <ObjectId>26162</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26702</ObjectId>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="376" parent="281" name="REL_52403f2133a7b1851d8ab4dc9d">
+    <index id="396" parent="285" name="REL_52403f2133a7b1851d8ab4dc9d">
       <ColNames>userId</ColNames>
-      <ObjectId>26164</ObjectId>
-      <StateNumber>2883</StateNumber>
+      <ObjectId>26704</ObjectId>
+      <StateNumber>3724</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="377" parent="281" name="PK_56d00ec31dc3eed1c3f6bff4f58">
-      <ObjectId>26159</ObjectId>
+    <key id="397" parent="285" name="PK_56d00ec31dc3eed1c3f6bff4f58">
+      <ObjectId>26699</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26158</UnderlyingIndexId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26698</UnderlyingIndexId>
     </key>
-    <key id="378" parent="281" name="UQ_e36d4921f085616d899451c5854">
-      <ObjectId>26161</ObjectId>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26160</UnderlyingIndexId>
+    <key id="398" parent="285" name="UQ_e36d4921f085616d899451c5854">
+      <ObjectId>26701</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26700</UnderlyingIndexId>
     </key>
-    <key id="379" parent="281" name="UQ_6d0131277dd2906be838d5a883a">
-      <ObjectId>26163</ObjectId>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26162</UnderlyingIndexId>
+    <key id="399" parent="285" name="UQ_6d0131277dd2906be838d5a883a">
+      <ObjectId>26703</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26702</UnderlyingIndexId>
     </key>
-    <key id="380" parent="281" name="REL_52403f2133a7b1851d8ab4dc9d">
-      <ObjectId>26165</ObjectId>
-      <StateNumber>2883</StateNumber>
-      <UnderlyingIndexId>26164</UnderlyingIndexId>
+    <key id="400" parent="285" name="REL_52403f2133a7b1851d8ab4dc9d">
+      <ObjectId>26705</ObjectId>
+      <StateNumber>3724</StateNumber>
+      <UnderlyingIndexId>26704</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

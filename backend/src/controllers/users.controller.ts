@@ -5,7 +5,7 @@ export async function getUserStats(req: Request, res: Response) {
   const userId: number | undefined = req.user?.id;
 
   const data = await Promise.all([
-    usersStatsService.getCard(userId),
+    usersStatsService.getUserMediaStats(userId),
     usersStatsService.getTopRatedMedia(userId, 'tv'),
     usersStatsService.getTopRatedMedia(userId, 'movie'),
   ]);
