@@ -62,7 +62,7 @@ class UserStatsService {
   async getFavoriteGenres(userId: number | undefined, _limit: number = 5): Promise<any> {
     return await this.ds
       .createQueryBuilder()
-      .select(['g.name', 'COUNT(g.name)'])
+      .select(['g.name as name', 'COUNT(g.name)'])
       .from(MediaUserAction, 'mua')
       .where('mua.userId = :userId', { userId })
       .innerJoin(MediaInfo, 'mi', 'mi.id = mua.mediaInfoId')

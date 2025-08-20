@@ -6,6 +6,7 @@ import { MediaContentBlock } from '@features/media';
 import PageWrapper from '@shared/ui/PageWrapper';
 import DashboardMainStats from '@features/dashboard/ui/DashboardMainStats';
 import useUserMediaStats from '@shared/hooks/useUserMediaStats';
+import DashboardTopGenres from '@features/dashboard/ui/DashboardTopGenres';
 
 const Dashboard = () => {
   const userMeta: IUser | null = useSelector(selectUserMetaData);
@@ -18,7 +19,12 @@ const Dashboard = () => {
     <PageWrapper>
       <Stack spacing={10}>
         <DashboardMainStats userMediaStats={data} />
-        <MediaContentBlock blockTitle="Top Genres"></MediaContentBlock>
+        <Stack direction="row" gap={10} justifyContent="space-between">
+          <MediaContentBlock blockTitle="Top Genres">
+            <DashboardTopGenres userMediaStats={data} />
+          </MediaContentBlock>
+          <MediaContentBlock blockTitle="Quick Stats"></MediaContentBlock>
+        </Stack>
       </Stack>
     </PageWrapper>
   );
