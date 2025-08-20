@@ -1,9 +1,9 @@
 import { WatchStatus } from '@shared/types/generalTypes';
-import { DragEndEvent, DndContext } from '@dnd-kit/core';
+import { DndContext, DragEndEvent } from '@dnd-kit/core';
 import { Stack } from '@mui/material';
-import { MovieBoardColumnList } from '@features/movieBoard';
-import useUpdateMovieBoardItem from '@features/movieBoard/hooks/useUpdateMovieBoardItem';
-import useMovieBoardItems from '@features/movieBoard/hooks/useMovieBoardItems';
+import { MovieBoardColumnList } from '@features/movie-board';
+import useUpdateMovieBoardItem from '@features/movie-board/hooks/useUpdateMovieBoardItem';
+import useMovieBoardItems from '@features/movie-board/hooks/useMovieBoardItems';
 
 const MovieBoard = () => {
   const { data: movieBoardItems, isSuccess } = useMovieBoardItems();

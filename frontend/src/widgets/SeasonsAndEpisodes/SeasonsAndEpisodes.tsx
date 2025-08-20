@@ -2,9 +2,9 @@ import { SeasonsAndEpisodesProps } from '@features/media/model/types/mediaTypes'
 import { Grid } from '@mui/material';
 import { useState } from 'react';
 import { useParams } from 'react-router';
-import { EpisodeList, SeasonList } from '@features/tvShow';
-import useEpisodeList from '@features/tvShow/model/hooks/useEpisodeList';
-import useGetOrCreateEpisodeActionList from '@features/tvShow/model/hooks/useGetOrCreateEpisodeActionList';
+import { EpisodeList, SeasonList } from '@features/tv-show';
+import useEpisodeList from '@features/tv-show/model/hooks/useEpisodeList';
+import useGetOrCreateEpisodeActionList from '@features/tv-show/model/hooks/useGetOrCreateEpisodeActionList';
 
 const SeasonsAndEpisodes = ({ seasons }: SeasonsAndEpisodesProps) => {
   const [currentSeasonNumber, setSeasonNumber] = useState(1);

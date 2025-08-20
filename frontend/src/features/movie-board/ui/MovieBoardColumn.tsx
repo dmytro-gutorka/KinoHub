@@ -1,6 +1,6 @@
 import { useDroppable } from '@dnd-kit/core';
 import { Stack, styled, Typography, useTheme } from '@mui/material';
-import { MovieBoardColumnProps } from '@features/movieBoard/model/types/movieBoardTypes';
+import { MovieBoardColumnProps } from '@features/movie-board/model/types/movieBoardTypes';
 
 const MovieBoardIcon = styled(Stack)(() => ({
   minWidth: '45px',

@@ -5,14 +5,14 @@ export async function getUserStats(req: Request, res: Response) {
   const userId: number | undefined = req.user?.id;
 
   const data = await Promise.all([
-    usersStatsService.getUserMediaStats(userId),
+    usersStatsService.getUserMediaAggregatedStats(userId),
     usersStatsService.getTopRatedMedia(userId, 'tv'),
     usersStatsService.getTopRatedMedia(userId, 'movie'),
     usersStatsService.getFavoriteGenres(userId),
   ]);
 
   res.status(200).json({
-    userStats: data[0],
+    userMediaAggregatedStats: data[0],
     topRatedTv: data[1],
     topRatedMovie: data[2],
     favoriteGenres: data[3],

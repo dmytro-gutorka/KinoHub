@@ -3,11 +3,11 @@ import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutline
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';
-import { MovieBoardColumn, MovieBoardItem } from '@features/movieBoard';
+import { MovieBoardColumn, MovieBoardItem } from '@features/movie-board';
 import {
   MovieBoardColumnData,
   MovieBoardColumnListProps,
-} from '@features/movieBoard/model/types/movieBoardTypes';
+} from '@features/movie-board/model/types/movieBoardTypes';
 
 export default function MovieBoardColumnList({ movieBoardItems }: MovieBoardColumnListProps) {
   const theme = useTheme();

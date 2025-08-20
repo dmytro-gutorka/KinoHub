@@ -1,9 +1,9 @@
 import { Stack } from '@mui/material';
 
 import Logo from '@shared/ui/Logo';
-import AsideBarMenuSectionLinks from '@features/asideBar/ui/AsideBarMenuSection';
-import AsideBarLibrarySection from '@features/asideBar/ui/AsideBarLibrarySection';
-import AsideBarGeneralSection from '@features/asideBar/ui/AsideBarGeneralSection';
+import AsideBarMenuSectionLinks from '@features/aside-bar/ui/AsideBarMenuSection';
+import AsideBarLibrarySection from '@features/aside-bar/ui/AsideBarLibrarySection';
+import AsideBarGeneralSection from '@features/aside-bar/ui/AsideBarGeneralSection';
 
 const AsideBar = () => {
   return (

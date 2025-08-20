@@ -3,8 +3,8 @@ import LiveTvRoundedIcon from '@mui/icons-material/LiveTvRounded';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
-import AsideBarSectionContainer from '@features/asideBar/ui/AsideBarSectionContainer';
-import { AsideBarLink } from '@features/asideBar';
+import AsideBarSectionContainer from '@features/aside-bar/ui/AsideBarSectionContainer';
+import { AsideBarLink } from '@features/aside-bar';
 
 export default function AsideBarMenuSectionLinks() {
   return (

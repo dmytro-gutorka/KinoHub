@@ -48,4 +48,8 @@ export const apiPath = {
     create: (commentId: number) => `${API_URL}/media/comments/${commentId}/vote`,
     update: (commentId: number) => `${API_URL}/media/comments/${commentId}/vote`,
   },
+
+  userStats: {
+    getOneBy: (userId: number) => `${API_URL}/users/${userId}/stats`,
+  },
 };

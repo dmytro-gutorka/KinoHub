@@ -36,3 +36,23 @@ export type MediaUserActions = {
 };
 
 export type SeasonDataWithEpisodes = TmdbSeasonInfo & { episodes: Array<TmdbEpisodeInfo> };
+
+export interface UserMediaAggregatedStats {
+  avgRating: number | null;
+  maxRating: number | null;
+  minRating: number | null;
+  ratingCount: number;
+  runtimeMovie: number;
+  runtimeTv: number;
+  watchedMovie: number;
+  watchedTv: number;
+  watchedEpisodes: number;
+  commentsCount: number;
+}
+
+export interface UserMediaStats {
+  favoriteGenres: any[];
+  topRatedMovie: any[];
+  topRatedTv: any[];
+  userMediaAggregatedStats: UserMediaAggregatedStats;
+}

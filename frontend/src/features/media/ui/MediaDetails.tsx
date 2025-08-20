@@ -3,7 +3,7 @@ import { MediaDetailsProps } from '@features/media/model/types/mediaTypes';
 import { MediaType } from '@shared/types/generalTypes';
 import { List } from '@mui/material';
 import { JSX } from 'react';
-import MediaContentBlock from '@shared/ui/MediaContentBlock';
+import BlockWrapper from '@shared/ui/BlockWrapper';
 import MediaItemList from '@features/media/ui/MediaItemList';
 import convertToUSD from '@shared/helpers/convertToUSD';
 
@@ -21,7 +21,7 @@ export default function MediaDetails<T extends MediaType>({
     } = tmdbMediaData as TmdbTvShowDetails;
 
     return (
-      <MediaContentBlock blockTitle="TV Show Details">
+      <BlockWrapper blockTitle="TV Show Details">
         <List>
           <MediaItemList label="Air date" data={airDate} />
           <MediaItemList label="Number of Seasons" data={seasonsNumber} />
@@ -31,7 +31,7 @@ export default function MediaDetails<T extends MediaType>({
           <MediaItemList label="Language" data={language?.[0]?.english_name || 'N/A'} />
           <MediaItemList label="Country" data={country?.[0]?.name || 'Unknown'} />
         </List>
-      </MediaContentBlock>
+      </BlockWrapper>
     );
   }
 
@@ -39,7 +39,7 @@ export default function MediaDetails<T extends MediaType>({
     const { budget, revenue, release_date: releaseDate } = tmdbMediaData as TmdbMovieDetails;
 
     return (
-      <MediaContentBlock blockTitle="Movie Details">
+      <BlockWrapper blockTitle="Movie Details">
         <List>
           <MediaItemList label="Release date" data={releaseDate} />
           <MediaItemList label="Status" data={status} />
@@ -51,7 +51,7 @@ export default function MediaDetails<T extends MediaType>({
           <MediaItemList label="Language" data={language?.[0]?.english_name || 'N/A'} />
           <MediaItemList label="Country" data={country?.[0]?.name || 'Unknown'} />
         </List>
-      </MediaContentBlock>
+      </BlockWrapper>
     );
   }
 }

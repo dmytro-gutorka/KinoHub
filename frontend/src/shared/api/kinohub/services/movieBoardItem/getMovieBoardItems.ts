@@ -1,6 +1,6 @@
 import { axiosWithAuth } from '@shared/api/kinohub/kinohubAxios';
 import { apiPath } from '@shared/api/kinohub/apiPaths';
-import { MovieBoardItemData } from '@features/movieBoard/model/types/movieBoardTypes';
+import { MovieBoardItemData } from '@features/movie-board/model/types/movieBoardTypes';
 
 const getMovieBoardItems = async () => {
   const url: string = apiPath.movieBoardItems.getList();

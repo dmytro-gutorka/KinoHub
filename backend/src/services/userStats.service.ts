@@ -1,5 +1,5 @@
 import { fileURLToPath } from 'node:url';
-import { MediaType, UserStatsCard } from '../types/types.js';
+import { MediaType, UserMediaAggregatedStats } from '../types/types.js';
 import { MediaUserAction } from '../entity/MediaUserAction.js';
 import { userRepository } from '../repositories/user.repository.js';
 import { AppDataSource } from '../config/db.js';
@@ -19,7 +19,7 @@ const userStatsSQL = fs.readFileSync(path.join(__dirname, './queries/user_stats_
 class UserStatsService {
   constructor(private readonly ds: DataSource) {}
 
-  async getUserMediaStats(userId: number | undefined): Promise<UserStatsCard> {
+  async getUserMediaAggregatedStats(userId: number | undefined): Promise<UserMediaAggregatedStats> {
     const user: User | null = await userRepository.findOneBy({ id: userId });
 
     if (!user) throw HttpError.NotFound('User not found');

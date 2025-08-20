@@ -1,5 +1,5 @@
 import { Box, Stack, Typography } from '@mui/material';
-import { AsideBarSectionProps } from '@features/asideBar/model/asideBarTypes';
+import { AsideBarSectionProps } from '@features/aside-bar/model/asideBarTypes';
 
 const AsideBarSectionContainer = ({ children, title }: AsideBarSectionProps) => {
   return (

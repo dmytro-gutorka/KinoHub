@@ -2,7 +2,7 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import InsertChartOutlinedOutlinedIcon from '@mui/icons-material/InsertChartOutlinedOutlined';
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import AsideBarSectionContainer from './AsideBarSectionContainer';
-import { AsideBarLink } from '@features/asideBar';
+import { AsideBarLink } from '@features/aside-bar';
 
 export default function AsideBarLibrarySection() {
   return (

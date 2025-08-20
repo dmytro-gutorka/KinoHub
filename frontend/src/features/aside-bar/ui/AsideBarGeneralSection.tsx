@@ -1,4 +1,4 @@
-import { AsideBarLink } from '@features/asideBar';
+import { AsideBarLink } from '@features/aside-bar';
 import AsideBarSectionContainer from './AsideBarSectionContainer';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 

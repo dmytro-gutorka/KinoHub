@@ -13,7 +13,7 @@ const DashboardCard = ({ children, dashStat, mainColor, label }) => {
       p={5}
       sx={{ background: theme.palette[mainColor].darkGradient }}
     >
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
+      <Stack direction="row" justifyContent="space-between" alignItems="center" mb={4}>
         {children}
       </Stack>
 

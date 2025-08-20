@@ -42,7 +42,7 @@ export type AuthedRequest<P = any, ResB = any, ReqB = any, Q = any> = Request<P,
   user: { id: number };
 };
 
-export interface UserStatsCard {
+export interface UserMediaAggregatedStats {
   avgRating: number | null;
   maxRating: number | null;
   minRating: number | null;
@@ -53,4 +53,11 @@ export interface UserStatsCard {
   watchedTv: number;
   watchedEpisodes: number;
   commentsCount: number;
+}
+
+export interface UserStats {
+  favoriteGenres: any[];
+  topRatedMovie: any[];
+  topRatedTv: any[];
+  userMediaAggregatedStats: UserMediaAggregatedStats;
 }

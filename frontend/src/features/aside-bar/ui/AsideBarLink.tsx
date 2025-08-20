@@ -1,5 +1,5 @@
-import { NavLink as RouterNavLink, NavLinkProps } from 'react-router';
-import { AsideBarLinkProps, StyledNavLinkProps } from '@features/asideBar/model/asideBarTypes';
+import { NavLink as RouterNavLink } from 'react-router';
+import { AsideBarLinkProps, StyledNavLinkProps } from '@features/aside-bar/model/asideBarTypes';
 import { Stack, styled } from '@mui/material';
 import Link from '@mui/material/Link';
 import React from 'react';

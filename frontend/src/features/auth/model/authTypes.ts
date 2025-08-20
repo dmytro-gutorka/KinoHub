@@ -1,14 +1,14 @@
 export type RequestStatus = 'idle' | 'loading' | 'success' | 'error';
 export type AuthRequestType = Record<string, { status: RequestStatus; error?: string | null }>;
 
-export interface User {
+export interface IUser {
   id: number;
   email: string;
   username: string;
 }
 
 export interface AuthState {
-  user: User | null;
+  user: IUser | null;
   isAuthenticated: boolean;
   isEmailConfirmed: boolean;
   requests: AuthRequestType;
@@ -28,7 +28,7 @@ export interface UserRegisterCredentials {
 }
 
 export interface UserAuthData {
-  data: User;
+  data: IUser;
   accessToken: string;
 }
 

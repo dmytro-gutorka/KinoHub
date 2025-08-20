@@ -1,9 +1,9 @@
 import { Box, Typography, useTheme } from '@mui/material';
 import { MediaContentBlockProps } from '@features/media/model/types/mediaTypes';
 
-export default function MediaContentBlock({
-  blockTitle,
+export default function BlockWrapper({
   children,
+  blockTitle,
   titleFontWeight = 900,
   titleSizeVariant = 'h5',
 }: MediaContentBlockProps) {
