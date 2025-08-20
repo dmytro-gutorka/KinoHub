@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/entity/Genre.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/Genre.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/entity/MediaGenre.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/MediaGenre.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/media.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/media.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/utils/helpers/mapTmdbMediaData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/utils/helpers/mapTmdbMediaData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/users.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/userStats.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/userStats.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +237,7 @@
       <workItem from="1755513687395" duration="8147000" />
       <workItem from="1755537348759" duration="1229000" />
       <workItem from="1755583436592" duration="12673000" />
-      <workItem from="1755672678179" duration="12360000" />
+      <workItem from="1755672678179" duration="13524000" />
     </task>
     <servers />
   </component>

@@ -10,6 +10,8 @@ import { User } from '../entity/User.js';
 import path from 'path';
 
 import * as fs from 'node:fs';
+import { MediaGenre } from '../entity/MediaGenre.js';
+import { Genre } from '../entity/Genre.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const userStatsSQL = fs.readFileSync(path.join(__dirname, './queries/user_stats_card.sql'), 'utf8');
@@ -39,7 +41,11 @@ class UserStatsService {
     };
   }
 
-  async getTopRatedMedia(userId: number | undefined, mediaType: MediaType): Promise<any> {
+  async getTopRatedMedia(
+    userId: number | undefined,
+    mediaType: MediaType,
+    _limit: number = 5
+  ): Promise<any> {
     return await this.ds
       .createQueryBuilder()
       .from(MediaUserAction, 'mua')
@@ -49,7 +55,22 @@ class UserStatsService {
       .andWhere('mua.mediaType = :mediaType', { mediaType })
       .andWhere('mua.rating IS NOT NULL')
       .orderBy('mua.rating', 'DESC')
-      .limit(10)
+      .limit(_limit)
+      .getRawMany();
+  }
+
+  async getFavoriteGenres(userId: number | undefined, _limit: number = 5): Promise<any> {
+    return await this.ds
+      .createQueryBuilder()
+      .select(['g.name', 'COUNT(g.name)'])
+      .from(MediaUserAction, 'mua')
+      .where('mua.userId = :userId', { userId })
+      .innerJoin(MediaInfo, 'mi', 'mi.id = mua.mediaInfoId')
+      .innerJoin(MediaGenre, 'mg', 'mi.id = mg.mediaItemId')
+      .innerJoin(Genre, 'g', 'g.id = mg.genreId')
+      .groupBy('g.name')
+      .orderBy('COUNT(g.name)', 'DESC')
+      .limit(_limit)
       .getRawMany();
   }
 }
