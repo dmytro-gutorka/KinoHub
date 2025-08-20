@@ -1,9 +1,9 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn, Relation } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryColumn, Relation } from 'typeorm';
 import { MediaGenre } from './MediaGenre.js';
 
 @Entity({ schema: 'public' })
 export class Genre {
-  @PrimaryGeneratedColumn({ type: 'int' })
+  @PrimaryColumn({ type: 'int' })
   id!: number;
 
   @Column({ unique: true })

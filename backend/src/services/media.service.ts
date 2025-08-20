@@ -2,6 +2,7 @@ import { MediaType } from '../types/types.js';
 import { HttpError } from '../errors/HttpError.js';
 import { MediaInfo } from '../entity/MediaInfo.js';
 import { mediaRepository } from '../repositories/media.repository.js';
+import { mediaGenresRepository } from '../repositories/mediaGenres.repository.js';
 import getTmdbMediaDetails from '../utils/api/getTmdbMediaDetails.js';
 
 export class MediaService {
@@ -14,26 +15,54 @@ export class MediaService {
   }
 
   async create(mediaId: number, mediaType: MediaType): Promise<MediaInfo> {
-    const isMediaExists: MediaInfo | null = await mediaRepository.findOneBy({ mediaId, mediaType });
+    const mediaItem: MediaInfo | null = await mediaRepository.findOneBy({ mediaId, mediaType });
 
-    if (isMediaExists) throw HttpError.Conflict('Media already exists');
+    if (mediaItem) throw HttpError.Conflict('Media already exists');
 
     const mappedMediaData = await getTmdbMediaDetails(mediaId, mediaType);
-    const media: MediaInfo = mediaRepository.create({ mediaId, mediaType, ...mappedMediaData });
+    const { genres: genreIds, ...mediaData } = mappedMediaData;
+
+    const media: MediaInfo = mediaRepository.create({ mediaId, mediaType, ...mediaData });
     await mediaRepository.save(media);
+
+    await this.addGenresToMedia(media.id, genreIds, mediaType);
 
     return media;
   }
 
   async update(mediaId: number, mediaType: MediaType): Promise<MediaInfo> {
-    const media: MediaInfo | null = await mediaRepository.findOneBy({ mediaId, mediaType });
+    const mediaItem: MediaInfo | null = await mediaRepository.findOneBy({ mediaId, mediaType });
 
-    if (!media) throw HttpError.NotFound('Media not found');
+    if (!mediaItem) throw HttpError.NotFound('Media not found');
 
     const mappedMediaData = await getTmdbMediaDetails(mediaId, mediaType);
-    await mediaRepository.update({ mediaId }, mappedMediaData);
+    const { genres: genreIds, ...mediaData } = mappedMediaData;
 
-    return media;
+    const rows = await mediaRepository
+      .createQueryBuilder()
+      .update()
+      .set(mediaData)
+      .where({ mediaId, mediaType })
+      .returning('*')
+      .execute();
+
+    const updatedMediaItem = rows?.raw[0];
+    await this.addGenresToMedia(updatedMediaItem.id, genreIds, mediaType);
+
+    return updatedMediaItem;
+  }
+
+  async addGenresToMedia(mediaId: number, genreIds: number[], mediaType: MediaType): Promise<void> {
+    if (genreIds.length === 0) return;
+
+    await mediaGenresRepository.upsert(
+      genreIds.map((genreId: number) => ({
+        mediaItemId: mediaId,
+        genreId,
+        mediaType,
+      })),
+      ['mediaItemId', 'genreId', 'mediaType']
+    );
   }
 }
 

@@ -7,7 +7,7 @@ export default function mapTmdbMediaData(data: any) {
     voteAverage: data?.vote_average ?? 0,
     genres:
       data?.genres?.length > 0
-        ? data?.genres.map((genre: { name: string; id: number }) => genre.name).join(',')
-        : '',
+        ? data?.genres.map((genre: { name: string; id: string }) => Number(genre.id))
+        : [],
   };
 }
