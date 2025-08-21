@@ -8,7 +8,7 @@ const DashboardCard = ({ children, dashStat, mainColor, label }) => {
       border={theme.customStyles.border}
       borderRadius={2}
       minHeight="150px"
-      width="360px"
+      minWidth="360px"
       gap={2}
       p={5}
       sx={{ background: theme.palette[mainColor].darkGradient }}
@@ -24,7 +24,7 @@ const DashboardCard = ({ children, dashStat, mainColor, label }) => {
         <Typography variant="subtitle1" color={theme.palette[mainColor].light}>
           {label}
         </Typography>
-        <Typography variant="subtitle2" color={theme.palette.grey[500]}>
+        <Typography variant="subtitle2" color={theme.palette.grey[400]}>
           This month
         </Typography>
       </Box>

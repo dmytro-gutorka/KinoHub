@@ -10,7 +10,14 @@ export default function BlockWrapper({
   const theme = useTheme();
 
   return (
-    <Box borderRadius={2.5} padding={4} border={theme.customStyles.border}>
+    <Box
+      borderRadius={2.5}
+      padding={4}
+      border={theme.customStyles.border}
+      flexGrow={1}
+      flexBasis={1}
+      minWidth={300}
+    >
       <Typography
         variant={titleSizeVariant}
         component="h3"
