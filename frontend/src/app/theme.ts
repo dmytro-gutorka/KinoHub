@@ -4,6 +4,7 @@ import { createTheme } from '@mui/material';
 const theme = createTheme({
   palette: {
     mode: 'dark',
+    starColor: 'rgb(250 204 21)',
     transparentGrey: 'rgb(255 255 255 / 0.1)',
     gradientMidnightSpace: 'linear-gradient(to bottom right, #000000, #0f172a, #000000)',
     gradientGrey: 'linear-gradient(to right, #475569, #4b5563)',

@@ -1,36 +1,56 @@
-import { IUser } from '@features/auth/model/authTypes';
-import { Container, Stack } from '@mui/material';
-import { selectUserMetaData } from '@features/auth/model/selectors';
 import { useSelector } from 'react-redux';
+import { selectUserMetaData } from '@features/auth/model/selectors';
+import { IUser } from '@features/auth/model/authTypes';
+import { Container } from '@mui/material';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import TabList from '@mui/lab/TabList';
+import PhoneIcon from '@mui/icons-material/Phone';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import PersonPinIcon from '@mui/icons-material/PersonPin';
 import PageWrapper from '@shared/ui/PageWrapper';
-import DashboardMainStats from '@features/dashboard/ui/DashboardMainStats';
 import useUserMediaStats from '@shared/hooks/useUserMediaStats';
-import DashboardTopGenres from '@features/dashboard/ui/DashboardTopGenres';
-import DashboardQuickStats from '@features/dashboard/ui/DashboardQuickStats';
+import DashboardOverviewTab from '@features/dashboard/ui/DashboardOverviewTab';
+import TabContext from '@mui/lab/TabContext';
+import DashboardMoviesTab from '@features/dashboard/ui/DashboardMoviesTab';
+import TabPanel from '@mui/lab/TabPanel';
+import DashboardTvShowsTab from '@features/dashboard/ui/DashboardTvShowsTab';
+import * as React from 'react';
 
 const Dashboard = () => {
-  const userMeta: IUser | null = useSelector(selectUserMetaData);
+  const [value, setValue] = React.useState('1');
 
+  const userMeta: IUser | null = useSelector(selectUserMetaData);
   const { data, isSuccess } = useUserMediaStats(userMeta?.id);
+
+  const handleChange = (event, newValue) => setValue(newValue);
 
   if (!isSuccess) return <div>Loading...</div>;
 
   return (
     <Container maxWidth="lg">
       <PageWrapper>
-        <Stack spacing={10}>
-          <DashboardMainStats userMediaStats={data} />
-          <Stack
-            direction={{ md: 'column-reverse', lg: 'row' }}
-            justifyContent="space-between"
-            spacing={3}
-          >
-            <DashboardTopGenres userMediaStats={data} />
-            <DashboardQuickStats userMediaStats={data} />
-          </Stack>
-        </Stack>
+        <TabContext value={value}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider', pl: '16px' }}>
+            <TabList onChange={handleChange} aria-label="lab API tabs example">
+              <Tab icon={<PhoneIcon />} iconPosition="start" label="Overview" value="1" />
+              <Tab icon={<FavoriteIcon />} iconPosition="start" label="Movies" value="2" />
+              <Tab icon={<PersonPinIcon />} iconPosition="start" label="TV Shows" value="3" />
+            </TabList>
+          </Box>
+          <TabPanel value="1">
+            <DashboardOverviewTab userMediaStats={data} />
+          </TabPanel>
+          <TabPanel value="2">
+            <DashboardMoviesTab userMediaStats={data} />
+          </TabPanel>
+          <TabPanel value="3">
+            <DashboardTvShowsTab userMediaStats={data} />
+          </TabPanel>
+        </TabContext>
       </PageWrapper>
     </Container>
   );
 };
+
 export default Dashboard;

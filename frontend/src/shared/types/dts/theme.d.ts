@@ -15,6 +15,7 @@ declare module '@mui/material/styles' {
 
   interface Palette {
     transparentGrey: string;
+    starColor: string;
     gradientMidnightSpace: string;
     gradientGrey: string;
     gradientOrange: string;
@@ -29,6 +30,7 @@ declare module '@mui/material/styles' {
 
   interface PaletteOptions {
     transparentGrey?: string;
+    starColor?: string;
     gradientMidnightSpace?: string;
     gradientGrey?: string;
     gradientOrange?: string;

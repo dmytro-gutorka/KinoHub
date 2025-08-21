@@ -1,6 +1,6 @@
 import { SvgIcon } from '@mui/material';
 
-const MovieOutlineIcon = ({ stroke }: { stroke: string }) => {
+const MovieOutlineIcon = ({ stroke = 'white' }: { stroke?: string }) => {
   return (
     <SvgIcon>
       <svg

@@ -1,5 +1,5 @@
 import { MediaInfoEntity } from '@entities/types/kinohubEntities';
-import { Card, CardContent, CardMedia, Stack, Typography, useTheme } from '@mui/material';
+import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import { useDraggable } from '@dnd-kit/core';
 
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
@@ -7,6 +7,7 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
+import theme from '@app/theme';
 
 const MovieBoardItem = ({ mediaInfo }: { mediaInfo: MediaInfoEntity }) => {
   const { mediaId, title, runtime, posterPath, voteAverage, releaseDate, mediaType } = mediaInfo;
@@ -14,9 +15,6 @@ const MovieBoardItem = ({ mediaInfo }: { mediaInfo: MediaInfoEntity }) => {
     id: mediaId,
     data: { mediaType },
   });
-
-  const imgURL = getPosterUrl(posterPath);
-  const theme = useTheme();
 
   return (
     <Card
@@ -36,7 +34,7 @@ const MovieBoardItem = ({ mediaInfo }: { mediaInfo: MediaInfoEntity }) => {
     >
       <Stack direction="row" gap={2}>
         <CardMedia
-          image={imgURL}
+          image={getPosterUrl(posterPath)}
           component="img"
           alt="Movie cover"
           sx={{ width: '60px', height: '90px', borderRadius: theme.spacing(1.5) }}

@@ -44,13 +44,18 @@ class UserStatsService {
   async getTopRatedMedia(
     userId: number | undefined,
     mediaType: MediaType,
-    _limit: number = 5
+    _limit: number = 10
   ): Promise<any> {
     return await this.ds
       .createQueryBuilder()
       .from(MediaUserAction, 'mua')
       .innerJoin(MediaInfo, 'mi', 'mi.id = mua.mediaInfoId')
-      .select(['mua.rating AS "rating"', 'mi.title AS "title"'])
+      .select([
+        'mua.rating AS "rating"',
+        'mi.title AS "title"',
+        'mi.posterPath AS "posterPath"',
+        'mi.releaseDate AS "releaseDate"',
+      ])
       .where('mua.userId = :userId', { userId })
       .andWhere('mua.mediaType = :mediaType', { mediaType })
       .andWhere('mua.rating IS NOT NULL')

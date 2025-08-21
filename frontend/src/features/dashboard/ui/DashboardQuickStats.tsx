@@ -26,9 +26,13 @@ export default function DashboardQuickStats({ userMediaStats }) {
 
   return (
     <MediaContentBlock blockTitle="Quick Stats">
-      <Grid container>
+      <Grid container rowSpacing={15}>
         {quickStats.map(({ statsLabel, statsValue }) => (
-          <DashboardQuickStatsItem statsLabel={statsLabel} statsValue={statsValue} />
+          <DashboardQuickStatsItem
+            key={statsLabel}
+            statsLabel={statsLabel}
+            statsValue={statsValue}
+          />
         ))}
       </Grid>
     </MediaContentBlock>

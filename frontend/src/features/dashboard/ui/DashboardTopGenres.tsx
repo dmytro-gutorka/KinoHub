@@ -8,7 +8,7 @@ export default function DashboardTopGenres({ userMediaStats }) {
     <MediaContentBlock blockTitle="Top Genres">
       <List>
         {userMediaStats.favoriteGenres.map(({ name, count }) => (
-          <ListItem>
+          <ListItem key={name}>
             <ListItemText primary={name} secondary={`Watched ${count} movies and tv shows`} />
           </ListItem>
         ))}

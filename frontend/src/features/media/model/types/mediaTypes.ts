@@ -31,7 +31,7 @@ export interface MediaCastAndCrewProps {
 }
 
 export interface MediaContentBlockProps {
-  blockTitle: string;
+  blockTitle?: string;
   children: ReactNode;
   titleFontWeight?: number;
   titleSizeVariant?: string;

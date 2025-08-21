@@ -6,5 +6,6 @@ export default function useUserMediaStats(userId: number) {
   return useQuery({
     queryKey: ['userStats', userId],
     queryFn: (): Promise<UserMediaStats> => getUserStats(userId),
+    staleTime: 0,
   });
 }
