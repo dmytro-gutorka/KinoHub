@@ -2,6 +2,7 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn, Relation, Unique } f
 import { MediaType } from '../types/types.js';
 import { MediaUserAction } from './MediaUserAction.js';
 import { MediaGenre } from './MediaGenre.js';
+import { Episode } from './Episode.js';
 
 @Entity({ schema: 'public' })
 @Unique(['mediaId', 'mediaType'])
@@ -27,8 +28,14 @@ export class MediaInfo {
   @Column({ default: null, nullable: true, type: 'double precision' })
   voteAverage!: number;
 
+  @Column({ default: null, nullable: true })
+  totalEpisodes!: number;
+
   @Column()
   mediaType!: MediaType;
+
+  @OneToMany(() => Episode, (e) => e.mediaInfo)
+  episodes!: Relation<Episode[]>;
 
   @OneToMany(() => MediaUserAction, (mua) => mua.mediaInfo)
   userActions!: Relation<MediaUserAction>;

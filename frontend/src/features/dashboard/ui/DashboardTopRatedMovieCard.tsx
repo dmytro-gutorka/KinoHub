@@ -35,11 +35,9 @@ export default function DashboardTopRatedMovieCard({ movieItem, number }) {
           {title}
         </Typography>
         <Typography>{getYearFromDate(releaseDate)}</Typography>
-        <Stack direction="row" alignItems="center">
-          <Box>
-            <StarIcon sx={{ color: theme.palette.starColor }} />
-          </Box>
-          <Typography>{rating}</Typography>
+        <Stack direction="row" alignItems="center" gap={1}>
+          <StarIcon sx={{ color: theme.palette.starColor }} />
+          <Typography lineHeight={1}>{rating}</Typography>
         </Stack>
       </Stack>
     </Stack>

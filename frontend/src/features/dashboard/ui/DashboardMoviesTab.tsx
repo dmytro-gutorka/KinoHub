@@ -4,7 +4,7 @@ import DashboardTopRatedMovies from '@features/dashboard/ui/DashboardTopRatedMov
 
 export default function DashboardMoviesTab({ userMediaStats }) {
   return (
-    <Stack>
+    <Stack spacing={10}>
       <DashboardMovieStats userMediaStats={userMediaStats} />
       <DashboardTopRatedMovies userMediaStats={userMediaStats} />
     </Stack>
