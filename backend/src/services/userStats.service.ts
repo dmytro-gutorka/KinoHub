@@ -29,9 +29,9 @@ class UserStatsService {
     const row = rows[0] ?? {};
 
     return {
-      avgRating: row.avg_rating == null ? null : Number(row.avg_rating),
-      maxRating: row.max_rating == null ? null : Number(row.max_rating),
-      minRating: row.min_rating == null ? null : Number(row.min_rating),
+      avgRating: Number((row.avg_rating ?? 0).toFixed(1)),
+      maxRating: Number(row.max_rating ?? 0),
+      minRating: Number(row.min_rating ?? 0),
       ratingCount: Number(row.number_of_ratings ?? 0),
       runtimeMovie: Number(row.runtime_movie ?? 0),
       runtimeTv: Number(row.runtime_tv ?? 0),
@@ -80,26 +80,62 @@ class UserStatsService {
       .getRawMany();
   }
 
-  async getTvShowInProgress(userId: number | undefined) {
-    return await this.ds
+  async getTvShowInProgress(userId?: number) {
+    const watchedEpisodes = this.ds
       .createQueryBuilder()
-      .select([
-        'e.tvShowId AS tvShowId',
-        'CAST(COUNT(*) AS INT) AS totalWatchedEpisodes',
-        `${this.ds
-          .createQueryBuilder()
-          .subQuery()
-          .select('mi.totalEpisodes')
-          .from(MediaInfo, 'mi')
-          .where('mi.mediaId = e.tvShowId')
-          .getQuery()} AS totalEpisodes`,
-      ])
       .from(Episode, 'e')
+      .select('e.tvShowId', 'tvShowId') // -> AS "tvShowId"
+      .addSelect('COUNT(*)::int', 'totalWatchedEpisodes') // -> AS "totalWatchedEpisodes"
       .where('e.userId = :userId', { userId })
       .andWhere('e.isWatched = true')
-      .groupBy('e.tvShowId')
+      .groupBy('e.tvShowId');
+
+    return this.ds
+      .createQueryBuilder()
+      .from(`(${watchedEpisodes.getQuery()})`, 'we')
+      .leftJoin(MediaInfo, 'mi', `mi.mediaId = we."tvShowId"`) // << важные кавычки
+      .select([
+        `we."tvShowId" AS "tvShowId"`,
+        `we."totalWatchedEpisodes" AS "totalWatchedEpisodes"`,
+        `mi.totalEpisodes AS "totalEpisodes"`,
+        `mi.totalSeasons AS "totalSeasons"`,
+        `mi.title AS "title"`,
+        `mi.releaseDate AS "releaseDate"`,
+        `mi.voteAverage AS "voteAverage"`,
+        `mi.status AS "status"`,
+        `mi.posterPath AS "posterPath"`,
+      ])
+      .setParameters(watchedEpisodes.getParameters())
       .getRawMany();
   }
+
+  // async getTvShowInProgress(userId: number | undefined) {
+  //   return await this.ds
+  //     .createQueryBuilder()
+  //     .select([
+  //       'e.tvShowId AS tvShowId',
+  //       'CAST(COUNT(*) AS INT) AS totalWatchedEpisodes',
+  //       `${this.ds
+  //         .createQueryBuilder()
+  //         .subQuery()
+  //         .select([
+  //           'mi.totalEpisodes',
+  //           'mi.totalSeasons',
+  //           'mi.title',
+  //           'mi.voteAverage',
+  //           'mi.releaseDate',
+  //           'mi.status',
+  //         ])
+  //         .from(MediaInfo, 'mi')
+  //         .where('mi.mediaId = e.tvShowId')
+  //         .getQuery()} AS totalEpisodes`,
+  //     ])
+  //     .from(Episode, 'e')
+  //     .where('e.userId = :userId', { userId })
+  //     .andWhere('e.isWatched = true')
+  //     .groupBy('e.tvShowId')
+  //     .getRawMany();
+  // }
 }
 
 export const usersStatsService = new UserStatsService(AppDataSource);

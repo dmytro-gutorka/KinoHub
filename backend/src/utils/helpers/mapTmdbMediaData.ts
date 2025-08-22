@@ -6,6 +6,8 @@ export default function mapTmdbMediaData(data: any) {
     posterPath: data?.poster_path,
     voteAverage: data?.vote_average ?? 0,
     totalEpisodes: data?.number_of_episodes ?? null,
+    totalSeasons: data?.number_of_seasons ?? null,
+    status: data?.status ?? null,
     genres:
       data?.genres?.length > 0
         ? data?.genres.map((genre: { name: string; id: string }) => Number(genre.id))

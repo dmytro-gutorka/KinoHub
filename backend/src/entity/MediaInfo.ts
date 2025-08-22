@@ -34,6 +34,9 @@ export class MediaInfo {
   @Column({ default: null, nullable: true })
   totalSeasons!: number;
 
+  @Column({ default: null, nullable: true })
+  status!: string;
+
   @Column()
   mediaType!: MediaType;
 
