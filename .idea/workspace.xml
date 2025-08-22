@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/entity/MediaInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/MediaInfo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/userStats.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/userStats.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/utils/helpers/mapTmdbMediaData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/utils/helpers/mapTmdbMediaData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTvShowsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTvShowsTab.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +239,7 @@
       <workItem from="1755672678179" duration="22480000" />
       <workItem from="1755761766570" duration="13520000" />
       <workItem from="1755788060622" duration="11535000" />
-      <workItem from="1755847807849" duration="6852000" />
+      <workItem from="1755847807849" duration="10618000" />
     </task>
     <servers />
   </component>
