@@ -11,20 +11,20 @@ export default function BlockWrapper({
 
   return (
     <Box
-      border={theme.customStyles.border}
       borderRadius={2.5}
-      padding={4}
-      minWidth={300}
-      flexGrow={1}
       flexBasis={1}
+      flexGrow={1}
+      minWidth={300}
+      padding={4}
+      border={theme.customStyles.border}
     >
       {blockTitle && (
         <Typography
-          variant={titleSizeVariant}
-          component="h3"
-          fontWeight={titleFontWeight}
           letterSpacing={0.01}
+          fontWeight={titleFontWeight}
           lineHeight="32px"
+          component="h3"
+          variant={titleSizeVariant}
           mb={2}
         >
           {blockTitle}
@@ -36,4 +36,4 @@ export default function BlockWrapper({
     </Box>
   );
 }
-// justifyContent="center" height="100%"  из за этого контент выходит за пределы контейнера
+// justifyContent="center" height="100%" because of the content goes outside the container (fix later)

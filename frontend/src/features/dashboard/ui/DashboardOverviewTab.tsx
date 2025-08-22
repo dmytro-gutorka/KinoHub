@@ -1,7 +1,7 @@
 import DashboardMainStats from '@features/dashboard/ui/DashboardMainStats';
-import { Stack } from '@mui/material';
 import DashboardTopGenres from '@features/dashboard/ui/DashboardTopGenres';
 import DashboardQuickStats from '@features/dashboard/ui/DashboardQuickStats';
+import { Stack } from '@mui/material';
 
 export default function DashboardOverviewTab({ userMediaStats }) {
   return (

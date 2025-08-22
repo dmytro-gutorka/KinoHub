@@ -1,8 +1,8 @@
 import { EpisodeEntity } from '@entities/types/kinohubEntities';
+import { AxiosError } from 'axios';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import getEpisodeListActions from '@shared/api/kinohub/services/episode/getEpisodeActionList';
 import createEpisodeList from '@shared/api/kinohub/services/episode/createEpisodeList';
-import { AxiosError } from 'axios';
 
 export default function useGetOrCreateEpisodeActionList(
   tvShowId: number,
@@ -27,15 +27,14 @@ export default function useGetOrCreateEpisodeActionList(
             ['episodeActionList', tvShowId, seasonNumber],
             createdEpisodeActionsList
           );
-
           return createdEpisodeActionsList;
         }
         throw err;
       }
     },
     staleTime: 0,
-    retry: false,
     enabled: !!episodeList,
+    retry: false,
   });
 
   return {

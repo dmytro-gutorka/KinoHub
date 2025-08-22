@@ -27,6 +27,8 @@ const Dashboard = () => {
 
   if (!isSuccess) return <div>Loading...</div>;
 
+  console.log(data);
+
   return (
     <Container maxWidth="lg">
       <PageWrapper>

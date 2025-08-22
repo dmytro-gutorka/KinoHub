@@ -4,14 +4,15 @@ import { MediaUserAction } from '../entity/MediaUserAction.js';
 import { userRepository } from '../repositories/user.repository.js';
 import { AppDataSource } from '../config/db.js';
 import { DataSource } from 'typeorm';
+import { MediaGenre } from '../entity/MediaGenre.js';
 import { HttpError } from '../errors/HttpError.js';
 import { MediaInfo } from '../entity/MediaInfo.js';
+import { Episode } from '../entity/Episode.js';
+import { Genre } from '../entity/Genre.js';
 import { User } from '../entity/User.js';
 import path from 'path';
 
 import * as fs from 'node:fs';
-import { MediaGenre } from '../entity/MediaGenre.js';
-import { Genre } from '../entity/Genre.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const userStatsSQL = fs.readFileSync(path.join(__dirname, './queries/user_stats_card.sql'), 'utf8');
@@ -76,6 +77,27 @@ class UserStatsService {
       .groupBy('g.name')
       .orderBy('COUNT(g.name)', 'DESC')
       .limit(_limit)
+      .getRawMany();
+  }
+
+  async getTvShowInProgress(userId: number | undefined) {
+    return await this.ds
+      .createQueryBuilder()
+      .select([
+        'e.tvShowId AS tvShowId',
+        'CAST(COUNT(*) AS INT) AS totalWatchedEpisodes',
+        `${this.ds
+          .createQueryBuilder()
+          .subQuery()
+          .select('mi.totalEpisodes')
+          .from(MediaInfo, 'mi')
+          .where('mi.mediaId = e.tvShowId')
+          .getQuery()} AS totalEpisodes`,
+      ])
+      .from(Episode, 'e')
+      .where('e.userId = :userId', { userId })
+      .andWhere('e.isWatched = true')
+      .groupBy('e.tvShowId')
       .getRawMany();
   }
 }

@@ -9,6 +9,7 @@ export async function getUserStats(req: Request, res: Response) {
     usersStatsService.getTopRatedMedia(userId, 'tv'),
     usersStatsService.getTopRatedMedia(userId, 'movie'),
     usersStatsService.getFavoriteGenres(userId),
+    usersStatsService.getTvShowInProgress(userId),
   ]);
 
   res.status(200).json({
@@ -16,5 +17,6 @@ export async function getUserStats(req: Request, res: Response) {
     topRatedTv: data[1],
     topRatedMovie: data[2],
     favoriteGenres: data[3],
+    tvShowInProgress: data[4],
   });
 }
