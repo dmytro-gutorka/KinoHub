@@ -6,16 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/aside-bar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/aside-bar/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/aside-bar/ui/AsideBarGeneralSection.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/aside-bar/ui/AsideBarLibrarySection.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/aside-bar/ui/AsideBarLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/aside-bar/ui/AsideBarLink.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/aside-bar/ui/AsideBarMenuSection.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/aside-bar/ui/AsideBarSectionContainer.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/model/types/mediaTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/model/types/mediaTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/BlockWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/BlockWrapper.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/AsideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/AsideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardMovieStats.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardMovieStats.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardMoviesTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardMoviesTab.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTvShowsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTvShowsTab.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +243,7 @@
       <workItem from="1755788060622" duration="11535000" />
       <workItem from="1755847807849" duration="13426000" />
       <workItem from="1755936830758" duration="599000" />
-      <workItem from="1756030156001" duration="5590000" />
+      <workItem from="1756030156001" duration="6447000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material';
+import { Stack } from '@mui/material';
 import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import theme from '@app/theme';
@@ -28,10 +28,6 @@ export default function DashboardMovieStats({ userMediaStats }) {
 
   return (
     <Stack>
-      <Typography variant="h5" fontWeight={900}>
-        Movie Statistics
-      </Typography>
-
       <Stack spacing={4} direction={{ sm: 'column', lg: 'row' }}>
         {movieStatsItems.map(({ label, text, icon }) => (
           <DashboardMovieStatsCard key={label} label={label} text={text} icon={icon} />
