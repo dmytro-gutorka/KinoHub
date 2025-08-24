@@ -120,6 +120,41 @@ const finalTheme = createTheme(theme, {
         },
       },
     },
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          '& .MuiTabs-scroller': {
+            position: 'static',
+          },
+          '& .MuiTabs-list': {
+            gap: theme.spacing(2),
+          },
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          padding: theme.spacing(6),
+          borderRadius: theme.spacing(3),
+          textTransform: 'capitalize',
+          fontWeight: '900',
+          letterSpacing: theme.spacing(0.1),
+          fontSize: theme.spacing(4),
+          height: '20px',
+          minHeight: '20px',
+          '&.Mui-selected': {
+            background: theme.palette.gradientGrey,
+            fontWeight: '900',
+            color: 'white',
+          },
+          '&:hover': {
+            background: theme.palette.transparentGrey,
+            transition: 'all 0.3s ease-in-out',
+          },
+        },
+      },
+    },
   },
   shape: {
     borderRadius: 10,

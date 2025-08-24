@@ -1,9 +1,9 @@
 import { Chip, Stack, styled, Typography } from '@mui/material';
-import Box from '@mui/material/Box';
-import theme from '@app/theme';
 import StarIcon from '@mui/icons-material/Star';
-import getPosterUrl from '@shared/helpers/getPosterUrl';
+import theme from '@app/theme';
+import Box from '@mui/material/Box';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
+import getPosterUrl from '@shared/helpers/getPosterUrl';
 
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 
@@ -33,8 +33,14 @@ export default function DashboardTvShowsTab({ userMediaStats }) {
   const { tvShowInProgress } = userMediaStats;
 
   return (
-    <Stack direction="row" flexWrap="wrap" justifyContent="space-between">
+    <Stack direction="row" flexWrap="wrap" justifyContent="space-between" gap={4}>
       {tvShowInProgress.map((tvShowItem) => {
+        const chipColor =
+          tvShowItem.status === 'Returning Series'
+            ? 'primary'
+            : tvShowItem.status === 'Canceled'
+              ? 'error'
+              : 'success';
         const watchedEpisodesPercentage: number = Number(
           calcPercentage(tvShowItem.totalWatchedEpisodes, tvShowItem.totalEpisodes).toFixed(1)
         );
@@ -95,7 +101,7 @@ export default function DashboardTvShowsTab({ userMediaStats }) {
                   </Stack>
                   <Chip
                     label={tvShowItem.status === 'Returning Series' ? 'Ongoing' : tvShowItem.status}
-                    color={`${tvShowItem.status === 'Returning Series' ? 'primary' : 'success'}`}
+                    color={chipColor}
                     variant="filled"
                     sx={{ fontWeight: 900 }}
                   />

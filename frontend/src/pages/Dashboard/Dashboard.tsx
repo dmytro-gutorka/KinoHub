@@ -23,18 +23,21 @@ const Dashboard = () => {
   const userMeta: IUser | null = useSelector(selectUserMetaData);
   const { data, isSuccess } = useUserMediaStats(userMeta?.id);
 
-  const handleChange = (event, newValue) => setValue(newValue);
-
   if (!isSuccess) return <div>Loading...</div>;
-
-  console.log(data);
 
   return (
     <Container maxWidth="lg">
       <PageWrapper>
         <TabContext value={value}>
-          <Box sx={{ borderBottom: 1, borderColor: 'divider', pl: '16px' }}>
-            <TabList onChange={handleChange} aria-label="lab API tabs example">
+          <Box ml={5}>
+            <TabList
+              onChange={(e, v) => setValue(v)}
+              sx={{
+                '&.MuiTabs-scroller': {
+                  position: 'static',
+                },
+              }}
+            >
               <Tab icon={<PhoneIcon />} iconPosition="start" label="Overview" value="1" />
               <Tab icon={<FavoriteIcon />} iconPosition="start" label="Movies" value="2" />
               <Tab icon={<PersonPinIcon />} iconPosition="start" label="TV Shows" value="3" />
