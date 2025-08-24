@@ -8,13 +8,13 @@ import TabList from '@mui/lab/TabList';
 import PhoneIcon from '@mui/icons-material/Phone';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PersonPinIcon from '@mui/icons-material/PersonPin';
-import PageWrapper from '@shared/ui/PageWrapper';
-import useUserMediaStats from '@shared/hooks/useUserMediaStats';
-import DashboardOverviewTab from '@features/dashboard/ui/DashboardOverviewTab';
-import TabContext from '@mui/lab/TabContext';
-import DashboardMoviesTab from '@features/dashboard/ui/DashboardMoviesTab';
-import TabPanel from '@mui/lab/TabPanel';
 import DashboardTvShowsTab from '@features/dashboard/ui/DashboardTvShowsTab';
+import DashboardOverviewTab from '@features/dashboard/ui/DashboardOverviewTab';
+import DashboardMoviesTab from '@features/dashboard/ui/DashboardMoviesTab';
+import useUserMediaStats from '@shared/hooks/useUserMediaStats';
+import PageWrapper from '@shared/ui/PageWrapper';
+import TabContext from '@mui/lab/TabContext';
+import TabPanel from '@mui/lab/TabPanel';
 import * as React from 'react';
 
 const Dashboard = () => {
@@ -29,15 +29,8 @@ const Dashboard = () => {
     <Container maxWidth="lg">
       <PageWrapper>
         <TabContext value={value}>
-          <Box ml={5}>
-            <TabList
-              onChange={(e, v) => setValue(v)}
-              sx={{
-                '&.MuiTabs-scroller': {
-                  position: 'static',
-                },
-              }}
-            >
+          <Box ml={5} mb={6}>
+            <TabList onChange={(e, v) => setValue(v)}>
               <Tab icon={<PhoneIcon />} iconPosition="start" label="Overview" value="1" />
               <Tab icon={<FavoriteIcon />} iconPosition="start" label="Movies" value="2" />
               <Tab icon={<PersonPinIcon />} iconPosition="start" label="TV Shows" value="3" />

@@ -5,19 +5,23 @@ import Link from '@mui/material/Link';
 import React from 'react';
 
 const StyledNavLink = styled(Link)(({ theme }) => ({ to, component }: StyledNavLinkProps) => ({
-  fontWeight: 400,
-  fontSize: '20px',
-  letterSpacing: 2,
+  fontWeight: 900,
+  fontSize: 6,
+  letterSpacing: 1,
   textDecoration: 'none',
   textTransform: 'capitalize',
-  borderRadius: theme.spacing(2),
-  paddingBlock: theme.spacing(2.5),
+  borderRadius: theme.spacing(3),
+  paddingBlock: theme.spacing(3),
   paddingRight: theme.spacing(14),
-  paddingLeft: theme.spacing(2),
+  paddingLeft: theme.spacing(4),
 
   '&.active': {
-    color: theme.palette.primary.main,
+    color: theme.palette.common.white,
     background: theme.palette.gradientGrey,
+  },
+  '&:hover': {
+    background: theme.palette.transparentGrey,
+    transition: 'all 0.3s ease-in-out',
   },
 }));
 

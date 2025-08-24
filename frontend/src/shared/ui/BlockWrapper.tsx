@@ -36,4 +36,5 @@ export default function BlockWrapper({
     </Box>
   );
 }
+
 // justifyContent="center" height="100%" because of the content goes outside the container (fix later)

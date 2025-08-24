@@ -7,6 +7,7 @@ import {
 import { ReactNode } from 'react';
 import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
 import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
+import { TypographyVariant } from '@mui/material';
 
 export interface MediaHeaderProps<T extends MediaType> {
   tmdbMediaData: TmdbMediaDetailsResponse<T>;
@@ -34,7 +35,7 @@ export interface MediaContentBlockProps {
   blockTitle?: string;
   children: ReactNode;
   titleFontWeight?: number;
-  titleSizeVariant?: string;
+  titleSizeVariant?: TypographyVariant;
 }
 
 export interface MediaOverviewProps<T extends MediaType> {
