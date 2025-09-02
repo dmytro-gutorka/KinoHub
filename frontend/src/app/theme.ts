@@ -43,9 +43,19 @@ const theme = createTheme({
     },
   },
   spacing: 4,
+  shape: {
+    borderRadiusScale: {
+      md: 4,
+      lg: 8,
+      xl: 12
+    },
+  }
 });
 
 const finalTheme = createTheme(theme, {
+  typography: {
+    fontFamily: 'Noto Sans'
+  },
   customStyles: {
     border: `1px solid ${theme.palette.transparentGrey}`,
   },
@@ -117,12 +127,21 @@ const finalTheme = createTheme(theme, {
           textTransform: 'capitalize',
           fontWeight: '900',
           fontSize: theme.spacing(3.75),
+          transition: theme.transitions.create('all'),
+
+          '&:hover' : {
+            scale: 1.05,
+            filter: 'brightness(1.2)'
+
+          }
         },
       },
     },
     MuiTabs: {
       styleOverrides: {
         root: {
+          marginLeft: theme.spacing(3),
+          marginBottom: theme.spacing(6),
           '.MuiTabs-scroller': {
             position: 'static',
           },
@@ -139,7 +158,7 @@ const finalTheme = createTheme(theme, {
       styleOverrides: {
         root: {
           padding: theme.spacing(6),
-          borderRadius: theme.spacing(3),
+          borderRadius: theme.shape.borderRadiusScale.xl,
           textTransform: 'capitalize',
           fontWeight: '900',
           letterSpacing: theme.spacing(0.1),
@@ -152,8 +171,8 @@ const finalTheme = createTheme(theme, {
             fontWeight: '900',
             color: 'white',
           },
-          '&:hover': {
-            background: theme.palette.gradientGrey,
+          '&:not(.Mui-selected):hover': {
+            background: theme.palette.transparentGrey,
           },
         },
       },
@@ -194,15 +213,6 @@ const finalTheme = createTheme(theme, {
         },
       },
     }
-
-  },
-  shape: {
-    borderRadius: 10,
-  },
-  props: {
-    MuiTable: {
-      size: 'small',
-    },
   },
 });
 

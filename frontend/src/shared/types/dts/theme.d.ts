@@ -1,6 +1,7 @@
 import '@mui/material/styles';
 
 declare module '@mui/material/styles' {
+
   interface Theme {
     customStyles: {
       border: string;
@@ -26,6 +27,7 @@ declare module '@mui/material/styles' {
     purple: CustomColor;
     orange: CustomColor;
     blue: CustomColor;
+
   }
 
   interface PaletteOptions {
@@ -41,6 +43,7 @@ declare module '@mui/material/styles' {
     purple?: CustomColor;
     orange?: CustomColor;
     blue?: CustomColor;
+
   }
 
   interface CustomColor {
@@ -49,4 +52,18 @@ declare module '@mui/material/styles' {
     darkGradient: string;
     lightGradient: string;
   }
+}
+
+
+declare module '@mui/system/createTheme/shape' {
+  interface Shape {
+    borderRadiusScale: BorderRadius
+  }
+}
+
+
+interface BorderRadius {
+  md: number,
+  lg: number,
+  xl: number,
 }

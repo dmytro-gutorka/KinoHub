@@ -11,7 +11,7 @@ export default function DashboardTopRatedMovieCard({ movieItem, number }) {
   return (
     <Stack direction="row" width={{ sm: '100%', lg: '50%' }} spacing={3} position="relative">
       <Box
-        borderRadius={1}
+        borderRadius={theme.shape.borderRadiusScale.md}
         component="img"
         height={100}
         width={65}

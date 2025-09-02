@@ -8,29 +8,9 @@ import getYearFromDate from '@shared/helpers/getYearFromDate';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
 
 
-// const BorderLinearProgress = styled(LinearProgress, {
-//   shouldForwardProp: (prop) => !['watchedEpisodesPercentage'].includes(prop.toString()),
-// })(({theme, watchedEpisodesPercentage}) => ({
-//     height: 10,
-//   borderRadius: 5,
-//   [`&.${linearProgressClasses.colorPrimary}`]: {
-//     backgroundColor: theme.palette.grey[200],
-//     ...theme.applyStyles('dark', {
-//       backgroundColor: theme.palette.grey[800],
-//     }),
-//   },
-//   [`& .${linearProgressClasses.bar}`]: {
-//     borderRadius: 5,
-//     backgroundColor: '#1a90ff',
-//     ...theme.applyStyles('dark', {
-//       backgroundColor: '#308fe8',
-//     }
-//     }
-//   }))
-
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
-  borderRadius: 5,
+  borderRadius: theme.shape.borderRadiusScale.md,
   [`&.${linearProgressClasses.colorPrimary}`]: {
     backgroundColor: theme.palette.grey[200],
     ...theme.applyStyles('dark', {
@@ -38,7 +18,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
     }),
   },
   [`& .${linearProgressClasses.bar}`]: {
-    borderRadius: 5,
+    borderRadius: theme.shape.borderRadiusScale.md,
     backgroundColor: '#1a90ff',
     ...theme.applyStyles('dark', {
       backgroundColor: '#308fe8',
@@ -77,7 +57,7 @@ export default function DashboardTvShowsTab({ userMediaStats }: DashboardTvShows
           return (
             <Stack flexGrow={1} width="50%" key={tvShowItem.id}>
               <Stack
-                borderRadius={1}
+                borderRadius={theme.shape.borderRadiusScale.md}
                 border={theme.customStyles.border}
                 direction="row"
                 width="100%"
@@ -85,7 +65,7 @@ export default function DashboardTvShowsTab({ userMediaStats }: DashboardTvShows
                 p={2}
               >
                 <Box
-                  borderRadius={1}
+                  borderRadius={theme.shape.borderRadiusScale.md}
                   component="img"
                   src={getPosterUrl(tvShowItem.posterPath)}
                   width="160px"

@@ -7,20 +7,22 @@ import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
-import { Grid, Stack, useTheme } from '@mui/material';
+import { Grid, Stack } from '@mui/material';
+import theme from '@app/theme';
 
 export default function DashboardMainStats({ userMediaStats }) {
-  const theme = useTheme();
+
+  const {watchedMovie, watchedEpisodes, runtimeMovie, avgRating} = userMediaStats.userMediaAggregatedStats
 
   return (
     <Grid container spacing={3}>
       <Grid size={{ xs: 12, md: 12, lg: 6 }}>
         <DashboardCard
-          dashStat={userMediaStats?.userMediaAggregatedStats.watchedMovie}
+          dashStat={watchedMovie}
           mainColor="blue"
           label="Movies watched"
         >
-          <Stack p={3} borderRadius={1} sx={{ background: theme.palette['blue'].dark }}>
+          <Stack p={3} borderRadius={theme.shape.borderRadiusScale.md} sx={{ background: theme.palette['blue'].dark }}>
             <MovieOutlineIcon stroke={theme.palette['blue'].light} />
           </Stack>
           <ChartUpLineIcon stroke={theme.palette['blue'].light} />
@@ -28,11 +30,11 @@ export default function DashboardMainStats({ userMediaStats }) {
       </Grid>
       <Grid size={{ xs: 12, md: 12, lg: 6 }}>
         <DashboardCard
-          dashStat={userMediaStats?.userMediaAggregatedStats.watchedEpisodes}
+          dashStat={watchedEpisodes}
           mainColor="green"
           label="TV episodes"
         >
-          <Stack p={3} borderRadius={1} sx={{ background: theme.palette['green'].dark }}>
+          <Stack p={3} borderRadius={theme.shape.borderRadiusScale.md} sx={{ background: theme.palette['green'].dark }}>
             <TvShowOutlineIcon stroke={theme.palette['green'].light} />
           </Stack>
           <PlayCircleOutlineOutlinedIcon stroke={theme.palette['green'].light} />
@@ -40,11 +42,11 @@ export default function DashboardMainStats({ userMediaStats }) {
       </Grid>
       <Grid size={{ xs: 12, md: 12, lg: 6 }}>
         <DashboardCard
-          dashStat={userMediaStats?.userMediaAggregatedStats.runtimeMovie + 'm'}
+          dashStat={runtimeMovie + 'm'}
           mainColor="purple"
           label="Watch time"
         >
-          <Stack p={3} borderRadius={1} sx={{ background: theme.palette['purple'].dark }}>
+          <Stack p={3} borderRadius={theme.shape.borderRadiusScale.md} sx={{ background: theme.palette['purple'].dark }}>
             <AccessTimeOutlinedIcon stroke={theme.palette['purple'].light} />
           </Stack>
           <ChartActivityIcon stroke={theme.palette['purple'].light} />
@@ -52,11 +54,11 @@ export default function DashboardMainStats({ userMediaStats }) {
       </Grid>
       <Grid size={{ xs: 12, md: 12, lg: 6 }}>
         <DashboardCard
-          dashStat={userMediaStats?.userMediaAggregatedStats.avgRating ?? 0.0}
+          dashStat={avgRating ?? 0.0}
           mainColor="orange"
           label="Avg rating"
         >
-          <Stack p={3} borderRadius={1} sx={{ background: theme.palette['orange'].dark }}>
+          <Stack p={3} borderRadius={theme.shape.borderRadiusScale.md} sx={{ background: theme.palette['orange'].dark }}>
             <WorkspacePremiumOutlinedIcon stroke={theme.palette['orange'].light} />
           </Stack>
           <StarBorderPurple500OutlinedIcon stroke={theme.palette['orange'].light} />

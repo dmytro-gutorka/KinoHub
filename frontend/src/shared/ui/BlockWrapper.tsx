@@ -1,5 +1,5 @@
 import { BlockWrapperProps } from '@shared/types/generalTypes';
-import { Box, Stack, Typography, useTheme } from '@mui/material';
+import { Stack, Typography, useTheme } from '@mui/material';
 
 export default function BlockWrapper({
   children,
@@ -26,7 +26,7 @@ export default function BlockWrapper({
     <Stack
       paddingInline={4}
       justifyContent="center"
-      borderRadius={2.5}
+      borderRadius={theme.shape.borderRadiusScale.md}
       border={theme.customStyles.border}
 
       flexGrow={1}

@@ -6,7 +6,7 @@ const DashboardCard = ({ children, dashStat, mainColor, label }) => {
   return (
     <Stack
       border={theme.customStyles.border}
-      borderRadius={2}
+      borderRadius={theme.shape.borderRadiusScale.md}
       minHeight="150px"
       minWidth="360px"
       gap={2}

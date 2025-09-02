@@ -19,9 +19,8 @@ const StyledNavLink = styled(Link)(({ theme }) => ({ to, component }: StyledNavL
     color: theme.palette.common.white,
     background: theme.palette.gradientGrey,
   },
-  '&:hover': {
+  '&:not(.active):hover': {
     background: theme.palette.transparentGrey,
-    transition: 'all 0.3s ease-in-out',
   },
 }));
 
