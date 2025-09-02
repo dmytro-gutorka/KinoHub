@@ -9,7 +9,7 @@ import MediaCardList from '@features/media/ui/MediaCardList';
 import movieGenres from '@shared/data/movieGenres';
 import tvShowGenres from '@shared/data/tvShowGenres';
 
-const MediaListPage = () => {
+const MediaList = () => {
   const mediaType: MediaType = useLoaderData();
   const genresList = mediaType === 'movie' ? movieGenres : tvShowGenres;
 
@@ -22,10 +22,10 @@ const MediaListPage = () => {
       {isLoading && <CircularProgress />}
       <TextField label="Search" variant="outlined" onChange={handleSearch} />
       <MediaFilters handlers={handlers} filters={filters} genresList={genresList} />
-      <MediaCardList genresList={genresList} mediaList={mediaList} mediaType={mediaType} />
+      <MediaCardList tmdbGenreList={genresList} mediaList={mediaList} mediaType={mediaType} />
       <MediaPagePagination pages={pages} handlePageChange={handlePageChange} />
     </Stack>
   );
 };
 
-export default MediaListPage;
+export default MediaList;

@@ -9,9 +9,8 @@ export const MuiTypography = (theme: Theme)=> ({
             variant: 'h1',
           },
           style: {
-            fontSize: theme.spacing(17),
+            fontSize: theme.spacing(16),
             fontWeight: '900',
-            color: theme.palette.common.white,
           },
         },
         {
@@ -19,8 +18,7 @@ export const MuiTypography = (theme: Theme)=> ({
             variant: 'h2',
           },
           style: {
-            fontWeight: '100',
-            color: 'red'
+            fontWeight: '900',
           },
         },
         {
@@ -29,10 +27,15 @@ export const MuiTypography = (theme: Theme)=> ({
           },
           style: {
             fontWeight: '100',
-            color: 'red'
           },
         }
       ]
     },
   }
 })
+
+
+
+// const thenable: PromiseLike<number> = {
+//   then: (onfulfilled) => ()
+// }

@@ -7,7 +7,7 @@ import useGetOrCreateMediaAction from '@features/media/model/hooks/useGetOrCreat
 import MediaHeader from '@widgets/MediaHeader';
 import MediaOverview from '@widgets/MediaOverview';
 
-export default function MediaDetailsPage() {
+export default function MediaDetails() {
   const mediaType: MediaType = useLoaderData();
   const params: Readonly<any> = useParams();
   const mediaId: number = Number(params?.id);

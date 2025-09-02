@@ -18,14 +18,14 @@ import { MediaType } from '@shared/types/generalTypes';
 interface MediaCardDetailedProps {
   mediaItem: TmdbMovieSearchedFilteredList | TmdbTvShowSearchedFilteredList;
   relevantPoster: string;
-  genreNames: Array<TmdbGenre | undefined>;
+  genreList: Array<TmdbGenre | undefined>;
   mediaType: MediaType;
 }
 
 const MediaCardDetailed = ({
   mediaItem,
   relevantPoster,
-  genreNames,
+                             genreList,
   mediaType,
 }: MediaCardDetailedProps) => {
   const {
@@ -46,7 +46,7 @@ const MediaCardDetailed = ({
         <Typography gutterBottom variant="h5" component="div">
           {title || name}
         </Typography>
-        <GenreChipList genres={genreNames} renderLimit={2} size="small" />
+        <GenreChipList genres={genreList} renderLimit={2} size="small" />
 
         <Stack direction="row" gap={2}>
           <LabelWithIcon label={getYearFromDate(releaseDate || airDate)}>

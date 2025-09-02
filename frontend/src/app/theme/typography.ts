@@ -1,5 +1,5 @@
+import { ThemeOptions } from '@mui/material';
+
 export const typography: ThemeOptions['typography'] = {
-  typography: {
-    fontFamily: 'Noto Sans'
-  },
+    fontFamily: 'Noto Sans',
 }
