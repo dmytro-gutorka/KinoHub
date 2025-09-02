@@ -1,9 +1,13 @@
+import { UserMediaStats } from '@shared/types/generalTypes';
 import { MediaContentBlock } from '@features/media';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import ListItem from '@mui/material/ListItem';
+import List from '@mui/material/List';
 
-export default function DashboardTopGenres({ userMediaStats }) {
+interface DashboardTopGenresProps {
+  userMediaStats:   UserMediaStats
+}
+export default function DashboardTopGenres({ userMediaStats }: DashboardTopGenresProps) {
   return (
     <MediaContentBlock blockTitle="Top Genres">
       <List>

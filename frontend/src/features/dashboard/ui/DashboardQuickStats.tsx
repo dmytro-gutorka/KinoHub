@@ -1,31 +1,24 @@
+import { UserMediaStats } from '@shared/types/generalTypes';
 import { Grid } from '@mui/material';
-import { MediaContentBlock } from '@features/media';
 import DashboardQuickStatsItem from '@features/dashboard/ui/DashboardQuickStatsItem';
+import BlockWrapper from '@shared/ui/BlockWrapper';
 
-export default function DashboardQuickStats({ userMediaStats }) {
-  const { watchedMovie, watchedTv, ratingCount } = userMediaStats.userMediaAggregatedStats;
+interface DashboardQuickStatsProps {
+  userMediaStats: UserMediaStats;
+}
+
+export default function DashboardQuickStats({ userMediaStats }: DashboardQuickStatsProps) {
+  const { maxRating, minRating, commentsCount, ratingCount } = userMediaStats.userMediaAggregatedStats;
 
   const quickStats = [
-    {
-      statsLabel: 'Movies',
-      statsValue: watchedMovie,
-    },
-    {
-      statsLabel: 'TV Shows',
-      statsValue: watchedTv,
-    },
-    {
-      statsLabel: 'Rated movies',
-      statsValue: 2,
-    },
-    {
-      statsLabel: 'Movies watched',
-      statsValue: 3,
-    },
+    { statsLabel: 'Max movie rating', statsValue: maxRating, },
+    { statsLabel: 'Min movie rating', statsValue: minRating, },
+    { statsLabel: 'Comments count', statsValue: commentsCount, },
+    { statsLabel: 'Ratings count', statsValue: ratingCount, },
   ];
 
   return (
-    <MediaContentBlock blockTitle="Quick Stats">
+    <BlockWrapper blockTitle="Quick Stats">
       <Grid container rowSpacing={15}>
         {quickStats.map(({ statsLabel, statsValue }) => (
           <DashboardQuickStatsItem
@@ -35,6 +28,6 @@ export default function DashboardQuickStats({ userMediaStats }) {
           />
         ))}
       </Grid>
-    </MediaContentBlock>
-  );
+    </BlockWrapper>
+  )
 }

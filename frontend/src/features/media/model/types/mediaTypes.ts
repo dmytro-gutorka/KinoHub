@@ -4,10 +4,8 @@ import {
   TmdbProductionCompanies,
   TmdbSeasonInfo,
 } from '@entities/types/tmdbEntities';
-import { ReactNode } from 'react';
 import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
 import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
-import { TypographyVariant } from '@mui/material';
 
 export interface MediaHeaderProps<T extends MediaType> {
   tmdbMediaData: TmdbMediaDetailsResponse<T>;
@@ -29,13 +27,6 @@ export interface MediaActorProps {
 
 export interface MediaCastAndCrewProps {
   cast: Array<TmdbCast>;
-}
-
-export interface MediaContentBlockProps {
-  blockTitle?: string;
-  children: ReactNode;
-  titleFontWeight?: number;
-  titleSizeVariant?: TypographyVariant;
 }
 
 export interface MediaOverviewProps<T extends MediaType> {

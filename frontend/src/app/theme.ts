@@ -123,11 +123,14 @@ const finalTheme = createTheme(theme, {
     MuiTabs: {
       styleOverrides: {
         root: {
-          '& .MuiTabs-scroller': {
+          '.MuiTabs-scroller': {
             position: 'static',
           },
-          '& .MuiTabs-list': {
+          '.MuiTabs-list': {
             gap: theme.spacing(2),
+          },
+          '.MuiTabs-indicator': {
+            height: '0px'
           },
         },
       },
@@ -143,18 +146,55 @@ const finalTheme = createTheme(theme, {
           fontSize: theme.spacing(4),
           height: '20px',
           minHeight: '20px',
+
           '&.Mui-selected': {
             background: theme.palette.gradientGrey,
             fontWeight: '900',
             color: 'white',
           },
           '&:hover': {
-            background: theme.palette.transparentGrey,
-            transition: 'all 0.3s ease-in-out',
+            background: theme.palette.gradientGrey,
           },
         },
       },
     },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          variants: [
+            {
+              props: {
+                variant: 'h1',
+              },
+              style: {
+                fontSize: theme.spacing(17),
+                fontWeight: '900',
+                color: theme.palette.common.white,
+              },
+            },
+            {
+              props: {
+                variant: 'h2',
+              },
+              style: {
+                fontWeight: '100',
+                color: 'red'
+              },
+            },
+            {
+              props: {
+                variant: 'h3',
+              },
+              style: {
+                fontWeight: '100',
+                color: 'red'
+              },
+            }
+          ]
+        },
+      },
+    }
+
   },
   shape: {
     borderRadius: 10,

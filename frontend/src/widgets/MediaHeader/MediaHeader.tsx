@@ -25,7 +25,7 @@ export default function MediaHeader<T extends MediaType>({
           <MediaHeaderPoster imgUrl={imgUrl} />
 
           <Box>
-            <Typography variant="h2" component="h1" fontWeight="700" mb={10} lineHeight={1.2}>
+            <Typography variant="h1" component="h1" fontWeight="700" mb={10} lineHeight={1.2}>
               {title}
             </Typography>
 

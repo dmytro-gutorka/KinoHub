@@ -15,13 +15,13 @@ import useUserMediaStats from '@shared/hooks/useUserMediaStats';
 import PageWrapper from '@shared/ui/PageWrapper';
 import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
-import * as React from 'react';
+import { useState } from 'react';
 
-const Dashboard = () => {
-  const [value, setValue] = React.useState('1');
+export default function Dashboard() {
+  const [value, setValue] = useState('1');
 
   const userMeta: IUser | null = useSelector(selectUserMetaData);
-  const { data, isSuccess } = useUserMediaStats(userMeta?.id);
+  const { data: userMediaStats, isSuccess } = useUserMediaStats(userMeta?.id);
 
   if (!isSuccess) return <div>Loading...</div>;
 
@@ -30,25 +30,23 @@ const Dashboard = () => {
       <PageWrapper>
         <TabContext value={value}>
           <Box ml={5} mb={6}>
-            <TabList onChange={(e, v) => setValue(v)}>
+            <TabList onChange={(_, v: string) => setValue(v)}>
               <Tab icon={<PhoneIcon />} iconPosition="start" label="Overview" value="1" />
               <Tab icon={<FavoriteIcon />} iconPosition="start" label="Movies" value="2" />
               <Tab icon={<PersonPinIcon />} iconPosition="start" label="TV Shows" value="3" />
             </TabList>
           </Box>
           <TabPanel value="1">
-            <DashboardOverviewTab userMediaStats={data} />
+            <DashboardOverviewTab userMediaStats={userMediaStats} />
           </TabPanel>
           <TabPanel value="2">
-            <DashboardMoviesTab userMediaStats={data} />
+            <DashboardMoviesTab userMediaStats={userMediaStats} />
           </TabPanel>
           <TabPanel value="3">
-            <DashboardTvShowsTab userMediaStats={data} />
+            <DashboardTvShowsTab userMediaStats={userMediaStats} />
           </TabPanel>
         </TabContext>
       </PageWrapper>
     </Container>
   );
 };
-
-export default Dashboard;

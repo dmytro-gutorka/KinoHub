@@ -1,23 +1,16 @@
+import { BlockWrapperProps } from '@shared/types/generalTypes';
 import { Box, Stack, Typography, useTheme } from '@mui/material';
-import { MediaContentBlockProps } from '@features/media/model/types/mediaTypes';
 
 export default function BlockWrapper({
   children,
   blockTitle,
   titleFontWeight = 900,
   titleSizeVariant = 'h5',
-}: MediaContentBlockProps) {
+}: BlockWrapperProps) {
   const theme = useTheme();
 
   return (
-    <Box
-      borderRadius={2.5}
-      flexBasis={1}
-      flexGrow={1}
-      minWidth={300}
-      padding={4}
-      border={theme.customStyles.border}
-    >
+    <Stack flexGrow={1} flexBasis={1}>
       {blockTitle && (
         <Typography
           letterSpacing={0.01}
@@ -30,10 +23,18 @@ export default function BlockWrapper({
           {blockTitle}
         </Typography>
       )}
-      <Stack justifyContent="center" height="100%" paddingInline={4}>
-        {children}
-      </Stack>
-    </Box>
+    <Stack
+      paddingInline={4}
+      justifyContent="center"
+      borderRadius={2.5}
+      border={theme.customStyles.border}
+
+      flexGrow={1}
+      padding={4}
+    >
+      {children}
+    </Stack>
+    </Stack>
   );
 }
 

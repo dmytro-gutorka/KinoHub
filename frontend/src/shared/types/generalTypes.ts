@@ -1,6 +1,8 @@
 import { MEDIA_ACTIONS, WATCH_STATUS } from '@app/constants';
 import { TmdbEpisodeInfo, TmdbGenre, TmdbSeasonInfo } from '@entities/types/tmdbEntities';
 import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
+import { ReactNode } from 'react';
+import { TypographyVariant } from '@mui/material';
 
 export type MediaType = 'movie' | 'tv';
 
@@ -37,7 +39,32 @@ export type MediaUserActions = {
 
 export type SeasonDataWithEpisodes = TmdbSeasonInfo & { episodes: Array<TmdbEpisodeInfo> };
 
-export interface UserMediaAggregatedStats {
+
+export interface TopRatedMedia {
+  rating: number;
+  title: string,
+  posterPath: string | null,
+  releaseDate: string,
+}
+
+export interface TvShowInProgress {
+  tvShowId: number,
+  totalWatchedEpisodes: number,
+  totalEpisodes: number,
+  totalSeasons: number,
+  title: string,
+  releaseDate: string,
+  voteAverage: number,
+  status: string,
+  posterPath: string | null,
+}
+
+export interface FavoriteGenres {
+  name: string;
+  count: number;
+}
+
+export interface AggregatedMediaStats {
   avgRating: number | null;
   maxRating: number | null;
   minRating: number | null;
@@ -51,8 +78,17 @@ export interface UserMediaAggregatedStats {
 }
 
 export interface UserMediaStats {
-  favoriteGenres: any[];
-  topRatedMovie: any[];
-  topRatedTv: any[];
-  userMediaAggregatedStats: UserMediaAggregatedStats;
+  userMediaAggregatedStats: AggregatedMediaStats;
+  favoriteGenres: FavoriteGenres[];
+  topRatedMovie: TopRatedMedia[];
+  topRatedTv: TopRatedMedia[];
+  tvShowInProgress: TvShowInProgress[]
+}
+
+
+export interface BlockWrapperProps {
+  blockTitle?: string;
+  children: ReactNode;
+  titleFontWeight?: number;
+  titleSizeVariant?: TypographyVariant;
 }

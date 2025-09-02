@@ -1,9 +1,14 @@
+import { UserMediaStats } from '@shared/types/generalTypes';
+import { Stack } from '@mui/material';
 import DashboardMainStats from '@features/dashboard/ui/DashboardMainStats';
 import DashboardTopGenres from '@features/dashboard/ui/DashboardTopGenres';
 import DashboardQuickStats from '@features/dashboard/ui/DashboardQuickStats';
-import { Stack } from '@mui/material';
 
-export default function DashboardOverviewTab({ userMediaStats }) {
+interface DashboardOverviewTabProps {
+  userMediaStats: UserMediaStats
+}
+
+export default function DashboardOverviewTab({ userMediaStats }: DashboardOverviewTabProps) {
   return (
     <Stack spacing={10}>
       <DashboardMainStats userMediaStats={userMediaStats} />

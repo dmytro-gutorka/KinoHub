@@ -1,7 +1,12 @@
 import { Grid, Stack, Typography } from '@mui/material';
 import theme from '@app/theme';
 
-export default function DashboardQuickStatsItem({ statsLabel, statsValue }) {
+interface DashboardQuickStatsItemProps {
+  statsLabel: string;
+  statsValue: number | null
+}
+
+export default function DashboardQuickStatsItem({ statsLabel, statsValue }: DashboardQuickStatsItemProps) {
   return (
     <Grid size={6}>
       <Stack justifyContent="space-between" alignItems="center" gap={1}>

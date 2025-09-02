@@ -50,6 +50,6 @@ export const apiPath = {
   },
 
   userStats: {
-    getOneBy: (userId: number) => `${API_URL}/users/${userId}/stats`,
+    getOneBy: (userId: number | undefined) => `${API_URL}/users/${userId}/stats`,
   },
 };

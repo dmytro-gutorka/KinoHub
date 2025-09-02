@@ -1,11 +1,12 @@
+import { UserMediaStats } from '@shared/types/generalTypes';
 import { Chip, Stack, styled, Typography } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import theme from '@app/theme';
 import Box from '@mui/material/Box';
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
 
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 
 // const BorderLinearProgress = styled(LinearProgress, {
 //   shouldForwardProp: (prop) => !['watchedEpisodesPercentage'].includes(prop.toString()),
@@ -49,7 +50,11 @@ function calcPercentage(value: number, total: number) {
   return (value / total) * 100;
 }
 
-export default function DashboardTvShowsTab({ userMediaStats }) {
+interface DashboardTvShowsTabProps {
+  userMediaStats: UserMediaStats;
+}
+
+export default function DashboardTvShowsTab({ userMediaStats }: DashboardTvShowsTabProps) {
   const { tvShowInProgress } = userMediaStats;
 
   return (
