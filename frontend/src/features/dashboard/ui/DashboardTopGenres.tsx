@@ -5,9 +5,10 @@ import ListItem from '@mui/material/ListItem';
 import List from '@mui/material/List';
 
 interface DashboardTopGenresProps {
-  userMediaStats:   UserMediaStats
+  userMediaStats: UserMediaStats
 }
 export default function DashboardTopGenres({ userMediaStats }: DashboardTopGenresProps) {
+
   return (
     <MediaContentBlock blockTitle="Top Genres">
       <List>

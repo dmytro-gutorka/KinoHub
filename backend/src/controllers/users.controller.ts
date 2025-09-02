@@ -1,23 +1,24 @@
 import { Request, Response } from 'express';
+import { SettledUserMediaStats } from '../types/types.js';
 import { usersStatsService } from '../services/userStats.service.js';
-import { UserMediaStats } from '../types/types.js';
 
 export async function getUserStats(req: Request, res: Response) {
   const userId: number | undefined = req.user?.id;
 
-  const userMediaStats: UserMediaStats = await Promise.all([
+  const userMediaStats: SettledUserMediaStats = await Promise.allSettled([
     usersStatsService.getUserMediaAggregatedStats(userId),
     usersStatsService.getTopRatedMedia(userId, 'tv'),
     usersStatsService.getTopRatedMedia(userId, 'movie'),
     usersStatsService.getFavoriteGenres(userId),
     usersStatsService.getTvShowInProgress(userId),
-  ]);
+  ])
+  const [aggregatedStats, topTv, topMovie, favoriteGenres, tvShowInProgress] = userMediaStats;
 
   res.status(200).json({
-    userMediaAggregatedStats: userMediaStats[0],
-    topRatedTv: userMediaStats[1],
-    topRatedMovie: userMediaStats[2],
-    favoriteGenres: userMediaStats[3],
-    tvShowInProgress: userMediaStats[4],
+    userMediaAggregatedStats: aggregatedStats.status === 'fulfilled' ? aggregatedStats.value : null,
+    topRatedTv: topTv.status === 'fulfilled' ? topTv.value : [],
+    topRatedMovie: topMovie.status === 'fulfilled' ? topMovie.value : [],
+    favoriteGenres: favoriteGenres.status === 'fulfilled' ? favoriteGenres.value : [],
+    tvShowInProgress: tvShowInProgress.status === 'fulfilled' ? tvShowInProgress.value : [],
   });
 }

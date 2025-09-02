@@ -1,4 +1,5 @@
 import { Request } from 'express';
+import { read } from 'node:fs';
 
 export type MediaType = 'tv' | 'movie';
 
@@ -72,7 +73,12 @@ export interface TvShowInProgress {
   posterPath: string | null,
 }
 
-export interface UserMediaAggregatedStats {
+export interface FavoriteGenres {
+  name: string;
+  count: number;
+}
+
+export interface AggregatedMediaStats {
   avgRating: number | null;
   maxRating: number | null;
   minRating: number | null;
@@ -85,15 +91,11 @@ export interface UserMediaAggregatedStats {
   commentsCount: number;
 }
 
-export interface FavoriteGenres {
-  name: string;
-  count: number;
-}
 
-export interface UserMediaStats {
-  userMediaAggregatedStats: UserMediaAggregatedStats;
-  topRatedTv: TopRatedMedia[];
-  topRatedMovies: TopRatedMedia[];
-  favoriteGenres: FavoriteGenres[];
-  tvShowInProgress: TvShowInProgress[]
-}
+export type SettledUserMediaStats = readonly [
+  PromiseSettledResult<AggregatedMediaStats>,
+  PromiseSettledResult<TopRatedMedia[]>,
+  PromiseSettledResult<TopRatedMedia[]>,
+  PromiseSettledResult<FavoriteGenres[]>,
+  PromiseSettledResult<TvShowInProgress[]>,
+];

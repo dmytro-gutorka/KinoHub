@@ -8,7 +8,7 @@ import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurpl
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import { Grid, Stack } from '@mui/material';
-import theme from '@app/theme';
+import theme from '@app/theme/theme';
 
 export default function DashboardMainStats({ userMediaStats }) {
 

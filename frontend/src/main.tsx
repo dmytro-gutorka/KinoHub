@@ -6,14 +6,15 @@ import { Provider } from 'react-redux';
 import App from '@app/App';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { store } from '@app/store';
-import finalTheme from '@app/theme';
 import queryClient from '@app/queryClient';
+import theme from '@app/theme/theme';
+
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={finalTheme}>
+        <ThemeProvider theme={theme}>
           <CssBaseline />
           <App />
         </ThemeProvider>

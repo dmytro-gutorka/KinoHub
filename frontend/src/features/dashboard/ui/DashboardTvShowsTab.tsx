@@ -1,7 +1,7 @@
 import { UserMediaStats } from '@shared/types/generalTypes';
 import { Chip, Stack, styled, Typography } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
-import theme from '@app/theme';
+import theme from '@app/theme/theme';
 import Box from '@mui/material/Box';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import getYearFromDate from '@shared/helpers/getYearFromDate';

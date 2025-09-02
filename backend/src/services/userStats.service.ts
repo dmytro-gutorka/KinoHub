@@ -1,5 +1,11 @@
 import { fileURLToPath } from 'node:url';
-import { MediaType, UserMediaAggregatedStats } from '../types/types.js';
+import {
+  AggregatedMediaStats,
+  FavoriteGenres,
+  MediaType,
+  TopRatedMedia,
+  TvShowInProgress,
+} from '../types/types.js';
 import { MediaUserAction } from '../entity/MediaUserAction.js';
 import { userRepository } from '../repositories/user.repository.js';
 import { AppDataSource } from '../config/db.js';
@@ -20,7 +26,7 @@ const userStatsSQL = fs.readFileSync(path.join(__dirname, './queries/user_stats_
 class UserStatsService {
   constructor(private readonly ds: DataSource) {}
 
-  async getUserMediaAggregatedStats(userId: number | undefined): Promise<UserMediaAggregatedStats> {
+  async getUserMediaAggregatedStats(userId: number | undefined): Promise<AggregatedMediaStats> {
     const user: User | null = await userRepository.findOneBy({ id: userId });
 
     if (!user) throw HttpError.NotFound('User not found');
@@ -46,7 +52,7 @@ class UserStatsService {
     userId: number | undefined,
     mediaType: MediaType,
     _limit: number = 10
-  ): Promise<any> {
+  ): Promise<TopRatedMedia[]> {
     return await this.ds
       .createQueryBuilder()
       .from(MediaUserAction, 'mua')
@@ -65,7 +71,7 @@ class UserStatsService {
       .getRawMany();
   }
 
-  async getFavoriteGenres(userId: number | undefined, _limit: number = 5): Promise<any> {
+  async getFavoriteGenres(userId: number | undefined, _limit: number = 5): Promise<FavoriteGenres[]> {
     return await this.ds
       .createQueryBuilder()
       .select(['g.name as name', 'COUNT(g.name)'])
@@ -80,7 +86,7 @@ class UserStatsService {
       .getRawMany();
   }
 
-  async getTvShowInProgress(userId?: number) {
+  async getTvShowInProgress(userId?: number): Promise<TvShowInProgress[]> {
     const watchedEpisodes = this.ds
       .createQueryBuilder()
       .from(Episode, 'e')

@@ -2,7 +2,7 @@ import { Stack, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
-import theme from '@app/theme';
+import theme from '@app/theme/theme';
 import StarIcon from '@mui/icons-material/Star';
 
 export default function DashboardTopRatedMovieCard({ movieItem, number }) {

@@ -1,7 +1,7 @@
 import { Stack } from '@mui/material';
 import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
-import theme from '@app/theme';
+import theme from '@app/theme/theme';
 import MovieOutlineIcon from '@shared/icons/MovieOutlineIcon';
 import DashboardMovieStatsCard from '@features/dashboard/ui/DashboardMovieStatsCard';
 

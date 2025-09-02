@@ -1,5 +1,5 @@
 import { Grid, Stack, Typography } from '@mui/material';
-import theme from '@app/theme';
+import theme from '@app/theme/theme';
 
 interface DashboardQuickStatsItemProps {
   statsLabel: string;

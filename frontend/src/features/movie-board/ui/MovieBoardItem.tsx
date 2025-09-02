@@ -7,7 +7,7 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
-import theme from '@app/theme';
+import theme from '@app/theme/theme';
 
 const MovieBoardItem = ({ mediaInfo }: { mediaInfo: MediaInfoEntity }) => {
   const { mediaId, title, runtime, posterPath, voteAverage, releaseDate, mediaType } = mediaInfo;
