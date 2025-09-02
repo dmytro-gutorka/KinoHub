@@ -52,6 +52,26 @@ export type AuthedRequest<P = any, ResB = any, ReqB = any, Q = any> = Request<P,
   user: { id: number };
 };
 
+
+export interface TopRatedMedia {
+  rating: number;
+  title: string,
+  posterPath: string | null,
+  releaseDate: string,
+}
+
+export interface TvShowInProgress {
+  tvShowId: number,
+  totalWatchedEpisodes: number,
+  totalEpisodes: number,
+  totalSeasons: number,
+  title: string,
+  releaseDate: string,
+  voteAverage: number,
+  status: string,
+  posterPath: string | null,
+}
+
 export interface UserMediaAggregatedStats {
   avgRating: number | null;
   maxRating: number | null;
@@ -65,9 +85,15 @@ export interface UserMediaAggregatedStats {
   commentsCount: number;
 }
 
-export interface UserStats {
-  favoriteGenres: any[];
-  topRatedMovie: any[];
-  topRatedTv: any[];
+export interface FavoriteGenres {
+  name: string;
+  count: number;
+}
+
+export interface UserMediaStats {
   userMediaAggregatedStats: UserMediaAggregatedStats;
+  topRatedTv: TopRatedMedia[];
+  topRatedMovies: TopRatedMedia[];
+  favoriteGenres: FavoriteGenres[];
+  tvShowInProgress: TvShowInProgress[]
 }

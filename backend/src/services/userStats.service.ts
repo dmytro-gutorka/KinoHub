@@ -39,7 +39,7 @@ class UserStatsService {
       watchedTv: Number(row.watched_tv ?? 0),
       watchedEpisodes: Number(row.episodes_watched ?? 0),
       commentsCount: Number(row.comment_count ?? 0),
-    };
+    }
   }
 
   async getTopRatedMedia(
@@ -84,8 +84,8 @@ class UserStatsService {
     const watchedEpisodes = this.ds
       .createQueryBuilder()
       .from(Episode, 'e')
-      .select('e.tvShowId', 'tvShowId') // -> AS "tvShowId"
-      .addSelect('COUNT(*)::int', 'totalWatchedEpisodes') // -> AS "totalWatchedEpisodes"
+      .select('e.tvShowId', 'tvShowId')
+      .addSelect('COUNT(*)::int', 'totalWatchedEpisodes')
       .where('e.userId = :userId', { userId })
       .andWhere('e.isWatched = true')
       .groupBy('e.tvShowId');
@@ -93,7 +93,7 @@ class UserStatsService {
     return this.ds
       .createQueryBuilder()
       .from(`(${watchedEpisodes.getQuery()})`, 'we')
-      .leftJoin(MediaInfo, 'mi', `mi.mediaId = we."tvShowId"`) // << важные кавычки
+      .leftJoin(MediaInfo, 'mi', `mi.mediaId = we."tvShowId"`)
       .select([
         `we."tvShowId" AS "tvShowId"`,
         `we."totalWatchedEpisodes" AS "totalWatchedEpisodes"`,
@@ -108,34 +108,6 @@ class UserStatsService {
       .setParameters(watchedEpisodes.getParameters())
       .getRawMany();
   }
-
-  // async getTvShowInProgress(userId: number | undefined) {
-  //   return await this.ds
-  //     .createQueryBuilder()
-  //     .select([
-  //       'e.tvShowId AS tvShowId',
-  //       'CAST(COUNT(*) AS INT) AS totalWatchedEpisodes',
-  //       `${this.ds
-  //         .createQueryBuilder()
-  //         .subQuery()
-  //         .select([
-  //           'mi.totalEpisodes',
-  //           'mi.totalSeasons',
-  //           'mi.title',
-  //           'mi.voteAverage',
-  //           'mi.releaseDate',
-  //           'mi.status',
-  //         ])
-  //         .from(MediaInfo, 'mi')
-  //         .where('mi.mediaId = e.tvShowId')
-  //         .getQuery()} AS totalEpisodes`,
-  //     ])
-  //     .from(Episode, 'e')
-  //     .where('e.userId = :userId', { userId })
-  //     .andWhere('e.isWatched = true')
-  //     .groupBy('e.tvShowId')
-  //     .getRawMany();
-  // }
 }
 
 export const usersStatsService = new UserStatsService(AppDataSource);
