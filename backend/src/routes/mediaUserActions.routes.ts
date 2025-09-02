@@ -3,7 +3,7 @@ import {
   createUserMediaAction,
   updateUserMediaAction,
   getMovieBoardItems,
-} from '../controllers/actions.controller.js';
+} from '../controllers/mediaUserActions.controller.js';
 import express, { Router } from 'express';
 
 export const router: Router = express.Router();

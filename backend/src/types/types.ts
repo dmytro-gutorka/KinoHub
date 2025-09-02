@@ -2,6 +2,16 @@ import { Request } from 'express';
 
 export type MediaType = 'tv' | 'movie';
 
+// export const WATCH_STATUSES =  {
+//   ToWatch: 'toWatch',
+//   IsWatching: 'isWatching',
+//   OnHold: 'onHold',
+//   Favorites: 'favorites',
+//   Archived: 'archived',
+// } as const
+
+// export type WatchStatus = typeof WATCH_STATUSES[keyof typeof WATCH_STATUSES];
+
 export enum WatchStatus {
   ToWatch = 'toWatch',
   IsWatching = 'isWatching',

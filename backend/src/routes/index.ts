@@ -1,6 +1,6 @@
 import { router as usersRouter } from './user.routes.js';
 import { router as mediaRouter } from './media.routes.js';
-import { router as actionsRouter } from './actions.routes.js';
+import { router as actionsRouter } from './mediaUserActions.routes.js';
 import { router as authRouter } from './auth.routes.js';
 import { router as episodesRouter } from './episodes.routes.js';
 
