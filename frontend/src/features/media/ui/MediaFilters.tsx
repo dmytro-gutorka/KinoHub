@@ -1,6 +1,8 @@
 import { MediaFiltersBase, MediaType } from '@shared/types/generalTypes';
 import { TmdbGenre } from '@entities/types/tmdbEntities';
 import { Button, Stack } from '@mui/material';
+import FilterAltOffOutlinedIcon from '@mui/icons-material/FilterAltOffOutlined';
+
 import BasicSelect from '@shared/ui/BasicSelect';
 import MultipleSelect from '@shared/ui/MultipleSelect';
 import {
@@ -41,7 +43,12 @@ export default function MediaFilters({ handlers, filters, tmdbGenreList, mediaTy
           value={minRating}
           onChange={handleRatingChange}
           label='Min Rating'/>
-        <Button onClick={() => handleResetFilters()}></Button>
+        <Button
+          endIcon={<FilterAltOffOutlinedIcon/>}
+          variant="outlined"
+          onClick={() => handleResetFilters()}>
+          Reset Filters
+        </Button>
       </Stack>
     )
 }

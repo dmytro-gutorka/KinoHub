@@ -10,7 +10,7 @@ interface MultipleSelectProps {
 
 const MultipleSelect = ({ staticValueList, selectedValueList, onChange }: MultipleSelectProps) => {
   return (
-    <FormControl sx={{ width: '300px' }}>
+    <FormControl>
       <InputLabel id="movie-genres-filter">Genres</InputLabel>
       <Select
         multiple

@@ -13,7 +13,7 @@ const BasicSelect = ({ staticValueList, value, onChange, label }: BasicSelectPro
   const ariaId: string = label.split(' ').join('-')
 
   return (
-    <FormControl sx={{ width: '300px' }}>
+    <FormControl>
       <InputLabel id={ariaId}>{label}</InputLabel>
       <Select
         defaultValue={value}
