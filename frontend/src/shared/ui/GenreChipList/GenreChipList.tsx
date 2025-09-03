@@ -12,7 +12,7 @@ const GenreChipList = ({ genres, renderLimit = false, size = 'medium' }: GenreCh
   return (
     <>
       {genres?.length > 0 && (
-        <Stack direction="row" flexWrap="wrap" gap={1} mb={2}>
+        <Stack direction="row" flexWrap="wrap" gap={1} marginBlock={1}>
           <Stack direction="row" gap={1}>
             {genres
               ?.slice(0, limitToRender)

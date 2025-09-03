@@ -18,15 +18,15 @@ export default function MediaFilters({ handlers, filters, genresList }: MediaFil
   return (
     <>
       {!!searchQuery.length || (
-        <Stack gap={2} direction="row" alignItems="center" justifyContent="space-between">
-          <Stack direction="row" gap={2}>
+        <Stack gap={4} direction="row" alignItems="center" justifyContent="start" flexWrap="wrap">
+
             <BasicSelect sortBy={sortBy} onSortChange={handleSortChange} />
             <MultipleSelect
               genres={genres}
               onGenresChange={handleGenreChange}
               genresList={genresList}
             />
-          </Stack>
+
           <SliderBar minRating={minRating} onRatingChange={handleRatingChange} />
         </Stack>
       )}

@@ -8,6 +8,7 @@ import MediaFilters from '@features/media/ui/MediaFilters';
 import MediaCardList from '@features/media/ui/MediaCardList';
 import movieGenres from '@shared/data/movieGenres';
 import tvShowGenres from '@shared/data/tvShowGenres';
+import PageWrapper from '@shared/ui/PageWrapper';
 
 const MediaList = () => {
   const mediaType: MediaType = useLoaderData();
@@ -18,13 +19,15 @@ const MediaList = () => {
   const { handleSearch, handlePageChange } = handlers;
 
   return (
-    <Stack component="section" m={10} rowGap={4}>
+    <PageWrapper>
       {isLoading && <CircularProgress />}
-      <TextField label="Search" variant="outlined" onChange={handleSearch} />
-      <MediaFilters handlers={handlers} filters={filters} genresList={genresList} />
+      <Stack mb={10} gap={5}>
+        <TextField label="Search" variant="outlined" onChange={handleSearch} />
+        <MediaFilters handlers={handlers} filters={filters} genresList={genresList} />
+      </Stack>
       <MediaCardList tmdbGenreList={genresList} mediaList={mediaList} mediaType={mediaType} />
       <MediaPagePagination pages={pages} handlePageChange={handlePageChange} />
-    </Stack>
+    </PageWrapper>
   );
 };
 

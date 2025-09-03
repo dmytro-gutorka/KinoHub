@@ -4,10 +4,10 @@ import {
   TmdbTvShowSearchedFilteredList,
 } from '@entities/types/tmdbEntities';
 import { MediaType } from '@shared/types/generalTypes';
+import { getMediaGenres } from '@shared/helpers/getMediaGenres';
 import { Stack } from '@mui/material';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
 import MediaCardDetailed from '@features/media/ui/MediaCardDetailed';
-import { getMediaGenres } from '@shared/helpers/getMediaGenres';
 
 interface MediaCardListProps {
   mediaList: (TmdbMovieSearchedFilteredList | TmdbTvShowSearchedFilteredList)[];

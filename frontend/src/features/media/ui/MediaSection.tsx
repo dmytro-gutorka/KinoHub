@@ -11,11 +11,9 @@ interface MediaSectionProps {
 const MediaSection = ({ sectionTitle, mediaList, mediaType }: MediaSectionProps) => {
   return (
     <Stack component="section" mt={10}>
-      <Typography variant="h5" component="h2" fontWeight="700" lineHeight="2">
-        {sectionTitle}
-      </Typography>
+      <Typography variant="h5" children={sectionTitle} />
       <Stack direction="row" flexWrap="wrap" rowGap={9} columnGap={6}>
-        {mediaList.map((mediaItem) => (
+        {mediaList.map(mediaItem => (
           <MediaCardBrief key={mediaItem.id} mediaItem={mediaItem} mediaType={mediaType} />
         ))}
       </Stack>

@@ -25,9 +25,7 @@ export default function MediaHeader<T extends MediaType>({
           <MediaHeaderPoster imgUrl={imgUrl} />
 
           <Box>
-            <Typography variant="h1" component="h1" fontWeight="700" mb={10} lineHeight={1.2}>
-              {title}
-            </Typography>
+            <Typography variant="h1" mb={10} children={title}/>
 
             <Stack gap={2}>
               <LabelList mediaType={mediaType} tmdbMediaData={tmdbMediaData} />

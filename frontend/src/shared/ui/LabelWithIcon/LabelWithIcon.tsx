@@ -4,22 +4,14 @@ import { JSX } from 'react';
 interface LabelWithIconProps {
   label: string | number;
   children: JSX.Element;
-  labelFontWeight?: number;
-  fontColor?: string;
 }
 
 const LabelWithIcon = ({
-  label,
-  children,
-  labelFontWeight = 500,
-  fontColor = 'white',
-}: LabelWithIconProps) => {
+  label, children, }: LabelWithIconProps) => {
   return (
     <Stack direction="row" alignItems="center" gap={1}>
       {children}
-      <Typography variant="subtitle1" fontWeight={labelFontWeight} color={fontColor}>
-        {label}
-      </Typography>
+      <Typography variant="subtitle1"  children={label}/>
     </Stack>
   );
 };

@@ -1,6 +1,6 @@
 import { CardContent, Rating, Stack, Typography } from '@mui/material';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
-import StyledMediaCardBrief from '@features/media/ui/MediaCardHoverableWrapper';
+import MediaCardHoverableWrapper from '@features/media/ui/MediaCardHoverableWrapper';
 
 const MediaCardBrief = ({ mediaItem, mediaType }) => {
   const { poster_path: posterPath, vote_average: avgRating, title, name, id } = mediaItem;
@@ -9,19 +9,15 @@ const MediaCardBrief = ({ mediaItem, mediaType }) => {
   const navTo = `${mediaType}/${id}`;
 
   return (
-    <StyledMediaCardBrief width={230} height={330} navTo={navTo} imgURL={imgURL}>
+    <MediaCardHoverableWrapper width={230} height={330} navTo={navTo} imgURL={imgURL}>
       <CardContent>
-        <Typography gutterBottom variant="subtitle1" component="h3" fontWeight="700">
-          {title || name}
-        </Typography>
-        <Stack direction="row" gap={2}>
+        <Typography variant="subtitle1" component="h3" fontWeight="700" children={title || name}/>
+        <Stack direction="row" gap={2} alignItems="center">
           <Rating size="small" readOnly defaultValue={avgRating / 2} precision={0.5} />
-          <Typography gutterBottom variant="subtitle2" component="span" fontWeight="700">
-            {avgRating.toFixed(2)}
-          </Typography>
+          <Typography variant="body1" children={avgRating.toFixed(2)} />
         </Stack>
       </CardContent>
-    </StyledMediaCardBrief>
+    </MediaCardHoverableWrapper>
   );
 };
 

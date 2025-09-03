@@ -24,13 +24,13 @@ const theme = createTheme(base, {
 
   components: {
     MuiCssBaseline: MuiCssBaseline(base),
+    MuiCardContent: MuiCardContent(base),
     MuiTypography: MuiTypography(base),
     MuiDivider: MuiDivider(base),
     MuiButton: MuiButton(base),
     MuiLink: MuiLink(base),
     MuiTabs: MuiTabs(base),
     MuiTab: MuiTab(base),
-    MuiCardContent: MuiCardContent(base),
   }
 })
 
