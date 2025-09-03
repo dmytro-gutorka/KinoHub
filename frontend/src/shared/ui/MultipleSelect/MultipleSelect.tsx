@@ -3,21 +3,20 @@ import { SelectChangeEvent } from '@mui/material';
 import { TmdbGenre } from '@entities/types/tmdbEntities';
 
 interface MultipleSelectProps {
-  genres: Array<TmdbGenre>;
-  onGenresChange: (event: SelectChangeEvent<Array<TmdbGenre>>) => void;
-  genresList: Array<TmdbGenre>;
+  onChange: (event: SelectChangeEvent<Array<TmdbGenre>>) => void;
+  staticValueList: any[];
+  selectedValueList: any[];
 }
 
-const MultipleSelect = ({ genres, onGenresChange, genresList }: MultipleSelectProps) => {
+const MultipleSelect = ({ staticValueList, selectedValueList, onChange }: MultipleSelectProps) => {
   return (
     <FormControl sx={{ width: '300px' }}>
       <InputLabel id="movie-genres-filter">Genres</InputLabel>
       <Select
         multiple
         labelId="movie-genres-filter"
-        value={genres}
-        variant="standard"
-        onChange={onGenresChange}
+        value={selectedValueList}
+        onChange={onChange}
         input={<OutlinedInput label="Chip" />}
         renderValue={(selected) => (
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
@@ -27,7 +26,7 @@ const MultipleSelect = ({ genres, onGenresChange, genresList }: MultipleSelectPr
           </Box>
         )}
       >
-        {genresList.map((movie) => (
+        {staticValueList.map((movie) => (
           <MenuItem key={movie.id} value={movie}>
             {movie.name}
           </MenuItem>

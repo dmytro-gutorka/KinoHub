@@ -16,6 +16,7 @@ interface MediaCardListProps {
 }
 
 export default function MediaCardList({ mediaList, tmdbGenreList, mediaType }: MediaCardListProps) {
+
   return (
     <Stack direction="row" flexWrap="wrap" gap={10} justifyContent="center">
       {mediaList?.map(media => {

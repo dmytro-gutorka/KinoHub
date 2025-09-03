@@ -9,32 +9,30 @@ interface MediaFiltersWithSearch extends MediaFiltersBase {
 
 interface MediaFiltersHandlers {
   handleGenreChange: (e: SelectChangeEvent<unknown>) => void;
-  handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
-  handleSortChange: (e: ChangeEvent<{ value: SortBy }>) => void;
-  handleRatingChange: (value: number) => void;
-  handlePageChange: (e: unknown, newPage: number) => void;
+  handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSortChange: (e: React.ChangeEvent<{ value: SortBy }>) => void;
+  handleRatingChange: (e: React.ChangeEvent<{ value: number }>) => void;
+  handlePageChange: (_: unknown, newPage: number) => void
+  handleResetFilters: () => void;
 }
 
-export const useMediaFilters = (initialFilters = {}) => {
-  const [filters, setFilters] = useState<MediaFiltersWithSearch>({
-    page: 1,
-    minRating: 1,
-    searchQuery: '',
-    genres: [],
-    sortBy: SortBy.YearDESC,
-    ...initialFilters,
-  });
+const initialFilters: MediaFiltersWithSearch = {
+  searchQuery: '',
+  minRating: '',
+  sortBy: '',
+  genres: [],
+  page: 1,
+};
 
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
+export const useMediaFilters = (): {
+  filters: MediaFiltersWithSearch;
+  handlers: MediaFiltersHandlers
+} => {
+  const [filters, setFilters] = useState<MediaFiltersWithSearch>(initialFilters);
+
+  const handleSearch = (e: ChangeEvent<{value: string}>) => {
     const searchQuery: string = e.target.value;
     setFilters((prev) => ({ ...prev, searchQuery }));
-  };
-
-  const handleGenreChange = (e: SelectChangeEvent<unknown>) => {
-    const genres = e.target.value as Array<TmdbGenre>;
-
-    setFilters((prev) => ({ ...prev, genres }));
   };
 
   const handleSortChange = (e: ChangeEvent<{ value: SortBy }>) => {
@@ -42,19 +40,28 @@ export const useMediaFilters = (initialFilters = {}) => {
     setFilters((prev) => ({ ...prev, sortBy }));
   };
 
-  const handleRatingChange = (value: number) => {
-    setFilters((prev) => ({ ...prev, minRating: value }));
+  const handleRatingChange = (e: ChangeEvent<{value: number}>) => {
+    const minRating: number = e.target.value
+    setFilters((prev) => ({ ...prev, minRating}));
+  };
+
+  const handleGenreChange = (e: SelectChangeEvent<unknown>) => {
+    const genres = e.target.value as Array<TmdbGenre>;
+    setFilters((prev) => ({ ...prev, genres }));
   };
 
   const handlePageChange = (_: unknown, newPage: number) => {
     setFilters((prev) => ({ ...prev, page: newPage }));
   };
 
+  const handleResetFilters = () => setFilters(initialFilters)
+
   useEffect(() => setFilters((prev) => ({ ...prev, page: 1 })), [filters.searchQuery]);
 
   return {
     filters,
     handlers: {
+      handleResetFilters,
       handleGenreChange,
       handleSearch,
       handleSortChange,

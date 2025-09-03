@@ -97,9 +97,3 @@ export const MuiTypography = (theme: Theme)=> ({
     },
   }
 })
-
-
-
-// const thenable: PromiseLike<number> = {
-//   then: (onfulfilled) => ()
-// }

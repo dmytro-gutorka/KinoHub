@@ -7,20 +7,22 @@ import { TypographyVariant } from '@mui/material';
 export type MediaType = 'movie' | 'tv';
 
 export enum SortBy {
-  TitleASC = 'title.asc',
-  TitleDESC = 'title.desc',
-  // FOR TV UTS name.acs
-  // title.asc is only for movies !!!!!!!!!
+  // TitleASC = 'title.asc',
+  // TitleDESC = 'title.desc',
   RatingASC = 'vote_average.asc',
   RatingDESC = 'vote_average.desc',
   YearASC = 'primary_release_date.asc',
   YearDESC = 'primary_release_date.desc',
+
+  // FOR TV UTS name.acs
+  // title.asc is only for movies !!!!!!!!!
 }
+
 
 export interface MediaFiltersBase {
   page: number;
-  minRating: number;
-  sortBy: SortBy;
+  minRating: number | '';
+  sortBy: SortBy | '';
   genres: TmdbGenre[];
 }
 
