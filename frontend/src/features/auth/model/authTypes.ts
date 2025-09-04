@@ -32,9 +32,6 @@ export interface UserAuthData {
   accessToken: string;
 }
 
-export interface LoginFormProps {
-  onClose: (a: boolean) => void;
-}
 
 export interface RegistrationFormProps {
   setOpenRegistrationModal: (a: boolean) => void;

@@ -1,9 +1,13 @@
 import { Button, Stack } from '@mui/material';
-import { LoginFormProps } from '@features/auth/model/authTypes';
 import { Controller } from 'react-hook-form';
 
 import TextField from '@mui/material/TextField';
-import useLoginForm from '@features/auth/model/hooks/useLoginForm';
+import useLoginForm from '@features/auth/model/hooks/useLoginForm'
+
+
+export interface LoginFormProps {
+  onClose: (a: boolean) => void;
+}
 
 export default function LoginForm ({ onClose }: LoginFormProps) {
   const { handleSubmit, control, validationErrors, loginServerError, onSubmit } =
