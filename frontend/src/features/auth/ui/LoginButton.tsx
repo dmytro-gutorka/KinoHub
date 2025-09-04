@@ -19,12 +19,13 @@ export default function LoginButton() {
 
   return (
     <>
-      {!isAuthenticated && (
-        <Button onClick={handleOpenLoginModal}>
-          <PersonAddAltOutlinedIcon fontSize="small" sx={{ marginRight: 1 }} />
-          Login
-        </Button>
-      )}
+      {!isAuthenticated &&
+        <Button
+          onClick={handleOpenLoginModal}
+          startIcon={<PersonAddAltOutlinedIcon />}
+          children="Login"
+        />
+      }
       <LoginModal isOpen={openSignInModal} onClick={setOpenLoginModal} />
     </>
   );

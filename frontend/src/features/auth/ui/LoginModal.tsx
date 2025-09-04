@@ -31,7 +31,7 @@ const LoginModal = ({ isOpen, onClick }: LoginModalProps) => {
           <LoginForm setOpenLoginModal={onClick} />
         </Stack>
       </DialogContent>
-      <Typography>Don't have an account? Sign up</Typography>
+      {/*<Typography>Don't have an account? Sign up</Typography>*/}
     </Dialog>
   );
 };

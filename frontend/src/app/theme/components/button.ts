@@ -26,13 +26,14 @@ export const MuiButton = (theme: Theme) => ({
         }
       ],
 
-      transition: theme.transitions.create('all'),
       padding: theme.spacing(2.5),
       paddingInline: theme.spacing(4.5),
       textTransform: 'capitalize',
+      borderRadius: theme.shape.borderRadiusScale.xl,
+      minHeight: '50px',
       fontWeight: '600',
       fontSize: theme.spacing(4),
-      minHeight: '55px',
+      transition: theme.transitions.create('all'),
 
       '&:hover' : {
         scale: 1.05,

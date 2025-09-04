@@ -1,6 +1,7 @@
 import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
 import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
 
+import { Button, Stack } from '@mui/material';
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
@@ -8,7 +9,6 @@ import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Button, Stack } from '@mui/material';
 import { JSX } from 'react';
 import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import useUpdateMediaAction from '@features/media/model/hooks/useUpdateMediaAction';
@@ -16,7 +16,7 @@ import useUpdateMediaAction from '@features/media/model/hooks/useUpdateMediaActi
 interface ActionButton {
   label: null | string;
   icon: JSX.Element;
-  onClick: null | (() => void);
+  onClick: () => void
 }
 
 interface MediaActionButtonListProps {
@@ -38,7 +38,7 @@ export default function MediaActionButtonList({
   const actionButtons: Array<ActionButton> = [
     {
       icon: <PlayCircleOutlineOutlinedIcon />,
-      onClick: null,
+      onClick: () => window.open(`https://www.youtube.com/watch?v=${mediaId}`, '_blank'),
       label: 'Watch trailer',
     },
     {
@@ -61,9 +61,8 @@ export default function MediaActionButtonList({
 
   return (
     <Stack direction="row" spacing={4} mt={8}>
-      {actionButtons.map(({ label, icon, onClick }, index) => (
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
+      {actionButtons.map(({ label, icon, onClick }: ActionButton, index) => (
+
         <Button onClick={onClick} key={index}>
           {label && (
             <LabelWithIcon key={index} label={label}>
