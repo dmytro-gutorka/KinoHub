@@ -5,13 +5,16 @@ import { useAppDispatch } from '@shared/hooks/redux';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { login } from '@features/auth/model/services/login';
+import { setStateRequest } from '@features/auth/model/slice';
 
-export default function useLoginForm(setOpenLoginModal: (a: boolean) => void) {
+
+export default function useLoginForm(onClose: (v: boolean) => void) {
   const {
     handleSubmit,
     control,
     formState: { errors: validationErrors },
   } = useForm<UserLoginCredentials>();
+
 
   const dispatch = useAppDispatch();
   const onSubmit: SubmitHandler<UserLoginCredentials> = (data: UserLoginCredentials) =>
@@ -21,8 +24,11 @@ export default function useLoginForm(setOpenLoginModal: (a: boolean) => void) {
   const loginServerError: string | null = useSelector(selectRequestError('auth/login'));
 
   useEffect(() => {
-    if (loginStatus === 'success') setOpenLoginModal(false);
-  }, [loginStatus, setOpenLoginModal]);
+    if (loginStatus === 'success') {
+      dispatch(setStateRequest('auth/login'));
+      onClose(false)
+    }
+  }, [loginStatus, onClose, dispatch]);
 
   return {
     handleSubmit,

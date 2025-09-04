@@ -17,7 +17,8 @@ const RegistrationForm = ({ setOpenRegistrationModal }: RegistrationFormProps) =
         rules={{ required: true }}
         control={control}
         defaultValue=""
-        render={({ field }) => <TextField {...field} label="First name" sx={{ width: '350px' }} />}
+        render={({ field }) =>
+          <TextField {...field} label="First name" />}
       />
       {errors.firstName && <span>This field is required</span>}
 
@@ -26,7 +27,8 @@ const RegistrationForm = ({ setOpenRegistrationModal }: RegistrationFormProps) =
         rules={{ required: true }}
         control={control}
         defaultValue=""
-        render={({ field }) => <TextField {...field} label="Last name" sx={{ width: '350px' }} />}
+        render={({ field }) =>
+          <TextField {...field} label="Last name"  />}
       />
       {errors.lastName && <span>This field is required</span>}
 
@@ -35,7 +37,8 @@ const RegistrationForm = ({ setOpenRegistrationModal }: RegistrationFormProps) =
         rules={{ required: true }}
         control={control}
         defaultValue=""
-        render={({ field }) => <TextField {...field} label="Username" sx={{ width: '350px' }} />}
+        render={({ field }) =>
+          <TextField {...field} label="Username"  />}
       />
       {errors.username && <span>This field is required</span>}
 
@@ -44,7 +47,8 @@ const RegistrationForm = ({ setOpenRegistrationModal }: RegistrationFormProps) =
         rules={{ required: true }}
         control={control}
         defaultValue=""
-        render={({ field }) => <TextField {...field} label="Email" sx={{ width: '350px' }} />}
+        render={({ field }) =>
+          <TextField {...field} label="Email"  />}
       />
       {errors.email && <span>This field is required</span>}
 
@@ -53,7 +57,8 @@ const RegistrationForm = ({ setOpenRegistrationModal }: RegistrationFormProps) =
         rules={{ required: true }}
         control={control}
         defaultValue=""
-        render={({ field }) => <TextField {...field} label="Password" sx={{ width: '350px' }} />}
+        render={({ field }) =>
+          <TextField {...field} type="password" label="Password"  />}
       />
       {errors.password && <span>This field is required</span>}
 

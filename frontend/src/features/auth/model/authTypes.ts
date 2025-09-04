@@ -33,7 +33,7 @@ export interface UserAuthData {
 }
 
 export interface LoginFormProps {
-  setOpenLoginModal: (a: boolean) => void;
+  onClose: (a: boolean) => void;
 }
 
 export interface RegistrationFormProps {

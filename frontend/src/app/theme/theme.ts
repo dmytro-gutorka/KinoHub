@@ -37,6 +37,13 @@ const theme = createTheme(base, {
           color: 'white',
         },
       }
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          minWidth: '300px',
+        },
+      }
     }
   }
 })

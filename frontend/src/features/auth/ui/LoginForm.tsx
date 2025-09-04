@@ -5,9 +5,9 @@ import { Controller } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import useLoginForm from '@features/auth/model/hooks/useLoginForm';
 
-const LoginForm = ({ setOpenLoginModal }: LoginFormProps) => {
+export default function LoginForm ({ onClose }: LoginFormProps) {
   const { handleSubmit, control, validationErrors, loginServerError, onSubmit } =
-    useLoginForm(setOpenLoginModal);
+    useLoginForm(onClose);
 
   return (
     <Stack component="form" onSubmit={handleSubmit(onSubmit)} gap={4}>
@@ -18,16 +18,18 @@ const LoginForm = ({ setOpenLoginModal }: LoginFormProps) => {
         rules={{ required: true }}
         control={control}
         defaultValue=""
-        render={({ field }) => <TextField {...field} label="Email" sx={{ width: '350px' }} />}
+        render={({ field }) =>
+          <TextField {...field} label="Email" />}
       />
       {validationErrors.email && <span>This field is required</span>}
 
       <Controller
         name="password"
+        defaultValue=""
         rules={{ required: true }}
         control={control}
-        defaultValue=""
-        render={({ field }) => <TextField {...field} label="Password" sx={{ width: '350px' }} />}
+        render={({ field }) =>
+          <TextField {...field} label="Password" type="password" />}
       />
       {validationErrors.password && <span>This field is required</span>}
 
@@ -35,5 +37,3 @@ const LoginForm = ({ setOpenLoginModal }: LoginFormProps) => {
     </Stack>
   );
 };
-
-export default LoginForm;

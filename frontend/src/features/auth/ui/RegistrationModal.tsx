@@ -9,13 +9,11 @@ interface SignUpModalProps {
   onClick: (a: boolean) => void;
 }
 
-// TODO: createPortal(JSX, NodeElement)
-
 const RegistrationModal = ({ isOpen, onClick }: SignUpModalProps) => {
   const theme = useTheme();
 
   return (
-    <Dialog open={isOpen}>
+    <Dialog open={isOpen} onClose={() => onClick(false)}>
       <DialogContent sx={{ padding: 0 }}>
         <Stack sx={{ padding: 6, background: theme.palette.gradientGrey }}>
           <Stack direction="row" gap={2} justifyContent="space-between" alignItems="center" mb={3}>
