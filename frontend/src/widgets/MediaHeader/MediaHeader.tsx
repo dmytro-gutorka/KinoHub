@@ -39,6 +39,7 @@ export default function MediaHeader<T extends MediaType>({
             />
           </Box>
         </Stack>
+
       </Container>
     </Stack>
   );
