@@ -22,7 +22,7 @@ const SeasonItem = ({ seasonItem, currentSeasonNumber, onSeasonNumber }: SeasonI
   return (
     <Box
       onClick={() => onSeasonNumber(seasonNumber)}
-      border={theme.customStyles.border}
+      border={theme.border}
       width="100%"
       borderRadius={1}
       p={2}

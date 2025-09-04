@@ -1,8 +1,8 @@
+import { IUser } from '@features/auth/model/authTypes';
+import { Container } from '@mui/material';
 import { selectUserMetaData } from '@features/auth/model/selectors';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import { IUser } from '@features/auth/model/authTypes';
-import { Container } from '@mui/material';
 import Tab from '@mui/material/Tab';
 import TabList from '@mui/lab/TabList';
 import PhoneIcon from '@mui/icons-material/Phone';

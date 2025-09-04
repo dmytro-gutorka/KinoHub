@@ -2,20 +2,21 @@ import { MEDIA_ACTIONS, WATCH_STATUS } from '@app/constants';
 import { TmdbEpisodeInfo, TmdbGenre, TmdbSeasonInfo } from '@entities/types/tmdbEntities';
 import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
 import { ReactNode } from 'react';
-import { TypographyVariant } from '@mui/material';
+import { SelectChangeEvent, TypographyVariant } from '@mui/material';
 
 export type MediaType = 'movie' | 'tv';
 
 export enum SortBy {
-  // TitleASC = 'title.asc',
-  // TitleDESC = 'title.desc',
+  TitleASC = 'title.asc',
+  TitleDESC = 'title.desc',
+  NameASC = 'name.asc',
+  NameDESC = 'name.desc',
+  FirstAirDateASC = 'first_air_date.asc',
+  FirstAirDateDESC = 'first_air_date.desc',
   RatingASC = 'vote_average.asc',
   RatingDESC = 'vote_average.desc',
   YearASC = 'primary_release_date.asc',
   YearDESC = 'primary_release_date.desc',
-
-  // FOR TV UTS name.acs
-  // title.asc is only for movies !!!!!!!!!
 }
 
 
@@ -93,4 +94,13 @@ export interface BlockWrapperProps {
   children: ReactNode;
   titleFontWeight?: number;
   titleSizeVariant?: TypographyVariant;
+}
+
+export interface MediaFiltersHandlers {
+  handleGenreChange: (e: SelectChangeEvent<unknown>) => void;
+  handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSortChange: (e: React.ChangeEvent<{ value: SortBy }>) => void;
+  handleRatingChange: (e: React.ChangeEvent<{ value: number }>) => void;
+  handlePageChange: (_: unknown, newPage: number) => void
+  handleResetFilters: () => void;
 }

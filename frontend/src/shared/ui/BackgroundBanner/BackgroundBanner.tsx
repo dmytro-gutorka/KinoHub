@@ -4,13 +4,21 @@ const BackgroundBanner = ({ imgURL }: { imgURL: string }) => {
   return (
     <Box
       sx={{
-        background: `url(${imgURL})`,
-        position: 'absolute',
+        position: "absolute",
+        zIndex: -10,
         inset: 0,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        filter: 'blur(8px)',
-        zIndex: '-10',
+        backgroundImage: `
+          linear-gradient(
+            to right,
+            rgba(0,0,0,0) 20%,
+            rgba(0,0,0,0.7) 50%,
+            rgba(0,0,0,0) 80%
+          ),
+          url(${imgURL})
+        `,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        filter: "blur(8px)",
       }}
     />
   );

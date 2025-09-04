@@ -58,7 +58,7 @@ export default function DashboardTvShowsTab({ userMediaStats }: DashboardTvShows
             <Stack flexGrow={1} width="50%" key={tvShowItem.id}>
               <Stack
                 borderRadius={theme.shape.borderRadiusScale.md}
-                border={theme.customStyles.border}
+                border={theme.border}
                 direction="row"
                 width="100%"
                 gap={4}

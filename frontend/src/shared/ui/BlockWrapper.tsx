@@ -27,7 +27,7 @@ export default function BlockWrapper({
       paddingInline={4}
       justifyContent="center"
       borderRadius={theme.shape.borderRadiusScale.md}
-      border={theme.customStyles.border}
+      border={theme.border}
 
       flexGrow={1}
       padding={4}

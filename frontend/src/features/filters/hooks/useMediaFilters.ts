@@ -1,19 +1,10 @@
 import { useState, useEffect, ChangeEvent } from 'react';
-import { MediaFiltersBase, SortBy } from '@shared/types/generalTypes';
+import { MediaFiltersBase, MediaFiltersHandlers, SortBy } from '@shared/types/generalTypes';
 import { SelectChangeEvent } from '@mui/material';
 import { TmdbGenre } from '@entities/types/tmdbEntities';
 
 interface MediaFiltersWithSearch extends MediaFiltersBase {
   searchQuery: string;
-}
-
-interface MediaFiltersHandlers {
-  handleGenreChange: (e: SelectChangeEvent<unknown>) => void;
-  handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSortChange: (e: React.ChangeEvent<{ value: SortBy }>) => void;
-  handleRatingChange: (e: React.ChangeEvent<{ value: number }>) => void;
-  handlePageChange: (_: unknown, newPage: number) => void
-  handleResetFilters: () => void;
 }
 
 const initialFilters: MediaFiltersWithSearch = {

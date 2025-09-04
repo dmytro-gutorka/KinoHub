@@ -11,14 +11,17 @@ export const palette: PaletteOptions = {
     gradientBlue: 'linear-gradient(to right, #3b82f6 , #06b6d4)',
 
     starColor: 'rgb(250 204 21)',
-    transparentGrey: 'rgb(255 255 255 / 0.1)',
+
+    transparentGrey01: 'rgb(255 255 255 / 0.1)',
+    transparentGrey02: 'rgb(255 255 255 / 0.2)',
+    transparentGrey03: 'rgb(255 255 255 / 0.3)',
 
     green: {
       light: 'rgb(74 222 128)',
+      lightGradient: '',
       dark: 'rgb(34 197 94 / 0.2)',
       darkGradient:
         'linear-gradient(to bottom right, rgb(34 197 94 / 0.2) , rgb(16 185 129 / 0.2))',
-      lightGradient: '',
     },
     purple: {
       light: 'rgb(192 132 252)',

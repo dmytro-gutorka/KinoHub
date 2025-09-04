@@ -89,7 +89,7 @@ export const MuiTypography = (theme: Theme)=> ({
           },
           style: {
             fontSize: theme.spacing(6),
-            fontWeight: '700',
+            fontWeight: '900',
             lineHeight: '2',
           },
         }

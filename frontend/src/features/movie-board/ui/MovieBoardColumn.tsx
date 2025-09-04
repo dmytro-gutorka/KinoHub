@@ -20,7 +20,7 @@ const MovieBoardColumn = ({ children, columnData, movieBoardItems }: MovieBoardC
   )?.length;
 
   return (
-    <Stack border={theme.customStyles.border} padding={3} borderRadius={1.5}>
+    <Stack border={theme.border} padding={3} borderRadius={1.5}>
       <Stack gap={4} mb={8}>
         <Stack direction="row" gap={2}>
           <MovieBoardIcon

@@ -1,9 +1,9 @@
-import { TMDB_HEADERS, TMDB_URL } from '@app/constants';
+import { MediaFiltersBase, MediaType, SearchMediaParams, SortBy } from '@shared/types/generalTypes';
 import {
   TmdbMediaListResults,
   TmdbMediaSearchedFilteredResponse,
 } from '@entities/types/tmdbEntities';
-import { MediaFiltersBase, MediaType, SearchMediaParams, SortBy } from '@shared/types/generalTypes';
+import { TMDB_HEADERS, TMDB_URL } from '@app/constants';
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 
 class TmdbService {

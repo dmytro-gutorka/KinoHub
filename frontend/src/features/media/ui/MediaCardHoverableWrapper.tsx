@@ -26,7 +26,7 @@ export default function MediaCardHoverableWrapper({
         background: 'transparent',
         position: 'relative',
         width: width,
-        border: `1px solid ${theme.palette.transparentGrey}`,
+        border: `1px solid ${theme.palette.transparentGrey01}`,
         transition: '0.3s',
         '&:hover': { transform: 'scale(1.05)' },
       })}

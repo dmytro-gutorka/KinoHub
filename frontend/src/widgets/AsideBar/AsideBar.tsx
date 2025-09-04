@@ -9,11 +9,18 @@ import RestoreRoundedIcon from '@mui/icons-material/RestoreRounded';
 import LiveTvRoundedIcon from '@mui/icons-material/LiveTvRounded';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import theme from '@app/theme/theme';
 
-const AsideBar = () => {
+
+export default function AsideBar () {
+  const marginLeft = 4
+
   return (
-    <Stack gap={6} ml={4}>
+    <Stack gap={6} ml={marginLeft} position="relative">
+
       <Logo />
+      <Divider sx={{ width: `calc(100% + ${theme.spacing(marginLeft)})`, ml: -marginLeft }} />
+
       <Stack pr={4}>
         <Stack mb={4} gap={2}>
           <AsideBarLink to="/" hasIcon>
@@ -35,20 +42,21 @@ const AsideBar = () => {
             <RestoreRoundedIcon /> History
           </AsideBarLink>
         </Stack>
-
-        <Divider sx={{ marginBottom: 6 }}></Divider>
-
-        <Stack gap={2}>
-          <AsideBarLink to="profile" hasIcon>
-            <PersonOutlineOutlinedIcon /> Profile
-          </AsideBarLink>
-          <AsideBarLink to="settings" hasIcon>
-            <SettingsOutlinedIcon /> Settings
-          </AsideBarLink>
-        </Stack>
       </Stack>
+
+      <Divider sx={{ width: `calc(100% + ${theme.spacing(marginLeft)})`, ml: -marginLeft }} />
+
+      <Stack pr={4}>
+          <Stack gap={2}>
+            <AsideBarLink to="profile" hasIcon>
+              <PersonOutlineOutlinedIcon /> Profile
+            </AsideBarLink>
+            <AsideBarLink to="settings" hasIcon>
+              <SettingsOutlinedIcon /> Settings
+            </AsideBarLink>
+          </Stack>
+      </Stack>
+
     </Stack>
   );
 };
-
-export default AsideBar;

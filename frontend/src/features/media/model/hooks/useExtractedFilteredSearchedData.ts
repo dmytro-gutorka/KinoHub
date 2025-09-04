@@ -28,11 +28,11 @@ export default function useExtractedFilteredSearchedData(
     page,
   });
 
+
+  let limitedPage: number | undefined;
   const mediaList:
     | TmdbMediaListResults<Array<TmdbMediaSearchedFilteredResponse<typeof mediaType>>>
     | undefined = searchData?.results || filteredData?.results;
-
-  let limitedPage: number | undefined;
   const pages: number | undefined = searchData?.total_pages || filteredData?.total_pages;
 
   if (pages && pages > 500) limitedPage = 500;

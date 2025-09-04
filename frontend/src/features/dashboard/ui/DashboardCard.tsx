@@ -1,11 +1,20 @@
 import { Box, Stack, Typography, useTheme } from '@mui/material';
+import { JSX } from 'react';
 
-const DashboardCard = ({ children, dashStat, mainColor, label }) => {
+
+interface DashboardCardProps {
+  mainColor: 'green' | 'purple' | 'blue' | 'orange',
+  children: JSX.Element,
+  dashStat: number | string,
+  label: string,
+}
+
+const DashboardCard = ({ children, dashStat, mainColor, label }: DashboardCardProps) => {
   const theme = useTheme();
 
   return (
     <Stack
-      border={theme.customStyles.border}
+      border={theme.border}
       borderRadius={theme.shape.borderRadiusScale.md}
       minHeight="150px"
       minWidth="360px"
@@ -18,15 +27,9 @@ const DashboardCard = ({ children, dashStat, mainColor, label }) => {
       </Stack>
 
       <Box pl={1}>
-        <Typography variant="h5" fontWeight="900">
-          {dashStat}
-        </Typography>
-        <Typography variant="subtitle1" color={theme.palette[mainColor].light}>
-          {label}
-        </Typography>
-        <Typography variant="subtitle2" color={theme.palette.grey[400]}>
-          This month
-        </Typography>
+        <Typography variant="h5" children={dashStat}/>
+        <Typography variant="subtitle1" color={theme.palette[mainColor].light} children={label}/>
+        <Typography variant="body1" children="This month"/>
       </Box>
     </Stack>
   );

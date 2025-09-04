@@ -1,13 +1,12 @@
 import { MediaInfoEntity } from '@entities/types/kinohubEntities';
 import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
-import { useDraggable } from '@dnd-kit/core';
-
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import theme from '@app/theme/theme';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { useDraggable } from '@dnd-kit/core';
 import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
-import theme from '@app/theme/theme';
 
 const MovieBoardItem = ({ mediaInfo }: { mediaInfo: MediaInfoEntity }) => {
   const { mediaId, title, runtime, posterPath, voteAverage, releaseDate, mediaType } = mediaInfo;
@@ -29,7 +28,7 @@ const MovieBoardItem = ({ mediaInfo }: { mediaInfo: MediaInfoEntity }) => {
         display: 'flex',
         padding: theme.spacing(2.5),
         background: 'transparent',
-        border: theme.customStyles.border,
+        border: theme.border,
       }}
     >
       <Stack direction="row" gap={2}>

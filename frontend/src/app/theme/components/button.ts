@@ -12,6 +12,7 @@ export const MuiButton = (theme: Theme) => ({
           style: {
             color: theme.palette.common.white,
             background: theme.palette.gradientGrey,
+            fontWeight: 900,
           }
         },
         {
@@ -20,7 +21,7 @@ export const MuiButton = (theme: Theme) => ({
           },
           style: {
             color: theme.palette.common.white,
-            border: `1px solid ${theme.palette.transparentGrey}`
+            border: `1px solid ${theme.palette.transparentGrey03}`
           }
         }
       ],
@@ -36,7 +37,11 @@ export const MuiButton = (theme: Theme) => ({
       '&:hover' : {
         scale: 1.05,
         filter: 'brightness(1.2)'
+
       }
     },
+  },
+  defaultProps: {
+    variant: 'contained',
   },
 })

@@ -1,4 +1,5 @@
 import { MediaType } from '@shared/types/generalTypes';
+import { TmdbGenre } from '@entities/types/tmdbEntities';
 import { Pagination, Stack, TextField } from '@mui/material';
 import { useMediaFilters } from '@features/filters/hooks/useMediaFilters';
 import { useLoaderData } from 'react-router';
@@ -8,7 +9,6 @@ import MediaCardList from '@features/media/ui/MediaCardList';
 import PageWrapper from '@shared/ui/PageWrapper';
 import movieGenres from '@shared/data/movieGenres';
 import tvShowGenres from '@shared/data/tvShowGenres';
-import { TmdbGenre } from '@entities/types/tmdbEntities';
 
 const MediaList = () => {
   const mediaType: MediaType = useLoaderData();
@@ -22,12 +22,20 @@ const MediaList = () => {
     <PageWrapper>
       <Stack mb={10} gap={5}>
         <TextField label="Search" variant="outlined" onChange={handleSearch} />
-        <MediaFilters mediaType={mediaType} handlers={handlers} filters={filters} tmdbGenreList={tmdbGenreList} />
+        <MediaFilters
+          mediaType={mediaType}
+          handlers={handlers}
+          filters={filters}
+          tmdbGenreList={tmdbGenreList}
+        />
       </Stack>
-      <MediaCardList tmdbGenreList={tmdbGenreList} mediaList={mediaList} mediaType={mediaType} />
+      <MediaCardList
+        tmdbGenreList={tmdbGenreList}
+        mediaList={mediaList}
+        mediaType={mediaType}
+      />
       <Pagination
         count={pages}
-        variant="outlined"
         onChange={handlePageChange}
         sx={{ marginBlock: 15, placeSelf: 'center'}}
       />

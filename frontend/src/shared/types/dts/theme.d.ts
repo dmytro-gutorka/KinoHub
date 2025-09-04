@@ -3,19 +3,17 @@ import '@mui/material/styles';
 declare module '@mui/material/styles' {
 
   interface Theme {
-    customStyles: {
-      border: string;
-    };
+    border: string
   }
 
   interface ThemeOptions {
-    customStyles?: {
-      border?: string;
-    };
+    border?: string
   }
 
   interface Palette {
-    transparentGrey: string;
+    transparentGrey01?: string;
+    transparentGrey02?: string;
+    transparentGrey03?: string;
     starColor: string;
     gradientMidnightSpace: string;
     gradientGrey: string;
@@ -31,7 +29,10 @@ declare module '@mui/material/styles' {
   }
 
   interface PaletteOptions {
-    transparentGrey?: string;
+    transparentGrey01?: string;
+    transparentGrey02?: string;
+    transparentGrey03?: string;
+
     starColor?: string;
     gradientMidnightSpace?: string;
     gradientGrey?: string;

@@ -2,6 +2,7 @@ import { palette } from '@app/theme/palette';
 import { shape } from '@app/theme/shape';
 import { typography } from '@app/theme/typography';
 import { createTheme } from '@mui/material';
+import { MuiOutlinedInput } from '@app/theme/components/outlinedInput';
 import { MuiCardContent } from '@app/theme/components/cardContent';
 import { MuiCssBaseline } from '@app/theme/components/cssBaseline';
 import { MuiTypography } from '@app/theme/components/typography';
@@ -10,7 +11,6 @@ import { MuiButton } from '@app/theme/components/button';
 import { MuiLink } from '@app/theme/components/link';
 import { MuiTabs } from '@app/theme/components/tabs';
 import { MuiTab } from '@app/theme/components/tab';
-import { MuiOutlinedInput } from '@app/theme/components/outlinedInput';
 
 const base = createTheme({
   spacing: 4,
@@ -20,13 +20,9 @@ const base = createTheme({
 });
 
 const theme = createTheme(base, {
-  border: `1px solid ${base.palette.transparentGrey}`,
-  customStyles: {
-    border: `1px solid ${base.palette.transparentGrey}`,
-
-  },
-
+  border: `1px solid ${base.palette.transparentGrey01}`,
   components: {
+    MuiOutlinedInput: MuiOutlinedInput(base),
     MuiCssBaseline: MuiCssBaseline(base),
     MuiCardContent: MuiCardContent(base),
     MuiTypography: MuiTypography(base),
@@ -35,14 +31,11 @@ const theme = createTheme(base, {
     MuiLink: MuiLink(base),
     MuiTabs: MuiTabs(base),
     MuiTab: MuiTab(base),
-    MuiOutlinedInput: MuiOutlinedInput(base),
-    MuiInputBase: {
+    MuiInputLabel: {
       styleOverrides: {
         root: {
-          '&.MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline': {
-            width: '500px',
-          }
-        }
+          color: 'white',
+        },
       }
     }
   }

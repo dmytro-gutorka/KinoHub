@@ -1,15 +1,13 @@
-import { Stack, Typography, useTheme } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import LogoIcon from '@shared/icons/LogoIcon';
 
 const Logo = () => {
-  const theme = useTheme();
 
   return (
     <Stack
       direction="row"
       alignItems="flex-end"
-      paddingBlock={5}
-      borderBottom={`1px solid ${theme.palette.transparentGrey}`}
+      paddingTop={5}
       gap={2}
     >
       <LogoIcon />

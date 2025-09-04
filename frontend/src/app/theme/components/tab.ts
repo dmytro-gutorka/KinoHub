@@ -18,7 +18,7 @@ export const MuiTab = (theme: Theme) => ({
         color: 'white',
       },
       '&:not(.Mui-selected):hover': {
-        background: theme.palette.transparentGrey,
+        background: theme.palette.transparentGrey01,
       },
     },
   }

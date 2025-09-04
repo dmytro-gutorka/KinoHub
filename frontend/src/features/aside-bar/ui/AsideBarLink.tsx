@@ -17,10 +17,10 @@ const StyledNavLink = styled(Link)(({ theme }) => ({ to, component }: StyledNavL
 
   '&.active': {
     color: theme.palette.common.white,
-    background: theme.palette.gradientGrey,
+    background: theme.palette.transparentGrey01,
   },
   '&:not(.active):hover': {
-    background: theme.palette.transparentGrey,
+    background: theme.palette.transparentGrey01,
   },
 }));
 

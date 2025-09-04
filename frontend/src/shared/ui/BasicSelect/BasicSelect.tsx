@@ -1,26 +1,30 @@
-import { FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, NativeSelect, OutlinedInput, Select } from '@mui/material';
 
 interface BasicSelectProps {
   value: string | number | boolean;
   label: string;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<{ value: any}>) => void;
   staticValueList: Record<string, string | number>;
 }
 
 
 const BasicSelect = ({ staticValueList, value, onChange, label }: BasicSelectProps) => {
 
-  const ariaId: string = label.split(' ').join('-')
+  const labelId: string = label.split(' ').join('-').toLowerCase() + '-label'
+  const selectId: string = label.split(' ').join('-').toLowerCase()  + '-select'
+
 
   return (
     <FormControl>
-      <InputLabel id={ariaId}>{label}</InputLabel>
+      <InputLabel id={labelId}>{label}</InputLabel>
       <Select
-        defaultValue={value}
-        onChange={onChange}
-        labelId={ariaId}
+        id={selectId}
+        labelId={labelId}
         value={value}
-        input={<OutlinedInput />}
+        onChange={onChange}
+        input={<OutlinedInput id={selectId}
+        />}
+        defaultValue={value}
       >
         {Object.entries(staticValueList).map(([k, v]) =>
           <MenuItem value={v}>{k}</MenuItem>

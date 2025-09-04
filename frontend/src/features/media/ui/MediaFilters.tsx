@@ -1,4 +1,4 @@
-import { MediaFiltersBase, MediaType } from '@shared/types/generalTypes';
+import { MediaFiltersBase, MediaFiltersHandlers, MediaType } from '@shared/types/generalTypes';
 import { TmdbGenre } from '@entities/types/tmdbEntities';
 import { Button, Stack } from '@mui/material';
 import FilterAltOffOutlinedIcon from '@mui/icons-material/FilterAltOffOutlined';
@@ -13,7 +13,7 @@ import {
 
 
 interface MediaFiltersProps {
-  handlers: any;
+  handlers: MediaFiltersHandlers;
   filters: MediaFiltersBase & { searchQuery: string };
   tmdbGenreList: Array<TmdbGenre>;
   mediaType: MediaType
@@ -25,10 +25,10 @@ export default function MediaFilters({ handlers, filters, tmdbGenreList, mediaTy
 
   // TMDB search does not work coupled with filters, so I have to hide it
   // after a user has entered any character in the search bar
-
   if (!searchQuery.length)
     return (
-      <Stack gap={4} direction="row" alignItems="center" justifyContent="start" flexWrap="wrap">
+    <Stack gap={4} direction="row" flexWrap="wrap" justifyContent="space-between">
+      <Stack gap={4} direction="row" flexWrap="wrap">
         <MultipleSelect
           staticValueList={tmdbGenreList}
           selectedValueList={genres}
@@ -43,12 +43,15 @@ export default function MediaFilters({ handlers, filters, tmdbGenreList, mediaTy
           value={minRating}
           onChange={handleRatingChange}
           label='Min Rating'/>
-        <Button
-          endIcon={<FilterAltOffOutlinedIcon/>}
-          variant="outlined"
-          onClick={() => handleResetFilters()}>
-          Reset Filters
-        </Button>
       </Stack>
+      <Button
+        endIcon={<FilterAltOffOutlinedIcon/>}
+        variant="outlined"
+        onClick={() => handleResetFilters()}
+      >
+
+        Reset Filters
+      </Button>
+    </Stack>
     )
 }
