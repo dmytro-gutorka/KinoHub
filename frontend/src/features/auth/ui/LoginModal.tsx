@@ -3,6 +3,7 @@ import Dialog from '@mui/material/Dialog';
 import LogoIcon from '@shared/icons/LogoIcon';
 import LoginForm from '@features/auth/ui/LoginForm';
 import CloseIcon from '@mui/icons-material/Close';
+import DialogTitle from '@mui/material/DialogTitle';
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -14,26 +15,23 @@ export default function LoginModal ({ isOpen, onClose }: LoginModalProps){
 
   return (
     <Dialog open={isOpen} onClose={onClose} maxWidth="xs" fullWidth>
-      <DialogContent sx={{ padding: 0}}>
 
-        <Stack sx={{ padding: 6, background: theme.palette.gradientGrey }}>
-          <Stack direction="row" spacing={2} justifyContent="space-between" alignItems="center" mb={3}>
-            <Stack direction="row" alignItems="center">
-              <LogoIcon />
-              <Typography variant="h5">Welcome Back</Typography>
-            </Stack>
-            <IconButton cursor="pointer" onClick={onClose}>
-              <CloseIcon />
-            </IconButton>
+        <DialogTitle mb={5}>
+          <Stack flexDirection="row" justifyContent="space-between" alignItems="center" gap={2} mb={2}>
+          <Stack flexDirection="row" gap={2}>
+            <LogoIcon />
+            <Typography variant="h5">Welcome Back</Typography>
+
           </Stack>
-          <Typography variant="body2" >Sign in to continue your movie journey"</Typography>
-        </Stack>
+          <IconButton onClick={onClose}>
+            <CloseIcon />
+          </IconButton>
+          </Stack>
+            <Typography textAlign='center' variant="body1">Sign in to continue your movie journey</Typography>
+        </DialogTitle>
 
-        <Stack sx={{ padding: 6, background: 'transparent' }}>
-          <LoginForm onClose={onClose} />
-        </Stack>
-
-      {/*<Typography>Don't have an account? Sign up</Typography>*/}
+        <DialogContent>
+          <LoginForm onClose={onClose}/>
       </DialogContent>
     </Dialog>
   );

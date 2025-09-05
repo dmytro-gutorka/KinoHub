@@ -6,7 +6,7 @@ import useLoginForm from '@features/auth/model/hooks/useLoginForm'
 
 
 export interface LoginFormProps {
-  onClose: (a: boolean) => void;
+  onClose?: (a: boolean) => void;
 }
 
 export default function LoginForm ({ onClose }: LoginFormProps) {
@@ -14,7 +14,7 @@ export default function LoginForm ({ onClose }: LoginFormProps) {
     useLoginForm(onClose);
 
   return (
-    <Stack component="form" onSubmit={handleSubmit(onSubmit)} gap={4}>
+    <Stack component="form" onSubmit={handleSubmit(onSubmit)} gap={4} m={2}>
       {loginServerError && <div>{loginServerError}</div>}
 
       <Controller

@@ -8,7 +8,7 @@ import { login } from '@features/auth/model/services/login';
 import { setStateRequest } from '@features/auth/model/slice';
 
 
-export default function useLoginForm(onClose: (v: boolean) => void) {
+export default function useLoginForm(onClose?: (v: boolean) => void) {
   const {
     handleSubmit,
     control,
@@ -26,7 +26,7 @@ export default function useLoginForm(onClose: (v: boolean) => void) {
   useEffect(() => {
     if (loginStatus === 'success') {
       dispatch(setStateRequest('auth/login'));
-      onClose(false)
+      onClose?.(false)
     }
   }, [loginStatus, onClose, dispatch]);
 
