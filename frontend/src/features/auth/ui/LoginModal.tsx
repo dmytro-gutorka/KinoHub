@@ -1,38 +1,32 @@
-import { DialogContent, IconButton, Stack, Typography, useTheme } from '@mui/material';
-import Dialog from '@mui/material/Dialog';
+import { Stack } from '@mui/material';
+import { useAppSelector } from '@shared/hooks/redux';
+import { selectIsAuthenticated } from '@features/auth/model/selectors';
+import LoginForm from './LoginForm';
 import LogoIcon from '@shared/icons/LogoIcon';
-import LoginForm from '@features/auth/ui/LoginForm';
-import CloseIcon from '@mui/icons-material/Close';
-import DialogTitle from '@mui/material/DialogTitle';
+import { Modal } from '@shared/ui/Modal';
 
-interface LoginModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
+export default function LoginModal() {
 
-export default function LoginModal ({ isOpen, onClose }: LoginModalProps){
-  const theme = useTheme();
+  const isAuthenticated: boolean = useAppSelector(selectIsAuthenticated);
 
   return (
-    <Dialog open={isOpen} onClose={onClose} maxWidth="xs" fullWidth>
-
-        <DialogTitle mb={5}>
-          <Stack flexDirection="row" justifyContent="space-between" alignItems="center" gap={2} mb={2}>
-          <Stack flexDirection="row" gap={2}>
-            <LogoIcon />
-            <Typography variant="h5">Welcome Back</Typography>
-
-          </Stack>
-          <IconButton onClick={onClose}>
-            <CloseIcon />
-          </IconButton>
-          </Stack>
-            <Typography textAlign='center' variant="body1">Sign in to continue your movie journey</Typography>
-        </DialogTitle>
-
-        <DialogContent>
-          <LoginForm onClose={onClose}/>
-      </DialogContent>
-    </Dialog>
-  );
-};
+    <>
+      {!isAuthenticated && (
+        <Modal>
+          <Modal.Open/>
+          <Modal.Container>
+            <Stack direction="row" justifyContent="space-between" alignItems="center" gap={2}>
+              <Modal.Title icon={<LogoIcon />}>
+                Welcome Back 3423 423 423 42 342 34 fd fsd fsd fsf fs
+              </Modal.Title>
+              <Modal.Close />
+            </Stack>
+            <Modal.Content>
+              <LoginForm />
+            </Modal.Content>
+          </Modal.Container>
+        </Modal>
+      )}
+    </>
+  )
+}
