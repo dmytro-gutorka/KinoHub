@@ -1,48 +1,38 @@
-import { NavLink as RouterNavLink } from 'react-router';
-import { AsideBarLinkProps, StyledNavLinkProps } from '@features/aside-bar/model/asideBarTypes';
-import { Stack, styled } from '@mui/material';
-import Link from '@mui/material/Link';
-import React from 'react';
+import { ReactNode } from 'react';
+import { Button } from '@mui/material';
+import { NavLink } from 'react-router';
+import theme from '@app/theme/theme';
 
-const StyledNavLink = styled(Link)(({ theme }) => ({ to, component }: StyledNavLinkProps) => ({
-  fontWeight: 900,
-  fontSize: 6,
-  letterSpacing: 1,
-  textDecoration: 'none',
-  textTransform: 'capitalize',
-  borderRadius: theme.spacing(3),
-  paddingBlock: theme.spacing(3),
-  paddingRight: theme.spacing(14),
-  paddingLeft: theme.spacing(4),
-
-  '&.active': {
-    color: theme.palette.common.white,
-    background: theme.palette.transparentGrey01,
-  },
-  '&:not(.active):hover': {
-    background: theme.palette.transparentGrey01,
-  },
-}));
-
-interface StyledStackProps {
-  component?: string;
+export interface NavLinkProps {
+  to: string;
+  label: string;
+  icon?: ReactNode;
 }
 
-const StyledStack = styled(Stack)(({ component }: StyledStackProps) => ({
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-  flexDirection: 'row',
-  columnGap: '10px',
-  fontSize: 16,
-}));
-
-const AsideBarLink = ({ children, to, hasIcon }: AsideBarLinkProps) => {
+const StyledNavLink = ({ to, icon, label }: NavLinkProps) => {
   return (
-    <StyledNavLink to={to} component={RouterNavLink}>
-      {hasIcon && <StyledStack component="li">{children}</StyledStack>}
-      {!hasIcon && children}
-    </StyledNavLink>
+    <Button
+      to={to}
+      component={NavLink}
+      startIcon={icon}
+      variant="text"
+      sx={{
+        fontWeight: 900,
+        letterSpacing: 1,
+        textTransform: 'capitalize',
+        justifyContent: 'flex-start',
+        paddingRight: 12,
+        color: theme.palette.common.white,
+
+        '&.active, &:hover': {
+          color: theme.palette.common.white,
+          background: theme.palette.transparentGrey01,
+        },
+      }}
+    >
+      {label}
+    </Button>
   );
 };
 
-export default AsideBarLink;
+export default StyledNavLink;

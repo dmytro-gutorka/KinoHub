@@ -1,39 +1,29 @@
-import { DialogContent, Stack, Typography, useTheme } from '@mui/material';
-import Dialog from '@mui/material/Dialog';
+import { Stack } from '@mui/material';
+import { useAppSelector } from '@shared/hooks/redux';
+import { selectIsAuthenticated } from '@features/auth/model/selectors';
+import { Modal } from '@shared/ui/Modal';
 import LogoIcon from '@shared/icons/LogoIcon';
-import RegistrationForm from '@features/auth/ui/RegistrationForm';
-import CloseIcon from '@mui/icons-material/Close';
+import RegistrationForm from './RegistrationForm';
 
-interface SignUpModalProps {
-  isOpen: boolean;
-  onClick: (a: boolean) => void;
-}
-
-const RegistrationModal = ({ isOpen, onClick }: SignUpModalProps) => {
-  const theme = useTheme();
+export default function RegistrationModal() {
+  const isAuthenticated: boolean = useAppSelector(selectIsAuthenticated);
 
   return (
-    <Dialog open={isOpen} onClose={() => onClick(false)}>
-      <DialogContent sx={{ padding: 0 }}>
-        <Stack sx={{ padding: 6, background: theme.palette.gradientGrey }}>
-          <Stack direction="row" gap={2} justifyContent="space-between" alignItems="center" mb={3}>
-            <Stack direction="row" alignItems="center">
-              <LogoIcon />
-              <Typography fontWeight={900} fontSize={25} component="h2">
-                Join Kinohub
-              </Typography>
+    <>
+      {!isAuthenticated && (
+        <Modal>
+          <Modal.Open />
+          <Modal.Container>
+            <Stack direction="row" justifyContent="space-between" alignItems="center" gap={2}>
+              <Modal.Title icon={<LogoIcon />}>Join Kinohub</Modal.Title>
+              <Modal.Close />
             </Stack>
-            <CloseIcon cursor="pointer" onClick={() => onClick(false)} />
-          </Stack>
-          <Typography>Create your account to start tracking movies</Typography>
-        </Stack>
-        <Stack sx={{ padding: 6, background: 'transparent' }}>
-          <RegistrationForm setOpenRegistrationModal={onClick} />
-        </Stack>
-      </DialogContent>
-      <Typography>Already have an account? Sign in</Typography>
-    </Dialog>
+            <Modal.Content>
+              <RegistrationForm />
+            </Modal.Content>
+          </Modal.Container>
+        </Modal>
+      )}
+    </>
   );
-};
-
-export default RegistrationModal;
+}

@@ -28,11 +28,11 @@ export default function Dashboard() {
     <Container maxWidth="lg">
       <PageWrapper>
         <TabContext value={value}>
-            <TabList onChange={(_, v: string) => setValue(v)}>
-              <Tab icon={<PhoneIcon />} iconPosition="start" label="Overview" value="1" />
-              <Tab icon={<FavoriteIcon />} iconPosition="start" label="Movies" value="2" />
-              <Tab icon={<PersonPinIcon />} iconPosition="start" label="TV Shows" value="3" />
-            </TabList>
+          <TabList onChange={(_, v: string) => setValue(v)}>
+            <Tab icon={<PhoneIcon />} iconPosition="start" label="Overview" value="1" />
+            <Tab icon={<FavoriteIcon />} iconPosition="start" label="Movies" value="2" />
+            <Tab icon={<PersonPinIcon />} iconPosition="start" label="TV Shows" value="3" />
+          </TabList>
           <TabPanel value="1">
             <DashboardOverviewTab userMediaStats={userMediaStats} />
           </TabPanel>
@@ -46,4 +46,4 @@ export default function Dashboard() {
       </PageWrapper>
     </Container>
   );
-};
+}

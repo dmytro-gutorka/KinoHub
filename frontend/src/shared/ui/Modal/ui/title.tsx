@@ -1,12 +1,21 @@
-import { TitleProps } from '@shared/ui/Modal/types';
 import DialogTitle from '@mui/material/DialogTitle';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-export default function Title({children, icon = null, ...props}: TitleProps) {
+type TitleProps = React.ComponentProps<typeof DialogTitle> & { icon?: ReactElement | null };
 
+export default function Title({ children, icon = null, ...props }: TitleProps) {
   return (
-    <DialogTitle display="flex" variant="h5" flexDirection="row" alignItems="center" gap={2} p={10} {...props}>
+    <DialogTitle
+      justifyContent="space-between"
+      flexDirection="row"
+      alignItems="center"
+      display="flex"
+      variant="h5"
+      gap={2}
+      p={10}
+      {...props}
+    >
       {icon} {children}
     </DialogTitle>
-  )
+  );
 }

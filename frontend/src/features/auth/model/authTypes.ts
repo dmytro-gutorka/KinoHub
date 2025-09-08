@@ -32,7 +32,3 @@ export interface UserAuthData {
   accessToken: string;
 }
 
-
-export interface RegistrationFormProps {
-  setOpenRegistrationModal: (a: boolean) => void;
-}

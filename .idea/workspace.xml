@@ -5,7 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/aee6f5e2-4282-48ce-91eb-110d4c8bd9c2/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/theme/components/cssBaseline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme/components/cssBaseline.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/theme/palette.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme/palette.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/aside-bar/model/asideBarTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/aside-bar/model/asideBarTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/aside-bar/ui/AsideBarLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/aside-bar/ui/AsideBarLink.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/authTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/authTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/hooks/useRegistrationForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/hooks/useRegistrationForm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/services/register.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/services/register.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationButton.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTvShowsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTvShowsTab.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/lib/renderChildWithClickHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/lib/composeHandlers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/model/provider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/model/provider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/close.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/close.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/open.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/open.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/title.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/title.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/AsideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/AsideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/Header/Header.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +102,7 @@
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.17.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.16.4&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/dima/GitHubProjects/KinoHub/backend/dist/services&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dima/GitHubProjects/KinoHub&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
@@ -243,6 +270,8 @@
       <workItem from="1756030156001" duration="7149000" />
       <workItem from="1756733420530" duration="2472000" />
       <workItem from="1756801390417" duration="635000" />
+      <workItem from="1757090410912" duration="8140000" />
+      <workItem from="1757337399651" duration="1716000" />
     </task>
     <servers />
   </component>

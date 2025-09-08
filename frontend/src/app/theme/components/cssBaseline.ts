@@ -12,5 +12,5 @@ export const MuiCssBaseline = (theme: Theme) => ({
       backgroundAttachment: 'fixed',
       backgroundSize: 'cover',
     },
-  }
-})
+  },
+});

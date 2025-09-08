@@ -7,7 +7,6 @@ import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgr
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
 
-
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
   borderRadius: theme.shape.borderRadiusScale.md,

@@ -1,12 +1,16 @@
-import { RegistrationFormProps } from '@features/auth/model/authTypes';
 import { Button, Stack } from '@mui/material';
 import { Controller } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import useRegistrationForm from '@features/auth/model/hooks/useRegistrationForm';
 
-const RegistrationForm = ({ setOpenRegistrationModal }: RegistrationFormProps) => {
+export interface RegistrationFormProps {
+  onClose?: () => void;
+}
+
+
+const RegistrationForm = ({ onClose }: RegistrationFormProps) => {
   const { handleSubmit, control, errors, registerServerError, onSubmit } =
-    useRegistrationForm(setOpenRegistrationModal);
+    useRegistrationForm(onClose);
 
   return (
     <Stack component="form" onSubmit={handleSubmit(onSubmit)} gap={4}>

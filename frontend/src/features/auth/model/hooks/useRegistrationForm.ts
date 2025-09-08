@@ -1,12 +1,13 @@
 import { RequestStatus, UserRegisterCredentials } from '@features/auth/model/authTypes';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { setStateRequest } from '@features/auth/model/slice';
 import { selectRequestError, selectRequestStatus } from '@features/auth/model/selectors';
 import { useAppDispatch } from '@shared/hooks/redux';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { register } from '@features/auth/model/services/register';
 
-export default function useRegistrationForm(setOpenRegistrationModal: (a: boolean) => void) {
+export default function useRegistrationForm(onClose?: () => void) {
   const {
     handleSubmit,
     control,
@@ -21,8 +22,12 @@ export default function useRegistrationForm(setOpenRegistrationModal: (a: boolea
   const registerServerError: string | null = useSelector(selectRequestError('auth/register'));
 
   useEffect(() => {
-    if (registerStatus === 'success') setOpenRegistrationModal(false);
-  }, [setOpenRegistrationModal, registerStatus]);
+    if (registerStatus === 'success') {
+      dispatch(setStateRequest('auth/register'));
+      onClose?.()
+    }
+
+  }, [onClose, registerStatus, dispatch]);
 
   return {
     handleSubmit,

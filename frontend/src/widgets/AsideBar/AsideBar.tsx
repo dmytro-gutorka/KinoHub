@@ -1,5 +1,3 @@
-import { AsideBarLink } from '@features/aside-bar';
-import Logo from '@shared/ui/Logo';
 import { Divider, Stack } from '@mui/material';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
@@ -10,53 +8,41 @@ import LiveTvRoundedIcon from '@mui/icons-material/LiveTvRounded';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import theme from '@app/theme/theme';
+import StyledNavLink from '@features/aside-bar/ui/AsideBarLink';
+import Logo from '@shared/ui/Logo';
 
-
-export default function AsideBar () {
-  const marginLeft = 4
+export default function AsideBar() {
+  const marginLeft = 4;
 
   return (
     <Stack gap={6} ml={marginLeft} position="relative">
-
       <Logo />
+
       <Divider sx={{ width: `calc(100% + ${theme.spacing(marginLeft)})`, ml: -marginLeft }} />
 
       <Stack pr={4}>
         <Stack mb={4} gap={2}>
-          <AsideBarLink to="/" hasIcon>
-            <HomeOutlinedIcon /> Home
-          </AsideBarLink>
-          <AsideBarLink to="movies" hasIcon>
-            <MovieOutlinedIcon /> Movies
-          </AsideBarLink>
-          <AsideBarLink to="series" hasIcon>
-            <LiveTvRoundedIcon /> TV Shows
-          </AsideBarLink>
-          <AsideBarLink to="movie-board" hasIcon>
-            <DashboardOutlinedIcon /> Movieboard
-          </AsideBarLink>
-          <AsideBarLink to="dashboard" hasIcon>
-            <InsertChartOutlinedOutlinedIcon /> Dashboard
-          </AsideBarLink>
-          <AsideBarLink to="history" hasIcon>
-            <RestoreRoundedIcon /> History
-          </AsideBarLink>
+          <StyledNavLink to="/" icon={<HomeOutlinedIcon />} label="Home" />
+          <StyledNavLink to="movies" icon={<MovieOutlinedIcon />} label="Movies" />
+          <StyledNavLink to="series" icon={<LiveTvRoundedIcon />} label="TV Shows" />
+          <StyledNavLink to="movie-board" icon={<DashboardOutlinedIcon />} label="Movieboard" />
+          <StyledNavLink
+            to="dashboard"
+            icon={<InsertChartOutlinedOutlinedIcon />}
+            label="Dashboard"
+          />
+          <StyledNavLink to="history" icon={<RestoreRoundedIcon />} label="History" />
         </Stack>
       </Stack>
 
       <Divider sx={{ width: `calc(100% + ${theme.spacing(marginLeft)})`, ml: -marginLeft }} />
 
       <Stack pr={4}>
-          <Stack gap={2}>
-            <AsideBarLink to="profile" hasIcon>
-              <PersonOutlineOutlinedIcon /> Profile
-            </AsideBarLink>
-            <AsideBarLink to="settings" hasIcon>
-              <SettingsOutlinedIcon /> Settings
-            </AsideBarLink>
-          </Stack>
+        <Stack gap={2}>
+          <StyledNavLink to="profile" icon={<PersonOutlineOutlinedIcon />} label="Profile" />
+          <StyledNavLink to="settings" icon={<SettingsOutlinedIcon />} label="Settings" />
+        </Stack>
       </Stack>
-
     </Stack>
   );
-};
+}
