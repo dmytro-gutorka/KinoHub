@@ -6,7 +6,6 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 
 import createComment from '@shared/api/kinohub/services/comments/createComment';
 import TextField from '@mui/material/TextField';
-import LabelWithIcon from '@shared/ui/LabelWithIcon';
 
 interface CommentFormProps {
   mediaId: number;
@@ -73,10 +72,8 @@ export default function CommentForm({ mediaId, mediaType }: CommentFormProps) {
         </span>
       )}
 
-      <Button type="submit" sx={{ placeSelf: 'start' }}>
-        <LabelWithIcon label="Post Review" labelFontWeight={900}>
-          <TelegramIcon />
-        </LabelWithIcon>
+      <Button type="submit" startIcon={<TelegramIcon />} sx={{ placeSelf: 'start' }}>
+        Post Review
       </Button>
     </Stack>
   );

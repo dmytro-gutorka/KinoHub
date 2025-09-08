@@ -11,7 +11,7 @@ export default function RegistrationModal() {
     <>
       {!isAuthenticated && (
         <Modal>
-          <Modal.Open />
+          <Modal.Open label="Sign up" />
           <Modal.Container>
             <Modal.Title subTitle="Sign up to start your movie journey" icon={<LogoIcon />}>
               Join Kinohub

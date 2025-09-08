@@ -1,5 +1,4 @@
 import { useMenuContext } from '@shared/providers/MenuProvider/MenuProvider';
-import { useModalContext } from '@shared/providers/ModalProvider/ModalProvider';
 import { useMutation } from '@tanstack/react-query';
 import { MenuItem, TextField } from '@mui/material';
 import React, { RefObject, useRef, useState } from 'react';
@@ -20,7 +19,7 @@ export default function CommentUpdateModal({ currentReview, commentId, mediaType
     mutationFn: (updatedReview: { review: string }) => updateComment(commentId, updatedReview),
     onSuccess: () => {
       closeMenu();
-      queryClient.invalidateQueries({ queryKey: ['comments', mediaId, mediaType] });
+      await queryClient.invalidateQueries({ queryKey: ['comments', mediaId, mediaType] });
     },
   });
 

@@ -11,7 +11,7 @@ export default function LoginModal() {
     <>
       {!isAuthenticated && (
         <Modal>
-          <Modal.Open />
+          <Modal.Open label="Log in" />
           <Modal.Container>
             <Modal.Title subTitle="Sign in to continue your movie journey" icon={<LogoIcon />}>
               Welcome Back

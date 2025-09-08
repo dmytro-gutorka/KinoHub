@@ -14,14 +14,15 @@ export default function MediaComments({ mediaId, mediaType }: MediaCommentsProps
   const { data: commentList, isLoading } = useQuery({
     queryFn: () => getCommentList(mediaId, mediaType),
     queryKey: ['comments', mediaId, mediaType],
-  }); // TRY to move to Comment List ???
+  });
 
+  // TRY to move to Comment List ???
   // убрать пароль из запроса на беке
 
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <MediaContentBlock blockTitle={`Reviews (${commentList?.length || 0})`} titleFontWeight={900}>
+    <MediaContentBlock blockTitle={`Reviews (${commentList?.length || 0})`}>
       <CommentForm mediaId={mediaId} mediaType={mediaType} />
       <CommentList commentList={commentList} />
     </MediaContentBlock>

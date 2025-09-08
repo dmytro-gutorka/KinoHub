@@ -1,7 +1,7 @@
 import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
 import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
 
-import { Button, Stack } from '@mui/material';
+import { Button, IconButton, Stack } from '@mui/material';
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
@@ -10,13 +10,12 @@ import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { JSX } from 'react';
-import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import useUpdateMediaAction from '@features/media/model/hooks/useUpdateMediaAction';
 
 interface ActionButton {
   label: null | string;
   icon: JSX.Element;
-  onClick: () => void
+  onClick: () => void;
 }
 
 interface MediaActionButtonListProps {
@@ -55,23 +54,21 @@ export default function MediaActionButtonList({
     {
       icon: isWatched ? <VisibilityIcon /> : <VisibilityOffOutlinedIcon />,
       onClick: () => handleMediaAction({ isWatched: !isWatched }),
-      label: null,
+      label: 'Mark as watched',
     },
   ];
 
   return (
-    <Stack direction="row" spacing={4} mt={8}>
+    <Stack direction="row" gap={4} mt={8} flexWrap="wrap">
       {actionButtons.map(({ label, icon, onClick }: ActionButton, index) => (
-
-        <Button onClick={onClick} key={index}>
+        <div>
+          {!label && <IconButton onClick={onClick}>{icon}</IconButton>}
           {label && (
-            <LabelWithIcon key={index} label={label}>
-              {icon}
-            </LabelWithIcon>
+            <Button onClick={onClick} startIcon={icon} key={index}>
+              {label}
+            </Button>
           )}
-
-          {!label && icon}
-        </Button>
+        </div>
       ))}
     </Stack>
   );

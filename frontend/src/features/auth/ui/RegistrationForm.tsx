@@ -11,8 +11,6 @@ const RegistrationForm = ({ onClose }: RegistrationFormProps) => {
   const { handleSubmit, control, errors, registerServerError, onSubmit } =
     useRegistrationForm(onClose);
 
-  console.log(errors);
-
   return (
     <Stack component="form" onSubmit={handleSubmit(onSubmit)} gap={4}>
       {registerServerError && <div>{registerServerError}</div>}
