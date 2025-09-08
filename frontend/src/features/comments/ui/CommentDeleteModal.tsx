@@ -4,6 +4,7 @@ import { useMenuContext } from '@shared/providers/MenuProvider/MenuProvider';
 import { Modal } from '@shared/ui/Modal';
 import React from 'react';
 import useDeleteComment from '@features/comments/model/useDeleteComment';
+import DialogActions from '@mui/material/DialogActions';
 
 interface CommentDeleteModalProps {
   commentId: number;
@@ -18,7 +19,7 @@ export default function CommentDeleteModal({
 }: CommentDeleteModalProps) {
   const { closeMenu } = useMenuContext();
   const { mutate: deleteComment } = useDeleteComment(commentId, mediaId, mediaType);
-  
+
   return (
     <>
       <Modal>
@@ -39,6 +40,12 @@ export default function CommentDeleteModal({
           <Modal.Title subTitle="You could not undo this action.">
             Do you want to delete your comment ?
           </Modal.Title>
+
+          <Modal.Content>
+            <DialogActions>
+              <Modal.ActionButton label="sdg" userOnClick={() => console.log('user on click')} />
+            </DialogActions>
+          </Modal.Content>
         </Modal.Container>
       </Modal>
     </>

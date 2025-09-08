@@ -6,16 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/model/useCreateComment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/model/useCreateComment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentContextMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentContextMenu.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentDeleteModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentDeleteModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/providers/MenuProvider/MenuProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/providers/MenuProvider/MenuProvider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/ContextMenu/ContextMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/ContextMenu/ContextMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/DialogWindow/DialogWindow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/DialogWindow/DialogWindow.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/open.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/open.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaComments/MediaComments.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaComments/MediaComments.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/close.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Close.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/open.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Open.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/subTitle.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/title.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Title.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +30,9 @@
         <option value="HTML File" />
         <option value="JSX Component Folder.jsx.child.0" />
         <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
         <option value="JSX Component Folder.tsx.child.0" />
         <option value="JSX Component Folder" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -118,11 +116,11 @@
       <recent name="$PROJECT_DIR$/frontend/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/features/dashboard/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/features/dashboard" />
       <recent name="$PROJECT_DIR$/frontend/src/features/comments/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/shared/ui" />
-      <recent name="$PROJECT_DIR$/frontend/public" />
     </key>
   </component>
   <component name="RunManager">
@@ -255,7 +253,7 @@
       <workItem from="1756733420530" duration="2472000" />
       <workItem from="1756801390417" duration="635000" />
       <workItem from="1757090410912" duration="8140000" />
-      <workItem from="1757337399651" duration="18075000" />
+      <workItem from="1757337399651" duration="18744000" />
     </task>
     <servers />
   </component>
