@@ -1,7 +1,7 @@
+import { useMenuContext } from '@shared/providers/MenuProvider/MenuProvider';
 import { IconButton, Menu } from '@mui/material';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import React from 'react';
-import { useMenuContext } from '@shared/providers/MenuProvider/MenuProvider';
 
 export default function ContextMenu({ children }) {
   const { isMenuOpen, openMenu, closeMenu, anchorEl } = useMenuContext();

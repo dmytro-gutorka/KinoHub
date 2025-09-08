@@ -1,4 +1,3 @@
-import { useModalContext } from '@shared/providers/ModalProvider/ModalProvider';
 import React, { useId } from 'react';
 import DialogActions from '@mui/material/DialogActions';
 import Dialog from '@mui/material/Dialog';
@@ -15,7 +14,7 @@ export default function DialogWindow({
   confirmButtonText = 'Yes',
   cancelButtonText = 'No',
 }) {
-  const { isModalOpen, closeModal } = useModalContext();
+  // const { isModalOpen, closeModal } = useModalContext();
 
   const titleId = useId();
   const descriptionId = useId();

@@ -1,30 +1,46 @@
-import { useModalContext } from '@shared/providers/ModalProvider/ModalProvider';
+import CloseIcon from '@mui/icons-material/Close';
+import { IconButton, MenuItem } from '@mui/material';
 import { useMenuContext } from '@shared/providers/MenuProvider/MenuProvider';
-import deleteComment from '@shared/api/kinohub/services/comments/deleteComment';
-import DialogWindow from '@shared/ui/DialogWindow';
+import { Modal } from '@shared/ui/Modal';
 import React from 'react';
-import { MenuItem } from '@mui/material';
-import queryClient from '@app/queryClient';
+import useDeleteComment from '@features/comments/model/useDeleteComment';
 
-export default function CommentDeleteModal({ commentId, mediaId, mediaType }) {
+interface CommentDeleteModalProps {
+  commentId: number;
+  mediaId: number;
+  mediaType: string;
+}
+
+export default function CommentDeleteModal({
+  commentId,
+  mediaId,
+  mediaType,
+}: CommentDeleteModalProps) {
   const { closeMenu } = useMenuContext();
-  const { openModal } = useModalContext();
-
-  async function handleDeleteComment() {
-    await deleteComment(commentId);
-    await queryClient.invalidateQueries({ queryKey: ['comments', mediaId, mediaType] });
-
-    closeMenu();
-  }
-
-  const description = 'You could not undo this action.';
-  const title = 'Do you want to delete your comment ?';
-
+  const { mutate: deleteComment } = useDeleteComment(commentId, mediaId, mediaType);
+  
   return (
     <>
-      <DialogWindow onClickYes={handleDeleteComment} description={description} title={title}>
-        <MenuItem onClick={openModal}>Delete comment</MenuItem>
-      </DialogWindow>
+      <Modal>
+        <Modal.Open asChild>
+          <MenuItem>Delete comment</MenuItem>
+        </Modal.Open>
+        <Modal.Container>
+          <Modal.Close asChild>
+            <IconButton
+              onClick={closeMenu}
+              size="small"
+              aria-label="Close dialog"
+              sx={{ position: 'absolute', right: 25, top: 25 }}
+            >
+              <CloseIcon />
+            </IconButton>
+          </Modal.Close>
+          <Modal.Title subTitle="You could not undo this action.">
+            Do you want to delete your comment ?
+          </Modal.Title>
+        </Modal.Container>
+      </Modal>
     </>
   );
 }

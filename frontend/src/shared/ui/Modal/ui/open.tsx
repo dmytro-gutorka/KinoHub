@@ -11,10 +11,11 @@ export default function Open({
 }: IModalOpenCloseProps) {
   const { openModal } = useModalContext();
 
-  if (asChild && React.isValidElement<Clickable>(children))
+  if (asChild && React.isValidElement<Clickable>(children)) {
     return React.cloneElement(children, {
       onClick: composeHandlers(children.props.onClick, openModal),
     });
+  }
 
   return (
     <Button type="button" onClick={openModal}>

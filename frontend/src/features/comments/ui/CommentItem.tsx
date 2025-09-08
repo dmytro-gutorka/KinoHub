@@ -6,6 +6,7 @@ import fullnameToInitials from '@shared/helpers/fullnameToInitials';
 import MarkCircleIcon from '@shared/icons/MarkCircleIcon';
 import getDateFromISO from '@shared/helpers/getDateFromISO';
 import React from 'react';
+import CommentContextMenu from '@features/comments/ui/CommentContextMenu';
 
 export default function CommentItem({ comment }) {
   const {
@@ -40,16 +41,14 @@ export default function CommentItem({ comment }) {
             </Typography>
             {isEmailConfirmed && <MarkCircleIcon />}
           </Stack>
-          {/*  {userId === commentUserId && (*/}
-          {/*    <MenuProvider>*/}
-          {/*      <CommentContextMenu*/}
-          {/*        commentId={commentId}*/}
-          {/*        mediaId={mediaId}*/}
-          {/*        mediaType={mediaType}*/}
-          {/*        currentReview={review}*/}
-          {/*      />*/}
-          {/*    </MenuProvider>*/}
-          {/*  )}*/}
+          {userId === commentUserId && (
+            <CommentContextMenu
+              commentId={commentId}
+              mediaId={mediaId}
+              mediaType={mediaType}
+              currentReview={review}
+            />
+          )}
         </Stack>
         <Typography color={theme.palette.grey[300]}>{review}</Typography>
 

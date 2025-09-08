@@ -12,7 +12,7 @@ const MenuContext = createContext<IMenuProvider | null>(null);
 export function useMenuContext() {
   const context: IMenuProvider | null = useContext(MenuContext);
 
-  if (!context) throw new Error('useModal must be used within a ModalProvider');
+  if (!context) throw new Error('useMenuContext must be used within a ModalProvider');
 
   return context;
 }
