@@ -6,9 +6,10 @@ export const MuiOutlinedInput = (theme: Theme) => ({
       borderColor: theme.palette.transparentGrey02,
     },
     root: {
+      padding: 0,
       color: 'white',
       minHeight: '55px',
       minWidth: '300px',
-    }
-  }
-})
+    },
+  },
+});

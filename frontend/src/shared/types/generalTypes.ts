@@ -1,8 +1,7 @@
 import { MEDIA_ACTIONS, WATCH_STATUS } from '@app/constants';
 import { TmdbEpisodeInfo, TmdbGenre, TmdbSeasonInfo } from '@entities/types/tmdbEntities';
 import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
-import { ReactNode } from 'react';
-import { SelectChangeEvent, TypographyVariant } from '@mui/material';
+import { SelectChangeEvent } from '@mui/material';
 
 export type MediaType = 'movie' | 'tv';
 
@@ -18,7 +17,6 @@ export enum SortBy {
   YearASC = 'primary_release_date.asc',
   YearDESC = 'primary_release_date.desc',
 }
-
 
 export interface MediaFiltersBase {
   page: number;
@@ -42,24 +40,23 @@ export type MediaUserActions = {
 
 export type SeasonDataWithEpisodes = TmdbSeasonInfo & { episodes: Array<TmdbEpisodeInfo> };
 
-
 export interface TopRatedMedia {
   rating: number;
-  title: string,
-  posterPath: string | null,
-  releaseDate: string,
+  title: string;
+  posterPath: string | null;
+  releaseDate: string;
 }
 
 export interface TvShowInProgress {
-  tvShowId: number,
-  totalWatchedEpisodes: number,
-  totalEpisodes: number,
-  totalSeasons: number,
-  title: string,
-  releaseDate: string,
-  voteAverage: number,
-  status: string,
-  posterPath: string | null,
+  tvShowId: number;
+  totalWatchedEpisodes: number;
+  totalEpisodes: number;
+  totalSeasons: number;
+  title: string;
+  releaseDate: string;
+  voteAverage: number;
+  status: string;
+  posterPath: string | null;
 }
 
 export interface FavoriteGenres {
@@ -85,15 +82,7 @@ export interface UserMediaStats {
   favoriteGenres: FavoriteGenres[];
   topRatedMovie: TopRatedMedia[];
   topRatedTv: TopRatedMedia[];
-  tvShowInProgress: TvShowInProgress[]
-}
-
-
-export interface BlockWrapperProps {
-  blockTitle?: string;
-  children: ReactNode;
-  titleFontWeight?: number;
-  titleSizeVariant?: TypographyVariant;
+  tvShowInProgress: TvShowInProgress[];
 }
 
 export interface MediaFiltersHandlers {
@@ -101,6 +90,6 @@ export interface MediaFiltersHandlers {
   handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSortChange: (e: React.ChangeEvent<{ value: SortBy }>) => void;
   handleRatingChange: (e: React.ChangeEvent<{ value: number }>) => void;
-  handlePageChange: (_: unknown, newPage: number) => void
+  handlePageChange: (_: unknown, newPage: number) => void;
   handleResetFilters: () => void;
 }

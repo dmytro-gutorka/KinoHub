@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material';
+import { Stack } from '@mui/material';
 import { JSX } from 'react';
 
 interface LabelWithIconProps {
@@ -6,12 +6,11 @@ interface LabelWithIconProps {
   children: JSX.Element;
 }
 
-const LabelWithIcon = ({
-  label, children, }: LabelWithIconProps) => {
+const LabelWithIcon = ({ label, children }: LabelWithIconProps) => {
   return (
     <Stack direction="row" alignItems="center" gap={1}>
-      {children}
-      <Typography variant="subtitle1"  children={label}/>
+      {children} {label}
+      {/*<Typography variant="subtitle1" children={label}/>*/}
     </Stack>
   );
 };

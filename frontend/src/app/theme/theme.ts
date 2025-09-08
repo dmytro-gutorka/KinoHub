@@ -42,6 +42,7 @@ const theme = createTheme(base, {
       styleOverrides: {
         root: {
           minWidth: '300px',
+          borderRadius: 5,
         },
       },
     },

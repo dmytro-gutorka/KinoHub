@@ -2,22 +2,22 @@ import { Divider, Stack } from '@mui/material';
 import CommentItem from '@features/comments/ui/CommentItem';
 
 interface CommentListProps {
-  commentList: any[];
+  comments: any[];
 }
 
-export default function CommentList({ commentList }: CommentListProps) {
-  const sortedCommentList = commentList.sort((a, b) => b.id - a.id);
+export default function CommentList({ comments }: CommentListProps) {
+  const sortedComments = comments.sort((a, b) => b.id - a.id);
 
   return (
-    <Stack spacing={8} mt={10} ml={8}>
-      {sortedCommentList.map((commentData, index) => {
-        const isLastItem = index !== sortedCommentList.length - 1;
+    <Stack rowGap={10}>
+      {sortedComments.map((comment, index) => {
+        const isLastItem = index !== sortedComments.length - 1;
 
         return (
-          <>
-            <CommentItem key={commentData.id} commentData={commentData} />
-            {isLastItem && <Divider />}
-          </>
+          <Stack>
+            <CommentItem key={comment.id} comment={comment} />
+            {isLastItem && <Divider sx={{ width: '95%', placeSelf: 'end' }} />}
+          </Stack>
         );
       })}
     </Stack>
