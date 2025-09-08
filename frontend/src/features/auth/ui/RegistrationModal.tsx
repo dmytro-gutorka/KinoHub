@@ -1,4 +1,3 @@
-import { Stack } from '@mui/material';
 import { useAppSelector } from '@shared/hooks/redux';
 import { selectIsAuthenticated } from '@features/auth/model/selectors';
 import { Modal } from '@shared/ui/Modal';
@@ -14,10 +13,10 @@ export default function RegistrationModal() {
         <Modal>
           <Modal.Open />
           <Modal.Container>
-            <Stack direction="row" justifyContent="space-between" alignItems="center" gap={2}>
-              <Modal.Title icon={<LogoIcon />}>Join Kinohub</Modal.Title>
-              <Modal.Close />
-            </Stack>
+            <Modal.Title subTitle="Sign up to start your movie journey" icon={<LogoIcon />}>
+              Join Kinohub
+            </Modal.Title>
+            <Modal.Close />
             <Modal.Content>
               <RegistrationForm />
             </Modal.Content>

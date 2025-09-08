@@ -8,8 +8,8 @@ import LiveTvRoundedIcon from '@mui/icons-material/LiveTvRounded';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import theme from '@app/theme/theme';
-import StyledNavLink from '@features/aside-bar/ui/AsideBarLink';
 import Logo from '@shared/ui/Logo';
+import StyledNavLink from '@shared/ui/StyledNavLink';
 
 export default function AsideBar() {
   const marginLeft = 4;

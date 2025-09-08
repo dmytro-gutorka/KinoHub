@@ -9,7 +9,7 @@ function LogoIcon() {
       height="45px"
       alignItems="center"
       justifyContent="center"
-      borderRadius={1}
+      borderRadius={2}
       sx={{ background: theme.palette.gradientGrey }}
     >
       <SvgIcon>

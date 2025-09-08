@@ -1,5 +1,5 @@
-import { useAppSelector } from '@shared/hooks/redux';
 import { selectIsAuthenticated } from '@features/auth/model/selectors';
+import { useAppSelector } from '@shared/hooks/redux';
 import { Modal } from '@shared/ui/Modal';
 import LoginForm from './LoginForm';
 import LogoIcon from '@shared/icons/LogoIcon';
@@ -13,8 +13,8 @@ export default function LoginModal() {
         <Modal>
           <Modal.Open />
           <Modal.Container>
-            <Modal.Title icon={<LogoIcon />}>
-              Welcome Back 3423 423 423 42 342 34 fd fsd fsd fsf fs
+            <Modal.Title subTitle="Sign in to continue your movie journey" icon={<LogoIcon />}>
+              Welcome Back
             </Modal.Title>
             <Modal.Close />
             <Modal.Content>
@@ -26,11 +26,3 @@ export default function LoginModal() {
     </>
   );
 }
-
-// button text
-// caption text
-// overline text
-
-// button text
-// caption text
-// overline text

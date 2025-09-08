@@ -1,21 +1,19 @@
-import DialogTitle from '@mui/material/DialogTitle';
 import React, { ReactElement } from 'react';
+import { DialogContent, Stack, Typography } from '@mui/material';
 
-type TitleProps = React.ComponentProps<typeof DialogTitle> & { icon?: ReactElement | null };
+type TitleProps = React.ComponentProps<typeof Stack> & {
+  icon?: ReactElement | null;
+  subTitle?: string;
+};
 
-export default function Title({ children, icon = null, ...props }: TitleProps) {
+export default function Title({ children, icon = null, subTitle, ...props }: TitleProps) {
   return (
-    <DialogTitle
-      justifyContent="space-between"
-      flexDirection="row"
-      alignItems="center"
-      display="flex"
-      variant="h5"
-      gap={2}
-      p={10}
-      {...props}
-    >
-      {icon} {children}
-    </DialogTitle>
+    <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+      <Stack direction="row" alignItems="center" display="flex" gap={3} {...props}>
+        {icon}
+        <Typography variant="h5">{children}</Typography>
+      </Stack>
+      {subTitle && <Typography variant="body1">{subTitle}</Typography>}
+    </DialogContent>
   );
 }

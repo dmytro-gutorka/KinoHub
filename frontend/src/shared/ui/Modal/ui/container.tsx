@@ -9,7 +9,7 @@ export default function Container({ children, ...props }: ContainerProps) {
   const { closeModal, isModalOpen } = useModalContext();
 
   return (
-    <Dialog {...props} open={isModalOpen} onClose={closeModal} fullWidth maxWidth="sm">
+    <Dialog {...props} open={isModalOpen} onClose={closeModal} maxWidth="xl">
       {children}
     </Dialog>
   );

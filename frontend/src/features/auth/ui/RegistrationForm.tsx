@@ -7,10 +7,11 @@ export interface RegistrationFormProps {
   onClose?: () => void;
 }
 
-
 const RegistrationForm = ({ onClose }: RegistrationFormProps) => {
   const { handleSubmit, control, errors, registerServerError, onSubmit } =
     useRegistrationForm(onClose);
+
+  console.log(errors);
 
   return (
     <Stack component="form" onSubmit={handleSubmit(onSubmit)} gap={4}>
@@ -21,52 +22,80 @@ const RegistrationForm = ({ onClose }: RegistrationFormProps) => {
         rules={{ required: true }}
         control={control}
         defaultValue=""
-        render={({ field }) =>
-          <TextField {...field} label="First name" />}
+        render={({ field }) => (
+          <TextField
+            {...field}
+            label="First name"
+            helperText={errors.firstName && 'First name field is required'}
+            error={Boolean(errors.firstName)}
+          />
+        )}
       />
-      {errors.firstName && <span>This field is required</span>}
 
       <Controller
         name="lastName"
         rules={{ required: true }}
         control={control}
         defaultValue=""
-        render={({ field }) =>
-          <TextField {...field} label="Last name"  />}
+        render={({ field }) => (
+          <TextField
+            {...field}
+            helperText={errors.lastName && 'Last name field is required'}
+            error={Boolean(errors.lastName)}
+            label="Last name"
+          />
+        )}
       />
-      {errors.lastName && <span>This field is required</span>}
 
       <Controller
         name="username"
         rules={{ required: true }}
         control={control}
         defaultValue=""
-        render={({ field }) =>
-          <TextField {...field} label="Username"  />}
+        render={({ field }) => (
+          <TextField
+            {...field}
+            label="Username"
+            error={Boolean(errors.username)}
+            helperText={errors.username && 'Username field is required'}
+          />
+        )}
       />
-      {errors.username && <span>This field is required</span>}
 
       <Controller
         name="email"
         rules={{ required: true }}
         control={control}
         defaultValue=""
-        render={({ field }) =>
-          <TextField {...field} label="Email"  />}
+        render={({ field }) => (
+          <TextField
+            {...field}
+            error={Boolean(errors.email)}
+            helperText={errors.email && 'Email field is required'}
+            label="Email"
+          />
+        )}
       />
-      {errors.email && <span>This field is required</span>}
 
       <Controller
         name="password"
         rules={{ required: true }}
         control={control}
         defaultValue=""
-        render={({ field }) =>
-          <TextField {...field} type="password" label="Password"  />}
+        render={({ field }) => (
+          <TextField
+            {...field}
+            error={Boolean(errors.password)}
+            helperText={errors.password && 'Password field is required'}
+            type="password"
+            label="Password"
+          />
+        )}
       />
-      {errors.password && <span>This field is required</span>}
 
-      <Button type="submit">Register</Button>
+      <Button disabled={Object.keys(errors)?.length > 0} type="submit">
+        Register
+      </Button>
     </Stack>
   );
 };

@@ -36,16 +36,45 @@ const theme = createTheme(base, {
         root: {
           color: 'white',
         },
-      }
+      },
     },
     MuiTextField: {
       styleOverrides: {
         root: {
           minWidth: '300px',
         },
-      }
-    }
-  }
-})
+      },
+    },
+    MuiDialog: {
+      styleOverrides: {
+        root: {
+          '& .MuiDialog-paper': {
+            border: `1px solid ${base.palette.transparentGrey03}`,
+            borderRadius: '25px',
+            backgroundColor: 'rgba(0, 0, 0, 0.2)',
+          },
 
-export default theme
+          '& .MuiBackdrop-root': {
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(4px)',
+            backgroundColor: 'rgba(0,0,0,0.3)',
+          },
+
+          '& .MuiInputBase-root': {
+            minWidth: '400px',
+
+            '& .MuiOutlinedInput-notchedOutline': {
+              border: `1px solid ${base.palette.transparentGrey03}`,
+            },
+          },
+        },
+      },
+    },
+  },
+});
+
+// button text
+// caption text
+// overline text
+
+export default theme;

@@ -15,10 +15,10 @@ export default function Close({ asChild = false, children }: IModalOpenCloseProp
 
   return (
     <IconButton
-      aria-label="Close dialog"
       onClick={closeModal}
       size="small"
-      sx={{ position: 'absolute', right: 8, top: 8 }}
+      aria-label="Close dialog"
+      sx={{ position: 'absolute', right: 25, top: 25 }}
     >
       <CloseIcon />
     </IconButton>
