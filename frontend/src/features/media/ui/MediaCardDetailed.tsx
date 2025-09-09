@@ -21,7 +21,12 @@ interface MediaCardDetailedProps {
   mediaType: MediaType;
 }
 
-const MediaCardDetailed = ({ mediaItem, relevantPoster, genreList, mediaType }: MediaCardDetailedProps) => {
+const MediaCardDetailed = ({
+  mediaItem,
+  relevantPoster,
+  genreList,
+  mediaType,
+}: MediaCardDetailedProps) => {
   const {
     vote_average: avgRating,
     release_date: releaseDate,
@@ -37,11 +42,10 @@ const MediaCardDetailed = ({ mediaItem, relevantPoster, genreList, mediaType }: 
   return (
     <MediaCardHoverableWrapper width={275} height={400} imgURL={relevantPoster} navTo={navTo}>
       <CardContent>
-
-        <Typography variant="h5" children= {title || name}/>
+        <Typography variant="h5" children={title || name} />
         <GenreChipList genres={genreList} renderLimit={2} size="small" />
 
-        <Stack direction="row" gap={2}>
+        <Stack direction="row" gap={2} mt={2}>
           <LabelWithIcon label={getYearFromDate(releaseDate || airDate)}>
             <CalendarTodayOutlinedIcon fontSize="small" />
           </LabelWithIcon>
@@ -51,7 +55,6 @@ const MediaCardDetailed = ({ mediaItem, relevantPoster, genreList, mediaType }: 
         </Stack>
 
         <Typography variant="body1" children={cutText(overview, 15)} />
-
       </CardContent>
     </MediaCardHoverableWrapper>
   );

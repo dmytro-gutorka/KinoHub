@@ -8,7 +8,7 @@ interface LabelWithIconProps {
 
 const LabelWithIcon = ({ label, children }: LabelWithIconProps) => {
   return (
-    <Stack direction="row" alignItems="center" gap={1}>
+    <Stack direction="row" alignItems="center" gap={1.5}>
       {children} {label}
       {/*<Typography variant="subtitle1" children={label}/>*/}
     </Stack>

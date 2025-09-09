@@ -1,14 +1,9 @@
 import { Theme } from '@mui/material';
 
-export const MuiTypography = (theme: Theme)=> ({
+export const MuiTypography = (theme: Theme) => ({
   styleOverrides: {
     root: {
       variants: [
-        {
-          props: {
-            variant: 'button',
-          }
-        },
         {
           props: {
             variant: 'body1',
@@ -16,7 +11,7 @@ export const MuiTypography = (theme: Theme)=> ({
           style: {
             color: theme.palette.grey[400],
             fontSize: theme.spacing(4),
-          }
+          },
         },
         {
           props: {
@@ -25,7 +20,7 @@ export const MuiTypography = (theme: Theme)=> ({
           style: {
             color: theme.palette.common.white,
             fontSize: theme.spacing(5),
-          }
+          },
         },
         {
           props: {
@@ -35,7 +30,7 @@ export const MuiTypography = (theme: Theme)=> ({
             color: theme.palette.common.white,
             fontSize: theme.spacing(4.5),
             fontWeight: '600',
-          }
+          },
         },
         {
           props: {
@@ -45,7 +40,7 @@ export const MuiTypography = (theme: Theme)=> ({
             color: theme.palette.grey[600],
             fontSize: theme.spacing(4),
             fontWeight: '300',
-          }
+          },
         },
         {
           props: {
@@ -92,8 +87,8 @@ export const MuiTypography = (theme: Theme)=> ({
             fontWeight: '900',
             lineHeight: '2',
           },
-        }
-      ]
+        },
+      ],
     },
-  }
-})
+  },
+});

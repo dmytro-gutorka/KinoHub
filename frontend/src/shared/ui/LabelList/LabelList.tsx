@@ -43,7 +43,6 @@ export default function LabelList<T extends MediaType>({
     runtime = (tmdbMediaData as TmdbMovieDetails).runtime || 'N/A';
   }
 
-  console.log(tmdbMediaData);
   const movieLabels = [
     {
       icon: <StarBorderIcon />,
@@ -62,19 +61,19 @@ export default function LabelList<T extends MediaType>({
 
   const tvLabels = [
     {
-      icon: <StarBorderIcon />,
+      icon: <StarBorderIcon fontSize="small" />,
       data: voteAverage?.toFixed(2) + '/10',
     },
     {
       icon: <LiveTvOutlinedIcon fontSize="small" />,
-      data: numberOfSeasons,
+      data: `${numberOfSeasons} seasons`,
     },
     {
       icon: <PlayCircleOutlineOutlinedIcon fontSize="small" />,
-      data: numberOfEpisodes,
+      data: `${numberOfEpisodes} episodes`,
     },
     {
-      icon: <AccessTimeIcon />,
+      icon: <AccessTimeIcon fontSize="small" />,
       data: episodeRunTime ? `~${episodeRunTime}m per episode` : 'N/A',
     },
   ];

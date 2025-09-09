@@ -12,11 +12,13 @@ const GenreChipList = ({ genres, renderLimit = false, size = 'medium' }: GenreCh
   return (
     <>
       {genres?.length > 0 && (
-        <Stack direction="row" flexWrap="wrap" gap={1} marginBlock={1}>
+        <Stack direction="row" flexWrap="wrap" gap={1} marginLeft={-0.5}>
           <Stack direction="row" gap={1}>
             {genres
               ?.slice(0, limitToRender)
-              ?.map((genre) => <Chip label={genre?.name} key={genre?.name} size={size} />)}
+              ?.map((genre) => (
+                <Chip label={genre?.name} key={genre?.name} size={size} sx={{ fontWeight: 700 }} />
+              ))}
             {renderLimit && genres.length > renderLimit && (
               <Chip label={`+${genres.length - renderLimit}`} size={size} />
             )}
