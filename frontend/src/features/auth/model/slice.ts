@@ -1,6 +1,6 @@
 import { isAuthFulfilled, isAuthPending, isAuthRejected } from '@features/auth/model/matchers';
 import { AuthState, UserAuthData } from '@features/auth/model/authTypes';
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { checkAuth } from '@features/auth/model/services/checkAuth';
 import { logout } from '@features/auth/model/services/logout';
 import { login } from '@features/auth/model/services/login';
@@ -55,6 +55,7 @@ const authSlice = createSlice({
 });
 
 const { reducer: authReducer, actions: authActions } = authSlice;
+
 export const { setStateRequest } = authActions;
 
 export default authReducer;

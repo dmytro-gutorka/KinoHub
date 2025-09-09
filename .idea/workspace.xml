@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/slice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentDeleteModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentDeleteModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Close.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Close.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Title.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Header.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +250,8 @@
       <workItem from="1756733420530" duration="2472000" />
       <workItem from="1756801390417" duration="635000" />
       <workItem from="1757090410912" duration="8140000" />
-      <workItem from="1757337399651" duration="19169000" />
+      <workItem from="1757337399651" duration="20258000" />
+      <workItem from="1757406178512" duration="2086000" />
     </task>
     <servers />
   </component>

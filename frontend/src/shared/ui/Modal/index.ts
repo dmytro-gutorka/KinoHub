@@ -2,14 +2,14 @@ import ModalRoot from '@shared/ui/Modal/model/provider';
 import Container from '@shared/ui/Modal/ui/Container';
 import Content from '@shared/ui/Modal/ui/Content';
 import Open from '@shared/ui/Modal/ui/Open';
-import Title from '@shared/ui/Modal/ui/Title';
+import Header from '@shared/ui/Modal/ui/Header';
 import Close from '@shared/ui/Modal/ui/Close';
 import ActionButton from '@shared/ui/Modal/ui/ActionButton';
 
 export const Modal = Object.assign(ModalRoot, {
-  Open: Open,
+  Open,
   Close,
-  Title,
+  Header,
   Content,
   Container,
   ActionButton,
