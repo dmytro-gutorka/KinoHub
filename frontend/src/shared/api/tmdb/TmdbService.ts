@@ -24,7 +24,7 @@ class TmdbService {
 
   getMediaDetails(mediaId: number = 1, mediaType: MediaType = 'movie') {
     return this.axiosInstance.get(`/${mediaType}/${mediaId}`, {
-      params: { append_to_response: 'credits' },
+      params: { append_to_response: 'credits,videos' },
     });
   }
 

@@ -51,14 +51,14 @@ const theme = createTheme(base, {
         root: {
           '& .MuiDialog-paper': {
             border: `1px solid ${base.palette.transparentGrey03}`,
-            borderRadius: '25px',
+            borderRadius: base.spacing(6),
             backgroundColor: 'rgba(0, 0, 0, 0.2)',
           },
 
           '& .MuiBackdrop-root': {
-            backdropFilter: 'blur(8px)',
-            WebkitBackdropFilter: 'blur(4px)',
-            backgroundColor: 'rgba(0,0,0,0.3)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            backgroundColor: 'rgba(0,0,0,0.2)',
           },
 
           '& .MuiInputBase-root': {

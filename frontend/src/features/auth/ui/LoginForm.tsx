@@ -34,7 +34,7 @@ export default function LoginForm({ onClose }: LoginFormProps) {
       {/*Replace with a toast*/}
       <Controller
         name="email"
-        rules={emailRules}
+        // rules={emailRules}
         control={control}
         defaultValue=""
         render={({ field }) => (
@@ -49,7 +49,7 @@ export default function LoginForm({ onClose }: LoginFormProps) {
       <Controller
         name="password"
         defaultValue=""
-        rules={passwordRules}
+        // rules={passwordRules}
         control={control}
         render={({ field }) => (
           <TextField

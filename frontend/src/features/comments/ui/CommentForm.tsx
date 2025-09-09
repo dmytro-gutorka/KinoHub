@@ -11,6 +11,7 @@ interface CommentFormProps {
   defaultValue?: string;
   cssPlaceSelf?: Property.PlaceSelf;
   onSubmit: (review: string) => void;
+  labelSubmitButton?: string;
 }
 
 interface CommentInputs {
@@ -22,6 +23,7 @@ export default function CommentForm({
   onSubmit,
   cssPlaceSelf = 'start',
   defaultValue = '',
+  labelSubmitButton = 'Post review',
 }: CommentFormProps) {
   const {
     handleSubmit,
@@ -60,13 +62,15 @@ export default function CommentForm({
     >
       <Controller
         name="review"
-        rules={rules}
+        // rules={rules}
         control={control}
         render={({ field }) => (
           <TextField
             {...field}
             placeholder={reviewPlaceholder}
             multiline
+            fullWidth
+            minRows={5}
             variant="outlined"
             error={Boolean(errors.review)}
             helperText={errors.review && errors.review.message}
@@ -80,7 +84,7 @@ export default function CommentForm({
         startIcon={<TelegramIcon />}
         sx={{ placeSelf: cssPlaceSelf }}
       >
-        Post Review
+        {labelSubmitButton}
       </Button>
     </Stack>
   );

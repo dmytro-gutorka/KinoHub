@@ -14,7 +14,7 @@ const MediaRating = ({ mediaAction, mediaType }: MediaRatingProps) => {
   };
 
   return (
-    <MediaContentBlock blockTitle="Your rate">
+    <MediaContentBlock blockTitle="Your rate" isBoxShadow={false}>
       {!rating && (
         <>
           <Typography variant="subtitle2" component="h4" mb={2} sx={{ color: 'grey' }}>

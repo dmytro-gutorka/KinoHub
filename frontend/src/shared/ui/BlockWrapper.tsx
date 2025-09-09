@@ -7,6 +7,7 @@ export interface BlockWrapperProps {
   titleFontWeight?: number;
   titleSizeVariant?: TypographyVariant;
   padding?: number;
+  isBoxShadow?: boolean;
 }
 
 export default function BlockWrapper({
@@ -14,16 +15,17 @@ export default function BlockWrapper({
   blockTitle,
   titleFontWeight = 900,
   titleSizeVariant = 'h5',
-  padding = 4,
+  padding = 6,
+  isBoxShadow = true,
 }: BlockWrapperProps) {
   const theme = useTheme();
 
   return (
     <Stack flexGrow={1} flexBasis={1}>
       <Stack
-        boxShadow={theme.shadows[10]}
+        boxShadow={isBoxShadow && theme.shadows[10]}
         paddingInline={4}
-        justifyContent="center"
+        // justifyContent="center"
         borderRadius={theme.shape.borderRadiusScale.md}
         border={theme.border}
         flexGrow={1}

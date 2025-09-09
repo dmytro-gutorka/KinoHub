@@ -3,14 +3,15 @@ import { Theme } from '@mui/material';
 export const MuiTab = (theme: Theme) => ({
   styleOverrides: {
     root: {
-      padding: theme.spacing(6),
+      padding: theme.spacing(7),
       borderRadius: theme.shape.borderRadiusScale.xl,
       textTransform: 'capitalize',
       fontWeight: '900',
       letterSpacing: theme.spacing(0.1),
       fontSize: theme.spacing(4),
-      height: '20px',
-      minHeight: '20px',
+      height: '25px',
+      minHeight: '25px',
+      background: theme.palette.transparentGrey01,
 
       '&.Mui-selected': {
         background: theme.palette.gradientGrey,
@@ -21,5 +22,5 @@ export const MuiTab = (theme: Theme) => ({
         background: theme.palette.transparentGrey01,
       },
     },
-  }
-})
+  },
+});

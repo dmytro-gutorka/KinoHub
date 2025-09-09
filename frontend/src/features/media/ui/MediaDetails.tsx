@@ -13,6 +13,8 @@ export default function MediaDetails<T extends MediaType>({
 }: MediaDetailsProps<T>): JSX.Element | undefined {
   const { spoken_languages: language, production_countries: country, status } = tmdbMediaData;
 
+  // Split to two separete components
+
   if (mediaType === 'tv') {
     const {
       first_air_date: airDate,
@@ -21,7 +23,7 @@ export default function MediaDetails<T extends MediaType>({
     } = tmdbMediaData as TmdbTvShowDetails;
 
     return (
-      <BlockWrapper blockTitle="TV Show Details">
+      <BlockWrapper blockTitle="TV Show Details" isBoxShadow={false}>
         <List>
           <MediaItemList label="Air date" data={airDate} />
           <MediaItemList label="Number of Seasons" data={seasonsNumber} />

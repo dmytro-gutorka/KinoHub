@@ -1,12 +1,11 @@
 import { MediaType } from '@shared/types/generalTypes';
-import { Stack } from '@mui/material';
-import QuestionAnswerOutlinedIcon from '@mui/icons-material/QuestionAnswerOutlined';
+import { Stack, Typography } from '@mui/material';
 import CommentList from '@features/comments/ui/CommentList';
 import CommentForm from '@features/comments/ui/CommentForm';
 import useComments from '@features/comments/model/useComment';
-import BlockWrapper from '@shared/ui/BlockWrapper';
-import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import useCreateComment from '@features/comments/model/useCreateComment';
+import LabelWithIcon from '@shared/ui/LabelWithIcon';
+import QuestionAnswerOutlinedIcon from '@mui/icons-material/QuestionAnswerOutlined';
 
 interface MediaCommentsProps {
   mediaId: number;
@@ -21,18 +20,21 @@ export default function MediaComments({ mediaId, mediaType }: MediaCommentsProps
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <BlockWrapper
-      blockTitle={
+    <Stack direction="column" gap={4} m={4} mt={10}>
+      <Typography
+        letterSpacing={0.01}
+        fontWeight={900}
+        lineHeight="32px"
+        component="h3"
+        variant="h5"
+        mb={2}
+      >
         <LabelWithIcon label={`Reviews (${comments?.length || 0})`}>
           <QuestionAnswerOutlinedIcon />
         </LabelWithIcon>
-      }
-      padding={8}
-    >
-      <Stack direction="column" gap={4} m={4} mt={10}>
-        <CommentForm mediaType={mediaType} onSubmit={createComment} />
-        <CommentList comments={comments} />
-      </Stack>
-    </BlockWrapper>
+      </Typography>
+      <CommentForm mediaType={mediaType} onSubmit={createComment} />
+      <CommentList comments={comments} />
+    </Stack>
   );
 }

@@ -3,8 +3,10 @@ import { Theme } from '@mui/material';
 export const MuiTabs = (theme: Theme) => ({
   styleOverrides: {
     root: {
-      marginLeft: theme.spacing(3),
-      marginBottom: theme.spacing(6),
+      // backgroundColor: 'red',
+      borderRadius: theme.shape.borderRadiusScale.xl,
+      // padding: theme.spacing(1),
+      margin: theme.spacing(3),
       '.MuiTabs-scroller': {
         position: 'static',
       },
@@ -12,8 +14,8 @@ export const MuiTabs = (theme: Theme) => ({
         gap: theme.spacing(2),
       },
       '.MuiTabs-indicator': {
-        height: '0px'
+        height: '0px',
       },
     },
-  }
-})
+  },
+});

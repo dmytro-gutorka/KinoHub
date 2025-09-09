@@ -15,6 +15,11 @@ export default function MediaHeader<T extends MediaType>({
   mediaType,
 }: MediaHeaderProps<T>) {
   const { genres, mediaId, imgUrl, title } = useMediaHeaderData(tmdbMediaData, mediaType);
+  console.log(tmdbMediaData?.videos.results);
+
+  const youtubeVideoKey = tmdbMediaData?.videos?.results?.find(
+    (video) => video.site === 'YouTube' && video.type === 'Trailer'
+  )?.key;
 
   return (
     <Stack position="relative">
@@ -25,7 +30,7 @@ export default function MediaHeader<T extends MediaType>({
           <MediaHeaderPoster imgUrl={imgUrl} />
 
           <Box>
-            <Typography variant="h1" mb={10} children={title}/>
+            <Typography variant="h1" mb={10} children={title} />
 
             <Stack gap={2}>
               <LabelList mediaType={mediaType} tmdbMediaData={tmdbMediaData} />
@@ -36,10 +41,10 @@ export default function MediaHeader<T extends MediaType>({
               mediaActions={mediaAction}
               mediaId={mediaId}
               mediaType={mediaType}
+              youtubeVideoKey={youtubeVideoKey}
             />
           </Box>
         </Stack>
-
       </Container>
     </Stack>
   );

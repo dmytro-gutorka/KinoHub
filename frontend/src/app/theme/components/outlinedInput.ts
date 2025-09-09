@@ -2,14 +2,11 @@ import { Theme } from '@mui/material';
 
 export const MuiOutlinedInput = (theme: Theme) => ({
   styleOverrides: {
-    // input: {
-    // minHeight: '100px',
-    // borderRadius: 5,
-    // padding: 20,
-    // border: `1px solid ${theme.palette.grey[100]}`,
-    // },
+    inputMultiline: {
+      padding: theme.spacing(4),
+    },
     notchedOutline: {
-      borderColor: theme.palette.transparentGrey02,
+      borderColor: theme.palette.grey[500],
     },
     root: {
       padding: 0,

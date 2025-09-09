@@ -46,6 +46,7 @@ export default function CommentUpdateModal({
             onSubmit={handleOnSubmit}
             defaultValue={currentReview}
             cssPlaceSelf="foo"
+            labelSubmitButton="Update comment"
           />
         </Modal.Content>
       </Modal.Container>

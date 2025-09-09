@@ -1,15 +1,11 @@
-import { Box, useTheme } from '@mui/material';
 import { MediaPlotProps } from '@features/media/model/types/mediaTypes';
+import { Box } from '@mui/material';
 import { MediaContentBlock } from '@features/media';
 
-const MediaPlot = ({ overview }: MediaPlotProps) => {
-  const theme = useTheme();
-
+export default function MediaPlot({ overview }: MediaPlotProps) {
   return (
-    <MediaContentBlock blockTitle="Plot">
+    <MediaContentBlock blockTitle="Plot" isBoxShadow={false}>
       <Box>{overview}</Box>
     </MediaContentBlock>
   );
-};
-
-export default MediaPlot;
+}

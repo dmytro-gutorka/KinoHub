@@ -26,7 +26,7 @@ export default function LabelList<T extends MediaType>({
   const { vote_average: voteAverage, original_language: language } = tmdbMediaData;
   let numberOfSeasons: number = 0;
   let numberOfEpisodes: number = 0;
-  let episodeRunTime: number | string = 'N/A';
+  let episodeRunTime: number | string | undefined;
   let runtime: number | string = 'N/A';
   let releaseDate: string = 'Unknown';
 
@@ -43,6 +43,7 @@ export default function LabelList<T extends MediaType>({
     runtime = (tmdbMediaData as TmdbMovieDetails).runtime || 'N/A';
   }
 
+  console.log(tmdbMediaData);
   const movieLabels = [
     {
       icon: <StarBorderIcon />,
@@ -74,7 +75,7 @@ export default function LabelList<T extends MediaType>({
     },
     {
       icon: <AccessTimeIcon />,
-      data: `~${episodeRunTime}m per episode`,
+      data: episodeRunTime ? `~${episodeRunTime}m per episode` : 'N/A',
     },
   ];
 

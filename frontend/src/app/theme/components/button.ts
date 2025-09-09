@@ -1,6 +1,5 @@
 import { Theme } from '@mui/material';
 
-
 export const MuiButton = (theme: Theme) => ({
   styleOverrides: {
     root: {
@@ -13,7 +12,7 @@ export const MuiButton = (theme: Theme) => ({
             color: theme.palette.common.white,
             background: theme.palette.gradientGrey,
             fontWeight: 900,
-          }
+          },
         },
         {
           props: {
@@ -21,9 +20,9 @@ export const MuiButton = (theme: Theme) => ({
           },
           style: {
             color: theme.palette.common.white,
-            border: `1px solid ${theme.palette.transparentGrey03}`
-          }
-        }
+            border: `1px solid ${theme.palette.grey[400]}`,
+          },
+        },
       ],
 
       padding: theme.spacing(2.5),
@@ -35,14 +34,13 @@ export const MuiButton = (theme: Theme) => ({
       fontSize: theme.spacing(4),
       transition: theme.transitions.create('all'),
 
-      '&:hover' : {
+      '&:hover': {
         scale: 1.05,
-        filter: 'brightness(1.2)'
-
-      }
+        filter: 'brightness(1.2)',
+      },
     },
   },
   defaultProps: {
     variant: 'contained',
   },
-})
+});

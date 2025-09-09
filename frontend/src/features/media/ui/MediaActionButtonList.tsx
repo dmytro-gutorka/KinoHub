@@ -15,18 +15,21 @@ interface ActionButton {
   label: null | string;
   icon: JSX.Element;
   onClick: () => void;
+  skip?: boolean;
 }
 
 interface MediaActionButtonListProps {
   mediaActions: UserMediaActionEntity;
   mediaId: number;
   mediaType: MediaType;
+  youtubeVideoKey: string;
 }
 
 export default function MediaActionButtonList({
   mediaActions,
   mediaId,
   mediaType,
+  youtubeVideoKey,
 }: MediaActionButtonListProps) {
   const { isLiked, isWatched, watchStatus } = mediaActions;
   const { mutate: updateAction } = useUpdateMediaAction(mediaId, mediaType);
@@ -36,8 +39,9 @@ export default function MediaActionButtonList({
   const actionButtons: Array<ActionButton> = [
     {
       icon: <PlayCircleOutlineOutlinedIcon />,
-      onClick: () => window.open(`https://www.youtube.com/watch?v=${mediaId}`, '_blank'),
+      onClick: () => window.open(`https://www.youtube.com/watch?v=${youtubeVideoKey}`, '_blank'),
       label: 'Watch trailer',
+      skip: !youtubeVideoKey,
     },
     {
       icon: isLiked ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon />,
@@ -58,13 +62,17 @@ export default function MediaActionButtonList({
 
   return (
     <Stack direction="row" gap={4} mt={8} flexWrap="wrap">
-      {actionButtons.map(({ label, icon, onClick }: ActionButton) => (
+      {actionButtons.map(({ label, icon, onClick, skip }: ActionButton) => (
         <React.Fragment key={label}>
-          {!label && <IconButton onClick={onClick}>{icon}</IconButton>}
-          {label && (
-            <Button onClick={onClick} startIcon={icon}>
-              {label}
-            </Button>
+          {!skip && (
+            <>
+              {!label && <IconButton onClick={onClick}>{icon}</IconButton>}
+              {label && (
+                <Button onClick={onClick} startIcon={icon}>
+                  {label}
+                </Button>
+              )}
+            </>
           )}
         </React.Fragment>
       ))}

@@ -3,8 +3,21 @@ import CommentDeleteModal from '@features/comments/ui/CommentDeleteModal';
 import ContextMenu from '@shared/ui/ContextMenu';
 import MenuProvider from '@shared/providers/MenuProvider';
 import CommentUpdateModal from '@features/comments/ui/CommentUpdateModal';
+import { MediaType } from '@shared/types/generalTypes';
 
-export default function CommentContextMenu({ commentId, mediaType, mediaId, currentReview }) {
+interface CommentContextMenuProps {
+  commentId: number;
+  mediaType: MediaType;
+  mediaId: number;
+  currentReview: string;
+}
+
+export default function CommentContextMenu({
+  commentId,
+  mediaType,
+  mediaId,
+  currentReview,
+}: CommentContextMenuProps) {
   return (
     <MenuProvider>
       <ContextMenu>
