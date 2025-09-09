@@ -1,12 +1,6 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 export type Clickable = { onClick?: React.MouseEventHandler<HTMLElement> };
-
-export interface IModalOpenCloseProps {
-  asChild?: boolean;
-  children?: ReactNode;
-  label?: string;
-}
 
 export interface IModalProvider {
   isModalOpen: boolean;

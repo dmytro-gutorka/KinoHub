@@ -13,10 +13,9 @@ export default function RegistrationModal() {
         <Modal>
           <Modal.Open label="Sign up" />
           <Modal.Container>
-            <Modal.Title subTitle="Sign up to start your movie journey" icon={<LogoIcon />}>
+            <Modal.Header subTitle="Sign up to start your movie journey" icon={<LogoIcon />}>
               Join Kinohub
-            </Modal.Title>
-            <Modal.Close />
+            </Modal.Header>
             <Modal.Content>
               <RegistrationForm />
             </Modal.Content>

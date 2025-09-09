@@ -3,9 +3,10 @@ import { Stack } from '@mui/material';
 import QuestionAnswerOutlinedIcon from '@mui/icons-material/QuestionAnswerOutlined';
 import CommentList from '@features/comments/ui/CommentList';
 import CommentForm from '@features/comments/ui/CommentForm';
-import useComments from '@features/comments/model/useComments';
+import useComments from '@features/comments/model/useComment';
 import BlockWrapper from '@shared/ui/BlockWrapper';
 import LabelWithIcon from '@shared/ui/LabelWithIcon';
+import useCreateComment from '@features/comments/model/useCreateComment';
 
 interface MediaCommentsProps {
   mediaId: number;
@@ -14,8 +15,8 @@ interface MediaCommentsProps {
 
 export default function MediaComments({ mediaId, mediaType }: MediaCommentsProps) {
   // убрать пароль из запроса на беке
-
   const { data: comments, isLoading } = useComments(mediaId, mediaType);
+  const { mutate: createComment } = useCreateComment(mediaId, mediaType);
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -29,7 +30,7 @@ export default function MediaComments({ mediaId, mediaType }: MediaCommentsProps
       padding={8}
     >
       <Stack direction="column" gap={4} m={4} mt={10}>
-        <CommentForm mediaId={mediaId} mediaType={mediaType} />
+        <CommentForm mediaType={mediaType} onSubmit={createComment} />
         <CommentList comments={comments} />
       </Stack>
     </BlockWrapper>

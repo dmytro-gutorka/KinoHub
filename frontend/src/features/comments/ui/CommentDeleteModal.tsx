@@ -20,30 +20,28 @@ export default function CommentDeleteModal({
   const { closeMenu } = useMenuContext();
   const { mutate: deleteComment } = useDeleteComment(commentId, mediaId, mediaType);
 
-  function handleOnClick() {
+  function handleOnClickSubmission() {
     deleteComment();
     closeMenu();
   }
 
   return (
-    <>
-      <Modal>
-        <Modal.Open asChild>
-          <MenuItem>Delete comment</MenuItem>
-        </Modal.Open>
+    <Modal>
+      <Modal.Open asChild>
+        <MenuItem>Delete comment</MenuItem>
+      </Modal.Open>
 
-        <Modal.Container>
-          <Modal.Header subTitle="You could not undo this action." userOnClose={closeMenu}>
-            Do you want to delete your comment ?
-          </Modal.Header>
+      <Modal.Container>
+        <Modal.Header subTitle="You could not undo this action." userOnClose={closeMenu}>
+          Do you want to delete your comment ?
+        </Modal.Header>
 
-          <Modal.Content>
-            <DialogActions>
-              <Modal.ActionButton label="Delete" userOnClick={handleOnClick} />
-            </DialogActions>
-          </Modal.Content>
-        </Modal.Container>
-      </Modal>
-    </>
+        <Modal.Content>
+          <DialogActions>
+            <Modal.ActionButton label="Delete" userOnClick={handleOnClickSubmission} />
+          </DialogActions>
+        </Modal.Content>
+      </Modal.Container>
+    </Modal>
   );
 }

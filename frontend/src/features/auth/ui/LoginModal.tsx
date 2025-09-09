@@ -13,10 +13,9 @@ export default function LoginModal() {
         <Modal>
           <Modal.Open label="Log in" />
           <Modal.Container>
-            <Modal.Title subTitle="Sign in to continue your movie journey" icon={<LogoIcon />}>
+            <Modal.Header subTitle="Sign in to continue your movie journey" icon={<LogoIcon />}>
               Welcome Back
-            </Modal.Title>
-            <Modal.Close />
+            </Modal.Header>
             <Modal.Content>
               <LoginForm />
             </Modal.Content>

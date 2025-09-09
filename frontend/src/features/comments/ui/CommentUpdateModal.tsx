@@ -1,63 +1,54 @@
+import { MediaType } from '@shared/types/generalTypes';
+import { MenuItem } from '@mui/material';
+import { Modal } from '@shared/ui/Modal';
 import { useMenuContext } from '@shared/providers/MenuProvider/MenuProvider';
-import { useMutation } from '@tanstack/react-query';
-import { MenuItem, TextField } from '@mui/material';
-import React, { RefObject, useRef, useState } from 'react';
-import DialogWindow from '@shared/ui/DialogWindow';
-import updateComment from '@shared/api/kinohub/services/comments/updateComment';
-import queryClient from '@app/queryClient';
+import useUpdateComment from '@features/comments/model/useUpdateComment';
+import CommentForm from '@features/comments/ui/CommentForm';
 
-type reviewRefType = HTMLInputElement | HTMLTextAreaElement | null;
+interface CommentUpdateModalProps {
+  commentId: number;
+  mediaType: MediaType;
+  mediaId: number;
+  currentReview: string;
+}
 
-export default function CommentUpdateModal({ currentReview, commentId, mediaType, mediaId }) {
-  const reviewRef: RefObject<reviewRefType> = useRef<reviewRefType>(null);
-  const [error, setError] = useState<string | null>(null);
-
+export default function CommentUpdateModal({
+  commentId,
+  mediaType,
+  mediaId,
+  currentReview,
+}: CommentUpdateModalProps) {
   const { closeMenu } = useMenuContext();
-  const { openModal } = useModalContext();
+  const { mutate: updateComment } = useUpdateComment(commentId, mediaId, mediaType);
 
-  const { mutate: mutateCommentUpdate } = useMutation({
-    mutationFn: (updatedReview: { review: string }) => updateComment(commentId, updatedReview),
-    onSuccess: () => {
-      closeMenu();
-      await queryClient.invalidateQueries({ queryKey: ['comments', mediaId, mediaType] });
-    },
-  });
-
-  async function handleUpdateComment() {
-    const el: HTMLInputElement | HTMLTextAreaElement | null = reviewRef.current;
-
-    if (!el) return setError('You have to enter a review before updating it');
-
-    const reviewTest: string = el.value.trim();
-
-    if (reviewTest.length < 10 || reviewTest.length > 500)
-      return setError('Review must be between 10 and 500 characters');
-
-    setError(null);
-    mutateCommentUpdate({ review: reviewTest });
+  async function handleOnSubmit(review: string) {
+    updateComment(review);
+    closeMenu();
   }
 
-  const title = 'Update your review';
-
   return (
-    <DialogWindow
-      onClickYes={handleUpdateComment}
-      title={title}
-      description={
-        <TextField
-          name="review"
-          multiline
-          minRows={4}
-          defaultValue={currentReview}
-          inputRef={reviewRef}
-          placeholder="Update your review"
-          error={!!error}
-          helperText={error ?? ' '}
-          fullWidth
-        />
-      }
-    >
-      <MenuItem onClick={openModal}> Update comment</MenuItem>
-    </DialogWindow>
+    <Modal>
+      <Modal.Open asChild>
+        <MenuItem>Update comment</MenuItem>
+      </Modal.Open>
+
+      <Modal.Container>
+        <Modal.Header
+          subTitle="This action changes your current comment permanently"
+          userOnClose={closeMenu}
+        >
+          Update your comment
+        </Modal.Header>
+
+        <Modal.Content>
+          <CommentForm
+            mediaType={mediaType}
+            onSubmit={handleOnSubmit}
+            defaultValue={currentReview}
+            cssPlaceSelf="foo"
+          />
+        </Modal.Content>
+      </Modal.Container>
+    </Modal>
   );
 }

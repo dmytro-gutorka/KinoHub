@@ -6,11 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/theme/components/outlinedInput.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme/components/outlinedInput.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/LoginModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/RegistrationModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/model/useComments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/model/useComment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/model/useCreateComment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/model/useCreateComment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentContextMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentContextMenu.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentDeleteModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentDeleteModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Close.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Close.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Title.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentUpdateModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentUpdateModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaActionButtonList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaActionButtonList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/comments/updateComment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/comments/updateComment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/BlockWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/BlockWrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Open.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui/Open.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaComments/MediaComments.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaComments/MediaComments.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +262,7 @@
       <workItem from="1756801390417" duration="635000" />
       <workItem from="1757090410912" duration="8140000" />
       <workItem from="1757337399651" duration="20258000" />
-      <workItem from="1757406178512" duration="2086000" />
+      <workItem from="1757406178512" duration="13263000" />
     </task>
     <servers />
   </component>

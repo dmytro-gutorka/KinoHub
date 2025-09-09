@@ -2,7 +2,7 @@ import { Stack, Typography, TypographyVariant, useTheme } from '@mui/material';
 import { ReactNode } from 'react';
 
 export interface BlockWrapperProps {
-  blockTitle?: string;
+  blockTitle?: string | ReactNode;
   children: ReactNode;
   titleFontWeight?: number;
   titleSizeVariant?: TypographyVariant;

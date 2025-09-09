@@ -1,6 +1,5 @@
 import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
 import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
-
 import { Button, IconButton, Stack } from '@mui/material';
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
@@ -9,7 +8,7 @@ import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { JSX } from 'react';
+import React, { JSX } from 'react';
 import useUpdateMediaAction from '@features/media/model/hooks/useUpdateMediaAction';
 
 interface ActionButton {
@@ -50,7 +49,6 @@ export default function MediaActionButtonList({
       onClick: () => handleMediaAction({ watchStatus: watchStatus ? null : 'toWatch' }),
       label: 'Add to MovieBoard',
     },
-
     {
       icon: isWatched ? <VisibilityIcon /> : <VisibilityOffOutlinedIcon />,
       onClick: () => handleMediaAction({ isWatched: !isWatched }),
@@ -60,15 +58,15 @@ export default function MediaActionButtonList({
 
   return (
     <Stack direction="row" gap={4} mt={8} flexWrap="wrap">
-      {actionButtons.map(({ label, icon, onClick }: ActionButton, index) => (
-        <div>
+      {actionButtons.map(({ label, icon, onClick }: ActionButton) => (
+        <React.Fragment key={label}>
           {!label && <IconButton onClick={onClick}>{icon}</IconButton>}
           {label && (
-            <Button onClick={onClick} startIcon={icon} key={index}>
+            <Button onClick={onClick} startIcon={icon}>
               {label}
             </Button>
           )}
-        </div>
+        </React.Fragment>
       ))}
     </Stack>
   );
