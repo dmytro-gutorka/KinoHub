@@ -1,16 +1,16 @@
 import { UserMediaStats } from '@shared/types/generalTypes';
-import { MediaContentBlock } from '@features/media';
+import BlockWrapper from '@shared/ui/BlockWrapper';
 import ListItemText from '@mui/material/ListItemText';
 import ListItem from '@mui/material/ListItem';
 import List from '@mui/material/List';
 
 interface DashboardTopGenresProps {
-  userMediaStats: UserMediaStats
+  userMediaStats: UserMediaStats;
 }
-export default function DashboardTopGenres({ userMediaStats }: DashboardTopGenresProps) {
 
+export default function DashboardTopGenres({ userMediaStats }: DashboardTopGenresProps) {
   return (
-    <MediaContentBlock blockTitle="Top Genres">
+    <BlockWrapper blockTitle="Top Genres">
       <List>
         {userMediaStats.favoriteGenres.map(({ name, count }) => (
           <ListItem key={name}>
@@ -18,6 +18,6 @@ export default function DashboardTopGenres({ userMediaStats }: DashboardTopGenre
           </ListItem>
         ))}
       </List>
-    </MediaContentBlock>
+    </BlockWrapper>
   );
 }

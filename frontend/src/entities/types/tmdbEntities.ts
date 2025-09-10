@@ -92,6 +92,24 @@ export interface TmdbCrew extends TmdbPersonInfo {
   job: string;
 }
 
+export interface TmdbVideo {
+  iso_639_1: string;
+  iso_3166_1: string;
+  name: string;
+  key: string;
+  published_at: string;
+  site: string;
+  size: number;
+  type: string;
+  official: boolean;
+  id: string;
+}
+
+export interface TmdbVideosResponse {
+  id: number;
+  results: TmdbVideo[];
+}
+
 export interface TmdbMediaDetails {
   adult: boolean;
   backdrop_path: string;
@@ -110,7 +128,8 @@ export interface TmdbMediaDetails {
   production_countries: Array<TmdbProductionCountries>;
   spoken_languages: Array<TmdbSpokenLanguages>;
   genres: Array<TmdbGenre>;
-  credits?: {
+  videos: TmdbVideosResponse;
+  credits: {
     cast: Array<TmdbCast>;
     crew: Array<TmdbCrew>;
   };

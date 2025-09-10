@@ -1,18 +1,18 @@
 import { List, ListItem } from '@mui/material';
 import { MediaProdCompaniesProps } from '@features/media/model/types/mediaTypes';
-import { MediaContentBlock } from '@features/media';
+import BlockWrapper from '@shared/ui/BlockWrapper';
 
 export default function MediaProdCompanies({ companies }: MediaProdCompaniesProps) {
   return (
     <>
       {companies.length > 0 && (
-        <MediaContentBlock blockTitle="Production companies" isBoxShadow={false}>
+        <BlockWrapper blockTitle="Production companies" isBoxShadow={false}>
           <List>
             {companies.map(({ id, name }) => (
               <ListItem key={id}>{name}</ListItem>
             ))}
           </List>
-        </MediaContentBlock>
+        </BlockWrapper>
       )}
     </>
   );

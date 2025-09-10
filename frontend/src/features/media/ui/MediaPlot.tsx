@@ -1,6 +1,14 @@
 import { MediaPlotProps } from '@features/media/model/types/mediaTypes';
 import { Box } from '@mui/material';
-import { MediaContentBlock } from '@features/media';
+import { ReactNode } from 'react';
+
+function MediaContentBlock(props: {
+  blockTitle: string;
+  isBoxShadow: boolean;
+  children: ReactNode;
+}) {
+  return null;
+}
 
 export default function MediaPlot({ overview }: MediaPlotProps) {
   return (

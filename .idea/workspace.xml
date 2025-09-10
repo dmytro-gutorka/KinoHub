@@ -6,11 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/theme/components/typography.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme/components/typography.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardDetailed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardDetailed.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/GenreChipList/GenreChipList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/GenreChipList/GenreChipList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/LabelList/LabelList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/LabelList/LabelList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/LabelWithIcon/LabelWithIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/LabelWithIcon/LabelWithIcon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/entities/types/tmdbEntities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/entities/types/tmdbEntities.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTopGenres.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTopGenres.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/model/types/mediaTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/model/types/mediaTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaDetails.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPlot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPlot.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaProdCompanies.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaProdCompanies.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MediaDetails/MediaDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MediaDetails/MediaDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/MediaHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaHeader/MediaHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/MediaOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/MediaOverview.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +34,9 @@
         <option value="JSX Component Folder.jsx.child.0" />
         <option value="JavaScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
         <option value="JSX Component Folder.tsx.child.0" />
         <option value="JSX Component Folder" />
-        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -113,11 +119,11 @@
       <recent name="$PROJECT_DIR$/frontend/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/features/media/ui" />
+      <recent name="$PROJECT_DIR$/frontend/src/features/tv-show/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/features/dashboard/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/features/dashboard" />
-      <recent name="$PROJECT_DIR$/frontend/src/features/comments/ui" />
-      <recent name="$PROJECT_DIR$/frontend/src/shared/ui" />
     </key>
   </component>
   <component name="RunManager">
@@ -251,7 +257,8 @@
       <workItem from="1756801390417" duration="635000" />
       <workItem from="1757090410912" duration="8140000" />
       <workItem from="1757337399651" duration="20258000" />
-      <workItem from="1757406178512" duration="23426000" />
+      <workItem from="1757406178512" duration="23871000" />
+      <workItem from="1757509275966" duration="5190000" />
     </task>
     <servers />
   </component>

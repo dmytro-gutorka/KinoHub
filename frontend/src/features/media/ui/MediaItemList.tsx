@@ -7,9 +7,13 @@ interface MediaItemListProps {
 
 const MediaItemList = ({ label, data }: MediaItemListProps) => {
   return (
-    <ListItem sx={{ display: 'flex', justifyContent: 'space-between' }}>
-      <span>{label}</span>
-      <span>{data}</span>
+    <ListItem secondaryAction={<ListItemText>Release date</ListItemText>}>
+      <Stack direction="row" alignItems="center" justifyContent="start">
+        <ListItemIcon sx={{ minWidth: '40px' }}>
+          <FolderIcon />
+        </ListItemIcon>
+      </Stack>
+      <ListItemText sx={{ display: 'inline-block' }}>{releaseDate}</ListItemText>
     </ListItem>
   );
 };

@@ -1,6 +1,6 @@
 import { MediaType } from '@shared/types/generalTypes';
 import { Box, Container } from '@mui/material';
-import { useLoaderData, useParams } from 'react-router';
+import { Params, useLoaderData, useParams } from 'react-router';
 import useTmdbMediaDetails from '@features/media/model/hooks/useTmdbMediaDetails';
 import useEnsureMediaDetails from '@features/media/model/hooks/useEnsureMediaDetails';
 import useGetOrCreateMediaAction from '@features/media/model/hooks/useGetOrCreateMediaAction';
@@ -9,7 +9,7 @@ import MediaOverview from '@widgets/MediaOverview';
 
 export default function MediaDetails() {
   const mediaType: MediaType = useLoaderData();
-  const params: Readonly<any> = useParams();
+  const params: Readonly<Params<string>> = useParams();
   const mediaId: number = Number(params?.id);
 
   const { tmdbMediaData, isTmdbMediaLoading } = useTmdbMediaDetails(mediaId, mediaType);

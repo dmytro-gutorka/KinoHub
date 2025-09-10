@@ -36,11 +36,6 @@ export interface MediaOverviewProps<T extends MediaType> {
   mediaId: number;
 }
 
-export interface MediaDetailsProps<T extends MediaType> {
-  tmdbMediaData: TmdbMediaDetailsResponse<T>;
-  mediaType: T;
-}
-
 export interface MediaRatingProps {
   mediaAction: Partial<UserMediaActionEntity>;
   mediaType: MediaType;

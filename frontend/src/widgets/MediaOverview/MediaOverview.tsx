@@ -1,25 +1,23 @@
+import { TmdbMovieDetails, TmdbTvShowDetails } from '@entities/types/tmdbEntities';
 import { MediaOverviewProps } from '@features/media/model/types/mediaTypes';
 import { MediaType } from '@shared/types/generalTypes';
 import { Stack } from '@mui/material';
-
-import SeasonsAndEpisodes from '@widgets/SeasonsAndEpisodes';
-import MediaCastAndCrew from '@features/media/ui/MediaCastAndCrew';
-import MediaRating from '@features/media/ui/MediaRating';
-import MediaPlot from '@features/media/ui/MediaPlot';
-import MediaProdCompanies from '@features/media/ui/MediaProdCompanies';
-import MediaDetails from '@features/media/ui/MediaDetails';
-import MediaComments from '@widgets/MediaComments';
 import { useState } from 'react';
-
+import MoviePrimaryDetails from '@features/media/ui/MediaPrimaryDetails';
+import MediaProdCompanies from '@features/media/ui/MediaProdCompanies';
+import SeasonsAndEpisodes from '@widgets/SeasonsAndEpisodes';
+import TvShowMainDetails from '@features/tv-show/ui/TvShowPrimaryDetails';
+import MediaCastAndCrew from '@features/media/ui/MediaCastAndCrew';
+import MediaComments from '@widgets/MediaComments';
+import MediaRating from '@features/media/ui/MediaRating';
 import TabContext from '@mui/lab/TabContext';
+import MediaPlot from '@features/media/ui/MediaPlot';
 import TabPanel from '@mui/lab/TabPanel';
-
-import Tab from '@mui/material/Tab';
-import TabList from '@mui/lab/TabList';
-
-import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
 import InsertChartOutlinedOutlinedIcon from '@mui/icons-material/InsertChartOutlinedOutlined';
+import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
+import TabList from '@mui/lab/TabList';
+import Tab from '@mui/material/Tab';
 
 export default function MediaOverview<T extends MediaType>({
   tmdbMediaData,
@@ -27,9 +25,10 @@ export default function MediaOverview<T extends MediaType>({
   mediaType,
   mediaId,
 }: MediaOverviewProps<T>) {
+  const [value, setValue] = useState('1');
   const { overview, credits, production_companies: companies } = tmdbMediaData;
 
-  const [value, setValue] = useState('1');
+  const hasSeasons: boolean = 'seasons' in tmdbMediaData;
 
   // TODO:1 make all Media... component compound with Context API
 
@@ -44,7 +43,7 @@ export default function MediaOverview<T extends MediaType>({
         />
         <Tab icon={<MovieOutlinedIcon />} iconPosition="start" label="Cast & Crew" value="2" />
         <Tab icon={<LiveTvOutlinedIcon />} iconPosition="start" label="Reviews" value="3" />
-        {'seasons' in tmdbMediaData && (
+        {hasSeasons && (
           <Tab
             icon={<LiveTvOutlinedIcon />}
             iconPosition="start"
@@ -58,7 +57,13 @@ export default function MediaOverview<T extends MediaType>({
         <Stack gap={5}>
           <MediaPlot overview={overview} />
           <Stack direction="row" gap={5}>
-            <MediaDetails tmdbMediaData={tmdbMediaData} mediaType={mediaType} />
+            {mediaType === 'tv' && (
+              <TvShowMainDetails tmdbMediaData={tmdbMediaData as TmdbTvShowDetails} />
+            )}
+
+            {mediaType === 'movie' && (
+              <MoviePrimaryDetails tmdbMediaData={tmdbMediaData as TmdbMovieDetails} />
+            )}
             <MediaProdCompanies companies={companies} />
           </Stack>
           <MediaRating mediaAction={mediaAction} mediaType={mediaType} />
@@ -66,7 +71,7 @@ export default function MediaOverview<T extends MediaType>({
       </TabPanel>
 
       <TabPanel value="2">
-        {'credits' in tmdbMediaData && credits && <MediaCastAndCrew cast={credits.cast} />}
+        <MediaCastAndCrew cast={credits.cast} />
       </TabPanel>
 
       <TabPanel value="3">

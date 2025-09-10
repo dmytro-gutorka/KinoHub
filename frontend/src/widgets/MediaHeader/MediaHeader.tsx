@@ -1,7 +1,7 @@
 import { MediaHeaderProps } from '@features/media/model/types/mediaTypes';
 import { MediaType } from '@shared/types/generalTypes';
+import { TmdbVideo } from '@entities/types/tmdbEntities';
 import { Box, Container, Stack, Typography } from '@mui/material';
-
 import BackgroundBanner from '@shared/ui/BackgroundBanner';
 import GenreChipList from '@shared/ui/GenreChipList';
 import LabelList from '@shared/ui/LabelList/LabelList';
@@ -15,10 +15,9 @@ export default function MediaHeader<T extends MediaType>({
   mediaType,
 }: MediaHeaderProps<T>) {
   const { genres, mediaId, imgUrl, title } = useMediaHeaderData(tmdbMediaData, mediaType);
-  console.log(tmdbMediaData?.videos.results);
 
-  const youtubeVideoKey = tmdbMediaData?.videos?.results?.find(
-    (video) => video.site === 'YouTube' && video.type === 'Trailer'
+  const youtubeVideoKey: string | undefined = tmdbMediaData?.videos?.results?.find(
+    (video: TmdbVideo): boolean => video.site === 'YouTube' && video.type === 'Trailer'
   )?.key;
 
   return (
