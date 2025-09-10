@@ -22,10 +22,6 @@ export interface MediaProdCompaniesProps {
   companies: Array<TmdbProductionCompanies>;
 }
 
-export interface MediaActorProps {
-  actor: TmdbCast;
-}
-
 export interface MediaCastAndCrewProps {
   cast: Array<TmdbCast>;
 }

@@ -1,20 +1,20 @@
 import { ReactNode } from 'react';
 import { useNavigate } from 'react-router';
-import { Box, CardMedia } from '@mui/material';
+import { CardMedia, Stack } from '@mui/material';
 import Card from '@mui/material/Card';
 
 interface MediaCardHoverableWrapperProps {
   children: ReactNode;
-  width: number;
-  height: number;
-  navTo: string;
+  width?: number | string | undefined;
+  height: number | string | undefined;
+  navTo?: string;
   imgURL: string;
 }
 
 export default function MediaCardHoverableWrapper({
   children,
-  width,
-  height,
+  width = 220,
+  height = 340,
   imgURL,
   navTo,
 }: MediaCardHoverableWrapperProps) {
@@ -22,19 +22,20 @@ export default function MediaCardHoverableWrapper({
 
   return (
     <Card
+      onClick={() => navigate(navTo)}
       sx={(theme) => ({
         background: 'transparent',
         position: 'relative',
-        width: width,
         border: `1px solid ${theme.palette.transparentGrey01}`,
         transition: '0.3s',
-        '&:hover': { transform: 'scale(1.05)' },
+        width,
+        display: 'flex',
+        flexDirection: 'column',
+        '&:hover': { transform: navTo && 'scale(1.05)' },
       })}
     >
-      <Box onClick={() => navigate(navTo)}>
-        <CardMedia sx={{ height, backgroundSize: 'cover' }} image={imgURL} title="Movie card" />
-      </Box>
-      <>{children}</>
+      <CardMedia image={imgURL} title="Card" sx={{ height, backgroundSize: 'cover' }} />
+      <Stack sx={{ flexGrow: 1 }}>{children}</Stack>
     </Card>
   );
 }

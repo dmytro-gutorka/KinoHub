@@ -7,7 +7,6 @@ import MoviePrimaryDetails from '@features/media/ui/MediaPrimaryDetails';
 import MediaProdCompanies from '@features/media/ui/MediaProdCompanies';
 import SeasonsAndEpisodes from '@widgets/SeasonsAndEpisodes';
 import TvShowMainDetails from '@features/tv-show/ui/TvShowPrimaryDetails';
-import MediaCastAndCrew from '@features/media/ui/MediaCastAndCrew';
 import MediaComments from '@widgets/MediaComments';
 import MediaRating from '@features/media/ui/MediaRating';
 import TabContext from '@mui/lab/TabContext';
@@ -18,6 +17,7 @@ import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 import TabList from '@mui/lab/TabList';
 import Tab from '@mui/material/Tab';
+import MediaCast from '@features/media/ui/MediaCast';
 
 export default function MediaOverview<T extends MediaType>({
   tmdbMediaData,
@@ -55,7 +55,10 @@ export default function MediaOverview<T extends MediaType>({
 
       <TabPanel value="1">
         <Stack gap={5}>
-          <MediaPlot overview={overview} />
+          <Stack direction="row" gap={5}>
+            <MediaPlot overview={overview} />
+            <MediaRating mediaAction={mediaAction} mediaType={mediaType} />
+          </Stack>
           <Stack direction="row" gap={5}>
             {mediaType === 'tv' && (
               <TvShowMainDetails tmdbMediaData={tmdbMediaData as TmdbTvShowDetails} />
@@ -66,12 +69,14 @@ export default function MediaOverview<T extends MediaType>({
             )}
             <MediaProdCompanies companies={companies} />
           </Stack>
-          <MediaRating mediaAction={mediaAction} mediaType={mediaType} />
+          {/*<Stack alignItems="start">*/}
+          {/*  <MediaRating mediaAction={mediaAction} mediaType={mediaType} />*/}
+          {/*</Stack>*/}
         </Stack>
       </TabPanel>
 
       <TabPanel value="2">
-        <MediaCastAndCrew cast={credits.cast} />
+        <MediaCast cast={credits.cast} />
       </TabPanel>
 
       <TabPanel value="3">
