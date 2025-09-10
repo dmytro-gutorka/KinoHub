@@ -6,6 +6,7 @@ import {
 } from '@entities/types/tmdbEntities';
 import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
 import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
+import { ReactElement } from 'react';
 
 export interface MediaHeaderProps<T extends MediaType> {
   tmdbMediaData: TmdbMediaDetailsResponse<T>;
@@ -34,6 +35,12 @@ export interface MediaOverviewProps<T extends MediaType> {
   mediaAction: MediaUserActions;
   mediaType: T;
   mediaId: number;
+}
+
+export interface MediaPrimaryDetailsItem {
+  label: string;
+  data: string | number | undefined;
+  icon: ReactElement;
 }
 
 export interface MediaRatingProps {

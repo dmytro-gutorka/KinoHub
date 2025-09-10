@@ -23,7 +23,11 @@ export default function LabelList<T extends MediaType>({
   mediaType,
   tmdbMediaData,
 }: LabelListProps<T>) {
-  const { vote_average: voteAverage, original_language: language } = tmdbMediaData;
+  const {
+    vote_average: voteAverage,
+    vote_count: voteCount,
+    original_language: language,
+  } = tmdbMediaData;
   let numberOfSeasons: number = 0;
   let numberOfEpisodes: number = 0;
   let episodeRunTime: number | string | undefined;
@@ -46,7 +50,7 @@ export default function LabelList<T extends MediaType>({
   const movieLabels = [
     {
       icon: <StarBorderIcon />,
-      data: voteAverage?.toFixed(2) + '/10',
+      data: voteAverage?.toFixed(2) + `/10 ${voteCount} votes`,
     },
     {
       icon: <CalendarTodayOutlinedIcon fontSize="small" />,
@@ -56,13 +60,16 @@ export default function LabelList<T extends MediaType>({
       icon: <AccessTimeIcon />,
       data: runtime ? runtime + 'm' : 'N/A',
     },
-    { icon: <LanguageIcon />, data: language.toUpperCase() },
+    {
+      icon: <LanguageIcon />,
+      data: language.toUpperCase(),
+    },
   ];
 
   const tvLabels = [
     {
       icon: <StarBorderIcon fontSize="small" />,
-      data: voteAverage?.toFixed(2) + '/10',
+      data: voteAverage?.toFixed(2) + `/10 | ${voteCount} votes`,
     },
     {
       icon: <LiveTvOutlinedIcon fontSize="small" />,

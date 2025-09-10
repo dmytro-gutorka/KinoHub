@@ -1,6 +1,6 @@
+import { typography } from '@app/theme/typography';
 import { palette } from '@app/theme/palette';
 import { shape } from '@app/theme/shape';
-import { typography } from '@app/theme/typography';
 import { createTheme } from '@mui/material';
 import { MuiOutlinedInput } from '@app/theme/components/outlinedInput';
 import { MuiCardContent } from '@app/theme/components/cardContent';

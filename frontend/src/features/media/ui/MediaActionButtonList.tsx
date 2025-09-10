@@ -8,12 +8,12 @@ import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import React, { JSX } from 'react';
+import React, { ReactElement } from 'react';
 import useUpdateMediaAction from '@features/media/model/hooks/useUpdateMediaAction';
 
 interface ActionButton {
   label: null | string;
-  icon: JSX.Element;
+  icon: ReactElement;
   onClick: () => void;
   skip?: boolean;
 }

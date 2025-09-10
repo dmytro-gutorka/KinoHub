@@ -26,7 +26,7 @@ export default [
       '@typescript-eslint': tsPlugin,
     },
     rules: {
-      ...tsPlugin.configs.recommended.rules, // здесь исправлено
+      ...tsPlugin.configs.recommended.rules,
     },
   },
 

@@ -9,7 +9,7 @@ export const MuiTypography = (theme: Theme) => ({
             variant: 'body1',
           },
           style: {
-            color: theme.palette.grey[400],
+            color: theme.palette.grey[300],
             fontSize: theme.spacing(4),
           },
         },

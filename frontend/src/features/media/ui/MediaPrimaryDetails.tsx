@@ -1,35 +1,72 @@
 import { TmdbMovieDetails } from '@entities/types/tmdbEntities';
+import { MediaPrimaryDetailsItem } from '@features/media/model/types/mediaTypes';
+import PublicOutlinedIcon from '@mui/icons-material/PublicOutlined';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';
+import GTranslateOutlinedIcon from '@mui/icons-material/GTranslateOutlined';
+import SavingsOutlinedIcon from '@mui/icons-material/SavingsOutlined';
+import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
+import convertToUSD from '@shared/helpers/convertToUSD';
+import MediaItemList from '@features/media/ui/MediaItemList';
 import BlockWrapper from '@shared/ui/BlockWrapper';
 
-export default function MoviePrimaryDetails({
-  tmdbMediaData,
-}: {
+interface MoviePrimaryDetailsProps {
   tmdbMediaData: TmdbMovieDetails;
-}) {
+}
+
+export default function MoviePrimaryDetails({ tmdbMediaData }: MoviePrimaryDetailsProps) {
   const {
     production_countries: country,
+    release_date: releaseDate,
+    spoken_languages: language,
     budget,
     revenue,
     status,
-    release_date: releaseDate,
-    spoken_languages: language,
   } = tmdbMediaData;
 
-  interface MediaPrimaryDetailsItem {}
+  const spokenLanguage = language?.[0]?.english_name || 'N/A';
+  const productionCountry = country[0].name || 'N/A';
+  const convertedRevenueToUSD = convertToUSD(revenue);
+  const convertedBudgetToUSD = convertToUSD(budget);
 
-  const moviePrimaryDetailsItems: MediaPrimaryDetailsItem[] = [{}];
+  const moviePrimaryDetailsItems: MediaPrimaryDetailsItem[] = [
+    {
+      label: 'Release date',
+      data: releaseDate,
+      icon: <CalendarTodayOutlinedIcon />,
+    },
+    {
+      label: 'Status',
+      data: status,
+      icon: <AddTaskOutlinedIcon />,
+    },
+    {
+      label: 'Budget',
+      data: convertedBudgetToUSD,
+      icon: <AttachMoneyOutlinedIcon />,
+    },
+    {
+      label: 'Box Office',
+      data: convertedRevenueToUSD,
+      icon: <SavingsOutlinedIcon />,
+    },
+    {
+      label: 'Language',
+      data: spokenLanguage,
+      icon: <GTranslateOutlinedIcon />,
+    },
+    {
+      label: 'Country',
+      data: productionCountry,
+      icon: <PublicOutlinedIcon />,
+    },
+  ];
 
   return (
     <BlockWrapper blockTitle="Movie Details">
-      {/*<MediaItemList label="Release date" data={releaseDate} />*/}
-      {/*<MediaItemList label="Status" data={status} />*/}
-
-      {/*{!!budget && <MediaItemList label="Budget" data={convertToUSD(budget)} />}*/}
-      {/*{!!revenue && <MediaItemList label="Box Office" data={convertToUSD(revenue)} />}*/}
-
-      {/*<MediaItemList label="Status" data={status} />*/}
-      {/*<MediaItemList label="Language" data={language?.[0]?.english_name || 'N/A'} />*/}
-      {/*<MediaItemList label="Country" data={country?.[0]?.name || 'Unknown'} />*/}
+      {moviePrimaryDetailsItems.map(({ label, data, icon }: MediaPrimaryDetailsItem) => (
+        <MediaItemList label={label} data={data} icon={icon} key={label} />
+      ))}
     </BlockWrapper>
   );
 }

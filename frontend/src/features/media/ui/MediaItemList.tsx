@@ -1,19 +1,13 @@
-import { ListItem } from '@mui/material';
+import { ListItem, ListItemIcon, ListItemText, Stack } from '@mui/material';
+import { MediaPrimaryDetailsItem } from '@features/media/model/types/mediaTypes';
 
-interface MediaItemListProps {
-  label: string;
-  data: string | number;
-}
-
-const MediaItemList = ({ label, data }: MediaItemListProps) => {
+const MediaItemList = ({ label, data, icon }: MediaPrimaryDetailsItem) => {
   return (
-    <ListItem secondaryAction={<ListItemText>Release date</ListItemText>}>
+    <ListItem secondaryAction={<ListItemText>{data}</ListItemText>}>
       <Stack direction="row" alignItems="center" justifyContent="start">
-        <ListItemIcon sx={{ minWidth: '40px' }}>
-          <FolderIcon />
-        </ListItemIcon>
+        <ListItemIcon sx={{ minWidth: '40px' }}>{icon}</ListItemIcon>
       </Stack>
-      <ListItemText sx={{ display: 'inline-block' }}>{releaseDate}</ListItemText>
+      <ListItemText sx={{ display: 'inline-block', color: 'white' }}>{label}</ListItemText>
     </ListItem>
   );
 };
