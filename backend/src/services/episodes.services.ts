@@ -1,6 +1,7 @@
 import { episodesRepository } from '../repositories/episodes.repository.js';
 import { Episode } from '../entity/Episode.js';
 import { HttpError } from '../errors/HttpError.js';
+import { UserAction } from '../types/types';
 
 export class EpisodesServices {
   async getListBy(
@@ -15,7 +16,7 @@ export class EpisodesServices {
     return episodes;
   }
 
-  async create(
+  async createList(
     tvShowId: number,
     userId: number | undefined,
     season: number,
@@ -43,6 +44,22 @@ export class EpisodesServices {
     await episodesRepository.save(episodes);
 
     return episodes;
+  }
+
+  async createOne(
+    tvShowId: number,
+    userId: number | undefined,
+    season: number,
+    episode: number,
+    action: Partial<UserAction>
+  ): Promise<Episode> {
+    return episodesRepository.create({
+      userId,
+      season,
+      episode,
+      tvShowId,
+      isWatched: action.isWatched,
+    });
   }
 
   async update(

@@ -10,5 +10,6 @@ export default function useUpdateEpisodeAction(tvShowId: number, season: number,
       updateEpisodeAction(tvShowId, season, episode, action),
     onSettled: () =>
       queryClient.invalidateQueries({ queryKey: ['episodeActionList', tvShowId, season] }),
+    onError: () => {},
   });
 }

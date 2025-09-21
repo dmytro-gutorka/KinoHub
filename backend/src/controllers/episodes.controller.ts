@@ -24,11 +24,31 @@ export async function createEpisodeList(
   const userId: number | undefined = req.user?.id;
   const episodesNumber: number = Number(req.query.episodes_number);
 
-  const episodes: Episode[] = await episodesServices.create(
+  const episodes: Episode[] = await episodesServices.createList(
     tvShowId,
     userId,
     season,
     episodesNumber
+  );
+
+  res.status(201).json(episodes);
+}
+
+export async function createEpisode(
+  req: Request<any, any, any, { season: number; episodes_number: number }>,
+  res: Response
+): Promise<void> {
+  const tvShowId: number = Number(req.params.tvShowId);
+  const season: number = Number(req.params.season);
+  const userId: number | undefined = req.user?.id;
+  const { episode, action } = req.body;
+
+  const episodes: Episode = await episodesServices.createOne(
+    tvShowId,
+    userId,
+    season,
+    episode,
+    action
   );
 
   res.status(201).json(episodes);

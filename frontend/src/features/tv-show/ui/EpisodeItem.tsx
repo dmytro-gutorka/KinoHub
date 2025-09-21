@@ -1,5 +1,4 @@
 import { TmdbEpisodeInfo } from '@entities/types/tmdbEntities';
-import { EpisodeEntity } from '@entities/types/kinohubEntities';
 import { Box, IconButton, Stack, Typography, useTheme } from '@mui/material';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
@@ -12,11 +11,10 @@ import getYearFromDate from '@shared/helpers/getYearFromDate';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
 
 export interface EpisodeItemProps {
-  episodeItem: TmdbEpisodeInfo;
-  episodeActionItem: EpisodeEntity;
+  episode: TmdbEpisodeInfo & { isWatched: boolean };
 }
 
-const EpisodeItem = ({ episodeItem, episodeActionItem }: EpisodeItemProps) => {
+const EpisodeItem = ({ episode }: EpisodeItemProps) => {
   const {
     episode_number: episodeNumber,
     vote_average: voteAverage,
@@ -24,17 +22,17 @@ const EpisodeItem = ({ episodeItem, episodeActionItem }: EpisodeItemProps) => {
     air_date: airDate,
     season_number: seasonNumber,
     show_id: tvShowId,
+    isWatched,
     overview,
     runtime,
     name,
-  } = episodeItem;
+  } = episode;
 
   const theme = useTheme();
   const imageUrl = posterPath
     ? getPosterUrl(posterPath)
     : './public/no-image-placeholder-horizontal.jpg';
 
-  const { isWatched } = episodeActionItem;
   const { mutate: updateEpisodeAction } = useUpdateEpisodeAction(
     tvShowId,
     seasonNumber,
@@ -47,9 +45,8 @@ const EpisodeItem = ({ episodeItem, episodeActionItem }: EpisodeItemProps) => {
     <Stack direction="row" border={theme.border} borderRadius={1} p={2}>
       <Box component="img" src={imageUrl} width="200px" height="140px" borderRadius={1} />
       <Stack pl={3} flexGrow={1}>
-
         <Stack direction="row" justifyContent="space-between">
-          <Typography variant="subtitle1" children={`${episodeNumber}. ${name}`}/>
+          <Typography variant="subtitle1" children={`${episodeNumber}. ${name}`} />
           <IconButton onClick={handleIsWatchedChange}>
             {!isWatched ? <VisibilityOffOutlinedIcon /> : <VisibilityIcon />}
           </IconButton>

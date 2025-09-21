@@ -4,21 +4,17 @@ import getPosterUrl from '@shared/helpers/getPosterUrl';
 
 export interface SeasonItemProps {
   season: TmdbSeasonInfo;
-  currentSeason: number;
+  seasonNumber: number;
   onSeasonNumber: (seasonNumber: number) => void;
 }
 
-const SeasonItem = ({ season, currentSeason, onSeasonNumber }: SeasonItemProps) => {
+const SeasonItem = ({ season, seasonNumber, onSeasonNumber }: SeasonItemProps) => {
   const {
     poster_path: posterPath,
-    season_number: seasonNumber,
+    season_number: seasonNumberInTmdb,
     air_date: airDate,
     episode_count: episodeCount,
   } = season;
-
-  // const watchedEpisodes = episodeActionList.filter(
-  //   (episode) => episode.isWatched && episode.season === seasonNumber
-  // ).length;
 
   const theme = useTheme();
   const imgURL = getPosterUrl(posterPath);
@@ -30,7 +26,7 @@ const SeasonItem = ({ season, currentSeason, onSeasonNumber }: SeasonItemProps) 
     <Stack
       onClick={() => onSeasonNumber(seasonNumber)}
       sx={{
-        background: `${currentSeason === seasonNumber ? theme.palette.gradientGrey : 'transparent'}`,
+        background: `${seasonNumber === seasonNumberInTmdb ? theme.palette.gradientGrey : 'transparent'}`,
         border: theme.border,
         borderRadius: 1,
         padding: 2,

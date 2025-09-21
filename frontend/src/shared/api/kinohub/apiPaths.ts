@@ -28,11 +28,13 @@ export const apiPath = {
   },
   episode: {
     getList: (tvShowId: number, season: number) =>
-      `${API_URL}/episodes/${tvShowId}/season/${season}`,
+      `${API_URL}/${tvShowId}/seasons/${season}/episodes`,
     createList: (tvShowId: number, season: number, episodesNumber: number) =>
-      `${API_URL}/episodes/${tvShowId}/season/${season}?episodes_number=${episodesNumber}`,
+      `${API_URL}/${tvShowId}/seasons/${season}/episodes/?episodes_number=${episodesNumber}`,
+    createOne: (tvShowId: number, season: number) =>
+      `${API_URL}/${tvShowId}/seasons/${season}/episodes`,
     update: (tvShowId: number, season: number, episode: number) =>
-      `${API_URL}/episodes/${tvShowId}/season/${season}/episode/${episode}`,
+      `${API_URL}/${tvShowId}/seasons/${season}/episode/${episode}`,
   },
 
   comments: {

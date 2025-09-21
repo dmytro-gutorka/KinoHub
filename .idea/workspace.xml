@@ -6,7 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/episodes.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/episodes.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/episodes.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/episodes.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/episodes.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/episodes.services.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/tv-show/model/hooks/useEpisodeList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tv-show/model/hooks/useEpisodeList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tv-show/model/hooks/useGetOrCreateEpisodeActionList.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tv-show/model/hooks/useUpdateEpisodeAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tv-show/model/hooks/useUpdateEpisodeAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tv-show/ui/EpisodeItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tv-show/ui/EpisodeItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tv-show/ui/EpisodeList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tv-show/ui/EpisodeList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tv-show/ui/SeasonItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tv-show/ui/SeasonItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tv-show/ui/SeasonList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tv-show/ui/SeasonList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/apiPaths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/apiPaths.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/SeasonsAndEpisodes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/SeasonsAndEpisodes.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,10 +34,10 @@
         <option value="JSX Component Folder.jsx.child.0" />
         <option value="JavaScript File" />
         <option value="TypeScript JSX File" />
-        <option value="TypeScript File" />
         <option value="CSS File" />
         <option value="JSX Component Folder.tsx.child.0" />
         <option value="JSX Component Folder" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -272,7 +282,7 @@
       <workItem from="1758097798732" duration="1250000" />
       <workItem from="1758107847397" duration="712000" />
       <workItem from="1758208019155" duration="166000" />
-      <workItem from="1758461239004" duration="13876000" />
+      <workItem from="1758461239004" duration="17517000" />
     </task>
     <servers />
   </component>
