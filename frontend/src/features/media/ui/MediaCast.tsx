@@ -17,6 +17,9 @@ export default function MediaCast({ cast }: MediaCastProps) {
   return (
     <BlockWrapper blockTitle="Cast & Crew" isBoxShadow={false}>
       <Stack direction="row" gap={2}>
+        {/*  {cast.map((castMember: TmdbCast) => (*/}
+        {/*    <MediaPersonCard person={castMember} width={180} height={275} />*/}
+        {/*  ))}*/}
         <Swiper
           modules={[Navigation, Pagination]}
           navigation
@@ -26,16 +29,14 @@ export default function MediaCast({ cast }: MediaCastProps) {
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
         >
-          {cast.map((castMember: TmdbCast) => (
-            <SwiperSlide style={{ maxWidth: 180 }}>
-              <MediaPersonCard person={castMember} width={180} height={275} />
-            </SwiperSlide>
-          ))}
+          <Stack direction="row">
+            {cast.map((castMember: TmdbCast) => (
+              <SwiperSlide style={{ display: 'flex' }}>
+                <MediaPersonCard person={castMember} width={180} height={275} />
+              </SwiperSlide>
+            ))}
+          </Stack>
         </Swiper>
-
-        {/*  {cast.map((castMember: TmdbCast) => (*/}
-        {/*    <MediaPersonCard person={castMember} width={180} height={275} />*/}
-        {/*  ))}*/}
       </Stack>
     </BlockWrapper>
   );

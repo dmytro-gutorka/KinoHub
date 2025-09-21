@@ -7,30 +7,17 @@ const MediaRating = ({ mediaAction, mediaType }: MediaRatingProps) => {
   const { mediaId, rating } = mediaAction;
   const { mutate: updateAction } = useUpdateMediaAction(Number(mediaId), mediaType);
 
-  //TODO: value: any
-  const handleRating = (_: any, value: any) => {
-    updateAction({ rating: value });
-  };
-
   return (
     <BlockWrapper blockTitle="Your rate" isBoxShadow={false}>
-      {!rating && (
-        <>
-          <Typography variant="subtitle2" component="h4" mb={2} sx={{ color: 'grey' }}>
-            You haven't rated it yet
-          </Typography>
-        </>
-      )}
+      <Typography variant="body1" component="h4" mb={2}>
+        {!rating ? "You haven't rated it yet" : `Your current rate is ${rating} stars`}
+      </Typography>
 
-      {rating && (
-        <>
-          <Typography variant="subtitle2" component="h4" mb={2} sx={{ color: 'grey' }}>
-            Your current rate is {rating} stars
-          </Typography>
-        </>
-      )}
-
-      <Rating max={10} value={rating} onChange={handleRating} />
+      <Rating
+        max={10}
+        value={rating}
+        onChange={(_, value: number | null) => updateAction({ rating: value })}
+      />
     </BlockWrapper>
   );
 };

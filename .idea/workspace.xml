@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/hooks/useRegistrationForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/hooks/useRegistrationForm.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardHoverableWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardHoverableWrapper.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCast.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCast.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPersonCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPersonCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/types/dts/theme.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/types/dts/theme.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/MediaOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/MediaOverview.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +37,10 @@
     </option>
   </component>
   <component name="FormatOnSaveOptions">
-    <option name="myRunOnSave" value="true" />
+    <option name="myAllFileTypesSelected" value="true" />
+    <option name="mySelectedFileTypes">
+      <set />
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,7 +58,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -63,42 +70,42 @@
     <option name="showLibraryContents" value="true" />
     <option name="sortKey" value="BY_TIME_ASCENDING" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Node.js.index.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore_missing_gitignore": "true",
-    "javascript.nodejs.core.library.configured.version": "22.17.0",
-    "javascript.nodejs.core.library.typings.version": "22.16.4",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/dima/GitHubProjects/KinoHub",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "/Users/dima/Library/Application Support/JetBrains/WebStorm2025.1/node/versions/22.17.0/bin/node",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/dima/GitHubProjects/KinoHub/frontend/node_modules/prettier",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "actions.on.save",
-    "ts.external.directory.path": "/Users/dima/GitHubProjects/KinoHub/frontend/node_modules/typescript/lib",
-    "ts.rename.search.for.dynamic.occurrences": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Node.js.index.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.17.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.16.4&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dima/GitHubProjects/KinoHub&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;/Users/dima/Library/Application Support/JetBrains/WebStorm2025.1/node/versions/22.17.0/bin/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/dima/GitHubProjects/KinoHub/frontend/node_modules/prettier&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/dima/GitHubProjects/KinoHub/frontend/node_modules/typescript/lib&quot;,
+    &quot;ts.rename.search.for.dynamic.occurrences&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/dist/services" />
@@ -247,7 +254,30 @@
       <workItem from="1757090410912" duration="8140000" />
       <workItem from="1757337399651" duration="20258000" />
       <workItem from="1757406178512" duration="23871000" />
-      <workItem from="1757509275966" duration="17918000" />
+      <workItem from="1757509275966" duration="19001000" />
+      <workItem from="1757595732193" duration="14000" />
+      <workItem from="1757595761668" duration="51000" />
+      <workItem from="1757596557359" duration="13000" />
+      <workItem from="1757670447843" duration="1637000" />
+      <workItem from="1757672522399" duration="556000" />
+      <workItem from="1757673095618" duration="174000" />
+      <workItem from="1757673285227" duration="170000" />
+      <workItem from="1757673497087" duration="2184000" />
+      <workItem from="1757680337545" duration="618000" />
+      <workItem from="1757853118126" duration="609000" />
+      <workItem from="1757879206335" duration="743000" />
+      <workItem from="1757931188868" duration="1888000" />
+      <workItem from="1757976143886" duration="794000" />
+      <workItem from="1758009825877" duration="4902000" />
+      <workItem from="1758045915207" duration="603000" />
+      <workItem from="1758054369067" duration="600000" />
+      <workItem from="1758055181463" duration="112000" />
+      <workItem from="1758055310524" duration="1667000" />
+      <workItem from="1758066998206" duration="604000" />
+      <workItem from="1758097798732" duration="1250000" />
+      <workItem from="1758107847397" duration="712000" />
+      <workItem from="1758208019155" duration="166000" />
+      <workItem from="1758461239004" duration="1579000" />
     </task>
     <servers />
   </component>

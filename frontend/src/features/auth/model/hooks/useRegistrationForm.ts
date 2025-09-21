@@ -11,6 +11,7 @@ export default function useRegistrationForm(onClose?: () => void) {
   const {
     handleSubmit,
     control,
+    setValue,
     formState: { errors },
   } = useForm<UserRegisterCredentials>();
 
@@ -24,9 +25,8 @@ export default function useRegistrationForm(onClose?: () => void) {
   useEffect(() => {
     if (registerStatus === 'success') {
       dispatch(setStateRequest('auth/register'));
-      onClose?.()
+      onClose?.();
     }
-
   }, [onClose, registerStatus, dispatch]);
 
   return {

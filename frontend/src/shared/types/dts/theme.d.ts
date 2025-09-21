@@ -1,13 +1,12 @@
 import '@mui/material/styles';
 
 declare module '@mui/material/styles' {
-
   interface Theme {
-    border: string
+    border: string;
   }
 
   interface ThemeOptions {
-    border?: string
+    border?: string;
   }
 
   interface Palette {
@@ -25,14 +24,12 @@ declare module '@mui/material/styles' {
     purple: CustomColor;
     orange: CustomColor;
     blue: CustomColor;
-
   }
 
   interface PaletteOptions {
     transparentGrey01?: string;
     transparentGrey02?: string;
     transparentGrey03?: string;
-
     starColor?: string;
     gradientMidnightSpace?: string;
     gradientGrey?: string;
@@ -44,7 +41,6 @@ declare module '@mui/material/styles' {
     purple?: CustomColor;
     orange?: CustomColor;
     blue?: CustomColor;
-
   }
 
   interface CustomColor {
@@ -55,16 +51,14 @@ declare module '@mui/material/styles' {
   }
 }
 
-
-declare module '@mui/system/createTheme/shape' {
+declare module '@mui/system/' {
   interface Shape {
-    borderRadiusScale: BorderRadius
+    borderRadiusScale: BorderRadius;
   }
 }
 
-
 interface BorderRadius {
-  md: number,
-  lg: number,
-  xl: number,
+  md: number;
+  lg: number;
+  xl: number;
 }

@@ -69,9 +69,6 @@ export default function MediaOverview<T extends MediaType>({
             )}
             <MediaProdCompanies companies={companies} />
           </Stack>
-          {/*<Stack alignItems="start">*/}
-          {/*  <MediaRating mediaAction={mediaAction} mediaType={mediaType} />*/}
-          {/*</Stack>*/}
         </Stack>
       </TabPanel>
 

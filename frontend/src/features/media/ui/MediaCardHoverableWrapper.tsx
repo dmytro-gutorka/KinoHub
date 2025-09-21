@@ -28,8 +28,7 @@ export default function MediaCardHoverableWrapper({
         position: 'relative',
         border: `1px solid ${theme.palette.transparentGrey01}`,
         transition: '0.3s',
-        display: 'flex',
-        flexDirection: 'column',
+        width: width,
         '&:hover': { transform: navTo && 'scale(1.05)' },
       })}
     >
@@ -37,12 +36,12 @@ export default function MediaCardHoverableWrapper({
         image={imgURL}
         title="Card"
         sx={{
-          minHeight: height,
-          minWidth: width,
+          height: height,
+          width: width,
           backgroundSize: 'cover',
         }}
       />
-      <Stack>{children}</Stack>
+      {children}
     </Card>
     // оставить тольк обертку
   );
