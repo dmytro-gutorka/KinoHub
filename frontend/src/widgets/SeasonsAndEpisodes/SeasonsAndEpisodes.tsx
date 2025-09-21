@@ -16,31 +16,32 @@ const SeasonsAndEpisodes = ({ seasons }: SeasonsAndEpisodesProps) => {
   const params: Readonly<Params<string>> = useParams();
   const tvShowId: number = Number(params?.id);
 
-  const { episodeList } = useEpisodeList(tvShowId, currentSeasonNumber);
-  const { episodeActionList } = useGetOrCreateEpisodeActionList(
-    tvShowId,
-    currentSeasonNumber,
-    episodeList
-  );
+  const { data } = useEpisodeList(tvShowId, currentSeasonNumber);
+  // const { episodeActionList } = useGetOrCreateEpisodeActionList(
+  //   tvShowId,
+  //   currentSeasonNumber,
+  //   episodeList
+  // );
 
-  if (!episodeList || !episodeActionList) return <div>Loading...</div>;
+  if (!data) return <div>Loading...</div>;
 
-  return (
-    <Grid container justifyContent="space-between" mt={6}>
-      <Grid size={2.5}>
-        <SeasonList
-          episodeActionList={episodeActionList}
-          seasons={seasons}
-          currentSeasonNumber={currentSeasonNumber}
-          onSeasonNumber={setSeasonNumber}
-        />
-      </Grid>
-
-      <Grid size={9}>
-        <EpisodeList episodeList={episodeList} episodeActionList={episodeActionList} />
-      </Grid>
-    </Grid>
-  );
+  console.log(data);
+  return <div>1</div>;
+  // <Grid container justifyContent="space-between" mt={6}>
+  //   <Grid size={2.5}>
+  //     <SeasonList
+  //       episodeActionList={episodeActionList}
+  //       seasons={seasons}
+  //       currentSeasonNumber={currentSeasonNumber}
+  //       onSeasonNumber={setSeasonNumber}
+  //     />
+  //   </Grid>
+  //
+  //   <Grid size={9}>
+  //     <EpisodeList episodeList={episodeList} episodeActionList={episodeActionList} />
+  //   </Grid>
+  // </Grid>
+  // );
 };
 
 export default SeasonsAndEpisodes;
