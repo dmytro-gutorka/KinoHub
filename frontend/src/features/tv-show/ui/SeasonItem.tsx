@@ -1,44 +1,64 @@
-import { Box, Stack, useTheme } from '@mui/material';
+import { TmdbSeasonInfo } from '@entities/types/tmdbEntities';
+import { Box, Stack, Typography, useTheme } from '@mui/material';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
-import { SeasonDataWithEpisodes } from '@shared/types/generalTypes';
 
 export interface SeasonItemProps {
-  seasonItem: SeasonDataWithEpisodes;
-  currentSeasonNumber: number;
-  onSeasonNumber: (tvSeason: number) => void;
+  season: TmdbSeasonInfo;
+  currentSeason: number;
+  onSeasonNumber: (seasonNumber: number) => void;
 }
 
-const SeasonItem = ({ seasonItem, currentSeasonNumber, onSeasonNumber }: SeasonItemProps) => {
+const SeasonItem = ({ season, currentSeason, onSeasonNumber }: SeasonItemProps) => {
   const {
     poster_path: posterPath,
     season_number: seasonNumber,
     air_date: airDate,
     episode_count: episodeCount,
-  } = seasonItem;
+  } = season;
+
+  // const watchedEpisodes = episodeActionList.filter(
+  //   (episode) => episode.isWatched && episode.season === seasonNumber
+  // ).length;
 
   const theme = useTheme();
   const imgURL = getPosterUrl(posterPath);
 
+  const imgWidth = 65;
+  const imgHeight = 100;
+
   return (
-    <Box
+    <Stack
       onClick={() => onSeasonNumber(seasonNumber)}
-      border={theme.border}
-      width="100%"
-      borderRadius={1}
-      p={2}
       sx={{
-        background: `${currentSeasonNumber === seasonNumber ? theme.palette.gradientGrey : 'transparent'}`,
+        background: `${currentSeason === seasonNumber ? theme.palette.gradientGrey : 'transparent'}`,
+        border: theme.border,
+        borderRadius: 1,
+        padding: 2,
       }}
     >
-      <Stack direction="row" spacing={2} alignItems="center">
-        <Box component="img" src={imgURL} width="48px" height="72px" borderRadius={1} />
-        <Stack>
-          <Box component="span">Season {seasonNumber}</Box>
-          <Box component="span">{episodeCount} episodes</Box>
-          <Box component="span">0/{episodeCount} watched</Box>
+      <Stack direction="row" gap={2} alignItems="center">
+        <Box
+          component="img"
+          src={imgURL}
+          width={imgWidth}
+          height={imgHeight}
+          borderRadius={theme.shape.borderRadiusScale.sm}
+        />
+        <Stack justifyContent="space-between">
+          <Typography component="span" variant="subtitle1">
+            Season {seasonNumber}
+          </Typography>
+          <Stack alignSelf="end">
+            <Typography component="span" variant="body1">
+              {episodeCount} episodes
+            </Typography>
+            <Typography component="span" variant="body1">
+              {1}/{episodeCount} watched
+            </Typography>
+          </Stack>
         </Stack>
       </Stack>
-    </Box>
+    </Stack>
   );
 };
 

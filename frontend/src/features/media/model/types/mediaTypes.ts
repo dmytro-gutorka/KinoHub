@@ -2,7 +2,6 @@ import {
   TmdbCast,
   TmdbMediaDetailsResponse,
   TmdbProductionCompanies,
-  TmdbSeasonInfo,
 } from '@entities/types/tmdbEntities';
 import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
 import { UserMediaActionEntity } from '@entities/types/kinohubEntities';
@@ -42,8 +41,4 @@ export interface MediaPrimaryDetailsItem {
 export interface MediaRatingProps {
   mediaAction: Partial<UserMediaActionEntity>;
   mediaType: MediaType;
-}
-
-export interface SeasonsAndEpisodesProps {
-  seasons: Array<TmdbSeasonInfo>;
 }

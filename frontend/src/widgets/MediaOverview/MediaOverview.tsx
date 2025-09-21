@@ -17,7 +17,7 @@ import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 import TabList from '@mui/lab/TabList';
 import Tab from '@mui/material/Tab';
-import MediaCast from '@features/media/ui/MediaCast';
+import MediaPeopleSlider from '@features/media/ui/MediaPeopleSlider';
 
 export default function MediaOverview<T extends MediaType>({
   tmdbMediaData,
@@ -73,7 +73,8 @@ export default function MediaOverview<T extends MediaType>({
       </TabPanel>
 
       <TabPanel value="2">
-        <MediaCast cast={credits.cast} />
+        <MediaPeopleSlider people={credits.cast} personType="Cast" />
+        <MediaPeopleSlider people={credits.crew} personType="Crew" />
       </TabPanel>
 
       <TabPanel value="3">
@@ -81,7 +82,7 @@ export default function MediaOverview<T extends MediaType>({
       </TabPanel>
 
       <TabPanel value="4">
-        {'seasons' in tmdbMediaData && <SeasonsAndEpisodes seasons={tmdbMediaData.seasons} />}
+        {'seasons' in tmdbMediaData && <SeasonsAndEpisodes seasons={tmdbMediaData.seasons!} />}
       </TabPanel>
     </TabContext>
   );

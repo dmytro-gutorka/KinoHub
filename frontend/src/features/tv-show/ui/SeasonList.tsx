@@ -1,21 +1,21 @@
+import { TmdbSeasonInfo } from '@entities/types/tmdbEntities';
 import { Stack } from '@mui/material';
 import SeasonItem from './SeasonItem';
-import { SeasonDataWithEpisodes } from '@shared/types/generalTypes';
 
 export interface SeasonListProps {
-  seasonList: Array<SeasonDataWithEpisodes>;
-  currentSeasonNumber: number;
+  seasons: TmdbSeasonInfo[];
+  currentSeason: number;
   onSeasonNumber: (tvSeason: number) => void;
 }
 
-const SeasonList = ({ seasonList, currentSeasonNumber, onSeasonNumber }: SeasonListProps) => {
+const SeasonList = ({ seasons, currentSeason, onSeasonNumber }: SeasonListProps) => {
   return (
     <Stack component="ul" spacing={2}>
-      {seasonList.map((seasonItem) => (
+      {seasons.map((season) => (
         <SeasonItem
-          key={seasonItem.id}
-          seasonItem={seasonItem}
-          currentSeasonNumber={currentSeasonNumber}
+          key={season.id}
+          season={season}
+          currentSeason={currentSeason}
           onSeasonNumber={onSeasonNumber}
         />
       ))}

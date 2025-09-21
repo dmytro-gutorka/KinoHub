@@ -23,7 +23,8 @@ export default function BaseSwiper({ children }: MediaCastProps) {
         spaceBetween={20}
         loop={true}
         slidesPerView="auto"
-        slidesPerGroup={4}
+        loopAddBlankSlides={true}
+        slidesPerGroup={2}
       >
         {children}
       </Swiper>
