@@ -1,0 +1,32 @@
+.swiper-relative-container {
+    position: relative;
+}
+
+.swiper {
+    position: static;
+}
+
+.swiper-pagination-bullet {
+    background: grey;
+    width: 12px;
+    height: 12px;
+}
+
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: -10px;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+    color: white;
+}
+
+.swiper-button-next {
+    right: -45px;
+    bottom: -30px
+}
+
+.swiper-button-prev {
+    left: -45px;
+    bottom: -30px
+
+}

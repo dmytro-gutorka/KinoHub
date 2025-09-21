@@ -6,13 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/model/hooks/useRegistrationForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/model/hooks/useRegistrationForm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardHoverableWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardHoverableWrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardBrief.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardBrief.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardDetailed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardDetailed.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardHoverableWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/HoverableCardWrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCast.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCast.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPersonCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPersonCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/types/dts/theme.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/types/dts/theme.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/MediaOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/MediaOverview/MediaOverview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/BlockWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/BlockWrapper.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +22,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JSX File" />
         <option value="JSX Component Folder with styles" />
         <option value="tsconfig.json" />
@@ -31,6 +30,7 @@
         <option value="JavaScript File" />
         <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="CSS File" />
         <option value="JSX Component Folder.tsx.child.0" />
         <option value="JSX Component Folder" />
       </list>
@@ -116,10 +116,10 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/src/features/media/ui" />
+      <recent name="$PROJECT_DIR$/frontend/src/shared/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/features/tv-show/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/shared/ui/Modal/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/features/dashboard/ui" />
-      <recent name="$PROJECT_DIR$/frontend/src/features/dashboard" />
     </key>
   </component>
   <component name="RunManager">
@@ -277,7 +277,7 @@
       <workItem from="1758097798732" duration="1250000" />
       <workItem from="1758107847397" duration="712000" />
       <workItem from="1758208019155" duration="166000" />
-      <workItem from="1758461239004" duration="1579000" />
+      <workItem from="1758461239004" duration="7754000" />
     </task>
     <servers />
   </component>

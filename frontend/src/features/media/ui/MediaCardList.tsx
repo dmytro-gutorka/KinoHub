@@ -16,20 +16,18 @@ interface MediaCardListProps {
 }
 
 export default function MediaCardList({ mediaList, tmdbGenreList, mediaType }: MediaCardListProps) {
-
   return (
     <Stack direction="row" flexWrap="wrap" gap={10} justifyContent="center">
-      {mediaList?.map(media => {
-
-        const {genre_ids: genreIds, id: mediaId, poster_path: posterPath} = media
-        const genreList: TmdbGenre[] = getMediaGenres(genreIds, tmdbGenreList)
+      {mediaList?.map((media) => {
+        const { genre_ids: genreIds, id: mediaId, poster_path: posterPath } = media;
+        const genreList: TmdbGenre[] = getMediaGenres(genreIds, tmdbGenreList);
 
         return (
           <MediaCardDetailed
             key={mediaId}
             mediaType={mediaType}
             mediaItem={media}
-            relevantPoster={getPosterUrl(posterPath)}
+            imgUrl={getPosterUrl(posterPath)}
             genreList={genreList}
           />
         );
