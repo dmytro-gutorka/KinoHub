@@ -24,7 +24,7 @@ const SeasonItem = ({ season, seasonNumber, onSeasonNumber }: SeasonItemProps) =
 
   return (
     <Stack
-      onClick={() => onSeasonNumber(seasonNumber)}
+      onClick={() => onSeasonNumber(seasonNumberInTmdb)}
       sx={{
         background: `${seasonNumber === seasonNumberInTmdb ? theme.palette.gradientGrey : 'transparent'}`,
         border: theme.border,
@@ -42,7 +42,7 @@ const SeasonItem = ({ season, seasonNumber, onSeasonNumber }: SeasonItemProps) =
         />
         <Stack justifyContent="space-between">
           <Typography component="span" variant="subtitle1">
-            Season {seasonNumber}
+            Season {seasonNumberInTmdb}
           </Typography>
           <Stack alignSelf="end">
             <Typography component="span" variant="body1">

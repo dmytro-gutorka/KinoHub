@@ -1,9 +1,13 @@
 import { episodesRepository } from '../repositories/episodes.repository.js';
 import { Episode } from '../entity/Episode.js';
 import { HttpError } from '../errors/HttpError.js';
-import { Action } from '../types/types.js';
+import { DataSource } from 'typeorm';
+import { Action, WatchedEpisodesPerSeason } from '../types/types.js';
+import { AppDataSource } from '../config/db.js';
 
 export class EpisodesServices {
+  constructor(private readonly dt: DataSource) {}
+
   async getListBy(
     tvShowId: number,
     userId: number | undefined,
@@ -14,6 +18,20 @@ export class EpisodesServices {
     if (episodes.length === 0) throw HttpError.NotFound('Episodes not found');
 
     return episodes;
+  }
+
+  async getWatchedEpisodes(
+    userId: number | undefined,
+    tvShowId: number
+  ): Promise<WatchedEpisodesPerSeason[]> {
+    return await this.dt
+      .createQueryBuilder(Episode, 'ep')
+      .select('ep.season', 'season')
+      .addSelect('COUNT(*)::int', 'watchedEpisodes')
+      .where('ep.tvShowId = :tvShowId', { tvShowId })
+      .andWhere('ep.userId = :userId', { userId })
+      .groupBy('ep.season')
+      .getRawMany();
   }
 
   async createList(
@@ -92,4 +110,4 @@ export class EpisodesServices {
   }
 }
 
-export const episodesServices = new EpisodesServices();
+export const episodesServices = new EpisodesServices(AppDataSource);

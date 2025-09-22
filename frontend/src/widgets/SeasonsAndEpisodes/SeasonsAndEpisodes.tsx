@@ -13,9 +13,7 @@ const SeasonsAndEpisodes = ({ seasons }: SeasonsAndEpisodesProps) => {
   const { episodes } = useEpisodeList(seasonNumber);
 
   if (!episodes) return <div>Loading...</div>;
-
-  console.log(episodes);
-
+  
   return (
     <Grid container justifyContent="space-between" mt={6}>
       <Grid size={2.5}>

@@ -23,6 +23,11 @@ export enum WatchStatus {
   Archived = 'archived',
 }
 
+export interface WatchedEpisodesPerSeason {
+  season: number;
+  watchedEpisodes: number;
+}
+
 export interface UserAction {
   isLiked: boolean;
   isWatched: boolean;

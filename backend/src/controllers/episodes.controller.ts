@@ -15,6 +15,18 @@ export async function getEpisodeList(
   res.status(200).json(episodes);
 }
 
+export async function getWatchedEpisodes(
+  req: Request<{ season: number; tvShowId: number }>,
+  res: Response
+): Promise<void> {
+  const tvShowId: number = Number(req.params.tvShowId);
+  const userId: number | undefined = req.user?.id;
+
+  const episodes = await episodesServices.getWatchedEpisodes(userId, tvShowId);
+
+  res.status(200).json(episodes);
+}
+
 export async function createEpisodeList(
   req: Request<any, any, any, { season: number; episodes_number: number }>,
   res: Response
@@ -63,7 +75,7 @@ export async function updateEpisode(
   const episode: number = Number(req.params.episode);
   const userId: number | undefined = req.user?.id;
   const { action } = req.body;
-  
+
   await episodesServices.update(tvShowId, season, userId, episode, action);
 
   res.status(200).json({ message: 'Episode is updated' });

@@ -5,7 +5,6 @@ import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import useUpdateEpisodeAction from '@features/tv-show/model/hooks/useUpsertEpisodeAction';
 import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 import getPosterUrl from '@shared/helpers/getPosterUrl';

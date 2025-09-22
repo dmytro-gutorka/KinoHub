@@ -43,6 +43,11 @@ export interface Action {
   payload: MediaUserActions[MediaActionTypes];
 }
 
+export interface WatchedEpisodesPerSeason {
+  season: number;
+  watchedEpisodes: number;
+}
+
 export type SeasonDataWithEpisodes = TmdbSeasonInfo & { episodes: Array<TmdbEpisodeInfo> };
 
 export interface TopRatedMedia {

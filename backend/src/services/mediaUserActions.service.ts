@@ -61,8 +61,8 @@ export class MediaUserActionsService {
       mediaType,
       mediaInfoId: mediaInfo.id,
     });
-    await actionsRepository.save(mediaUserAction);
 
+    await actionsRepository.save(mediaUserAction);
     return mediaUserAction;
   }
 
@@ -81,7 +81,6 @@ export class MediaUserActionsService {
     if (!isUserActionExist) throw HttpError.Conflict('Media action does not exist');
 
     await actionsRepository.update({ mediaId, userId, mediaType }, action);
-
     return await actionsRepository.findOneBy({ mediaId, userId, mediaType });
   }
 }

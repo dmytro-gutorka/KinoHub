@@ -8,18 +8,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/episodes.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/episodes.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/routes/episodes.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/episodes.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/services/episodes.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/episodes.services.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/mediaUserActions.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/mediaUserActions.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/types/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/tv-show/model/hooks/useEpisodeList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tv-show/model/hooks/useEpisodeList.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/tv-show/model/hooks/useUpdateEpisodeAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tv-show/model/hooks/useUpsertEpisodeAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/tv-show/ui/EpisodeItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tv-show/ui/EpisodeItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/tv-show/model/hooks/useUpsertEpisodeAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tv-show/model/hooks/useUpsertEpisodeAction.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/tv-show/ui/SeasonItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tv-show/ui/SeasonItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/apiPaths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/apiPaths.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/episode/createEpisodeAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/episode/createEpisodeAction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/episode/updateEpisodeAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/services/episode/updateEpisodeAction.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/SeasonsAndEpisodes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/SeasonsAndEpisodes/SeasonsAndEpisodes.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +279,7 @@
       <workItem from="1758107847397" duration="712000" />
       <workItem from="1758208019155" duration="166000" />
       <workItem from="1758461239004" duration="19602000" />
-      <workItem from="1758529786869" duration="10096000" />
+      <workItem from="1758529786869" duration="14248000" />
     </task>
     <servers />
   </component>
