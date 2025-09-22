@@ -5,10 +5,11 @@ import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import useUpdateEpisodeAction from '@features/tv-show/model/hooks/useUpdateEpisodeAction';
+import useUpdateEpisodeAction from '@features/tv-show/model/hooks/useUpsertEpisodeAction';
 import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
+import useUpsertEpisodeAction from '@features/tv-show/model/hooks/useUpsertEpisodeAction';
 
 export interface EpisodeItemProps {
   episode: TmdbEpisodeInfo & { isWatched: boolean };
@@ -33,13 +34,14 @@ const EpisodeItem = ({ episode }: EpisodeItemProps) => {
     ? getPosterUrl(posterPath)
     : './public/no-image-placeholder-horizontal.jpg';
 
-  const { mutate: updateEpisodeAction } = useUpdateEpisodeAction(
+  const { mutate: updateEpisodeAction } = useUpsertEpisodeAction(
     tvShowId,
     seasonNumber,
     episodeNumber
   );
 
-  const handleIsWatchedChange = () => updateEpisodeAction({ isWatched: !isWatched });
+  const handleIsWatchedChange = () =>
+    updateEpisodeAction({ type: 'isWatched', payload: !isWatched });
 
   return (
     <Stack direction="row" border={theme.border} borderRadius={1} p={2}>

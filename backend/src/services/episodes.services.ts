@@ -1,7 +1,7 @@
 import { episodesRepository } from '../repositories/episodes.repository.js';
 import { Episode } from '../entity/Episode.js';
 import { HttpError } from '../errors/HttpError.js';
-import { UserAction } from '../types/types';
+import { Action } from '../types/types.js';
 
 export class EpisodesServices {
   async getListBy(
@@ -42,7 +42,6 @@ export class EpisodesServices {
     );
 
     await episodesRepository.save(episodes);
-
     return episodes;
   }
 
@@ -51,15 +50,18 @@ export class EpisodesServices {
     userId: number | undefined,
     season: number,
     episode: number,
-    action: Partial<UserAction>
+    action: Action
   ): Promise<Episode> {
-    return episodesRepository.create({
+    const result: Episode = episodesRepository.create({
       userId,
       season,
       episode,
       tvShowId,
-      isWatched: action.isWatched,
+      [action.type]: action.payload,
     });
+
+    await episodesRepository.save(result);
+    return result;
   }
 
   async update(
@@ -67,18 +69,26 @@ export class EpisodesServices {
     season: number,
     userId: number | undefined,
     episode: number,
-    action: object
+    action: Action
   ): Promise<void> {
-    const isEpisodeExists: Episode | null = await episodesRepository.findOneBy({
+    const episodeEntity: Episode | null = await episodesRepository.findOneBy({
       tvShowId,
       season,
       episode,
       userId,
     });
 
-    if (!isEpisodeExists) throw HttpError.Conflict('Episode does not exist');
+    if (!episodeEntity) throw HttpError.Conflict('Episode does not exist');
 
-    await episodesRepository.update({ tvShowId, season, episode, userId }, action);
+    await episodesRepository.update(
+      {
+        tvShowId,
+        season,
+        episode,
+        userId,
+      },
+      { [action.type]: action.payload }
+    );
   }
 }
 

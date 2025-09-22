@@ -5,6 +5,8 @@ const getUserMediaActionUrl = (mediaId: number, mediaType: MediaType) =>
   `${API_URL}/actions/${mediaId}?media_type=${mediaType}`;
 const getMediaUrl = (mediaId: number, mediaType: MediaType) =>
   `${API_URL}/media/${mediaId}?media_type=${mediaType}`;
+const getEpisodeUrl = (tvShowId: number, season: number) =>
+  `${API_URL}/${tvShowId}/seasons/${season}/episodes`;
 
 export const apiPath = {
   media: {
@@ -27,14 +29,12 @@ export const apiPath = {
     getList: () => `${API_URL}/actions/movie-board`,
   },
   episode: {
-    getList: (tvShowId: number, season: number) =>
-      `${API_URL}/${tvShowId}/seasons/${season}/episodes`,
+    getList: (tvShowId: number, season: number) => getEpisodeUrl(tvShowId, season),
     createList: (tvShowId: number, season: number, episodesNumber: number) =>
-      `${API_URL}/${tvShowId}/seasons/${season}/episodes/?episodes_number=${episodesNumber}`,
-    createOne: (tvShowId: number, season: number) =>
-      `${API_URL}/${tvShowId}/seasons/${season}/episodes`,
+      `${getEpisodeUrl(tvShowId, season)}/bulk?episodes_number=${episodesNumber}`,
+    createOne: (tvShowId: number, season: number) => getEpisodeUrl(tvShowId, season),
     update: (tvShowId: number, season: number, episode: number) =>
-      `${API_URL}/${tvShowId}/seasons/${season}/episode/${episode}`,
+      `${getEpisodeUrl(tvShowId, season)}/${episode}`,
   },
 
   comments: {

@@ -16,7 +16,7 @@ publicRoutes.use('/auth', authRouter);
 privateRoutes.use(authGuard());
 privateRoutes.use('/media', mediaRouter);
 privateRoutes.use('/actions', actionsRouter);
-privateRoutes.use('/episodes', episodesRouter);
+privateRoutes.use('/', episodesRouter);
 privateRoutes.use('/users', usersRouter);
 
 export { privateRoutes, publicRoutes };

@@ -1,17 +1,19 @@
 import { Request } from 'express';
-import { read } from 'node:fs';
+import { MediaUserAction } from '../entity/MediaUserAction.js';
+import { MEDIA_ACTIONS } from '../utils/constants/SHARED.js';
 
 export type MediaType = 'tv' | 'movie';
 
-// export const WATCH_STATUSES =  {
-//   ToWatch: 'toWatch',
-//   IsWatching: 'isWatching',
-//   OnHold: 'onHold',
-//   Favorites: 'favorites',
-//   Archived: 'archived',
-// } as const
+export type MediaActionTypes = (typeof MEDIA_ACTIONS)[keyof typeof MEDIA_ACTIONS];
 
-// export type WatchStatus = typeof WATCH_STATUSES[keyof typeof WATCH_STATUSES];
+export type MediaUserActions = {
+  [key in MediaActionTypes]: MediaUserAction[key];
+};
+
+export interface Action {
+  type: MediaActionTypes;
+  payload: MediaUserActions[MediaActionTypes];
+}
 
 export enum WatchStatus {
   ToWatch = 'toWatch',
@@ -53,24 +55,23 @@ export type AuthedRequest<P = any, ResB = any, ReqB = any, Q = any> = Request<P,
   user: { id: number };
 };
 
-
 export interface TopRatedMedia {
   rating: number;
-  title: string,
-  posterPath: string | null,
-  releaseDate: string,
+  title: string;
+  posterPath: string | null;
+  releaseDate: string;
 }
 
 export interface TvShowInProgress {
-  tvShowId: number,
-  totalWatchedEpisodes: number,
-  totalEpisodes: number,
-  totalSeasons: number,
-  title: string,
-  releaseDate: string,
-  voteAverage: number,
-  status: string,
-  posterPath: string | null,
+  tvShowId: number;
+  totalWatchedEpisodes: number;
+  totalEpisodes: number;
+  totalSeasons: number;
+  title: string;
+  releaseDate: string;
+  voteAverage: number;
+  status: string;
+  posterPath: string | null;
 }
 
 export interface FavoriteGenres {
@@ -90,7 +91,6 @@ export interface AggregatedMediaStats {
   watchedEpisodes: number;
   commentsCount: number;
 }
-
 
 export type SettledUserMediaStats = readonly [
   PromiseSettledResult<AggregatedMediaStats>,

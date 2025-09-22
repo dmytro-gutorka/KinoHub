@@ -31,12 +31,17 @@ export interface SearchMediaParams {
   mediaType: MediaType;
 }
 
-export type MediaActionType = (typeof MEDIA_ACTIONS)[keyof typeof MEDIA_ACTIONS];
 export type WatchStatus = (typeof WATCH_STATUS)[keyof typeof WATCH_STATUS];
+export type MediaActionTypes = (typeof MEDIA_ACTIONS)[keyof typeof MEDIA_ACTIONS];
 
 export type MediaUserActions = {
-  [key in MediaActionType]: UserMediaActionEntity[key];
+  [key in MediaActionTypes]: UserMediaActionEntity[key];
 };
+
+export interface Action {
+  type: MediaActionTypes;
+  payload: MediaUserActions[MediaActionTypes];
+}
 
 export type SeasonDataWithEpisodes = TmdbSeasonInfo & { episodes: Array<TmdbEpisodeInfo> };
 

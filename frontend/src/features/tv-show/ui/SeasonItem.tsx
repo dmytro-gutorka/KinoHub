@@ -19,8 +19,8 @@ const SeasonItem = ({ season, seasonNumber, onSeasonNumber }: SeasonItemProps) =
   const theme = useTheme();
   const imgURL = getPosterUrl(posterPath);
 
-  const imgWidth = 65;
-  const imgHeight = 100;
+  const imgWidth = 55;
+  const imgHeight = 80;
 
   return (
     <Stack

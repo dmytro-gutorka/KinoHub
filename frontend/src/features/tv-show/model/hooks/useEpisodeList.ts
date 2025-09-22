@@ -28,7 +28,8 @@ export default function useEpisodeList(seasonNumber: number) {
     const mergedEpisodes = episodesData?.episodes?.map((ed: TmdbEpisodeInfo) => {
       const isWatched = episodesActions?.find(
         (ea) => ea.episode === ed.episode_number && ea.season === ed.season_number
-      );
+      )?.isWatched;
+
       return { ...ed, isWatched: !!isWatched };
     });
 

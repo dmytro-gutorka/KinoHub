@@ -43,7 +43,7 @@ export async function createEpisode(
   const userId: number | undefined = req.user?.id;
   const { episode, action } = req.body;
 
-  const episodes: Episode = await episodesServices.createOne(
+  const result: Episode = await episodesServices.createOne(
     tvShowId,
     userId,
     season,
@@ -51,7 +51,7 @@ export async function createEpisode(
     action
   );
 
-  res.status(201).json(episodes);
+  res.status(201).json(result);
 }
 
 export async function updateEpisode(
@@ -62,8 +62,8 @@ export async function updateEpisode(
   const season: number = Number(req.params.season);
   const episode: number = Number(req.params.episode);
   const userId: number | undefined = req.user?.id;
-  const action = req.body;
-
+  const { action } = req.body;
+  
   await episodesServices.update(tvShowId, season, userId, episode, action);
 
   res.status(200).json({ message: 'Episode is updated' });
