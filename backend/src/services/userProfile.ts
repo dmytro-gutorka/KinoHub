@@ -8,9 +8,7 @@ class UserProfileService {
       where: { id: userId },
       relations: ['profile'],
     });
-
-    console.log(user);
-
+    
     if (!user) throw new Error('User not found');
 
     return user.profile;
