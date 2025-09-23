@@ -19,7 +19,8 @@ export const MuiTypography = (theme: Theme) => ({
           },
           style: {
             color: theme.palette.common.white,
-            fontSize: theme.spacing(5),
+            fontSize: theme.spacing(4.5),
+            fontWeight: 300,
           },
         },
         {
@@ -29,7 +30,7 @@ export const MuiTypography = (theme: Theme) => ({
           style: {
             color: theme.palette.common.white,
             fontSize: theme.spacing(4.5),
-            fontWeight: '600',
+            fontWeight: 600,
           },
         },
         {
@@ -39,7 +40,7 @@ export const MuiTypography = (theme: Theme) => ({
           style: {
             color: theme.palette.grey[600],
             fontSize: theme.spacing(4),
-            fontWeight: '300',
+            fontWeight: 300,
           },
         },
         {

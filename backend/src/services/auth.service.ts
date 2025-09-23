@@ -16,18 +16,18 @@ export class AuthService {
     username: string,
     firstName: string,
     lastName: string
-  ): Promise<Partial<User>> {
+  ): Promise<User> {
     const isUser: boolean = await userRepository.existsBy({ email, username });
     if (isUser) throw HttpError.Conflict('User already exist');
 
     const hashedPassword: string = await bcrypt.hash(password, 10);
     const user: User = userRepository.create({
-      password: hashedPassword,
+      passwordHash: hashedPassword,
       email,
       username,
-      firstName,
-      lastName,
+      profile: { firstName, lastName },
     });
+
     await userRepository.save(user);
 
     const tokens: JwtTokens = tokenService.generateTokens({ userId: user.id });
@@ -41,14 +41,14 @@ export class AuthService {
     await authRepository.save(userAuthData);
     // await emailService.sendEmailConfirmation(user.email, userAuthData.activationLink); // error on client ??
 
-    return { id: user.id, email: user.email, username: user.username };
+    return (await userRepository.findOneBy({ email })) as User;
   }
 
   async login(email: string, password: string): Promise<LoginResponse> {
     const user: User | null = await userRepository.findOneBy({ email });
     if (!user) throw HttpError.NotFound('User does not exist');
 
-    const isPasswordMatch: boolean = await bcrypt.compare(password, user.password);
+    const isPasswordMatch: boolean = await bcrypt.compare(password, user.passwordHash);
     if (!isPasswordMatch) throw HttpError.Unauthorized('Invalid password');
 
     const tokens: JwtTokens = tokenService.generateTokens({ userId: user.id });

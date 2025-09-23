@@ -8,17 +8,18 @@ interface DashboardQuickStatsProps {
 }
 
 export default function DashboardQuickStats({ userMediaStats }: DashboardQuickStatsProps) {
-  const { maxRating, minRating, commentsCount, ratingCount } = userMediaStats.userMediaAggregatedStats;
+  const { maxRating, minRating, commentsCount, ratingCount } =
+    userMediaStats.userMediaAggregatedStats;
 
   const quickStats = [
-    { statsLabel: 'Max movie rating', statsValue: maxRating, },
-    { statsLabel: 'Min movie rating', statsValue: minRating, },
-    { statsLabel: 'Comments count', statsValue: commentsCount, },
-    { statsLabel: 'Ratings count', statsValue: ratingCount, },
+    { statsLabel: 'Max movie rating', statsValue: maxRating },
+    { statsLabel: 'Min movie rating', statsValue: minRating },
+    { statsLabel: 'Comments count', statsValue: commentsCount },
+    { statsLabel: 'Ratings count', statsValue: ratingCount },
   ];
 
   return (
-    <BlockWrapper blockTitle="Quick Stats">
+    <BlockWrapper title="Quick Stats">
       <Grid container rowSpacing={15}>
         {quickStats.map(({ statsLabel, statsValue }) => (
           <DashboardQuickStatsItem
@@ -29,5 +30,5 @@ export default function DashboardQuickStats({ userMediaStats }: DashboardQuickSt
         ))}
       </Grid>
     </BlockWrapper>
-  )
+  );
 }

@@ -4,7 +4,7 @@ import BlockWrapper from '@shared/ui/BlockWrapper';
 
 export default function MediaPlot({ overview }: MediaPlotProps) {
   return (
-    <BlockWrapper blockTitle="Plot" isBoxShadow={false}>
+    <BlockWrapper title="Plot" isBoxShadow={false}>
       <Box>{overview}</Box>
     </BlockWrapper>
   );

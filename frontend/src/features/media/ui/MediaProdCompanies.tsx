@@ -6,7 +6,7 @@ export default function MediaProdCompanies({ companies }: MediaProdCompaniesProp
   return (
     <>
       {companies.length > 0 && (
-        <BlockWrapper blockTitle="Production companies" isBoxShadow={false}>
+        <BlockWrapper title="Production companies" isBoxShadow={false}>
           <List>
             {companies.map(({ id, name }) => (
               <ListItem key={id}>{name}</ListItem>

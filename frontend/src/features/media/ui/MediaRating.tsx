@@ -8,7 +8,7 @@ const MediaRating = ({ mediaAction, mediaType }: MediaRatingProps) => {
   const { mutate: updateAction } = useUpdateMediaAction(Number(mediaId), mediaType);
 
   return (
-    <BlockWrapper blockTitle="Your rate" isBoxShadow={false}>
+    <BlockWrapper title="Your rate" isBoxShadow={false}>
       <Typography variant="body1" component="h4" mb={2}>
         {!rating ? "You haven't rated it yet" : `Your current rate is ${rating} stars`}
       </Typography>

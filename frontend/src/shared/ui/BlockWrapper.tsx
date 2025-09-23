@@ -2,20 +2,22 @@ import { Stack, Typography, TypographyVariant, useTheme } from '@mui/material';
 import { ReactNode } from 'react';
 
 export interface BlockWrapperProps {
-  blockTitle?: string | ReactNode;
+  title?: string | ReactNode;
   children: ReactNode;
   titleFontWeight?: number;
   titleSizeVariant?: TypographyVariant;
   padding?: number;
   isBoxShadow?: boolean;
+  bgColor?: string;
 }
 
 export default function BlockWrapper({
   children,
-  blockTitle,
+  title,
   padding = 6,
   titleFontWeight = 900,
   titleSizeVariant = 'h5',
+  bgColor = 'transparent',
   isBoxShadow = true,
 }: BlockWrapperProps) {
   const theme = useTheme();
@@ -24,13 +26,14 @@ export default function BlockWrapper({
     <Stack flexGrow={1} flexBasis={1}>
       <Stack
         boxShadow={isBoxShadow && theme.shadows[10]}
-        paddingInline={4}
         borderRadius={theme.shape.borderRadiusScale.md}
         border={theme.border}
-        flexGrow={1}
+        bgcolor={bgColor}
+        paddingInline={4}
         padding={padding}
+        flexGrow={1}
       >
-        {blockTitle && (
+        {title && (
           <Typography
             letterSpacing={0.01}
             lineHeight="32px"
@@ -39,7 +42,7 @@ export default function BlockWrapper({
             component="h3"
             mb={2}
           >
-            {blockTitle}
+            {title}
           </Typography>
         )}
 

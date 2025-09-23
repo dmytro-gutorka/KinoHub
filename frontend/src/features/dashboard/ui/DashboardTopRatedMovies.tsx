@@ -10,7 +10,7 @@ export default function DashboardTopRatedMovies({ userMediaStats }) {
     );
 
   return (
-    <BlockWrapper blockTitle="Top Rated Movies">
+    <BlockWrapper title="Top Rated Movies">
       <Stack direction="row" flexWrap="wrap" rowGap={10}>
         {userMediaStats.topRatedMovie.map((movieItem, index) => (
           <DashboardTopRatedMovieCard

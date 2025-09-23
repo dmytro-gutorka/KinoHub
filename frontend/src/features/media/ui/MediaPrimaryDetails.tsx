@@ -63,7 +63,7 @@ export default function MoviePrimaryDetails({ tmdbMediaData }: MoviePrimaryDetai
   ];
 
   return (
-    <BlockWrapper blockTitle="Movie Details">
+    <BlockWrapper title="Movie Details">
       {moviePrimaryDetailsItems.map(({ label, data, icon }: MediaPrimaryDetailsItem) => (
         <MediaItemList label={label} data={data} icon={icon} key={label} />
       ))}

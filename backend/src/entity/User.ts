@@ -1,15 +1,21 @@
 import {
   BaseEntity,
   Column,
+  CreateDateColumn,
   Entity,
+  Index,
+  JoinColumn,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
   Relation,
+  UpdateDateColumn,
 } from 'typeorm';
 import { UserAuth } from './UserAuth.js';
 import { Comment } from './Comment.js';
 import { CommentVote } from './CommentVote.js';
+
+import { UserProfile } from './UserProfile.js';
 
 @Entity({ schema: 'public' })
 export class User extends BaseEntity {
@@ -17,19 +23,20 @@ export class User extends BaseEntity {
   id!: number;
 
   @Column({ unique: true })
+  @Index()
   email!: string;
 
   @Column({ unique: true })
   username!: string;
 
   @Column()
-  password!: string;
+  passwordHash!: string;
 
-  @Column()
-  firstName!: string;
+  @CreateDateColumn()
+  createdAt!: Date;
 
-  @Column()
-  lastName!: string;
+  @UpdateDateColumn()
+  updatedAt!: Date;
 
   @OneToOne(() => UserAuth, (userAuth) => userAuth.user, { cascade: true, eager: true })
   userAuth!: Relation<UserAuth>;
@@ -39,4 +46,8 @@ export class User extends BaseEntity {
 
   @OneToMany(() => CommentVote, (cv) => cv.user)
   votes!: Relation<CommentVote[]>;
+
+  @OneToOne(() => UserProfile, (profile) => profile.user, { cascade: true, eager: true })
+  @JoinColumn()
+  profile!: Relation<UserProfile>;
 }

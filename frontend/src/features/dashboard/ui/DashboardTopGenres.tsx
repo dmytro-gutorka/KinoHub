@@ -10,7 +10,7 @@ interface DashboardTopGenresProps {
 
 export default function DashboardTopGenres({ userMediaStats }: DashboardTopGenresProps) {
   return (
-    <BlockWrapper blockTitle="Top Genres">
+    <BlockWrapper title="Top Genres">
       <List>
         {userMediaStats.favoriteGenres.map(({ name, count }) => (
           <ListItem key={name}>
