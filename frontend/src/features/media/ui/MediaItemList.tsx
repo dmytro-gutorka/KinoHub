@@ -1,5 +1,5 @@
 import { ListItem, ListItemIcon, ListItemText, Stack } from '@mui/material';
-import { MediaPrimaryDetailsItem } from '@features/media/model/types/mediaTypes';
+import { MediaPrimaryDetailsItem } from '@features/media/types/mediaTypes';
 
 const MediaItemList = ({ label, data, icon }: MediaPrimaryDetailsItem) => {
   return (

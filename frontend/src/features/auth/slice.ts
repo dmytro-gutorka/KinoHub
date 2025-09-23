@@ -1,9 +1,9 @@
-import { isAuthFulfilled, isAuthPending, isAuthRejected } from '@features/auth/model/matchers';
-import { AuthState, UserAuthData } from '@features/auth/model/authTypes';
+import { isAuthFulfilled, isAuthPending, isAuthRejected } from '@features/auth/matchers';
+import { AuthState, UserAuthData } from '@features/auth/authTypes';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { checkAuth } from '@features/auth/model/services/checkAuth';
-import { logout } from '@features/auth/model/services/logout';
-import { login } from '@features/auth/model/services/login';
+import { checkAuth } from '@features/auth/services/checkAuth';
+import { logout } from '@features/auth/services/logout';
+import { login } from '@features/auth/services/login';
 
 const initialState: AuthState = {
   user: null,

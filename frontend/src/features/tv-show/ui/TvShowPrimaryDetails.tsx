@@ -1,5 +1,5 @@
 import { TmdbTvShowDetails } from '@entities/types/tmdbEntities';
-import { MediaPrimaryDetailsItem } from '@features/media/model/types/mediaTypes';
+import { MediaPrimaryDetailsItem } from '@features/media/types/mediaTypes';
 import BlockWrapper from '@shared/ui/BlockWrapper';
 import MediaItemList from '@features/media/ui/MediaItemList';
 import PublicOutlinedIcon from '@mui/icons-material/PublicOutlined';

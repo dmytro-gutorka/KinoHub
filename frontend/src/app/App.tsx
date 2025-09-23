@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { RouterProvider } from 'react-router';
 import { useAppDispatch } from '@shared/hooks/redux';
-import { checkAuth } from '@features/auth/model/services/checkAuth';
+import { checkAuth } from '@features/auth/services/checkAuth';
 import { router } from '@app/router';
 
 export default function App() {

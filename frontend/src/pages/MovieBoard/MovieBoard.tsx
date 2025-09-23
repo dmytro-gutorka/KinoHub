@@ -1,5 +1,5 @@
-import { WatchStatus } from '@shared/types/generalTypes';
 import { DndContext, DragEndEvent } from '@dnd-kit/core';
+import { WatchStatus } from '@shared/types/generalTypes';
 import { Stack } from '@mui/material';
 import { MovieBoardColumnList } from '@features/movie-board';
 import useUpdateMovieBoardItem from '@features/movie-board/hooks/useUpdateMovieBoardItem';

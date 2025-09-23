@@ -1,8 +1,8 @@
 import { isAnyOf } from '@reduxjs/toolkit';
-import { checkAuth } from '@features/auth/model/services/checkAuth';
-import { login } from '@features/auth/model/services/login';
-import { logout } from '@features/auth/model/services/logout';
-import { register } from '@features/auth/model/services/register';
+import { checkAuth } from '@features/auth/services/checkAuth';
+import { login } from '@features/auth/services/login';
+import { logout } from '@features/auth/services/logout';
+import { register } from '@features/auth/services/register';
 
 export const isAuthPending = isAnyOf(
   login.pending,

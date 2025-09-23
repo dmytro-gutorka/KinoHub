@@ -30,6 +30,7 @@ export const apiPath = {
   },
   episode: {
     getList: (tvShowId: number, season: number) => getEpisodeUrl(tvShowId, season),
+    getWatchedEpisodes: (tvShowId: number) => `/${tvShowId}/seasons/episodes/watched`,
     createList: (tvShowId: number, season: number, episodesNumber: number) =>
       `${getEpisodeUrl(tvShowId, season)}/bulk?episodes_number=${episodesNumber}`,
     createOne: (tvShowId: number, season: number) => getEpisodeUrl(tvShowId, season),

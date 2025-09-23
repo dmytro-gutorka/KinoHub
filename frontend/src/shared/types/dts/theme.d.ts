@@ -14,6 +14,7 @@ declare module '@mui/material/styles' {
     transparentGrey02?: string;
     transparentGrey03?: string;
     starColor: string;
+    darkBlueAccent: string;
     gradientMidnightSpace: string;
     gradientGrey: string;
     gradientOrange: string;
@@ -31,6 +32,7 @@ declare module '@mui/material/styles' {
     transparentGrey02?: string;
     transparentGrey03?: string;
     starColor?: string;
+    darkBlueAccent: string;
     gradientMidnightSpace?: string;
     gradientGrey?: string;
     gradientOrange?: string;

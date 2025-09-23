@@ -2,7 +2,7 @@ import { MediaType } from '@shared/types/generalTypes';
 import { MenuItem } from '@mui/material';
 import { Modal } from '@shared/ui/Modal';
 import { useMenuContext } from '@shared/providers/MenuProvider/MenuProvider';
-import useUpdateComment from '@features/comments/model/useUpdateComment';
+import useUpdateComment from '@features/comments/hooks/useUpdateComment';
 import CommentForm from '@features/comments/ui/CommentForm';
 
 interface CommentUpdateModalProps {

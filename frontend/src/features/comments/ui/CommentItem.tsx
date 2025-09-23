@@ -1,5 +1,5 @@
 import { Avatar, Stack, Typography, useTheme } from '@mui/material';
-import { selectUserMetaData } from '@features/auth/model/selectors';
+import { selectUserMetaData } from '@features/auth/selectors';
 import { useSelector } from 'react-redux';
 import CommentActionButtonList from '@features/comments/ui/CommentActionButtonList';
 import fullnameToInitials from '@shared/helpers/fullnameToInitials';

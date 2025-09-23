@@ -7,7 +7,7 @@ import { MovieBoardColumn, MovieBoardItem } from '@features/movie-board';
 import {
   MovieBoardColumnData,
   MovieBoardColumnListProps,
-} from '@features/movie-board/model/types/movieBoardTypes';
+} from '@features/movie-board/types/movieBoardTypes';
 
 export default function MovieBoardColumnList({ movieBoardItems }: MovieBoardColumnListProps) {
   const theme = useTheme();

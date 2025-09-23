@@ -2,7 +2,7 @@ import { MediaType } from '@shared/types/generalTypes';
 import { MenuItem } from '@mui/material';
 import { useMenuContext } from '@shared/providers/MenuProvider/MenuProvider';
 import { Modal } from '@shared/ui/Modal';
-import useDeleteComment from '@features/comments/model/useDeleteComment';
+import useDeleteComment from '@features/comments/hooks/useDeleteComment';
 import DialogActions from '@mui/material/DialogActions';
 import React from 'react';
 

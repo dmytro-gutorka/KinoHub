@@ -1,5 +1,5 @@
 import { TmdbMovieDetails } from '@entities/types/tmdbEntities';
-import { MediaPrimaryDetailsItem } from '@features/media/model/types/mediaTypes';
+import { MediaPrimaryDetailsItem } from '@features/media/types/mediaTypes';
 import PublicOutlinedIcon from '@mui/icons-material/PublicOutlined';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined';

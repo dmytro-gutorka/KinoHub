@@ -2,8 +2,8 @@ import { MediaType } from '@shared/types/generalTypes';
 import { Stack, Typography } from '@mui/material';
 import CommentList from '@features/comments/ui/CommentList';
 import CommentForm from '@features/comments/ui/CommentForm';
-import useComments from '@features/comments/model/useComment';
-import useCreateComment from '@features/comments/model/useCreateComment';
+import useComments from '@features/comments/hooks/useComment';
+import useCreateComment from '@features/comments/hooks/useCreateComment';
 import LabelWithIcon from '@shared/ui/LabelWithIcon';
 import QuestionAnswerOutlinedIcon from '@mui/icons-material/QuestionAnswerOutlined';
 

@@ -1,6 +1,6 @@
-import { MediaRatingProps } from '@features/media/model/types/mediaTypes';
+import { MediaRatingProps } from '@features/media/types/mediaTypes';
 import { Rating, Typography } from '@mui/material';
-import useUpdateMediaAction from '@features/media/model/hooks/useUpdateMediaAction';
+import useUpdateMediaAction from '@features/media/hooks/useUpdateMediaAction';
 import BlockWrapper from '@shared/ui/BlockWrapper';
 
 const MediaRating = ({ mediaAction, mediaType }: MediaRatingProps) => {
@@ -14,6 +14,7 @@ const MediaRating = ({ mediaAction, mediaType }: MediaRatingProps) => {
       </Typography>
 
       <Rating
+        sx={{ mt: 3 }}
         max={10}
         value={rating}
         onChange={(_, value: number | null) => updateAction({ rating: value })}

@@ -1,5 +1,5 @@
 import { List, ListItem } from '@mui/material';
-import { MediaProdCompaniesProps } from '@features/media/model/types/mediaTypes';
+import { MediaProdCompaniesProps } from '@features/media/types/mediaTypes';
 import BlockWrapper from '@shared/ui/BlockWrapper';
 
 export default function MediaProdCompanies({ companies }: MediaProdCompaniesProps) {

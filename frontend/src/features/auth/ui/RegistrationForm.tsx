@@ -1,7 +1,7 @@
 import { Button, Stack } from '@mui/material';
 import { Controller } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
-import useRegistrationForm from '@features/auth/model/hooks/useRegistrationForm';
+import useRegistrationForm from '@features/auth/hooks/useRegistrationForm';
 
 export interface RegistrationFormProps {
   onClose?: () => void;

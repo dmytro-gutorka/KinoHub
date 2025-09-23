@@ -9,7 +9,7 @@ import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import React, { ReactElement } from 'react';
-import useUpdateMediaAction from '@features/media/model/hooks/useUpdateMediaAction';
+import useUpdateMediaAction from '@features/media/hooks/useUpdateMediaAction';
 
 interface ActionButton {
   label: null | string;

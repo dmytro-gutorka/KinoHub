@@ -1,7 +1,7 @@
 import { Button, Stack } from '@mui/material';
 import { Controller } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
-import useLoginForm from '@features/auth/model/hooks/useLoginForm';
+import useLoginForm from '@features/auth/hooks/useLoginForm';
 
 export interface LoginFormProps {
   onClose?: (a: boolean) => void;

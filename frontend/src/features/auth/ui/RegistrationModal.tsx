@@ -1,5 +1,5 @@
 import { useAppSelector } from '@shared/hooks/redux';
-import { selectIsAuthenticated } from '@features/auth/model/selectors';
+import { selectIsAuthenticated } from '@features/auth/selectors';
 import { Modal } from '@shared/ui/Modal';
 import LogoIcon from '@shared/icons/LogoIcon';
 import RegistrationForm from './RegistrationForm';

@@ -1,4 +1,4 @@
-import { MediaPlotProps } from '@features/media/model/types/mediaTypes';
+import { MediaPlotProps } from '@features/media/types/mediaTypes';
 import { Box } from '@mui/material';
 import BlockWrapper from '@shared/ui/BlockWrapper';
 

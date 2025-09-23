@@ -1,4 +1,4 @@
-import { selectIsAuthenticated } from '@features/auth/model/selectors';
+import { selectIsAuthenticated } from '@features/auth/selectors';
 import { useAppSelector } from '@shared/hooks/redux';
 import { Modal } from '@shared/ui/Modal';
 import LoginForm from './LoginForm';

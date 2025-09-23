@@ -1,5 +1,5 @@
 import { TmdbMovieDetails, TmdbTvShowDetails } from '@entities/types/tmdbEntities';
-import { MediaOverviewProps } from '@features/media/model/types/mediaTypes';
+import { MediaOverviewProps } from '@features/media/types/mediaTypes';
 import { MediaType } from '@shared/types/generalTypes';
 import { Stack } from '@mui/material';
 import { useState } from 'react';
@@ -7,6 +7,7 @@ import MoviePrimaryDetails from '@features/media/ui/MediaPrimaryDetails';
 import MediaProdCompanies from '@features/media/ui/MediaProdCompanies';
 import SeasonsAndEpisodes from '@widgets/SeasonsAndEpisodes';
 import TvShowMainDetails from '@features/tv-show/ui/TvShowPrimaryDetails';
+import MediaPeopleSlider from '@features/media/ui/MediaPeopleSlider';
 import MediaComments from '@widgets/MediaComments';
 import MediaRating from '@features/media/ui/MediaRating';
 import TabContext from '@mui/lab/TabContext';
@@ -17,7 +18,6 @@ import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 import TabList from '@mui/lab/TabList';
 import Tab from '@mui/material/Tab';
-import MediaPeopleSlider from '@features/media/ui/MediaPeopleSlider';
 
 export default function MediaOverview<T extends MediaType>({
   tmdbMediaData,

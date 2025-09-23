@@ -1,4 +1,4 @@
-import { UserAuthData, UserLoginCredentials } from '@features/auth/model/authTypes';
+import { UserAuthData, UserLoginCredentials } from '@features/auth/authTypes';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { setAccessToken } from '@shared/helpers/localStorage/setAccessToken';
 

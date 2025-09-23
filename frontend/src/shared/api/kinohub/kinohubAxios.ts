@@ -1,4 +1,4 @@
-import { UserAuthData } from '@features/auth/model/authTypes';
+import { UserAuthData } from '@features/auth/authTypes';
 import { API_URL } from '@app/constants';
 import { apiPath } from '@shared/api/kinohub/apiPaths';
 import { setAccessToken } from '@shared/helpers/localStorage/setAccessToken';

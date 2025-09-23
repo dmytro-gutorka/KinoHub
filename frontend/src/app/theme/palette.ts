@@ -5,12 +5,14 @@ export const palette: PaletteOptions = {
 
   gradientMidnightSpace: 'linear-gradient(to bottom right, #000000, #0f172a, #000000)',
   gradientGrey: 'linear-gradient(to right, #475569, #4b5563)',
+  gradientBlue: 'linear-gradient(to right, #3b82f6 , #06b6d4)',
   gradientOrange: 'linear-gradient(to right, #eab308 , #f97316)',
   gradientGreen: 'linear-gradient(to right, #22c55e , #10b981)',
   gradientRed: 'linear-gradient(to right, #ef4444 , #ec4899)',
-  gradientBlue: 'linear-gradient(to right, #3b82f6 , #06b6d4)',
 
   starColor: 'rgb(250 204 21)',
+
+  darkBlueAccent: '#1E293B',
 
   transparentGrey01: 'rgb(255 255 255 / 0.1)',
   transparentGrey02: 'rgb(255 255 255 / 0.2)',

@@ -1,11 +1,11 @@
-import { RequestStatus, UserLoginCredentials } from '@features/auth/model/authTypes';
+import { RequestStatus, UserLoginCredentials } from '@features/auth/authTypes';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { selectRequestError, selectRequestStatus } from '@features/auth/model/selectors';
+import { selectRequestError, selectRequestStatus } from '@features/auth/selectors';
 import { useAppDispatch } from '@shared/hooks/redux';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { login } from '@features/auth/model/services/login';
-import { setStateRequest } from '@features/auth/model/slice';
+import { login } from '@features/auth/services/login';
+import { setStateRequest } from '@features/auth/slice';
 
 export default function useLoginForm(onClose?: (v: boolean) => void) {
   const {

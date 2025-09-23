@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
-import { logout } from '@features/auth/model/services/logout';
+import { logout } from '@features/auth/services/logout';
 import { useAppDispatch, useAppSelector } from '@shared/hooks/redux';
-import { selectIsAuthenticated } from '@features/auth/model/selectors';
+import { selectIsAuthenticated } from '@features/auth/selectors';
 
 export default function LogoutButton() {
   const dispatch = useAppDispatch();
