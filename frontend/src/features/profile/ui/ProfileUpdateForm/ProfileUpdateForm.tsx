@@ -1,24 +1,9 @@
-import { SubmitHandler, Controller } from 'react-hook-form';
-import { IUserProfile } from '@features/profile/types';
-import { IUser } from '@features/auth/authTypes';
+import { Controller } from 'react-hook-form';
 import { Button, Stack, TextField } from '@mui/material';
-import { selectUserMetaData } from '@features/auth/selectors';
-import { useSelector } from 'react-redux';
-import { useModalContext } from '@shared/ui/Modal';
 import useProfileUpdateForm from '@features/profile/hooks/useProfileUpdateForm';
-import updateUserProfile from '@shared/api/kinohub/services/userProfile/updateUserProfile';
 
 export default function ProfileUpdateForm() {
-  const { control, handleSubmit } = useProfileUpdateForm();
-  const { closeModal } = useModalContext();
-
-  const userMeta: IUser | null = useSelector(selectUserMetaData);
-  const userId: number | undefined = userMeta?.id;
-
-  const onSubmit: SubmitHandler<IUserProfile> = async (userProfileFields: IUserProfile) => {
-    await updateUserProfile(userProfileFields, userId);
-    closeModal();
-  };
+  const { control, handleSubmit, onSubmit } = useProfileUpdateForm();
 
   return (
     <Stack component="form" onSubmit={handleSubmit(onSubmit)} gap={4}>

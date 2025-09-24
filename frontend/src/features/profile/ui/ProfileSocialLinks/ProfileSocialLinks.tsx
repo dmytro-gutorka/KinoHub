@@ -1,6 +1,6 @@
 import { SocialLinks } from '@features/profile/types';
 import { ReactNode } from 'react';
-import { List } from '@mui/material';
+import { Box, List } from '@mui/material';
 import ListItem from '@mui/material/ListItem';
 import ColorfulOutlinedInstagramIcon from '@shared/icons/ColorfullOurlinedInstagramIcon';
 import BlockWrapper from '@shared/ui/BlockWrapper';
@@ -8,6 +8,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ColorfulOutlinedLinkedinIcon from '@shared/icons/ColorfulOutlinedLinkedinIcon';
 import ColorfulOutlinedTelegramIcon from '@shared/icons/ColorfulOutlinedTelegramIcon';
+import useProfileUpdateForm from '@features/profile/hooks/useProfileUpdateForm';
+import ProfileUpdateSocialsModal from '@features/profile/ui/ProfileSocialLinkUpdateModal';
 
 interface ProfileSocialLinksProps {
   socialLinks: SocialLinks;
@@ -30,7 +32,10 @@ export default function ProfileSocialLinks({ socialLinks }: ProfileSocialLinksPr
   ];
 
   return (
-    <BlockWrapper title="Social Links" titleSizeVariant="h6">
+    <BlockWrapper title="Social Links" titleSizeVariant="h6" position="relative">
+      <Box position="absolute" right={20}>
+        <ProfileUpdateSocialsModal />
+      </Box>
       <List>
         {socials.map(({ icon, link }) => (
           <ListItem key={link}>

@@ -1,4 +1,4 @@
-import { Box, Container } from '@mui/material';
+import { Box, Container, Grid, Stack } from '@mui/material';
 import ProfileSingleStatsList from '@features/profile/ui/ProfileSingleStatsList';
 import useUserMediaStats from '@shared/hooks/useUserMediaStats';
 import ProfileFavoriteGenres from '@features/profile/ui/ProfileFavoriteGenres';
@@ -18,8 +18,16 @@ export default function Profile() {
         <ProfileHeader userProfile={userProfile} />
         <Container maxWidth="md">
           <ProfileSingleStatsList userMediaStats={userMediaStats} />
-          <ProfileFavoriteGenres userMediaStats={userMediaStats} />
-          <ProfileSocialLinks socialLinks={userProfile?.social} />
+          <Grid container mt={6}>
+            <Grid size={8}></Grid>
+
+            <Grid size={4}>
+              <Stack gap={5}>
+                <ProfileFavoriteGenres userMediaStats={userMediaStats} />
+                <ProfileSocialLinks socialLinks={userProfile?.social} />
+              </Stack>
+            </Grid>
+          </Grid>
         </Container>
       </Box>
     </>
