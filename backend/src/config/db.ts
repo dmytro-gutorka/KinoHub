@@ -23,7 +23,7 @@ export async function initDB() {
   try {
     await AppDataSource.initialize();
     console.log(`Database "${process.env.DB_DATABASE}" is initialized with media genres`);
-    return true;
+    return;
   } catch (error) {
     console.error('Connection error:', error);
     throw error;

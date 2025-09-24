@@ -33,9 +33,9 @@ export async function login(req: Request, res: Response): Promise<void> {
 }
 
 export async function logout(req: Request, res: Response): Promise<void> {
-  const { refreshToken } = req.cookies;
+  const userId = req.user?.id!;
 
-  await authService.logout(refreshToken);
+  await authService.logout(userId);
 
   res.clearCookie('refreshToken');
   res.json({ message: 'Refresh token has been deleted' });

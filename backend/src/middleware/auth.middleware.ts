@@ -6,11 +6,9 @@ import { HttpError } from '../errors/HttpError.js';
 export function authGuard() {
   return (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization?.split(' ')[1];
-
     if (!token) throw HttpError.Unauthorized('You need to be logged in to access this resource');
 
     const payload: JwtPayload = tokenService.validateAccessToken(token);
-
     if (!payload) throw HttpError.Unauthorized('Your session has expired');
 
     req.user = { id: payload.userId };

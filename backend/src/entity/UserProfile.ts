@@ -12,7 +12,7 @@ type Social = {
 @Entity({ schema: 'public' })
 export class UserProfile extends BaseEntity {
   @PrimaryGeneratedColumn()
-  @Exclude()
+  // @Exclude()
   id!: number;
 
   @Column({ nullable: true })
@@ -36,7 +36,7 @@ export class UserProfile extends BaseEntity {
   @Column({ nullable: true })
   birthDate!: string;
 
-  @Column({ type: 'jsonb', nullable: true })
+  @Column({ type: 'jsonb', default: {} })
   social!: Social;
 
   @OneToOne(() => User, (user) => user.profile)

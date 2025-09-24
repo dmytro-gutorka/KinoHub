@@ -31,3 +31,11 @@ export async function getUserProfile(req: Request, res: Response) {
 
   res.status(200).json(userProfile);
 }
+
+export async function updateUserProfile(req: Request, res: Response) {
+  const userId: number = req.user?.id!;
+
+  await userProfileService.updateUserProfile(userId, req.body);
+
+  res.status(200).json('Profile updated');
+}

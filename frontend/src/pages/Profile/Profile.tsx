@@ -12,8 +12,6 @@ export default function Profile() {
 
   if (!isUserStatsSuccess || !isUserProfileSuccess) return <div>Loading...</div>;
 
-  console.log(userProfile);
-
   return (
     <>
       <Box component="main">

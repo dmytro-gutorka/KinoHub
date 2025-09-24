@@ -12,6 +12,7 @@ export default function LogoutButton() {
 
   function handleLogout() {
     dispatch(logout());
+    navigate('/');
   }
 
   return <>{isAuthenticated && <Button onClick={handleLogout}>Logout</Button>}</>;

@@ -6,18 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/config/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/config/db.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/auth.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/users.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/entity/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/entity/UserAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/UserAuth.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/entity/UserProfile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/UserProfile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/middleware/auth.middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/middleware/auth.middleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/auth.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/auth.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/user.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/user.routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/auth.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/services/userProfile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/userProfile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/router.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/theme/components/typography.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme/components/typography.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/services/logout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/services/logout.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/LogoutButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/LogoutButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/profile/ui/ProfileFavoriteGenres/ProfileFavoriteGenres.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/profile/ui/ProfileFavoriteGenres/ProfileFavoriteGenres.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/profile/ui/ProfileSingleStatsList/ProfileSingleStatsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/profile/ui/ProfileSingleStatsList/ProfileSingleStatsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/profile/ui/ProfileHeader/ProfileHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/profile/ui/ProfileHeader/ProfileHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/profile/ui/ProfileSocialLinks/ProfileSocialLinks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/profile/ui/ProfileSocialLinks/ProfileSocialLinks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/profile/ui/ProfileUpdateForm/ProfileUpdateForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/profile/ui/ProfileUpdateForm/ProfileUpdateForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Profile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/apiPaths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/apiPaths.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/kinohubAxios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/kinohubAxios.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,7 +294,7 @@
       <workItem from="1758620979715" duration="10395000" />
       <workItem from="1758636930684" duration="10986000" />
       <workItem from="1758656253192" duration="599000" />
-      <workItem from="1758702601479" duration="6211000" />
+      <workItem from="1758702601479" duration="13167000" />
     </task>
     <servers />
   </component>

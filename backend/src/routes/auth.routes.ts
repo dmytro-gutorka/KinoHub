@@ -4,9 +4,11 @@ import { Router } from 'express';
 import express from 'express';
 
 export const router: Router = express.Router();
+export const privateRoute: Router = express.Router();
 
 router.post('/register', asyncHandler(register));
 router.post('/login', asyncHandler(login));
-router.post('/logout', asyncHandler(logout));
 router.get('/refresh', asyncHandler(refresh));
 router.get('/activate/:link', asyncHandler(activateEmail));
+
+privateRoute.post('/logout', asyncHandler(logout));

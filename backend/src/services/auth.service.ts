@@ -8,6 +8,7 @@ import { HttpError } from '../errors/HttpError.js';
 import { UserAuth } from '../entity/UserAuth.js';
 import { User } from '../entity/User.js';
 import bcrypt from 'bcrypt';
+import { where } from 'sequelize';
 
 export class AuthService {
   async register(
@@ -30,11 +31,8 @@ export class AuthService {
 
     await userRepository.save(user);
 
-    const tokens: JwtTokens = tokenService.generateTokens({ userId: user.id });
-
     const userAuthData: UserAuth = authRepository.create({
       activationLink: uuid4(),
-      refreshToken: tokens.refreshToken,
       user: user,
     });
 
@@ -45,7 +43,11 @@ export class AuthService {
   }
 
   async login(email: string, password: string): Promise<LoginResponse> {
-    const user: User | null = await userRepository.findOneBy({ email });
+    const user: Pick<User, 'passwordHash' | 'id' | 'username' | 'userAuth'> | null =
+      await userRepository.findOne({
+        where: { email },
+        select: ['passwordHash', 'id', 'username'],
+      });
     if (!user) throw HttpError.NotFound('User does not exist');
 
     const isPasswordMatch: boolean = await bcrypt.compare(password, user.passwordHash);
@@ -53,14 +55,12 @@ export class AuthService {
 
     const tokens: JwtTokens = tokenService.generateTokens({ userId: user.id });
 
-    let userAuth: UserAuth | null = await authRepository.findOneBy({ user });
-
-    if (userAuth) {
-      userAuth.refreshToken = tokens.refreshToken;
-      await userAuth.save();
+    if (user.userAuth) {
+      user.userAuth.refreshToken = tokens.refreshToken;
+      await user.userAuth.save();
     }
 
-    if (!userAuth) {
+    if (!user.userAuth) {
       authRepository.create({
         activationLink: uuid4(),
         refreshToken: tokens.refreshToken,
@@ -68,20 +68,18 @@ export class AuthService {
       });
     }
 
-    return {
-      tokens,
-      data: { email, username: user.username },
-    };
+    return { tokens, data: { email, username: user.username } };
   }
 
-  async logout(refreshToken: string): Promise<void> {
-    const userAuth: UserAuth | null = await authRepository.findOneBy({ refreshToken });
+  async logout(userId: number): Promise<void> {
+    // const result = await authRepository.update({ user: { id: userId } }, { refreshToken: null });
+    const user: User | null = await userRepository.findOneBy({ id: userId });
 
-    if (!userAuth) throw HttpError.NotFound('User does not exist');
+    if (!user) throw HttpError.NotFound('User does not exist');
 
-    userAuth.refreshToken = uuid4(); // TODO: temporary fix for multiple account bug with logout, try to fix later
+    user.userAuth.refreshToken = null;
 
-    await userAuth.save();
+    await user.userAuth.save();
   }
 
   async activateEmail(link: string): Promise<void> {
@@ -98,7 +96,7 @@ export class AuthService {
 
     const payload: JwtPayload = tokenService.validateRefreshToken(oldRefreshToken);
     const isToken: boolean = await authRepository.existsBy({ refreshToken: oldRefreshToken });
-    
+
     if (!payload) throw HttpError.Unauthorized('Invalid refresh token');
     if (!isToken) throw HttpError.NotFound('Such refresh token does not exist');
 

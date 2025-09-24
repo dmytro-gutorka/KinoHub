@@ -17,15 +17,15 @@ export default function ProfileSocialLinks({ socialLinks }: ProfileSocialLinksPr
   const socials: { icon: ReactNode; link: string }[] = [
     {
       icon: <ColorfulOutlinedInstagramIcon />,
-      link: socialLinks.instagram ?? 'Add your instagram to be displayed here',
+      link: socialLinks?.instagram ?? 'Add your instagram to be displayed here',
     },
     {
       icon: <ColorfulOutlinedLinkedinIcon />,
-      link: socialLinks.linkedin ?? 'Add your linkedin to be displayed here',
+      link: socialLinks?.linkedin ?? 'Add your linkedin to be displayed here',
     },
     {
       icon: <ColorfulOutlinedLinkedinIcon />,
-      link: socialLinks.telegram ?? 'Add your telegram to be displayed here',
+      link: socialLinks?.telegram ?? 'Add your telegram to be displayed here',
     },
   ];
 

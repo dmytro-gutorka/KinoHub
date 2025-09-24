@@ -1,8 +1,6 @@
 import { IUserProfile } from '@features/profile/types';
-import { Avatar, Badge, Button, Container, Stack, Typography, useTheme } from '@mui/material';
+import { Avatar, Badge, Container, Stack, Typography, useTheme } from '@mui/material';
 import BackgroundBanner from '@shared/ui/BackgroundBanner';
-import { Modal } from '@shared/ui/Modal';
-import ProfileUpdateForm from '@features/profile/ui/ProfileUpdateForm';
 import ProfileUpdateModal from '@features/profile/ui/ProfileUpdateModal';
 
 interface ProfileHeaderProps {
@@ -12,15 +10,7 @@ interface ProfileHeaderProps {
 export default function ProfileHeader({ userProfile }: ProfileHeaderProps) {
   const theme = useTheme();
 
-  const {
-    avatarUrl,
-    firstName,
-    lastName,
-    country,
-    city,
-    bio,
-    social: { website },
-  } = userProfile;
+  const { avatarUrl, firstName, lastName, country, city, bio, social } = userProfile;
 
   return (
     <Stack position="relative" py={10} px={5}>
@@ -65,7 +55,7 @@ export default function ProfileHeader({ userProfile }: ProfileHeaderProps) {
                 <Stack component="li">
                   <Typography variant="subtitle1">Joined March 2022</Typography>
                 </Stack>
-                {website && (
+                {social?.website && (
                   <Stack component="li">
                     <Typography variant="subtitle1">https://alexmoviereviews.com</Typography>
                   </Stack>
