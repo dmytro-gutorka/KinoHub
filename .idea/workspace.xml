@@ -5,27 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/entity/UserProfile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/users.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/entity/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/user.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/user.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/entity/UserProfile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/UserProfile.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/userProfile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/userProfile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/router.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/theme/components/typography.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme/components/typography.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/LogoutButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/LogoutButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardQuickStats.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardQuickStats.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTopGenres.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTopGenres.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTopRatedMovies.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTopRatedMovies.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPlot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPlot.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPrimaryDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPrimaryDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaProdCompanies.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaProdCompanies.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaRating.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/profile/ui/ProfileFavoriteGenres/ProfileFavoriteGenres.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/profile/ui/ProfileFavoriteGenres/ProfileFavoriteGenres.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/tv-show/ui/TvShowPrimaryDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/tv-show/ui/TvShowPrimaryDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/BlockWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/BlockWrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/profile/ui/ProfileSingleStatsList/ProfileSingleStatsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/profile/ui/ProfileSingleStatsList/ProfileSingleStatsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Profile/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/apiPaths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/kinohub/apiPaths.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +35,9 @@
         <option value="JavaScript File" />
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
-        <option value="TypeScript File" />
         <option value="JSX Component Folder.tsx.child.0" />
         <option value="JSX Component Folder" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -128,11 +120,11 @@
       <recent name="$PROJECT_DIR$/frontend/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/features/profile" />
       <recent name="$PROJECT_DIR$/frontend/src/features/auth" />
       <recent name="$PROJECT_DIR$/frontend/src/features/comments/hooks" />
       <recent name="$PROJECT_DIR$/frontend/src/features/dashboard/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/features/media" />
-      <recent name="$PROJECT_DIR$/frontend/src/features/movie-board" />
     </key>
   </component>
   <component name="RunManager">
@@ -293,7 +285,9 @@
       <workItem from="1758461239004" duration="19602000" />
       <workItem from="1758529786869" duration="19602000" />
       <workItem from="1758620979715" duration="10395000" />
-      <workItem from="1758636930684" duration="1803000" />
+      <workItem from="1758636930684" duration="10986000" />
+      <workItem from="1758656253192" duration="599000" />
+      <workItem from="1758702601479" duration="6211000" />
     </task>
     <servers />
   </component>

@@ -26,11 +26,11 @@ function makeRouter() {
         { path: '/history', Component: History },
         { path: '/movie-board', Component: MovieBoard },
         { path: '/dashboard', Component: Dashboard },
-        { path: '/profile', Component: Profile },
         { path: '/settings', Component: Settings },
         { path: '/logout', Component: Homepage },
       ],
     },
+    { path: '/profile', Component: Profile },
     { path: '/movie/:id', Component: MediaDetails, loader: () => MEDIA_TYPES.MOVIE },
     { path: '/tv/:id', Component: MediaDetails, loader: () => MEDIA_TYPES.TV_SHOW },
     // TODO: change :id to :mediaId

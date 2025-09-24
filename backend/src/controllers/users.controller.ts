@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { SettledUserMediaStats } from '../types/types.js';
 import { usersStatsService } from '../services/userStats.service.js';
-import { UserProfile } from '../entity/UserProfile.js';
 import { userProfileService } from '../services/userProfile.js';
 
 export async function getUserStats(req: Request, res: Response) {

@@ -28,9 +28,13 @@ export const MuiTypography = (theme: Theme) => ({
             variant: 'subtitle1',
           },
           style: {
-            color: theme.palette.common.white,
-            fontSize: theme.spacing(4.5),
+            fontSize: theme.spacing(3),
             fontWeight: 600,
+            color: theme.palette.grey[300],
+
+            // color: theme.palette.common.white,
+            // fontSize: theme.spacing(4.5),
+            // fontWeight: 600,
           },
         },
         {

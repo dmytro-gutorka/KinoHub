@@ -1,6 +1,7 @@
 import { User } from '../entity/User.js';
 import { userRepository } from '../repositories/user.repository.js';
 import { UserProfile } from '../entity/UserProfile.js';
+import { plainToInstance } from 'class-transformer';
 
 class UserProfileService {
   async getUserProfile(userId: number): Promise<UserProfile> {
@@ -8,10 +9,10 @@ class UserProfileService {
       where: { id: userId },
       relations: ['profile'],
     });
-    
+
     if (!user) throw new Error('User not found');
 
-    return user.profile;
+    return plainToInstance(UserProfile, user.profile);
   }
 }
 

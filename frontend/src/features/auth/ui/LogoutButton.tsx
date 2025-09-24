@@ -11,7 +11,6 @@ export default function LogoutButton() {
   const navigate = useNavigate();
 
   function handleLogout() {
-    navigate('/');
     dispatch(logout());
   }
 

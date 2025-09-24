@@ -103,3 +103,9 @@ export interface MediaFiltersHandlers {
   handlePageChange: (_: unknown, newPage: number) => void;
   handleResetFilters: () => void;
 }
+
+export interface SVGIcon {
+  width?: number;
+  height?: number;
+  color?: string;
+}

@@ -32,6 +32,7 @@ export default function ProfileFavoriteGenres({ userMediaStats }: ProfileFavorit
           const bgColor = bgColors[index];
           return (
             <Chip
+              key={name}
               label={name}
               size="small"
               slotProps={{ label: { sx: { fontWeight: 600 } } }}

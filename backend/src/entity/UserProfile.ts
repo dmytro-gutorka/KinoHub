@@ -1,5 +1,6 @@
 import { BaseEntity, Column, Entity, OneToOne, PrimaryGeneratedColumn, Relation } from 'typeorm';
 import { User } from './User.js';
+import { Exclude } from 'class-transformer';
 
 type Social = {
   telegram?: string;
@@ -11,6 +12,7 @@ type Social = {
 @Entity({ schema: 'public' })
 export class UserProfile extends BaseEntity {
   @PrimaryGeneratedColumn()
+  @Exclude()
   id!: number;
 
   @Column({ nullable: true })

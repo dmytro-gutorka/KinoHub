@@ -98,7 +98,7 @@ export class AuthService {
 
     const payload: JwtPayload = tokenService.validateRefreshToken(oldRefreshToken);
     const isToken: boolean = await authRepository.existsBy({ refreshToken: oldRefreshToken });
-
+    
     if (!payload) throw HttpError.Unauthorized('Invalid refresh token');
     if (!isToken) throw HttpError.NotFound('Such refresh token does not exist');
 

@@ -48,7 +48,7 @@ export default function ProfileSingleStatsList({
   const statsToRender: StatsCardProps[] = data ?? singleStats;
 
   return (
-    <Stack gap={2} direction="row">
+    <Stack gap={2} direction="row" justifyContent="space-between">
       {statsToRender.map(({ label, value }) => (
         <ProfileSingleStatCard key={label} label={label} value={value} />
       ))}
