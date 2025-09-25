@@ -1,7 +1,15 @@
-import { FormatedActivityKeys, FORMATTED_ACTIVITY_TYPE } from '../utils/constants/SHARED.js';
+import {
+  FormatedActivityKeys,
+  FORMATTED_ACTIVITY_TYPE,
+  PAGINATION_LIMITS,
+} from '../utils/constants/SHARED.js';
 import { ActivityType, MediaType } from '../types/types.js';
 import { activityLogRepository } from '../config/repositories.js';
 import { HttpError } from '../errors/HttpError.js';
+import { AppDataSource } from '../config/db.js';
+import { DataSource } from 'typeorm';
+import { ActivityLog } from '../entity/ActivityLog.js';
+import { MediaInfo } from '../entity/MediaInfo.js';
 
 interface ActivityLogArgs {
   userId: number;
@@ -14,6 +22,26 @@ interface ActivityLogArgs {
 }
 
 class ActivityLogService {
+  constructor(private readonly dt: DataSource = AppDataSource) {}
+
+  async getActivityLogList(userId: number, page: number) {
+    return this.dt
+      .getRepository(ActivityLog)
+      .createQueryBuilder('a')
+      .innerJoin(MediaInfo, 'mi', 'mi.id = a.mediaInfoId')
+      .select([
+        'a.createdAt as createdAt',
+        'a.activityType as activityType',
+        'mi.title as title',
+        'mi.posterPath as posterPath',
+      ])
+      .where('a.userId = :userId', { userId })
+      .orderBy('a.createdAt', 'DESC')
+      .take(PAGINATION_LIMITS.ACTIVITY_LOG)
+      .skip(PAGINATION_LIMITS.ACTIVITY_LOG * (page - 1))
+      .getRawMany();
+  }
+
   async toggleActivityLog(
     action: object,
     userId: number,
