@@ -1,10 +1,9 @@
 import { MediaType, UserAction } from '../types/types.js';
-import { actionsRepository } from '../repositories/actions.repository.js';
-import { mediaRepository } from '../repositories/media.repository.js';
 import { MediaUserAction } from '../entity/MediaUserAction.js';
 import { MediaInfo } from '../entity/MediaInfo.js';
 import { HttpError } from '../errors/HttpError.js';
 import { IsNull, Not } from 'typeorm';
+import { actionsRepository, mediaRepository } from '../config/repositories.js';
 
 export class MediaUserActionsService {
   async getUserMediaAction(

@@ -1,8 +1,7 @@
-import { CommentVote } from '../entity/CommentVote.js';
-import { commentVotesRepository } from '../repositories/commentVotes.repository.js';
-import { HttpError } from '../errors/HttpError.js';
-import { commentsRepository } from '../repositories/comments.repository.js';
 import { AppDataSource } from '../config/db.js';
+import { CommentVote } from '../entity/CommentVote.js';
+import { HttpError } from '../errors/HttpError.js';
+import { commentsRepository, commentVotesRepository } from '../config/repositories.js';
 
 export type CommentVoteValueType = -1 | 0 | 1; // TODO: move to somewhere
 

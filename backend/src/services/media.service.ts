@@ -1,9 +1,8 @@
 import { MediaType } from '../types/types.js';
 import { HttpError } from '../errors/HttpError.js';
 import { MediaInfo } from '../entity/MediaInfo.js';
-import { mediaRepository } from '../repositories/media.repository.js';
-import { mediaGenresRepository } from '../repositories/mediaGenres.repository.js';
 import getTmdbMediaDetails from '../utils/api/getTmdbMediaDetails.js';
+import { mediaGenresRepository, mediaRepository } from '../config/repositories.js';
 
 export class MediaService {
   async getOneBy(mediaId: number, mediaType: MediaType): Promise<MediaInfo> {

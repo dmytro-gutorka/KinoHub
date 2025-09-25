@@ -1,14 +1,12 @@
 import { JwtTokens, LoginResponse, RefreshResponse } from '../types/types.js';
 import { JwtPayload } from 'jsonwebtoken';
-import { userRepository } from '../repositories/user.repository.js';
-import { authRepository } from '../repositories/auth.repository.js';
+import { authRepository, userRepository } from '../config/repositories.js';
 import { tokenService } from './token.service.js';
-import { v4 as uuid4 } from 'uuid';
 import { HttpError } from '../errors/HttpError.js';
 import { UserAuth } from '../entity/UserAuth.js';
 import { User } from '../entity/User.js';
+import { v4 as uuid4 } from 'uuid';
 import bcrypt from 'bcrypt';
-import { where } from 'sequelize';
 
 export class AuthService {
   async register(
@@ -72,13 +70,11 @@ export class AuthService {
   }
 
   async logout(userId: number): Promise<void> {
-    // const result = await authRepository.update({ user: { id: userId } }, { refreshToken: null });
     const user: User | null = await userRepository.findOneBy({ id: userId });
 
     if (!user) throw HttpError.NotFound('User does not exist');
 
     user.userAuth.refreshToken = null;
-
     await user.userAuth.save();
   }
 
@@ -87,7 +83,6 @@ export class AuthService {
     if (!userAuth) throw HttpError.NotFound('User does not exist');
 
     userAuth.isEmailConfirmed = true;
-
     await userAuth.save();
   }
 

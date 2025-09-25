@@ -1,9 +1,9 @@
-import { episodesRepository } from '../repositories/episodes.repository.js';
 import { Episode } from '../entity/Episode.js';
 import { HttpError } from '../errors/HttpError.js';
 import { DataSource } from 'typeorm';
 import { Action, WatchedEpisodesPerSeason } from '../types/types.js';
 import { AppDataSource } from '../config/db.js';
+import { episodesRepository } from '../config/repositories.js';
 
 export class EpisodesServices {
   constructor(private readonly dt: DataSource) {}

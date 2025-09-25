@@ -1,8 +1,7 @@
 import { User } from '../entity/User.js';
-import { userRepository } from '../repositories/user.repository.js';
 import { UserProfile } from '../entity/UserProfile.js';
 import { plainToInstance } from 'class-transformer';
-import { userProfileRepository } from '../repositories/userProfile.repository.js';
+import { userProfileRepository, userRepository } from '../config/repositories.js';
 
 class UserProfileService {
   async getUserProfile(userId: number): Promise<UserProfile> {

@@ -7,7 +7,6 @@ import {
   TvShowInProgress,
 } from '../types/types.js';
 import { MediaUserAction } from '../entity/MediaUserAction.js';
-import { userRepository } from '../repositories/user.repository.js';
 import { AppDataSource } from '../config/db.js';
 import { DataSource } from 'typeorm';
 import { MediaGenre } from '../entity/MediaGenre.js';
@@ -19,6 +18,7 @@ import { User } from '../entity/User.js';
 import path from 'path';
 
 import * as fs from 'node:fs';
+import { userRepository } from '../config/repositories';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const userStatsSQL = fs.readFileSync(path.join(__dirname, './queries/user_stats_card.sql'), 'utf8');
@@ -45,7 +45,7 @@ class UserStatsService {
       watchedTv: Number(row.watched_tv ?? 0),
       watchedEpisodes: Number(row.episodes_watched ?? 0),
       commentsCount: Number(row.comment_count ?? 0),
-    }
+    };
   }
 
   async getTopRatedMedia(
@@ -71,7 +71,10 @@ class UserStatsService {
       .getRawMany();
   }
 
-  async getFavoriteGenres(userId: number | undefined, _limit: number = 5): Promise<FavoriteGenres[]> {
+  async getFavoriteGenres(
+    userId: number | undefined,
+    _limit: number = 5
+  ): Promise<FavoriteGenres[]> {
     return await this.ds
       .createQueryBuilder()
       .select(['g.name as name', 'COUNT(g.name)'])

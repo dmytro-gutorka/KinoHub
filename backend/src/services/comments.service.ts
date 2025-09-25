@@ -1,8 +1,8 @@
 import { MediaType } from '../types/types.js';
 import { Comment } from '../entity/Comment.js';
-import { commentsRepository } from '../repositories/comments.repository.js';
 import { HttpError } from '../errors/HttpError.js';
 import { IsNull } from 'typeorm';
+import { commentsRepository } from '../config/repositories.js';
 
 class CommentsService {
   async getList(mediaId: number, mediaType: MediaType): Promise<Comment[]> {
