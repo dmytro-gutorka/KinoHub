@@ -69,6 +69,8 @@ export class MediaUserActionsService {
 
     if (!mediaUserAction) throw HttpError.Conflict('Media action does not exist');
 
+    await actionsRepository.update({ mediaId, userId, mediaType }, action);
+
     await activityLogService.toggleActivityLog(
       action,
       userId,
@@ -77,7 +79,6 @@ export class MediaUserActionsService {
       mediaUserAction.mediaInfoId
     );
 
-    await actionsRepository.update({ mediaId, userId, mediaType }, action);
     return await actionsRepository.findOneBy({ mediaId, userId, mediaType });
   }
 

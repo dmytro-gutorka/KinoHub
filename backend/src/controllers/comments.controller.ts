@@ -23,9 +23,9 @@ export async function createComment(
   const mediaType: MediaType = req.query.media_type;
   const mediaId: number = req.params.mediaId;
   const parentId: number | null = req.query?.parent_id || null;
-  const userId: number | undefined = req.user?.id;
+  const userId: number = req.user?.id!;
 
-  const comment: Comment = await commentsService.create(
+  const comment: Comment = await commentsService.createComment(
     review,
     mediaType,
     mediaId,
@@ -39,18 +39,22 @@ export async function createComment(
 export async function updateComment(req: Request, res: Response): Promise<void> {
   const updatedReview: string = req.body.review;
   const commentId: number = Number(req.params.commentId);
-  const userId: number | undefined = req.user?.id;
+  const userId: number = req.user?.id!;
 
-  const updatedComment: Comment = await commentsService.update(updatedReview, commentId, userId);
+  const updatedComment: Comment = await commentsService.updateComment(
+    updatedReview,
+    commentId,
+    userId
+  );
 
   res.status(200).json(updatedComment);
 }
 
 export async function deleteComment(req: Request, res: Response): Promise<void> {
   const commentId: number = Number(req.params.commentId);
-  const userId: number | undefined = req.user?.id;
+  const userId: number = req.user?.id!;
 
-  await commentsService.delete(commentId, userId);
+  await commentsService.deleteComment(commentId, userId);
 
   res.status(204).json();
 }

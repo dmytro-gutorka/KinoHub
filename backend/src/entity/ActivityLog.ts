@@ -9,7 +9,6 @@ import {
 } from 'typeorm';
 import { ActivityType, MediaType } from '../types/types.js';
 
-@Unique(['userId', 'mediaId', 'mediaType', 'activityType'])
 @Entity({ schema: 'public' })
 export class ActivityLog extends BaseEntity {
   @PrimaryGeneratedColumn()
@@ -19,13 +18,13 @@ export class ActivityLog extends BaseEntity {
   userId!: number;
 
   @Column()
-  mediaInfoId!: number;
-
-  @Column()
   mediaId!: number;
 
   @Column()
   mediaType!: MediaType;
+
+  @Column()
+  mediaInfoId!: number;
 
   @Column()
   activityType!: ActivityType;

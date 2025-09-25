@@ -3,6 +3,16 @@ import { ActivityType, MediaType } from '../types/types.js';
 import { activityLogRepository } from '../config/repositories.js';
 import { HttpError } from '../errors/HttpError.js';
 
+interface ActivityLogArgs {
+  userId: number;
+  mediaId: number;
+  mediaType: MediaType;
+  mediaInfoId: number;
+  activityType: ActivityType;
+  valueNumeric?: number | null;
+  commentId?: number | null;
+}
+
 class ActivityLogService {
   async toggleActivityLog(
     action: object,
@@ -10,51 +20,67 @@ class ActivityLogService {
     mediaId: number,
     mediaType: MediaType,
     mediaInfoId: number,
-    commentId?: number
+    commentId: number | null = null
   ) {
     const [actionType, actionValue] = this.getValidActionEntry(action);
-    const activityType: ActivityType = FORMATTED_ACTIVITY_TYPE[actionType];
 
-    if (typeof !!actionValue === 'boolean') {
-      if (actionValue) {
-        await this.createActivityLog(
-          userId,
-          mediaId,
-          mediaType,
-          mediaInfoId,
-          activityType,
-          actionValue,
-          commentId
-        );
-      } else {
-        await this.removeActivityLog(userId, mediaId, mediaType, activityType);
+    if (!Object.keys(FORMATTED_ACTIVITY_TYPE).includes(actionType)) return;
+
+    const activityType: ActivityType = FORMATTED_ACTIVITY_TYPE[actionType];
+    const valueNumeric = typeof actionValue === 'number' ? actionValue : null;
+    const isActionPositive = !!actionValue;
+
+    const args: ActivityLogArgs = {
+      userId,
+      mediaId,
+      mediaType,
+      mediaInfoId,
+      activityType,
+      valueNumeric,
+      commentId,
+    };
+
+    if (!isActionPositive) await this.removeActivityLog(userId, mediaId, mediaType, activityType);
+
+    if (isActionPositive)
+      switch (activityType) {
+        case 'rate':
+          await this.createRateLog(args);
+          break;
+        default:
+          await this.createLog(args);
+          break;
       }
+  }
+
+  async createRateLog(args: ActivityLogArgs) {
+    const rateLog = await activityLogRepository.findOneBy({
+      userId: args.userId,
+      mediaId: args.mediaId,
+      mediaType: args.mediaType,
+      activityType: 'rate',
+    });
+
+    if (rateLog) {
+      await activityLogRepository.update(
+        {
+          userId: args.userId,
+          mediaId: args.mediaId,
+          mediaType: args.mediaType,
+          activityType: 'rate',
+        },
+        { valueNumeric: args.valueNumeric }
+      );
+    }
+
+    if (!rateLog) {
+      await activityLogRepository.save(args);
     }
   }
 
-  async createActivityLog(
-    userId: number,
-    mediaId: number,
-    mediaType: MediaType,
-    mediaInfoId: number,
-    activityType: ActivityType,
-    actionValue?: unknown,
-    commentId?: number
-  ) {
-    const valueNumeric = typeof actionValue === 'number' ? actionValue : null;
-
-    await activityLogRepository.upsert(
-      {
-        userId,
-        mediaId,
-        mediaType,
-        mediaInfoId,
-        activityType,
-        commentId: commentId ?? null,
-        valueNumeric,
-      },
-      ['userId', 'mediaId', 'mediaType', 'activityType']
-    );
+  async createLog(args: ActivityLogArgs) {
+    const commentLog = activityLogRepository.create({ ...args });
+    await activityLogRepository.save(commentLog);
   }
 
   async removeActivityLog(
@@ -80,12 +106,7 @@ class ActivityLogService {
 
     if (actionEntry.length !== 1) throw HttpError.BadRequest('Invalid action type');
 
-    const [actionType, actionValue] = actionEntry[0] as [FormatedActivityKeys, unknown];
-
-    if (!Object.keys(FORMATTED_ACTIVITY_TYPE).includes(actionType))
-      throw HttpError.BadRequest('Invalid action type');
-
-    return [actionType, actionValue];
+    return actionEntry[0] as [FormatedActivityKeys, unknown];
   }
 }
 

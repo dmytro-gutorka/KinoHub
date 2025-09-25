@@ -1,8 +1,9 @@
 import { MediaType } from '../types/types.js';
-import { Comment } from '../entity/Comment.js';
+import { commentsRepository, mediaRepository } from '../config/repositories.js';
+import { activityLogService } from './activityLog.service.js';
 import { HttpError } from '../errors/HttpError.js';
+import { Comment } from '../entity/Comment.js';
 import { IsNull } from 'typeorm';
-import { commentsRepository } from '../config/repositories.js';
 
 class CommentsService {
   async getList(mediaId: number, mediaType: MediaType): Promise<Comment[]> {
@@ -16,13 +17,17 @@ class CommentsService {
     return comments;
   }
 
-  async create(
+  async createComment(
     review: string,
     mediaType: MediaType,
     mediaId: number,
     parentId: number | null,
-    userId: number | undefined
+    userId: number
   ): Promise<Comment> {
+    const mediaInfo = await mediaRepository.findOneBy({ mediaId, mediaType });
+
+    if (!mediaInfo) throw HttpError.NotFound('Media info not found');
+
     const comment: Comment = commentsRepository.create({
       review,
       mediaType,
@@ -33,10 +38,19 @@ class CommentsService {
 
     await commentsRepository.save(comment);
 
+    await activityLogService.toggleActivityLog(
+      { comment: true },
+      userId,
+      mediaId,
+      mediaType,
+      mediaInfo.id,
+      comment.id
+    );
+
     return comment;
   }
 
-  async update(
+  async updateComment(
     updatedReview: string,
     commentId: number,
     userId: number | undefined
@@ -52,14 +66,31 @@ class CommentsService {
     return commentsRepository.save(comment);
   }
 
-  async delete(commentId: number, userId: number | undefined): Promise<void> {
-    const comment: Comment | null = await commentsRepository.findOneBy({ id: commentId });
+  async deleteComment(commentId: number, userId: number): Promise<void> {
+    const comment = await commentsRepository.findOneBy({ id: commentId });
 
     if (!comment) throw HttpError.NotFound('Comment not found');
+
+    const mediaInfo = await mediaRepository.findOneBy({
+      mediaId: comment?.mediaId,
+      mediaType: comment?.mediaType,
+    });
+
+    if (!mediaInfo) throw HttpError.NotFound('Media info not found');
+
     if (comment.userId !== userId)
       throw HttpError.Forbidden('You are not authorized to delete other users comments');
 
     await commentsRepository.delete({ id: commentId });
+
+    await activityLogService.toggleActivityLog(
+      { comment: false },
+      userId,
+      comment.mediaId,
+      comment.mediaType,
+      mediaInfo.id,
+      comment.id
+    );
   }
 }
 
