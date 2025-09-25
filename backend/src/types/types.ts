@@ -3,6 +3,7 @@ import { MediaUserAction } from '../entity/MediaUserAction.js';
 import { MEDIA_ACTIONS } from '../utils/constants/SHARED.js';
 
 export type MediaType = 'tv' | 'movie';
+export type ActivityType = 'watch' | 'like' | 'rate' | 'comment'; // dislike ?
 
 export type MediaActionTypes = (typeof MEDIA_ACTIONS)[keyof typeof MEDIA_ACTIONS];
 

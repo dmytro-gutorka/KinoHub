@@ -4,6 +4,7 @@ import { MediaInfo } from '../entity/MediaInfo.js';
 import { HttpError } from '../errors/HttpError.js';
 import { IsNull, Not } from 'typeorm';
 import { actionsRepository, mediaRepository } from '../config/repositories.js';
+import { activityLogService } from './activityLog.service.js';
 
 export class MediaUserActionsService {
   async getUserMediaAction(
@@ -60,13 +61,21 @@ export class MediaUserActionsService {
     mediaType: MediaType,
     action: Partial<UserAction>
   ): Promise<UserAction | null> {
-    const isUserActionExist: boolean = await actionsRepository.existsBy({
+    const mediaUserAction: MediaUserAction | null = await actionsRepository.findOneBy({
       mediaId,
       userId,
       mediaType,
     });
 
-    if (!isUserActionExist) throw HttpError.Conflict('Media action does not exist');
+    if (!mediaUserAction) throw HttpError.Conflict('Media action does not exist');
+
+    await activityLogService.toggleActivityLog(
+      action,
+      userId,
+      mediaId,
+      mediaType,
+      mediaUserAction.mediaInfoId
+    );
 
     await actionsRepository.update({ mediaId, userId, mediaType }, action);
     return await actionsRepository.findOneBy({ mediaId, userId, mediaType });

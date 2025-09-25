@@ -7,6 +7,7 @@ import {
   TvShowInProgress,
 } from '../types/types.js';
 import { MediaUserAction } from '../entity/MediaUserAction.js';
+import { userRepository } from '../config/repositories.js';
 import { AppDataSource } from '../config/db.js';
 import { DataSource } from 'typeorm';
 import { MediaGenre } from '../entity/MediaGenre.js';
@@ -18,7 +19,6 @@ import { User } from '../entity/User.js';
 import path from 'path';
 
 import * as fs from 'node:fs';
-import { userRepository } from '../config/repositories';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const userStatsSQL = fs.readFileSync(path.join(__dirname, './queries/user_stats_card.sql'), 'utf8');

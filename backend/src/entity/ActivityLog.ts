@@ -5,11 +5,11 @@ import {
   UpdateDateColumn,
   Entity,
   Column,
+  Unique,
 } from 'typeorm';
-import { MediaType } from '../types/types.js';
+import { ActivityType, MediaType } from '../types/types.js';
 
-type ActionType = 'watch' | 'like' | 'rate' | 'comment'; // dislike ?
-
+@Unique(['userId', 'mediaId', 'mediaType', 'activityType'])
 @Entity({ schema: 'public' })
 export class ActivityLog extends BaseEntity {
   @PrimaryGeneratedColumn()
@@ -28,7 +28,7 @@ export class ActivityLog extends BaseEntity {
   mediaType!: MediaType;
 
   @Column()
-  actionType!: ActionType;
+  activityType!: ActivityType;
 
   @Column({ type: 'double precision', nullable: true })
   valueNumeric!: number | null;

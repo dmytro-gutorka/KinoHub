@@ -1,13 +1,12 @@
 import 'reflect-metadata';
 import express, { Application, json, urlencoded } from 'express';
 import { privateRoutes, publicRoutes } from './routes/index.js';
+import { genresRepository } from './config/repositories.js';
+import { mediaGenres } from './utils/json/mediaGenres.js';
 import { errorHandler } from './middleware/error-handler.middleware.js';
 import { initDB } from './config/db.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-
-import { genresRepository } from './repositories/genres.repository.js';
-import { mediaGenres } from './utils/json/mediaGenres.js';
 
 const port: number = Number(process.env.PORT) || 8000;
 const app: Application = express();
