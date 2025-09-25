@@ -34,10 +34,6 @@ export class MediaUserAction {
   @Column({ default: null, nullable: true, type: 'double precision' })
   rating!: number | null;
 
-  // @Column({ default: null, nullable: true})
-  // watchStatus!: WatchStatus | null;
-
-
   @Column({ default: null, nullable: true, type: 'enum', enum: WatchStatus })
   watchStatus!: WatchStatus | null;
 

@@ -7,8 +7,8 @@ import { HttpError } from '../errors/HttpError.js';
 import { IsNull, Not } from 'typeorm';
 
 export class MediaUserActionsService {
-  async getOneBy(
-    userId: number | undefined,
+  async getUserMediaAction(
+    userId: number,
     mediaId: number,
     mediaType: MediaType
   ): Promise<UserAction> {
@@ -23,19 +23,8 @@ export class MediaUserActionsService {
     return userAction;
   }
 
-  async getListBy(userId: number | undefined): Promise<Array<MediaUserAction>> {
-    const userActions: Array<MediaUserAction> | null = await actionsRepository.find({
-      where: { userId, watchStatus: Not(IsNull()) },
-      select: ['watchStatus', 'mediaId'],
-    });
-
-    if (!userActions) throw HttpError.NotFound('Media action is not found');
-
-    return userActions;
-  }
-
-  async create(
-    userId: number | undefined,
+  async createUserMediaAction(
+    userId: number,
     mediaId: number,
     mediaType: MediaType
   ): Promise<UserAction> {
@@ -66,8 +55,8 @@ export class MediaUserActionsService {
     return mediaUserAction;
   }
 
-  async update(
-    userId: number | undefined,
+  async updateUserMediaAction(
+    userId: number,
     mediaId: number,
     mediaType: MediaType,
     action: Partial<UserAction>
@@ -83,6 +72,17 @@ export class MediaUserActionsService {
     await actionsRepository.update({ mediaId, userId, mediaType }, action);
     return await actionsRepository.findOneBy({ mediaId, userId, mediaType });
   }
+
+  async getMovieBoardItems(userId: number): Promise<Array<MediaUserAction>> {
+    const userActions: Array<MediaUserAction> | null = await actionsRepository.find({
+      where: { userId, watchStatus: Not(IsNull()) },
+      select: ['watchStatus', 'mediaId'],
+    });
+
+    if (!userActions) throw HttpError.NotFound('Media action is not found');
+
+    return userActions;
+  }
 }
 
-export const mediaUserActionsService = new MediaUserActionsService();
+export const mediaUserActionService = new MediaUserActionsService();

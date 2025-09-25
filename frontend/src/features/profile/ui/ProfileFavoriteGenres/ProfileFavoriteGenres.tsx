@@ -27,7 +27,7 @@ export default function ProfileFavoriteGenres({ userMediaStats }: ProfileFavorit
 
   return (
     <BlockWrapper title="Favorite Genres" titleSizeVariant="body2">
-      <Stack display="inline-flex" direction="row" gap={0.5}>
+      <Stack display="inline-flex" direction="row" gap={1.5} flexWrap="wrap">
         {favoriteGenres.map(({ name }, index) => {
           const bgColor = bgColors[index];
           return (

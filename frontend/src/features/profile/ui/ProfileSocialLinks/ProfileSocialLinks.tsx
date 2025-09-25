@@ -32,8 +32,8 @@ export default function ProfileSocialLinks({ socialLinks }: ProfileSocialLinksPr
   ];
 
   return (
-    <BlockWrapper title="Social Links" titleSizeVariant="h6" position="relative">
-      <Box position="absolute" right={20}>
+    <BlockWrapper title="Social Links" titleSizeVariant="body2" position="relative">
+      <Box position="absolute" right={20} top={30}>
         <ProfileUpdateSocialsModal />
       </Box>
       <List>
