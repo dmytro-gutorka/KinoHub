@@ -13,7 +13,7 @@ export class MediaInfo {
   @Column()
   mediaId!: number;
 
-  @Column({ default: 0, type: 'double precision' })
+  @Column({ default: 0 })
   runtime!: number;
 
   @Column({ default: 'N/a' })

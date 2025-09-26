@@ -22,6 +22,8 @@ interface ActivityLogArgs {
 }
 
 class ActivityLogService {
+  async
+
   constructor(private readonly dt: DataSource = AppDataSource) {}
 
   async getActivityLogList(userId: number, page: number) {
@@ -30,13 +32,14 @@ class ActivityLogService {
       .createQueryBuilder('a')
       .innerJoin(MediaInfo, 'mi', 'mi.id = a.mediaInfoId')
       .select([
-        'a.createdAt as createdAt',
-        'a.activityType as activityType',
-        'mi.title as title',
-        'mi.posterPath as posterPath',
+        'a.id as id',
+        'a.updatedAt as "updatedAt"',
+        'a.activityType as "activityType"',
+        'mi.title as "title"',
+        'mi.posterPath as "posterPath"',
       ])
       .where('a.userId = :userId', { userId })
-      .orderBy('a.createdAt', 'DESC')
+      .orderBy('a.updatedAt', 'DESC')
       .take(PAGINATION_LIMITS.ACTIVITY_LOG)
       .skip(PAGINATION_LIMITS.ACTIVITY_LOG * (page - 1))
       .getRawMany();

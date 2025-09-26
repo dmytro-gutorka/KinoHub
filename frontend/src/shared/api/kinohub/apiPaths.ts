@@ -60,4 +60,7 @@ export const apiPath = {
     getOneBy: (userId: number | undefined) => `${API_URL}/users/${userId}/profile`,
     update: (userId: number | undefined) => `${API_URL}/users/${userId}/profile`,
   },
+  activity: {
+    getList: (page: number) => `${API_URL}/activity?page=${page}`,
+  },
 };

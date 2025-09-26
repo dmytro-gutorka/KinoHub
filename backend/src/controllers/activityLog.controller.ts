@@ -9,7 +9,5 @@ export default async function getActivityLog(req: Request, res: Response) {
   const activityLogList: ActivityLog[] =
     (await activityLogService.getActivityLogList(userId, page)) ?? [];
 
-  console.log(activityLogList);
-
   res.status(200).json(activityLogList);
 }

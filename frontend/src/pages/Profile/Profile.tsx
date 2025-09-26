@@ -5,6 +5,7 @@ import ProfileFavoriteGenres from '@features/profile/ui/ProfileFavoriteGenres';
 import ProfileHeader from '@features/profile/ui/ProfileHeader';
 import useUserProfile from '@features/profile/hooks/useUserProfile';
 import ProfileSocialLinks from '@features/profile/ui/ProfileSocialLinks/ProfileSocialLinks';
+import ProfileActivityFeed from '@features/profile/ui/ProfileActivityFeed';
 
 export default function Profile() {
   const { data: userMediaStats, isSuccess: isUserStatsSuccess } = useUserMediaStats();
@@ -18,11 +19,13 @@ export default function Profile() {
         <ProfileHeader userProfile={userProfile} />
         <Container maxWidth="md">
           <ProfileSingleStatsList userMediaStats={userMediaStats} />
-          <Grid container mt={6}>
-            <Grid size={8}></Grid>
+          <Grid container mt={6} spacing={4}>
+            <Grid size={8}>
+              <ProfileActivityFeed />
+            </Grid>
 
             <Grid size={4}>
-              <Stack gap={5}>
+              <Stack gap={4}>
                 <ProfileFavoriteGenres userMediaStats={userMediaStats} />
                 <ProfileSocialLinks socialLinks={userProfile?.social} />
               </Stack>

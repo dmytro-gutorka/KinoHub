@@ -1,4 +1,4 @@
-import { MediaType, WatchStatus } from '@shared/types/generalTypes';
+import { ActivityType, MediaType, WatchStatus } from '@shared/types/generalTypes';
 
 export interface MediaInfoEntity {
   id: number;
@@ -31,4 +31,12 @@ export interface EpisodeEntity {
   season: number;
   episode: number;
   isWatched: boolean;
+}
+
+export interface ActivityFeedEntity {
+  id: number;
+  title: string;
+  posterPath: string;
+  activityType: ActivityType;
+  updatedAt: string;
 }

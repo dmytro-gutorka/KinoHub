@@ -109,3 +109,5 @@ export interface SVGIcon {
   height?: number;
   color?: string;
 }
+
+export type ActivityType = 'watch' | 'like' | 'rate' | 'comment';

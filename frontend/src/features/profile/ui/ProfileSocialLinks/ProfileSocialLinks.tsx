@@ -2,14 +2,14 @@ import { SocialLinks } from '@features/profile/types';
 import { ReactNode } from 'react';
 import { Box, List } from '@mui/material';
 import ListItem from '@mui/material/ListItem';
+import ProfileUpdateSocialsModal from '@features/profile/ui/ProfileSocialLinkUpdateModal';
+import ColorfulOutlinedLinkedinIcon from '@shared/icons/ColorfulOutlinedLinkedinIcon';
 import ColorfulOutlinedInstagramIcon from '@shared/icons/ColorfullOurlinedInstagramIcon';
 import BlockWrapper from '@shared/ui/BlockWrapper';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import ColorfulOutlinedLinkedinIcon from '@shared/icons/ColorfulOutlinedLinkedinIcon';
 import ColorfulOutlinedTelegramIcon from '@shared/icons/ColorfulOutlinedTelegramIcon';
 import useProfileUpdateForm from '@features/profile/hooks/useProfileUpdateForm';
-import ProfileUpdateSocialsModal from '@features/profile/ui/ProfileSocialLinkUpdateModal';
 
 interface ProfileSocialLinksProps {
   socialLinks: SocialLinks;
