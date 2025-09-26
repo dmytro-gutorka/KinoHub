@@ -22,11 +22,17 @@ interface ActivityLogArgs {
 }
 
 class ActivityLogService {
-  async
-
   constructor(private readonly dt: DataSource = AppDataSource) {}
 
   async getActivityLogList(userId: number, page: number) {
+    const test = await this.dt
+      .createQueryBuilder()
+      .select('*')
+      .from(`public.weekly_sessions(:userId, :tz, :mediaType)`, 'weekly_sessions')
+      .setParameters({ userId: 1, tz: 'Europe/Warsaw', mediaType: 'movie' })
+      .getRawMany();
+
+    console.log(test);
     return this.dt
       .getRepository(ActivityLog)
       .createQueryBuilder('a')

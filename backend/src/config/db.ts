@@ -1,3 +1,6 @@
+// eslint-disable-next-line n/no-extraneous-import
+import 'dotenv/config';
+
 import { fileURLToPath } from 'node:url';
 import { DataSource } from 'typeorm';
 import path from 'path';
@@ -16,7 +19,7 @@ export const AppDataSource = new DataSource({
   logging: false,
   dropSchema: false,
   entities: [__dirname + '/../entity/**/*.js'],
-  migrations: [__dirname + '/../migration/**/*.js'],
+  migrations: ['/src/config/migrations/**/*.js'],
 });
 
 export async function initDB() {
