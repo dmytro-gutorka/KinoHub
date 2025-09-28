@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/config/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/config/db.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/activityLog.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/activityLog.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/activityLog.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/activityLog.routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/services/activityLog.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/activityLog.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -282,6 +282,7 @@
       <workItem from="1758702601479" duration="17828000" />
       <workItem from="1758788664181" duration="9584000" />
       <workItem from="1758875397559" duration="5670000" />
+      <workItem from="1759057910514" duration="626000" />
     </task>
     <servers />
   </component>

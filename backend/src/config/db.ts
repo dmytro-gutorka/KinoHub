@@ -19,7 +19,7 @@ export const AppDataSource = new DataSource({
   logging: false,
   dropSchema: false,
   entities: [__dirname + '/../entity/**/*.js'],
-  migrations: ['/src/config/migrations/**/*.js'],
+  migrations: ['dist/config/migrations/**/*.js'],
 });
 
 export async function initDB() {
