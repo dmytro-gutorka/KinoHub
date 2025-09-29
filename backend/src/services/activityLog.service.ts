@@ -24,14 +24,58 @@ interface ActivityLogArgs {
 class ActivityLogService {
   constructor(private readonly dt: DataSource = AppDataSource) {}
 
-  async getActivityLogList(userId: number, page: number) {
-    const rows = await this.dt
+  async getWeeklyActivitySession(userId: number, tz: string, mediaType: MediaType) {
+    return this.dt
       .createQueryBuilder()
-      .select('*')
+      .select([
+        'EXTRACT(ISODOW FROM (start_time_utc AT TIME ZONE :tz))::int AS "dowISO"',
+        'COUNT(*)::int as "moviesWatched"',
+      ])
       .from('(SELECT * FROM public.weekly_sessions(:userId, :tz, :mediaType))', 'w')
-      .setParameters({ userId: 1, tz: 'Europe/Warsaw', mediaType: 'movie' })
+      .groupBy('"dowISO"')
+      .setParameters({ userId, tz, mediaType })
       .getRawMany();
+  }
 
+  async getWeeklyPeakWatchHours(userId: number, tz: string, mediaType: MediaType) {
+    return this.dt
+      .createQueryBuilder()
+      .select([
+        'EXTRACT(HOUR FROM (start_time_utc AT TIME ZONE :tz))::int AS "peekHour"',
+        'COUNT(*)::int as "moviesWatched"',
+      ])
+      .from('(SELECT * FROM public.weekly_sessions(:userId, :tz, :mediaType))', 'w')
+      .groupBy('"peekHour"')
+      .take(3)
+      .setParameters({ userId, tz, mediaType })
+      .getRawMany();
+  }
+
+  async getWeeklyPeakWatchedDay(userId: number, tz: string, mediaType: MediaType) {
+    return this.dt
+      .createQueryBuilder()
+      .select([
+        'EXTRACT(ISODOW FROM (start_time_utc AT TIME ZONE :tz))::int AS "dowISO"',
+        'COUNT(*)::int as "moviesWatched"',
+      ])
+      .from('(SELECT * FROM public.weekly_sessions(:userId, :tz, :mediaType))', 'w')
+      .groupBy('"dowISO"')
+      .orderBy('"dowISO"', 'DESC')
+      .take(1)
+      .setParameters({ userId, tz, mediaType })
+      .getRawMany();
+  }
+
+  async getAvgWatchTimePer(userId: number, tz: string, mediaType: MediaType) {
+    return this.dt
+      .createQueryBuilder()
+      .select(`(SUM(runtime) / ${7})::int`, 'avgWatchTime')
+      .from('(SELECT * FROM public.weekly_sessions(:userId, :tz, :mediaType))', 'w')
+      .setParameters({ userId, tz, mediaType })
+      .getRawMany();
+  }
+
+  async getActivityLogList(userId: number, page: number) {
     return this.dt
       .getRepository(ActivityLog)
       .createQueryBuilder('a')
