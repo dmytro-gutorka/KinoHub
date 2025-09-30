@@ -12,7 +12,7 @@ import { User } from './User.js';
 
 @Entity({ schema: 'public' })
 @Check(`"user_id" <> "friend_id"`)
-export class FriendRequest extends BaseEntity {
+export class Friendship extends BaseEntity {
   @PrimaryGeneratedColumn({ name: 'user_id' })
   userId!: number;
 

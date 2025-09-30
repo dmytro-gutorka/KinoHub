@@ -1,9 +1,13 @@
 import { AppDataSource } from '../config/db.js';
 import { Repository } from 'typeorm';
+
+import { FriendBlacklist } from '../entity/FriendBlacklist.js';
 import { MediaUserAction } from '../entity/MediaUserAction.js';
+import { FriendRequest } from '../entity/FriendRequest.js';
 import { ActivityLog } from '../entity/ActivityLog.js';
 import { CommentVote } from '../entity/CommentVote.js';
 import { UserProfile } from '../entity/UserProfile.js';
+import { Friendship } from '../entity/Friendship.js';
 import { MediaGenre } from '../entity/MediaGenre.js';
 import { MediaInfo } from '../entity/MediaInfo.js';
 import { UserAuth } from '../entity/UserAuth.js';
@@ -19,6 +23,9 @@ export const episodesRepository: Repository<Episode> = AppDataSource.getReposito
 export const genresRepository: Repository<Genre> = AppDataSource.getRepository(Genre);
 export const userRepository: Repository<User> = AppDataSource.getRepository(User);
 export const activityLogRepository = AppDataSource.getRepository(ActivityLog);
+export const friendsRequestRepository = AppDataSource.getRepository(FriendRequest);
+export const friendshipRepository = AppDataSource.getRepository(Friendship);
+export const friendBlackListRepository = AppDataSource.getRepository(FriendBlacklist);
 
 export const userProfileRepository: Repository<UserProfile> =
   AppDataSource.getRepository(UserProfile);
