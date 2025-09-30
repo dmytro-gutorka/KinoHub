@@ -1,22 +1,24 @@
 import {
   Relation,
   BaseEntity,
-  PrimaryGeneratedColumn,
+  PrimaryColumn,
   CreateDateColumn,
   ManyToOne,
   JoinColumn,
   Entity,
+  Index,
   Check,
 } from 'typeorm';
 import { User } from './User.js';
 
 @Entity({ schema: 'public' })
 @Check(`"user_id" <> "friend_id"`)
+@Index(['userId'])
 export class Friendship extends BaseEntity {
-  @PrimaryGeneratedColumn({ name: 'user_id' })
+  @PrimaryColumn({ name: 'user_id' })
   userId!: number;
 
-  @PrimaryGeneratedColumn({ name: 'friend_id' })
+  @PrimaryColumn({ name: 'friend_id' })
   friendId!: number;
 
   @ManyToOne(() => User, { onDelete: 'CASCADE', nullable: false })

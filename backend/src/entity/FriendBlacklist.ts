@@ -1,7 +1,7 @@
 import {
   Relation,
   BaseEntity,
-  PrimaryGeneratedColumn,
+  PrimaryColumn,
   CreateDateColumn,
   UpdateDateColumn,
   ManyToOne,
@@ -13,10 +13,10 @@ import { User } from './User.js';
 
 @Entity({ schema: 'public' })
 export class FriendBlacklist extends BaseEntity {
-  @PrimaryGeneratedColumn({ name: 'blocker_id' })
+  @PrimaryColumn({ name: 'blocker_id' })
   blockerId!: number;
 
-  @PrimaryGeneratedColumn({ name: 'blocked_id' })
+  @PrimaryColumn({ name: 'blocked_id' })
   blockedId!: number;
 
   @ManyToOne(() => User, { onDelete: 'CASCADE', nullable: false })

@@ -8,8 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/friends.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/friends.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/entity/FriendBlacklist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/FriendBlacklist.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/entity/FriendRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/FriendRequest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/friends.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/friends.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/entity/Friendship.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/Friendship.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/services/friends.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/friends.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -285,7 +284,7 @@
       <workItem from="1758875397559" duration="5670000" />
       <workItem from="1759057910514" duration="626000" />
       <workItem from="1759140206883" duration="1282000" />
-      <workItem from="1759235040527" duration="3971000" />
+      <workItem from="1759235040527" duration="4569000" />
     </task>
     <servers />
   </component>
