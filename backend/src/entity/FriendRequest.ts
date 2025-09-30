@@ -20,7 +20,7 @@ export class FriendRequest extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column()
+  @Column({ default: 'pending' })
   status!: FriendRequestStatus;
 
   @ManyToOne(() => User, { onDelete: 'CASCADE', nullable: false })

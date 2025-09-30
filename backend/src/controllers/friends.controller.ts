@@ -13,3 +13,8 @@ export async function createFriendRequest(req: Request, res: Response) {
 
   res.status(201).json({ message: 'Friend request has been sent' });
 }
+
+export async function acceptFriendRequest(req: Request, res: Response) {
+  const userId: number = req.user?.id!;
+  const friendId: number = req.body.friendId;
+}
