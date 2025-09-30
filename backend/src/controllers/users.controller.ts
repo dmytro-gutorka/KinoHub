@@ -4,7 +4,7 @@ import { usersStatsService } from '../services/userStats.service.js';
 import { userProfileService } from '../services/userProfile.js';
 
 export async function getUserStats(req: Request, res: Response) {
-  const userId: number | undefined = req.user?.id;
+  const userId: number = req.user?.id!;
 
   const userMediaStats: SettledUserMediaStats = await Promise.allSettled([
     usersStatsService.getUserMediaAggregatedStats(userId),
@@ -16,11 +16,11 @@ export async function getUserStats(req: Request, res: Response) {
   const [aggregatedStats, topTv, topMovie, favoriteGenres, tvShowInProgress] = userMediaStats;
 
   res.status(200).json({
-    userMediaAggregatedStats: aggregatedStats.status === 'fulfilled' ? aggregatedStats.value : null,
     topRatedTv: topTv.status === 'fulfilled' ? topTv.value : [],
     topRatedMovie: topMovie.status === 'fulfilled' ? topMovie.value : [],
     favoriteGenres: favoriteGenres.status === 'fulfilled' ? favoriteGenres.value : [],
     tvShowInProgress: tvShowInProgress.status === 'fulfilled' ? tvShowInProgress.value : [],
+    userMediaAggregatedStats: aggregatedStats.status === 'fulfilled' ? aggregatedStats.value : null,
   });
 }
 

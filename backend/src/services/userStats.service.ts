@@ -26,7 +26,7 @@ const userStatsSQL = fs.readFileSync(path.join(__dirname, './queries/user_stats_
 class UserStatsService {
   constructor(private readonly ds: DataSource) {}
 
-  async getUserMediaAggregatedStats(userId: number | undefined): Promise<AggregatedMediaStats> {
+  async getUserMediaAggregatedStats(userId: number): Promise<AggregatedMediaStats> {
     const user: User | null = await userRepository.findOneBy({ id: userId });
 
     if (!user) throw HttpError.NotFound('User not found');
@@ -49,7 +49,7 @@ class UserStatsService {
   }
 
   async getTopRatedMedia(
-    userId: number | undefined,
+    userId: number,
     mediaType: MediaType,
     _limit: number = 10
   ): Promise<TopRatedMedia[]> {
@@ -71,10 +71,7 @@ class UserStatsService {
       .getRawMany();
   }
 
-  async getFavoriteGenres(
-    userId: number | undefined,
-    _limit: number = 5
-  ): Promise<FavoriteGenres[]> {
+  async getFavoriteGenres(userId: number, _limit: number = 5): Promise<FavoriteGenres[]> {
     return await this.ds
       .createQueryBuilder()
       .select(['g.name as name', 'COUNT(g.name)'])
