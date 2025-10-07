@@ -61,36 +61,60 @@ class FriendsService {
     await friendsRequestRepository.save(friendRequest);
   }
 
-  async acceptFriendRequest(userId: number, friendId: number, requestId: number): Promise<void> {
-    if (userId === friendId) throw HttpError.BadRequest('You cannot accept request to yourself');
-
+  async acceptFriendRequest(userId: number, requestId: number): Promise<void> {
     await this.ds.transaction(async (em) => {
       const friendRequest = await this.ds
-        .createQueryBuilder(FriendRequest, 'fr')
-        .setLock("pessimistic_write")
-        .where('fr.id = :requestId AND fr.requester_id = :userId  AND fr.status = :status',
+        .createQueryBuilder()
+        .update(FriendRequest)
+        .set({ status: 'accepted' as const })
+        .where('id = :requestId AND requester_id = :userId  AND status = :status',
           { requestId, userId, status: 'pending' })
-        .getExists();
+        .returning(["requesterId", "receiverId",])
+        .execute();
 
-      if (!friendRequest) throw HttpError.Conflict('Friend request does not exist or is not pending');
+      const row = friendRequest.raw[0];
+
+      if (!row)
+        throw HttpError.Conflict('Friend request does not exist or is not pending');
 
       await this.ds.createQueryBuilder()
         .insert()
         .into(Friendship)
         .values([
-          { userId: userId, friendId: friendId },
-          { userId: friendId, friendId: userId },
+          { userId: row.requester_id, friendId: row.receiver_id },
+          { userId: row.receiver_id, friendId: row.requester_id },
         ])
         .orIgnore()
         .execute();
-
-      await this.ds
-        .createQueryBuilder(FriendRequest, 'fr')
-        .update()
-        .set({ status: 'accepted' as const })
-        .where('id = :requestId', { requestId })
-        .execute();
     });
+  }
+
+  async rejectFriendRequest(userId: number,  requestId: number): Promise<void> {
+    const pendingRequest = await this.ds
+      .createQueryBuilder(FriendRequest, 'fr')
+      .where('id = :requestId AND receiver_id = :userId  AND status = :status',
+        { requestId, userId, status: 'pending' })
+      .getOne()
+
+    if (!pendingRequest)
+      throw HttpError.Conflict('Friend request does not exist or is not pending');
+
+    pendingRequest.status = 'rejected' as const;
+    await friendsRequestRepository.save(pendingRequest);
+  }
+
+
+  async cancelFriendRequest(userId: number,  requestId: number): Promise<void> {
+    const pendingRequest = await this.ds
+      .createQueryBuilder(FriendRequest, 'fr')
+      .where('id = :requestId AND requester_id = :userId  AND status = :status',
+        { requestId, userId, status: 'pending' })
+      .getOne()
+
+    if (!pendingRequest) throw HttpError.Conflict('Friend request does not exist or is not pending');
+
+    pendingRequest.status = 'cancelled' as const;
+    await friendsRequestRepository.save(pendingRequest);
   }
 }
 

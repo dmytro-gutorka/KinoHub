@@ -16,18 +16,28 @@ export async function createFriendRequest(req: Request, res: Response) {
 
 export async function acceptFriendRequest(req: Request, res: Response) {
   const userId: number = req.user?.id!;
-  const friendId: number = req.body.friendId;
   const requestId: number = Number(req.params?.requestId);
 
-  await friendsService.acceptFriendRequest(userId, friendId, requestId);
+  await friendsService.acceptFriendRequest(userId, requestId);
 
-  res.status(200).json({ message: `User id${userId} and id${friendId} are now friends` });
+  res.status(200).json({ message: `Friendship has been established` });
 }
 
 export async function rejectFriendRequest(req: Request, res: Response) {
   const userId: number = req.user?.id!;
-  const friendId: number = req.body.friendId;
   const requestId: number = Number(req.params?.requestId);
+
+  await friendsService.rejectFriendRequest(userId, requestId);
+
+  res.status(201).json({ message: `Friendship has been rejected` });
 }
 
-export async function cancelFriendRequest(req: Request, res: Response) {}
+export async function cancelFriendRequest(req: Request, res: Response) {
+  const userId: number = req.user?.id!;
+  const requestId: number = Number(req.params?.requestId);
+
+  await friendsService.cancelFriendRequest(userId, requestId);
+
+  res.status(201).json({ message: `Friendship has been cancelled` });
+
+}
