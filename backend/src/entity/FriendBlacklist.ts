@@ -7,7 +7,6 @@ import {
   ManyToOne,
   JoinColumn,
   Entity,
-  Check,
 } from 'typeorm';
 import { User } from './User.js';
 

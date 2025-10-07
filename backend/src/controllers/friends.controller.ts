@@ -18,8 +18,16 @@ export async function acceptFriendRequest(req: Request, res: Response) {
   const userId: number = req.user?.id!;
   const friendId: number = req.body.friendId;
   const requestId: number = Number(req.params?.requestId);
-  
+
   await friendsService.acceptFriendRequest(userId, friendId, requestId);
 
   res.status(200).json({ message: `User id${userId} and id${friendId} are now friends` });
 }
+
+export async function rejectFriendRequest(req: Request, res: Response) {
+  const userId: number = req.user?.id!;
+  const friendId: number = req.body.friendId;
+  const requestId: number = Number(req.params?.requestId);
+}
+
+export async function cancelFriendRequest(req: Request, res: Response) {}

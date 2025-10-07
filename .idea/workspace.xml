@@ -8,8 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/friends.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/friends.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/entity/FriendBlacklist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/FriendBlacklist.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/entity/Friendship.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/Friendship.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/friends.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/friends.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +282,12 @@
       <workItem from="1758875397559" duration="5670000" />
       <workItem from="1759057910514" duration="626000" />
       <workItem from="1759140206883" duration="1282000" />
-      <workItem from="1759235040527" duration="4569000" />
+      <workItem from="1759235040527" duration="5768000" />
+      <workItem from="1759312994308" duration="2719000" />
+      <workItem from="1759364321656" duration="599000" />
+      <workItem from="1759397749097" duration="42000" />
+      <workItem from="1759421742964" duration="30000" />
+      <workItem from="1759421784273" duration="2000" />
     </task>
     <servers />
   </component>
