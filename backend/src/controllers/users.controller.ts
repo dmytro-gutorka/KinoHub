@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { SettledUserMediaStats } from '../types/types.js';
-import { usersStatsService } from '../services/userStats.service.js';
-import { userProfileService } from '../services/userProfile.js';
+import { usersStatsService } from '../services/user-stats.service';
+import { userProfileService } from '../services/user-profile';
 
 export async function getUserStats(req: Request, res: Response) {
   const userId: number = req.user?.id!;

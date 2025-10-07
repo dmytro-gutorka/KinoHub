@@ -4,7 +4,7 @@ import { MediaInfo } from '../entity/MediaInfo.js';
 import { HttpError } from '../errors/HttpError.js';
 import { IsNull, Not } from 'typeorm';
 import { actionsRepository, mediaRepository } from '../config/repositories.js';
-import { activityLogService } from './activityLog.service.js';
+import { activityLogService } from './activity-log.service';
 
 export class MediaUserActionsService {
   async getUserMediaAction(

@@ -1,6 +1,6 @@
 import { MediaType } from '../types/types.js';
 import { commentsRepository, mediaRepository } from '../config/repositories.js';
-import { activityLogService } from './activityLog.service.js';
+import { activityLogService } from './activity-log.service';
 import { HttpError } from '../errors/HttpError.js';
 import { Comment } from '../entity/Comment.js';
 import { IsNull } from 'typeorm';

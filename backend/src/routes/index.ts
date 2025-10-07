@@ -1,10 +1,10 @@
 import { authGuard } from '../middleware/auth.middleware.js';
 import { router as usersRouter } from './user.routes.js';
 import { router as mediaRouter } from './media.routes.js';
-import { router as friendsRouter } from './friends.routes.js';
-import { router as actionsRouter } from './mediaUserActions.routes.js';
+import { router as friendsRouter } from './friend-requests.routes.js';
+import { router as actionsRouter } from './media-user-actions.routes.js';
 import { router as episodesRouter } from './episodes.routes.js';
-import { router as activityLogRouter } from './activityLog.routes.js';
+import { router as activityLogRouter } from './activity-log.routes.js';
 import { router as authRouter, privateRoute } from './auth.routes.js';
 
 import express from 'express';

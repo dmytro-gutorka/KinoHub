@@ -2,18 +2,18 @@ import { Router } from 'express';
 import {
   acceptFriendRequest,
   cancelFriendRequest,
-  createFriendRequest,
+  createFriendRequest, getIncomingFriendRequests, getOutcomingFriendRequests,
   rejectFriendRequest,
-} from '../controllers/friends.controller.js';
+} from '../controllers/friend-requests.controller.js';
 
 export const router: Router = Router();
 
+
 router.post('/requests', createFriendRequest);
-// router.get('/requests/incoming');
-// router.get('/requests/outcoming:');
+
+router.get('/requests/incoming', getIncomingFriendRequests);
+router.get('/requests/outcoming:', getOutcomingFriendRequests);
+
 router.post('/requests/:requestId/accept', acceptFriendRequest);
 router.post('/requests/:requestId/reject', rejectFriendRequest);
 router.post('/requests/:requestId/cancel', cancelFriendRequest);
-//
-// router.get('/');
-// router.delete('/:userId');

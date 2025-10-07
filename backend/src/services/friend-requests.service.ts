@@ -4,13 +4,10 @@ import { DataSource } from 'typeorm';
 import { AppDataSource } from '../config/db.js';
 import { FriendRequest } from '../entity/FriendRequest.js';
 import { Friendship } from '../entity/Friendship.js';
+import { getIncomingFriendRequests } from '../controllers/friend-requests.controller';
 
-class FriendsService {
+class FriendRequestsService {
   constructor(private readonly ds: DataSource) {}
-
-  async getFriends() {}
-
-  async deleteFriend() {}
 
   async createFriendRequest(requesterId: number, receiverId: number): Promise<void> {
     if (requesterId === receiverId)
@@ -116,6 +113,14 @@ class FriendsService {
     pendingRequest.status = 'cancelled' as const;
     await friendsRequestRepository.save(pendingRequest);
   }
+
+  async getIncomingFriendRequests(userId: number): Promise<FriendRequest[]>{
+    return await friendsRequestRepository.findBy({receiverId: userId, status: 'pending' })
+  }
+
+  async getOutcomingFriendRequests(userId: number) {
+    return await friendsRequestRepository.findBy({requesterId: userId, status: 'pending' })
+  }
 }
 
-export const friendsService = new FriendsService(AppDataSource);
+export const friendRequestsService = new FriendRequestsService(AppDataSource);

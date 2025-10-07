@@ -16,6 +16,7 @@ export type FriendRequestStatus = 'pending' | 'accepted' | 'rejected' | 'cancell
 
 @Entity({ schema: 'public' })
 @Check(`"status" IN ('pending', 'accepted', 'rejected', 'cancelled')`)
+@Check(`"requester_id" <> "receiver_id"`)
 export class FriendRequest extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;

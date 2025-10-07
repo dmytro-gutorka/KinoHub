@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { commentVoteService, CommentVoteValueType } from '../services/commentVote.service.js';
+import { commentVoteService, CommentVoteValueType } from '../services/comment-vote.service';
 import { CommentVote } from '../entity/CommentVote.js';
 
 export async function createCommentVote(req: Request, res: Response): Promise<void> {

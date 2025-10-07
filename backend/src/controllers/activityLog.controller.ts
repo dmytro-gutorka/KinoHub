@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { activityLogService } from '../services/activityLog.service.js';
+import { activityLogService } from '../services/activity-log.service';
 import { ActivityLog } from '../entity/ActivityLog.js';
 
 export async function getActivityLog(req: Request, res: Response) {
