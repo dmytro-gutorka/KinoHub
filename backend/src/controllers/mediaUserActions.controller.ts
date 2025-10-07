@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { MediaType, UserAction } from '../types/types.js';
-import { mediaUserActionService } from '../services/media-user-actions.service';
+import { mediaUserActionService } from '../services/media-user-actions.service.js';
 
 export async function getUserMediaAction(
   req: Request<any, any, any, { media_type: MediaType }>,

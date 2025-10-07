@@ -25,7 +25,7 @@ export class Friendship extends BaseEntity {
   @JoinColumn({ name: 'user_id' })
   user!: Relation<User>;
 
-  @ManyToOne(() => User, { onDelete: 'CASCADE', nullable: false })
+  @ManyToOne(() => User, { onDelete: 'CASCADE', nullable: false, eager: true })
   @JoinColumn({ name: 'friend_id' })
   friend!: Relation<User>;
 

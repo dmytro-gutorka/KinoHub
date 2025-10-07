@@ -4,6 +4,7 @@ import { privateRoutes, publicRoutes } from './routes/index.js';
 import { genresRepository } from './config/repositories.js';
 import { mediaGenres } from './utils/json/mediaGenres.js';
 import { errorHandler } from './middleware/error-handler.middleware.js';
+import { authGuard } from './middleware/auth.middleware.js';
 import { initDB } from './config/db.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -19,8 +20,8 @@ app.use(
 );
 
 app.use('/api/v1', publicRoutes);
+app.use(authGuard())
 app.use('/api/v1', privateRoutes);
-
 app.use(errorHandler);
 
 async function startServer() {
@@ -34,4 +35,4 @@ async function startServer() {
   }
 }
 
-startServer();
+await startServer();

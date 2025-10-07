@@ -6,6 +6,7 @@ import { router as actionsRouter } from './media-user-actions.routes.js';
 import { router as episodesRouter } from './episodes.routes.js';
 import { router as activityLogRouter } from './activity-log.routes.js';
 import { router as authRouter, privateRoute } from './auth.routes.js';
+import { router as friendshipRouter } from './friendship.routes.js';
 
 import express from 'express';
 
@@ -15,7 +16,9 @@ const publicRoutes = express.Router();
 publicRoutes.use('/auth', authRouter);
 
 privateRoutes.use(authGuard());
+
 privateRoutes.use('/', episodesRouter);
+privateRoutes.use('/friendship', friendshipRouter);
 privateRoutes.use('/activity', activityLogRouter);
 privateRoutes.use('/friends', friendsRouter);
 privateRoutes.use('/auth', privateRoute);

@@ -4,7 +4,6 @@ import { DataSource } from 'typeorm';
 import { AppDataSource } from '../config/db.js';
 import { FriendRequest } from '../entity/FriendRequest.js';
 import { Friendship } from '../entity/Friendship.js';
-import { getIncomingFriendRequests } from '../controllers/friend-requests.controller';
 
 class FriendRequestsService {
   constructor(private readonly ds: DataSource) {}
