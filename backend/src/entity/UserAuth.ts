@@ -6,10 +6,10 @@ export class UserAuth extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ type: 'text', unique: true, nullable: true, default: null })
+  @Column({ type: 'text', unique: true, nullable: true, default: null, select: false })
   refreshToken!: string | null;
 
-  @Column({ unique: true, nullable: true, default: null })
+  @Column({ unique: true, nullable: true, default: null, select: false })
   activationLink!: string;
 
   @Column({ default: false })

@@ -16,6 +16,7 @@ import { Comment } from './Comment.js';
 import { CommentVote } from './CommentVote.js';
 
 import { UserProfile } from './UserProfile.js';
+import { Expose } from 'class-transformer';
 
 @Entity({ schema: 'public' })
 export class User extends BaseEntity {
@@ -29,6 +30,7 @@ export class User extends BaseEntity {
   @Column({ unique: true })
   username!: string;
 
+  @Expose()
   @Column({ select: false })
   passwordHash!: string;
 
