@@ -12,3 +12,10 @@ export const UserListItem = z.object({
 
 export type UserListItemDTO = z.infer<typeof UserListItem>;
 
+
+export const UserQuery = z.object({
+  search: z.string().optional(),
+  page: z.number().optional(),
+})
+
+export type UserQueryDTO = z.infer<typeof UserQuery>;
