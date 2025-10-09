@@ -1,6 +1,6 @@
 import { IUser, UserRegisterCredentials } from '@features/auth/authTypes';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { apiPath } from '@shared/api/kinohub/apiPaths';
+import { apiPath } from '@shared/api/kinohub/api-paths';
 import axios, { AxiosError } from 'axios';
 
 export const register = createAsyncThunk<IUser, UserRegisterCredentials, { rejectValue: string }>(

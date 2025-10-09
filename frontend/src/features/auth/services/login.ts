@@ -4,7 +4,7 @@ import { setAccessToken } from '@shared/helpers/localStorage/setAccessToken';
 
 // @ts-ignore
 import axios, { AxiosError } from 'axios';
-import { apiPath } from '@shared/api/kinohub/apiPaths';
+import { apiPath } from '@shared/api/kinohub/api-paths';
 
 export const login = createAsyncThunk<UserAuthData, UserLoginCredentials, { rejectValue: string }>(
   'auth/login',

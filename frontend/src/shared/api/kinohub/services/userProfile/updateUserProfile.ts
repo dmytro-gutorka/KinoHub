@@ -1,7 +1,7 @@
 import { IUserProfile } from '@features/profile/types';
 import { AxiosResponse } from 'axios';
-import { axiosWithAuth } from '@shared/api/kinohub/kinohubAxios';
-import { apiPath } from '@shared/api/kinohub/apiPaths';
+import { axiosWithAuth } from '@shared/api/kinohub/kinohub-axios';
+import { apiPath } from '@shared/api/kinohub/api-paths';
 
 export default async function updateUserProfile(
   userProfileFields: IUserProfile,

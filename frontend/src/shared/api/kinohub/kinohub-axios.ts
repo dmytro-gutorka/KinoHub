@@ -1,6 +1,6 @@
 import { UserAuthData } from '@features/auth/authTypes';
 import { API_URL } from '@app/constants';
-import { apiPath } from '@shared/api/kinohub/apiPaths';
+import { apiPath } from '@shared/api/kinohub/api-paths';
 import { setAccessToken } from '@shared/helpers/localStorage/setAccessToken';
 import { getAccessToken } from '@shared/helpers/localStorage/getAccessToken';
 

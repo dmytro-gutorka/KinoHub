@@ -1,5 +1,5 @@
-import { apiPath } from '@shared/api/kinohub/apiPaths';
-import { axiosWithAuth } from '@shared/api/kinohub/kinohubAxios';
+import { apiPath } from '@shared/api/kinohub/api-paths';
+import { axiosWithAuth } from '@shared/api/kinohub/kinohub-axios';
 import { WatchedEpisodesPerSeason } from '@shared/types/generalTypes';
 import { AxiosResponse } from 'axios';
 

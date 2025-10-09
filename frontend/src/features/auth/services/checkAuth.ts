@@ -1,6 +1,6 @@
 import { UserAuthData } from '@features/auth/authTypes';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { apiPath } from '@shared/api/kinohub/apiPaths';
+import { apiPath } from '@shared/api/kinohub/api-paths';
 import { setAccessToken } from '@shared/helpers/localStorage/setAccessToken';
 
 // @ts-ignore
