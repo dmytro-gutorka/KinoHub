@@ -2,6 +2,7 @@ import * as z from 'zod';
 
 declare const UserListItem: z.ZodObject<{
     id: z.ZodNumber;
+    watchedMediaCount: z.ZodDefault<z.ZodOptional<z.ZodNullable<z.ZodNumber>>>;
     username: z.ZodString;
     registeredAt: z.ZodDate;
     firstName: z.ZodString;

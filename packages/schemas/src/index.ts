@@ -2,13 +2,13 @@ import * as z from "zod";
 
 export const UserListItem = z.object({
     id: z.number(),
+    watchedMediaCount: z.number().int().nullish().default(null),
     username: z.string(),
     registeredAt: z.date(),
     firstName: z.string(),
     lastName: z.string(),
     avatarUrl: z.string().nullable(),
     isEmailConfirmed: z.boolean(),
-    watchedMediaCount: z.int().nullable().nullish()
 })
 
 export type UserListItemDTO = z.infer<typeof UserListItem>;

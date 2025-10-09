@@ -2,6 +2,7 @@
 import * as z from "zod";
 var UserListItem = z.object({
   id: z.number(),
+  watchedMediaCount: z.number().int().nullish().default(null),
   username: z.string(),
   registeredAt: z.date(),
   firstName: z.string(),

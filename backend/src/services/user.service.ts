@@ -13,6 +13,15 @@ class UserService {
     const firstName = search.split(' ')[0] || '';
     const lastName = search.split(' ')[1] || '';
 
+    const subQuery = this.ds
+      .createQueryBuilder()
+      .subQuery()
+      .select('COUNT(*)::int', 'watchedMediaCount')
+      .from(MediaUserAction, 'mua')
+      .where('mua.userId = user.id')
+      .andWhere('mua.isWatched = true')
+      .getQuery();
+
     const rawUsers = await this.ds
       .createQueryBuilder(User, 'user')
       .leftJoin('user.profile', 'profile')
@@ -26,17 +35,7 @@ class UserService {
         'profile.avatarUrl AS "avatarUrl"',
         'auth.isEmailConfirmed "isEmailConfirmed"',
       ])
-      .addSelect(
-        (qb) =>
-          qb
-            .subQuery()
-            .select('COUNT(*)::int')
-            .from(MediaUserAction, 'mua')
-            .groupBy('mua.userId')
-            .where('mua.userId = user.id')
-            .andWhere('mua.isWatched = true'),
-        'watchedMediaCount'
-      )
+      .addSelect(subQuery, 'watchedMediaCount')
       .where('profile.firstName ILIKE :firstName', { firstName: `%${firstName}%` })
       .andWhere('profile.lastName ILIKE :lastName', { lastName: `%${lastName}%` })
       .offset(PAGINATION_LIMITS.USERS * (page - 1))
