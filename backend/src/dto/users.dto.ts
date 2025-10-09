@@ -1,19 +1,14 @@
-import { Expose } from 'class-transformer';
+import * as z from "zod";
 
+export const UserListItem = z.object({
+  id: z.number(),
+  username: z.string(),
+  registeredAt: z.date(),
+  firstName: z.string(),
+  lastName: z.string(),
+  avatarUrl: z.string().nullable(),
+  isEmailConfirmed: z.boolean(),
+})
 
-// export interface UserAuthDTO {
-//   @Expose() id: number;
-//   @Expose() isEmailConfirmed: boolean;
-// }
-//
-// export class ProfileDto {
-//   @Expose() id: number;
-//   @Expose() firstName: string | null;
-//   @Expose() lastName: string | null;
-//   @Expose() bio: string | null;
-//   @Expose() avatarUrl: string | null;
-//   @Expose() city: string | null;
-//   @Expose() country: string | null;
-//   @Expose() birthDate: string | null;
-//   @Expose() social: Record<string, any> | null;
-// }
+export type UserListItemDTO = z.infer<typeof UserListItem>;
+
