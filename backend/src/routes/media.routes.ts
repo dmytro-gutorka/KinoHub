@@ -1,12 +1,12 @@
-import { createCommentVote, updateCommentVote } from '../controllers/commentVote.controller.js';
-import { createMedia, getMedia, updateMedia } from '../controllers/media.controller.js';
+import { createCommentVote, updateCommentVote } from '../controllers/comment-vote.controllers.js';
+import { createMedia, getMedia, updateMedia } from '../controllers/media.controllers.js';
 import express, { Router } from 'express';
 import {
   createComment,
   deleteComment,
   getCommentList,
   updateComment,
-} from '../controllers/comments.controller.js';
+} from '../controllers/comment.controllers.js';
 
 export const router: Router = express.Router();
 

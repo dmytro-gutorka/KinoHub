@@ -1,7 +1,7 @@
 import { MediaType } from '@shared/types/generalTypes';
 import { useQuery } from '@tanstack/react-query';
-import getTmdbMediaDetails from '@shared/api/tmdb/services/getTmdbMediaDetails';
-import getWatchedEpisodesCount from '@shared/api/kinohub/services/episode/getWatchedEpisodesCount';
+import getTmdbMediaDetails from '@shared/api/tmdb/getTmdbMediaDetails';
+import getWatchedEpisodesCount from '@shared/api/episode/getWatchedEpisodesCount';
 
 export default function useTmdbMediaDetails(mediaId: number, mediaType: MediaType) {
   const queryKeyWatchedEpisodes = ['watchedEpisodesPerSeason', mediaId];

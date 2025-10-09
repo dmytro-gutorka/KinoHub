@@ -1,6 +1,5 @@
 import { User } from '../entity/User.js';
 import { UserProfile } from '../entity/UserProfile.js';
-import { plainToInstance } from 'class-transformer';
 import { userProfileRepository, userRepository } from '../config/repositories.js';
 
 class UserProfileService {

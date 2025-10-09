@@ -1,6 +1,6 @@
 import { MediaType } from '@shared/types/generalTypes';
 import { useQuery } from '@tanstack/react-query';
-import getCommentList from '@shared/api/kinohub/services/comments/getCommentList';
+import getCommentList from '@shared/api/comments/getCommentList';
 
 export default function useComments(mediaId: number, mediaType: MediaType) {
   return useQuery({

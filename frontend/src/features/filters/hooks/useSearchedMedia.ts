@@ -4,7 +4,7 @@ import {
 } from '@entities/types/tmdbEntities';
 import { SearchMediaParams } from '@shared/types/generalTypes';
 import { useQuery } from '@tanstack/react-query';
-import getTmdbSearchedMedia from '@shared/api/tmdb/services/getTmdbSearchedMedia';
+import getTmdbSearchedMedia from '@shared/api/tmdb/getTmdbSearchedMedia';
 
 interface SearchedMediaQuery extends SearchMediaParams {
   qrKey: string;

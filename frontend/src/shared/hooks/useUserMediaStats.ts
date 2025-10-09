@@ -3,7 +3,7 @@ import { IUser } from '@features/auth/authTypes';
 import { useQuery } from '@tanstack/react-query';
 import { useSelector } from 'react-redux';
 import { selectUserMetaData } from '@features/auth/selectors';
-import getUserStats from '@shared/api/kinohub/services/userStats/getUserStats';
+import getUserStats from '@shared/api/user-stats/getUserStats';
 
 export default function useUserMediaStats() {
   const userMeta: IUser | null = useSelector(selectUserMetaData);

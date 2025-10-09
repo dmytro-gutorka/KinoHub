@@ -2,9 +2,9 @@ import {
   getUserProfile,
   getUserStats,
   updateUserProfile,
-} from '../controllers/user-stats.controller.js';
+} from '../controllers/user-stat.controllers.js';
 import express from 'express';
-import { getUsers } from '../controllers/users.controller.js';
+import { getUsers } from '../controllers/user.controllers.js';
 
 export const router = express.Router();
 

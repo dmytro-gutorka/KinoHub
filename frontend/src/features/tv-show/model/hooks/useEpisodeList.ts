@@ -3,8 +3,8 @@ import { EpisodeEntity } from '@entities/types/kinohubEntities';
 import { Params, useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import getTmdbEpisodeList from '@shared/api/tmdb/services/getTmdbEpisodeList';
-import getEpisodeListActions from '@shared/api/kinohub/services/episode/getEpisodeActionList';
+import getTmdbEpisodeList from '@shared/api/tmdb/getTmdbEpisodeList';
+import getEpisodeListActions from '@shared/api/episode/getEpisodeActionList';
 
 export default function useEpisodeList(seasonNumber: number) {
   const [episodes, setEpisodes] = useState(null);

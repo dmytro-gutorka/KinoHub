@@ -20,7 +20,7 @@ app.use(
 );
 
 app.use('/api/v1', publicRoutes);
-app.use(authGuard())
+app.use(authGuard());
 app.use('/api/v1', privateRoutes);
 app.use(errorHandler);
 

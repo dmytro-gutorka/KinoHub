@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import getMovieBoardItems from '@shared/api/kinohub/services/movieBoardItem/getMovieBoardItems';
+import getMovieBoardItems from '@shared/api/movie-board-item/getMovieBoardItems';
 
 export default function useMovieBoardItems() {
   return useQuery({

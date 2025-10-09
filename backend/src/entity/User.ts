@@ -14,7 +14,6 @@ import {
 import { UserAuth } from './UserAuth.js';
 import { Comment } from './Comment.js';
 import { CommentVote } from './CommentVote.js';
-
 import { UserProfile } from './UserProfile.js';
 import { Expose } from 'class-transformer';
 

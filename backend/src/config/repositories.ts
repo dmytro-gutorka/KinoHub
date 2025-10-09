@@ -1,4 +1,4 @@
-import { AppDataSource } from '../config/db.js';
+import { AppDataSource } from './db.js';
 import { Repository } from 'typeorm';
 
 import { FriendBlacklist } from '../entity/FriendBlacklist.js';

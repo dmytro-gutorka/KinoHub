@@ -14,7 +14,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "typeRoots": ["./src/app", "./node_modules/@types"],
+    "typeRoots": [
+      "./src/app", "./node_modules/@types"],
     "paths": {
       "@app/*": ["app/*"],
       "@pages/*": ["pages/*"],
@@ -24,6 +25,8 @@
       "@shared/*": ["shared/*"]
     }
   },
-  "include": ["src"],
+  "include": [
+    "src"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import getActivityLogList from '@shared/api/kinohub/services/activity/getActivityLogList';
+import getActivityLogList from '@shared/api/activity/getActivityLogList';
 import { ActivityFeedEntity } from '@entities/types/kinohubEntities';
 
-export default function useActivityFeed(page: number = 1) {
+export default function useActivityFeed(page: number) {
   const queryKey = ['activityFeed', page];
 
   return useQuery({

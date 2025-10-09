@@ -1,0 +1,12 @@
+{
+  "name": "kinohub-monorepo",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @kinohub/schemas"
+  }
+}

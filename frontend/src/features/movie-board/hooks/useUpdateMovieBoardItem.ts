@@ -1,6 +1,6 @@
 import { MediaType, MediaUserActions } from '@shared/types/generalTypes';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import updateUserMediaAction from '@shared/api/kinohub/services/userMediaActions/updateUserMediaAction';
+import updateUserMediaAction from '@shared/api/user-media-actions/updateUserMediaAction';
 
 interface UpdateMovieBoardItemArgs {
   mediaId: number;

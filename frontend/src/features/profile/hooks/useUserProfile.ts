@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import getUserProfile from '@shared/api/kinohub/services/userProfile/getUserProfile';
+import getUserProfile from '@shared/api/user-profile/getUserProfile';
 import { useSelector } from 'react-redux';
 import { selectUserMetaData } from '@features/auth/selectors';
 

@@ -1,4 +1,4 @@
-import updateComment from '@shared/api/kinohub/services/comments/updateComment';
+import updateComment from '@shared/api/comments/updateComment';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { MediaType } from '@shared/types/generalTypes';
 

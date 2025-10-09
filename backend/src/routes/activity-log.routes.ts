@@ -1,6 +1,9 @@
 import express from 'express';
 import { Router } from 'express';
-import { getActivityLog, getWeeklyActivitySession } from '../controllers/activityLog.controller.js';
+import {
+  getActivityLog,
+  getWeeklyActivitySession,
+} from '../controllers/activity-log.controllers.js';
 
 export const router: Router = express.Router();
 

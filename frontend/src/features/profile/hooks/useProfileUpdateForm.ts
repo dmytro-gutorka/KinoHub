@@ -4,7 +4,7 @@ import { useModalContext } from '@shared/ui/Modal';
 import { useSelector } from 'react-redux';
 import { selectUserMetaData } from '@features/auth/selectors';
 import { useQueryClient } from '@tanstack/react-query';
-import updateUserProfile from '@shared/api/kinohub/services/userProfile/updateUserProfile';
+import updateUserProfile from '@shared/api/user-profile/updateUserProfile';
 import useUserProfile from '@features/profile/hooks/useUserProfile';
 
 export default function useProfileUpdateForm() {

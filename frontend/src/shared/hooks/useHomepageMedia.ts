@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { tmdbService } from '@shared/api/tmdb/TmdbService';
+import { tmdbService } from '@shared/api/tmdb-service';
 import { AxiosResponse } from 'axios';
 import {
   TmdbMediaListResults,

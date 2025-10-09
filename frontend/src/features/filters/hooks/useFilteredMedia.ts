@@ -1,6 +1,6 @@
 import { MediaFiltersBase, MediaType } from '@shared/types/generalTypes';
 import { useQuery } from '@tanstack/react-query';
-import getTmdbFilteredMedia from '@shared/api/tmdb/services/getTmdbFilteredMedia';
+import getTmdbFilteredMedia from '@shared/api/tmdb/getTmdbFilteredMedia';
 import {
   TmdbMediaListResults,
   TmdbMediaSearchedFilteredResponse,

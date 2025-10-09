@@ -2,9 +2,9 @@ import { MediaType } from '@shared/types/generalTypes';
 import { MediaInfoEntity } from '@entities/types/kinohubEntities';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
-import { createMedia } from '@shared/api/kinohub/services/media/createMedia';
-import { updateMedia } from '@shared/api/kinohub/services/media/updateMedia';
-import { getMedia } from '@shared/api/kinohub/services/media/getMedia';
+import { createMedia } from '@shared/api/media/createMedia';
+import { updateMedia } from '@shared/api/media/updateMedia';
+import { getMedia } from '@shared/api/media/getMedia';
 
 export default function useEnsureMediaDetails(mediaId: number, mediaType: MediaType) {
   const [finalMedia, setFinalMedia] = useState<MediaInfoEntity | null>(null);

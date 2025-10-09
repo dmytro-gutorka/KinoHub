@@ -3,8 +3,8 @@ import { MediaType } from '@shared/types/generalTypes';
 import { useEffect, useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import getUserMediaAction from '@shared/api/kinohub/services/userMediaActions/getUserMediaAction';
-import createUserMediaAction from '@shared/api/kinohub/services/userMediaActions/createUserMediaAction';
+import getUserMediaAction from '@shared/api/user-media-actions/getUserMediaAction';
+import createUserMediaAction from '@shared/api/user-media-actions/createUserMediaAction';
 
 export default function useGetOrCreateMediaAction(
   mediaId: number,

@@ -1,4 +1,3 @@
-import { Request } from 'express';
 import { MediaUserAction } from '../entity/MediaUserAction.js';
 import { MEDIA_ACTIONS } from '../utils/constants/SHARED.js';
 
@@ -56,10 +55,6 @@ export interface RefreshResponse {
   data: User;
   tokens: JwtTokens;
 }
-
-export type AuthedRequest<P = any, ResB = any, ReqB = any, Q = any> = Request<P, ResB, ReqB, Q> & {
-  user: { id: number };
-};
 
 export interface TopRatedMedia {
   rating: number;

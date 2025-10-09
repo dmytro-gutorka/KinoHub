@@ -2,11 +2,12 @@ import { Avatar, Stack, Typography, useTheme } from '@mui/material';
 import { selectUserMetaData } from '@features/auth/selectors';
 import { useSelector } from 'react-redux';
 import CommentActionButtonList from '@features/comments/ui/CommentActionButtonList';
-import fullnameToInitials from '@shared/helpers/fullnameToInitials';
 import MarkCircleIcon from '@shared/icons/MarkCircleIcon';
 import getDateFromISO from '@shared/helpers/getDateFromISO';
-import React from 'react';
 import CommentContextMenu from '@features/comments/ui/CommentContextMenu';
+import fullNameToInitials from '@shared/helpers/fullNameToInitials';
+import stringToColor from '@shared/helpers/stringToColor';
+import React from 'react';
 
 export default function CommentItem({ comment }) {
   const {
@@ -20,8 +21,11 @@ export default function CommentItem({ comment }) {
     votes,
     user,
   } = comment;
-  const { firstName, lastName, userAuth, id: commentUserId } = user;
-  const { isEmailConfirmed } = userAuth;
+  const {
+    id: commentUserId,
+    userAuth: { isEmailConfirmed },
+    profile: { firstName, lastName },
+  } = user;
 
   const userId: number | undefined = useSelector(selectUserMetaData)?.id;
   const theme = useTheme();
@@ -29,9 +33,13 @@ export default function CommentItem({ comment }) {
   let prevUserVote;
   if (votes.length > 0) prevUserVote = votes.find((v) => v.userId === userId)?.vote;
 
+  const fulName = `${firstName} ${lastName}`;
+  const fullNameInitials = fullNameToInitials(fulName);
+  console.log(comment);
+
   return (
     <Stack direction="row" spacing={4}>
-      <Avatar {...fullnameToInitials(`${firstName} ${lastName}`)} />
+      <Avatar sx={{ bgColor: stringToColor(fulName) }}>{fullNameInitials}</Avatar>
 
       <Stack flexGrow={1}>
         <Stack direction="row" alignItems="center" justifyContent="space-between">
