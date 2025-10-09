@@ -9,6 +9,7 @@ import {
 } from 'typeorm';
 import { WatchStatus } from '../types/types.js';
 import { MediaInfo } from './MediaInfo.js';
+import { User } from './User.js';
 
 @Entity({ schema: 'public' })
 @Unique(['mediaId', 'userId', 'mediaType'])
@@ -17,13 +18,7 @@ export class MediaUserAction {
   id!: number;
 
   @Column()
-  mediaInfoId!: number;
-
-  @Column()
   mediaId!: number;
-
-  @Column()
-  userId!: number;
 
   @Column({ default: false })
   isLiked!: boolean;
@@ -39,6 +34,15 @@ export class MediaUserAction {
 
   @Column()
   mediaType!: 'tv' | 'movie';
+
+  @Column()
+  userId!: number;
+
+  @ManyToOne(() => User, (u) => u.userActions)
+  user!: Relation<User>;
+
+  @Column()
+  mediaInfoId!: number;
 
   @ManyToOne(() => MediaInfo, (mi) => mi.userActions, {
     cascade: true,

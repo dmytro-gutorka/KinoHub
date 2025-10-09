@@ -16,6 +16,7 @@ import { Comment } from './Comment.js';
 import { CommentVote } from './CommentVote.js';
 import { UserProfile } from './UserProfile.js';
 import { Expose } from 'class-transformer';
+import { MediaUserAction } from './MediaUserAction.js';
 
 @Entity({ schema: 'public' })
 export class User extends BaseEntity {
@@ -52,4 +53,7 @@ export class User extends BaseEntity {
   @OneToOne(() => UserProfile, (profile) => profile.user, { cascade: true, eager: true })
   @JoinColumn()
   profile!: Relation<UserProfile>;
+
+  @OneToMany(() => MediaUserAction, (mua) => mua.user)
+  userActions!: Relation<MediaUserAction[]>;
 }

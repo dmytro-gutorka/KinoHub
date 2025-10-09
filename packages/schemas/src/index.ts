@@ -8,6 +8,7 @@ export const UserListItem = z.object({
     lastName: z.string(),
     avatarUrl: z.string().nullable(),
     isEmailConfirmed: z.boolean(),
+    watchedMediaCount: z.int().nullable().nullish()
 })
 
 export type UserListItemDTO = z.infer<typeof UserListItem>;

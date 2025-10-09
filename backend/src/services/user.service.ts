@@ -4,6 +4,7 @@ import { User } from '../entity/User.js';
 import { PAGINATION_LIMITS } from '../utils/constants/SHARED.js';
 // eslint-disable-next-line n/no-extraneous-import
 import { UserListItem } from '@kinohub/schemas';
+import { MediaUserAction } from '../entity/MediaUserAction.js';
 
 class UserService {
   constructor(private readonly ds: DataSource) {}
@@ -25,6 +26,17 @@ class UserService {
         'profile.avatarUrl AS "avatarUrl"',
         'auth.isEmailConfirmed "isEmailConfirmed"',
       ])
+      .addSelect(
+        (qb) =>
+          qb
+            .subQuery()
+            .select('COUNT(*)::int')
+            .from(MediaUserAction, 'mua')
+            .groupBy('mua.userId')
+            .where('mua.userId = user.id')
+            .andWhere('mua.isWatched = true'),
+        'watchedMediaCount'
+      )
       .where('profile.firstName ILIKE :firstName', { firstName: `%${firstName}%` })
       .andWhere('profile.lastName ILIKE :lastName', { lastName: `%${lastName}%` })
       .offset(PAGINATION_LIMITS.USERS * (page - 1))
