@@ -4,6 +4,7 @@ import BlockWrapper from '@shared/ui/BlockWrapper';
 import CheckOutlinedIcon from '@shared/icons/CheckOutlinedIcon';
 import fullNameToInitials from '@shared/helpers/fullNameToInitials';
 import stringToColor from '@shared/helpers/stringToColor';
+import RenderFriendButtonConditionally from '@features/people/ui/RenderFriendButtonConditionally';
 
 interface PersonProps {
   person: UserListItemDTO;
@@ -37,6 +38,7 @@ export default function Person({ person }: PersonProps) {
           </Typography>
           <Typography>@{person.username}</Typography>
         </Stack>
+        <RenderFriendButtonConditionally person={person} />
       </Stack>
     </BlockWrapper>
   );
