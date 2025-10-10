@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/people/ui/Person.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/people/ui/Person.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/schemas/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/people/hooks/usePeople.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/people/hooks/useFriends.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/people/ui/PeopleList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/people/ui/PeopleList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/people/ui/RenderFriendButtonConditionally/RenderFriendButtonConditionally.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/people/ui/RenderFriendButtonConditionally/RenderFriendButtonConditionally.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/friendship-requests/createFriendRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/friendship-requests/createFriendRequest.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +293,7 @@
       <workItem from="1759421742964" duration="30000" />
       <workItem from="1759421784273" duration="2000" />
       <workItem from="1760012358148" duration="16283000" />
-      <workItem from="1760100434458" duration="8253000" />
+      <workItem from="1760100434458" duration="9153000" />
     </task>
     <servers />
   </component>
