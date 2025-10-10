@@ -1,5 +1,5 @@
 import { friendshipRepository } from '../config/repositories.js';
-import { DataSource, In } from 'typeorm';
+import { DataSource, Equal, In, Or } from 'typeorm';
 import { AppDataSource } from '../config/db.js';
 import { Friendship } from '../entity/Friendship.js';
 import { HttpError } from '../errors/HttpError.js';
@@ -21,11 +21,13 @@ class FriendshipService {
   }
 
   async deleteFriend(userId: number, friendId: number): Promise<void> {
-    const friend = await friendshipRepository.findOneBy({ userId, friendId });
+    const friend = await friendshipRepository.findOne({
+      where: { userId: Or(Equal(userId), Equal(friendId)) },
+    });
 
     if (!friend) throw HttpError.NotFound('Friendship not found');
 
-    await friend.remove();
+    await friendshipRepository.delete({ userId: Or(Equal(userId), Equal(friendId)) });
   }
 }
 

@@ -63,7 +63,7 @@ class FriendRequestService {
         .createQueryBuilder()
         .update(FriendRequest)
         .set({ status: 'accepted' as const })
-        .where('id = :requestId AND requester_id = :userId  AND status = :status', {
+        .where('id = :requestId AND receiver_id = :userId AND status = :status', {
           requestId,
           userId,
           status: 'pending',

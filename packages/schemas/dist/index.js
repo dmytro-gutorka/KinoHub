@@ -11,7 +11,8 @@ var UserListItem = z.object({
   isEmailConfirmed: z.boolean(),
   isFriend: z.boolean(),
   isPendingOutgoing: z.boolean(),
-  isPendingIncoming: z.boolean()
+  isPendingIncoming: z.boolean(),
+  friendRequestId: z.number().nullable()
 });
 var UserQuery = z.object({
   search: z.string().optional(),

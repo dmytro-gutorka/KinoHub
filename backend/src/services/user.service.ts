@@ -52,6 +52,19 @@ class UserService {
       .where('fr.status = :pending AND fr.requester_id = user.id AND fr.receiver_id = :userId')
       .getQuery();
 
+    const friendRequestIdSub = this.ds
+      .createQueryBuilder()
+      .subQuery()
+      .select('fr.id::int', 'friendRequestId')
+      .from(FriendRequest, 'fr')
+      .where(
+        'fr.status = :pending AND ' +
+          '((fr.requester_id = :userId AND fr.receiver_id = user.id)' +
+          ' OR ' +
+          '(fr.requester_id = user.id AND fr.receiver_id = :userId))'
+      )
+      .getQuery();
+
     const qb = this.ds
       .createQueryBuilder(User, 'user')
       .leftJoin('user.profile', 'profile')
@@ -65,6 +78,7 @@ class UserService {
         'profile.avatarUrl AS "avatarUrl"',
         'auth.isEmailConfirmed AS "isEmailConfirmed"',
       ])
+      .addSelect(friendRequestIdSub, 'friendRequestId')
       .addSelect(watchedMoviesCountSub, 'watchedMediaCount')
       .addSelect(`EXISTS(${isFriendSub})`, 'isFriend')
       .addSelect(`EXISTS(${isPendingOutgoingSub})`, 'isPendingOutgoing')

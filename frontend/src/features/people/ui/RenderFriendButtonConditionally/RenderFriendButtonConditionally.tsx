@@ -3,7 +3,6 @@ import { UserListItemDTO } from '@kinohub/schemas';
 import useDeleteFriend from '@features/people/hooks/useDeleteFriend';
 import useCreateFriendRequest from '@features/people/hooks/useCreateFriendRequest';
 import useCancelFriendRequest from '@features/people/hooks/useCancelFriendRequest';
-import useRejectFriendRequest from '@features/people/hooks/useRejectFriendRequest';
 import useAcceptFriendRequest from '@features/people/hooks/useAcceptFriendRequest';
 
 export default function RenderFriendButtonConditionally({ person }: { person: UserListItemDTO }) {
@@ -16,7 +15,7 @@ export default function RenderFriendButtonConditionally({ person }: { person: Us
     if (person.isPendingIncoming)
       return (
         <Button
-          onClick={() => acceptFriendRequest(person.id)}
+          onClick={() => acceptFriendRequest(person.friendRequestId!)}
           variant="outlined"
           sx={{ minHeight: 35, padding: 2, fontSize: 10 }}
         >
@@ -27,7 +26,7 @@ export default function RenderFriendButtonConditionally({ person }: { person: Us
     if (person.isPendingOutgoing)
       return (
         <Button
-          onClick={() => cancelFriendRequest(person.id)}
+          onClick={() => cancelFriendRequest(person.friendRequestId!)}
           variant="outlined"
           sx={{ minHeight: 35, padding: 2, fontSize: 10 }}
         >

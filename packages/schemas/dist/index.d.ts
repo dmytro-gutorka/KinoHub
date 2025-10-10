@@ -12,6 +12,7 @@ declare const UserListItem: z.ZodObject<{
     isFriend: z.ZodBoolean;
     isPendingOutgoing: z.ZodBoolean;
     isPendingIncoming: z.ZodBoolean;
+    friendRequestId: z.ZodNullable<z.ZodNumber>;
 }, z.core.$strip>;
 type UserListItemDTO = z.infer<typeof UserListItem>;
 declare const UserQuery: z.ZodObject<{
