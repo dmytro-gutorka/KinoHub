@@ -14,7 +14,7 @@ export default function Person({ person }: PersonProps) {
   const fulNameInitials = fullNameToInitials(`${person.firstName} ${person.lastName}`);
 
   return (
-    <BlockWrapper isBoxShadow={false}>
+    <BlockWrapper isBoxShadow={false} padding={3.5}>
       <Stack direction="row" alignItems="center" gap={5} p={2}>
         <Avatar
           sx={{

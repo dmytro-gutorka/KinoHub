@@ -15,8 +15,6 @@ class UserService {
     const firstName = search.split(' ')[0] || '';
     const lastName = search.split(' ')[1] || '';
 
-    console.log(userId);
-
     const watchedMoviesCountSub = this.ds
       .createQueryBuilder()
       .subQuery()
@@ -32,29 +30,29 @@ class UserService {
       .select('1')
       .from(Friendship, 'fs')
       .where(
-        '(fs.user_id = :userId AND friend_id = user.id) OR (fs.user_id = user.id AND friend_id = :userId) '
+        '(fs.user_id = :userId AND fs.friend_id = user.id)' +
+          ' OR ' +
+          '(fs.user_id = user.id AND fs.friend_id = :userId)'
       )
       .getQuery();
-
-    const hasPendingStatusSub = this.ds
-      .createQueryBuilder()
-      .subQuery()
-      .select('1')
-      .from(FriendRequest, 'fr')
-      .where(
-        'fr.status = "pending" ' +
-          'AND (fr.requester_id = :userId AND fr.receiver_id = user.id) ' +
-          'OR (fr.requester_id = user.id AND fr.receiver_id = :userId)'
-      );
 
     const isPendingOutgoingSub = this.ds
       .createQueryBuilder()
       .subQuery()
       .select('1')
       .from(FriendRequest, 'fr')
-      .where('fr.status = "pending" AND fr.requester_id = :userId AND fr.receiver_id = user.id');
+      .where('fr.status = :pending AND fr.requester_id = :userId AND fr.receiver_id = user.id')
+      .getQuery();
 
-    const rawUsers = await this.ds
+    const isPendingIncomingSub = this.ds
+      .createQueryBuilder()
+      .subQuery()
+      .select('1')
+      .from(FriendRequest, 'fr')
+      .where('fr.status = :pending AND fr.requester_id = user.id AND fr.receiver_id = :userId')
+      .getQuery();
+
+    const qb = this.ds
       .createQueryBuilder(User, 'user')
       .leftJoin('user.profile', 'profile')
       .leftJoin('user.userAuth', 'auth')
@@ -65,21 +63,21 @@ class UserService {
         'profile.firstName AS "firstName"',
         'profile.lastName AS "lastName"',
         'profile.avatarUrl AS "avatarUrl"',
-        'auth.isEmailConfirmed "isEmailConfirmed"',
+        'auth.isEmailConfirmed AS "isEmailConfirmed"',
       ])
       .addSelect(watchedMoviesCountSub, 'watchedMediaCount')
       .addSelect(`EXISTS(${isFriendSub})`, 'isFriend')
-      // .addSelect(`EXISTS(${hasPendingStatusSub})`, 'hasPendingStatus')
+      .addSelect(`EXISTS(${isPendingOutgoingSub})`, 'isPendingOutgoing')
+      .addSelect(`EXISTS(${isPendingIncomingSub})`, 'isPendingIncoming')
       .where('profile.firstName ILIKE :firstName', { firstName: `%${firstName}%` })
-      .andWhere('user.id <> :userId', { userId })
       .andWhere('profile.lastName ILIKE :lastName', { lastName: `%${lastName}%` })
+      .andWhere('user.id <> :userId', { userId })
+      .setParameters({ userId, pending: 'pending' })
       .offset(PAGINATION_LIMITS.USERS * (page - 1))
-      .limit(PAGINATION_LIMITS.USERS)
-      .setParameters({ userId })
-      .getRawMany();
+      .limit(PAGINATION_LIMITS.USERS);
 
-    return rawUsers;
-    // return rawUsers.map((user) => UserListItem.parse(user));
+    const rawUsers = await qb.getRawMany();
+    return rawUsers.map((user) => UserListItem.parse(user));
   }
 }
 

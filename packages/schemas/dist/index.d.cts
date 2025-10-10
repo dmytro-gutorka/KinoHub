@@ -9,6 +9,9 @@ declare const UserListItem: z.ZodObject<{
     lastName: z.ZodString;
     avatarUrl: z.ZodNullable<z.ZodString>;
     isEmailConfirmed: z.ZodBoolean;
+    isFriend: z.ZodBoolean;
+    isPendingOutgoing: z.ZodBoolean;
+    isPendingIncoming: z.ZodBoolean;
 }, z.core.$strip>;
 type UserListItemDTO = z.infer<typeof UserListItem>;
 declare const UserQuery: z.ZodObject<{

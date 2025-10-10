@@ -8,7 +8,10 @@ var UserListItem = z.object({
   firstName: z.string(),
   lastName: z.string(),
   avatarUrl: z.string().nullable(),
-  isEmailConfirmed: z.boolean()
+  isEmailConfirmed: z.boolean(),
+  isFriend: z.boolean(),
+  isPendingOutgoing: z.boolean(),
+  isPendingIncoming: z.boolean()
 });
 var UserQuery = z.object({
   search: z.string().optional(),
