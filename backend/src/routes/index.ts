@@ -1,7 +1,7 @@
 import { authGuard } from '../middleware/auth.middleware.js';
 import { router as usersRouter } from './user.routes.js';
 import { router as mediaRouter } from './media.routes.js';
-import { router as friendsRouter } from './friend-request.routes.js';
+import { router as friendRequestsRouter } from './friend-request.routes.js';
 import { router as actionsRouter } from './media-user-action.routes.js';
 import { router as episodesRouter } from './episode.routes.js';
 import { router as activityLogRouter } from './activity-log.routes.js';
@@ -18,9 +18,9 @@ publicRoutes.use('/auth', authRouter);
 privateRoutes.use(authGuard());
 
 privateRoutes.use('/', episodesRouter);
-privateRoutes.use('/friendship', friendshipRouter);
+privateRoutes.use('/friends', friendshipRouter);
+privateRoutes.use('/friend-requests', friendRequestsRouter);
 privateRoutes.use('/activity', activityLogRouter);
-privateRoutes.use('/friends', friendsRouter);
 privateRoutes.use('/auth', privateRoute);
 privateRoutes.use('/media', mediaRouter);
 privateRoutes.use('/actions', actionsRouter);

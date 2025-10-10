@@ -10,11 +10,11 @@ import {
 
 export const router: Router = Router();
 
-router.post('/requests', createFriendRequest);
+router.get('/incoming', getIncomingFriendRequests);
+router.get('/outcoming', getOutcomingFriendRequests);
 
-router.get('/requests/incoming', getIncomingFriendRequests);
-router.get('/requests/outcoming', getOutcomingFriendRequests);
+router.post('/', createFriendRequest);
 
-router.post('/requests/:requestId/accept', acceptFriendRequest);
-router.post('/requests/:requestId/reject', rejectFriendRequest);
-router.post('/requests/:requestId/cancel', cancelFriendRequest);
+router.post('/:requestId/accept', acceptFriendRequest);
+router.post('/:requestId/reject', rejectFriendRequest);
+router.post('/:requestId/cancel', cancelFriendRequest);

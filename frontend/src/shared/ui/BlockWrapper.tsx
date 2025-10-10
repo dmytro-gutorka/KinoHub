@@ -29,7 +29,7 @@ export default function BlockWrapper({
   return (
     <Stack flexGrow={1} flexBasis={1} position={position}>
       <Stack
-        boxShadow={isBoxShadow && theme.shadows[10]}
+        boxShadow={isBoxShadow ? theme.shadows[10] : 'none'}
         borderRadius={theme.shape.borderRadiusScale.md}
         border={theme.border}
         bgcolor={theme.palette.darkBlueAccent}

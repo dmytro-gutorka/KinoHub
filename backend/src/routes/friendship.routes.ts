@@ -7,7 +7,7 @@ import {
 
 export const router: Router = express.Router();
 
+router.get('/:id/mutual', getMutualFriends);
+
 router.get('/', getFriends);
 router.delete('/:id', deleteFriend);
-
-router.get('/:id/mutual', getMutualFriends);

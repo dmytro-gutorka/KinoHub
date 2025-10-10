@@ -64,7 +64,23 @@ export const apiPath = {
     getList: (page: number = 1) => `${API_URL}/activity?page=${page}`,
   },
   people: {
-    getList: (search: string = '' , page: number = 1) => `${API_URL}/users?page=${page}&search=${search}`,
-
-  }
+    getList: (search: string = '', page: number = 1) =>
+      `${API_URL}/users?page=${page}&search=${search}`,
+  },
+  friendships: {
+    getFriend: () => `${API_URL}/friends`,
+    getMutualFriends: () => `${API_URL}/friends/mutual`,
+    deleteFriend: (friendId: number) => `${API_URL}/friends/${friendId}`,
+  },
+  friendshipRequests: {
+    getIncomingFriendRequests: () => `${API_URL}/friend-requests/incoming`,
+    getOutcomingFriendRequests: () => `${API_URL}/friend-requests/outcoming`,
+    createFriendRequest: () => `${API_URL}/friend-requests`,
+    acceptFriendRequest: (friendRequestId: number) =>
+      `${API_URL}/friend-requests/${friendRequestId}/accept`,
+    rejectFriendRequest: (friendRequestId: number) =>
+      `${API_URL}/friend-requests/${friendRequestId}/reject`,
+    cancelFriendRequest: (friendRequestId: number) =>
+      `${API_URL}/friend-requests/${friendRequestId}/cancel`,
+  },
 };
