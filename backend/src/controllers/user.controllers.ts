@@ -6,8 +6,9 @@ import { UserListItemDTO, UserQueryDTO } from '@kinohub/schemas';
 export async function getUsers(req: Request<any, any, any, UserQueryDTO>, res: Response) {
   const search = req.query.search || '';
   const page = req.query.page || 1;
+  const userId = req.user?.id!;
 
-  const users: UserListItemDTO[] = await usersService.getUsers(search, page);
+  const users: UserListItemDTO[] = await usersService.getUsers(userId, search, page);
 
   res.status(200).json(users);
 }

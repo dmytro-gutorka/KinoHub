@@ -17,6 +17,7 @@ import { CommentVote } from './CommentVote.js';
 import { UserProfile } from './UserProfile.js';
 import { Expose } from 'class-transformer';
 import { MediaUserAction } from './MediaUserAction.js';
+import { Friendship } from './Friendship.js';
 
 @Entity({ schema: 'public' })
 export class User extends BaseEntity {
@@ -49,6 +50,9 @@ export class User extends BaseEntity {
   @OneToOne(() => UserAuth, (userAuth) => userAuth.user, { cascade: true, eager: true })
   @JoinColumn()
   userAuth!: Relation<UserAuth>;
+
+  @OneToMany(() => Friendship, (f) => f.friend)
+  friends!: Relation<Friendship>;
 
   @OneToOne(() => UserProfile, (profile) => profile.user, { cascade: true, eager: true })
   @JoinColumn()
