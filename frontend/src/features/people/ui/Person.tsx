@@ -5,6 +5,9 @@ import CheckOutlinedIcon from '@shared/icons/CheckOutlinedIcon';
 import fullNameToInitials from '@shared/helpers/fullNameToInitials';
 import stringToColor from '@shared/helpers/stringToColor';
 import RenderFriendButtonConditionally from '@features/people/ui/RenderFriendButtonConditionally';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import SlideshowOutlinedIcon from '@mui/icons-material/SlideshowOutlined';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 
 interface PersonProps {
   person: UserListItemDTO;
@@ -15,10 +18,13 @@ export default function Person({ person }: PersonProps) {
   const fulNameInitials = fullNameToInitials(`${person.firstName} ${person.lastName}`);
 
   return (
-    <BlockWrapper isBoxShadow={false} padding={3.5}>
-      <Stack direction="row" alignItems="center" gap={5} p={2}>
+    <BlockWrapper isBoxShadow={false} padding={5}>
+      <Stack direction="row" alignItems="start" gap={5} p={2}>
         <Avatar
           sx={{
+            marginTop: 2,
+            width: 55,
+            height: 55,
             bgcolor: stringToColor(fullName),
             position: 'relative',
             overflow: 'visible',
@@ -32,13 +38,37 @@ export default function Person({ person }: PersonProps) {
             </SvgIcon>
           )}
         </Avatar>
-        <Stack direction="column">
-          <Typography variant="body2" fontWeight={600}>
-            {fullName}
-          </Typography>
-          <Typography>@{person.username}</Typography>
+
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+          flexGrow={1}
+          gap={2}
+        >
+          <Stack direction="column">
+            <Typography variant="body2" fontWeight={900}>
+              {fullName}
+            </Typography>
+            <Typography mb={2}>@{person.username}</Typography>
+            <Stack direction="row" gap={2}>
+              <Typography display="flex" alignItems="center" gap={1}>
+                <PeopleAltOutlinedIcon fontSize="small" />
+                10 mutual
+              </Typography>
+
+              <Typography display="flex" alignItems="center" gap={1}>
+                <SlideshowOutlinedIcon fontSize="small" />
+                {person.watchedMediaCount} watched
+              </Typography>
+              <Typography display="flex" alignItems="center" gap={1}>
+                <AccessTimeOutlinedIcon fontSize="small" />2 days ago
+              </Typography>
+            </Stack>
+          </Stack>
+
+          <RenderFriendButtonConditionally person={person} />
         </Stack>
-        <RenderFriendButtonConditionally person={person} />
       </Stack>
     </BlockWrapper>
   );

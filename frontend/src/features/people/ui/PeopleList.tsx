@@ -9,7 +9,7 @@ export default function PeopleList() {
 
   console.log(people);
   return (
-    <Stack gap={3}>
+    <Stack gap={4}>
       {people.map((person: UserListItemDTO) => (
         <Person key={person.id} person={person} />
       ))}

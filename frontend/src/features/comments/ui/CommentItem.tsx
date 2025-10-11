@@ -35,7 +35,6 @@ export default function CommentItem({ comment }) {
 
   const fulName = `${firstName} ${lastName}`;
   const fullNameInitials = fullNameToInitials(fulName);
-  console.log(comment);
 
   return (
     <Stack direction="row" spacing={4}>

@@ -21,6 +21,9 @@ export const MuiButton = (theme: Theme) => ({
           style: {
             color: theme.palette.common.white,
             border: `1px solid ${theme.palette.grey[400]}`,
+            minHeight: 35,
+            padding: theme.spacing(2),
+            fontSize: 14,
           },
         },
       ],

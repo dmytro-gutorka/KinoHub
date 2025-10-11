@@ -1,4 +1,5 @@
 import '@mui/material/styles';
+import { BorderRadius } from '@shared/types/generalTypes';
 
 declare module '@mui/material/styles' {
   interface Theme {
@@ -57,11 +58,4 @@ declare module '@mui/system/' {
   interface Shape {
     borderRadiusScale: BorderRadius;
   }
-}
-
-interface BorderRadius {
-  sm: number;
-  md: number;
-  lg: number;
-  xl: number;
 }

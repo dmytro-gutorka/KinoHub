@@ -111,3 +111,10 @@ export interface SVGIcon {
 }
 
 export type ActivityType = 'watch' | 'like' | 'rate' | 'comment';
+
+export interface BorderRadius {
+  sm: number;
+  md: number;
+  lg: number;
+  xl: number;
+}

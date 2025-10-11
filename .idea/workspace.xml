@@ -6,15 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/friend-request.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/friend-request.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/friendship.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/friendship.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/theme/components/button.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme/components/button.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentActionButtonList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentActionButtonList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/comments/ui/CommentItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardBrief.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaCardBrief.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/people/ui/PeopleList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/people/ui/PeopleList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/people/ui/Person.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/people/ui/Person.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/people/ui/RenderFriendButtonConditionally/RenderFriendButtonConditionally.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/people/ui/RenderFriendButtonConditionally/RenderFriendButtonConditionally.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/schemas/dist/index.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/dist/index.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/schemas/dist/index.d.cts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/dist/index.d.cts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/schemas/dist/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/dist/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/schemas/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/dist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/schemas/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/types/dts/theme.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/types/dts/theme.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/BlockWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/BlockWrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/LabelWithIcon/LabelWithIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/LabelWithIcon/LabelWithIcon.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +299,7 @@
       <workItem from="1759421742964" duration="30000" />
       <workItem from="1759421784273" duration="2000" />
       <workItem from="1760012358148" duration="16283000" />
-      <workItem from="1760100434458" duration="11948000" />
+      <workItem from="1760100434458" duration="15391000" />
     </task>
     <servers />
   </component>
