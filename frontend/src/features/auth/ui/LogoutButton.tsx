@@ -13,6 +13,7 @@ export default function LogoutButton() {
   function handleLogout() {
     dispatch(logout());
     navigate('/');
+    window.location.reload();
   }
 
   return <>{isAuthenticated && <Button onClick={handleLogout}>Logout</Button>}</>;

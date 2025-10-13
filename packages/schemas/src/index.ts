@@ -13,6 +13,7 @@ export const UserListItem = z.object({
     isPendingOutgoing: z.boolean(),
     isPendingIncoming: z.boolean(),
     friendRequestId: z.number().nullable(),
+    mutualFriendsCount: z.number().int().nullable(),
 })
 
 export type UserListItemDTO = z.infer<typeof UserListItem>;

@@ -6,7 +6,6 @@ import Homepage from '@pages/Homepage';
 import MediaDetails from '@pages/MediaDetails';
 import MovieBoard from '@pages/MovieBoard';
 import Profile from '@pages/Profile';
-import Settings from '@pages/Settings';
 import Dashboard from '@pages/Dashboard';
 import History from '@pages/History';
 import MediaList from '@pages/MediaList';
@@ -27,10 +26,8 @@ function makeRouter() {
         { path: '/history', Component: History },
         { path: '/movie-board', Component: MovieBoard },
         { path: '/dashboard', Component: Dashboard },
-        { path: '/settings', Component: Settings },
         { path: '/logout', Component: Homepage },
         { path: '/people', Component: People },
-
       ],
     },
     { path: '/profile', Component: Profile },

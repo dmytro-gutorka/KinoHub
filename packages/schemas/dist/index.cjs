@@ -47,7 +47,8 @@ var UserListItem = z.object({
   isFriend: z.boolean(),
   isPendingOutgoing: z.boolean(),
   isPendingIncoming: z.boolean(),
-  friendRequestId: z.number().nullable()
+  friendRequestId: z.number().nullable(),
+  mutualFriendsCount: z.number().int().nullable()
 });
 var UserQuery = z.object({
   search: z.string().optional(),

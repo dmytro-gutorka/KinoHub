@@ -65,6 +65,17 @@ class UserService {
       )
       .getQuery();
 
+    const mutualFriends = this.ds
+      .createQueryBuilder()
+      .subQuery()
+      .from(Friendship, 'f1')
+      .innerJoin(Friendship, 'f2', 'f1.friend_id = f2.friend_id')
+      .select('COUNT(DISTINCT f1.friend_id)::int')
+      .where('f1.user_id = :userId')
+      .andWhere('f2.user_id = "user".id')
+      .andWhere('f2.friend_id <> :userId')
+      .getQuery();
+
     const qb = this.ds
       .createQueryBuilder(User, 'user')
       .leftJoin('user.profile', 'profile')
@@ -78,6 +89,7 @@ class UserService {
         'profile.avatarUrl AS "avatarUrl"',
         'auth.isEmailConfirmed AS "isEmailConfirmed"',
       ])
+      .addSelect(mutualFriends, 'mutualFriendsCount')
       .addSelect(friendRequestIdSub, 'friendRequestId')
       .addSelect(watchedMoviesCountSub, 'watchedMediaCount')
       .addSelect(`EXISTS(${isFriendSub})`, 'isFriend')

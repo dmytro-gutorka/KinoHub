@@ -40,9 +40,7 @@ export default function AsideBar() {
       <Stack pr={4}>
         <Stack gap={2}>
           <StyledNavLink to="profile" icon={<PersonOutlineOutlinedIcon />} label="Profile" />
-          <StyledNavLink to="settings" icon={<SettingsOutlinedIcon />} label="Settings" />
           <StyledNavLink to="people" icon={<SettingsOutlinedIcon />} label="People" />
-
         </Stack>
       </Stack>
     </Stack>
