@@ -8,6 +8,7 @@ export default function useDeleteFriend() {
     mutationFn: (friendId: number) => deleteFriend(friendId),
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ['people'] });
+      await queryClient.invalidateQueries({ queryKey: ['friends'] });
     },
   });
 }

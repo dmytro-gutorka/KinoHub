@@ -29,13 +29,21 @@ class FriendshipService {
   }
 
   async deleteFriend(userId: number, friendId: number): Promise<void> {
-    const friend = await friendshipRepository.findOne({
-      where: { userId: Or(Equal(userId), Equal(friendId)) },
+    const firstRelation = await friendshipRepository.findOneBy({
+      userId: userId,
+      friendId: friendId,
+    });
+    const secondRelation = await friendshipRepository.findOneBy({
+      userId: userId,
+      friendId: friendId,
     });
 
-    if (!friend) throw HttpError.NotFound('Friendship not found');
+    await friendshipRepository.findOneBy({ userId: friendId, friendId: userId });
 
-    await friendshipRepository.delete({ userId: Or(Equal(userId), Equal(friendId)) });
+    if (!firstRelation && !secondRelation) throw HttpError.NotFound('Friendship not found');
+
+    await friendshipRepository.delete({ userId: userId, friendId: friendId });
+    await friendshipRepository.delete({ userId: friendId, friendId: userId });
   }
 }
 
