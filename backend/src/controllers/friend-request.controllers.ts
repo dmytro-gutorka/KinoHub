@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { friendRequestsService } from '../services/friend-request.service.js';
+import { UserListItemDTO } from '@kinohub/schemas';
 
 export async function createFriendRequest(req: Request, res: Response) {
   const requesterId: number = req.user?.id!;
@@ -40,7 +41,8 @@ export async function cancelFriendRequest(req: Request, res: Response) {
 export async function getIncomingFriendRequests(req: Request, res: Response) {
   const userId: number = req.user?.id!;
 
-  const incomingRequests = await friendRequestsService.getIncomingFriendRequests(userId);
+  const incomingRequests: UserListItemDTO[] =
+    await friendRequestsService.getIncomingFriendRequests(userId);
 
   res.status(200).json(incomingRequests);
 }

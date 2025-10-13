@@ -4,6 +4,9 @@ import { FriendRequest } from '../entity/FriendRequest.js';
 import { DataSource } from 'typeorm';
 import { Friendship } from '../entity/Friendship.js';
 import { HttpError } from '../errors/HttpError.js';
+import { usersService } from './user.service.js';
+// eslint-disable-next-line n/no-extraneous-import
+import { UserListItemDTO } from '@kinohub/schemas';
 
 class FriendRequestService {
   constructor(private readonly ds: DataSource) {}
@@ -122,12 +125,34 @@ class FriendRequestService {
     await friendsRequestRepository.save(pendingRequest);
   }
 
-  async getIncomingFriendRequests(userId: number): Promise<FriendRequest[]> {
-    return await friendsRequestRepository.findBy({ receiverId: userId, status: 'pending' });
+  async getIncomingFriendRequests(userId: number): Promise<UserListItemDTO[]> {
+    const incomingFriendRequest = await friendsRequestRepository.find({
+      where: {
+        receiverId: userId,
+        status: 'pending',
+      },
+      select: ['requesterId'],
+    });
+
+    const outgoingFriendRequestIds = incomingFriendRequest.map((r) => r.requesterId);
+    if (outgoingFriendRequestIds.length === 0) return [];
+
+    return await usersService.getUsers(userId, '', 1, outgoingFriendRequestIds);
   }
 
   async getOutcomingFriendRequests(userId: number) {
-    return await friendsRequestRepository.findBy({ requesterId: userId, status: 'pending' });
+    const outgoingFriendRequest = await friendsRequestRepository.find({
+      where: {
+        requesterId: userId,
+        status: 'pending',
+      },
+      select: ['receiverId'],
+    });
+
+    const outgoingFriendRequestIds = outgoingFriendRequest.map((r) => r.receiverId);
+    if (outgoingFriendRequest.length === 0) return [];
+
+    return await usersService.getUsers(userId, '', 1, outgoingFriendRequestIds);
   }
 }
 

@@ -54,7 +54,7 @@ export default function Person({ person }: PersonProps) {
             <Stack direction="row" gap={2}>
               <Typography display="flex" alignItems="center" gap={1}>
                 <PeopleAltOutlinedIcon fontSize="small" />
-                10 mutual
+                {person.mutualFriendsCount} mutual
               </Typography>
 
               <Typography display="flex" alignItems="center" gap={1}>

@@ -1,17 +1,17 @@
+import { PAGINATION_LIMITS } from '../utils/constants/SHARED.js';
+import { MediaUserAction } from '../entity/MediaUserAction.js';
 import { AppDataSource } from '../config/db.js';
 import { DataSource } from 'typeorm';
 import { User } from '../entity/User.js';
-import { PAGINATION_LIMITS } from '../utils/constants/SHARED.js';
 // eslint-disable-next-line n/no-extraneous-import
 import { UserListItem } from '@kinohub/schemas';
-import { MediaUserAction } from '../entity/MediaUserAction.js';
 import { Friendship } from '../entity/Friendship.js';
 import { FriendRequest } from '../entity/FriendRequest.js';
 
 class UserService {
   constructor(private readonly ds: DataSource) {}
 
-  async getUsers(userId: number, search: string, page: number) {
+  async getUsers(userId: number, search: string, page: number, peopleIds: number[] = []) {
     const firstName = search.split(' ')[0] || '';
     const lastName = search.split(' ')[1] || '';
 
@@ -65,7 +65,7 @@ class UserService {
       )
       .getQuery();
 
-    const mutualFriends = this.ds
+    const mutualFriendsSub = this.ds
       .createQueryBuilder()
       .subQuery()
       .from(Friendship, 'f1')
@@ -73,7 +73,8 @@ class UserService {
       .select('COUNT(DISTINCT f1.friend_id)::int')
       .where('f1.user_id = :userId')
       .andWhere('f2.user_id = "user".id')
-      .andWhere('f2.friend_id <> :userId')
+      .andWhere('f2.user_id <> :userId')
+      // .andWhere('f2.friend_id <> :userId')
       .getQuery();
 
     const qb = this.ds
@@ -89,7 +90,7 @@ class UserService {
         'profile.avatarUrl AS "avatarUrl"',
         'auth.isEmailConfirmed AS "isEmailConfirmed"',
       ])
-      .addSelect(mutualFriends, 'mutualFriendsCount')
+      .addSelect(mutualFriendsSub, 'mutualFriendsCount')
       .addSelect(friendRequestIdSub, 'friendRequestId')
       .addSelect(watchedMoviesCountSub, 'watchedMediaCount')
       .addSelect(`EXISTS(${isFriendSub})`, 'isFriend')
@@ -98,7 +99,8 @@ class UserService {
       .where('profile.firstName ILIKE :firstName', { firstName: `%${firstName}%` })
       .andWhere('profile.lastName ILIKE :lastName', { lastName: `%${lastName}%` })
       .andWhere('user.id <> :userId', { userId })
-      .setParameters({ userId, pending: 'pending' })
+      .andWhere(`${peopleIds.length > 0 ? 'user.id IN (:...peopleIds)' : '1 = 1'}`)
+      .setParameters({ userId, pending: 'pending', peopleIds })
       .offset(PAGINATION_LIMITS.USERS * (page - 1))
       .limit(PAGINATION_LIMITS.USERS);
 

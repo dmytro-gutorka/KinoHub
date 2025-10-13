@@ -6,17 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/friend-request.controllers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/friend-request.controllers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/friend-request.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/friend-request.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/router.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/auth/ui/LogoutButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/auth/ui/LogoutButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Settings/Settings.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Settings/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/AsideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/AsideBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/schemas/dist/index.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/dist/index.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/schemas/dist/index.d.cts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/dist/index.d.cts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/schemas/dist/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/dist/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/schemas/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/dist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/schemas/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/people/ui/Person.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/people/ui/Person.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +294,7 @@
       <workItem from="1760012358148" duration="16283000" />
       <workItem from="1760100434458" duration="15391000" />
       <workItem from="1760285312322" duration="2000" />
-      <workItem from="1760359807969" duration="5556000" />
+      <workItem from="1760359807969" duration="8512000" />
     </task>
     <servers />
   </component>
