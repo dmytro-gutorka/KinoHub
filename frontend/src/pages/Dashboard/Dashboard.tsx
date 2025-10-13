@@ -6,11 +6,11 @@ import DashboardMoviesTab from '@features/dashboard/ui/DashboardMoviesTab';
 import useUserMediaStats from '@shared/hooks/useUserMediaStats';
 import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
+import TabList from '@mui/lab/TabList';
+import Tab from '@mui/material/Tab';
 import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
 import InsertChartOutlinedOutlinedIcon from '@mui/icons-material/InsertChartOutlinedOutlined';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
-import Tab from '@mui/material/Tab';
-import TabList from '@mui/lab/TabList';
 
 export default function Dashboard() {
   const [value, setValue] = useState('1');

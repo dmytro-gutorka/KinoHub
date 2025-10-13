@@ -4,7 +4,7 @@ import BlockWrapper from '@shared/ui/BlockWrapper';
 import CheckOutlinedIcon from '@shared/icons/CheckOutlinedIcon';
 import fullNameToInitials from '@shared/helpers/fullNameToInitials';
 import stringToColor from '@shared/helpers/stringToColor';
-import RenderFriendButtonConditionally from '@features/people/ui/RenderFriendButtonConditionally';
+import RenderPeopleButtonsConditionally from '@features/people/ui/RenderPeopleButtonsConditionally';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import SlideshowOutlinedIcon from '@mui/icons-material/SlideshowOutlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
@@ -67,7 +67,7 @@ export default function Person({ person }: PersonProps) {
             </Stack>
           </Stack>
 
-          <RenderFriendButtonConditionally person={person} />
+          <RenderPeopleButtonsConditionally person={person} />
         </Stack>
       </Stack>
     </BlockWrapper>

@@ -3,7 +3,7 @@ import { Theme } from '@mui/material';
 export const MuiTab = (theme: Theme) => ({
   styleOverrides: {
     root: {
-      padding: theme.spacing(7),
+      padding: theme.spacing(6),
       borderRadius: theme.shape.borderRadiusScale.xl,
       textTransform: 'capitalize',
       fontWeight: '900',

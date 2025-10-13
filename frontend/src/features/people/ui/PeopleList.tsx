@@ -1,10 +1,10 @@
 import { UserListItemDTO } from '@kinohub/schemas';
 import { Stack } from '@mui/material';
-import useFriends from '@features/people/hooks/useFriends';
+import usePeople from '@features/people/hooks/usePeople';
 import Person from './Person';
 
 export default function PeopleList() {
-  const { data: people, isSuccess } = useFriends();
+  const { data: people, isSuccess } = usePeople();
   if (!isSuccess) return null;
 
   console.log(people);

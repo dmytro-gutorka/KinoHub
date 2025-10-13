@@ -1,8 +1,8 @@
+import { UserListItemDTO } from '@kinohub/schemas';
 import { useQuery } from '@tanstack/react-query';
 import getPeople from '@shared/api/people/getPeople';
-import { UserListItemDTO } from '@kinohub/schemas';
 
-export default function useFriends() {
+export default function usePeople() {
   const queryKey = ['people'];
 
   return useQuery({

@@ -1,12 +1,12 @@
 import { Button, Stack } from '@mui/material';
 import { UserListItemDTO } from '@kinohub/schemas';
-import useDeleteFriend from '@features/people/hooks/useDeleteFriend';
-import useCreateFriendRequest from '@features/people/hooks/useCreateFriendRequest';
-import useCancelFriendRequest from '@features/people/hooks/useCancelFriendRequest';
-import useAcceptFriendRequest from '@features/people/hooks/useAcceptFriendRequest';
-import useRejectFriendRequest from '@features/people/hooks/useRejectFriendRequest';
+import useDeleteFriend from '@shared/hooks/useDeleteFriend';
+import useCreateFriendRequest from '@shared/hooks/useCreateFriendRequest';
+import useCancelFriendRequest from '@shared/hooks/useCancelFriendRequest';
+import useAcceptFriendRequest from '@shared/hooks/useAcceptFriendRequest';
+import useRejectFriendRequest from '@shared/hooks/useRejectFriendRequest';
 
-export default function RenderFriendButtonConditionally({ person }: { person: UserListItemDTO }) {
+export default function RenderPeopleButtonsConditionally({ person }: { person: UserListItemDTO }) {
   const { mutate: deleteFriend } = useDeleteFriend();
   const { mutate: createFriendRequest } = useCreateFriendRequest();
   const { mutate: cancelFriendRequest } = useCancelFriendRequest();
