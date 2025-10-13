@@ -68,7 +68,8 @@ export const apiPath = {
       `${API_URL}/users?page=${page}&search=${search}`,
   },
   friendships: {
-    getFriend: () => `${API_URL}/friends`,
+    getFriends: (search: string = '', page: number = 1) =>
+      `${API_URL}/friends?search=${search}&page=${page}`,
     getMutualFriends: () => `${API_URL}/friends/mutual`,
     deleteFriend: (friendId: number) => `${API_URL}/friends/${friendId}`,
   },

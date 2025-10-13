@@ -8,17 +8,20 @@ import Diversity1OutlinedIcon from '@mui/icons-material/Diversity1Outlined';
 import GetAppOutlinedIcon from '@mui/icons-material/GetAppOutlined';
 import UploadOutlinedIcon from '@mui/icons-material/UploadOutlined';
 import Search from '@shared/ui/Search';
-import BlockWrapper from '@shared/ui/BlockWrapper';
+import useDebouncedValue from '@shared/hooks/useDebouncedValue';
+import FriendsTab from '@features/friends/ui/FriendsTab';
 
 export default function Friends() {
   const [value, setValue] = useState('1');
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState<string>('');
+
+  const debouncedSearched = useDebouncedValue<string>(search, 500);
 
   return (
     <Container maxWidth="lg">
       <TabContext value={value}>
         <Stack gap={4} p={5}>
-          <Search />
+          <Search onChange={setSearch} search={search} />
           <TabList onChange={(_, v: string) => setValue(v)}>
             <Tab icon={<Diversity1OutlinedIcon />} iconPosition="start" label="Friends" value="1" />
             <Tab
@@ -36,7 +39,9 @@ export default function Friends() {
           </TabList>
         </Stack>
 
-        <TabPanel value="1">1</TabPanel>
+        <TabPanel value="1">
+          <FriendsTab search={debouncedSearched} />
+        </TabPanel>
 
         <TabPanel value="2">2</TabPanel>
 

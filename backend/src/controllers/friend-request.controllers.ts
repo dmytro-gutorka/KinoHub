@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { friendRequestsService } from '../services/friend-request.service.js';
+// eslint-disable-next-line n/no-extraneous-import
 import { UserListItemDTO } from '@kinohub/schemas';
 
 export async function createFriendRequest(req: Request, res: Response) {
