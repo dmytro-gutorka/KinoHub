@@ -10,6 +10,7 @@ import Dashboard from '@pages/Dashboard';
 import History from '@pages/History';
 import MediaList from '@pages/MediaList';
 import People from '@pages/People';
+import Friends from '@pages/Friends';
 
 const router = makeRouter();
 
@@ -28,6 +29,7 @@ function makeRouter() {
         { path: '/dashboard', Component: Dashboard },
         { path: '/logout', Component: Homepage },
         { path: '/people', Component: People },
+        { path: '/friends', Component: Friends },
       ],
     },
     { path: '/profile', Component: Profile },

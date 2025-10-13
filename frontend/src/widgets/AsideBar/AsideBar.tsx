@@ -1,5 +1,4 @@
 import { Divider, Stack } from '@mui/material';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import InsertChartOutlinedOutlinedIcon from '@mui/icons-material/InsertChartOutlinedOutlined';
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
@@ -7,6 +6,9 @@ import RestoreRoundedIcon from '@mui/icons-material/RestoreRounded';
 import LiveTvRoundedIcon from '@mui/icons-material/LiveTvRounded';
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import Diversity1OutlinedIcon from '@mui/icons-material/Diversity1Outlined';
+import GroupAddOutlinedIcon from '@mui/icons-material/GroupAddOutlined';
+
 import theme from '@app/theme/theme';
 import Logo from '@shared/ui/Logo';
 import StyledNavLink from '@shared/ui/StyledNavLink';
@@ -40,7 +42,8 @@ export default function AsideBar() {
       <Stack pr={4}>
         <Stack gap={2}>
           <StyledNavLink to="profile" icon={<PersonOutlineOutlinedIcon />} label="Profile" />
-          <StyledNavLink to="people" icon={<SettingsOutlinedIcon />} label="People" />
+          <StyledNavLink to="people" icon={<GroupAddOutlinedIcon />} label="People" />
+          <StyledNavLink to="friends" icon={<Diversity1OutlinedIcon />} label="friends" />
         </Stack>
       </Stack>
     </Stack>

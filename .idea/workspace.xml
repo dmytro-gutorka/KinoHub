@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/friend-request.controllers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/friend-request.controllers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/friend-request.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/friend-request.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/people/ui/Person.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/people/ui/Person.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/AsideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/widgets/AsideBar/AsideBar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +25,9 @@
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
         <option value="tsconfig.json" />
+        <option value="TypeScript File" />
         <option value="JSX Component Folder.tsx.child.0" />
         <option value="JSX Component Folder" />
-        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -294,7 +292,7 @@
       <workItem from="1760012358148" duration="16283000" />
       <workItem from="1760100434458" duration="15391000" />
       <workItem from="1760285312322" duration="2000" />
-      <workItem from="1760359807969" duration="8512000" />
+      <workItem from="1760359807969" duration="9114000" />
     </task>
     <servers />
   </component>
