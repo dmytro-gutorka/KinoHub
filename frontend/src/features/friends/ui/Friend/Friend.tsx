@@ -1,13 +1,12 @@
 import { UserListItemDTO } from '@kinohub/schemas';
 import BlockWrapper from '@shared/ui/BlockWrapper';
-import { Avatar, Button, Stack, SvgIcon, Typography } from '@mui/material';
-import stringToColor from '@shared/helpers/stringToColor';
-import CheckOutlinedIcon from '@shared/icons/CheckOutlinedIcon';
+import { Button, Stack, Typography } from '@mui/material';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import SlideshowOutlinedIcon from '@mui/icons-material/SlideshowOutlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import fullNameToInitials from '@shared/helpers/fullNameToInitials';
 import useDeleteFriend from '@shared/hooks/useDeleteFriend';
+import UserAvatarWithConfirmationIcon from '@shared/ui/UserAvatarWithConfirmationIcon/UserAvatarWithConfirmationIcon';
 
 export default function Friend({ friend }: { friend: UserListItemDTO }) {
   const fullName = `${friend.firstName} ${friend.lastName}`;
@@ -18,24 +17,11 @@ export default function Friend({ friend }: { friend: UserListItemDTO }) {
   return (
     <BlockWrapper isBoxShadow={false} padding={5}>
       <Stack direction="row" alignItems="start" gap={5} p={2}>
-        <Avatar
-          sx={{
-            marginTop: 2,
-            width: 55,
-            height: 55,
-            bgcolor: stringToColor(fullName),
-            position: 'relative',
-            overflow: 'visible',
-            outline: '2px solid white',
-          }}
-        >
-          <Typography color="white">{fulNameInitials.toUpperCase()}</Typography>
-          {friend.isEmailConfirmed && (
-            <SvgIcon sx={{ position: 'absolute', bottom: -6, right: -6 }} fontSize="small">
-              <CheckOutlinedIcon />
-            </SvgIcon>
-          )}
-        </Avatar>
+        <UserAvatarWithConfirmationIcon
+          fullName={fullName}
+          fulNameInitials={fulNameInitials}
+          isEmailConfirmed={friend.isEmailConfirmed}
+        />
 
         <Stack
           direction="row"
@@ -54,17 +40,20 @@ export default function Friend({ friend }: { friend: UserListItemDTO }) {
                 <PeopleAltOutlinedIcon fontSize="small" />
                 {friend.mutualFriendsCount} mutual
               </Typography>
-
+              ·
               <Typography display="flex" alignItems="center" gap={1}>
                 <SlideshowOutlinedIcon fontSize="small" />
                 {friend.watchedMediaCount} watched
               </Typography>
+              ·
               <Typography display="flex" alignItems="center" gap={1}>
                 <AccessTimeOutlinedIcon fontSize="small" />2 days ago
               </Typography>
-              <Button onClick={() => deleteFriend(friend.id)}>Delete Friend</Button>
             </Stack>
           </Stack>
+          <Button variant="outlined" onClick={() => deleteFriend(friend.id)}>
+            Delete Friend
+          </Button>
         </Stack>
       </Stack>
     </BlockWrapper>

@@ -1,9 +1,9 @@
 import { friendshipRepository } from '../config/repositories.js';
-import { DataSource, Equal, In, Or } from 'typeorm';
+import { DataSource, In } from 'typeorm';
 import { AppDataSource } from '../config/db.js';
+import { usersService } from './user.service.js';
 import { Friendship } from '../entity/Friendship.js';
 import { HttpError } from '../errors/HttpError.js';
-import { usersService } from './user.service.js';
 // eslint-disable-next-line n/no-extraneous-import
 import { UserListItemDTO } from '@kinohub/schemas';
 

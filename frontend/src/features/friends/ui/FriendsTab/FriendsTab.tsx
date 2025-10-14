@@ -8,12 +8,10 @@ export default function FriendsTab({ search }: { search: string }) {
 
   if (!isSuccess) return null;
 
-  console.log(friends);
-
   return (
     <Stack gap={2}>
       {friends.map((friend: UserListItemDTO) => (
-        <Friend friend={friend} />
+        <Friend key={friend.id} friend={friend} />
       ))}
     </Stack>
   );

@@ -8,6 +8,7 @@ export default function useCreateFriendRequest() {
     mutationFn: (friendId: number) => createFriendRequest(friendId),
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ['people'] });
+      await queryClient.invalidateQueries({ queryKey: ['outcoming-friend-requests'] });
     },
   });
 }

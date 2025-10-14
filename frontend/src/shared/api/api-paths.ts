@@ -74,8 +74,10 @@ export const apiPath = {
     deleteFriend: (friendId: number) => `${API_URL}/friends/${friendId}`,
   },
   friendshipRequests: {
-    getIncomingFriendRequests: () => `${API_URL}/friend-requests/incoming`,
-    getOutcomingFriendRequests: () => `${API_URL}/friend-requests/outcoming`,
+    getIncomingFriendRequests: (search: string, page: number) =>
+      `${API_URL}/friend-requests/incoming?page=${page}&search=${search}`,
+    getOutcomingFriendRequests: (search: string, page: number) =>
+      `${API_URL}/friend-requests/outcoming?page=${page}&search=${search}`,
     createFriendRequest: () => `${API_URL}/friend-requests`,
     acceptFriendRequest: (friendRequestId: number) =>
       `${API_URL}/friend-requests/${friendRequestId}/accept`,
