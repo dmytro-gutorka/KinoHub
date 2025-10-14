@@ -125,7 +125,11 @@ class FriendRequestService {
     await friendsRequestRepository.save(pendingRequest);
   }
 
-  async getIncomingFriendRequests(userId: number): Promise<UserListItemDTO[]> {
+  async getIncomingFriendRequests(
+    userId: number,
+    search: string,
+    page: number
+  ): Promise<UserListItemDTO[]> {
     const incomingFriendRequest = await friendsRequestRepository.find({
       where: {
         receiverId: userId,
@@ -137,10 +141,10 @@ class FriendRequestService {
     const outgoingFriendRequestIds = incomingFriendRequest.map((r) => r.requesterId);
     if (outgoingFriendRequestIds.length === 0) return [];
 
-    return await usersService.getUsers(userId, '', 1, outgoingFriendRequestIds);
+    return await usersService.getUsers(userId, search, page, outgoingFriendRequestIds);
   }
 
-  async getOutcomingFriendRequests(userId: number) {
+  async getOutcomingFriendRequests(userId: number, search: string, page: number) {
     const outgoingFriendRequest = await friendsRequestRepository.find({
       where: {
         requesterId: userId,
@@ -152,7 +156,7 @@ class FriendRequestService {
     const outgoingFriendRequestIds = outgoingFriendRequest.map((r) => r.receiverId);
     if (outgoingFriendRequest.length === 0) return [];
 
-    return await usersService.getUsers(userId, '', 1, outgoingFriendRequestIds);
+    return await usersService.getUsers(userId, search, page, outgoingFriendRequestIds);
   }
 }
 

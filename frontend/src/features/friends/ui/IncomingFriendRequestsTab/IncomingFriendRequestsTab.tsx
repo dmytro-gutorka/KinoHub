@@ -4,10 +4,14 @@ import IncomingFriendRequestCard from '@features/friends/ui/IncomingFriendReques
 
 interface IncomingFriendRequestsTabProps {
   search: string;
+  page: number;
 }
 
-export default function IncomingFriendRequestsTab({ search }: IncomingFriendRequestsTabProps) {
-  const { data: friendRequests, isSuccess } = useIncomingFriendRequests(search);
+export default function IncomingFriendRequestsTab({
+  search,
+  page,
+}: IncomingFriendRequestsTabProps) {
+  const { data: friendRequests, isSuccess } = useIncomingFriendRequests(search, page);
 
   if (!isSuccess) return null;
 

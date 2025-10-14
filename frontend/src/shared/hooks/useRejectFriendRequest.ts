@@ -8,6 +8,7 @@ export default function useRejectFriendRequest() {
     mutationFn: (friendRequestId: number) => rejectFriendRequest(friendRequestId),
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ['people'] });
+      await queryClient.invalidateQueries({ queryKey: ['incoming-friend-requests'] });
     },
   });
 }

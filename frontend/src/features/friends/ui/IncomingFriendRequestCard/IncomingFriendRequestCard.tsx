@@ -5,6 +5,7 @@ import BlockWrapper from '@shared/ui/BlockWrapper';
 import UserAvatarWithConfirmationIcon from '@shared/ui/UserAvatarWithConfirmationIcon';
 import fullNameToInitials from '@shared/helpers/fullNameToInitials';
 import useAcceptFriendRequest from '@shared/hooks/useAcceptFriendRequest';
+import useRejectFriendRequest from '@shared/hooks/useRejectFriendRequest';
 
 interface IncomingFriendRequestCardProps {
   friendRequest: UserListItemDTO;
@@ -19,6 +20,7 @@ export default function IncomingFriendRequestCard({
   );
 
   const { mutate: acceptFriendRequest } = useAcceptFriendRequest();
+  const { mutate: rejectFriendRequest } = useRejectFriendRequest();
 
   return (
     <BlockWrapper isBoxShadow={false} padding={5}>
@@ -48,12 +50,20 @@ export default function IncomingFriendRequestCard({
               </Typography>
             </Stack>
           </Stack>
-          <Button
-            variant="outlined"
-            onClick={() => acceptFriendRequest(friendRequest.friendRequestId!)}
-          >
-            Accept Request
-          </Button>
+          <Stack direction="row" gap={2}>
+            <Button
+              variant="outlined"
+              onClick={() => acceptFriendRequest(friendRequest.friendRequestId!)}
+            >
+              Accept Request
+            </Button>
+            <Button
+              variant="outlined"
+              onClick={() => rejectFriendRequest(friendRequest.friendRequestId!)}
+            >
+              Reject Request
+            </Button>
+          </Stack>
         </Stack>
       </Stack>
     </BlockWrapper>

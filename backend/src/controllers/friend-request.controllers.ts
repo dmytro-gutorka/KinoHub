@@ -3,6 +3,12 @@ import { friendRequestsService } from '../services/friend-request.service.js';
 // eslint-disable-next-line n/no-extraneous-import
 import { UserListItemDTO } from '@kinohub/schemas';
 
+type FriendRequestQuery = {
+  search: string;
+  page: number;
+};
+type FriendRequest = Request<any, any, any, FriendRequestQuery>;
+
 export async function createFriendRequest(req: Request, res: Response) {
   const requesterId: number = req.user?.id!;
   const receiverId: number = req.body.friendId;
@@ -39,19 +45,30 @@ export async function cancelFriendRequest(req: Request, res: Response) {
   res.status(201).json({ message: `Friendship has been cancelled` });
 }
 
-export async function getIncomingFriendRequests(req: Request, res: Response) {
+export async function getIncomingFriendRequests(req: FriendRequest, res: Response) {
   const userId: number = req.user?.id!;
+  const search: string = req.query.search || '';
+  const page: number = req.query.page || 1;
 
-  const incomingRequests: UserListItemDTO[] =
-    await friendRequestsService.getIncomingFriendRequests(userId);
+  const incomingRequests: UserListItemDTO[] = await friendRequestsService.getIncomingFriendRequests(
+    userId,
+    search,
+    page
+  );
 
   res.status(200).json(incomingRequests);
 }
 
-export async function getOutcomingFriendRequests(req: Request, res: Response) {
+export async function getOutcomingFriendRequests(req: FriendRequest, res: Response) {
   const userId: number = req.user?.id!;
+  const search: string = req.query.search || '';
+  const page: number = req.query.page || 1;
 
-  const upcomingRequests = await friendRequestsService.getOutcomingFriendRequests(userId);
+  const upcomingRequests = await friendRequestsService.getOutcomingFriendRequests(
+    userId,
+    search,
+    page
+  );
 
   res.status(200).json(upcomingRequests);
 }

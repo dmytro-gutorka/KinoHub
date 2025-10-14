@@ -1,4 +1,4 @@
-import { Container, Stack } from '@mui/material';
+import { Container, Pagination, Stack } from '@mui/material';
 import { SyntheticEvent, useState } from 'react';
 import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
@@ -16,12 +16,14 @@ import OutcomingFriendRequestsTab from '@features/friends/ui/OutcomingFriendRequ
 export default function Friends() {
   const [value, setValue] = useState('1');
   const [search, setSearch] = useState<string>('');
+  const [page, setPage] = useState<number>(1);
 
   const debouncedSearched = useDebouncedValue<string>(search, 500);
 
   function handleTabChange(_: SyntheticEvent, v: string) {
     setValue(v);
     setSearch('');
+    setPage(1);
   }
 
   return (
@@ -47,16 +49,22 @@ export default function Friends() {
         </Stack>
 
         <TabPanel value="1">
-          <FriendsTab search={debouncedSearched} />
+          <FriendsTab search={debouncedSearched} page={page} />
         </TabPanel>
 
         <TabPanel value="2">
-          <IncomingFriendRequestsTab search={debouncedSearched} />
+          <IncomingFriendRequestsTab search={debouncedSearched} page={page} />
         </TabPanel>
 
         <TabPanel value="3">
-          <OutcomingFriendRequestsTab search={debouncedSearched} />
+          <OutcomingFriendRequestsTab search={debouncedSearched} page={page} setPage={setPage} />
         </TabPanel>
+
+        <Pagination
+          count={2}
+          sx={{ marginBlock: 15, placeSelf: 'center' }}
+          onChange={(_, e) => setPage(e)}
+        />
       </TabContext>
     </Container>
   );

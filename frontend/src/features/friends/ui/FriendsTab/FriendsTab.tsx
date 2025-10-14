@@ -3,8 +3,13 @@ import { Stack } from '@mui/material';
 import useFriends from '@features/friends/hooks/useFriends';
 import Friend from '@features/friends/ui/Friend';
 
-export default function FriendsTab({ search }: { search: string }) {
-  const { data: friends, isSuccess } = useFriends(search);
+interface FriendsTabProps {
+  search: string;
+  page: number;
+}
+
+export default function FriendsTab({ search, page }: FriendsTabProps) {
+  const { data: friends, isSuccess } = useFriends(search, page);
 
   if (!isSuccess) return null;
 

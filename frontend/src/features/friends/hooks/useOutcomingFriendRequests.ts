@@ -2,8 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import getOutcomingFriendRequests from '@shared/api/friendship-requests/getOutcomingFriendRequests';
 import { UserListItemDTO } from '@kinohub/schemas';
 
-export default function useOutcomingFriendRequests(search: string = '', page: number = 1) {
-  const queryKey = ['outcoming-friend-requests'];
+export default function useOutcomingFriendRequests(search: string, page: number) {
+  const queryKey = ['outcoming-friend-requests', page, search];
 
   return useQuery({
     queryKey,
