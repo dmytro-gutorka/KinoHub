@@ -19,6 +19,8 @@ const base = createTheme({
   shape,
 });
 
+// add box shadow to cards -   box-shadow: 0 0 10px rgba(160,  192, 244,0.4);
+// button bg colors   background: rgba(59,130,246,0.1);   background-color: #3B82F6;
 const theme = createTheme(base, {
   border: `1px solid ${base.palette.transparentGrey01}`,
   components: {

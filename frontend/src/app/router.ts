@@ -30,9 +30,9 @@ function makeRouter() {
         { path: '/logout', Component: Homepage },
         { path: '/people', Component: People },
         { path: '/friends', Component: Friends },
+        { path: '/profile', Component: Profile },
       ],
     },
-    { path: '/profile', Component: Profile },
     { path: '/movie/:id', Component: MediaDetails, loader: () => MEDIA_TYPES.MOVIE },
     { path: '/tv/:id', Component: MediaDetails, loader: () => MEDIA_TYPES.TV_SHOW },
     // TODO: change :id to :mediaId

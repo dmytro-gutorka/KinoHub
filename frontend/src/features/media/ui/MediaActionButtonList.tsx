@@ -68,7 +68,7 @@ export default function MediaActionButtonList({
             <>
               {!label && <IconButton onClick={onClick}>{icon}</IconButton>}
               {label && (
-                <Button onClick={onClick} startIcon={icon}>
+                <Button variant="outlined" onClick={onClick} startIcon={icon}>
                   {label}
                 </Button>
               )}

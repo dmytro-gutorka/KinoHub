@@ -10,8 +10,9 @@ const Layout = () => {
     <Stack component="main" direction="row" minHeight="100vh">
       <Stack
         component="aside"
-        minHeight="100vh"
+        // minHeight="100vh"
         borderRight={`1px solid ${theme.palette.transparentGrey01}`}
+        bgcolor={theme.palette.accentBgBlack}
       >
         <AsideBar />
       </Stack>

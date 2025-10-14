@@ -7,7 +7,7 @@ export const MuiCssBaseline = (theme: Theme) => ({
       margin: '0px',
     },
     body: {
-      background: theme.palette.gradientMidnightSpace,
+      background: theme.palette.mainBgBlack,
       backgroundRepeat: 'no-repeat',
       backgroundAttachment: 'fixed',
       backgroundSize: 'cover',

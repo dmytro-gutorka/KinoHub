@@ -26,6 +26,9 @@ declare module '@mui/material/styles' {
     purple: CustomColor;
     orange: CustomColor;
     blue: CustomColor;
+
+    mainBgBlack: string;
+    accentBgBlack: string;
   }
 
   interface PaletteOptions {
@@ -44,6 +47,9 @@ declare module '@mui/material/styles' {
     purple?: CustomColor;
     orange?: CustomColor;
     blue?: CustomColor;
+
+    mainBgBlack?: string;
+    accentBgBlack?: string;
   }
 
   interface CustomColor {

@@ -10,9 +10,11 @@ export const palette: PaletteOptions = {
   gradientGreen: 'linear-gradient(to right, #22c55e , #10b981)',
   gradientRed: 'linear-gradient(to right, #ef4444 , #ec4899)',
 
-  starColor: 'rgb(250 204 21)',
-
+  mainBgBlack: '#121319',
+  accentBgBlack: '#1c1d25',
   darkBlueAccent: '#1E293B',
+
+  starColor: 'rgb(250 204 21)',
 
   transparentGrey01: 'rgb(255 255 255 / 0.1)',
   transparentGrey02: 'rgb(255 255 255 / 0.2)',

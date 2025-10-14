@@ -33,7 +33,7 @@ export default function BlockWrapper({
       <Stack
         boxShadow={isBoxShadow ? theme.shadows[10] : 'none'}
         borderRadius={theme.shape.borderRadiusScale[borderRadius]}
-        bgcolor={theme.palette.darkBlueAccent}
+        bgcolor={theme.palette.accentBgBlack}
         border={theme.border}
         paddingInline={4}
         padding={padding}
