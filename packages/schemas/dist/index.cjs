@@ -31,24 +31,29 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var index_exports = {};
 __export(index_exports, {
   UserListItem: () => UserListItem,
+  UserPaginatedList: () => UserPaginatedList,
   UserQuery: () => UserQuery
 });
 module.exports = __toCommonJS(index_exports);
 var z = __toESM(require("zod"), 1);
 var UserListItem = z.object({
   id: z.number(),
-  watchedMediaCount: z.number().int().nullish().default(null),
   username: z.string(),
-  registeredAt: z.date(),
   firstName: z.string(),
   lastName: z.string(),
-  avatarUrl: z.string().nullable(),
   isEmailConfirmed: z.boolean(),
+  avatarUrl: z.string().nullable(),
+  registeredAt: z.date(),
   isFriend: z.boolean(),
   isPendingOutgoing: z.boolean(),
   isPendingIncoming: z.boolean(),
   friendRequestId: z.number().nullable(),
-  mutualFriendsCount: z.number().int().nullable()
+  mutualFriendsCount: z.number().int().nullable(),
+  watchedMediaCount: z.number().int().nullish().default(null)
+});
+var UserPaginatedList = z.object({
+  data: z.array(UserListItem),
+  totalPages: z.number()
 });
 var UserQuery = z.object({
   search: z.string().optional(),
@@ -57,5 +62,6 @@ var UserQuery = z.object({
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   UserListItem,
+  UserPaginatedList,
   UserQuery
 });

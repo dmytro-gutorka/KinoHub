@@ -105,7 +105,13 @@ class UserService {
       .limit(PAGINATION_LIMITS.USERS);
 
     const rawUsers = await qb.getRawMany();
-    return rawUsers.map((user) => UserListItem.parse(user));
+    const result = {
+      data: rawUsers,
+      totalPages: Math.ceil(rawUsers.length / PAGINATION_LIMITS.USERS),
+    };
+
+    result.data.map((user) => UserListItem.parse(user));
+    return result;
   }
 }
 

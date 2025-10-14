@@ -16,6 +16,12 @@ export const UserListItem = z.object({
     watchedMediaCount: z.number().int().nullish().default(null),
 })
 
+export const UserPaginatedList = z.object({
+    data: z.array(UserListItem),
+    totalPages: z.number(),
+})
+
+export type UserPaginatedListDTO = z.infer<typeof UserPaginatedList>;
 export type UserListItemDTO = z.infer<typeof UserListItem>;
 
 

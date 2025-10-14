@@ -5,19 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1685e60f-6f96-4588-adbf-38f61b3a8f60.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1685e60f-6f96-4588-adbf-38f61b3a8f60.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/friend-request.controllers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/friend-request.controllers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/friend-request.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/friend-request.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/friendship.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/friendship.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/user.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/friends/hooks/useFriends.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/friends/hooks/useFriends.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/friends/hooks/useIncomingFriendRequests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/friends/hooks/useIncomingFriendRequests.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/friends/hooks/useOutcomingFriendRequests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/friends/hooks/useOutcomingFriendRequests.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/friends/ui/FriendsTab/FriendsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/friends/ui/FriendsTab/FriendsTab.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/friends/ui/IncomingFriendRequestCard/IncomingFriendRequestCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/friends/ui/IncomingFriendRequestCard/IncomingFriendRequestCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/friends/ui/IncomingFriendRequestsTab/IncomingFriendRequestsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/friends/ui/IncomingFriendRequestsTab/IncomingFriendRequestsTab.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/friends/ui/OutcomingFriendRequestsTab/OutcomingFriendRequestsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/friends/ui/OutcomingFriendRequestsTab/OutcomingFriendRequestsTab.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/people/hooks/usePeople.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/people/hooks/usePeople.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/people/ui/PeopleList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/people/ui/PeopleList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/people/ui/Person.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/people/ui/Person.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Friends/Friends.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Friends/Friends.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useRejectFriendRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useRejectFriendRequest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/schemas/dist/index.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/dist/index.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/schemas/dist/index.d.cts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/dist/index.d.cts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/schemas/dist/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/dist/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/schemas/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/dist/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/schemas/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/src/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,9 +40,9 @@
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
         <option value="tsconfig.json" />
-        <option value="TypeScript File" />
         <option value="JSX Component Folder.tsx.child.0" />
         <option value="JSX Component Folder" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -305,7 +309,7 @@
       <workItem from="1760285312322" duration="2000" />
       <workItem from="1760359807969" duration="12746000" />
       <workItem from="1760381676789" duration="7544000" />
-      <workItem from="1760431127624" duration="9502000" />
+      <workItem from="1760431127624" duration="12577000" />
     </task>
     <servers />
   </component>

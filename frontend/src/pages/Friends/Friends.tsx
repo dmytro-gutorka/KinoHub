@@ -1,15 +1,15 @@
 import { Container, Pagination, Stack } from '@mui/material';
 import { SyntheticEvent, useState } from 'react';
-import TabContext from '@mui/lab/TabContext';
-import TabPanel from '@mui/lab/TabPanel';
-import TabList from '@mui/lab/TabList';
-import Tab from '@mui/material/Tab';
 import Diversity1OutlinedIcon from '@mui/icons-material/Diversity1Outlined';
 import GetAppOutlinedIcon from '@mui/icons-material/GetAppOutlined';
 import UploadOutlinedIcon from '@mui/icons-material/UploadOutlined';
+import TabList from '@mui/lab/TabList';
+import Tab from '@mui/material/Tab';
 import Search from '@shared/ui/Search';
-import useDebouncedValue from '@shared/hooks/useDebouncedValue';
+import TabPanel from '@mui/lab/TabPanel';
+import TabContext from '@mui/lab/TabContext';
 import FriendsTab from '@features/friends/ui/FriendsTab';
+import useDebouncedValue from '@shared/hooks/useDebouncedValue';
 import IncomingFriendRequestsTab from '@features/friends/ui/IncomingFriendRequestsTab';
 import OutcomingFriendRequestsTab from '@features/friends/ui/OutcomingFriendRequestsTab';
 
@@ -49,11 +49,11 @@ export default function Friends() {
         </Stack>
 
         <TabPanel value="1">
-          <FriendsTab search={debouncedSearched} page={page} />
+          <FriendsTab search={debouncedSearched} page={page} setPage={setPage} />
         </TabPanel>
 
         <TabPanel value="2">
-          <IncomingFriendRequestsTab search={debouncedSearched} page={page} />
+          <IncomingFriendRequestsTab search={debouncedSearched} page={page} setPage={setPage} />
         </TabPanel>
 
         <TabPanel value="3">
@@ -61,9 +61,9 @@ export default function Friends() {
         </TabPanel>
 
         <Pagination
+          onChange={(_, e) => setPage(e)}
           count={2}
           sx={{ marginBlock: 15, placeSelf: 'center' }}
-          onChange={(_, e) => setPage(e)}
         />
       </TabContext>
     </Container>

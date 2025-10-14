@@ -7,10 +7,12 @@ export default function PeopleList() {
   const { data: people, isSuccess } = usePeople();
   if (!isSuccess) return null;
 
+  const peopleList = people.data;
+
   console.log(people);
   return (
     <Stack gap={4}>
-      {people.map((person: UserListItemDTO) => (
+      {peopleList.map((person: UserListItemDTO) => (
         <Person key={person.id} person={person} />
       ))}
     </Stack>

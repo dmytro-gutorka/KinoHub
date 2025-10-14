@@ -1,7 +1,7 @@
 import { Stack } from '@mui/material';
 import useOutcomingFriendRequests from '@features/friends/hooks/useOutcomingFriendRequests';
 import OutcomingFriendRequestCard from '@features/friends/ui/OutcomingFriendRequestCard';
-import { useEffect } from 'react';
+import useAutoPagination from '@shared/hooks/useAutoPagination';
 
 interface OutcomingFriendRequestsTabProps {
   search: string;
@@ -15,16 +15,15 @@ export default function OutcomingFriendRequestsTab({
   setPage,
 }: OutcomingFriendRequestsTabProps) {
   const { data: friendRequests, isSuccess } = useOutcomingFriendRequests(search, page);
+  const friendRequestsList = friendRequests?.data;
 
-  useEffect(() => {
-    if (friendRequests?.length === 0 && page > 1) setPage(page - 1);
-  }, [friendRequests?.length]);
+  useAutoPagination(page, setPage, friendRequestsList?.length);
 
   if (!isSuccess) return null;
 
   return (
     <Stack gap={4}>
-      {friendRequests.map((friendRequest) => (
+      {friendRequestsList?.map((friendRequest) => (
         <OutcomingFriendRequestCard key={friendRequest.id} friendRequest={friendRequest} />
       ))}
     </Stack>

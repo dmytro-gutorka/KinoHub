@@ -1,13 +1,12 @@
 import { UserListItemDTO } from '@kinohub/schemas';
-import { Avatar, Stack, SvgIcon, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import BlockWrapper from '@shared/ui/BlockWrapper';
-import CheckOutlinedIcon from '@shared/icons/CheckOutlinedIcon';
 import fullNameToInitials from '@shared/helpers/fullNameToInitials';
-import stringToColor from '@shared/helpers/stringToColor';
 import RenderPeopleButtonsConditionally from '@features/people/ui/RenderPeopleButtonsConditionally';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import SlideshowOutlinedIcon from '@mui/icons-material/SlideshowOutlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import UserAvatarWithConfirmationIcon from '@shared/ui/UserAvatarWithConfirmationIcon';
 
 interface PersonProps {
   person: UserListItemDTO;
@@ -20,24 +19,11 @@ export default function Person({ person }: PersonProps) {
   return (
     <BlockWrapper isBoxShadow={false} padding={5}>
       <Stack direction="row" alignItems="start" gap={5} p={2}>
-        <Avatar
-          sx={{
-            marginTop: 2,
-            width: 55,
-            height: 55,
-            bgcolor: stringToColor(fullName),
-            position: 'relative',
-            overflow: 'visible',
-            outline: '2px solid white',
-          }}
-        >
-          <Typography color="white">{fulNameInitials.toUpperCase()}</Typography>
-          {person.isEmailConfirmed && (
-            <SvgIcon sx={{ position: 'absolute', bottom: -6, right: -6 }} fontSize="small">
-              <CheckOutlinedIcon />
-            </SvgIcon>
-          )}
-        </Avatar>
+        <UserAvatarWithConfirmationIcon
+          fullName={fullName}
+          fulNameInitials={fulNameInitials}
+          isEmailConfirmed={person.isEmailConfirmed}
+        />
 
         <Stack
           direction="row"

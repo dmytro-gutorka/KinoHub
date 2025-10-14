@@ -5,12 +5,16 @@ import { usersService } from './user.service.js';
 import { Friendship } from '../entity/Friendship.js';
 import { HttpError } from '../errors/HttpError.js';
 // eslint-disable-next-line n/no-extraneous-import
-import { UserListItemDTO } from '@kinohub/schemas';
+import { UserPaginatedListDTO } from '@kinohub/schemas';
 
 class FriendshipService {
   constructor(private readonly ds: DataSource) {}
 
-  async getFriends(userId: number, search: string, page: number): Promise<UserListItemDTO[]> {
+  async getFriends(
+    userId: number,
+    search: string,
+    page: number
+  ): Promise<UserPaginatedListDTO | never[]> {
     const friends = await friendshipRepository.find({ where: { userId }, select: ['friendId'] });
     const friendIds: number[] = friends.map((f) => f.friendId);
 
