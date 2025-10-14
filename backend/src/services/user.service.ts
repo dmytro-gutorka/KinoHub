@@ -77,10 +77,20 @@ class UserService {
       // .andWhere('f2.friend_id <> :userId')
       .getQuery();
 
-    const qb = this.ds
+    const baseQb = this.ds
       .createQueryBuilder(User, 'user')
       .leftJoin('user.profile', 'profile')
       .leftJoin('user.userAuth', 'auth')
+      .where('profile.firstName ILIKE :firstName', { firstName: `%${firstName}%` })
+      .andWhere('profile.lastName ILIKE :lastName', { lastName: `%${lastName}%` })
+      .andWhere('user.id <> :userId', { userId })
+      .andWhere(`${peopleIds.length > 0 ? 'user.id IN (:...peopleIds)' : '1 = 1'}`)
+      .setParameters({ userId, pending: 'pending', peopleIds });
+
+    const total = await baseQb.clone().distinct(true).getCount();
+
+    const qb = baseQb
+      .clone()
       .select([
         'user.id AS "id"',
         'user.username AS "username"',
@@ -96,18 +106,13 @@ class UserService {
       .addSelect(`EXISTS(${isFriendSub})`, 'isFriend')
       .addSelect(`EXISTS(${isPendingOutgoingSub})`, 'isPendingOutgoing')
       .addSelect(`EXISTS(${isPendingIncomingSub})`, 'isPendingIncoming')
-      .where('profile.firstName ILIKE :firstName', { firstName: `%${firstName}%` })
-      .andWhere('profile.lastName ILIKE :lastName', { lastName: `%${lastName}%` })
-      .andWhere('user.id <> :userId', { userId })
-      .andWhere(`${peopleIds.length > 0 ? 'user.id IN (:...peopleIds)' : '1 = 1'}`)
-      .setParameters({ userId, pending: 'pending', peopleIds })
       .offset(PAGINATION_LIMITS.USERS * (page - 1))
       .limit(PAGINATION_LIMITS.USERS);
 
     const rawUsers = await qb.getRawMany();
     const result = {
       data: rawUsers,
-      totalPages: Math.ceil(rawUsers.length / PAGINATION_LIMITS.USERS),
+      totalPages: Math.ceil(total / PAGINATION_LIMITS.USERS),
     };
 
     result.data.map((user) => UserListItem.parse(user));

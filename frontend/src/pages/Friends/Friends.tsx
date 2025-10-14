@@ -17,6 +17,7 @@ export default function Friends() {
   const [value, setValue] = useState('1');
   const [search, setSearch] = useState<string>('');
   const [page, setPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(1);
 
   const debouncedSearched = useDebouncedValue<string>(search, 500);
 
@@ -49,22 +50,39 @@ export default function Friends() {
         </Stack>
 
         <TabPanel value="1">
-          <FriendsTab search={debouncedSearched} page={page} setPage={setPage} />
+          <FriendsTab
+            search={debouncedSearched}
+            page={page}
+            setPage={setPage}
+            setTotalPages={setTotalPages}
+          />
         </TabPanel>
 
         <TabPanel value="2">
-          <IncomingFriendRequestsTab search={debouncedSearched} page={page} setPage={setPage} />
+          <IncomingFriendRequestsTab
+            search={debouncedSearched}
+            page={page}
+            setPage={setPage}
+            setTotalPages={setTotalPages}
+          />
         </TabPanel>
 
         <TabPanel value="3">
-          <OutcomingFriendRequestsTab search={debouncedSearched} page={page} setPage={setPage} />
+          <OutcomingFriendRequestsTab
+            search={debouncedSearched}
+            page={page}
+            setPage={setPage}
+            setTotalPages={setTotalPages}
+          />
         </TabPanel>
 
-        <Pagination
-          onChange={(_, e) => setPage(e)}
-          count={2}
-          sx={{ marginBlock: 15, placeSelf: 'center' }}
-        />
+        {totalPages > 1 && (
+          <Pagination
+            onChange={(_, e) => setPage(e)}
+            count={totalPages}
+            sx={{ marginBlock: 15, placeSelf: 'center' }}
+          />
+        )}
       </TabContext>
     </Container>
   );
