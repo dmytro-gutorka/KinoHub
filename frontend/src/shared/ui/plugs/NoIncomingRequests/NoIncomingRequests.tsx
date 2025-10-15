@@ -1,9 +1,6 @@
-import { useNavigate } from 'react-router';
-import { Button, Stack, Typography, useTheme } from '@mui/material';
-import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
+import { Stack, Typography, useTheme } from '@mui/material';
 
-export default function NoFriends() {
-  const navigate = useNavigate();
+export default function NoIncomingRequests() {
   const theme = useTheme();
 
   return (
@@ -34,25 +31,16 @@ export default function NoFriends() {
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <circle cx="9" cy="7" r="4"></circle>
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
         </svg>
       </Stack>
       <Typography variant="h5" fontWeight={900}>
-        No friends yet
+        No incoming requests
       </Typography>
       <Typography variant="body1" color="text.secondary">
-        Start connecting with other movie enthusiasts!
+        When someone sends you a friend request, it will appear here
       </Typography>
-      <Button
-        onClick={() => navigate('/people')}
-        startIcon={<PersonAddAltOutlinedIcon />}
-        sx={{ mt: 8 }}
-      >
-        Add Friends
-      </Button>
     </Stack>
   );
 }

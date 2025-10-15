@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import useOutcomingFriendRequests from '@features/friends/hooks/useOutcomingFriendRequests';
 import OutcomingFriendRequestCard from '@features/friends/ui/OutcomingFriendRequestCard';
 import useAutoPagination from '@shared/hooks/useAutoPagination';
+import NoOutcomingRequests from '@shared/ui/plugs/NoOutcomingRequests';
 
 interface OutcomingFriendRequestsTabProps {
   search: string;
@@ -30,6 +31,8 @@ export default function OutcomingFriendRequestsTab({
 
   return (
     <Stack gap={4}>
+      {(!friendRequestsList || friendRequestsList?.length === 0) && <NoOutcomingRequests />}
+
       {friendRequestsList?.map((friendRequest) => (
         <OutcomingFriendRequestCard key={friendRequest.id} friendRequest={friendRequest} />
       ))}

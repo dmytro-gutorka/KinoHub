@@ -1,8 +1,8 @@
-import { Button, Stack, Typography } from '@mui/material';
-import theme from '@app/theme/theme';
-import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
+import { Stack, Typography, useTheme } from '@mui/material';
 
-export default function NoFriends() {
+export default function NoOutcomingRequests() {
+  const theme = useTheme();
+
   return (
     <Stack
       p={5}
@@ -31,21 +31,16 @@ export default function NoFriends() {
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <circle cx="9" cy="7" r="4"></circle>
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
       </Stack>
       <Typography variant="h5" fontWeight={900}>
-        No friends yet
+        No pending requests
       </Typography>
       <Typography variant="body1" color="text.secondary">
-        Start connecting with other movie enthusiasts!
+        Friend requests you send will appear here
       </Typography>
-      <Button startIcon={<PersonAddAltOutlinedIcon />} sx={{ mt: 8 }}>
-        Add Friends
-      </Button>
     </Stack>
   );
 }

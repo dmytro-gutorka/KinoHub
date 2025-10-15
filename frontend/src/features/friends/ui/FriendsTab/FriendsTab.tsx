@@ -25,8 +25,6 @@ export default function FriendsTab({ search, page, setPage, setTotalPages }: Fri
 
   if (!isSuccess) return null;
 
-  console.log(friendsList);
-
   return (
     <Stack gap={4}>
       {(!friendsList || friendsList?.length === 0) && <NoFriends />}

@@ -7,6 +7,11 @@
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/friends/ui/FriendsTab/FriendsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/friends/ui/FriendsTab/FriendsTab.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/friends/ui/IncomingFriendRequestsTab/IncomingFriendRequestsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/friends/ui/IncomingFriendRequestsTab/IncomingFriendRequestsTab.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/friends/ui/OutcomingFriendRequestsTab/OutcomingFriendRequestsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/friends/ui/OutcomingFriendRequestsTab/OutcomingFriendRequestsTab.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/plugs/NoFriends/NoFriends.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/plugs/NoFriends/NoFriends.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/plugs/NoIncomingRequests/NoFriends.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/plugs/NoIncomingRequests/NoIncomingRequests.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/plugs/NoIncomingRequests/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/plugs/NoIncomingRequests/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +299,7 @@
       <workItem from="1760359807969" duration="12746000" />
       <workItem from="1760381676789" duration="7544000" />
       <workItem from="1760431127624" duration="18801000" />
-      <workItem from="1760516984720" duration="16773000" />
+      <workItem from="1760516984720" duration="17993000" />
     </task>
     <servers />
   </component>

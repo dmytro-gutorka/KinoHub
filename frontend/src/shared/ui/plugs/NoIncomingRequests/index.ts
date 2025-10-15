@@ -1,3 +1,3 @@
-import NoFriends from './NoFriends';
+import NoIncomingRequests from './NoIncomingRequests';
 
-export default NoFriends;
+export default NoIncomingRequests;
