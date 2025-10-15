@@ -52,9 +52,10 @@ export default function MediaFilters({
           />
         </Stack>
         <Button
-          endIcon={<FilterAltOffOutlinedIcon />}
+          startIcon={<FilterAltOffOutlinedIcon />}
           variant="outlined"
           onClick={() => handleResetFilters()}
+          sx={{ fontSize: 16, padding: 3, minWidth: 150 }}
         >
           Reset Filters
         </Button>

@@ -2,6 +2,7 @@ import * as z from 'zod';
 
 declare const UserListItem: z.ZodObject<{
     id: z.ZodNumber;
+    biography: z.ZodNullable<z.ZodString>;
     username: z.ZodString;
     firstName: z.ZodString;
     lastName: z.ZodString;
@@ -18,6 +19,7 @@ declare const UserListItem: z.ZodObject<{
 declare const UserPaginatedList: z.ZodObject<{
     data: z.ZodArray<z.ZodObject<{
         id: z.ZodNumber;
+        biography: z.ZodNullable<z.ZodString>;
         username: z.ZodString;
         firstName: z.ZodString;
         lastName: z.ZodString;

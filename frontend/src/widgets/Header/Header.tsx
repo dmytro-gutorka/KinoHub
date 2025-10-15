@@ -12,8 +12,9 @@ function Header() {
       justifyContent="end"
       bgcolor={theme.palette.accentBgBlack}
       borderBottom={theme.border}
-      py={5}
+      py={4.5}
       gap={3}
+      paddingInline={10}
     >
       <RegistrationModal />
       <LoginModal />

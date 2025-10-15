@@ -1,4 +1,4 @@
-import { Button, Stack } from '@mui/material';
+import { Button, Stack, useTheme } from '@mui/material';
 import { UserListItemDTO } from '@kinohub/schemas';
 import useDeleteFriend from '@shared/hooks/useDeleteFriend';
 import useCreateFriendRequest from '@shared/hooks/useCreateFriendRequest';
@@ -13,14 +13,29 @@ export default function RenderPeopleButtonsConditionally({ person }: { person: U
   const { mutate: acceptFriendRequest } = useAcceptFriendRequest();
   const { mutate: rejectFriendRequest } = useRejectFriendRequest();
 
+  const theme = useTheme();
+
+  const buttonStyles = {
+    padding: theme.spacing(1.5),
+    fontSize: 12,
+  };
+
   if (!person.isFriend) {
     if (person.isPendingIncoming)
       return (
-        <Stack direction="row" gap={2}>
-          <Button onClick={() => rejectFriendRequest(person.friendRequestId!)} variant="outlined">
+        <Stack direction="row" gap={2} mb={2}>
+          <Button
+            onClick={() => rejectFriendRequest(person.friendRequestId!)}
+            variant="outlined"
+            sx={buttonStyles}
+          >
             Reject request
           </Button>
-          <Button onClick={() => acceptFriendRequest(person.friendRequestId!)} variant="outlined">
+          <Button
+            onClick={() => acceptFriendRequest(person.friendRequestId!)}
+            variant="outlined"
+            sx={buttonStyles}
+          >
             Accept request
           </Button>
         </Stack>
@@ -28,14 +43,18 @@ export default function RenderPeopleButtonsConditionally({ person }: { person: U
 
     if (person.isPendingOutgoing)
       return (
-        <Button onClick={() => cancelFriendRequest(person.friendRequestId!)} variant="outlined">
+        <Button
+          onClick={() => cancelFriendRequest(person.friendRequestId!)}
+          variant="outlined"
+          sx={buttonStyles}
+        >
           Cancel request
         </Button>
       );
 
     if (!person.isPendingOutgoing && !person.isPendingIncoming)
       return (
-        <Button onClick={() => createFriendRequest(person.id)} variant="outlined">
+        <Button onClick={() => createFriendRequest(person.id)} variant="outlined" sx={buttonStyles}>
           Add friend
         </Button>
       );
@@ -43,7 +62,7 @@ export default function RenderPeopleButtonsConditionally({ person }: { person: U
 
   if (person.isFriend)
     return (
-      <Button onClick={() => deleteFriend(person.id)} variant="outlined">
+      <Button onClick={() => deleteFriend(person.id)} variant="outlined" sx={buttonStyles}>
         Delete friend
       </Button>
     );

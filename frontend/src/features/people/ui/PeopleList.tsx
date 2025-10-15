@@ -10,9 +10,9 @@ export default function PeopleList() {
   const peopleList = people.data;
 
   return (
-    <Stack gap={4} direction="row" flexWrap="wrap">
-      {peopleList.map((person: UserListItemDTO) => (
-        <Person key={person.id} person={person} />
+    <Stack gap={10} direction="row" flexWrap="wrap" justifyContent="center">
+      {peopleList.map((person: UserListItemDTO, index) => (
+        <Person key={person.id} person={person} arrIndex={index} />
       ))}
     </Stack>
   );

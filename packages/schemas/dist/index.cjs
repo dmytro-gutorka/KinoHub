@@ -38,6 +38,7 @@ module.exports = __toCommonJS(index_exports);
 var z = __toESM(require("zod"), 1);
 var UserListItem = z.object({
   id: z.number(),
+  biography: z.string().nullable(),
   username: z.string(),
   firstName: z.string(),
   lastName: z.string(),

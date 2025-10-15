@@ -96,6 +96,7 @@ class UserService {
         'user.username AS "username"',
         'user.createdAt AS "registeredAt"',
         'profile.firstName AS "firstName"',
+        'profile.bio AS "biography"',
         'profile.lastName AS "lastName"',
         'profile.avatarUrl AS "avatarUrl"',
         'auth.isEmailConfirmed AS "isEmailConfirmed"',

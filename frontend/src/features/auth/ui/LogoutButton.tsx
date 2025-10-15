@@ -3,6 +3,7 @@ import { logout } from '@features/auth/services/logout';
 import { useAppDispatch, useAppSelector } from '@shared/hooks/redux';
 import { selectIsAuthenticated } from '@features/auth/selectors';
 import { useNavigate } from 'react-router';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function LogoutButton() {
   const dispatch = useAppDispatch();
@@ -16,5 +17,18 @@ export default function LogoutButton() {
     window.location.reload();
   }
 
-  return <>{isAuthenticated && <Button onClick={handleLogout}>Logout</Button>}</>;
+  return (
+    <>
+      {isAuthenticated && (
+        <Button
+          startIcon={<LogoutIcon />}
+          variant="outlined"
+          onClick={handleLogout}
+          sx={{ padding: 3, fontSize: 16 }}
+        >
+          Logout
+        </Button>
+      )}
+    </>
+  );
 }

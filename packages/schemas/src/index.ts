@@ -2,6 +2,7 @@ import * as z from "zod";
 
 export const UserListItem = z.object({
     id: z.number(),
+    biography: z.string().nullable(),
     username: z.string(),
     firstName: z.string(),
     lastName: z.string(),

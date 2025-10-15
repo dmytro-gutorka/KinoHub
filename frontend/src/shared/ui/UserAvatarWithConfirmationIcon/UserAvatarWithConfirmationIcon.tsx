@@ -6,19 +6,23 @@ interface UserAvatarWithConfirmationIconProps {
   fullName: string;
   isEmailConfirmed: boolean;
   fulNameInitials: string;
+  marginTop?: number;
+  size?: number;
 }
 
 export default function UserAvatarWithConfirmationIcon({
   fullName,
   fulNameInitials,
   isEmailConfirmed,
+  marginTop = 2,
+  size = 55,
 }: UserAvatarWithConfirmationIconProps) {
   return (
     <Avatar
       sx={{
-        marginTop: 2,
-        width: 55,
-        height: 55,
+        marginTop: marginTop,
+        width: size,
+        height: size,
         bgcolor: stringToColor(fullName),
         position: 'relative',
         overflow: 'visible',
@@ -27,7 +31,7 @@ export default function UserAvatarWithConfirmationIcon({
     >
       <Typography color="white">{fulNameInitials.toUpperCase()}</Typography>
       {isEmailConfirmed && (
-        <SvgIcon sx={{ position: 'absolute', bottom: -6, right: -6 }} fontSize="small">
+        <SvgIcon sx={{ position: 'absolute', bottom: -6, right: -6 }} fontSize="medium">
           <CheckOutlinedIcon />
         </SvgIcon>
       )}
