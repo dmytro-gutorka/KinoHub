@@ -9,9 +9,8 @@ export default function PeopleList() {
 
   const peopleList = people.data;
 
-  console.log(people);
   return (
-    <Stack gap={4}>
+    <Stack gap={4} direction="row" flexWrap="wrap">
       {peopleList.map((person: UserListItemDTO) => (
         <Person key={person.id} person={person} />
       ))}
