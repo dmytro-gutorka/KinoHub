@@ -33,56 +33,58 @@ export default function Friends() {
     <Container
       maxWidth="lg"
       sx={{
-        border: theme.border,
         borderRadius: theme.shape.borderRadiusScale.md,
-        padding: 10,
-        m: 10,
+        marginBlock: 10,
+        border: theme.border,
+        '&.MuiContainer-root': { padding: 0 },
       }}
     >
       <TabContext value={value}>
-        <Stack gap={4} p={5}>
-          <Search onChange={setSearch} search={search} />
+        <Stack gap={8}>
           <TabList onChange={handleTabChange}>
             <Tab icon={<Diversity1OutlinedIcon />} iconPosition="start" label="Friends" value="1" />
             <Tab
-              icon={<GetAppOutlinedIcon />}
               iconPosition="start"
               label="Incoming Requests"
               value="2"
+              icon={<GetAppOutlinedIcon />}
             />
             <Tab
-              icon={<UploadOutlinedIcon />}
               iconPosition="start"
               label="Outcoming Requests"
               value="3"
+              icon={<UploadOutlinedIcon />}
             />
           </TabList>
+          <Stack paddingInline={6}>
+            <Search onChange={setSearch} search={search} />
+          </Stack>
         </Stack>
 
         <TabPanel value="1">
           <FriendsTab
+            setTotalPages={setTotalPages}
+            setPage={setPage}
             search={debouncedSearched}
             page={page}
-            setPage={setPage}
-            setTotalPages={setTotalPages}
           />
         </TabPanel>
 
         <TabPanel value="2">
           <IncomingFriendRequestsTab
+            setTotalPages={setTotalPages}
+            setPage={setPage}
             search={debouncedSearched}
             page={page}
-            setPage={setPage}
-            setTotalPages={setTotalPages}
           />
         </TabPanel>
 
         <TabPanel value="3">
           <OutcomingFriendRequestsTab
+            setTotalPages={setTotalPages}
+            setPage={setPage}
             search={debouncedSearched}
             page={page}
-            setPage={setPage}
-            setTotalPages={setTotalPages}
           />
         </TabPanel>
 
@@ -90,8 +92,8 @@ export default function Friends() {
           <Pagination
             onChange={(_, v) => setPage(v)}
             count={totalPages}
-            sx={{ marginBlock: 15, placeSelf: 'center' }}
             page={page}
+            sx={{ marginBlock: 15, placeSelf: 'center' }}
           />
         )}
       </TabContext>

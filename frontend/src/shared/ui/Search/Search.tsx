@@ -16,7 +16,14 @@ export default function Search({ onChange, search }: SearchProps) {
         onChange={(e) => onChange(e.target.value)}
         value={search}
         placeholder="Search"
-        sx={{ '& ::placeholder': { color: theme.palette.grey['50'] } }}
+        sx={{
+          '& ::placeholder': { color: theme.palette.grey['50'] },
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              border: theme.border,
+            },
+          },
+        }}
         slotProps={{
           input: {
             startAdornment: (
