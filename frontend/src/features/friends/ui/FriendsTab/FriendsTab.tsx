@@ -1,9 +1,10 @@
 import { UserListItemDTO } from '@kinohub/schemas';
-import { Button, Stack, Typography } from '@mui/material';
-import useAutoPagination from '@shared/hooks/useAutoPagination';
-import Friend from '@features/friends/ui/Friend';
-import useFriends from '@features/friends/hooks/useFriends';
+import { Stack } from '@mui/material';
 import { useEffect } from 'react';
+import useAutoPagination from '@shared/hooks/useAutoPagination';
+import useFriends from '@features/friends/hooks/useFriends';
+import Friend from '@features/friends/ui/Friend';
+import NoFriends from '@shared/ui/plugs/NoFriends';
 
 interface FriendsTabProps {
   search: string;
@@ -28,29 +29,8 @@ export default function FriendsTab({ search, page, setPage, setTotalPages }: Fri
 
   return (
     <Stack gap={4}>
-      {(!friendsList || friendsList?.length === 0) && <NoFriendsPlug />}
+      {(!friendsList || friendsList?.length === 0) && <NoFriends />}
       {friendsList?.map((friend: UserListItemDTO) => <Friend key={friend.id} friend={friend} />)}
-    </Stack>
-  );
-}
-
-function NoFriendsPlug() {
-  return (
-    <Stack
-      gap={4}
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      height="100%"
-      p={5}
-    >
-      <Typography variant="h5" fontWeight={900}>
-        No friends yet
-      </Typography>
-      <Typography variant="body1" color="text.secondary">
-        Start connecting with other movie enthusiasts!
-      </Typography>
-      <Button>Add Friends</Button>
     </Stack>
   );
 }

@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/theme/components/tabs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme/components/tabs.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/theme/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme/theme.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/friends/ui/FriendsTab/FriendsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/friends/ui/FriendsTab/FriendsTab.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Friends/Friends.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Friends/Friends.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Search/Search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Search/Search.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +24,9 @@
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
         <option value="tsconfig.json" />
+        <option value="TypeScript File" />
         <option value="JSX Component Folder.tsx.child.0" />
         <option value="JSX Component Folder" />
-        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -82,7 +78,7 @@
     "javascript.nodejs.core.library.configured.version": "22.17.0",
     "javascript.nodejs.core.library.typings.version": "22.16.4",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/dima/GitHubProjects/KinoHub/frontend/public/profile-backgrounds",
+    "last_opened_file_path": "/Users/dima/GitHubProjects/KinoHub/frontend/src/shared/ui/plugs",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -107,11 +103,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/shared/ui/plugs" />
       <recent name="$PROJECT_DIR$/frontend/public/profile-backgrounds" />
       <recent name="$PROJECT_DIR$/frontend/src/features/friends/ui" />
       <recent name="$PROJECT_DIR$/backend/dist/services" />
       <recent name="$PROJECT_DIR$/frontend/src/types" />
-      <recent name="$PROJECT_DIR$/frontend/src/features/auth" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/src/features/friends/ui" />
@@ -298,7 +294,7 @@
       <workItem from="1760359807969" duration="12746000" />
       <workItem from="1760381676789" duration="7544000" />
       <workItem from="1760431127624" duration="18801000" />
-      <workItem from="1760516984720" duration="15648000" />
+      <workItem from="1760516984720" duration="16773000" />
     </task>
     <servers />
   </component>
