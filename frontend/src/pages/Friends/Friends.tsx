@@ -1,4 +1,4 @@
-import { Container, Pagination, Stack } from '@mui/material';
+import { Container, Pagination, Stack, useTheme } from '@mui/material';
 import { SyntheticEvent, useState } from 'react';
 import Diversity1OutlinedIcon from '@mui/icons-material/Diversity1Outlined';
 import GetAppOutlinedIcon from '@mui/icons-material/GetAppOutlined';
@@ -27,8 +27,18 @@ export default function Friends() {
     setPage(1);
   }
 
+  const theme = useTheme();
+
   return (
-    <Container maxWidth="lg">
+    <Container
+      maxWidth="lg"
+      sx={{
+        border: theme.border,
+        borderRadius: theme.shape.borderRadiusScale.md,
+        padding: 10,
+        m: 10,
+      }}
+    >
       <TabContext value={value}>
         <Stack gap={4} p={5}>
           <Search onChange={setSearch} search={search} />
@@ -78,9 +88,10 @@ export default function Friends() {
 
         {totalPages > 1 && (
           <Pagination
-            onChange={(_, e) => setPage(e)}
+            onChange={(_, v) => setPage(v)}
             count={totalPages}
             sx={{ marginBlock: 15, placeSelf: 'center' }}
+            page={page}
           />
         )}
       </TabContext>

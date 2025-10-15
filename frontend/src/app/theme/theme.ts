@@ -31,8 +31,8 @@ const theme = createTheme(base, {
     MuiDivider: MuiDivider(base),
     MuiButton: MuiButton(base),
     MuiLink: MuiLink(base),
-    MuiTabs: MuiTabs(base),
-    MuiTab: MuiTab(base),
+    // MuiTabs: MuiTabs(base),
+    // MuiTab: MuiTab(base),
     MuiInputLabel: {
       styleOverrides: {
         root: {

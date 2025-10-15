@@ -20,12 +20,7 @@ export default function LogoutButton() {
   return (
     <>
       {isAuthenticated && (
-        <Button
-          startIcon={<LogoutIcon />}
-          variant="outlined"
-          onClick={handleLogout}
-          sx={{ padding: 3, fontSize: 16 }}
-        >
+        <Button startIcon={<LogoutIcon />} variant="outlined" onClick={handleLogout}>
           Logout
         </Button>
       )}

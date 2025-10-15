@@ -15,7 +15,7 @@ export default function LoginModal() {
       {!isAuthenticated && (
         <Modal>
           <Modal.Open asChild>
-            <Button startIcon={<LoginIcon />} variant="outlined" sx={{ padding: 3, fontSize: 16 }}>
+            <Button startIcon={<LoginIcon />} variant="outlined">
               Log In
             </Button>
           </Modal.Open>

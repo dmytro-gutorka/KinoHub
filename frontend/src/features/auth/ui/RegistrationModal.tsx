@@ -14,11 +14,7 @@ export default function RegistrationModal() {
       {!isAuthenticated && (
         <Modal>
           <Modal.Open asChild>
-            <Button
-              startIcon={<PersonAddOutlinedIcon />}
-              variant="outlined"
-              sx={{ padding: 3, fontSize: 16 }}
-            >
+            <Button startIcon={<PersonAddOutlinedIcon />} variant="outlined">
               Sign up
             </Button>
           </Modal.Open>
