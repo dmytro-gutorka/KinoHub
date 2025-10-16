@@ -100,3 +100,10 @@ export type SettledUserMediaStats = readonly [
   PromiseSettledResult<FavoriteGenres[]>,
   PromiseSettledResult<TvShowInProgress[]>,
 ];
+
+export interface DateRange {
+  from?: Date;
+  to?: Date;
+}
+
+export type DataRangePresets = 'all' | 'week' | 'month' | 'year';

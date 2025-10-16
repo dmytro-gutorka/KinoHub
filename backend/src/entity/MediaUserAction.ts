@@ -1,5 +1,6 @@
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinColumn,
   ManyToOne,
@@ -7,6 +8,7 @@ import {
   PrimaryGeneratedColumn,
   Relation,
   Unique,
+  UpdateDateColumn,
 } from 'typeorm';
 import { WatchStatus } from '../types/types.js';
 import { MediaInfo } from './MediaInfo.js';
@@ -51,4 +53,10 @@ export class MediaUserAction {
   })
   @JoinColumn({ name: 'mediaInfoId' })
   mediaInfo!: Relation<MediaInfo>;
+
+  @CreateDateColumn()
+  createdAt!: Date;
+
+  @UpdateDateColumn()
+  updatedAt!: Date;
 }

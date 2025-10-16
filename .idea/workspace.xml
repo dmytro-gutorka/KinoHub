@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1685e60f-6f96-4588-adbf-38f61b3a8f60.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1685e60f-6f96-4588-adbf-38f61b3a8f60.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1685e60f-6f96-4588-adbf-38f61b3a8f60/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1685e60f-6f96-4588-adbf-38f61b3a8f60/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/theme/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/theme/theme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/friends/ui/FriendsTab/FriendsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/friends/ui/FriendsTab/FriendsTab.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/friends/ui/IncomingFriendRequestsTab/IncomingFriendRequestsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/friends/ui/IncomingFriendRequestsTab/IncomingFriendRequestsTab.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/friends/ui/OutcomingFriendRequestsTab/OutcomingFriendRequestsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/friends/ui/OutcomingFriendRequestsTab/OutcomingFriendRequestsTab.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPersonCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/media/ui/MediaPersonCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/people/ui/PeopleList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/people/ui/PeopleList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Friends/Friends.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Friends/Friends.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/ui/Search/Search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/ui/Search/Search.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/dto/user.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/entity/Episode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/Episode.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/entity/MediaUserAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/MediaUserAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/types/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +32,9 @@
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
         <option value="tsconfig.json" />
-        <option value="TypeScript File" />
         <option value="JSX Component Folder.tsx.child.0" />
         <option value="JSX Component Folder" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -302,7 +303,7 @@
       <workItem from="1760381676789" duration="7544000" />
       <workItem from="1760431127624" duration="18801000" />
       <workItem from="1760516984720" duration="18637000" />
-      <workItem from="1760605190258" duration="14050000" />
+      <workItem from="1760605190258" duration="18300000" />
     </task>
     <servers />
   </component>

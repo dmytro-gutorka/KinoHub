@@ -8,5 +8,8 @@
   ],
   "scripts": {
     "build": "npm run build -w @kinohub/schemas"
+  },
+  "dependencies": {
+    "date-fns-tz": "^3.2.0"
   }
 }
