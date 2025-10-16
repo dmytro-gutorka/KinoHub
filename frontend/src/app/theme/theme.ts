@@ -99,7 +99,7 @@ const theme = createTheme(base, {
             borderBottom: '2px solid rgba(255, 255, 255, 0.7)',
             bottom: 0,
             left: 0,
-            zIndex: 2222222,
+            zIndex: 1,
           },
         },
       },

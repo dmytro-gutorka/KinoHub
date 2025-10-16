@@ -51,10 +51,16 @@ export default function MediaPersonCard({
     );
   }
 
-  console.log(person);
   return (
     <HoverableCardWrapper cardWidth={width} flexGrow={1}>
-      <CardMedia image={imgUrl} title="Card" sx={{ height: height, backgroundSize: 'cover' }} />
+      {/*<img loading="lazy" src={imgUrl} alt="" height={height} />*/}
+      <CardMedia
+        component="img"
+        image={imgUrl}
+        title="Card"
+        loading="lazy"
+        sx={{ height: height, backgroundSize: 'cover' }}
+      />
       <CardContent>{personData}</CardContent>
     </HoverableCardWrapper>
   );

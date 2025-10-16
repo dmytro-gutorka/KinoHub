@@ -9,7 +9,7 @@ interface IncomingFriendRequestsTabProps {
   search: string;
   page: number;
   setPage: (v: number) => void;
-  setTotalPages: (v: number) => void;
+  setTotalPages: (v: number | null) => void;
 }
 
 export default function IncomingFriendRequestsTab({
@@ -24,7 +24,7 @@ export default function IncomingFriendRequestsTab({
   useAutoPagination(page, setPage, friendRequestsList?.length);
 
   useEffect(() => {
-    if (friendRequests?.totalPages) setTotalPages(friendRequests?.totalPages);
+    setTotalPages(friendRequests?.totalPages ? friendRequests?.totalPages : null);
   }, [friendRequests?.totalPages]);
 
   if (!isSuccess) return null;

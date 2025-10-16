@@ -14,7 +14,7 @@ import IncomingFriendRequestsTab from '@features/friends/ui/IncomingFriendReques
 import OutcomingFriendRequestsTab from '@features/friends/ui/OutcomingFriendRequestsTab';
 
 export default function Friends() {
-  const [totalPages, setTotalPages] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number | null>(null);
   const [search, setSearch] = useState<string>('');
   const [value, setValue] = useState('1');
   const [page, setPage] = useState<number>(1);
@@ -25,6 +25,7 @@ export default function Friends() {
     setValue(v);
     setSearch('');
     setPage(1);
+    setTotalPages(1);
   }
 
   const theme = useTheme();
@@ -35,13 +36,14 @@ export default function Friends() {
       sx={{
         border: theme.border,
         '&.MuiContainer-root': {
-          paddingBlock: 4,
+          paddingTop: 4,
+          paddingBottom: 10,
           paddingInline: 10,
         },
       }}
     >
       <TabContext value={value}>
-        <Stack gap={8}>
+        <Stack gap={8} mb={10}>
           <TabList onChange={handleTabChange}>
             <Tab icon={<Diversity1OutlinedIcon />} iconPosition="start" label="Friends" value="1" />
             <Tab
@@ -87,12 +89,12 @@ export default function Friends() {
           />
         </TabPanel>
 
-        {totalPages > 1 && (
+        {totalPages && totalPages > 1 && (
           <Pagination
             onChange={(_, v) => setPage(v)}
             count={totalPages}
             page={page}
-            sx={{ marginBlock: 15, placeSelf: 'center' }}
+            sx={{ marginTop: 12, placeSelf: 'center' }}
           />
         )}
       </TabContext>

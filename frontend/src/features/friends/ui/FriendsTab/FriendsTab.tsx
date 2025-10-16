@@ -10,7 +10,7 @@ interface FriendsTabProps {
   search: string;
   page: number;
   setPage: (v: number) => void;
-  setTotalPages: (v: number) => void;
+  setTotalPages: (v: number | null) => void;
 }
 
 export default function FriendsTab({ search, page, setPage, setTotalPages }: FriendsTabProps) {
@@ -20,7 +20,7 @@ export default function FriendsTab({ search, page, setPage, setTotalPages }: Fri
   useAutoPagination(page, setPage, friendsList?.length);
 
   useEffect(() => {
-    if (friends?.totalPages) setTotalPages(friends?.totalPages);
+    setTotalPages(friends?.totalPages ? friends?.totalPages : null);
   }, [friends?.totalPages]);
 
   if (!isSuccess) return null;

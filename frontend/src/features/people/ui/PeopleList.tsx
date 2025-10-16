@@ -1,35 +1,39 @@
 import { UserListItemDTO } from '@kinohub/schemas';
-import { Pagination, Stack, Typography } from '@mui/material';
+import { Pagination, Stack } from '@mui/material';
 import { useState } from 'react';
 import usePeople from '@features/people/hooks/usePeople';
 import Person from './Person';
+import Search from '@shared/ui/Search';
+import useDebouncedValue from '@shared/hooks/useDebouncedValue';
 
 export default function PeopleList() {
   const [page, setPage] = useState(1);
-  const { data: people, isSuccess } = usePeople('', page);
+  const [search, setSearch] = useState('');
 
-  if (!isSuccess) return null;
+  const debouncedSearch = useDebouncedValue(search, 500);
+  const { data: people } = usePeople(debouncedSearch, page);
 
-  const { data: peopleList, totalPages } = people;
+  const totalPage = people?.totalPages ?? 0;
+  const peopleList = people?.data ?? [];
 
   return (
-    <Stack>
-      <Typography variant="h5" mb={2}>
-        Friends List
-      </Typography>
+    <Stack gap={10}>
+      <Search onChange={setSearch} search={search} />
 
-      <Stack gap={10} direction="row" flexWrap="wrap" justifyContent="center">
-        {peopleList.map((person: UserListItemDTO, index) => (
-          <Person key={person.id} person={person} arrIndex={index} />
-        ))}
-      </Stack>
+      {!!peopleList.length && (
+        <Stack gap={10} direction="row" flexWrap="wrap" justifyContent="center">
+          {peopleList?.map((person: UserListItemDTO, index) => (
+            <Person key={person.id} person={person} arrIndex={index} />
+          ))}
+        </Stack>
+      )}
 
-      {totalPages > 1 && (
+      {totalPage > 1 && (
         <Pagination
-          count={totalPages}
+          count={totalPage}
           onChange={(_, v) => setPage(v)}
-          sx={{ marginBlock: 15, placeSelf: 'center' }}
           page={page}
+          sx={{ marginBlock: 15, placeSelf: 'center' }}
         />
       )}
     </Stack>
