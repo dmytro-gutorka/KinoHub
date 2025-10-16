@@ -12,8 +12,6 @@ export default function PeopleList() {
 
   const { data: peopleList, totalPages } = people;
 
-  console.log(page, totalPages);
-
   return (
     <Stack>
       <Typography variant="h5" mb={2}>

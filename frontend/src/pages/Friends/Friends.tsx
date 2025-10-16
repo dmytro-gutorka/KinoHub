@@ -14,10 +14,10 @@ import IncomingFriendRequestsTab from '@features/friends/ui/IncomingFriendReques
 import OutcomingFriendRequestsTab from '@features/friends/ui/OutcomingFriendRequestsTab';
 
 export default function Friends() {
-  const [value, setValue] = useState('1');
-  const [search, setSearch] = useState<string>('');
-  const [page, setPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
+  const [search, setSearch] = useState<string>('');
+  const [value, setValue] = useState('1');
+  const [page, setPage] = useState<number>(1);
 
   const debouncedSearched = useDebouncedValue<string>(search, 500);
 
@@ -33,10 +33,11 @@ export default function Friends() {
     <Container
       maxWidth="lg"
       sx={{
-        borderRadius: theme.shape.borderRadiusScale.md,
-        marginBlock: 10,
         border: theme.border,
-        '&.MuiContainer-root': { padding: 0 },
+        '&.MuiContainer-root': {
+          paddingBlock: 4,
+          paddingInline: 10,
+        },
       }}
     >
       <TabContext value={value}>
@@ -56,9 +57,7 @@ export default function Friends() {
               icon={<UploadOutlinedIcon />}
             />
           </TabList>
-          <Stack paddingInline={6}>
-            <Search onChange={setSearch} search={search} />
-          </Stack>
+          <Search onChange={setSearch} search={search} />
         </Stack>
 
         <TabPanel value="1">

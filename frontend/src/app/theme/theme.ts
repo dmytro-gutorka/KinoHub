@@ -73,6 +73,37 @@ const theme = createTheme(base, {
         },
       },
     },
+    MuiTabPanel: {
+      styleOverrides: {
+        root: {
+          padding: 0,
+        },
+      },
+    },
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          borderRadius: base.shape.borderRadiusScale.xl,
+          marginBlock: base.spacing(10),
+        },
+      },
+    },
+    MuiTabList: {
+      styleOverrides: {
+        root: {
+          position: 'relative',
+
+          '&::after': {
+            position: 'absolute',
+            content: '"1"',
+            borderBottom: '2px solid rgba(255, 255, 255, 0.7)',
+            bottom: 0,
+            left: 0,
+            zIndex: 2222222,
+          },
+        },
+      },
+    },
   },
 });
 
