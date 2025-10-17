@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import {
   AggregatedMediaStats,
+  DateRange,
   FavoriteGenres,
   MediaType,
   TopRatedMedia,
@@ -26,12 +27,16 @@ const userStatsSQL = fs.readFileSync(path.join(__dirname, './queries/user_stats_
 class UserStatService {
   constructor(private readonly ds: DataSource) {}
 
-  async getUserMediaAggregatedStats(userId: number): Promise<AggregatedMediaStats> {
+  async getUserMediaAggregatedStats(
+    userId: number,
+    mediaType: MediaType,
+    dateRange: DateRange
+  ): Promise<AggregatedMediaStats> {
     const user: User | null = await userRepository.findOneBy({ id: userId });
 
     if (!user) throw HttpError.NotFound('User not found');
 
-    const rows = await this.ds.query(userStatsSQL, [userId]);
+    const rows = await this.ds.query(userStatsSQL, [userId, dateRange?.from, dateRange?.to]);
     const row = rows[0] ?? {};
 
     return {
@@ -51,9 +56,10 @@ class UserStatService {
   async getTopRatedMedia(
     userId: number,
     mediaType: MediaType,
+    dateRange: DateRange,
     _limit: number = 10
   ): Promise<TopRatedMedia[]> {
-    return await this.ds
+    const qb = this.ds
       .createQueryBuilder()
       .from(MediaUserAction, 'mua')
       .innerJoin(MediaInfo, 'mi', 'mi.id = mua.mediaInfoId')
@@ -65,25 +71,34 @@ class UserStatService {
       ])
       .where('mua.userId = :userId', { userId })
       .andWhere('mua.mediaType = :mediaType', { mediaType })
-      .andWhere('mua.rating IS NOT NULL')
-      .orderBy('mua.rating', 'DESC')
-      .limit(_limit)
-      .getRawMany();
+      .andWhere('mua.rating IS NOT NULL');
+
+    if (dateRange?.from) qb.andWhere('mua."updatedAt" >= :from', { from: dateRange.from });
+    if (dateRange?.to) qb.andWhere('mua."updatedAt" < :to', { to: dateRange.to });
+
+    return qb.orderBy('mua.rating', 'DESC').limit(_limit).getRawMany();
   }
 
-  async getFavoriteGenres(userId: number, _limit: number = 5): Promise<FavoriteGenres[]> {
-    return await this.ds
+  async getFavoriteGenres(
+    userId: number,
+    mediaType: MediaType,
+    dateRange: DateRange,
+    _limit: number = 5
+  ): Promise<FavoriteGenres[]> {
+    const qb = this.ds
       .createQueryBuilder()
       .select(['g.name as name', 'COUNT(g.name)'])
       .from(MediaUserAction, 'mua')
       .where('mua.userId = :userId', { userId })
+      .andWhere('mua.mediaType = :mediaType', { mediaType })
       .innerJoin(MediaInfo, 'mi', 'mi.id = mua.mediaInfoId')
       .innerJoin(MediaGenre, 'mg', 'mi.id = mg.mediaItemId')
-      .innerJoin(Genre, 'g', 'g.id = mg.genreId')
-      .groupBy('g.name')
-      .orderBy('COUNT(g.name)', 'DESC')
-      .limit(_limit)
-      .getRawMany();
+      .innerJoin(Genre, 'g', 'g.id = mg.genreId');
+
+    if (dateRange?.from) qb.andWhere('mua."updatedAt" >= :from', { from: dateRange.from });
+    if (dateRange?.to) qb.andWhere('mua."updatedAt" < :to', { to: dateRange.to });
+
+    return qb.groupBy('g.name').orderBy('COUNT(g.name)', 'DESC').limit(_limit).getRawMany();
   }
 
   async getTvShowInProgress(userId?: number): Promise<TvShowInProgress[]> {

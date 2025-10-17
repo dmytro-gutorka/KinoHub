@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1685e60f-6f96-4588-adbf-38f61b3a8f60.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1685e60f-6f96-4588-adbf-38f61b3a8f60.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1685e60f-6f96-4588-adbf-38f61b3a8f60/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1685e60f-6f96-4588-adbf-38f61b3a8f60/storage_v2/_src_/database/kinohub.9sCp1Q/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/dto/user.dto.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/entity/Episode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/Episode.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/entity/MediaUserAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/entity/MediaUserAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/user-stat.controllers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/user-stat.controllers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/queries/user_stats_card.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/queries/user_stats_card.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/services/user-stat.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/user-stat.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/types/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/utils/helpers/rangePreset.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/utils/helpers/rangePreset.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/api-paths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/api-paths.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/user-stats/getUserStats.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/user-stats/getUserStats.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useUserMediaStats.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useUserMediaStats.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/schemas/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/src/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,50 +74,50 @@
     <option name="showLibraryContents" value="true" />
     <option name="sortKey" value="BY_TIME_ASCENDING" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Node.js.index.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.17.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.16.4&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/dima/GitHubProjects/KinoHub/frontend/src/shared/ui/plugs&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;/Users/dima/Library/Application Support/JetBrains/WebStorm2025.1/node/versions/22.17.0/bin/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/dima/GitHubProjects/KinoHub/node_modules/prettier&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/dima/GitHubProjects/KinoHub/node_modules/typescript/lib&quot;,
-    &quot;ts.rename.search.for.dynamic.occurrences&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.index.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore_missing_gitignore": "true",
+    "javascript.nodejs.core.library.configured.version": "22.17.0",
+    "javascript.nodejs.core.library.typings.version": "22.16.4",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/dima/GitHubProjects/KinoHub/backend/dist/services/queries",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "/Users/dima/Library/Application Support/JetBrains/WebStorm2025.1/node/versions/22.17.0/bin/node",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/dima/GitHubProjects/KinoHub/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "ts.external.directory.path": "/Users/dima/GitHubProjects/KinoHub/node_modules/typescript/lib",
+    "ts.rename.search.for.dynamic.occurrences": "true",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/dist/services/queries" />
       <recent name="$PROJECT_DIR$/frontend/src/shared/ui/plugs" />
       <recent name="$PROJECT_DIR$/frontend/public/profile-backgrounds" />
       <recent name="$PROJECT_DIR$/frontend/src/features/friends/ui" />
       <recent name="$PROJECT_DIR$/backend/dist/services" />
-      <recent name="$PROJECT_DIR$/frontend/src/types" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/src/features/friends/ui" />
@@ -303,7 +305,8 @@
       <workItem from="1760381676789" duration="7544000" />
       <workItem from="1760431127624" duration="18801000" />
       <workItem from="1760516984720" duration="18637000" />
-      <workItem from="1760605190258" duration="18300000" />
+      <workItem from="1760605190258" duration="19026000" />
+      <workItem from="1760690008008" duration="9102000" />
     </task>
     <servers />
   </component>

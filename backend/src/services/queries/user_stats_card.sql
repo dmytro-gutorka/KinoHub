@@ -1,5 +1,10 @@
 WITH
-    mua AS (SELECT * FROM "media_user_action" WHERE "userId" = $1),
+    mua AS (
+    SELECT * FROM "media_user_action"
+             WHERE "userId" = $1
+             AND ($2::timestamptz IS NULL OR "updatedAt" >= $2)
+             AND ($3::timestamptz IS NULL OR "updatedAt" < $3)
+             ),
 
     ratings AS (
         SELECT
@@ -28,8 +33,22 @@ WITH
         WHERE mua."isWatched" = true
     ),
 
-    comments AS (SELECT COUNT(*) comment_count FROM "comments" WHERE "userId"=$1),
-    episodes AS (SELECT COUNT(*) episodes_watched FROM "episode" WHERE "userId"=$1 AND "isWatched"=true)
+    comments AS (
+    SELECT COUNT(*) comment_count
+    FROM "comments"
+    WHERE "userId"=$1
+      AND ($2::timestamptz IS NULL OR "updatedAt" >= $2)
+      AND ($3::timestamptz IS NULL OR "updatedAt" <  $3)
+    ),
+
+    episodes AS (
+        SELECT COUNT(*) episodes_watched
+        FROM "episode"
+        WHERE "userId"=$1
+          AND "isWatched"=true
+          AND ($2::timestamptz IS NULL OR "updatedAt" >= $2)
+          AND ($3::timestamptz IS NULL OR "updatedAt" <  $3)
+        )
 
 SELECT
     r.number_of_ratings, r.avg_rating, r.max_rating, r.min_rating,

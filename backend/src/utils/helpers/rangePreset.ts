@@ -1,14 +1,14 @@
-import { DataRangePresets, DateRange } from '../../types/types.js';
+import { DateRangePresets, DateRange } from '../../types/types.js';
 import { startOfWeek, startOfMonth, startOfYear } from 'date-fns';
 import { fromZonedTime, toZonedTime } from 'date-fns-tz';
 
 export default function rangePreset(
-  preset: DataRangePresets,
-  now = new Date(),
-  tz: string = 'Europe/Kyiv'
+  preset: DateRangePresets,
+  tz: string = 'UTC',
+  now = new Date()
 ): DateRange {
-  const nowZoned = toZonedTime(now, tz);
-  let fromZoned;
+  const nowZoned: Date = toZonedTime(now, tz);
+  let fromZoned: Date;
 
   switch (preset) {
     case 'all':

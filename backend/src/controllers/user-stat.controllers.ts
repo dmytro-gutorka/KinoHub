@@ -1,16 +1,25 @@
 import { Request, Response } from 'express';
-import { SettledUserMediaStats } from '../types/types.js';
+import { DateRangePresets, DateRange, SettledUserMediaStats, MediaType } from '../types/types.js';
 import { usersStatsService } from '../services/user-stat.service.js';
 import { userProfileService } from '../services/user-profile.js';
+import rangePreset from '../utils/helpers/rangePreset.js';
 
-export async function getUserStats(req: Request, res: Response) {
+export async function getUserStats(
+  req: Request<any, any, any, { tz: string; datePreset: DateRangePresets; mediaType: MediaType }>,
+  res: Response
+) {
   const userId: number = req.user?.id!;
+  const tz: string = req.query.tz ?? 'UTC';
+  const datePreset: DateRangePresets = req.query.datePreset ?? 'all';
+  const mediaType: MediaType = req.query.mediaType ?? 'movie';
+
+  const dateRange: DateRange = rangePreset(datePreset, tz) ?? {};
 
   const userMediaStats: SettledUserMediaStats = await Promise.allSettled([
-    usersStatsService.getUserMediaAggregatedStats(userId),
-    usersStatsService.getTopRatedMedia(userId, 'tv'),
-    usersStatsService.getTopRatedMedia(userId, 'movie'),
-    usersStatsService.getFavoriteGenres(userId),
+    usersStatsService.getUserMediaAggregatedStats(userId, mediaType, dateRange),
+    usersStatsService.getTopRatedMedia(userId, mediaType, dateRange),
+    usersStatsService.getTopRatedMedia(userId, mediaType, dateRange),
+    usersStatsService.getFavoriteGenres(userId, mediaType, dateRange),
     usersStatsService.getTvShowInProgress(userId),
   ]);
   const [aggregatedStats, topTv, topMovie, favoriteGenres, tvShowInProgress] = userMediaStats;

@@ -15,9 +15,11 @@ import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 export default function Dashboard() {
   const [value, setValue] = useState('1');
 
-  const { data: userMediaStats, isSuccess } = useUserMediaStats();
+  const { data: userMediaStats, isSuccess } = useUserMediaStats('year');
 
-  if (!isSuccess) return <div>Loading...</div>;
+  if (!isSuccess) return null;
+
+  console.log(userMediaStats);
 
   return (
     <Container maxWidth="lg">

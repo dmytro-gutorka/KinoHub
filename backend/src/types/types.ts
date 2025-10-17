@@ -106,4 +106,4 @@ export interface DateRange {
   to?: Date;
 }
 
-export type DataRangePresets = 'all' | 'week' | 'month' | 'year';
+export type DateRangePresets = 'all' | 'week' | 'month' | 'year';

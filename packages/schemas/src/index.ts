@@ -25,7 +25,6 @@ export const UserPaginatedList = z.object({
 export type UserPaginatedListDTO = z.infer<typeof UserPaginatedList>;
 export type UserListItemDTO = z.infer<typeof UserListItem>;
 
-
 export const UserQuery = z.object({
     search: z.string().optional(),
     page: z.number().optional(),
