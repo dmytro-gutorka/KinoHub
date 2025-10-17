@@ -1,4 +1,3 @@
-import { UserMediaStats } from '@shared/types/generalTypes';
 import { Chip, Stack, styled, Typography } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import theme from '@app/theme/theme';
@@ -6,6 +5,7 @@ import Box from '@mui/material/Box';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
+import useUserMediaStats from '@shared/hooks/useUserMediaStats';
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -29,11 +29,11 @@ function calcPercentage(value: number, total: number) {
   return (value / total) * 100;
 }
 
-interface DashboardTvShowsTabProps {
-  userMediaStats: UserMediaStats;
-}
+export default function DashboardTvShowsTab() {
+  const { data: userMediaStats, isSuccess } = useUserMediaStats('year', 'tv');
 
-export default function DashboardTvShowsTab({ userMediaStats }: DashboardTvShowsTabProps) {
+  if (!isSuccess) return null;
+
   const { tvShowInProgress } = userMediaStats;
 
   return (

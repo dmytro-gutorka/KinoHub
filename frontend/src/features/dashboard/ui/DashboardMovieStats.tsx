@@ -1,3 +1,4 @@
+import { UserMediaStats } from '@shared/types/generalTypes';
 import { Stack } from '@mui/material';
 import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
@@ -5,13 +6,17 @@ import theme from '@app/theme/theme';
 import MovieOutlineIcon from '@shared/icons/MovieOutlineIcon';
 import DashboardMovieStatsCard from '@features/dashboard/ui/DashboardMovieStatsCard';
 
-export default function DashboardMovieStats({ userMediaStats }) {
-  const { runtimeMovie, watchedMovie, avgRating } = userMediaStats.userMediaAggregatedStats;
+interface DashboardMovieStatsProps {
+  userMediaStats: UserMediaStats;
+}
+
+export default function DashboardMovieStats({ userMediaStats }: DashboardMovieStatsProps) {
+  const { overallRuntime, watchedMedia, avgRating } = userMediaStats.aggregatedUserMediaStats;
 
   const movieStatsItems = [
     {
       label: 'Total Movies',
-      text: watchedMovie,
+      text: watchedMedia,
       icon: <MovieOutlineIcon stroke={theme.palette['blue'].light} />,
     },
     {
@@ -21,7 +26,7 @@ export default function DashboardMovieStats({ userMediaStats }) {
     },
     {
       label: 'Total Runtime',
-      text: runtimeMovie,
+      text: overallRuntime,
       icon: <AccessTimeOutlinedIcon stroke={theme.palette['green'].light} />,
     },
   ];

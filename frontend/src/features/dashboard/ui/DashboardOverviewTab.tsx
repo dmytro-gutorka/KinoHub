@@ -9,7 +9,6 @@ export default function DashboardOverviewTab() {
 
   if (!isSuccess) return null;
 
-  console.log(userMediaStats);
   return (
     <Stack spacing={10}>
       <DashboardMainStats userMediaStats={userMediaStats} />

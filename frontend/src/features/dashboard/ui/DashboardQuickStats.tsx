@@ -9,7 +9,7 @@ interface DashboardQuickStatsProps {
 
 export default function DashboardQuickStats({ userMediaStats }: DashboardQuickStatsProps) {
   const { maxRating, minRating, commentsCount, ratingCount } =
-    userMediaStats.userMediaAggregatedStats;
+    userMediaStats.aggregatedUserMediaStats;
 
   const quickStats = [
     { statsLabel: 'Max movie rating', statsValue: maxRating },

@@ -1,12 +1,11 @@
 import { Box, Stack, Typography, useTheme } from '@mui/material';
-import { JSX } from 'react';
-
+import { ReactNode } from 'react';
 
 interface DashboardCardProps {
-  mainColor: 'green' | 'purple' | 'blue' | 'orange',
-  children: JSX.Element,
-  dashStat: number | string,
-  label: string,
+  mainColor: 'green' | 'purple' | 'blue' | 'orange';
+  children: ReactNode;
+  dashStat: number | string;
+  label: string;
 }
 
 const DashboardCard = ({ children, dashStat, mainColor, label }: DashboardCardProps) => {
@@ -27,9 +26,9 @@ const DashboardCard = ({ children, dashStat, mainColor, label }: DashboardCardPr
       </Stack>
 
       <Box pl={1}>
-        <Typography variant="h5" children={dashStat}/>
-        <Typography variant="subtitle1" color={theme.palette[mainColor].light} children={label}/>
-        <Typography variant="body1" children="This month"/>
+        <Typography variant="h5" children={dashStat} />
+        <Typography variant="subtitle1" color={theme.palette[mainColor].light} children={label} />
+        <Typography variant="body1" children="This month" />
       </Box>
     </Stack>
   );

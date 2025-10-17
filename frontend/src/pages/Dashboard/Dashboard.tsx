@@ -31,12 +31,12 @@ export default function Dashboard() {
         <TabPanel value="1">
           <DashboardOverviewTab />
         </TabPanel>
-        {/*<TabPanel value="2">*/}
-        {/*  <DashboardMoviesTab />*/}
-        {/*</TabPanel>*/}
-        {/*<TabPanel value="3">*/}
-        {/*  <DashboardTvShowsTab />*/}
-        {/*</TabPanel>*/}
+        <TabPanel value="2">
+          <DashboardMoviesTab />
+        </TabPanel>
+        <TabPanel value="3">
+          <DashboardTvShowsTab />
+        </TabPanel>
       </TabContext>
     </Container>
   );

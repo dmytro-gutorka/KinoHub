@@ -6,15 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/user-stat.controllers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/user-stat.controllers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/queries/user_stats_card.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/queries/user_stats_card.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/services/user-stat.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/user-stat.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/types/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardMainStats.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardMainStats.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardMovieStats.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardMovieStats.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardMoviesTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardMoviesTab.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardOverviewTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardOverviewTab.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardQuickStats.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardQuickStats.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTopRatedMovies.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTopRatedMovies.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTvShowsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTvShowsTab.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/api-paths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/api-paths.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/user-stats/getUserStats.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/user-stats/getUserStats.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useUserMediaStats.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useUserMediaStats.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -305,7 +305,7 @@
       <workItem from="1760431127624" duration="18801000" />
       <workItem from="1760516984720" duration="18637000" />
       <workItem from="1760605190258" duration="19026000" />
-      <workItem from="1760690008008" duration="13664000" />
+      <workItem from="1760690008008" duration="14973000" />
     </task>
     <servers />
   </component>

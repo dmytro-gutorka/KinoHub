@@ -79,16 +79,14 @@ export interface AggregatedMediaStats {
   maxRating: number | null;
   minRating: number | null;
   ratingCount: number;
-  runtimeMovie: number;
-  runtimeTv: number;
-  watchedMovie: number;
-  watchedTv: number;
+  overallRuntime: number;
+  watchedMedia: number;
   watchedEpisodes: number;
   commentsCount: number;
 }
 
 export interface UserMediaStats {
-  userMediaAggregatedStats: AggregatedMediaStats;
+  aggregatedUserMediaStats: AggregatedMediaStats;
   favoriteGenres: FavoriteGenres[];
   topRatedMedia: TopRatedMedia[];
   tvShowInProgress: TvShowInProgress[];

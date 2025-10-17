@@ -1,9 +1,14 @@
 import BlockWrapper from '@shared/ui/BlockWrapper';
 import DashboardTopRatedMovieCard from '@features/dashboard/ui/DashboardTopRatedMovieCard';
 import { Stack } from '@mui/material';
+import { UserMediaStats } from '@shared/types/generalTypes';
 
-export default function DashboardTopRatedMovies({ userMediaStats }) {
-  if (userMediaStats.topRatedMovie.length === 0)
+interface DashboardTopRatedMoviesProps {
+  userMediaStats: UserMediaStats;
+}
+
+export default function DashboardTopRatedMovies({ userMediaStats }: DashboardTopRatedMoviesProps) {
+  if (userMediaStats.topRatedMedia.length === 0)
     return (
       <div>Rate some movies</div>
       // TODO: Create a component
@@ -12,7 +17,7 @@ export default function DashboardTopRatedMovies({ userMediaStats }) {
   return (
     <BlockWrapper title="Top Rated Movies">
       <Stack direction="row" flexWrap="wrap" rowGap={10}>
-        {userMediaStats.topRatedMovie.map((movieItem, index) => (
+        {userMediaStats.topRatedMedia.map((movieItem, index) => (
           <DashboardTopRatedMovieCard
             number={index + 1}
             movieItem={movieItem}

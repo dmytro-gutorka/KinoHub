@@ -1,13 +1,15 @@
 import { Stack, Typography } from '@mui/material';
 import DashboardMovieStats from '@features/dashboard/ui/DashboardMovieStats';
 import DashboardTopRatedMovies from '@features/dashboard/ui/DashboardTopRatedMovies';
-import { UserMediaStats } from '@shared/types/generalTypes';
+import useUserMediaStats from '@shared/hooks/useUserMediaStats';
 
-interface DashboardMoviesTabProps {
-  userMediaStats: UserMediaStats
-}
+export default function DashboardMoviesTab() {
+  const { data: userMediaStats, isSuccess } = useUserMediaStats('all', 'movie');
 
-export default function DashboardMoviesTab({ userMediaStats }: DashboardMoviesTabProps) {
+  if (!isSuccess) return null;
+
+  console.log(userMediaStats);
+
   return (
     <Stack spacing={6}>
       <Typography variant="h5" fontWeight={900}>
