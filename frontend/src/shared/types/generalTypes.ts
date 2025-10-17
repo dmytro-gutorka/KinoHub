@@ -90,8 +90,7 @@ export interface AggregatedMediaStats {
 export interface UserMediaStats {
   userMediaAggregatedStats: AggregatedMediaStats;
   favoriteGenres: FavoriteGenres[];
-  topRatedMovie: TopRatedMedia[];
-  topRatedTv: TopRatedMedia[];
+  topRatedMedia: TopRatedMedia[];
   tvShowInProgress: TvShowInProgress[];
 }
 

@@ -1,10 +1,11 @@
 WITH
     mua AS (
-    SELECT * FROM "media_user_action"
-             WHERE "userId" = $1
-             AND ($2::timestamptz IS NULL OR "updatedAt" >= $2)
-             AND ($3::timestamptz IS NULL OR "updatedAt" < $3)
-             ),
+        SELECT * FROM "media_user_action"
+        WHERE "userId" = $1
+        AND $4::text IS NULL OR "mediaType" = $4
+        AND ($2::timestamptz IS NULL OR "updatedAt" >= $2)
+        AND ($3::timestamptz IS NULL OR "updatedAt" < $3)
+        ),
 
     ratings AS (
         SELECT
@@ -17,43 +18,43 @@ WITH
     ),
 
     runtimes AS (
-        SELECT
-            SUM(mi."runtime") FILTER (WHERE mi."mediaType"='movie') AS runtime_movie,
-            SUM(mi."runtime") FILTER (WHERE mi."mediaType"='tv')    AS runtime_tv
+        SELECT SUM(mi."runtime") AS overall_runtime
         FROM mua
         JOIN "media_info" mi
         ON mi."id" = mua."mediaInfoId"
     ),
 
     watched AS (
-        SELECT
-            COUNT(*) FILTER (WHERE mi."mediaType"='movie') AS watched_movie,
-            COUNT(*) FILTER (WHERE mi."mediaType"='tv')    AS watched_tv
+        SELECT COUNT(*) AS watched_media
         FROM mua JOIN "media_info" mi ON mi."id" = mua."mediaInfoId"
         WHERE mua."isWatched" = true
     ),
 
     comments AS (
-    SELECT COUNT(*) comment_count
-    FROM "comments"
-    WHERE "userId"=$1
-      AND ($2::timestamptz IS NULL OR "updatedAt" >= $2)
-      AND ($3::timestamptz IS NULL OR "updatedAt" <  $3)
+        SELECT COUNT(*) comment_count
+        FROM "comments"
+        WHERE "userId"=$1
+        AND ($2::timestamptz IS NULL OR "updatedAt" >= $2)
+        AND ($3::timestamptz IS NULL OR "updatedAt" <  $3)
+        AND $4::text IS NULL OR "mediaType" = $4
     ),
 
     episodes AS (
         SELECT COUNT(*) episodes_watched
         FROM "episode"
         WHERE "userId"=$1
-          AND "isWatched"=true
-          AND ($2::timestamptz IS NULL OR "updatedAt" >= $2)
-          AND ($3::timestamptz IS NULL OR "updatedAt" <  $3)
+        AND "isWatched"=true
+        AND ($2::timestamptz IS NULL OR "updatedAt" >= $2)
+        AND ($3::timestamptz IS NULL OR "updatedAt" <  $3)
         )
-
 SELECT
-    r.number_of_ratings, r.avg_rating, r.max_rating, r.min_rating,
-    rt.runtime_movie, rt.runtime_tv,
-    w.watched_movie, w.watched_tv,
-    c.comment_count, e.episodes_watched
+    w.watched_media,
+    rt.overall_runtime,
+    r.number_of_ratings,
+    r.avg_rating,
+    r.max_rating,
+    r.min_rating,
+    c.comment_count,
+    e.episodes_watched
 FROM
     ratings r, runtimes rt, watched w, comments c, episodes e;

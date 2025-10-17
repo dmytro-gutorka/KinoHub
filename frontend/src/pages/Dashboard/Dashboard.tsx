@@ -3,7 +3,6 @@ import { useState } from 'react';
 import DashboardTvShowsTab from '@features/dashboard/ui/DashboardTvShowsTab';
 import DashboardOverviewTab from '@features/dashboard/ui/DashboardOverviewTab';
 import DashboardMoviesTab from '@features/dashboard/ui/DashboardMoviesTab';
-import useUserMediaStats from '@shared/hooks/useUserMediaStats';
 import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
 import TabList from '@mui/lab/TabList';
@@ -14,12 +13,6 @@ import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 
 export default function Dashboard() {
   const [value, setValue] = useState('1');
-
-  const { data: userMediaStats, isSuccess } = useUserMediaStats('year');
-
-  if (!isSuccess) return null;
-
-  console.log(userMediaStats);
 
   return (
     <Container maxWidth="lg">
@@ -36,14 +29,14 @@ export default function Dashboard() {
         </TabList>
 
         <TabPanel value="1">
-          <DashboardOverviewTab userMediaStats={userMediaStats} />
+          <DashboardOverviewTab />
         </TabPanel>
-        <TabPanel value="2">
-          <DashboardMoviesTab userMediaStats={userMediaStats} />
-        </TabPanel>
-        <TabPanel value="3">
-          <DashboardTvShowsTab userMediaStats={userMediaStats} />
-        </TabPanel>
+        {/*<TabPanel value="2">*/}
+        {/*  <DashboardMoviesTab />*/}
+        {/*</TabPanel>*/}
+        {/*<TabPanel value="3">*/}
+        {/*  <DashboardTvShowsTab />*/}
+        {/*</TabPanel>*/}
       </TabContext>
     </Container>
   );

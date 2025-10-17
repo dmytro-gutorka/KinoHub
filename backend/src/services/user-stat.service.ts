@@ -29,14 +29,19 @@ class UserStatService {
 
   async getUserMediaAggregatedStats(
     userId: number,
-    mediaType: MediaType,
+    mediaType: MediaType | null,
     dateRange: DateRange
   ): Promise<AggregatedMediaStats> {
     const user: User | null = await userRepository.findOneBy({ id: userId });
 
     if (!user) throw HttpError.NotFound('User not found');
 
-    const rows = await this.ds.query(userStatsSQL, [userId, dateRange?.from, dateRange?.to]);
+    const rows = await this.ds.query(userStatsSQL, [
+      userId,
+      dateRange?.from,
+      dateRange?.to,
+      mediaType,
+    ]);
     const row = rows[0] ?? {};
 
     return {
@@ -44,10 +49,8 @@ class UserStatService {
       maxRating: Number(row.max_rating ?? 0),
       minRating: Number(row.min_rating ?? 0),
       ratingCount: Number(row.number_of_ratings ?? 0),
-      runtimeMovie: Number(row.runtime_movie ?? 0),
-      runtimeTv: Number(row.runtime_tv ?? 0),
-      watchedMovie: Number(row.watched_movie ?? 0),
-      watchedTv: Number(row.watched_tv ?? 0),
+      overallRuntime: Number(row.overall_runtime ?? 0),
+      watchedMedia: Number(row.watched_media ?? 0),
       watchedEpisodes: Number(row.episodes_watched ?? 0),
       commentsCount: Number(row.comment_count ?? 0),
     };
@@ -55,7 +58,7 @@ class UserStatService {
 
   async getTopRatedMedia(
     userId: number,
-    mediaType: MediaType,
+    mediaType: MediaType | null,
     dateRange: DateRange,
     _limit: number = 10
   ): Promise<TopRatedMedia[]> {
@@ -70,7 +73,7 @@ class UserStatService {
         'mi.releaseDate AS "releaseDate"',
       ])
       .where('mua.userId = :userId', { userId })
-      .andWhere('mua.mediaType = :mediaType', { mediaType })
+      .andWhere(`${mediaType ? 'mua.mediaType = :mediaType' : '1 = 1'}`, { mediaType })
       .andWhere('mua.rating IS NOT NULL');
 
     if (dateRange?.from) qb.andWhere('mua."updatedAt" >= :from', { from: dateRange.from });
@@ -81,7 +84,7 @@ class UserStatService {
 
   async getFavoriteGenres(
     userId: number,
-    mediaType: MediaType,
+    mediaType: MediaType | null,
     dateRange: DateRange,
     _limit: number = 5
   ): Promise<FavoriteGenres[]> {
@@ -89,11 +92,11 @@ class UserStatService {
       .createQueryBuilder()
       .select(['g.name as name', 'COUNT(g.name)'])
       .from(MediaUserAction, 'mua')
-      .where('mua.userId = :userId', { userId })
-      .andWhere('mua.mediaType = :mediaType', { mediaType })
+      .where('mua.userId = :userId', { userId})
+      .andWhere(`${mediaType ? 'mua.mediaType = :mediaType' : '1 = 1'}`, { mediaType })
       .innerJoin(MediaInfo, 'mi', 'mi.id = mua.mediaInfoId')
       .innerJoin(MediaGenre, 'mg', 'mi.id = mg.mediaItemId')
-      .innerJoin(Genre, 'g', 'g.id = mg.genreId');
+      .innerJoin(Genre, 'g', 'g.id = mg.genreId')
 
     if (dateRange?.from) qb.andWhere('mua."updatedAt" >= :from', { from: dateRange.from });
     if (dateRange?.to) qb.andWhere('mua."updatedAt" < :to', { to: dateRange.to });

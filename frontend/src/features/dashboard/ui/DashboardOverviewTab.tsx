@@ -1,14 +1,15 @@
-import { UserMediaStats } from '@shared/types/generalTypes';
 import { Stack } from '@mui/material';
 import DashboardMainStats from '@features/dashboard/ui/DashboardMainStats';
 import DashboardTopGenres from '@features/dashboard/ui/DashboardTopGenres';
 import DashboardQuickStats from '@features/dashboard/ui/DashboardQuickStats';
+import useUserMediaStats from '@shared/hooks/useUserMediaStats';
 
-interface DashboardOverviewTabProps {
-  userMediaStats: UserMediaStats
-}
+export default function DashboardOverviewTab() {
+  const { data: userMediaStats, isSuccess } = useUserMediaStats('year', 'all');
 
-export default function DashboardOverviewTab({ userMediaStats }: DashboardOverviewTabProps) {
+  if (!isSuccess) return null;
+
+  console.log(userMediaStats);
   return (
     <Stack spacing={10}>
       <DashboardMainStats userMediaStats={userMediaStats} />

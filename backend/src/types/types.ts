@@ -85,17 +85,14 @@ export interface AggregatedMediaStats {
   maxRating: number | null;
   minRating: number | null;
   ratingCount: number;
-  runtimeMovie: number;
-  runtimeTv: number;
-  watchedMovie: number;
-  watchedTv: number;
+  overallRuntime: number;
+  watchedMedia: number;
   watchedEpisodes: number;
   commentsCount: number;
 }
 
 export type SettledUserMediaStats = readonly [
   PromiseSettledResult<AggregatedMediaStats>,
-  PromiseSettledResult<TopRatedMedia[]>,
   PromiseSettledResult<TopRatedMedia[]>,
   PromiseSettledResult<FavoriteGenres[]>,
   PromiseSettledResult<TvShowInProgress[]>,

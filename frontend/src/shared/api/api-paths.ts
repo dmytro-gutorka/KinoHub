@@ -53,8 +53,8 @@ export const apiPath = {
   },
 
   userStats: {
-    getOneBy: (userId: number, tz: string, datePreset: string) =>
-      `${API_URL}/users/${userId}/stats?tz=${tz}&datePreset=${datePreset}`,
+    getOneBy: (userId: number, tz: string, datePreset: string, mediaType: MediaType | 'all') =>
+      `${API_URL}/users/${userId}/stats?tz=${tz}&datePreset=${datePreset}&mediaType=${mediaType}`,
   },
 
   userProfile: {

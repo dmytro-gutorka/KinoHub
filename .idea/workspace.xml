@@ -5,18 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/user-stat.controllers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/user-stat.controllers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/services/queries/user_stats_card.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/queries/user_stats_card.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/services/user-stat.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/services/user-stat.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/types/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/utils/helpers/rangePreset.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/utils/helpers/rangePreset.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardOverviewTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardOverviewTab.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/api-paths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/api-paths.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/api/user-stats/getUserStats.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/api/user-stats/getUserStats.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/shared/hooks/useUserMediaStats.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/hooks/useUserMediaStats.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/schemas/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/schemas/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/types/generalTypes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,10 +113,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/dist/services/queries" />
+      <recent name="$PROJECT_DIR$/backend/src/services/queries" />
       <recent name="$PROJECT_DIR$/frontend/src/shared/ui/plugs" />
       <recent name="$PROJECT_DIR$/frontend/public/profile-backgrounds" />
       <recent name="$PROJECT_DIR$/frontend/src/features/friends/ui" />
-      <recent name="$PROJECT_DIR$/backend/dist/services" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/src/features/friends/ui" />
@@ -306,7 +305,7 @@
       <workItem from="1760431127624" duration="18801000" />
       <workItem from="1760516984720" duration="18637000" />
       <workItem from="1760605190258" duration="19026000" />
-      <workItem from="1760690008008" duration="9102000" />
+      <workItem from="1760690008008" duration="13664000" />
     </task>
     <servers />
   </component>

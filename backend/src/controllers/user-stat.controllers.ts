@@ -5,31 +5,34 @@ import { userProfileService } from '../services/user-profile.js';
 import rangePreset from '../utils/helpers/rangePreset.js';
 
 export async function getUserStats(
-  req: Request<any, any, any, { tz: string; datePreset: DateRangePresets; mediaType: MediaType }>,
+  req: Request<
+    any,
+    any,
+    any,
+    { tz: string; datePreset: DateRangePresets; mediaType: MediaType | 'all' }
+  >,
   res: Response
 ) {
   const userId: number = req.user?.id!;
   const tz: string = req.query.tz ?? 'UTC';
   const datePreset: DateRangePresets = req.query.datePreset ?? 'all';
-  const mediaType: MediaType = req.query.mediaType ?? 'movie';
+  const mediaType: MediaType | null = req.query.mediaType === 'all' ? null : req.query.mediaType;
 
   const dateRange: DateRange = rangePreset(datePreset, tz) ?? {};
 
   const userMediaStats: SettledUserMediaStats = await Promise.allSettled([
     usersStatsService.getUserMediaAggregatedStats(userId, mediaType, dateRange),
     usersStatsService.getTopRatedMedia(userId, mediaType, dateRange),
-    usersStatsService.getTopRatedMedia(userId, mediaType, dateRange),
     usersStatsService.getFavoriteGenres(userId, mediaType, dateRange),
     usersStatsService.getTvShowInProgress(userId),
   ]);
-  const [aggregatedStats, topTv, topMovie, favoriteGenres, tvShowInProgress] = userMediaStats;
+  const [aggregatedStats, topMedia, favoriteGenres, tvShowInProgress] = userMediaStats;
 
   res.status(200).json({
-    topRatedTv: topTv.status === 'fulfilled' ? topTv.value : [],
-    topRatedMovie: topMovie.status === 'fulfilled' ? topMovie.value : [],
+    topRatedMedia: topMedia.status === 'fulfilled' ? topMedia.value : [],
     favoriteGenres: favoriteGenres.status === 'fulfilled' ? favoriteGenres.value : [],
     tvShowInProgress: tvShowInProgress.status === 'fulfilled' ? tvShowInProgress.value : [],
-    userMediaAggregatedStats: aggregatedStats.status === 'fulfilled' ? aggregatedStats.value : null,
+    aggregatedUserMediaStats: aggregatedStats.status === 'fulfilled' ? aggregatedStats.value : null,
   });
 }
 
