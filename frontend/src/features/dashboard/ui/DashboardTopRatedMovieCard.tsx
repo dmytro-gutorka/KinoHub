@@ -1,17 +1,26 @@
 import { Stack, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
-import getPosterUrl from '@shared/helpers/getPosterUrl';
-import getYearFromDate from '@shared/helpers/getYearFromDate';
 import theme from '@app/theme/theme';
 import StarIcon from '@mui/icons-material/Star';
+import getYearFromDate from '@shared/helpers/getYearFromDate';
+import getPosterUrl from '@shared/helpers/getPosterUrl';
+import { TopRatedMedia } from '@shared/types/generalTypes';
 
-export default function DashboardTopRatedMovieCard({ movieItem, number }) {
-  const { posterPath, rating, releaseDate, title } = movieItem;
+interface DashboardTopRatedMovieCardProps {
+  mediaItem: TopRatedMedia;
+  number: number;
+}
+
+export default function DashboardTopRatedMovieCard({
+  mediaItem,
+  number,
+}: DashboardTopRatedMovieCardProps) {
+  const { posterPath, rating, releaseDate, title } = mediaItem;
 
   return (
     <Stack direction="row" width={{ sm: '100%', lg: '50%' }} spacing={3} position="relative">
       <Box
-        borderRadius={theme.shape.borderRadiusScale.md}
+        borderRadius={2}
         component="img"
         height={100}
         width={65}

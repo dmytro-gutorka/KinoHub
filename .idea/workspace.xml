@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="88b5cdeb-6919-464c-a3b5-8c838b4e0af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTvShowsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTvShowsTab.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardMoviesTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardMoviesTab.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTopRatedMovieCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTopRatedMovieCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTopRatedMovies.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTopRatedMovies.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTvShowInProgressCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/dashboard/ui/DashboardTvShowInProgressCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Dashboard/Dashboard.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -300,7 +304,7 @@
       <workItem from="1760780814153" duration="2400000" />
       <workItem from="1760867137349" duration="1196000" />
       <workItem from="1760948919834" duration="991000" />
-      <workItem from="1760953017229" duration="2943000" />
+      <workItem from="1760953017229" duration="3455000" />
     </task>
     <servers />
   </component>

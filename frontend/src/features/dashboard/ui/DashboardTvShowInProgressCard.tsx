@@ -1,12 +1,12 @@
-import calcPercentage from '@shared/helpers/calculatePercentage';
+import { TvShowInProgress } from '@shared/types/generalTypes';
 import { Chip, Stack, Typography } from '@mui/material';
-import theme from '@app/theme/theme';
+import StarIcon from '@mui/icons-material/Star';
 import Box from '@mui/material/Box';
+import theme from '@app/theme/theme';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
+import calcPercentage from '@shared/helpers/calculatePercentage';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 import BorderLinearProgress from '@shared/ui/BorderLinearProgress';
-import StarIcon from '@mui/icons-material/Star';
-import { TvShowInProgress } from '@shared/types/generalTypes';
 
 interface DashboardTvShowInProgressCardProps {
   tvShowItem: TvShowInProgress;

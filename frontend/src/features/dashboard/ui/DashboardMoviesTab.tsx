@@ -8,15 +8,13 @@ export default function DashboardMoviesTab() {
 
   if (!isSuccess) return null;
 
-  console.log(userMediaStats);
-
   return (
     <Stack spacing={6}>
       <Typography variant="h5" fontWeight={900}>
         Movie Statistics
       </Typography>
       <DashboardMovieStats userMediaStats={userMediaStats} />
-      <DashboardTopRatedMovies userMediaStats={userMediaStats} />
+      <DashboardTopRatedMovies topRatedMedia={userMediaStats.topRatedMedia} />
     </Stack>
   );
 }

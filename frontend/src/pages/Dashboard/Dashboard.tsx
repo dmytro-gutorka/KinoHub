@@ -1,15 +1,15 @@
 import { Container } from '@mui/material';
 import { useState } from 'react';
-import DashboardTvShowsTab from '@features/dashboard/ui/DashboardTvShowsTab';
 import DashboardOverviewTab from '@features/dashboard/ui/DashboardOverviewTab';
+import DashboardTvShowsTab from '@features/dashboard/ui/DashboardTvShowsTab';
 import DashboardMoviesTab from '@features/dashboard/ui/DashboardMoviesTab';
 import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
+import InsertChartOutlinedOutlinedIcon from '@mui/icons-material/InsertChartOutlinedOutlined';
+import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
+import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 import TabList from '@mui/lab/TabList';
 import Tab from '@mui/material/Tab';
-import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
-import InsertChartOutlinedOutlinedIcon from '@mui/icons-material/InsertChartOutlinedOutlined';
-import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 
 export default function Dashboard() {
   const [value, setValue] = useState('1');
