@@ -110,11 +110,11 @@
       <recent name="$PROJECT_DIR$/frontend/src/features/friends/ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/features/dashboard/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/features/friends/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/shared/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/features/people/ui" />
       <recent name="$PROJECT_DIR$/frontend/src/shared/hooks" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -300,7 +300,7 @@
       <workItem from="1760780814153" duration="2400000" />
       <workItem from="1760867137349" duration="1196000" />
       <workItem from="1760948919834" duration="991000" />
-      <workItem from="1760953017229" duration="1931000" />
+      <workItem from="1760953017229" duration="2943000" />
     </task>
     <servers />
   </component>
