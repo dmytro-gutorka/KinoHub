@@ -11,7 +11,7 @@ interface DashboardTopRatedMovieCardProps {
   number: number;
 }
 
-export default function DashboardTopRatedMovieCard({
+export default function DashboardTopRatedMediaCard({
   mediaItem,
   number,
 }: DashboardTopRatedMovieCardProps) {

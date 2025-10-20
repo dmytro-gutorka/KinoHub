@@ -1,18 +1,20 @@
 import { TopRatedMedia } from '@shared/types/generalTypes';
 import { Stack } from '@mui/material';
 import BlockWrapper from '@shared/ui/BlockWrapper';
-import DashboardTopRatedMovieCard from '@features/dashboard/ui/DashboardTopRatedMovieCard';
+import DashboardTopRatedMediaCard from '@features/dashboard/ui/DashboardTopRatedMediaCard';
 
-interface DashboardTopRatedMoviesProps {
+interface DashboardTopRatedMediaListProps {
   topRatedMedia: TopRatedMedia[];
 }
 
-export default function DashboardTopRatedMovies({ topRatedMedia }: DashboardTopRatedMoviesProps) {
+export default function DashboardTopRatedMediaList({
+  topRatedMedia,
+}: DashboardTopRatedMediaListProps) {
   return (
     <BlockWrapper title="Top Rated Movies">
       <Stack direction="row" flexWrap="wrap" rowGap={10}>
         {topRatedMedia.map((mediaItem, index) => (
-          <DashboardTopRatedMovieCard
+          <DashboardTopRatedMediaCard
             number={index + 1}
             mediaItem={mediaItem}
             key={mediaItem.posterPath}

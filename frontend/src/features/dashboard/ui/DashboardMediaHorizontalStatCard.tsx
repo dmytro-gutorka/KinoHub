@@ -1,7 +1,18 @@
-import BlockWrapper from '@shared/ui/BlockWrapper';
+import { ReactElement } from 'react';
 import { Stack, Typography } from '@mui/material';
+import BlockWrapper from '@shared/ui/BlockWrapper';
 
-export default function DashboardMovieStatsCard({ label, text, icon }) {
+interface DashboardMediaHorizontalStatCardProps {
+  label: string;
+  text: string | number | null;
+  icon: ReactElement;
+}
+
+export default function DashboardMediaHorizontalStatCard({
+  label,
+  text,
+  icon,
+}: DashboardMediaHorizontalStatCardProps) {
   return (
     <BlockWrapper>
       <Stack spacing={3}>

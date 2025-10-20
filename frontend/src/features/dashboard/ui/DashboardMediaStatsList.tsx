@@ -1,17 +1,19 @@
-import { UserMediaStats } from '@shared/types/generalTypes';
+import { AggregatedMediaStats } from '@shared/types/generalTypes';
 import { Stack } from '@mui/material';
 import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import theme from '@app/theme/theme';
 import MovieOutlineIcon from '@shared/icons/MovieOutlineIcon';
-import DashboardMovieStatsCard from '@features/dashboard/ui/DashboardMovieStatsCard';
+import DashboardMediaHorizontalStatCard from '@features/dashboard/ui/DashboardMediaHorizontalStatCard';
 
-interface DashboardMovieStatsProps {
-  userMediaStats: UserMediaStats;
+interface DashboardMediaStatsListProps {
+  aggregatedUserMediaStats: AggregatedMediaStats;
 }
 
-export default function DashboardMovieStats({ userMediaStats }: DashboardMovieStatsProps) {
-  const { overallRuntime, watchedMedia, avgRating } = userMediaStats.aggregatedUserMediaStats;
+export default function DashboardMediaStatsList({
+  aggregatedUserMediaStats,
+}: DashboardMediaStatsListProps) {
+  const { overallRuntime, watchedMedia, avgRating } = aggregatedUserMediaStats;
 
   const movieStatsItems = [
     {
@@ -35,7 +37,7 @@ export default function DashboardMovieStats({ userMediaStats }: DashboardMovieSt
     <Stack>
       <Stack spacing={4} direction={{ sm: 'column', lg: 'row' }}>
         {movieStatsItems.map(({ label, text, icon }) => (
-          <DashboardMovieStatsCard key={label} label={label} text={text} icon={icon} />
+          <DashboardMediaHorizontalStatCard key={label} label={label} text={text} icon={icon} />
         ))}
       </Stack>
     </Stack>

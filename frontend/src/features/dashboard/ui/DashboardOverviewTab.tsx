@@ -1,7 +1,7 @@
 import { Stack } from '@mui/material';
 import DashboardMainStats from '@features/dashboard/ui/DashboardMainStats';
 import DashboardTopGenres from '@features/dashboard/ui/DashboardTopGenres';
-import DashboardQuickStats from '@features/dashboard/ui/DashboardQuickStats';
+import DashboardQuickStatsList from '@features/dashboard/ui/DashboardQuickStatsList';
 import useUserMediaStats from '@shared/hooks/useUserMediaStats';
 
 export default function DashboardOverviewTab() {
@@ -18,7 +18,7 @@ export default function DashboardOverviewTab() {
         spacing={3}
       >
         <DashboardTopGenres userMediaStats={userMediaStats} />
-        <DashboardQuickStats userMediaStats={userMediaStats} />
+        <DashboardQuickStatsList userMediaStats={userMediaStats} />
       </Stack>
     </Stack>
   );

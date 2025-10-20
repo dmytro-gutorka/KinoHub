@@ -1,6 +1,6 @@
 import { Stack, Typography } from '@mui/material';
-import DashboardMovieStats from '@features/dashboard/ui/DashboardMovieStats';
-import DashboardTopRatedMovies from '@features/dashboard/ui/DashboardTopRatedMovies';
+import DashboardMediaStatsList from '@features/dashboard/ui/DashboardMediaStatsList';
+import DashboardTopRatedMediaList from '@features/dashboard/ui/DashboardTopRatedMediaList';
 import useUserMediaStats from '@shared/hooks/useUserMediaStats';
 
 export default function DashboardMoviesTab() {
@@ -13,8 +13,8 @@ export default function DashboardMoviesTab() {
       <Typography variant="h5" fontWeight={900}>
         Movie Statistics
       </Typography>
-      <DashboardMovieStats userMediaStats={userMediaStats} />
-      <DashboardTopRatedMovies topRatedMedia={userMediaStats.topRatedMedia} />
+      <DashboardMediaStatsList aggregatedUserMediaStats={userMediaStats.aggregatedUserMediaStats} />
+      <DashboardTopRatedMediaList topRatedMedia={userMediaStats.topRatedMedia} />
     </Stack>
   );
 }

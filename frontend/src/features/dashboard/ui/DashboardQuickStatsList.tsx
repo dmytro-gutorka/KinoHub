@@ -7,7 +7,7 @@ interface DashboardQuickStatsProps {
   userMediaStats: UserMediaStats;
 }
 
-export default function DashboardQuickStats({ userMediaStats }: DashboardQuickStatsProps) {
+export default function DashboardQuickStatsList({ userMediaStats }: DashboardQuickStatsProps) {
   const { maxRating, minRating, commentsCount, ratingCount } =
     userMediaStats.aggregatedUserMediaStats;
 
