@@ -1,32 +1,15 @@
-import { Chip, Stack, styled, Typography } from '@mui/material';
+import { Chip, Stack, Typography } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import theme from '@app/theme/theme';
 import Box from '@mui/material/Box';
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import { linearProgressClasses } from '@mui/material/LinearProgress';
 import getYearFromDate from '@shared/helpers/getYearFromDate';
 import getPosterUrl from '@shared/helpers/getPosterUrl';
 import useUserMediaStats from '@shared/hooks/useUserMediaStats';
+import BorderLinearProgress from '@shared/ui/BorderLinearProgress';
 
-const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-  height: 10,
-  borderRadius: theme.shape.borderRadiusScale.md,
-  [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor: theme.palette.grey[200],
-    ...theme.applyStyles('dark', {
-      backgroundColor: theme.palette.grey[800],
-    }),
-  },
-  [`& .${linearProgressClasses.bar}`]: {
-    borderRadius: theme.shape.borderRadiusScale.md,
-    backgroundColor: '#1a90ff',
-    ...theme.applyStyles('dark', {
-      backgroundColor: '#308fe8',
-    }),
-  },
-}));
-
-function calcPercentage(value: number, total: number) {
-  return (value / total) * 100;
+function calcPercentage(value: number, total: number, toFixed: number = 1) {
+  return Number((value / total) * 100).toFixed(toFixed);
 }
 
 export default function DashboardTvShowsTab() {
@@ -50,7 +33,7 @@ export default function DashboardTvShowsTab() {
                 ? 'error'
                 : 'success';
           const watchedEpisodesPercentage: number = Number(
-            calcPercentage(tvShowItem.totalWatchedEpisodes, tvShowItem.totalEpisodes).toFixed(1)
+            calcPercentage(tvShowItem.totalWatchedEpisodes, tvShowItem.totalEpisodes)
           );
 
           return (
@@ -88,16 +71,7 @@ export default function DashboardTvShowsTab() {
                     </Typography>
                   </Stack>
 
-                  <BorderLinearProgress
-                    variant="determinate"
-                    value={watchedEpisodesPercentage}
-                    sx={{
-                      mb: 2,
-                      [`& .${linearProgressClasses.bar}`]: {
-                        backgroundColor: watchedEpisodesPercentage === 100 && '#30E830',
-                      },
-                    }}
-                  />
+                  <BorderLinearProgress value={watchedEpisodesPercentage} />
                   <Typography>{watchedEpisodesPercentage}% complete</Typography>
 
                   <Stack
