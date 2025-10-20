@@ -6,11 +6,13 @@ import Homepage from '@pages/Homepage';
 import MediaDetails from '@pages/MediaDetails';
 import MovieBoard from '@pages/MovieBoard';
 import Profile from '@pages/Profile';
-import Dashboard from '@pages/Dashboard';
 import History from '@pages/History';
 import MediaList from '@pages/MediaList';
 import People from '@pages/People';
 import Friends from '@pages/Friends';
+import DashboardMovies from '@pages/DashboardMovies';
+import DashboardTvShows from '@pages/DashboardTvShows';
+import DashboardOverview from '@pages/DashboardOverview';
 
 const router = makeRouter();
 
@@ -26,7 +28,9 @@ function makeRouter() {
         { path: '/series', Component: MediaList, loader: () => MEDIA_TYPES.TV_SHOW },
         { path: '/history', Component: History },
         { path: '/movie-board', Component: MovieBoard },
-        { path: '/dashboard', Component: Dashboard },
+        { path: '/dashboard/overview', Component: DashboardOverview },
+        { path: '/dashboard/movies', Component: DashboardMovies },
+        { path: '/dashboard/tv', Component: DashboardTvShows },
         { path: '/logout', Component: Homepage },
         { path: '/people', Component: People },
         { path: '/friends', Component: Friends },

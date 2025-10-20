@@ -12,15 +12,15 @@ export default function DashboardQuickStatsList({ userMediaStats }: DashboardQui
     userMediaStats.aggregatedUserMediaStats;
 
   const quickStats = [
-    { statsLabel: 'Max movie rating', statsValue: maxRating },
-    { statsLabel: 'Min movie rating', statsValue: minRating },
-    { statsLabel: 'Comments count', statsValue: commentsCount },
-    { statsLabel: 'Ratings count', statsValue: ratingCount },
+    { statsLabel: 'Max rating', statsValue: maxRating },
+    { statsLabel: 'Min rating', statsValue: minRating },
+    { statsLabel: 'Commented', statsValue: commentsCount },
+    { statsLabel: 'Rated', statsValue: ratingCount },
   ];
 
   return (
     <BlockWrapper title="Quick Stats">
-      <Grid container rowSpacing={15}>
+      <Grid container minHeight={350} justifyContent="center" alignItems="center">
         {quickStats.map(({ statsLabel, statsValue }) => (
           <DashboardQuickStatsItem
             key={statsLabel}

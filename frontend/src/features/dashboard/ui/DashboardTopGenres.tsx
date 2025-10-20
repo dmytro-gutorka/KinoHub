@@ -1,8 +1,6 @@
 import { UserMediaStats } from '@shared/types/generalTypes';
+import { Stack, Typography } from '@mui/material';
 import BlockWrapper from '@shared/ui/BlockWrapper';
-import ListItemText from '@mui/material/ListItemText';
-import ListItem from '@mui/material/ListItem';
-import List from '@mui/material/List';
 
 interface DashboardTopGenresProps {
   userMediaStats: UserMediaStats;
@@ -11,13 +9,18 @@ interface DashboardTopGenresProps {
 export default function DashboardTopGenres({ userMediaStats }: DashboardTopGenresProps) {
   return (
     <BlockWrapper title="Top Genres">
-      <List>
-        {userMediaStats.favoriteGenres.map(({ name, count }) => (
-          <ListItem key={name}>
-            <ListItemText primary={name} secondary={`Watched ${count} movies and tv shows`} />
-          </ListItem>
+      <Stack px={4} py={5} gap={4}>
+        {userMediaStats.favoriteGenres.map(({ name, count }, index) => (
+          <Stack>
+            <Typography variant="h6" fontWeight={900}>
+              {index + 1}. {name}
+            </Typography>
+            <Typography variant="subtitle2" color="white">
+              Watched {count} Movies and TV Shows
+            </Typography>
+          </Stack>
         ))}
-      </List>
+      </Stack>
     </BlockWrapper>
   );
 }
